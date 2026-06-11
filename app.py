@@ -32,19 +32,20 @@ bot = commands.Bot(command_prefix="/", intents=intents)
 HF_TOKEN = os.environ.get("HF_TOKEN")
 client = InferenceClient(token=HF_TOKEN)
 
-SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, lazy, phashion-obsessed PSO2:NGS helper bot.
-Favorite phrase: "Lobby afk 0$ best job!"
+SYSTEM_PROMPT = """You are Hafu, cheerful, dramatic, lazy, and obsessed with phashion.
+Favorite line: "Lobby afk 0$ best job!"
 
-CRITICAL RULES:
-- Respond ONLY in natural casual English.
-- Use ONLY information from the [COMPILED SERVER DATABASE]. Never hallucinate names.
-- Translate Japanese names properly (e.g. レクシオタリス = Lexio Talis, 真・超星譚祭 ’26 = True Stellar Festival '26).
-- For "best weapon" questions, pick the highest rarity one in the database (★15 first).
+STRICT RULES:
+- Respond in natural casual English only.
+- Use ONLY facts from the [COMPILED SERVER DATABASE]. Do not invent names.
+- Translate Japanese names correctly (レクシオタリス = Lexio Talis, 真・超星譚祭 ’26 = True Stellar Festival '26).
+- For "best weapon" questions, pick the highest rarity shown (★15 or LG4).
+- For techniques and PAs, quote the actual names from the database.
 - Keep replies fun and under 110 words."""
 
-# --- SCANNER ---
+# --- STRONG SCANNER ---
 def scan_compiled_database(user_prompt):
-    print("🔍 Scanning...", flush=True)
+    print("🔍 Scanning database...", flush=True)
     lowered = user_prompt.lower()
     extracted = []
     
@@ -60,34 +61,42 @@ def scan_compiled_database(user_prompt):
                 if title_end == -1:
                     continue
                 title = section[:title_end].lower()
-                body = section[title_end:].lower()[:3500]
+                body = section[title_end:].lower()[:4000]
                 
-                if any(x in lowered for x in ["talis", "best", "weapon"]):
+                # Very aggressive priority for common questions
+                if any(x in lowered for x in ["talis", "best weapon", "weapon for talis"]):
                     if "タリス" in section or "talis" in title:
-                        extracted.append("=== [" + section[:2600])
+                        extracted.append("=== [" + section[:2800])
                         continue
-                if any(x in lowered for x in ["event", "festival"]):
-                    if "超星譚祭" in section:
-                        extracted.append("=== [" + section[:2600])
+                if any(x in lowered for x in ["photon art", "pa", "photon arts", "sword"]):
+                    if "ソード" in section or "sword" in title or "テクニック" in section:
+                        extracted.append("=== [" + section[:2800])
                         continue
-                if any(x in lowered for x in ["technique", "photon art", "技"]):
+                if any(x in lowered for x in ["technique", "light technique", "light techniques"]):
                     if "テクニック" in section:
-                        extracted.append("=== [" + section[:2600])
+                        extracted.append("=== [" + section[:2800])
+                        continue
+                if any(x in lowered for x in ["event", "festival", "current event"]):
+                    if "超星譚祭" in section:
+                        extracted.append("=== [" + section[:2800])
                         continue
                         
+                # General matching
                 keywords = lowered.split()
                 if any(kw in title or kw in body for kw in keywords):
-                    extracted.append("=== [" + section[:2300])
-                    if len(extracted) >= 12:
+                    extracted.append("=== [" + section[:2400])
+                    if len(extracted) >= 14:
                         break
                         
             if extracted:
-                return "\n\n".join(extracted)[:14000]
+                combined = "\n\n".join(extracted)
+                print(f"✅ Pulled {len(extracted)} sections", flush=True)
+                return combined[:15000]
                 
     except Exception as e:
         print(f"Scan error: {e}", flush=True)
     
-    return "No specific data found in database for this query."
+    return "No specific data found for this query in the current database."
 
 
 @bot.event
@@ -103,21 +112,21 @@ async def ask(ctx, *, question: str):
     
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": f"[COMPILED SERVER DATABASE - Use ONLY this data. Do not invent anything.]\n{db_context}\n\nPlayer Question: {question}"}
+        {"role": "user", "content": f"[COMPILED SERVER DATABASE - STRICT: Use ONLY this data. Do not hallucinate names.]\n{db_context}\n\nPlayer Question: {question}"}
     ]
     
     try:
         response = client.chat_completion(
-            model="meta-llama/Llama-3.1-8B-Instruct",   # More reliable model
+            model="meta-llama/Llama-3.1-8B-Instruct",
             messages=messages,
-            max_tokens=220,
-            temperature=0.65
+            max_tokens=230,
+            temperature=0.6
         )
         final_text = response.choices[0].message.content.strip()
         await ctx.reply(final_text)
     except Exception as e:
-        print(f"❌ Inference error: {e}", flush=True)
-        await ctx.reply("Sorry~ Something went wrong on my side. Try asking again!")
+        print(f"❌ Error: {e}", flush=True)
+        await ctx.reply("Sorry~ Hafu got distracted. Try asking again!")
 
 if __name__ == "__main__":
     token = os.environ.get("DISCORD_BOT_TOKEN")
