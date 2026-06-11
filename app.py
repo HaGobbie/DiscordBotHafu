@@ -50,8 +50,10 @@ Instructions for responses:
 
 # --- 3. UNBANNABLE DIRECT MEDIAWIKI API ENGINE ---
 def live_wiki_search(query):
-    # Clean up common conversational filler words to isolate keywords
-    clean_query = re.sub(r'(what|can|you|tell|me|about|in|pso2|new|genesis|\?)', '', query, flags=re.IGNORECASE).strip()
+    # Strip conversational filler words AND all messy trailing punctuation/colons/spaces
+    clean_query = re.sub(r'(what|can|you|tell|me|about|in|pso2|new|genesis|\?)', '', query, flags=re.IGNORECASE)
+    clean_query = re.sub(r'[^a-zA-Z0-9\s]', '', clean_query).strip() # Removes colons, slashes, symbols
+        
     if not clean_query:
         clean_query = query
         
@@ -67,8 +69,9 @@ def live_wiki_search(query):
         })
         search_url = f"https://pso2.arks-visiphone.com/w/api.php?{search_params}"
         
+        # INCREASE TIMEOUT: Changed from 5 to 15 seconds to give the wiki server plenty of time to reply
         req = urllib.request.Request(search_url, headers={'User-Agent': 'HafuBotNGS/1.0'})
-        with urllib.request.urlopen(req, timeout=5) as res:
+        with urllib.request.urlopen(req, timeout=15) as res:
             search_data = json.loads(res.read().decode('utf-8'))
             
         search_results = search_data.get('query', {}).get('search', [])
@@ -91,7 +94,7 @@ def live_wiki_search(query):
         extract_url = f"https://pso2.arks-visiphone.com/w/api.php?{extract_params}"
         
         req_extract = urllib.request.Request(extract_url, headers={'User-Agent': 'HafuBotNGS/1.0'})
-        with urllib.request.urlopen(req_extract, timeout=5) as res_extract:
+        with urllib.request.urlopen(req_extract, timeout=15) as res_extract:
             extract_data = json.loads(res_extract.read().decode('utf-8'))
             
         pages = extract_data.get('query', {}).get('pages', {})
@@ -99,7 +102,6 @@ def live_wiki_search(query):
         text_extract = pages[page_id].get('extract', '').strip()
         
         if text_extract:
-            # Clean out any excessive whitespace/formatting leftovers
             clean_extract = re.sub(r'\s+', ' ', text_extract)[:500]
             print(f"✅ Data injection payload ready: {clean_extract[:80]}...", flush=True)
             return clean_extract
@@ -109,7 +111,6 @@ def live_wiki_search(query):
     except Exception as e:
         print(f"⚠️ API Backend failed safely: {e}. Falling back to default baseline data.", flush=True)
         return "Database registry temporarily offline."
-
 
 @bot.event
 async def on_ready():
