@@ -9,8 +9,9 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
 
-# 2. Connect directly to the underlying AI Brain using the free Serverless API
-client = InferenceClient("Qwen/Qwen2.5-7B-Instruct", token=os.environ.get("HF_TOKEN"))
+# 2. Connect to the underlying AI Brain using the serverless API (Using the ultra-stable free 1.5B tier)
+HF_TOKEN = os.environ.get("HF_TOKEN")
+client = InferenceClient("Qwen/Qwen2.5-1.5B-Instruct", token=HF_TOKEN)
 
 # 3. Define the Core Persona: Hafelt ("Hafu") the Lobby-Sitter
 SYSTEM_PROMPT = """You are HaFelt, usually called 'Hafu', a well-known ARKS defender on Halpha and a total city lobby regular. You are a PSO2:NGS AI Helper bot.
@@ -29,13 +30,13 @@ Instructions for responses:
 def live_wiki_search(query):
     """Silently searches the Arks-Visiphone wiki for live data"""
     try:
-        # Forces the search engine to only extract facts from the specific wiki domain
         search_query = f"site:pso2.arks-visiphone.com/wiki/ {query}"
         with DDGS() as ddgs:
-            results = [r['body'] for r in ddgs.text(search_query, max_results=3)]
-        return "\n".join(results) if results else "No current wiki entries found, laddie."
-    except Exception:
-        return "The registry tables are blurry right now, can't read 'em."
+            results = [r['body'] for r in ddgs.text(search_query, max_results=2)]
+        return "\n".join(results) if results else "No current wiki entries found."
+    except Exception as e:
+        print(f"Search Warning: {e}")
+        return "The registry tables are blurry right now."
 
 @bot.event
 async def on_ready():
@@ -44,31 +45,28 @@ async def on_ready():
 @bot.command(name="ask")
 async def ask(ctx, *, question: str):
     """Usage: /ask Where do I get the Wingard weapon series?"""
-    await ctx.typing() # Shows 'Hafu is typing...' in Discord
+    await ctx.typing()
     
-    # Run the live web search
     wiki_data = live_wiki_search(question)
     
-    # Package everything neatly using standard Chat Completion roles
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": f"[LIVE WIKI DATA FOUND]:\n{wiki_data}\n\nUser Question: {question}"}
+        {"role": "user", "content": f"[LIVE WIKI DATA]:\n{wiki_data}\n\nQuestion: {question}"}
     ]
     
     try:
-        # Request text generation from the Qwen API endpoint
         response = client.chat_completion(
             messages=messages,
-            max_tokens=200,
+            max_tokens=150,
             temperature=0.7
         )
         final_text = response.choices[0].message.content
         await ctx.reply(final_text)
     except Exception as e:
-        print(f"Inference Error: {e}")
+        # CRITICAL: This line will print the true backend API error directly to your Render Console!
+        print(f"❌ TRUE INFERENCE ERROR DETECTED: {e}")
         await ctx.reply("Oops! Sorry~ It seems I have an error on my side.")
 
-# 4. Boot the server environment up using your hidden repo keys
 if __name__ == "__main__":
     token = os.environ.get("DISCORD_BOT_TOKEN")
     if token:
