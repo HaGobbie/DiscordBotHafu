@@ -5,6 +5,13 @@ on:
     - cron: '0 2 * * *' # Executes completely automated every day at 2:00 AM
   workflow_dispatch: # Gives you a manual button to push updates whenever you want
 
+# Explicitly grant the runner permission to write changes back to the repo
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Clears the Node.js deprecation warning
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -28,5 +35,11 @@ jobs:
         git config --global user.name "Hafu Datastream Core"
         git config --global user.email "actions@github.com"
         git add knowledge_database.txt
-        git diff-index --quiet HEAD || git commit -m "🤖 Synchronized master live text asset cache"
-        git push
+        
+        # Check if the file actually changed before trying to commit it
+        if git diff-index --quiet HEAD --; then
+          echo "No new data changes detected. Skipping commit."
+        else
+          git commit -m "🤖 Synchronized master live text asset cache"
+          git push origin HEAD:${{ github.ref }}
+        fi
