@@ -1,2 +1,7 @@
 === MASTER REFRESH REPOSITORY FOR HAFU AI ===
 
+=== DOCUMENTATION: IN-GAME DATA REGISTRY ===
+
+
+=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===
+- General Update Tracker: Weekly server maintenance periods execute regularly on Wednesdays at 02:00 UTC. Active events focus on limited-time Seasonal Quests, Special Event Exchange Shops in Central City, and newly deployed AC Scratch Ticket coordinate deliveries. Check the official players notice site for real-time adjustments.
