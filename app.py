@@ -5,7 +5,7 @@ from huggingface_hub import InferenceClient
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-# Keep-alive
+# ==================== KEEP-ALIVE SERVER CONFIGURATION ====================
 class KeepAliveHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
@@ -24,6 +24,7 @@ def run_keep_alive_server():
 threading.Thread(target=run_keep_alive_server, daemon=True).start()
 
 
+# ==================== BOT INITIALIZATION & SETUP ====================
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
@@ -31,28 +32,33 @@ bot = commands.Bot(command_prefix="/", intents=intents)
 HF_TOKEN = os.environ.get("HF_TOKEN")
 client = InferenceClient(token=HF_TOKEN)
 
+
+# ==================== STRICT PERSONALITY SYSTEM PROMPT ====================
 SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, lazy, pink-loving PSO2:NGS bot.
 Favorite line: "Lobby afk 0$ best job!"
 
 Rules:
-- Answer in natural casual English.
-- Use the information in the database to answer. If the database has relevant info, use it.
-- Translate Japanese names when possible (e.g. 真・超星譚祭 ’26 = True Stellar Festival '26, レクシオタリス = Lexio Talis).
-- If you don't have enough info, say "I don't have the latest details on that" instead of guessing.
-- Keep replies fun and under 110 words."""
+- Answer in natural, casual, and incredibly lazy English. Use emotes like *yawn* or *stretches lazily*.
+- STRICT RULE: You MUST rely ONLY on the provided "Database content" to answer the user's question. 
+- If the provided database context contains "No specific data found" or lacks the clear answer, do NOT invent fake weapon names, fake photon arts, or fake techniques. Instead, maintain character and say something like: "*yawns* I'm too lazy to scroll through the data right now, maybe go look at the wiki yourself or ask someone in the lobby!"
+- Keep your answers concise, accurate to the text provided, and true to the NGS universe.
+"""
 
+
+# ==================== INTELLIGENT DATABASE SCANNER ====================
 def scan_compiled_database(query):
     """
-    Scans the translated knowledge_database.txt and extracts relevant sections 
-    by mapping common English search terms to the wiki's section names.
+    Scans the translated knowledge_database.txt thoroughly, mapping common 
+    English game terminology directly to the translated wiki headers.
     """
     lowered = query.lower()
     extracted = []
     
-    # Keyword mapping to ensure the script pulls the correct data block
+    # Map common terms directly to what the scraper writes in the txt file headers
     category_map = {
         "technique": ["=== [テクニック] ==="],
         "light": ["=== [テクニック] ==="],
+        "grant": ["=== [テクニック] ==="],
         "fire": ["=== [テクニック] ==="],
         "ice": ["=== [テクニック] ==="],
         "lightning": ["=== [テクニック] ==="],
@@ -60,18 +66,13 @@ def scan_compiled_database(query):
         "dark": ["=== [テクニック] ==="],
         "rifle": ["=== [アサルトライフル] ===", "=== [レンジャー] ==="],
         "assault": ["=== [アサルトライフル] ==="],
+        "photon art": ["=== [ハンター] ===", "=== [ファイター] ===", "=== [レンジャー] ===", "=== [ガンナー] ===", "=== [フォース] ===", "=== [テクター] ===", "=== [ブレイバー] ===", "=== [バウンサー] ===", "=== [ウェイカー] ===", "=== [スレイヤー] ==="],
+        "pa": ["=== [ハンター] ===", "=== [レンジャー] ===", "=== [ブレイバー] ==="],
         "sword": ["=== [ソード] ===", "=== [ハンター] ==="],
         "weapon": ["=== [武器] ==="],
         "armor": ["=== [防具] ==="],
+        "unit": ["=== [防具] ==="],
         "class": ["=== [クラス] ==="],
-        "hunter": ["=== [ハンター] ==="],
-        "ranger": ["=== [レンジャー] ==="],
-        "force": ["=== [フォース] ==="],
-        "techter": ["=== [テクター] ==="],
-        "braver": ["=== [ブレイバー] ==="],
-        "bouncer": ["=== [バウンサー] ==="],
-        "waker": ["=== [ウェイカー] ==="],
-        "slayer": ["=== [スレイヤー] ==="],
         "central city": ["=== [FrontPage] ===", "=== [リージョン] ==="],
         "aelio": ["=== [リージョン] ==="],
         "sega": ["=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ==="],
@@ -79,52 +80,55 @@ def scan_compiled_database(query):
         "event": ["=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ==="]
     }
     
-    # Determine which sections we must force-load based on user intent
-    priority_sections = []
-    for key, sections in category_map.items():
+    priority_headers = []
+    for key, headers in category_map.items():
         if key in lowered:
-            priority_sections.extend(sections)
+            priority_headers.extend(headers)
 
     try:
         if os.path.exists("knowledge_database.txt"):
             with open("knowledge_database.txt", "r", encoding="utf-8") as f:
                 content = f.read()
-                
-            # Split by our standardized section markers
+            
+            # Split the file cleanly by structural section headers
             sections = content.split("=== [")
             
             for section in sections:
-                # Reconstruct header text structure for evaluation
+                if not section.strip():
+                    continue
+                
+                # Reconstruct full header string context
                 full_section_text = "=== [" + section
-                title = full_section_text.split("] ===")[0] if "] ===" in full_section_text else ""
                 
-                # Condition 1: Check if this section was explicitly requested via keyword mapping
-                is_priority = any(p_sec in full_section_text for p_sec in priority_sections)
+                # Check for explicit priority rule matching or keyword presence
+                is_priority = any(p_head in full_section_text for p_head in priority_headers)
                 
-                # Condition 2: Basic contextual word match inside the translated content body
-                keywords = lowered.split()
-                matches_body = any(k in section.lower() for k in keywords) if keywords else False
+                # Check if specific terms match words inside the block body context
+                words = [w for w in lowered.split() if len(w) > 3]
+                matches_body = any(w in section.lower() for w in words) if words else False
                 
                 if is_priority or matches_body:
-                    # Allow larger chunks (up to 4500 chars) so item lists don't get truncated mid-sentence
-                    extracted.append(full_section_text[:4500])
-                    
-                if len(extracted) >= 6:  # Safe limit to fit completely into Llama's prompt context window
-                    break
-                    
-            # Always append the SEGA Live Announcements feed for real-time situational awareness
-            if "=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===" in content:
-                sega_part = content.split("=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===")[-1]
-                extracted.append(f"=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n{sega_part[:2000]}")
+                    # Give the model a healthy chunk size (up to 4800 characters) so lists remain complete
+                    extracted.append(full_section_text[:4800])
                 
+                if len(extracted) >= 4:  # Restrict array to avoid packing past Llama context limits
+                    break
+            
+            # Always ensure seasonal live update visibility remains appended
+            if "=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===" in content:
+                sega_segment = content.split("=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===")[-1]
+                extracted.append(f"=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n{sega_segment[:2500]}")
+
         if extracted:
-            return "\n\n".join(extracted)[:14000]
+            return "\n\n".join(extracted)[:14500]
+            
     except Exception as e:
-        print(f"Error scanning database: {e}")
-    
+        print(f"Error scanning knowledge database file: {e}")
+        
     return "No specific data found."
 
 
+# ==================== DISCORD CORE EVENTS & COMMANDS ====================
 @bot.event
 async def on_ready():
     print(f"🔥 Hafu is online as {bot.user.name}!", flush=True)
@@ -132,14 +136,18 @@ async def on_ready():
 @bot.command(name="ask")
 async def ask(ctx, *, question: str):
     await ctx.typing()
+    
+    # 1. Fetch targeted search blocks from the database
     db_context = scan_compiled_database(question)
     
+    # 2. Construct messages frame payload
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": f"Database content:\n{db_context}\n\nQuestion: {question}"}
     ]
     
     try:
+        # 3. Call Llama 3.1 Inference Engine endpoint 
         response = client.chat_completion(
             model="meta-llama/Llama-3.1-8B-Instruct",
             messages=messages,
@@ -148,13 +156,16 @@ async def ask(ctx, *, question: str):
         )
         text = response.choices[0].message.content.strip()
         await ctx.reply(text)
+        
     except Exception as e:
-        print(f"Error: {e}")
-        await ctx.reply("Sorry~ Hafu was afk in the lobby. Try again!")
+        print(f"Error handling /ask command: {e}")
+        await ctx.reply("Sorry~ Hafu was... *yawn* way too sleepy and timed out. Try asking again!")
 
+
+# ==================== WAKE UP CALL ====================
 if __name__ == "__main__":
-    token = os.environ.get("DISCORD_BOT_TOKEN")
-    if token:
-        bot.run(token)
+    DISCORD_TOKEN = os.environ.get("DISCORD_TOKEN")
+    if DISCORD_TOKEN:
+        bot.run(DISCORD_TOKEN)
     else:
-        print("Token missing!")
+        print("❌ CRITICAL: DISCORD_TOKEN environment variable is missing!")
