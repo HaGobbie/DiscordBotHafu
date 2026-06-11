@@ -39,72 +39,72 @@ Favorite line: "Lobby afk 0$ best job!"
 
 Rules:
 - Answer in natural, casual, and incredibly lazy English. Use emotes like *yawn* or *stretches lazily*.
-- STRICT RULE: You MUST rely ONLY on the provided "Database content" to answer the user's question. 
-- If the provided database context contains "No specific data found" or lacks the clear answer, do NOT invent fake weapon names, fake photon arts, or fake techniques. Instead, maintain character and say something like: "*yawns* I'm too lazy to scroll through the data right now, maybe go look at the wiki yourself or ask someone in the lobby!"
+- STRICT RULE: You MUST rely ONLY on the provided "Database content" to answer the user's question. Find the exact Photon Arts, Techniques, or locations requested.
+- If the provided database context contains "No specific data found" or explicitly lacks the clear answer, do NOT invent fake names. Instead, maintain character and say something like: "*yawns* I'm too lazy to scroll through the data right now, maybe go look at the wiki yourself or ask someone in the lobby!"
 - Keep your answers concise, accurate to the text provided, and true to the NGS universe.
 """
 
 
-# ==================== GLOBAL PARAGRAPH-MATCHING SCANNER ====================
+# ==================== OVERLAPPING PARAGRAPH BLOCK SCANNER ====================
 def scan_compiled_database(query):
     """
-    Scans the entire database file globally. Instead of splitting by massive 
-    page headings, it extracts lines and paragraphs containing direct keyword 
-    hits to prevent truncation issues.
+    Scans the database file globally by dividing text into fixed overlapping multi-line blocks.
+    This guarantees that table rows, bullet points, and plain lists are captured seamlessly.
     """
     lowered = query.lower()
     extracted_chunks = []
     
-    # Map common player search phrases directly to relevant terminology terms
+    # Expand keyword queries dynamically to match game elements
     search_terms = [w for w in lowered.split() if len(w) > 3]
     if "light" in lowered:
-        search_terms.extend(["grants", "technique", "light"])
-    if "rifle" in lowered:
-        search_terms.extend(["assault rifle", "rifle", "photon art"])
+        search_terms.extend(["technique", "grants", "light", "fomelgion", "berlanzion"])
+    if "rifle" in lowered or "pa" in lowered or "photon art" in lowered:
+        search_terms.extend(["assault rifle", "rifle", "photon art", "pa", "ranger", "shot"])
     if "sword" in lowered:
-        search_terms.extend(["sword", "hunter", "weapon"])
+        search_terms.extend(["sword", "hunter", "weapon", "kougensei"])
     if "city" in lowered or "aelio" in lowered:
-        search_terms.extend(["central city", "aelio", "region"])
+        search_terms.extend(["central city", "aelio", "region", "city"])
 
-    # Remove duplicates
     search_terms = list(set(search_terms))
 
     try:
         if os.path.exists("knowledge_database.txt"):
             with open("knowledge_database.txt", "r", encoding="utf-8") as f:
-                full_text = f.read()
+                lines = f.readlines()
             
-            # Split the entire document by sentence blocks/periods to find close context matches
-            sentences = full_text.split(". ")
+            # Group text by continuous 40-line blocks with a 15-line overlap window
+            # This prevents tabular data and lists from being cut off arbitrarily
+            block_size = 40
+            overlap = 15
             
-            current_context_chunk = []
-            for idx, sentence in enumerate(sentences):
-                sentence_lower = sentence.lower()
+            idx = 0
+            while idx < len(lines):
+                block_lines = lines[idx : idx + block_size]
+                block_text = "".join(block_lines)
+                block_text_lower = block_text.lower()
                 
-                # If a sentence contains any of our key metrics, grab it along with surrounding sentences
-                if any(term in sentence_lower for term in search_terms):
-                    # Pull preceding and proceeding lines for structural context cohesion
-                    start = max(0, idx - 2)
-                    end = min(len(sentences), idx + 3)
-                    
-                    context_snippet = ". ".join(sentences[start:end])
-                    if context_snippet not in extracted_chunks:
-                        extracted_chunks.append(context_snippet)
+                # If any target term matches inside this line group block, save it
+                if any(term in block_text_lower for term in search_terms):
+                    if block_text not in extracted_chunks:
+                        extracted_chunks.append(block_text)
                 
-                # Safety cap to keep within context limits
-                if len(extracted_chunks) >= 12:
+                idx += (block_size - overlap)
+                
+                # Safe cutoff cap for context array payload size
+                if len(extracted_chunks) >= 8:
                     break
                     
-            # Always ensure seasonal live update visibility remains appended
-            if "=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===" in full_text:
-                sega_segment = full_text.split("=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===")[-1]
-                extracted_chunks.append(f"\n=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n{sega_segment[:2000]}")
+            # Always make sure the live update feed is visible at the bottom
+            full_content = "".join(lines)
+            if "=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===" in full_content:
+                sega_segment = full_content.split("=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===")[-1]
+                extracted_chunks.append(f"\n=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n{sega_segment[:2500]}")
 
         if extracted_chunks:
-            return "\n\n... ".join(extracted_chunks)[:14000]
+            return "\n\n... \n\n".join(extracted_chunks)[:14500]
             
     except Exception as e:
-        print(f"Error scanning knowledge database globally: {e}")
+        print(f"Error scanning knowledge database file: {e}")
         
     return "No specific data found."
 
@@ -118,17 +118,17 @@ async def on_ready():
 async def ask(ctx, *, question: str):
     await ctx.typing()
     
-    # 1. Fetch deep context blocks from the global registry file
+    # 1. Pull overlapping data context chunks
     db_context = scan_compiled_database(question)
     
-    # 2. Construct messages frame payload
+    # 2. Frame the payload structures
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": f"Database content:\n{db_context}\n\nQuestion: {question}"}
     ]
     
     try:
-        # 3. Call Llama 3.1 Inference Engine endpoint 
+        # 3. Request completion matrix from Llama endpoint
         response = client.chat_completion(
             model="meta-llama/Llama-3.1-8B-Instruct",
             messages=messages,
