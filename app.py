@@ -4,7 +4,7 @@ from discord.ext import commands
 from huggingface_hub import InferenceClient
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from sentence_transformers import SentenceTransformer, util
+import difflib
 
 # ==================== KEEP-ALIVE SERVER CONFIGURATION ====================
 class KeepAliveHandler(BaseHTTPRequestHandler):
@@ -33,11 +33,6 @@ bot = commands.Bot(command_prefix="/", intents=intents)
 HF_TOKEN = os.environ.get("HF_TOKEN")
 client = InferenceClient(token=HF_TOKEN)
 
-print("🧠 Loading local Semantic Search embedding model...", flush=True)
-# This free model maps context meanings geometrically and handles typos completely natively
-search_model = SentenceTransformer('all-MiniLM-L6-v2')
-print("✅ Semantic Search model successfully initialized inside container memory!", flush=True)
-
 
 # ==================== STRICT PERSONALITY SYSTEM PROMPT ====================
 SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, lazy, pink-loving PSO2:NGS bot.
@@ -51,12 +46,18 @@ Rules:
 """
 
 
-# ==================== ADVANCED SEMANTIC SEARCH ENGINE ====================
+# ==================== LOW-RAM FUZZY SEARCH ENGINE ====================
 def scan_compiled_database(query):
     """
-    Transforms both the database blocks and the raw user question into vector coordinates.
-    Finds the exact data paragraphs closest in mathematical meaning, rendering typos irrelevant.
+    Scans the database by splitting it into natural paragraph sections, then uses 
+    fuzzy sequence matching to locate sections. Immune to typos, ultra low memory.
     """
+    lowered_query = query.lower()
+    extracted_chunks = []
+    
+    # Core game tags we want to look out for in user text to grab full sections
+    game_keywords = ["rifle", "assault", "technique", "light", "sword", "hunter", "ranger", "aelio", "city", "central"]
+
     try:
         if not os.path.exists("knowledge_database.txt"):
             return "No specific data found."
@@ -64,38 +65,51 @@ def scan_compiled_database(query):
         with open("knowledge_database.txt", "r", encoding="utf-8") as f:
             content = f.read()
 
-        # Split the text repository by double newlines to grab clean structural blocks/paragraphs intact
-        paragraphs = [p.strip() for p in content.split("\n\n") if len(p.strip()) > 40]
+        # Split file by structural page dividers or clean double returns
+        sections = content.split("=== [")
         
-        if not paragraphs:
-            return "No specific data found."
-
-        # Convert the dynamic user string and database array into mathematical representations
-        paragraph_embeddings = search_model.encode(paragraphs, convert_to_tensor=True)
-        query_embedding = search_model.encode(query, convert_to_tensor=True)
-
-        # Calculate geometric similarity scores between query vector and database blocks
-        cos_scores = util.cos_sim(query_embedding, paragraph_embeddings)[0]
+        # Check for direct keyword matches or close fuzzy matches for typos (e.g. "rifel" -> "rifle")
+        user_words = [w.strip("?,.!") for w in lowered_query.split() if len(w) > 3]
         
-        # Select the top 4 most matching meaningful blocks
-        top_results = cos_scores.topk(k=min(4, len(paragraphs)))
-
-        extracted_chunks = []
-        for score, idx in zip(top_results[0], top_results[1]):
-            # Only append chunks that cross our relevance barrier
-            if score > 0.22:
-                extracted_chunks.append(paragraphs[idx])
+        for section in sections:
+            if not section.strip():
+                continue
+                
+            section_text = "=== [" + section
+            section_lower = section_text.lower()
+            
+            is_match = False
+            
+            # Check every word the user typed using a fuzzy threshold (0.75 score matches mild typos)
+            for word in user_words:
+                # Direct string check
+                if word in section_lower:
+                    is_match = True
+                    break
+                
+                # Typo checking against core keywords
+                close_matches = difflib.get_close_matches(word, game_keywords, n=1, cutoff=0.75)
+                if close_matches and close_matches[0] in section_lower:
+                    is_match = True
+                    break
+            
+            if is_match:
+                # Snip a clean chunk from the matching section data
+                extracted_chunks.append(section_text[:6000])
+                
+            if len(extracted_chunks) >= 3:
+                break
 
         # Always append the live official announcements timeline block at the bottom
         if "=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===" in content:
             sega_segment = content.split("=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===")[-1]
-            extracted_chunks.append(f"=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n{sega_segment[:2500]}")
+            extracted_chunks.append(f"=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n{sega_segment[:3000]}")
 
         if extracted_chunks:
             return "\n\n... \n\n".join(extracted_chunks)[:14000]
             
     except Exception as e:
-        print(f"Error during semantic search vector alignment: {e}")
+        print(f"Error during fuzzy search execution: {e}")
         
     return "No specific data found."
 
@@ -109,17 +123,17 @@ async def on_ready():
 async def ask(ctx, *, question: str):
     await ctx.typing()
     
-    # 1. Dynamically retrieve the paragraphs that match the meaning of the query
+    # 1. Gather targeted sections via fuzzy character matching
     db_context = scan_compiled_database(question)
     
-    # 2. Build model submission payload structures
+    # 2. Build model prompt frames
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": f"Database content:\n{db_context}\n\nQuestion: {question}"}
     ]
     
     try:
-        # 3. Submit data directly to Llama core
+        # 3. Request answer string from Llama
         response = client.chat_completion(
             model="meta-llama/Llama-3.1-8B-Instruct",
             messages=messages,
