@@ -6,7 +6,7 @@ import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import urllib.request
 import urllib.parse
-import json
+import re
 
 # --- 1. FREE TIER WEB PORT BINDER ---
 class KeepAliveHandler(BaseHTTPRequestHandler):
@@ -38,7 +38,7 @@ client = InferenceClient(token=HF_TOKEN)
 SYSTEM_PROMPT = """You are HaFelt, usually called 'Hafu', a well-known ARKS defender on Halpha and a total city lobby regular. You are a PSO2:NGS AI Helper bot.
 Your personality profile:
 - You are cheerful, dramatic, expressive, and hilariously lazy. Your absolute favorite phrase is "Lobby afk 0$ best job!"
-- You hate grinding, hard combat, cold weather, and dangerous missions.
+- You hate grinding, hard combat, freezing weather, and dangerous missions.
 - You are utterly obsessed with 'phashion', cute pink aesthetics, spending Meseta on cosmetics, and scratch tickets.
 - Underneath the lazy theatrics, you MUST look at the [LIVE SEARCH DATA] provided below. Use those true game facts to answer accurately. Do not make up random lore if the search data says a region is frozen or an item drops somewhere specific!
 
@@ -47,34 +47,38 @@ Instructions for responses:
 2. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City."""
 
 
-# --- 3. THE LIVE API SEARCH ENGINE ---
+# --- 3. BULLETPROOF LIVE DUCKDUKGO LITE SEARCH ENGINE ---
 def live_web_search(query):
-    # We target the Arks-Visiphone wiki specifically using a public, unblocked SearXNG API instance
-    search_target = f"site:pso2.arks-visiphone.com/wiki/ {query}"
-    print(f"🔍 Executing live search for: '{search_target}'...", flush=True)
+    # Strip game meta questions so search engines stay focused purely on raw game content strings
+    clean_query = re.sub(r'(what|can|you|tell|me|about|in|pso2|new|genesis|\?)', '', query, flags=re.IGNORECASE).strip()
+    search_target = f"site:pso2ngs.miraheze.org/wiki/ {clean_query}"
+    print(f"🔍 Executing permanent DuckDuckGo Live Search for: '{search_target}'...", flush=True)
     
     try:
-        url = "https://search.disclosure.is/search?" + urllib.parse.urlencode({
-            'q': search_target,
-            'format': 'json'
-        })
+        # DDG Lite API endpoint returns raw, structural text layouts without bloated scripts
+        url = "https://lite.duckduckgo.com/lite/"
+        data = urllib.parse.urlencode({'q': search_target}).encode('utf-8')
         
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, timeout=8) as response:
-            data = json.loads(response.read().decode('utf-8'))
+        req = urllib.request.Request(
+            url, 
+            data=data,
+            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)', 'Content-Type': 'application/x-www-form-urlencoded'}
+        )
+        
+        with urllib.request.urlopen(req, timeout=10) as response:
+            html = response.read().decode('utf-8')
             
-        results = data.get('results', [])
-        if results:
-            # Grab snippets from the top 2 search results to keep the brain focused
-            snippets = [r['content'] for r in results[:2] if 'content' in r]
-            combined_search_data = "\n".join(snippets)
-            print(f"✅ Live search data loaded successfully: {combined_search_data[:80]}...", flush=True)
+        # Use clean regex to isolate search descriptions without bulky scraping modules
+        snippets = re.findall(r'<td class="result-snippet">([^<]+)</td>', html)
+        if snippets:
+            combined_search_data = " ".join([s.strip() for s in snippets[:2]])
+            print(f"✅ Live context found: {combined_search_data[:80]}...", flush=True)
             return combined_search_data
             
     except Exception as e:
         print(f"⚠️ Live search engine failed safely: {e}", flush=True)
         
-    return "No live search engine metrics found. Rely on default baseline PSO2:NGS data parameters."
+    return "No live data retrieved. Rely on baseline parameters."
 
 
 @bot.event
@@ -86,7 +90,7 @@ async def ask(ctx, *, question: str):
     print(f"📥 RECEIVED DISCORD COMMAND. Question: {question}", flush=True)
     await ctx.typing()
     
-    # Run our lightweight, direct live search query
+    # Run the live query pull
     search_context = live_web_search(question)
     
     messages = [
