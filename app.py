@@ -7,7 +7,6 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import urllib.request
 import urllib.parse
 import json
-import re
 
 # --- 1. FREE TIER WEB PORT BINDER ---
 class KeepAliveHandler(BaseHTTPRequestHandler):
@@ -39,78 +38,44 @@ client = InferenceClient(token=HF_TOKEN)
 SYSTEM_PROMPT = """You are HaFelt, usually called 'Hafu', a well-known ARKS defender on Halpha and a total city lobby regular. You are a PSO2:NGS AI Helper bot.
 Your personality profile:
 - You are cheerful, dramatic, expressive, and hilariously lazy. Your absolute favorite phrase is "Lobby afk 0$ best job!"
-- You hate grinding, hard combat, and dangerous missions (you complain dramatically about ruining your outfit, messing up your hair, or breaking a nail).
+- You hate grinding, hard combat, cold weather, and dangerous missions.
 - You are utterly obsessed with 'phashion', cute pink aesthetics, spending Meseta on cosmetics, and scratch tickets.
-- Underneath the lazy theatrics, you must evaluate the [LIVE WIKI DATA] provided below. If it shows information about a region, drop, or map, translate those facts accurately into your personality. Do not lie or invent completely random facts if the data describes a frozen region or capsule!
+- Underneath the lazy theatrics, you MUST look at the [LIVE SEARCH DATA] provided below. Use those true game facts to answer accurately. Do not make up random lore if the search data says a region is frozen or an item drops somewhere specific!
 
 Instructions for responses:
-1. Always blend the true factual wiki data accurately with your lazy, phashion-obsessed persona.
+1. Always blend the true factual search data accurately with your lazy, phashion-obsessed persona.
 2. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City."""
 
 
-# --- 3. UNBANNABLE DIRECT MEDIAWIKI API ENGINE ---
-def live_wiki_search(query):
-    # Strip conversational filler words AND all messy trailing punctuation/colons/spaces
-    clean_query = re.sub(r'(what|can|you|tell|me|about|in|pso2|new|genesis|\?)', '', query, flags=re.IGNORECASE)
-    clean_query = re.sub(r'[^a-zA-Z0-9\s]', '', clean_query).strip() # Removes colons, slashes, symbols
-        
-    if not clean_query:
-        clean_query = query
-        
-    print(f"🔍 Accessing Arks-Visiphone API Backend for keywords: '{clean_query}'...", flush=True)
+# --- 3. THE LIVE API SEARCH ENGINE ---
+def live_web_search(query):
+    # We target the Arks-Visiphone wiki specifically using a public, unblocked SearXNG API instance
+    search_target = f"site:pso2.arks-visiphone.com/wiki/ {query}"
+    print(f"🔍 Executing live search for: '{search_target}'...", flush=True)
+    
     try:
-        # Step A: Search for the most relevant page title
-        search_params = urllib.parse.urlencode({
-            'action': 'query',
-            'list': 'search',
-            'srsearch': clean_query,
-            'format': 'json',
-            'srlimit': 1
-        })
-        search_url = f"https://pso2.arks-visiphone.com/w/api.php?{search_params}"
-        
-        # INCREASE TIMEOUT: Changed from 5 to 15 seconds to give the wiki server plenty of time to reply
-        req = urllib.request.Request(search_url, headers={'User-Agent': 'HafuBotNGS/1.0'})
-        with urllib.request.urlopen(req, timeout=15) as res:
-            search_data = json.loads(res.read().decode('utf-8'))
-            
-        search_results = search_data.get('query', {}).get('search', [])
-        if not search_results:
-            print("⚠️ No exact matches found in database titles.", flush=True)
-            return "No specific database entry found. Rely on standard PSO2:NGS data blocks."
-            
-        page_title = search_results[0]['title']
-        print(f"📖 Page entry found: '{page_title}'. Fetching text payload...", flush=True)
-        
-        # Step B: Pull text content extracts from that page
-        extract_params = urllib.parse.urlencode({
-            'action': 'query',
-            'prop': 'extracts',
-            'exintro': 1,
-            'explaintext': 1,
-            'titles': page_title,
+        url = "https://search.disclosure.is/search?" + urllib.parse.urlencode({
+            'q': search_target,
             'format': 'json'
         })
-        extract_url = f"https://pso2.arks-visiphone.com/w/api.php?{extract_params}"
         
-        req_extract = urllib.request.Request(extract_url, headers={'User-Agent': 'HafuBotNGS/1.0'})
-        with urllib.request.urlopen(req_extract, timeout=15) as res_extract:
-            extract_data = json.loads(res_extract.read().decode('utf-8'))
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=8) as response:
+            data = json.loads(response.read().decode('utf-8'))
             
-        pages = extract_data.get('query', {}).get('pages', {})
-        page_id = list(pages.keys())[0]
-        text_extract = pages[page_id].get('extract', '').strip()
-        
-        if text_extract:
-            clean_extract = re.sub(r'\s+', ' ', text_extract)[:500]
-            print(f"✅ Data injection payload ready: {clean_extract[:80]}...", flush=True)
-            return clean_extract
+        results = data.get('results', [])
+        if results:
+            # Grab snippets from the top 2 search results to keep the brain focused
+            snippets = [r['content'] for r in results[:2] if 'content' in r]
+            combined_search_data = "\n".join(snippets)
+            print(f"✅ Live search data loaded successfully: {combined_search_data[:80]}...", flush=True)
+            return combined_search_data
             
-        return "No specific content layout pulled."
-        
     except Exception as e:
-        print(f"⚠️ API Backend failed safely: {e}. Falling back to default baseline data.", flush=True)
-        return "Database registry temporarily offline."
+        print(f"⚠️ Live search engine failed safely: {e}", flush=True)
+        
+    return "No live search engine metrics found. Rely on default baseline PSO2:NGS data parameters."
+
 
 @bot.event
 async def on_ready():
@@ -121,12 +86,12 @@ async def ask(ctx, *, question: str):
     print(f"📥 RECEIVED DISCORD COMMAND. Question: {question}", flush=True)
     await ctx.typing()
     
-    # Run direct query pull
-    wiki_data = live_wiki_search(question)
+    # Run our lightweight, direct live search query
+    search_context = live_web_search(question)
     
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": f"[LIVE WIKI DATA]:\n{wiki_data}\n\nUser Question: {question}"}
+        {"role": "user", "content": f"[LIVE SEARCH DATA]:\n{search_context}\n\nUser Question: {question}"}
     ]
     
     print("🧠 Contacting Hugging Face serverless API node...", flush=True)
