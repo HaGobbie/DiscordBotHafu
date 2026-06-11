@@ -15,16 +15,14 @@ class KeepAliveHandler(BaseHTTPRequestHandler):
         self.wfile.write(b"Lobby afk 0$ best job! Hafu is awake.")
 
     def log_message(self, format, *args):
-        return # Suppress spammy web access logs in your Render console
+        return 
 
 def run_keep_alive_server():
-    # Render automatically injects a "PORT" environment variable (usually 10000)
     port = int(os.environ.get("PORT", 8080))
     server = HTTPServer(("0.0.0.0", port), KeepAliveHandler)
     print(f"🌐 Fake Web Server active on port {port} to satisfy Render's free tier scanner.")
     server.serve_forever()
 
-# Start the web server in a separate background thread so it doesn't freeze the Discord bot
 threading.Thread(target=run_keep_alive_server, daemon=True).start()
 
 
@@ -33,9 +31,9 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
 
-# Connect to the underlying AI Brain using the optimized free tier serverless model
+# Connect using OpenAI-compatible environment definitions
 HF_TOKEN = os.environ.get("HF_TOKEN")
-client = InferenceClient("Qwen/Qwen2.5-1.5B-Instruct", token=HF_TOKEN)
+client = InferenceClient(api_key=HF_TOKEN)
 
 
 # --- 3. CORE PERSONA ---
@@ -78,7 +76,9 @@ async def ask(ctx, *, question: str):
     ]
     
     try:
-        response = client.chat_completion(
+        # UPDATED SYNTAX: Uses modern OpenAI format to ensure routing success on serverless endpoints
+        response = client.chat.completions.create(
+            model="Qwen/Qwen2.5-1.5B-Instruct",
             messages=messages,
             max_tokens=150,
             temperature=0.7
