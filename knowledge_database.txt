@@ -1,7 +1,8 @@
 === MASTER REFRESH REPOSITORY FOR HAFU AI ===
 
 === DOCUMENTATION: IN-GAME DATA REGISTRY ===
+[Backup Core]: Planet Halpha features key combat fields like Aelio (lush greenery), Retem (desert canyons), Kvaris (snowy mountains), and Stia (volcanoes).
 
 
 === LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===
-- General Update Tracker: Weekly server maintenance periods execute regularly on Wednesdays at 02:00 UTC. Active events focus on limited-time Seasonal Quests, Special Event Exchange Shops in Central City, and newly deployed AC Scratch Ticket coordinate deliveries. Check the official players notice site for real-time adjustments.
+- General Update Tracker: Weekly server maintenance periods execute regularly on Wednesdays at 02:00 UTC. Active events focus on limited-time Seasonal Quests, Special Event Exchange Shops in Central City, and newly deployed AC Scratch Ticket cosmetic coordinate deliveries. Check the official players notice site for real-time adjustments.
