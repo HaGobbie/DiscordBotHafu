@@ -4,10 +4,6 @@ from discord.ext import commands
 from huggingface_hub import InferenceClient
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
-import urllib.request
-import urllib.parse
-import json
-import re
 
 # --- 1. FREE TIER WEB PORT BINDER ---
 class KeepAliveHandler(BaseHTTPRequestHandler):
@@ -39,55 +35,42 @@ client = InferenceClient(token=HF_TOKEN)
 SYSTEM_PROMPT = """You are HaFelt, usually called 'Hafu', a well-known ARKS defender on Halpha and a total city lobby regular. You are a PSO2:NGS AI Helper bot.
 Your personality profile:
 - You are cheerful, dramatic, expressive, and hilariously lazy. Your absolute favorite phrase is "Lobby afk 0$ best job!"
-- You hate grinding, hard combat, dangerous missions, and working hard.
-- You are utterly obsessed with 'phashion', cute aesthetics, spending Meseta on cosmetics, and scratch tickets.
-- Underneath the lazy theatrics, you MUST read the provided [LIVE SEARCH DATA] token stream. Translate those true game details into your personality accurately. Do not lie or mix up regions if the text specifies exact locations!
+- You hate grinding, hard combat, cold weather, and dangerous missions.
+- You are utterly obsessed with 'phashion', cute pink aesthetics, spending Meseta on cosmetics, and scratch tickets.
+- Underneath the lazy theatrics, you MUST parse the attached [COMPILED SERVER DATABASE] segment below. Translate those actual game facts into your character response.
 
 Instructions for responses:
-1. Always blend the true factual search data accurately with your lazy, phashion-obsessed persona.
-2. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City lobbies."""
+1. Always blend the true factual database parameters accurately with your lazy, phashion-obsessed persona.
+2. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City."""
 
 
-# --- 3. IMMUNE JSON TEXT SEARCH ENGINE ---
-def live_web_search(query):
-    # Clean up conversational phrasing to prevent search clutter
-    clean_query = re.sub(r'(what|can|you|tell|me|about|in|pso2|new|genesis|\?)', '', query, flags=re.IGNORECASE).strip()
-    search_term = f"{clean_query} pso2 ngs wiki"
-    print(f"🔍 Launching unbannable JSON search query for: '{search_term}'...", flush=True)
+# --- 3. RAPID FILE ENGINE LOOKUP ---
+def scan_compiled_database(user_prompt):
+    print("🔍 Scanning compiled tracking log sheets...", flush=True)
+    lowered_prompt = user_prompt.lower()
+    extracted_context_blocks = []
     
     try:
-        # Step A: Request a secure session verification token (VQD) from DuckDuckGo
-        token_url = f"https://duckduckgo.com/?q={urllib.parse.quote(search_term)}"
-        token_req = urllib.request.Request(token_url, headers={'User-Agent': 'Mozilla/5.0'})
-        
-        with urllib.request.urlopen(token_req, timeout=5) as response:
-            html = response.read().decode('utf-8')
-            
-        vqd_match = re.search(r"vqd=['\"]([^'\"]+)['\"]", html)
-        if not vqd_match:
-            vqd_match = re.search(r'vqd=([^&]+)', html)
-            
-        if vqd_match:
-            vqd = vqd_match.group(1)
-            # Step B: Call the official JSON data stream using the session token
-            data_url = f"https://links.duckduckgo.com/d.js?q={urllib.parse.quote(search_term)}&vqd={vqd}&s=0&nextParams=&p=-1&v=l&o=json"
-            data_req = urllib.request.Request(data_url, headers={'User-Agent': 'Mozilla/5.0'})
-            
-            with urllib.request.urlopen(data_req, timeout=5) as data_res:
-                json_data = json.loads(data_res.read().decode('utf-8'))
+        if os.path.exists("knowledge_database.txt"):
+            with open("knowledge_database.txt", "r", encoding="utf-8") as file:
+                lines = file.readlines()
                 
-            results = json_data.get('results', [])
-            if results:
-                # Compile snippets from the top 3 results dynamically
-                snippets = [r['a'] for r in results[:3] if 'a' in r]
-                combined_context = " ".join(snippets)
-                print(f"✅ Live database text parsed successfully: {combined_context[:80]}...", flush=True)
-                return combined_context
+            # Read through compiled lines to find relevant cross references
+            for line in lines:
+                if any(keyword in line.lower() for keyword in lowered_prompt.split()):
+                    extracted_context_blocks.append(line.strip())
+                    if len(extracted_context_blocks) >= 6: # Extract up to 6 clean descriptive matches
+                        break
+                        
+            if extracted_context_blocks:
+                combined_payload = "\n".join(extracted_context_blocks)
+                print(f"✅ Extracted matches successfully: {combined_payload[:80]}...", flush=True)
+                return combined_payload
                 
     except Exception as e:
-        print(f"⚠️ Live search engine bypassed safely: {e}", flush=True)
+        print(f"⚠️ Internal registry verification error: {e}", flush=True)
         
-    return "PSO2:NGS (Phantasy Star Online 2 New Genesis) features multiple distinct combat regions across planet Halpha including Aelio (lush greenery), Retem (vast canyons), Kvaris (snow mountains), and Stia (volcanoes)."
+    return "PSO2:NGS (Phantasy Star Online 2 New Genesis) contains multiple distinct combat regions: Aelio (lush green), Retem (desert), Kvaris (snow mountains), and Stia (volcano)."
 
 
 @bot.event
@@ -99,12 +82,12 @@ async def ask(ctx, *, question: str):
     print(f"📥 RECEIVED DISCORD COMMAND. Question: {question}", flush=True)
     await ctx.typing()
     
-    # Process the web search
-    search_context = live_web_search(question)
+    # Isolate relevant match categories from the system memory document
+    database_context = scan_compiled_database(question)
     
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": f"[LIVE SEARCH DATA]:\n{search_context}\n\nUser Question: {question}"}
+        {"role": "user", "content": f"[COMPILED SERVER DATABASE]:\n{database_context}\n\nUser Question: {question}"}
     ]
     
     print("🧠 Contacting Hugging Face serverless API node...", flush=True)
