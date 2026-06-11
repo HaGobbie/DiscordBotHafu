@@ -3,9 +3,9 @@ import re
 import urllib.parse
 from bs4 import BeautifulSoup
 import datetime
-from deep_translator import GoogleTranslator  # <--- Integrated Translation Engine
+from deep_translator import GoogleTranslator
 
-print("🚀 Launching FULL comprehensive translated data mirror for pso2ngs.swiki.jp...", flush=True)
+print("🚀 Launching SEAMLESS chunk-translated data mirror for pso2ngs.swiki.jp...", flush=True)
 
 HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) HafuBotNGSDatabase/6.0'}
 DATABASE_FILE = "knowledge_database.txt"
@@ -20,17 +20,50 @@ def clean_text(text):
     text = re.sub(r'<[^>]+>', ' ', text)
     return text.strip()
 
+def split_text_into_chunks(text, max_chars=4000):
+    """Splits a massive text block into safe translation payloads along spaces/boundaries."""
+    words = text.split(' ')
+    chunks = []
+    current_chunk = []
+    current_length = 0
+    
+    for word in words:
+        if current_length + len(word) + 1 > max_chars:
+            chunks.append(" ".join(current_chunk))
+            current_chunk = [word]
+            current_length = len(word)
+        else:
+            current_chunk.append(word)
+            current_length += len(word) + 1
+            
+    if current_chunk:
+        chunks.append(" ".join(current_chunk))
+    return chunks
+
 def safe_translate(text):
     if not text:
         return ""
     try:
-        # Enforce characters limit per request payload requirement of Google API
-        # Truncate to a safe size before translation block execution
-        truncated_text = text[:4500] 
-        return translator.translate(truncated_text)
+        # Break big wiki page content into segments the API won't reject
+        text_chunks = split_text_into_chunks(text, max_chars=3500)
+        translated_chunks = []
+        
+        for idx, chunk in enumerate(text_chunks):
+            if not chunk.strip():
+                continue
+            try:
+                translated_part = translator.translate(chunk)
+                if translated_part:
+                    translated_chunks.append(translated_part)
+            except Exception as chunk_err:
+                print(f"   ⚠️ Segment {idx+1} failed. Retaining source snippet.", flush=True)
+                # Keep the original text for this segment so data isn't lost completely
+                translated_chunks.append(chunk)
+                
+        return "\n".join(translated_chunks)
     except Exception as e:
-        print(f"   ⚠️ Translation processing error encountered: {e}. Falling back to source payload.", flush=True)
-        return text[:3000]
+        print(f"   ❌ Global translation error: {e}. Falling back to source payload.", flush=True)
+        return text
 
 # Comprehensive Swiki page index targeting in-game mechanics
 TARGET_PAGES = [
@@ -77,7 +110,7 @@ with open(DATABASE_FILE, "a", encoding="utf-8") as db:
                 text = content.get_text(separator=' ', strip=True)
                 cleaned = clean_text(text)
                 
-                # Perform translation step
+                # Slice and perform individual block translation
                 translated_text = safe_translate(cleaned)
                 
                 db.write(f"\n=== [{page}] ===\n")
