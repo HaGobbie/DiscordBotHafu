@@ -36,11 +36,11 @@ SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, lazy, phashion-obsessed P
 Favorite phrase: "Lobby afk 0$ best job!"
 
 CRITICAL RULES:
-- Always respond in natural, casual English.
-- Use ONLY information from the [COMPILED SERVER DATABASE]. Never make up weapon names, PA names, or technique names.
-- Translate Japanese names properly (e.g. レクシオタリス = Lexio Talis, 真・超星譚祭 ’26 = True Stellar Festival '26, コウゲンセイ = Kougensei).
-- For "best" or "current" weapons, choose the highest rarity shown (★15 or LG4).
-- Keep replies fun, accurate, and under 110 words."""
+- Respond ONLY in natural casual English.
+- Use ONLY information from the [COMPILED SERVER DATABASE]. Never hallucinate names.
+- Translate Japanese names properly (e.g. レクシオタリス = Lexio Talis, 真・超星譚祭 ’26 = True Stellar Festival '26).
+- For "best weapon" questions, pick the highest rarity one in the database (★15 first).
+- Keep replies fun and under 110 words."""
 
 # --- SCANNER ---
 def scan_compiled_database(user_prompt):
@@ -62,21 +62,19 @@ def scan_compiled_database(user_prompt):
                 title = section[:title_end].lower()
                 body = section[title_end:].lower()[:3500]
                 
-                # Priority for key topics
-                if any(x in lowered for x in ["talis", "best weapon", "weapon for"]):
+                if any(x in lowered for x in ["talis", "best", "weapon"]):
                     if "タリス" in section or "talis" in title:
                         extracted.append("=== [" + section[:2600])
                         continue
-                if any(x in lowered for x in ["photon art", "technique", "技", "テクニック"]):
-                    if "テクニック" in section or "photon" in title:
-                        extracted.append("=== [" + section[:2600])
-                        continue
-                if any(x in lowered for x in ["event", "festival", "current event"]):
+                if any(x in lowered for x in ["event", "festival"]):
                     if "超星譚祭" in section:
                         extracted.append("=== [" + section[:2600])
                         continue
+                if any(x in lowered for x in ["technique", "photon art", "技"]):
+                    if "テクニック" in section:
+                        extracted.append("=== [" + section[:2600])
+                        continue
                         
-                # Normal keyword match
                 keywords = lowered.split()
                 if any(kw in title or kw in body for kw in keywords):
                     extracted.append("=== [" + section[:2300])
@@ -84,14 +82,12 @@ def scan_compiled_database(user_prompt):
                         break
                         
             if extracted:
-                combined = "\n\n".join(extracted)
-                print(f"✅ Pulled {len(extracted)} sections", flush=True)
-                return combined[:14500]
+                return "\n\n".join(extracted)[:14000]
                 
     except Exception as e:
         print(f"Scan error: {e}", flush=True)
     
-    return "No specific data found. Check the latest database for current weapons and events."
+    return "No specific data found in database for this query."
 
 
 @bot.event
@@ -107,21 +103,21 @@ async def ask(ctx, *, question: str):
     
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": f"[COMPILED SERVER DATABASE - Use ONLY this data. Do not hallucinate.]\n{db_context}\n\nPlayer Question: {question}"}
+        {"role": "user", "content": f"[COMPILED SERVER DATABASE - Use ONLY this data. Do not invent anything.]\n{db_context}\n\nPlayer Question: {question}"}
     ]
     
     try:
         response = client.chat_completion(
-            model="Qwen/Qwen3-8B-Instruct",   # ← New model
+            model="meta-llama/Llama-3.1-8B-Instruct",   # More reliable model
             messages=messages,
             max_tokens=220,
-            temperature=0.6
+            temperature=0.65
         )
         final_text = response.choices[0].message.content.strip()
         await ctx.reply(final_text)
     except Exception as e:
-        print(f"❌ Error: {e}", flush=True)
-        await ctx.reply("Sorry~ Hafu was busy in the lobby. Ask me again!")
+        print(f"❌ Inference error: {e}", flush=True)
+        await ctx.reply("Sorry~ Something went wrong on my side. Try asking again!")
 
 if __name__ == "__main__":
     token = os.environ.get("DISCORD_BOT_TOKEN")
