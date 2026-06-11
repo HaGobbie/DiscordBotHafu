@@ -2,6 +2,7 @@ import urllib.request
 import json
 import urllib.parse
 import re
+from bs4 import BeautifulSoup
 
 print("🚀 Launching structural layout data mirror engine...", flush=True)
 
@@ -12,124 +13,100 @@ def clean_raw_text(text):
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
-# Target exact title patterns used in the MediaWiki database configuration
+# Expanded targets
 EXACT_WIKI_PAGES = [
     "Portal:New Genesis",
     "List of Special Abilities (NGS)",
     "Weapons (NGS)",
-    "Armor (NGS)"
+    "Armor (NGS)",
+    "Photon Arts List (NGS)",
+    "Technique List (NGS)",
 ]
 
+def fetch_wiki_page(title):
+    """Try MediaWiki API first, then fallback to HTML parse"""
+    api_url = "https://pso2.arks-visiphone.com/w/api.php?" + urllib.parse.urlencode({
+        'action': 'query',
+        'prop': 'extracts',
+        'exlimit': '1',
+        'explaintext': '1',
+        'titles': title,
+        'format': 'json'
+    })
+    
+    try:
+        req = urllib.request.Request(api_url, headers=HEADERS)
+        with urllib.request.urlopen(req, timeout=15) as response:
+            data = json.loads(response.read().decode('utf-8'))
+        
+        pages = data.get('query', {}).get('pages', {})
+        page_id = list(pages.keys())[0]
+        if page_id != "-1":
+            extract = pages[page_id].get('extract', '')
+            if len(extract) > 200:  # Good content
+                return extract
+    except Exception as e:
+        print(f"   API failed for {title}: {e}")
+    
+    # Fallback: direct HTML scrape
+    try:
+        url = f"https://pso2.arks-visiphone.com/wiki/{urllib.parse.quote(title.replace(' ', '_'))}"
+        req = urllib.request.Request(url, headers=HEADERS)
+        with urllib.request.urlopen(req, timeout=15) as response:
+            html = response.read().decode('utf-8')
+        soup = BeautifulSoup(html, 'html.parser')
+        content = soup.find('div', id='mw-content-text')
+        if content:
+            return content.get_text()
+    except Exception as e:
+        print(f"   HTML fallback failed for {title}: {e}")
+    
+    return ""
+
+# === MAIN ===
 try:
     with open(DATABASE_FILE, "w", encoding="utf-8") as db:
         db.write("=== MASTER REFRESH REPOSITORY FOR HAFU AI ===\n\n")
-        db.write("=== DOCUMENTATION: IN-GAME DATA REGISTRY ===\n")
+        db.write("=== DOCUMENTATION: IN-GAME DATA REGISTRY ===\n\n")
         
-        # --- PHASE 1: EXACT PATH INJECTION VIA MEDIAWIKI PAYLOADS ---
         for page in EXACT_WIKI_PAGES:
-            print(f"📡 Querying wiki layout vector for: '{page}'...", flush=True)
-            
-            api_url = "https://pso2.arks-visiphone.com/w/api.php?" + urllib.parse.urlencode({
-                'action': 'query',
-                'prop': 'extracts',
-                'exintro': '1',
-                'explaintext': '1',
-                'titles': page,
-                'format': 'json'
-            })
-            
-            try:
-                req = urllib.request.Request(api_url, headers=HEADERS)
-                with urllib.request.urlopen(req, timeout=12) as response:
-                    data = json.loads(response.read().decode('utf-8'))
-                    
-                pages_matrix = data.get('query', {}).get('pages', {})
-                if pages_matrix:
-                    page_id = list(pages_matrix.keys())[0]
-                    # If page_id is "-1", the page title doesn't exist on the server index
-                    if page_id != "-1":
-                        text_extract = pages_matrix[page_id].get('extract', '')
-                        if text_extract:
-                            cleaned = clean_raw_text(text_extract)
-                            db.write(f"[{page}]: {cleaned[:1100]}\n")
-                            print(f"   ✅ Successfully mirrored: {page}", flush=True)
-                            continue
-                
-                # Search Engine Fallback Module if direct title fails
-                print(f"   ⚠️ Direct query failed for '{page}'. Initializing search fallback engine...", flush=True)
-                search_url = "https://pso2.arks-visiphone.com/w/api.php?" + urllib.parse.urlencode({
-                    'action': 'query',
-                    'list': 'search',
-                    'srsearch': page.replace("(NGS)", "").replace("Portal:", ""),
-                    'format': 'json'
-                })
-                
-                s_req = urllib.request.Request(search_url, headers=HEADERS)
-                with urllib.request.urlopen(s_req, timeout=10) as s_res:
-                    s_data = json.loads(s_res.read().decode('utf-8'))
-                results = s_data.get('query', {}).get('search', [])
-                
-                if results:
-                    best_match = results[0]['title']
-                    fallback_url = "https://pso2.arks-visiphone.com/w/api.php?" + urllib.parse.urlencode({
-                        'action': 'query',
-                        'prop': 'extracts',
-                        'exintro': '1',
-                        'explaintext': '1',
-                        'titles': best_match,
-                        'format': 'json'
-                    })
-                    fb_req = urllib.request.Request(fallback_url, headers=HEADERS)
-                    with urllib.request.urlopen(fb_req, timeout=10) as fb_res:
-                        fb_data = json.loads(fb_res.read().decode('utf-8'))
-                    fb_pages = fb_data.get('query', {}).get('pages', {})
-                    fb_id = list(fb_pages.keys())[0]
-                    text_extract = fb_pages[fb_id].get('extract', '')
-                    if text_extract:
-                        cleaned = clean_raw_text(text_extract)
-                        db.write(f"[{best_match}]: {cleaned[:1100]}\n")
-                        print(f"   ✅ Fallback link verified and copied for: {best_match}", flush=True)
-            except Exception as wiki_err:
-                print(f"   ❌ Network fault on topic '{page}': {wiki_err}", flush=True)
-                
-        # --- PHASE 2: ADAPTIVE SEGA LIVE ANNOUNCEMENTS METRICS ---
-        db.write("\n\n=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n")
-        print("📡 Querying active update vectors from Sega JP platform...", flush=True)
-        
-        # Targeting the exact base players updates framework matching your HTML files
-        sega_update_url = "https://pso2.jp/players/update/2026-06/"
-        try:
-            # We fetch a localized payload mapping system adjustments natively
-            s_req = urllib.request.Request(sega_update_url, headers=HEADERS)
-            with urllib.request.urlopen(s_req, timeout=12) as s_res:
-                html_data = s_res.read().decode('utf-8')
-                
-            # Parse text metrics utilizing structural regular expressions matching layout rules
-            # Isolates headings and structural details from the block container patterns
-            text_blocks = re.findall(r'<h2>(.*?)</h2>|<h3>(.*?)</h3>|<p>(.*?)</p>', html_data)
-            count = 0
-            for blocks in text_blocks:
-                # Filter structural tuples
-                raw_fragment = next((b for b in blocks if b), "")
-                # Strip out HTML remnants inside layout text
-                clean_fragment = re.sub(r'<.*?>', '', raw_fragment)
-                clean_fragment = clean_raw_text(clean_fragment)
-                
-                if len(clean_fragment) > 30 and not clean_fragment.startswith(("http", "▲", "©")):
-                    db.write(f"- Update Matrix Vector: {clean_fragment}\n")
-                    count += 1
-                    if count >= 15: # Grab top news summaries
-                        break
-            if count > 0:
-                print(f"   ✅ Successfully mirrored {count} live update vectors from Sega JP!", flush=True)
+            print(f"📡 Querying: '{page}'...", flush=True)
+            text = fetch_wiki_page(page)
+            if text:
+                cleaned = clean_raw_text(text)[:8000]  # Much larger limit
+                db.write(f"[{page}]:\n{cleaned}\n\n---\n\n")
+                print(f"   ✅ Mirrored {len(cleaned)} chars", flush=True)
             else:
-                raise ValueError("No matching text segments isolated from layout structures.")
-                
-        except Exception as sega_err:
-            print(f"   ⚠️ Sega structure query blocked ({sega_err}). Deploying baseline matrix tracker.", flush=True)
-            db.write("- Notice: Server level caps scaling up toward level 120 configurations. Weapon combat benchmarks active above 4950 combat power parameters. Weekly maintenance loops execute Wednesdays at 02:00 UTC.\n")
+                print(f"   ⚠️ No content for {page}", flush=True)
         
-    print("✅ Local database synchronization pipeline completed!", flush=True)
+        # === SEGA UPDATES ===
+        db.write("\n\n=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n")
+        print("📡 Querying Sega JP updates...", flush=True)
+        
+        try:
+            sega_url = "https://pso2.jp/players/update/2026-06/"
+            req = urllib.request.Request(sega_url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=15) as response:
+                html = response.read().decode('utf-8')
+            
+            soup = BeautifulSoup(html, 'html.parser')
+            # Better selectors for news content
+            sections = soup.find_all(['h2', 'h3', 'section', 'article'])
+            count = 0
+            for section in sections:
+                text = section.get_text(strip=True)
+                cleaned = clean_raw_text(text)
+                if len(cleaned) > 50 and not any(x in cleaned for x in ["JavaScript", "©SEGA", "http"]):
+                    db.write(f"- {cleaned[:500]}\n\n")
+                    count += 1
+                    if count >= 25:
+                        break
+            print(f"   ✅ Extracted {count} update items", flush=True)
+        except Exception as e:
+            print(f"   ⚠️ Sega fetch failed: {e}", flush=True)
+            db.write("- Update data temporarily unavailable.\n")
+    
+    print("✅ Database synchronization completed successfully!", flush=True)
 
 except Exception as e:
-    print(f"❌ Core script breakdown: {e}", flush=True)
+    print(f"❌ Critical error: {e}", flush=True)
