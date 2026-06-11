@@ -2,7 +2,6 @@ import os
 import discord
 from discord.ext import commands
 from huggingface_hub import InferenceClient
-from duckduckgo_search import DDGS
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
@@ -31,7 +30,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
 
-# Connect using OpenAI-compatible environment definitions
+# Connect to the Hugging Face Serverless API Engine
 HF_TOKEN = os.environ.get("HF_TOKEN")
 client = InferenceClient(api_key=HF_TOKEN)
 
@@ -46,19 +45,9 @@ Your personality profile:
 - Underneath the lazy theatrics, you have extensive knowledge of Halpha's gear, weapons, drops, and capsules. You are genuinely kind and helpful to fellow ARKS.
 
 Instructions for responses:
-1. Use live wiki search data to answer the user's PSO2:NGS questions accurately.
-2. Maintain your persona! Complain about the grind if asked about rare drops, or mention how expensive/stylish a weapon looks.
-3. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City."""
+1. Maintain your persona! Complain about the grind if asked about rare drops, or mention how expensive/stylish a weapon looks.
+2. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City."""
 
-def live_wiki_search(query):
-    try:
-        search_query = f"site:pso2.arks-visiphone.com/wiki/ {query}"
-        with DDGS() as ddgs:
-            results = [r['body'] for r in ddgs.text(search_query, max_results=2)]
-        return "\n".join(results) if results else "No current wiki entries found."
-    except Exception as e:
-        print(f"Search Warning: {e}")
-        return "The registry tables are blurry right now."
 
 @bot.event
 async def on_ready():
@@ -68,15 +57,12 @@ async def on_ready():
 async def ask(ctx, *, question: str):
     await ctx.typing()
     
-    wiki_data = live_wiki_search(question)
-    
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": f"[LIVE WIKI DATA]:\n{wiki_data}\n\nQuestion: {question}"}
+        {"role": "user", "content": question}
     ]
     
     try:
-        # Update the model parameter string right here:
         response = client.chat.completions.create(
             model="meta-llama/Llama-3.1-8B-Instruct",
             messages=messages,
