@@ -66,7 +66,7 @@ async def ask(ctx, *, question: str):
         await ctx.reply(final_text)
     except Exception as e:
         print(f"Inference Error: {e}")
-        await ctx.reply("Ach! Me forge hit a snag. Try askin' again in a second, laddie.")
+        await ctx.reply("Oops! Sorry~ It seems I have an error on my side.")
 
 # 4. Boot the server environment up using your hidden repo keys
 if __name__ == "__main__":
