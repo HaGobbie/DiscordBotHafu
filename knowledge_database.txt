@@ -1,7 +1,6 @@
 === MASTER REFRESH REPOSITORY FOR HAFU AI ===
 
 === DOCUMENTATION: IN-GAME DATA REGISTRY ===
-[Backup Core]: Planet Halpha features key combat fields like Aelio (lush greenery), Retem (desert canyons), Kvaris (snowy mountains), and Stia (volcanoes).
 
 
 === LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===
