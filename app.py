@@ -57,7 +57,7 @@ async def ask(ctx, *, question: str):
     print("🧠 Contacting Hugging Face serverless API node...", flush=True)
     try:
         response = client.chat_completion(
-            model="HuggingFaceH4/zephyr-7b-beta",
+            model="Qwen/Qwen2.5-7B-Instruct",
             messages=messages,
             max_tokens=150,
             temperature=0.7
