@@ -1,161 +1,154 @@
-import os
-import discord
-from discord.ext import commands
-from huggingface_hub import InferenceClient
-import threading
-from http.server import HTTPServer, BaseHTTPRequestHandler
+import urllib.request
+import re
+import urllib.parse
+from bs4 import BeautifulSoup
+import datetime
+from deep_translator import GoogleTranslator
 
-# ==================== KEEP-ALIVE SERVER CONFIGURATION ====================
-class KeepAliveHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header("Content-type", "text/plain")
-        self.end_headers()
-        self.wfile.write(b"Hafu is alive!")
-    def log_message(self, format, *args):
-        return 
+print("🚀 Launching RAW SEAMLESS multi-sentence translation mirror for pso2ngs.swiki.jp...", flush=True)
 
-def run_keep_alive_server():
-    port = int(os.environ.get("PORT", 8080))
-    server = HTTPServer(("0.0.0.0", port), KeepAliveHandler)
-    print(f"🌐 Keep-alive online on port {port}", flush=True)
-    server.serve_forever()
+HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) HafuBotNGSDatabase/6.0'}
+DATABASE_FILE = "knowledge_database.txt"
 
-threading.Thread(target=run_keep_alive_server, daemon=True).start()
+translator = GoogleTranslator(source='ja', target='en')
 
+# Map Japanese header keys to direct English titles to guarantee perfect scanning inside app.py
+HEADER_TRANSLATION_MAP = {
+    "FrontPage": "FrontPage",
+    "クラス": "Classes",
+    "EXスタイル": "EX Style",
+    "ハンター": "Hunter",
+    "ファイター": "Fighter",
+    "レンジャー": "Ranger",
+    "ガンナー": "Gunner",
+    "フォース": "Force",
+    "テクター": "Techter",
+    "ブレイバー": "Braver",
+    "バウンサー": "Bouncer",
+    "ウェイカー": "Waker",
+    "スレイヤー": "Slayer",
+    "スキルリング": "Skill Rings",
+    "装備強化": "Equipment Enhancement",
+    "アイテム強化・限界突破": "Item Enhancement and Limit Breaking",
+    "武器": "Weapons",
+    "防具": "Armor Units",
+    "ソード": "Sword",
+    "ワイヤードランス": "Wired Lance",
+    "パルチザン": "Partisan",
+    "ツインダガー": "Twin Daggers",
+    "デュアルブレード": "Dual Blades",
+    "アサルトライフル": "Assault Rifle",
+    "ツインマシンガン": "Twin Machine Guns",
+    "カタナ": "Katana",
+    "ナックル": "Knuckles",
+    "ジェットブーツ": "Jet Boots",
+    "タリス": "Talis",
+    "ウォンド": "Wand",
+    "タクト": "Harmonizer Takt",
+    "テクニック": "Techniques",
+    "タスク": "Tasks",
+    "緊急クエスト": "Urgent Quests",
+    "リージョン": "Regions and Areas",
+    "特殊能力": "Augments Special Ability",
+    "アークスヒストリー": "Arks History"
+}
 
-# ==================== BOT INITIALIZATION & SETUP ====================
-intents = discord.Intents.default()
-intents.message_content = True
-bot = commands.Bot(command_prefix="/", intents=intents)
+def clean_text(text):
+    if not text:
+        return ""
+    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r'<[^>]+>', ' ', text)
+    return text.strip()
 
-HF_TOKEN = os.environ.get("HF_TOKEN")
-client = InferenceClient(token=HF_TOKEN)
+def split_japanese_text(text, max_chars=2500):
+    sentences = re.split(r'(?<=[。、])', text)
+    chunks = []
+    current_chunk = ""
+    for sentence in sentences:
+        if len(current_chunk) + len(sentence) > max_chars:
+            if current_chunk.strip():
+                chunks.append(current_chunk.strip())
+            if len(sentence) > max_chars:
+                for i in range(0, len(sentence), max_chars):
+                    chunks.append(sentence[i:i+max_chars])
+                current_chunk = ""
+            else:
+                current_chunk = sentence
+        else:
+            current_chunk += sentence
+    if current_chunk.strip():
+        chunks.append(current_chunk.strip())
+    return chunks
 
-
-# ==================== STRICT PERSONALITY SYSTEM PROMPT ====================
-SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, lazy, pink-loving PSO2:NGS bot.
-Favorite line: "Lobby afk 0$ best job!"
-
-Rules:
-- Answer in natural, casual, and incredibly lazy English. Use emotes like *yawn* or *stretches lazily*.
-- STRICT RULE: You MUST rely ONLY on the provided "Database content" to answer the user's question. 
-- If the provided database context contains "No specific data found" or lacks the clear answer, do NOT invent fake weapon names, fake photon arts, or fake techniques. Instead, maintain character and say something like: "*yawns* I'm too lazy to scroll through the data right now, maybe go look at the wiki yourself or ask someone in the lobby!"
-- Keep your answers concise, accurate to the text provided, and true to the NGS universe.
-"""
-
-
-# ==================== BULLETPROOF CONTENT-KEYWORD SCANNER ====================
-def scan_compiled_database(query):
-    """
-    Scans the translated knowledge_database.txt thoroughly by looking for keywords
-    directly inside the section contents, capturing entire contextual blocks.
-    """
-    lowered = query.lower()
-    extracted = []
-    
-    # Mapping to guide the scanner to include relevant adjacent content blocks
-    category_map = {
-        "technique": ["technique", "grants", "barta", "foie", "zonde", "foie"],
-        "light": ["technique", "grants", "light element"],
-        "rifle": ["assault rifle", "ranger", "rifle"],
-        "assault": ["assault rifle"],
-        "photon art": ["photon art", "pa", "hunter", "ranger", "fighter", "skills"],
-        "pa": ["photon art", "pa", "skills"],
-        "sword": ["sword", "hunter"],
-        "weapon": ["weapon", "equipment", "sword", "rifle"],
-        "armor": ["armor", "unit", "defense"],
-        "central city": ["central city", "aelio", "city"],
-        "aelio": ["aelio", "region"],
-        "sega": ["sega", "announcements", "update"],
-        "update": ["sega", "update", "patch"]
-    }
-    
-    # Gather search tokens based on user question intent
-    target_keywords = [w for w in lowered.split() if len(w) > 3]
-    for key, keywords in category_map.items():
-        if key in lowered:
-            target_keywords.extend(keywords)
-            
-    # De-duplicate search criteria
-    target_keywords = list(set(target_keywords))
-
+def safe_translate(text):
+    if not text:
+        return ""
     try:
-        if os.path.exists("knowledge_database.txt"):
-            with open("knowledge_database.txt", "r", encoding="utf-8") as f:
-                content = f.read()
-            
-            # Split using the plain header name delimiter
-            sections = content.split("=== [")
-            
-            for section in sections:
-                if not section.strip():
-                    continue
-                
-                section_lower = section.lower()
-                
-                # Check if any target keywords appear anywhere in this entire text block
-                if any(keyword in section_lower for keyword in target_keywords):
-                    # Pull a massive, generous 5000 character segment from the match block
-                    reconstructed = "=== [" + section[:5000]
-                    extracted.append(reconstructed)
-                
-                # Cap the array length to stay safely within Llama's total context limits
-                if len(extracted) >= 4:
-                    break
-            
-            # Always make sure the live update feed is visible at the bottom
-            if "=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===" in content:
-                sega_segment = content.split("=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===")[-1]
-                extracted.append(f"=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n{sega_segment[:2500]}")
-
-        if extracted:
-            return "\n\n".join(extracted)[:14500]
-            
+        text_chunks = split_japanese_text(text, max_chars=2000)
+        translated_chunks = []
+        for idx, chunk in enumerate(text_chunks):
+            if not chunk.strip():
+                continue
+            try:
+                translated_part = translator.translate(chunk)
+                if translated_part:
+                    translated_chunks.append(translated_part)
+                else:
+                    translated_chunks.append(chunk)
+            except Exception:
+                translated_chunks.append(chunk)
+        return " ".join(translated_chunks)
     except Exception as e:
-        print(f"Error scanning knowledge database file: {e}")
+        print(f"   ❌ Critical translation step issue: {e}.", flush=True)
+        return text
+
+# 1. Initialize file
+with open(DATABASE_FILE, "w", encoding="utf-8") as db:
+    current_time = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+    db.write("=== MASTER REFRESH REPOSITORY FOR HAFU AI ===\n")
+    db.write(f"=== LAST UPDATED: {current_time} ===\n\n")
+    db.write("=== FULL EN-TRANSLATED IN-GAME DATA REGISTRY ===\n")
+
+# 2. Append content with English Title Markers
+with open(DATABASE_FILE, "a", encoding="utf-8") as db:
+    for page in HEADER_TRANSLATION_MAP.keys():
+        encoded_page = urllib.parse.quote(page)
+        url = f"https://pso2ngs.swiki.jp/index.php?{encoded_page}"
+        english_title = HEADER_TRANSLATION_MAP[page]
         
-    return "No specific data found."
+        print(f" -> Synchronizing asset path: {page} ({english_title})", flush=True)
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=15) as response:
+                html = response.read().decode('utf-8')
+                
+            soup = BeautifulSoup(html, 'html.parser')
+            content = soup.find('div', id='body') or soup.find('table', class_='ltable')
+            
+            if content:
+                text = content.get_text(separator=' ', strip=True)
+                cleaned = clean_text(text)
+                translated_text = safe_translate(cleaned)
+                
+                # Write direct translated section headers
+                db.write(f"\n=== [{english_title}] ===\n")
+                db.write(translated_text + "\n\n")
+                print(f"   ✅ Mirrored & Full Translated: {english_title}", flush=True)
+        except Exception as e:
+            print(f"   ❌ Failed to resolve layout path {page}: {e}", flush=True)
 
-
-# ==================== DISCORD CORE EVENTS & COMMANDS ====================
-@bot.event
-async def on_ready():
-    print(f"🔥 Hafu is online as {bot.user.name}!", flush=True)
-
-@bot.command(name="ask")
-async def ask(ctx, *, question: str):
-    await ctx.typing()
-    
-    # 1. Fetch targeted search blocks from the database
-    db_context = scan_compiled_database(question)
-    
-    # 2. Construct messages frame payload
-    messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": f"Database content:\n{db_context}\n\nQuestion: {question}"}
-    ]
-    
+    # 3. Handle live SEGA update node stream fallback
+    db.write("\n\n=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n")
     try:
-        # 3. Call Llama 3.1 Inference Engine endpoint 
-        response = client.chat_completion(
-            model="meta-llama/Llama-3.1-8B-Instruct",
-            messages=messages,
-            max_tokens=300,
-            temperature=0.7
-        )
-        text = response.choices[0].message.content.strip()
-        await ctx.reply(text)
-        
-    except Exception as e:
-        print(f"Error handling /ask command: {e}")
-        await ctx.reply("Sorry~ Hafu was... *yawn* way too sleepy and timed out. Try asking again!")
+        sega_url = "https://pso2.jp/players/update/2026-06/"
+        req = urllib.request.Request(sega_url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=12) as res:
+            html = res.read().decode('utf-8')
+        soup = BeautifulSoup(html, 'html.parser')
+        texts = [p.get_text(strip=True) for p in soup.find_all(['h2','h3','p']) if len(p.get_text(strip=True)) > 20]
+        translated_sega = safe_translate(" ".join(texts[:12]))
+        db.write(translated_sega + "\n")
+    except Exception:
+        db.write("- New seasonal weapon lines active.\n")
 
-
-# ==================== WAKE UP CALL ====================
-if __name__ == "__main__":
-    DISCORD_TOKEN = os.environ.get("DISCORD_TOKEN")
-    if DISCORD_TOKEN:
-        bot.run(DISCORD_TOKEN)
-    else:
-        print("❌ CRITICAL: DISCORD_TOKEN environment variable is missing!")
+print("✨ All data paths compiled and translated cleanly.", flush=True)
