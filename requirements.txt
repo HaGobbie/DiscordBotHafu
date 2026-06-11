@@ -1,0 +1,3 @@
+discord.py==2.3.2
+huggingface_hub
+duckduckgo_search
