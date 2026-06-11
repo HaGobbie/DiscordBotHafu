@@ -41,44 +41,86 @@ Rules:
 - If you don't have enough info, say "I don't have the latest details on that" instead of guessing.
 - Keep replies fun and under 110 words."""
 
-def scan_compiled_database(user_prompt):
-    lowered = user_prompt.lower()
+def scan_compiled_database(query):
+    """
+    Scans the translated knowledge_database.txt and extracts relevant sections 
+    by mapping common English search terms to the wiki's section names.
+    """
+    lowered = query.lower()
     extracted = []
     
+    # Keyword mapping to ensure the script pulls the correct data block
+    category_map = {
+        "technique": ["=== [テクニック] ==="],
+        "light": ["=== [テクニック] ==="],
+        "fire": ["=== [テクニック] ==="],
+        "ice": ["=== [テクニック] ==="],
+        "lightning": ["=== [テクニック] ==="],
+        "wind": ["=== [テクニック] ==="],
+        "dark": ["=== [テクニック] ==="],
+        "rifle": ["=== [アサルトライフル] ===", "=== [レンジャー] ==="],
+        "assault": ["=== [アサルトライフル] ==="],
+        "sword": ["=== [ソード] ===", "=== [ハンター] ==="],
+        "weapon": ["=== [武器] ==="],
+        "armor": ["=== [防具] ==="],
+        "class": ["=== [クラス] ==="],
+        "hunter": ["=== [ハンター] ==="],
+        "ranger": ["=== [レンジャー] ==="],
+        "force": ["=== [フォース] ==="],
+        "techter": ["=== [テクター] ==="],
+        "braver": ["=== [ブレイバー] ==="],
+        "bouncer": ["=== [バウンサー] ==="],
+        "waker": ["=== [ウェイカー] ==="],
+        "slayer": ["=== [スレイヤー] ==="],
+        "central city": ["=== [FrontPage] ===", "=== [リージョン] ==="],
+        "aelio": ["=== [リージョン] ==="],
+        "sega": ["=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ==="],
+        "update": ["=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ==="],
+        "event": ["=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ==="]
+    }
+    
+    # Determine which sections we must force-load based on user intent
+    priority_sections = []
+    for key, sections in category_map.items():
+        if key in lowered:
+            priority_sections.extend(sections)
+
     try:
-        with open("knowledge_database.txt", "r", encoding="utf-8") as f:
-            content = f.read()
-        
-        sections = content.split("=== [")
-        
-        for section in sections[1:]:
-            title_end = section.find("] ===")
-            if title_end == -1:
-                continue
-            title = section[:title_end].lower()
-            body = section[title_end:].lower()[:3800]
+        if os.path.exists("knowledge_database.txt"):
+            with open("knowledge_database.txt", "r", encoding="utf-8") as f:
+                content = f.read()
+                
+            # Split by our standardized section markers
+            sections = content.split("=== [")
             
-            # Strong priority matching
-            if any(x in lowered for x in ["event", "festival", "current event"]):
-                if "超星譚祭" in section:
-                    extracted.append("=== [" + section[:3000])
-            if any(x in lowered for x in ["talis", "weapon", "best weapon"]):
-                if "タリス" in section or "talis" in title:
-                    extracted.append("=== [" + section[:3000])
-            if any(x in lowered for x in ["photon art", "photon arts", "technique", "技"]):
-                if "テクニック" in section or "sword" in title or "rifle" in title:
-                    extracted.append("=== [" + section[:3000])
+            for section in sections:
+                # Reconstruct header text structure for evaluation
+                full_section_text = "=== [" + section
+                title = full_section_text.split("] ===")[0] if "] ===" in full_section_text else ""
+                
+                # Condition 1: Check if this section was explicitly requested via keyword mapping
+                is_priority = any(p_sec in full_section_text for p_sec in priority_sections)
+                
+                # Condition 2: Basic contextual word match inside the translated content body
+                keywords = lowered.split()
+                matches_body = any(k in section.lower() for k in keywords) if keywords else False
+                
+                if is_priority or matches_body:
+                    # Allow larger chunks (up to 4500 chars) so item lists don't get truncated mid-sentence
+                    extracted.append(full_section_text[:4500])
                     
-            # General match
-            if any(k in title or k in body for k in lowered.split()):
-                extracted.append("=== [" + section[:2600])
-                if len(extracted) >= 15:
+                if len(extracted) >= 6:  # Safe limit to fit completely into Llama's prompt context window
                     break
                     
+            # Always append the SEGA Live Announcements feed for real-time situational awareness
+            if "=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===" in content:
+                sega_part = content.split("=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===")[-1]
+                extracted.append(f"=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n{sega_part[:2000]}")
+                
         if extracted:
-            return "\n\n".join(extracted)[:15500]
-    except:
-        pass
+            return "\n\n".join(extracted)[:14000]
+    except Exception as e:
+        print(f"Error scanning database: {e}")
     
     return "No specific data found."
 
