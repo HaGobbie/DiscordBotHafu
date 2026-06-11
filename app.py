@@ -32,24 +32,19 @@ bot = commands.Bot(command_prefix="/", intents=intents)
 HF_TOKEN = os.environ.get("HF_TOKEN")
 client = InferenceClient(token=HF_TOKEN)
 
-SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, expressive, and hilariously lazy PSO2:NGS helper bot.
-Your favorite phrase is "Lobby afk 0$ best job!"
+SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, lazy, phashion-obsessed PSO2:NGS helper bot. 
+Favorite phrase: "Lobby afk 0$ best job!"
 
-Personality:
-- You are cheerful, dramatic, expressive, and hilariously lazy. Your absolute favorite phrase is "Lobby afk 0$ best job!"
-- You hate grinding, hard combat, cold weather, and dangerous missions.
-- You are utterly obsessed with 'phashion', cute pink aesthetics, spending Meseta on cosmetics, and scratch tickets.
-- You speak naturally in clear, casual English to English-speaking players.
+Rules for answering:
+- Respond in natural, casual English.
+- The database is mostly Japanese. Always translate key names properly.
+  Examples: 真・超星譚祭 ’26 → True Stellar Festival '26
+  レクシオタリス → Lexio Talis (or Rekushio Talis)
+- When asked for "best" or "current" weapon, look for the highest rarity (★15 or LG4) in the database.
+- Quote exact names from the database when possible.
+- Keep replies fun, under 110 words, and accurate."""
 
-Rules:
-- Always respond in natural, casual English.
-- The database is mostly Japanese. Translate important names (events, weapons, skills) properly.
-  Examples: 真・超星譚祭 ’26 → "True Stellar Festival '26", レクシオタリス → "Lexio Talis"
-- When asked for "best" or "current" weapons, prioritize the highest rarity / newest series from the database (★15 > ★14 > LG series).
-- Blend accurate game facts with your lazy, cute, pink-loving personality.
-- Keep replies fun and under 100 words when possible."""
-
-# --- 3. IMPROVED SCANNER ---
+# --- 3. STRONGER SCANNER ---
 def scan_compiled_database(user_prompt):
     print("🔍 Scanning knowledge base...", flush=True)
     lowered = user_prompt.lower()
@@ -67,28 +62,27 @@ def scan_compiled_database(user_prompt):
                 if title_end == -1:
                     continue
                 title = section[:title_end].lower()
-                body_start = section.find("] ===") + 5
-                body = section[body_start:body_start+2000].lower()
+                body = section[title_end:].lower()[:2500]
                 
-                # Enhanced keyword matching
-                keywords = lowered.split() + [lowered]
-                score = sum(1 for kw in keywords if kw in title or kw in body)
+                # Priority boost for important topics
+                priority_words = ["talis", "weapon", "best", "current", "technique", "event", "festival", "レクシオ", "コウゲンセイ", "テクニック"]
+                score = sum(2 if pw in title else 1 for pw in priority_words if pw in title or pw in body)
                 
-                if score >= 1 or any(word in title for word in ["talis", "weapon", "best", "current", "event", "festival"]):
-                    full_section = "=== [" + section[:1800]
+                if score >= 1 or any(kw in lowered for kw in ["talis", "weapon", "best", "technique", "event"]):
+                    full_section = "=== [" + section[:2000]
                     extracted.append(full_section.strip())
-                    if len(extracted) >= 10:
+                    if len(extracted) >= 12:   # Pull more sections
                         break
                         
             if extracted:
                 combined = "\n\n".join(extracted)
-                print(f"✅ Extracted {len(extracted)} relevant sections", flush=True)
-                return combined[:10000]
+                print(f"✅ Extracted {len(extracted)} sections", flush=True)
+                return combined[:12000]   # Increased limit
                 
     except Exception as e:
         print(f"⚠️ Scan error: {e}", flush=True)
     
-    return "PSO2:NGS takes place on planet Halpha. ARKS fight DOLLS across regions like Aelio, Retem, Kvaris, and Stia while enjoying fashion and events."
+    return "PSO2:NGS is on planet Halpha. ARKS fight DOLLS while enjoying fashion and events."
 
 
 @bot.event
@@ -111,14 +105,14 @@ async def ask(ctx, *, question: str):
         response = client.chat_completion(
             model="Qwen/Qwen2.5-7B-Instruct",
             messages=messages,
-            max_tokens=200,
-            temperature=0.7
+            max_tokens=220,
+            temperature=0.68
         )
         final_text = response.choices[0].message.content.strip()
         await ctx.reply(final_text)
     except Exception as e:
         print(f"❌ Error: {e}", flush=True)
-        await ctx.reply("Sorry~ Hafu got distracted in the lobby. Ask me again!")
+        await ctx.reply("Sorry~ Hafu was busy looking at scratch tickets. Ask me again!")
 
 if __name__ == "__main__":
     token = os.environ.get("DISCORD_BOT_TOKEN")
