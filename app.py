@@ -45,76 +45,66 @@ Rules:
 """
 
 
-# ==================== INTELLIGENT DATABASE SCANNER ====================
+# ==================== BULLETPROOF CONTENT-KEYWORD SCANNER ====================
 def scan_compiled_database(query):
     """
-    Scans the translated knowledge_database.txt thoroughly, mapping common 
-    English game terminology directly to the translated wiki headers.
+    Scans the translated knowledge_database.txt thoroughly by looking for keywords
+    directly inside the section contents, capturing entire contextual blocks.
     """
     lowered = query.lower()
     extracted = []
     
-    # Map common terms directly to what the scraper writes in the txt file headers
+    # Mapping to guide the scanner to include relevant adjacent content blocks
     category_map = {
-        "technique": ["=== [テクニック] ==="],
-        "light": ["=== [テクニック] ==="],
-        "grant": ["=== [テクニック] ==="],
-        "fire": ["=== [テクニック] ==="],
-        "ice": ["=== [テクニック] ==="],
-        "lightning": ["=== [テクニック] ==="],
-        "wind": ["=== [テクニック] ==="],
-        "dark": ["=== [テクニック] ==="],
-        "rifle": ["=== [アサルトライフル] ===", "=== [レンジャー] ==="],
-        "assault": ["=== [アサルトライフル] ==="],
-        "photon art": ["=== [ハンター] ===", "=== [ファイター] ===", "=== [レンジャー] ===", "=== [ガンナー] ===", "=== [フォース] ===", "=== [テクター] ===", "=== [ブレイバー] ===", "=== [バウンサー] ===", "=== [ウェイカー] ===", "=== [スレイヤー] ==="],
-        "pa": ["=== [ハンター] ===", "=== [レンジャー] ===", "=== [ブレイバー] ==="],
-        "sword": ["=== [ソード] ===", "=== [ハンター] ==="],
-        "weapon": ["=== [武器] ==="],
-        "armor": ["=== [防具] ==="],
-        "unit": ["=== [防具] ==="],
-        "class": ["=== [クラス] ==="],
-        "central city": ["=== [FrontPage] ===", "=== [リージョン] ==="],
-        "aelio": ["=== [リージョン] ==="],
-        "sega": ["=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ==="],
-        "update": ["=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ==="],
-        "event": ["=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ==="]
+        "technique": ["technique", "grants", "barta", "foie", "zonde", "foie"],
+        "light": ["technique", "grants", "light element"],
+        "rifle": ["assault rifle", "ranger", "rifle"],
+        "assault": ["assault rifle"],
+        "photon art": ["photon art", "pa", "hunter", "ranger", "fighter", "skills"],
+        "pa": ["photon art", "pa", "skills"],
+        "sword": ["sword", "hunter"],
+        "weapon": ["weapon", "equipment", "sword", "rifle"],
+        "armor": ["armor", "unit", "defense"],
+        "central city": ["central city", "aelio", "city"],
+        "aelio": ["aelio", "region"],
+        "sega": ["sega", "announcements", "update"],
+        "update": ["sega", "update", "patch"]
     }
     
-    priority_headers = []
-    for key, headers in category_map.items():
+    # Gather search tokens based on user question intent
+    target_keywords = [w for w in lowered.split() if len(w) > 3]
+    for key, keywords in category_map.items():
         if key in lowered:
-            priority_headers.extend(headers)
+            target_keywords.extend(keywords)
+            
+    # De-duplicate search criteria
+    target_keywords = list(set(target_keywords))
 
     try:
         if os.path.exists("knowledge_database.txt"):
             with open("knowledge_database.txt", "r", encoding="utf-8") as f:
                 content = f.read()
             
-            # Split the file cleanly by structural section headers
+            # Split using the plain header name delimiter
             sections = content.split("=== [")
             
             for section in sections:
                 if not section.strip():
                     continue
                 
-                # Reconstruct full header string context
-                full_section_text = "=== [" + section
+                section_lower = section.lower()
                 
-                # Check for explicit priority rule matching or keyword presence
-                is_priority = any(p_head in full_section_text for p_head in priority_headers)
+                # Check if any target keywords appear anywhere in this entire text block
+                if any(keyword in section_lower for keyword in target_keywords):
+                    # Pull a massive, generous 5000 character segment from the match block
+                    reconstructed = "=== [" + section[:5000]
+                    extracted.append(reconstructed)
                 
-                # Check if specific terms match words inside the block body context
-                words = [w for w in lowered.split() if len(w) > 3]
-                matches_body = any(w in section.lower() for w in words) if words else False
-                
-                if is_priority or matches_body:
-                    # Give the model a healthy chunk size (up to 4800 characters) so lists remain complete
-                    extracted.append(full_section_text[:4800])
-                
-                if len(extracted) >= 4:  # Restrict array to avoid packing past Llama context limits
+                # Cap the array length to stay safely within Llama's total context limits
+                if len(extracted) >= 4:
                     break
             
-            # Always ensure seasonal live update visibility remains appended
+            # Always make sure the live update feed is visible at the bottom
             if "=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===" in content:
                 sega_segment = content.split("=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===")[-1]
                 extracted.append(f"=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n{sega_segment[:2500]}")
@@ -151,7 +141,7 @@ async def ask(ctx, *, question: str):
         response = client.chat_completion(
             model="meta-llama/Llama-3.1-8B-Instruct",
             messages=messages,
-            max_tokens=250,
+            max_tokens=300,
             temperature=0.7
         )
         text = response.choices[0].message.content.strip()
