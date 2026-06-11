@@ -1,3 +1,2 @@
 discord.py==2.3.2
-huggingface_hub
-duckduckgo_search
+huggingface_hub==1.18.0
