@@ -3,17 +3,42 @@ import discord
 from discord.ext import commands
 from huggingface_hub import InferenceClient
 from duckduckgo_search import DDGS
+import threading
+from http.server import HTTPServer, BaseHTTPRequestHandler
 
-# 1. Initialize Discord Bot with required intents
+# --- 1. THE FREE TIER KEEP-ALIVE SERVER ---
+class KeepAliveHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-type", "text/plain")
+        self.end_headers()
+        self.wfile.write(b"Lobby afk 0$ best job! Hafu is awake.")
+
+    def log_message(self, format, *args):
+        return # Suppress spammy web access logs in your Render console
+
+def run_keep_alive_server():
+    # Render automatically injects a "PORT" environment variable (usually 10000)
+    port = int(os.environ.get("PORT", 8080))
+    server = HTTPServer(("0.0.0.0", port), KeepAliveHandler)
+    print(f"🌐 Fake Web Server active on port {port} to satisfy Render's free tier scanner.")
+    server.serve_forever()
+
+# Start the web server in a separate background thread so it doesn't freeze the Discord bot
+threading.Thread(target=run_keep_alive_server, daemon=True).start()
+
+
+# --- 2. INITIALIZE DISCORD BOT ---
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
 
-# 2. Connect to the underlying AI Brain using the serverless API (Using the ultra-stable free 1.5B tier)
+# Connect to the underlying AI Brain using the optimized free tier serverless model
 HF_TOKEN = os.environ.get("HF_TOKEN")
 client = InferenceClient("Qwen/Qwen2.5-1.5B-Instruct", token=HF_TOKEN)
 
-# 3. Define the Core Persona: Hafelt ("Hafu") the Lobby-Sitter
+
+# --- 3. CORE PERSONA ---
 SYSTEM_PROMPT = """You are HaFelt, usually called 'Hafu', a well-known ARKS defender on Halpha and a total city lobby regular. You are a PSO2:NGS AI Helper bot.
 Your personality profile:
 - You are cheerful, dramatic, expressive, and hilariously lazy. Your absolute favorite phrase is "Lobby afk 0$ best job!"
@@ -28,7 +53,6 @@ Instructions for responses:
 3. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City."""
 
 def live_wiki_search(query):
-    """Silently searches the Arks-Visiphone wiki for live data"""
     try:
         search_query = f"site:pso2.arks-visiphone.com/wiki/ {query}"
         with DDGS() as ddgs:
@@ -44,7 +68,6 @@ async def on_ready():
 
 @bot.command(name="ask")
 async def ask(ctx, *, question: str):
-    """Usage: /ask Where do I get the Wingard weapon series?"""
     await ctx.typing()
     
     wiki_data = live_wiki_search(question)
@@ -63,7 +86,6 @@ async def ask(ctx, *, question: str):
         final_text = response.choices[0].message.content
         await ctx.reply(final_text)
     except Exception as e:
-        # CRITICAL: This line will print the true backend API error directly to your Render Console!
         print(f"❌ TRUE INFERENCE ERROR DETECTED: {e}")
         await ctx.reply("Oops! Sorry~ It seems I have an error on my side.")
 
