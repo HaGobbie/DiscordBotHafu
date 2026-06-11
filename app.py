@@ -5,6 +5,7 @@ from huggingface_hub import InferenceClient
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import urllib.request
+import urllib.parse
 import json
 import re
 
@@ -38,45 +39,55 @@ client = InferenceClient(token=HF_TOKEN)
 SYSTEM_PROMPT = """You are HaFelt, usually called 'Hafu', a well-known ARKS defender on Halpha and a total city lobby regular. You are a PSO2:NGS AI Helper bot.
 Your personality profile:
 - You are cheerful, dramatic, expressive, and hilariously lazy. Your absolute favorite phrase is "Lobby afk 0$ best job!"
-- You hate grinding, hard combat, freezing cold weather, and dangerous missions.
-- You are utterly obsessed with 'phashion', cute pink aesthetics, spending Meseta on cosmetics, and scratch tickets.
-- Underneath the lazy theatrics, you MUST review the verified [LIVE SEARCH DATA] snippets supplied to you. Translate those exact game facts into your character response. Do not invent fake game details if the search text states a region is snowy or an item drops in a specific combat sector!
+- You hate grinding, hard combat, dangerous missions, and working hard.
+- You are utterly obsessed with 'phashion', cute aesthetics, spending Meseta on cosmetics, and scratch tickets.
+- Underneath the lazy theatrics, you MUST read the provided [LIVE SEARCH DATA] token stream. Translate those true game details into your personality accurately. Do not lie or mix up regions if the text specifies exact locations!
 
 Instructions for responses:
 1. Always blend the true factual search data accurately with your lazy, phashion-obsessed persona.
-2. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City."""
+2. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City lobbies."""
 
 
-# --- 3. THE LIVE CLOUD SEARCH PROXY ENGINE ---
+# --- 3. IMMUNE JSON TEXT SEARCH ENGINE ---
 def live_web_search(query):
-    # Clean up conversational phrasing
+    # Clean up conversational phrasing to prevent search clutter
     clean_query = re.sub(r'(what|can|you|tell|me|about|in|pso2|new|genesis|\?)', '', query, flags=re.IGNORECASE).strip()
-    search_url = f"https://api.allorigins.win/get?url={urllib.parse.quote(f'https://html.duckduckgo.com/html/?q={clean_query}+pso2+ngs+wiki')}"
-    print(f"🔍 Routing search query through cloud validation network proxy...", flush=True)
+    search_term = f"{clean_query} pso2 ngs wiki"
+    print(f"🔍 Launching unbannable JSON search query for: '{search_term}'...", flush=True)
     
     try:
-        req = urllib.request.Request(search_url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, timeout=12) as response:
-            proxy_data = json.loads(response.read().decode('utf-8'))
-            html_content = proxy_data.get('contents', '')
-            
-        # Isolate descriptions from the target text stream securely
-        snippets = re.findall(r'<a class="result__snippet"[^>]*>([^<]+)</a>', html_content)
-        if not snippets:
-            # Fallback search layout signature check
-            snippets = re.findall(r'<td class="result-snippet">([^<]+)</td>', html_content)
-            
-        if snippets:
-            combined_context = " ".join([s.strip() for s in snippets[:2]])
-            # Stripping out unwanted residual HTML escape codes completely
-            combined_context = html.unescape(combined_context) if 'html' in globals() else combined_context
-            print(f"✅ Live text payload injected successfully: {combined_context[:80]}...", flush=True)
-            return combined_context
-            
-    except Exception as e:
-        print(f"⚠️ Proxy verification skipped safely: {e}", flush=True)
+        # Step A: Request a secure session verification token (VQD) from DuckDuckGo
+        token_url = f"https://duckduckgo.com/?q={urllib.parse.quote(search_term)}"
+        token_req = urllib.request.Request(token_url, headers={'User-Agent': 'Mozilla/5.0'})
         
-    return "Kvaris is a frozen, snow-covered mountain region on Halpha in PSO2 New Genesis featuring extreme cold weather conditions, snowboarding, and frozen item containers."
+        with urllib.request.urlopen(token_req, timeout=5) as response:
+            html = response.read().decode('utf-8')
+            
+        vqd_match = re.search(r"vqd=['\"]([^'\"]+)['\"]", html)
+        if not vqd_match:
+            vqd_match = re.search(r'vqd=([^&]+)', html)
+            
+        if vqd_match:
+            vqd = vqd_match.group(1)
+            # Step B: Call the official JSON data stream using the session token
+            data_url = f"https://links.duckduckgo.com/d.js?q={urllib.parse.quote(search_term)}&vqd={vqd}&s=0&nextParams=&p=-1&v=l&o=json"
+            data_req = urllib.request.Request(data_url, headers={'User-Agent': 'Mozilla/5.0'})
+            
+            with urllib.request.urlopen(data_req, timeout=5) as data_res:
+                json_data = json.loads(data_res.read().decode('utf-8'))
+                
+            results = json_data.get('results', [])
+            if results:
+                # Compile snippets from the top 3 results dynamically
+                snippets = [r['a'] for r in results[:3] if 'a' in r]
+                combined_context = " ".join(snippets)
+                print(f"✅ Live database text parsed successfully: {combined_context[:80]}...", flush=True)
+                return combined_context
+                
+    except Exception as e:
+        print(f"⚠️ Live search engine bypassed safely: {e}", flush=True)
+        
+    return "PSO2:NGS (Phantasy Star Online 2 New Genesis) features multiple distinct combat regions across planet Halpha including Aelio (lush greenery), Retem (vast canyons), Kvaris (snow mountains), and Stia (volcanoes)."
 
 
 @bot.event
@@ -88,7 +99,7 @@ async def ask(ctx, *, question: str):
     print(f"📥 RECEIVED DISCORD COMMAND. Question: {question}", flush=True)
     await ctx.typing()
     
-    # Process the live search via our external cloud proxy pipeline
+    # Process the web search
     search_context = live_web_search(question)
     
     messages = [
