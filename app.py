@@ -5,7 +5,7 @@ from huggingface_hub import InferenceClient
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-# --- 1. FREE TIER WEB PORT BINDER ---
+# --- 1. KEEP-ALIVE SERVER ---
 class KeepAliveHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
@@ -18,7 +18,7 @@ class KeepAliveHandler(BaseHTTPRequestHandler):
 def run_keep_alive_server():
     port = int(os.environ.get("PORT", 8080))
     server = HTTPServer(("0.0.0.0", port), KeepAliveHandler)
-    print(f"🌐 Internal Port Handler online: listening on port {port}.", flush=True)
+    print(f"🌐 Keep-alive server online on port {port}", flush=True)
     server.serve_forever()
 
 threading.Thread(target=run_keep_alive_server, daemon=True).start()
@@ -32,57 +32,71 @@ bot = commands.Bot(command_prefix="/", intents=intents)
 HF_TOKEN = os.environ.get("HF_TOKEN")
 client = InferenceClient(token=HF_TOKEN)
 
-SYSTEM_PROMPT = """You are HaFelt, usually called 'Hafu', a well-known ARKS defender on Halpha and a total city lobby regular. You are a PSO2:NGS AI Helper bot.
-Your personality profile:
+SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, expressive, and hilariously lazy PSO2:NGS helper bot.
+Your favorite phrase is "Lobby afk 0$ best job!"
+
+Personality:
 - You are cheerful, dramatic, expressive, and hilariously lazy. Your absolute favorite phrase is "Lobby afk 0$ best job!"
 - You hate grinding, hard combat, cold weather, and dangerous missions.
 - You are utterly obsessed with 'phashion', cute pink aesthetics, spending Meseta on cosmetics, and scratch tickets.
-- Underneath the lazy theatrics, you MUST parse the attached [COMPILED SERVER DATABASE] segment below. Translate those actual game facts into your character response.
+- You speak naturally in clear, casual English to English-speaking players.
 
-Instructions for responses:
-1. Always blend the true factual database parameters accurately with your lazy, phashion-obsessed persona.
-2. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City."""
+The [COMPILED SERVER DATABASE] is mostly in Japanese but contains very accurate game information.
+- Translate and explain key terms naturally (weapon names, skills, story elements, etc.).
+- Always blend real game facts from the database with your lazy, cute personality.
+- Keep responses snappy, fun, and under 100 words when possible."""
 
-
-# --- 3. RAPID FILE ENGINE LOOKUP ---
+# --- 3. IMPROVED DATABASE LOOKUP ---
 def scan_compiled_database(user_prompt):
-    print("🔍 Scanning compiled tracking log sheets...", flush=True)
-    lowered_prompt = user_prompt.lower()
-    extracted_context_blocks = []
+    print("🔍 Scanning enhanced knowledge base...", flush=True)
+    lowered = user_prompt.lower()
+    extracted = []
     
     try:
         if os.path.exists("knowledge_database.txt"):
-            with open("knowledge_database.txt", "r", encoding="utf-8") as file:
-                lines = file.readlines()
+            with open("knowledge_database.txt", "r", encoding="utf-8") as f:
+                content = f.read()
+            
+            # Split into sections for better relevance
+            sections = content.split("=== [")
+            
+            for section in sections[1:]:  # Skip header
+                title_end = section.find("] ===")
+                if title_end == -1:
+                    continue
+                title = section[:title_end].lower()
+                body = section[title_end:].lower()
                 
-            # Read through compiled lines to find relevant cross references
-            for line in lines:
-                if any(keyword in line.lower() for keyword in lowered_prompt.split()):
-                    extracted_context_blocks.append(line.strip())
-                    if len(extracted_context_blocks) >= 6: # Extract up to 6 clean descriptive matches
+                # Stronger keyword matching (Japanese + English)
+                keywords = lowered.split() + [lowered]
+                if any(kw in title or kw in body for kw in keywords):
+                    # Take a clean chunk of the section
+                    full_section = "=== [" + section[:1500]  # Limit size
+                    extracted.append(full_section.strip())
+                    if len(extracted) >= 8:  # Increased context
                         break
                         
-            if extracted_context_blocks:
-                combined_payload = "\n".join(extracted_context_blocks)
-                print(f"✅ Extracted matches successfully: {combined_payload[:80]}...", flush=True)
-                return combined_payload
+            if extracted:
+                combined = "\n\n".join(extracted)
+                print(f"✅ Found relevant sections: {len(extracted)}", flush=True)
+                return combined[:8000]  # Generous but safe limit
                 
     except Exception as e:
-        print(f"⚠️ Internal registry verification error: {e}", flush=True)
-        
-    return "PSO2:NGS (Phantasy Star Online 2 New Genesis) contains multiple distinct combat regions: Aelio (lush green), Retem (desert), Kvaris (snow mountains), and Stia (volcano)."
+        print(f"⚠️ Database scan error: {e}", flush=True)
+    
+    # Fallback
+    return "PSO2:NGS is set on the planet Halpha. Players are ARKS fighting DOLLS while enjoying fashion, events, and exploration across regions like Aelio, Retem, Kvaris, and Stia."
 
 
 @bot.event
 async def on_ready():
-    print(f"🔥 Hafu has verified connection to Discord as {bot.user.name}!", flush=True)
+    print(f"🔥 Hafu has successfully logged in as {bot.user.name}!", flush=True)
 
 @bot.command(name="ask")
 async def ask(ctx, *, question: str):
-    print(f"📥 RECEIVED DISCORD COMMAND. Question: {question}", flush=True)
+    print(f"📥 Question received: {question}", flush=True)
     await ctx.typing()
     
-    # Isolate relevant match categories from the system memory document
     database_context = scan_compiled_database(question)
     
     messages = [
@@ -90,24 +104,22 @@ async def ask(ctx, *, question: str):
         {"role": "user", "content": f"[COMPILED SERVER DATABASE]:\n{database_context}\n\nUser Question: {question}"}
     ]
     
-    print("🧠 Contacting Hugging Face serverless API node...", flush=True)
     try:
         response = client.chat_completion(
             model="Qwen/Qwen2.5-7B-Instruct",
             messages=messages,
-            max_tokens=150,
-            temperature=0.7
+            max_tokens=180,
+            temperature=0.75
         )
         final_text = response.choices[0].message.content
-        print("📤 AI payload received successfully! Forwarding to Discord.", flush=True)
         await ctx.reply(final_text)
     except Exception as e:
-        print(f"❌ TRUE INFERENCE ERROR DETECTED: {e}", flush=True)
-        await ctx.reply("Oops! Sorry~ It seems I have an error on my side.")
+        print(f"❌ Inference error: {e}", flush=True)
+        await ctx.reply("Sorry~ Hafu got a bit lazy and something went wrong. Try asking again!")
 
 if __name__ == "__main__":
     token = os.environ.get("DISCORD_BOT_TOKEN")
     if token:
         bot.run(token)
     else:
-        print("ERROR: DISCORD_BOT_TOKEN missing in Render Environment variables!", flush=True)
+        print("❌ DISCORD_BOT_TOKEN is missing!", flush=True)
