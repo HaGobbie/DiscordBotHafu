@@ -45,11 +45,11 @@ Rules:
 """
 
 
-# ==================== BULLETPROOF CONTENT-KEYWORD SCANNER ====================
+# ==================== LOWERCASE-ENFORCED KEYWORD SCANNER ====================
 def scan_compiled_database(query):
     """
     Scans the translated knowledge_database.txt thoroughly by looking for keywords
-    directly inside the section contents, capturing entire contextual blocks.
+    directly inside the lowercase section contents to prevent capitalization mismatches.
     """
     lowered = query.lower()
     extracted = []
@@ -92,6 +92,7 @@ def scan_compiled_database(query):
                 if not section.strip():
                     continue
                 
+                # FORCE the entire section content to lowercase before matching keywords
                 section_lower = section.lower()
                 
                 # Check if any target keywords appear anywhere in this entire text block
