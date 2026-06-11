@@ -41,48 +41,46 @@ Your personality profile:
 - You are cheerful, dramatic, expressive, and hilariously lazy. Your absolute favorite phrase is "Lobby afk 0$ best job!"
 - You hate grinding, hard combat, freezing weather, and dangerous missions.
 - You are utterly obsessed with 'phashion', cute pink aesthetics, spending Meseta on cosmetics, and scratch tickets.
-- Underneath the lazy theatrics, you MUST look at the [LIVE REFRESH DATA] provided below. Use those true facts to answer accurately. Do not make up random lore if the search data says a region is frozen or an item drops somewhere specific!
+- Underneath the lazy theatrics, you MUST look at the [LIVE SEARCH DATA] provided below. Use those true game facts to answer accurately. Do not make up random lore if the search data says a region is frozen or an item drops somewhere specific!
 
 Instructions for responses:
 1. Always blend the true factual search data accurately with your lazy, phashion-obsessed persona.
 2. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City."""
 
 
-# --- 3. GUARANTEED ZERO-SCRAPE WIKIPEDIA OPEN DATA ENGINE ---
+# --- 3. DUCKDUKGO ZERO-CLICK DATA ENGINE ---
 def live_web_search(query):
-    # Strip conversational noise to get the core keyword
+    # Keep the query direct and focused on the core game domain
     clean_query = re.sub(r'(what|can|you|tell|me|about|in|pso2|new|genesis|\?)', '', query, flags=re.IGNORECASE)
     clean_query = re.sub(r'[^a-zA-Z0-9\s]', '', clean_query).strip()
     
-    # Append context anchor keywords to keep the open search tightly relevant to gaming parameters
-    search_term = f"{clean_query} Phantasy Star Online 2 New Genesis"
-    print(f"🔍 Contacting Open Data Engine API for: '{search_term}'...", flush=True)
+    search_term = f"{clean_query} PSO2 NGS"
+    print(f"🔍 Fetching Instant Answer Data Matrix for: '{search_term}'...", flush=True)
     
     try:
-        # Wikipedia OpenSearch API returns direct structured JSON matrices instead of HTML text streams
-        url = "https://en.wikipedia.org/w/api.php?" + urllib.parse.urlencode({
-            'action': 'opensearch',
-            'search': search_term,
-            'limit': 1,
-            'namespace': 0,
-            'format': 'json'
-        })
+        # Using DuckDuckGo's official backend API for instant answers - returns raw JSON, completely immune to HTML structural changes
+        url = f"https://api.duckduckgo.com/?q={urllib.parse.quote(search_term)}&format=json&no_html=1&skip_disambig=1"
         
         req = urllib.request.Request(url, headers={'User-Agent': 'HafuBotNGS/1.0'})
         with urllib.request.urlopen(req, timeout=10) as response:
             data = json.loads(response.read().decode('utf-8'))
             
-        # Format index 2 containing direct conceptual textual profiles
-        if len(data) > 2 and data[2]:
-            extracted_context = data[2][0]
-            if extracted_context:
-                print(f"✅ Open Data string injected successfully: {extracted_context[:80]}...", flush=True)
-                return extracted_context
-                
-    except Exception as e:
-        print(f"⚠️ Live data lookup failed safely: {e}", flush=True)
+        # Extract the official web Abstract text snippet
+        abstract = data.get('AbstractText', '')
         
-    return "No live data retrieved. Rely on baseline parameters."
+        # If the main abstract is empty, fall back to checking their instant text topic summaries
+        if not abstract and data.get('RelatedTopics'):
+            abstract = data['RelatedTopics'][0].get('Text', '')
+            
+        if abstract:
+            print(f"✅ Live text payload injected successfully: {abstract[:80]}...", flush=True)
+            return abstract
+            
+    except Exception as e:
+        print(f"⚠️ Live context call skipped: {e}", flush=True)
+        
+    print("⚠️ No data matches found. Falling back to default model parameters.", flush=True)
+    return "No live search engine metrics found. Rely on default baseline PSO2:NGS data parameters."
 
 
 @bot.event
@@ -94,12 +92,12 @@ async def ask(ctx, *, question: str):
     print(f"📥 RECEIVED DISCORD COMMAND. Question: {question}", flush=True)
     await ctx.typing()
     
-    # Fetch live query text content profiles
+    # Process the dynamic data retrieval string natively
     search_context = live_web_search(question)
     
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": f"[LIVE REFRESH DATA]:\n{search_context}\n\nUser Question: {question}"}
+        {"role": "user", "content": f"[LIVE SEARCH DATA]:\n{search_context}\n\nUser Question: {question}"}
     ]
     
     print("🧠 Contacting Hugging Face serverless API node...", flush=True)
