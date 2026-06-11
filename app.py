@@ -10,7 +10,7 @@ intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
 
 # 2. Connect directly to the underlying AI Brain using the free Serverless API
-client = InferenceClient("Qwen/Qwen2.5-7B-Instruct")
+client = InferenceClient("Qwen/Qwen2.5-7B-Instruct", token=os.environ.get("HF_TOKEN"))
 
 # 3. Define the Core Persona: Hafelt ("Hafu") the Lobby-Sitter
 SYSTEM_PROMPT = """You are HaFelt, usually called 'Hafu', a well-known ARKS defender on Halpha and a total city lobby regular. You are a PSO2:NGS AI Helper bot.
