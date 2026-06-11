@@ -6,6 +6,7 @@ import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import urllib.request
 import urllib.parse
+import json
 import re
 
 # --- 1. FREE TIER WEB PORT BINDER ---
@@ -40,43 +41,46 @@ Your personality profile:
 - You are cheerful, dramatic, expressive, and hilariously lazy. Your absolute favorite phrase is "Lobby afk 0$ best job!"
 - You hate grinding, hard combat, freezing weather, and dangerous missions.
 - You are utterly obsessed with 'phashion', cute pink aesthetics, spending Meseta on cosmetics, and scratch tickets.
-- Underneath the lazy theatrics, you MUST look at the [LIVE SEARCH DATA] provided below. Use those true game facts to answer accurately. Do not make up random lore if the search data says a region is frozen or an item drops somewhere specific!
+- Underneath the lazy theatrics, you MUST look at the [LIVE REFRESH DATA] provided below. Use those true facts to answer accurately. Do not make up random lore if the search data says a region is frozen or an item drops somewhere specific!
 
 Instructions for responses:
 1. Always blend the true factual search data accurately with your lazy, phashion-obsessed persona.
 2. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City."""
 
 
-# --- 3. BULLETPROOF LIVE DUCKDUKGO LITE SEARCH ENGINE ---
+# --- 3. GUARANTEED ZERO-SCRAPE WIKIPEDIA OPEN DATA ENGINE ---
 def live_web_search(query):
-    # Strip game meta questions so search engines stay focused purely on raw game content strings
-    clean_query = re.sub(r'(what|can|you|tell|me|about|in|pso2|new|genesis|\?)', '', query, flags=re.IGNORECASE).strip()
-    search_target = f"site:pso2ngs.miraheze.org/wiki/ {clean_query}"
-    print(f"🔍 Executing permanent DuckDuckGo Live Search for: '{search_target}'...", flush=True)
+    # Strip conversational noise to get the core keyword
+    clean_query = re.sub(r'(what|can|you|tell|me|about|in|pso2|new|genesis|\?)', '', query, flags=re.IGNORECASE)
+    clean_query = re.sub(r'[^a-zA-Z0-9\s]', '', clean_query).strip()
+    
+    # Append context anchor keywords to keep the open search tightly relevant to gaming parameters
+    search_term = f"{clean_query} Phantasy Star Online 2 New Genesis"
+    print(f"🔍 Contacting Open Data Engine API for: '{search_term}'...", flush=True)
     
     try:
-        # DDG Lite API endpoint returns raw, structural text layouts without bloated scripts
-        url = "https://lite.duckduckgo.com/lite/"
-        data = urllib.parse.urlencode({'q': search_target}).encode('utf-8')
+        # Wikipedia OpenSearch API returns direct structured JSON matrices instead of HTML text streams
+        url = "https://en.wikipedia.org/w/api.php?" + urllib.parse.urlencode({
+            'action': 'opensearch',
+            'search': search_term,
+            'limit': 1,
+            'namespace': 0,
+            'format': 'json'
+        })
         
-        req = urllib.request.Request(
-            url, 
-            data=data,
-            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)', 'Content-Type': 'application/x-www-form-urlencoded'}
-        )
-        
+        req = urllib.request.Request(url, headers={'User-Agent': 'HafuBotNGS/1.0'})
         with urllib.request.urlopen(req, timeout=10) as response:
-            html = response.read().decode('utf-8')
+            data = json.loads(response.read().decode('utf-8'))
             
-        # Use clean regex to isolate search descriptions without bulky scraping modules
-        snippets = re.findall(r'<td class="result-snippet">([^<]+)</td>', html)
-        if snippets:
-            combined_search_data = " ".join([s.strip() for s in snippets[:2]])
-            print(f"✅ Live context found: {combined_search_data[:80]}...", flush=True)
-            return combined_search_data
-            
+        # Format index 2 containing direct conceptual textual profiles
+        if len(data) > 2 and data[2]:
+            extracted_context = data[2][0]
+            if extracted_context:
+                print(f"✅ Open Data string injected successfully: {extracted_context[:80]}...", flush=True)
+                return extracted_context
+                
     except Exception as e:
-        print(f"⚠️ Live search engine failed safely: {e}", flush=True)
+        print(f"⚠️ Live data lookup failed safely: {e}", flush=True)
         
     return "No live data retrieved. Rely on baseline parameters."
 
@@ -90,12 +94,12 @@ async def ask(ctx, *, question: str):
     print(f"📥 RECEIVED DISCORD COMMAND. Question: {question}", flush=True)
     await ctx.typing()
     
-    # Run the live query pull
+    # Fetch live query text content profiles
     search_context = live_web_search(question)
     
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": f"[LIVE SEARCH DATA]:\n{search_context}\n\nUser Question: {question}"}
+        {"role": "user", "content": f"[LIVE REFRESH DATA]:\n{search_context}\n\nUser Question: {question}"}
     ]
     
     print("🧠 Contacting Hugging Face serverless API node...", flush=True)
