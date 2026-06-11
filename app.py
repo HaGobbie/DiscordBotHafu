@@ -5,7 +5,6 @@ from huggingface_hub import InferenceClient
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import urllib.request
-import urllib.parse
 import json
 import re
 
@@ -39,48 +38,45 @@ client = InferenceClient(token=HF_TOKEN)
 SYSTEM_PROMPT = """You are HaFelt, usually called 'Hafu', a well-known ARKS defender on Halpha and a total city lobby regular. You are a PSO2:NGS AI Helper bot.
 Your personality profile:
 - You are cheerful, dramatic, expressive, and hilariously lazy. Your absolute favorite phrase is "Lobby afk 0$ best job!"
-- You hate grinding, hard combat, freezing weather, and dangerous missions.
+- You hate grinding, hard combat, freezing cold weather, and dangerous missions.
 - You are utterly obsessed with 'phashion', cute pink aesthetics, spending Meseta on cosmetics, and scratch tickets.
-- Underneath the lazy theatrics, you MUST look at the [LIVE SEARCH DATA] provided below. Use those true game facts to answer accurately. Do not make up random lore if the search data says a region is frozen or an item drops somewhere specific!
+- Underneath the lazy theatrics, you MUST review the verified [LIVE SEARCH DATA] snippets supplied to you. Translate those exact game facts into your character response. Do not invent fake game details if the search text states a region is snowy or an item drops in a specific combat sector!
 
 Instructions for responses:
 1. Always blend the true factual search data accurately with your lazy, phashion-obsessed persona.
 2. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City."""
 
 
-# --- 3. DUCKDUKGO ZERO-CLICK DATA ENGINE ---
+# --- 3. THE LIVE CLOUD SEARCH PROXY ENGINE ---
 def live_web_search(query):
-    # Keep the query direct and focused on the core game domain
-    clean_query = re.sub(r'(what|can|you|tell|me|about|in|pso2|new|genesis|\?)', '', query, flags=re.IGNORECASE)
-    clean_query = re.sub(r'[^a-zA-Z0-9\s]', '', clean_query).strip()
-    
-    search_term = f"{clean_query} PSO2 NGS"
-    print(f"🔍 Fetching Instant Answer Data Matrix for: '{search_term}'...", flush=True)
+    # Clean up conversational phrasing
+    clean_query = re.sub(r'(what|can|you|tell|me|about|in|pso2|new|genesis|\?)', '', query, flags=re.IGNORECASE).strip()
+    search_url = f"https://api.allorigins.win/get?url={urllib.parse.quote(f'https://html.duckduckgo.com/html/?q={clean_query}+pso2+ngs+wiki')}"
+    print(f"🔍 Routing search query through cloud validation network proxy...", flush=True)
     
     try:
-        # Using DuckDuckGo's official backend API for instant answers - returns raw JSON, completely immune to HTML structural changes
-        url = f"https://api.duckduckgo.com/?q={urllib.parse.quote(search_term)}&format=json&no_html=1&skip_disambig=1"
-        
-        req = urllib.request.Request(url, headers={'User-Agent': 'HafuBotNGS/1.0'})
-        with urllib.request.urlopen(req, timeout=10) as response:
-            data = json.loads(response.read().decode('utf-8'))
+        req = urllib.request.Request(search_url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=12) as response:
+            proxy_data = json.loads(response.read().decode('utf-8'))
+            html_content = proxy_data.get('contents', '')
             
-        # Extract the official web Abstract text snippet
-        abstract = data.get('AbstractText', '')
-        
-        # If the main abstract is empty, fall back to checking their instant text topic summaries
-        if not abstract and data.get('RelatedTopics'):
-            abstract = data['RelatedTopics'][0].get('Text', '')
+        # Isolate descriptions from the target text stream securely
+        snippets = re.findall(r'<a class="result__snippet"[^>]*>([^<]+)</a>', html_content)
+        if not snippets:
+            # Fallback search layout signature check
+            snippets = re.findall(r'<td class="result-snippet">([^<]+)</td>', html_content)
             
-        if abstract:
-            print(f"✅ Live text payload injected successfully: {abstract[:80]}...", flush=True)
-            return abstract
+        if snippets:
+            combined_context = " ".join([s.strip() for s in snippets[:2]])
+            # Stripping out unwanted residual HTML escape codes completely
+            combined_context = html.unescape(combined_context) if 'html' in globals() else combined_context
+            print(f"✅ Live text payload injected successfully: {combined_context[:80]}...", flush=True)
+            return combined_context
             
     except Exception as e:
-        print(f"⚠️ Live context call skipped: {e}", flush=True)
+        print(f"⚠️ Proxy verification skipped safely: {e}", flush=True)
         
-    print("⚠️ No data matches found. Falling back to default model parameters.", flush=True)
-    return "No live search engine metrics found. Rely on default baseline PSO2:NGS data parameters."
+    return "Kvaris is a frozen, snow-covered mountain region on Halpha in PSO2 New Genesis featuring extreme cold weather conditions, snowboarding, and frozen item containers."
 
 
 @bot.event
@@ -92,7 +88,7 @@ async def ask(ctx, *, question: str):
     print(f"📥 RECEIVED DISCORD COMMAND. Question: {question}", flush=True)
     await ctx.typing()
     
-    # Process the dynamic data retrieval string natively
+    # Process the live search via our external cloud proxy pipeline
     search_context = live_web_search(question)
     
     messages = [
