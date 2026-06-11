@@ -3,18 +3,34 @@ import re
 import urllib.parse
 from bs4 import BeautifulSoup
 import datetime
+from deep_translator import GoogleTranslator  # <--- Integrated Translation Engine
 
-print("🚀 Launching FULL comprehensive data mirror for pso2ngs.swiki.jp...", flush=True)
+print("🚀 Launching FULL comprehensive translated data mirror for pso2ngs.swiki.jp...", flush=True)
 
 HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) HafuBotNGSDatabase/6.0'}
 DATABASE_FILE = "knowledge_database.txt"
+
+# Initialize translator to handle conversion from Japanese to English
+translator = GoogleTranslator(source='ja', target='en')
 
 def clean_text(text):
     if not text:
         return ""
     text = re.sub(r'\s+', ' ', text)
     text = re.sub(r'<[^>]+>', ' ', text)
-    return text.strip()[:3000]
+    return text.strip()
+
+def safe_translate(text):
+    if not text:
+        return ""
+    try:
+        # Enforce characters limit per request payload requirement of Google API
+        # Truncate to a safe size before translation block execution
+        truncated_text = text[:4500] 
+        return translator.translate(truncated_text)
+    except Exception as e:
+        print(f"   ⚠️ Translation processing error encountered: {e}. Falling back to source payload.", flush=True)
+        return text[:3000]
 
 # Comprehensive Swiki page index targeting in-game mechanics
 TARGET_PAGES = [
@@ -40,9 +56,9 @@ with open(DATABASE_FILE, "w", encoding="utf-8") as db:
     current_time = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
     db.write("=== MASTER REFRESH REPOSITORY FOR HAFU AI ===\n")
     db.write(f"=== LAST UPDATED: {current_time} ===\n\n")
-    db.write("=== FULL IN-GAME DATA REGISTRY (pso2ngs.swiki.jp) ===\n")
+    db.write("=== FULL EN-TRANSLATED IN-GAME DATA REGISTRY ===\n")
 
-# 2. Append parsed content from targeted wiki nodes
+# 2. Append translated content from targeted wiki nodes
 with open(DATABASE_FILE, "a", encoding="utf-8") as db:
     for page in TARGET_PAGES:
         encoded_page = urllib.parse.quote(page)
@@ -61,9 +77,12 @@ with open(DATABASE_FILE, "a", encoding="utf-8") as db:
                 text = content.get_text(separator=' ', strip=True)
                 cleaned = clean_text(text)
                 
+                # Perform translation step
+                translated_text = safe_translate(cleaned)
+                
                 db.write(f"\n=== [{page}] ===\n")
-                db.write(cleaned + "\n\n")
-                print(f"   ✅ Mirrored: {page} ({len(cleaned)} chars)", flush=True)
+                db.write(translated_text + "\n\n")
+                print(f"   ✅ Mirrored & Translated: {page} ({len(translated_text)} chars)", flush=True)
             else:
                 print(f"   ⚠️ Partial data container match for {page}", flush=True)
                 
@@ -80,11 +99,13 @@ with open(DATABASE_FILE, "a", encoding="utf-8") as db:
             html = res.read().decode('utf-8')
         soup = BeautifulSoup(html, 'html.parser')
         texts = [p.get_text(strip=True) for p in soup.find_all(['h2','h3','p']) if len(p.get_text(strip=True)) > 20]
-        for t in texts[:18]:
-            db.write(f"- {clean_text(t)}\\n")
-        print("   ✅ SEGA patch announcement nodes mirrored successfully.", flush=True)
+        
+        combined_sega = " ".join(texts[:12])
+        translated_sega = safe_translate(combined_sega)
+        db.write(translated_sega + "\n")
+        print("   ✅ SEGA patch announcement nodes mirrored and translated successfully.", flush=True)
     except Exception as e:
         print(f"   ⚠️ SEGA fallback route unresolvable: {e}", flush=True)
         db.write("- New seasonal weapon lines and client task distributions active.\n")
 
-print("✨ Database aggregation completed successfully.", flush=True)
+print("✨ Translated database aggregation completed successfully.", flush=True)
