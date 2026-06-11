@@ -5,7 +5,7 @@ from huggingface_hub import InferenceClient
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-# --- 1. KEEP-ALIVE ---
+# --- KEEP-ALIVE ---
 class KeepAliveHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
@@ -24,7 +24,7 @@ def run_keep_alive_server():
 threading.Thread(target=run_keep_alive_server, daemon=True).start()
 
 
-# --- 2. BOT CONFIG ---
+# --- BOT CONFIG ---
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
@@ -35,18 +35,16 @@ client = InferenceClient(token=HF_TOKEN)
 SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, lazy, phashion-obsessed PSO2:NGS helper bot. 
 Favorite phrase: "Lobby afk 0$ best job!"
 
-Rules for answering:
-- Respond in natural, casual English.
-- The database is mostly Japanese. Always translate key names properly.
-  Examples: 真・超星譚祭 ’26 → True Stellar Festival '26
-  レクシオタリス → Lexio Talis (or Rekushio Talis)
-- When asked for "best" or "current" weapon, look for the highest rarity (★15 or LG4) in the database.
-- Quote exact names from the database when possible.
-- Keep replies fun, under 110 words, and accurate."""
+Strict Rules:
+- Respond in natural casual English only.
+- Use ONLY information from the [COMPILED SERVER DATABASE]. Do not hallucinate weapon names or PA names.
+- Translate Japanese terms accurately: レクシオタリス = Lexio Talis, 真・超星譚祭 ’26 = True Stellar Festival '26, コウゲンセイ = Kougensei.
+- When asked for "best" weapon, look for ★15 or LG4 series in the database.
+- Keep replies fun, accurate, and under 110 words."""
 
-# --- 3. STRONGER SCANNER ---
+# --- STRONGER SCANNER ---
 def scan_compiled_database(user_prompt):
-    print("🔍 Scanning knowledge base...", flush=True)
+    print("🔍 Scanning...", flush=True)
     lowered = user_prompt.lower()
     extracted = []
     
@@ -61,28 +59,42 @@ def scan_compiled_database(user_prompt):
                 title_end = section.find("] ===")
                 if title_end == -1:
                     continue
+                    
                 title = section[:title_end].lower()
-                body = section[title_end:].lower()[:2500]
+                body = section[title_end:].lower()[:3000]
                 
-                # Priority boost for important topics
-                priority_words = ["talis", "weapon", "best", "current", "technique", "event", "festival", "レクシオ", "コウゲンセイ", "テクニック"]
-                score = sum(2 if pw in title else 1 for pw in priority_words if pw in title or pw in body)
-                
-                if score >= 1 or any(kw in lowered for kw in ["talis", "weapon", "best", "technique", "event"]):
-                    full_section = "=== [" + section[:2000]
-                    extracted.append(full_section.strip())
-                    if len(extracted) >= 12:   # Pull more sections
+                # Force pull relevant sections
+                if any(word in lowered for word in ["talis", "weapon", "best", "current", "strongest"]):
+                    if "talis" in title or "weapon" in title or "タリス" in section:
+                        extracted.append("=== [" + section[:2200])
+                        continue
+                        
+                if any(word in lowered for word in ["event", "festival", "current event"]):
+                    if "超星譚祭" in section or "festival" in title:
+                        extracted.append("=== [" + section[:2200])
+                        continue
+                        
+                if any(word in lowered for word in ["technique", "photon art", "pa", "art"]):
+                    if "テクニック" in section or "photon" in title:
+                        extracted.append("=== [" + section[:2200])
+                        continue
+                        
+                # Normal matching
+                keywords = lowered.split()
+                if any(kw in title or kw in body for kw in keywords):
+                    extracted.append("=== [" + section[:2000])
+                    if len(extracted) >= 12:
                         break
                         
             if extracted:
                 combined = "\n\n".join(extracted)
-                print(f"✅ Extracted {len(extracted)} sections", flush=True)
-                return combined[:12000]   # Increased limit
+                print(f"✅ Pulled {len(extracted)} sections", flush=True)
+                return combined[:13000]
                 
     except Exception as e:
-        print(f"⚠️ Scan error: {e}", flush=True)
+        print(f"Scan error: {e}", flush=True)
     
-    return "PSO2:NGS is on planet Halpha. ARKS fight DOLLS while enjoying fashion and events."
+    return "Current top weapons are from the Kougensei (★15) and Lexio series. Check the database for latest Talis recommendations."
 
 
 @bot.event
@@ -105,14 +117,14 @@ async def ask(ctx, *, question: str):
         response = client.chat_completion(
             model="Qwen/Qwen2.5-7B-Instruct",
             messages=messages,
-            max_tokens=220,
-            temperature=0.68
+            max_tokens=200,
+            temperature=0.65
         )
         final_text = response.choices[0].message.content.strip()
         await ctx.reply(final_text)
     except Exception as e:
         print(f"❌ Error: {e}", flush=True)
-        await ctx.reply("Sorry~ Hafu was busy looking at scratch tickets. Ask me again!")
+        await ctx.reply("Sorry~ Hafu was busy shopping for pink outfits. Try asking again!")
 
 if __name__ == "__main__":
     token = os.environ.get("DISCORD_BOT_TOKEN")
