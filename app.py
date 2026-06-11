@@ -12,14 +12,13 @@ class KeepAliveHandler(BaseHTTPRequestHandler):
         self.send_header("Content-type", "text/plain")
         self.end_headers()
         self.wfile.write(b"Lobby afk 0$ best job! Hafu is awake.")
-
     def log_message(self, format, *args):
         return 
 
 def run_keep_alive_server():
     port = int(os.environ.get("PORT", 8080))
     server = HTTPServer(("0.0.0.0", port), KeepAliveHandler)
-    print(f"🌐 Fake Web Server active on port {port} to satisfy Render's free tier scanner.")
+    print(f"🌐 Fake Web Server active on port {port}.")
     server.serve_forever()
 
 threading.Thread(target=run_keep_alive_server, daemon=True).start()
@@ -30,9 +29,9 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
 
-# Connect to the Hugging Face Serverless API Engine
+# Fetch Token directly during initiation
 HF_TOKEN = os.environ.get("HF_TOKEN")
-client = InferenceClient(api_key=HF_TOKEN)
+client = InferenceClient(token=HF_TOKEN)
 
 
 # --- 3. CORE PERSONA ---
@@ -63,8 +62,9 @@ async def ask(ctx, *, question: str):
     ]
     
     try:
-        response = client.chat.completions.create(
-            model="meta-llama/Llama-3.1-8B-Instruct",
+        # Using a model that requires zero agreements/permissions and the most stable routing method
+        response = client.chat_completion(
+            model="HuggingFaceH4/zephyr-7b-beta",
             messages=messages,
             max_tokens=150,
             temperature=0.7
