@@ -81,3 +81,4 @@ if __name__ == "__main__":
         bot.run(token)
     else:
         print("ERROR: DISCORD_BOT_TOKEN secret key missing in settings!")
+# Force redeploy script check
