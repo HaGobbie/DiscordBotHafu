@@ -45,76 +45,66 @@ Rules:
 """
 
 
-# ==================== LOWERCASE-ENFORCED KEYWORD SCANNER ====================
+# ==================== GLOBAL PARAGRAPH-MATCHING SCANNER ====================
 def scan_compiled_database(query):
     """
-    Scans the translated knowledge_database.txt thoroughly by looking for keywords
-    directly inside the lowercase section contents to prevent capitalization mismatches.
+    Scans the entire database file globally. Instead of splitting by massive 
+    page headings, it extracts lines and paragraphs containing direct keyword 
+    hits to prevent truncation issues.
     """
     lowered = query.lower()
-    extracted = []
+    extracted_chunks = []
     
-    # Mapping to guide the scanner to include relevant adjacent content blocks
-    category_map = {
-        "technique": ["technique", "grants", "barta", "foie", "zonde", "foie"],
-        "light": ["technique", "grants", "light element"],
-        "rifle": ["assault rifle", "ranger", "rifle"],
-        "assault": ["assault rifle"],
-        "photon art": ["photon art", "pa", "hunter", "ranger", "fighter", "skills"],
-        "pa": ["photon art", "pa", "skills"],
-        "sword": ["sword", "hunter"],
-        "weapon": ["weapon", "equipment", "sword", "rifle"],
-        "armor": ["armor", "unit", "defense"],
-        "central city": ["central city", "aelio", "city"],
-        "aelio": ["aelio", "region"],
-        "sega": ["sega", "announcements", "update"],
-        "update": ["sega", "update", "patch"]
-    }
-    
-    # Gather search tokens based on user question intent
-    target_keywords = [w for w in lowered.split() if len(w) > 3]
-    for key, keywords in category_map.items():
-        if key in lowered:
-            target_keywords.extend(keywords)
-            
-    # De-duplicate search criteria
-    target_keywords = list(set(target_keywords))
+    # Map common player search phrases directly to relevant terminology terms
+    search_terms = [w for w in lowered.split() if len(w) > 3]
+    if "light" in lowered:
+        search_terms.extend(["grants", "technique", "light"])
+    if "rifle" in lowered:
+        search_terms.extend(["assault rifle", "rifle", "photon art"])
+    if "sword" in lowered:
+        search_terms.extend(["sword", "hunter", "weapon"])
+    if "city" in lowered or "aelio" in lowered:
+        search_terms.extend(["central city", "aelio", "region"])
+
+    # Remove duplicates
+    search_terms = list(set(search_terms))
 
     try:
         if os.path.exists("knowledge_database.txt"):
             with open("knowledge_database.txt", "r", encoding="utf-8") as f:
-                content = f.read()
+                full_text = f.read()
             
-            # Split using the plain header name delimiter
-            sections = content.split("=== [")
+            # Split the entire document by sentence blocks/periods to find close context matches
+            sentences = full_text.split(". ")
             
-            for section in sections:
-                if not section.strip():
-                    continue
+            current_context_chunk = []
+            for idx, sentence in enumerate(sentences):
+                sentence_lower = sentence.lower()
                 
-                # FORCE the entire section content to lowercase before matching keywords
-                section_lower = section.lower()
+                # If a sentence contains any of our key metrics, grab it along with surrounding sentences
+                if any(term in sentence_lower for term in search_terms):
+                    # Pull preceding and proceeding lines for structural context cohesion
+                    start = max(0, idx - 2)
+                    end = min(len(sentences), idx + 3)
+                    
+                    context_snippet = ". ".join(sentences[start:end])
+                    if context_snippet not in extracted_chunks:
+                        extracted_chunks.append(context_snippet)
                 
-                # Check if any target keywords appear anywhere in this entire text block
-                if any(keyword in section_lower for keyword in target_keywords):
-                    # Pull a massive, generous 5000 character segment from the match block
-                    reconstructed = "=== [" + section[:5000]
-                    extracted.append(reconstructed)
-                
-                # Cap the array length to stay safely within Llama's total context limits
-                if len(extracted) >= 4:
+                # Safety cap to keep within context limits
+                if len(extracted_chunks) >= 12:
                     break
-            
-            # Always make sure the live update feed is visible at the bottom
-            if "=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===" in content:
-                sega_segment = content.split("=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===")[-1]
-                extracted.append(f"=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n{sega_segment[:2500]}")
+                    
+            # Always ensure seasonal live update visibility remains appended
+            if "=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===" in full_text:
+                sega_segment = full_text.split("=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===")[-1]
+                extracted_chunks.append(f"\n=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n{sega_segment[:2000]}")
 
-        if extracted:
-            return "\n\n".join(extracted)[:14500]
+        if extracted_chunks:
+            return "\n\n... ".join(extracted_chunks)[:14000]
             
     except Exception as e:
-        print(f"Error scanning knowledge database file: {e}")
+        print(f"Error scanning knowledge database globally: {e}")
         
     return "No specific data found."
 
@@ -128,7 +118,7 @@ async def on_ready():
 async def ask(ctx, *, question: str):
     await ctx.typing()
     
-    # 1. Fetch targeted search blocks from the database
+    # 1. Fetch deep context blocks from the global registry file
     db_context = scan_compiled_database(question)
     
     # 2. Construct messages frame payload
