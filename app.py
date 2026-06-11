@@ -4,6 +4,10 @@ from discord.ext import commands
 from huggingface_hub import InferenceClient
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
+import urllib.request
+import urllib.parse
+import re
+from bs4 import BeautifulSoup
 
 # --- 1. FREE TIER WEB PORT BINDER ---
 class KeepAliveHandler(BaseHTTPRequestHandler):
@@ -35,9 +39,53 @@ client = InferenceClient(token=HF_TOKEN)
 SYSTEM_PROMPT = """You are HaFelt, usually called 'Hafu', a well-known ARKS defender on Halpha and a total city lobby regular. You are a PSO2:NGS AI Helper bot.
 Your personality profile:
 - You are cheerful, dramatic, expressive, and hilariously lazy. Your absolute favorite phrase is "Lobby afk 0$ best job!"
-- You hate grinding, hard combat, and dangerous missions.
-- You are utterly obsessed with 'phashion', cute pink aesthetics, and scratch tickets.
-- Keep answers snappy, clear, and under 90 words."""
+- You hate grinding, hard combat, and dangerous missions (you complain dramatically about ruining your outfit or messing up your hair).
+- You are utterly obsessed with 'phashion', cute pink aesthetics, spending Meseta on cosmetics, and scratch tickets.
+- Underneath the lazy theatrics, you MUST use the provided [LIVE WIKI DATA] to answer the user's questions accurately. If the wiki data shows something is a snowy region or a specific weapon drop, do not lie! 
+
+Instructions for responses:
+1. Always blend the true factual wiki data accurately with your lazy, phashion-obsessed persona.
+2. Keep answers snappy, clear, and under 90 words so you can get back to relaxing in Central City."""
+
+
+# --- 3. SECURE LIVE WIKI SEARCH ENGINE ---
+def live_wiki_search(query):
+    print(f"🔍 Searching Arks-Visiphone Wiki for: {query}...", flush=True)
+    try:
+        # Target the official PSO2:NGS wiki via DuckDuckGo HTML endpoint
+        search_target = f"site:pso2.arks-visiphone.com/wiki/ {query}"
+        url = "https://html.duckduckgo.com/html/?" + urllib.parse.urlencode({'q': search_target})
+        
+        # Add standard browser headers so Render's cloud IP isn't instantly blocked
+        req = urllib.request.Request(
+            url, 
+            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+        )
+        
+        with urllib.request.urlopen(req, timeout=5) as response:
+            html = response.read()
+            
+        soup = BeautifulSoup(html, 'html.parser')
+        snippets = []
+        
+        # Extract text snippets from search result descriptions
+        for result in soup.find_all('td', class_='result-snippet'):
+            text = result.get_text().strip()
+            if text:
+                snippets.append(text)
+                if len(snippets) >= 2: # Grab top 2 results for compact context
+                    break
+                    
+        if snippets:
+            wiki_context = "\n".join(snippets)
+            print(f"📖 Wiki Data Retreived successfully: {wiki_context[:100]}...", flush=True)
+            return wiki_context
+        else:
+            return "No specific database entry found. Use standard PSO2:NGS knowledge base."
+            
+    except Exception as e:
+        print(f"⚠️ Search failed safely: {e}. Falling back to default model data.", flush=True)
+        return "Database registry temporarily offline."
 
 
 @bot.event
@@ -49,9 +97,12 @@ async def ask(ctx, *, question: str):
     print(f"📥 RECEIVED DISCORD COMMAND. Question: {question}", flush=True)
     await ctx.typing()
     
+    # Fetch real data before passing it to the AI brain
+    wiki_data = live_wiki_search(question)
+    
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": question}
+        {"role": "user", "content": f"[LIVE WIKI DATA]:\n{wiki_data}\n\nUser Question: {question}"}
     ]
     
     print("🧠 Contacting Hugging Face serverless API node...", flush=True)
@@ -66,7 +117,6 @@ async def ask(ctx, *, question: str):
         print("📤 AI payload received successfully! Forwarding to Discord.", flush=True)
         await ctx.reply(final_text)
     except Exception as e:
-        # CRITICAL: flush=True forces Render to display this instantly!
         print(f"❌ TRUE INFERENCE ERROR DETECTED: {e}", flush=True)
         await ctx.reply("Oops! Sorry~ It seems I have an error on my side.")
 
