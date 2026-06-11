@@ -3,4 +3,5 @@ huggingface_hub==1.18.0
 beautifulsoup4==4.12.3
 deep-translator==1.11.4
 sentence-transformers
-torch--index-url https://download.pytorch.org/rl/cpu
+--index-url https://download.pytorch.org/whl/cpu
+torch
