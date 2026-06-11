@@ -25,13 +25,13 @@ jobs:
         python-version: '3.11'
 
     - name: Install Scraping Dependencies
-      run: pip install beautifulsoup4
+      run: pip install beautifulsoup4 deep-translator
 
     - name: Run Extraction Data Matrix Build
       run: python compile_database.py
 
     - name: Verify and Commit Changes to Main Tree
-      run: |
+      run: |\
         git config --global user.name "Hafu Datastream Core"
         git config --global user.email "actions@github.com"
         git add knowledge_database.txt
