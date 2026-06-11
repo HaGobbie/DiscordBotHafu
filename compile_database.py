@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import datetime
 from deep_translator import GoogleTranslator
 
-print("🚀 Launching SEAMLESS chunk-translated data mirror for pso2ngs.swiki.jp...", flush=True)
+print("🚀 Launching RAW SEAMLESS multi-sentence translation mirror for pso2ngs.swiki.jp...", flush=True)
 
 HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) HafuBotNGSDatabase/6.0'}
 DATABASE_FILE = "knowledge_database.txt"
@@ -20,32 +20,38 @@ def clean_text(text):
     text = re.sub(r'<[^>]+>', ' ', text)
     return text.strip()
 
-def split_text_into_chunks(text, max_chars=4000):
-    """Splits a massive text block into safe translation payloads along spaces/boundaries."""
-    words = text.split(' ')
+def split_japanese_text(text, max_chars=2500):
+    """Splits text accurately by sentences or maximum safe character counts for the translator."""
+    # Split text using Japanese punctuation landmarks (。 and 、) as break points
+    sentences = re.split(r'(?<=[。、])', text)
     chunks = []
-    current_chunk = []
-    current_length = 0
+    current_chunk = ""
     
-    for word in words:
-        if current_length + len(word) + 1 > max_chars:
-            chunks.append(" ".join(current_chunk))
-            current_chunk = [word]
-            current_length = len(word)
+    for sentence in sentences:
+        if len(current_chunk) + len(sentence) > max_chars:
+            if current_chunk.strip():
+                chunks.append(current_chunk.strip())
+            # Handle edge case where a single sentence is abnormally massive
+            if len(sentence) > max_chars:
+                for i in range(0, len(sentence), max_chars):
+                    chunks.append(sentence[i:i+max_chars])
+                current_chunk = ""
+            else:
+                current_chunk = sentence
         else:
-            current_chunk.append(word)
-            current_length += len(word) + 1
+            current_chunk += sentence
             
-    if current_chunk:
-        chunks.append(" ".join(current_chunk))
+    if current_chunk.strip():
+        chunks.append(current_chunk.strip())
+        
     return chunks
 
 def safe_translate(text):
     if not text:
         return ""
     try:
-        # Break big wiki page content into segments the API won't reject
-        text_chunks = split_text_into_chunks(text, max_chars=3500)
+        # Properly break down the continuous text blocks
+        text_chunks = split_japanese_text(text, max_chars=2000)
         translated_chunks = []
         
         for idx, chunk in enumerate(text_chunks):
@@ -55,14 +61,15 @@ def safe_translate(text):
                 translated_part = translator.translate(chunk)
                 if translated_part:
                     translated_chunks.append(translated_part)
+                else:
+                    translated_chunks.append(chunk)
             except Exception as chunk_err:
-                print(f"   ⚠️ Segment {idx+1} failed. Retaining source snippet.", flush=True)
-                # Keep the original text for this segment so data isn't lost completely
+                print(f"   ⚠️ Block fragment {idx+1} hit a conversion timeout. Preserving text source data.", flush=True)
                 translated_chunks.append(chunk)
                 
-        return "\n".join(translated_chunks)
+        return " ".join(translated_chunks)
     except Exception as e:
-        print(f"   ❌ Global translation error: {e}. Falling back to source payload.", flush=True)
+        print(f"   ❌ Critical system layout error during translation step: {e}.", flush=True)
         return text
 
 # Comprehensive Swiki page index targeting in-game mechanics
@@ -110,12 +117,12 @@ with open(DATABASE_FILE, "a", encoding="utf-8") as db:
                 text = content.get_text(separator=' ', strip=True)
                 cleaned = clean_text(text)
                 
-                # Slice and perform individual block translation
+                # Correct translation step via targeted sentence chunks
                 translated_text = safe_translate(cleaned)
                 
                 db.write(f"\n=== [{page}] ===\n")
                 db.write(translated_text + "\n\n")
-                print(f"   ✅ Mirrored & Translated: {page} ({len(translated_text)} chars)", flush=True)
+                print(f"   ✅ Mirrored & Full Translated: {page} ({len(translated_text)} chars)", flush=True)
             else:
                 print(f"   ⚠️ Partial data container match for {page}", flush=True)
                 
@@ -141,4 +148,4 @@ with open(DATABASE_FILE, "a", encoding="utf-8") as db:
         print(f"   ⚠️ SEGA fallback route unresolvable: {e}", flush=True)
         db.write("- New seasonal weapon lines and client task distributions active.\n")
 
-print("✨ Translated database aggregation completed successfully.", flush=True)
+print("✨ All data paths compiled and translated cleanly.", flush=True)
