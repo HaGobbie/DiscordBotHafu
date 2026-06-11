@@ -4,4 +4,18 @@
 
 
 === LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===
-- General Update Tracker: Weekly server maintenance periods execute regularly on Wednesdays at 02:00 UTC. Active events focus on limited-time Seasonal Quests, Special Event Exchange Shops in Central City, and newly deployed AC Scratch Ticket cosmetic coordinate deliveries. Check the official players notice site for real-time adjustments.
+- Update Matrix Vector: このサイトはJavaScriptを使用しています。すべての機能をご利用いただくため、ブラウザのJavaScriptの設定を有効にしてください。
+- Update Matrix Vector: 「リワインドコレクションJun&#39;26」では、過去の6月に配信した『NGS』仕様のアバターアイテムを中心に再配信！回数ボーナスでは『PSO2』仕様の武器迷彩「＊ヴィルクシェンテ」も再入手可能！
+- Update Matrix Vector: 厳選した40種のフェイスアイテムが再登場するリバイバルACスクラッチ！12回目の回数ボーナスでは「N-球」がもらえる！
+- Update Matrix Vector: 『NGS』5周年特別イベントとして、6月3日から「真・超星譚祭&#39;26」を開催！
+- Update Matrix Vector: セントラルシティやリージョンマグを『NGS』5周年をお祝いする意匠に飾り付け！
+- Update Matrix Vector: ナビゲーターとしてウェディングドレスモチーフ衣装の「シトレー」が登場！
+- Update Matrix Vector: シーズナルポイント交換ショップではさまざまなアイテムが入手可能！
+- Update Matrix Vector: 武器迷彩「＊ツヴィアアルマティCV2」「＊リサージュアルマティCV2」などを手に入れよう！
+- Update Matrix Vector: ディメンションリッパー内部より繋がった空間でエネミーの撃破やトライアルのクリアを目指す、制限時間のないクエストだ！
+- Update Matrix Vector: エネミーの撃破などで手に入る「探索ポイント」を使用することで「ブーストデバイス」から能力強化を獲得可能！
+- Update Matrix Vector: 新トライアル「ハントラリー」「レアエネミー大発生」「グリムモノリス浄化」が発生し、新ボスエネミー「ルイノ・シュレイダΛ」が出現！
+- Update Matrix Vector: 新レアリティ★15武器「コウゲンセイ」シリーズが登場！クリティカル率とダメージ耐性が上昇し、PP消費量を軽減する効果を持つぞ！
+- Update Matrix Vector: レアリティ★12武器「クローディム」シリーズと同様、本シリーズを素材として使用する場合は「N-特殊能力移植パス」を消費せず特殊能力を移植可能！今後のアップデートでさらなる強化も！
+- Update Matrix Vector: 今回のアップデートでは、ソード、ツインダガー、カタナ、デュアルブレード、アサルトライフル、ツインマシンガン、タリス、ウォンド、タクトのフォトンアーツと、雷属性のテクニックがカスタマイズ可能に！
+- Update Matrix Vector: プレイヤーの戦闘力が4,950以上の時はM.A.R.S.や特殊兵装の威力が上昇するように！
