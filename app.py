@@ -76,9 +76,9 @@ async def ask(ctx, *, question: str):
     ]
     
     try:
-        # UPDATED SYNTAX: Uses modern OpenAI format to ensure routing success on serverless endpoints
+        # Update the model parameter string right here:
         response = client.chat.completions.create(
-            model="Qwen/Qwen2.5-1.5B-Instruct",
+            model="meta-llama/Llama-3.1-8B-Instruct",
             messages=messages,
             max_tokens=150,
             temperature=0.7
