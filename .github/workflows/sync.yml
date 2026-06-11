@@ -25,7 +25,9 @@ jobs:
         python-version: '3.11'
 
     - name: Install Scraping Dependencies
-      run: pip install beautifulsoup4 deep-translator discord.py
+      run: |
+        pip install -r requirements.txt
+        pip install deep-translator
 
     - name: Run Extraction Data Matrix Build
       run: python compile_database.py
