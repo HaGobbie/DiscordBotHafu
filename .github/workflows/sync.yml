@@ -25,9 +25,7 @@ jobs:
         python-version: '3.11'
 
     - name: Install Scraping Dependencies
-      run: |
-        pip install -r requirements.txt
-        pip install deep-translator
+      run: pip install -r requirements.txt
 
     - name: Run Extraction Data Matrix Build
       run: python compile_database.py
@@ -36,13 +34,13 @@ jobs:
       run: |
         git config --global user.name "Hafu Datastream Core"
         git config --global user.email "actions@github.com"
-        
+
         # 1. Cleanly delete and untrack the old master text asset if it exists
         git rm -f knowledge_database.txt || true
-        
+
         # 2. Stage the entire new ultra-granular database folder structure
         git add knowledge_base/
-        
+
         # Evaluates modification differentials across deletions and additions
         if git diff-index --quiet HEAD --; then
           echo "No new data changes detected. Skipping tree commit."
