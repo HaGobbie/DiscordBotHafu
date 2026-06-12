@@ -1,4 +1,5 @@
 import os
+import glob
 import discord
 from discord.ext import commands
 from google import genai
@@ -6,8 +7,6 @@ from google.genai import types
 from google.genai.errors import APIError
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
 
 # ==================== KEEP-ALIVE SERVER CONFIGURATION ====================
 class KeepAliveHandler(BaseHTTPRequestHandler):
@@ -43,83 +42,114 @@ CLIENT_RING = {}
 SELECTED_MODEL = 'gemini-3.5-flash'
 current_key_index = 0
 
-# Global Vector Database Storage
-DB_CHUNKS = []
-VECTORIZER = None
-DB_MATRIX = None
+# Master tracking storage for uploaded Google File API handles
+# Structure: GOOGLE_FILE_MAP[key_index][file_stem_name] = google_file_object
+GOOGLE_FILE_MAP = {}
 
-
-# ==================== LINE-BASED VECTOR SEARCH ENGINE ====================
-def initialize_vector_database():
-    """
-    Loads knowledge_database.txt, handles structural normalization for Windows lines,
-    and splits it into strict, size-guarded line-based fragments.
-    """
-    global DB_CHUNKS, VECTORIZER, DB_MATRIX
+# ==================== ZERO-TOKEN INTELLIGENT ROUTER MAP ====================
+# Maps common in-game search phrases and abbreviations directly to your granular database stems
+ROUTING_KEYWORDS = {
+    "sword": "sword",
+    "wired lance": "wired_lance", "wiredlance": "wired_lance",
+    "partisan": "partisan",
+    "twin dagger": "twin_daggers", "twindagger": "twin_daggers", "dagger": "twin_daggers",
+    "dual blade": "dual_blades", "dualblade": "dual_blades",
+    "knuckle": "knuckles",
+    "默默": "katana", "katana": "katana",
+    "assault rifle": "assault_rifle", "rifle": "assault_rifle",
+    "twin machine gun": "twin_machine_guns", "tmg": "twin_machine_guns", "machine gun": "twin_machine_guns",
+    "talis": "talis",
+    "wand": "wand",
+    "harmonizer": "harmonizer", "takt": "harmonizer",
+    "jet boot": "jet_boots", "jetboot": "jet_boots",
     
-    if not os.path.exists("knowledge_database.txt"):
-        print("⚠️ Warning: knowledge_database.txt not found!", flush=True)
+    "hunter": "hunter", "hu": "hunter",
+    "fighter": "fighter", "fi": "fighter",
+    "ranger": "ranger", "ra": "ranger",
+    "gunner": "gunner", "gu": "gunner",
+    "force": "force", "fo": "force",
+    "techter": "techter", "te": "techter",
+    "braver": "braver", "br": "braver",
+    "bouncer": "bouncer", "bo": "bouncer",
+    "waker": "waker", "wa": "waker",
+    "slayer": "slayer", "sl": "slayer",
+    
+    "class": "general_classes", "ex style": "general_classes",
+    "weapon": "general_weapons",
+    "armor": "armor", "unit": "armor",
+    "ring": "skill_rings",
+    "enhance": "enhancement", "limit break": "enhancement",
+    "technique": "techniques", "tech": "techniques",
+    "augment": "augments", "affix": "augments", "op": "augments",
+    
+    "task": "tasks", "quest": "urgent_quests", "urgent": "urgent_quests",
+    "region": "regions", "area": "regions", "map": "regions",
+    "history": "arks_history", "lore": "arks_history",
+    
+    "update": "sega_live_feed", "announcement": "sega_live_feed", "news": "sega_live_feed"
+}
+
+
+def mount_sub_databases():
+    """
+    Scans the local knowledge_base directories and registers every micro-database
+    to Google's File API for every single key configuration inside the client ring.
+    """
+    global GOOGLE_FILE_MAP
+    base_dir = "knowledge_base"
+    
+    if not os.path.exists(base_dir):
+        print(f"⚠️ Error: Target storage root '{base_dir}' does not exist! Run compilation first.", flush=True)
         return
 
-    print("📂 Analyzing database structure...", flush=True)
-    with open("knowledge_database.txt", "r", encoding="utf-8") as f:
-        # Read full content and explicitly purge carriage returns (\r)
-        content = f.read().replace("\r", "")
-
-    # Split into clean individual lines
-    lines = content.split("\n")
-    clean_lines = [l.strip() for l in lines if l.strip()]
-    
-    # Slice the entire registry into predictable, small blocks of 25 lines each
-    lines_per_chunk = 25
-    DB_CHUNKS = []
-    
-    for i in range(0, len(clean_lines), lines_per_chunk):
-        chunk_slice = clean_lines[i:i + lines_per_chunk]
-        DB_CHUNKS.append("\n".join(chunk_slice))
-
-    if not DB_CHUNKS:
-        print("⚠️ Warning: No valid data extracted from database.", flush=True)
+    # Find all text data files inside subdirectories recursively
+    text_files = glob.glob(os.path.join(base_dir, "**", "*.txt"), recursive=True)
+    if not text_files:
+        print("⚠️ Warning: No sub-database configuration files (.txt) found to mount!", flush=True)
         return
 
-    print(f"🧩 Synthesized {len(DB_CHUNKS)} strict database fragments. Compiling vector space...", flush=True)
-    
-    # Text scoring parameters optimized for shorthand wiki queries and gaming jargon
-    VECTORIZER = TfidfVectorizer(
-        stop_words='english',
-        ngram_range=(1, 2),  # Captures multi-word items like "Photon Art" or "Assault Rifle"
-        lowercase=True
-    )
-    DB_MATRIX = VECTORIZER.fit_transform(DB_CHUNKS)
-    
-    print("✅ Local Semantic Database is fully online and size-guarded!", flush=True)
+    print(f"📂 Found {len(text_files)} standalone micro-databases. Syncing with Google File API...", flush=True)
+
+    # Mount files separately across every project client to prevent cross-key 404 validation failures
+    for idx, client in CLIENT_RING.items():
+        GOOGLE_FILE_MAP[idx] = {}
+        print(f" 🔗 Mounting remote filesystem entities for Key Ring Node [{idx+1}]...", flush=True)
+        
+        for file_path in text_files:
+            # Extract file stem name (e.g., 'knowledge_base/weapons/sword.txt' -> 'sword')
+            stem = os.path.splitext(os.path.basename(file_path))[0]
+            try:
+                uploaded_ref = client.files.upload(file=file_path)
+                GOOGLE_FILE_MAP[idx][stem] = uploaded_ref
+            except Exception as e:
+                print(f"   ❌ Failed to sync file asset [{stem}] for Key [{idx+1}]: {e}", flush=True)
+
+    print("✅ All sub-category cloud database nodes successfully mounted and active!", flush=True)
 
 
-def get_semantic_context(user_query, top_k=3):
+def route_user_query(question_text, current_idx):
     """
-    Scores the query against the vector field using cosine similarity
-    and maps out the top matches.
+    Inspects user input locally using string evaluation to retrieve 
+    the exact matching sub-database Google file object reference.
     """
-    if DB_MATRIX is None or len(DB_CHUNKS) == 0:
-        return "No local database available."
+    query = question_text.lower()
+    client_files = GOOGLE_FILE_MAP.get(current_idx, {})
+    
+    # Run structural keyword matching checks
+    for keyword, stem in ROUTING_KEYWORDS.items():
+        if keyword in query:
+            if stem in client_files:
+                print(f"🎯 Route matched: '{keyword}' ──► Mount Node File: [{stem}.txt]", flush=True)
+                return client_files[stem]
 
-    try:
-        query_vector = VECTORIZER.transform([user_query])
-        scores = (DB_MATRIX * query_vector.T).toarray().flatten()
+    # Clean fallbacks if no precise keyword triggers match
+    if "general_weapons" in client_files:
+        return client_files["general_weapons"]
+    elif "frontpage" in client_files:
+        return client_files["frontpage"]
         
-        # Pull top indexing matches
-        top_indices = np.argsort(scores)[::-1][:top_k]
-        
-        # Only include chunks with real token overlap relevance (score baseline > 0.02)
-        matched_segments = [DB_CHUNKS[idx] for idx in top_indices if scores[idx] > 0.02]
-        
-        if not matched_segments:
-            return "No matching specific data found in the game files."
-            
-        return "\n\n---\n\n".join(matched_segments)
-    except Exception as e:
-        print(f"❌ Search Error: {e}", flush=True)
-        return "Error searching local database."
+    # Absolute bare fallback (returns first element available)
+    return list(client_files.values())[0] if client_files else None
 
 
 # ==================== SYSTEM CHARACTER PROMPT ====================
@@ -128,18 +158,21 @@ Favorite line: "Lobby afk 0$ best job!"
 
 Rules:
 - Answer in natural, casual, and incredibly lazy English. Use emotes like *yawn* or *stretches lazily*.
-- STRICT RULE: You MUST rely ONLY on the provided database context snippets to answer the user's question.
+- STRICT RULE: You MUST rely ONLY on the attached database file reference attachment to answer the user's question.
 - Keep your responses direct, concise, and aligned with game specifics. Do not guess stats or build names.
-- If the database snippets do not contain the answer, say so in character: "*yawns* I don't see anything like that in my notes... Maybe go check the blocks yourself or ask a pro in the lobby."
+- If the attached context does not contain the answer, say so in character: "*yawns* I don't see anything like that in my notes... Maybe go check the blocks yourself or ask a pro in the lobby."
 """
 
 
 # ==================== DISCORD CORE COMMANDS ====================
 @bot.event
 async def on_ready():
-    initialize_vector_database()
+    # 1. Initialize Client Instances
     for i, key in enumerate(GEMINI_KEYS):
         CLIENT_RING[i] = genai.Client(api_key=key)
+    
+    # 2. Run Remote File System Mount
+    mount_sub_databases()
     print(f"🔥 Hafu is online and fully configured with {len(GEMINI_KEYS)} keys!", flush=True)
 
 
@@ -148,28 +181,27 @@ async def ask(ctx, *, question: str):
     global current_key_index
     await ctx.typing()
     
-    if not CLIENT_RING:
-        await ctx.reply("Ah... *yawn* My API key ring is missing. Tell the admin~")
+    if not CLIENT_RING or not GOOGLE_FILE_MAP:
+        await ctx.reply("Ah... *yawn* My cloud filesystem maps are completely missing. Tell the admin~")
         return
 
-    # 1. Fetch relevant sections over the local vector database
-    relevant_chunks = get_semantic_context(question, top_k=4)
-
-    # 2. Bundle query context safely below 2,000 tokens total
-    user_prompt = f"""Context from Game Files:
-{relevant_chunks}
-
-User Query: {question}"""
-
-    # 3. Request loop over key ring to guard against 429 errors
+    # Request loop over key ring to cleanly bypass 429 errors or rate blocks
     for attempt in range(len(GEMINI_KEYS)):
         idx = current_key_index
         client = CLIENT_RING.get(idx)
         
+        # Determine the targeted micro-database reference for this active client node
+        target_file_node = route_user_query(question, idx)
+        
+        if not target_file_node:
+            current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
+            continue
+
         try:
+            # Call the model natively attaching the single target cloud database text reference object
             response = client.models.generate_content(
                 model=SELECTED_MODEL,
-                contents=user_prompt,
+                contents=[target_file_node, f"User Question: {question}"],
                 config=types.GenerateContentConfig(
                     system_instruction=SYSTEM_PROMPT,
                     temperature=0.3,
@@ -177,15 +209,15 @@ User Query: {question}"""
                 )
             )
             
-            # Debug tracking for logs
+            # Simple log verification tracker
             try:
-                print(f"🔍 [Key {idx+1}] Tokens: {response.usage_metadata.prompt_token_count} | Finish: {response.candidates[0].finish_reason}", flush=True)
+                print(f"🔍 [Key {idx+1}] File Processed Natively | Finish Reason: {response.candidates[0].finish_reason}", flush=True)
             except Exception:
                 pass
 
             text_out = response.text.strip()
             if not text_out:
-                text_out = "*yawns* I checked, but my head is too empty to answer right now..."
+                text_out = "*yawns* I checked the file, but my head is too empty to give a good answer right now..."
             
             await ctx.reply(text_out)
             return
