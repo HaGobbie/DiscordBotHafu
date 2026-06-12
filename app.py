@@ -10,14 +10,25 @@ TOKEN      = os.environ.get("DISCORD_TOKEN", "")
 GROQ_TOKEN = os.environ.get("GROQ_TOKEN", "")
 GROQ_URL   = "https://api.groq.com/openai/v1/chat/completions"
 
-ROUTER_MODEL = "llama-3.1-8b-instant"
+# Router pool — llama-3.1-8b-instant is the primary choice (14,400 req/day vs
+# 1,000 for every other model). kimi-k2 serves as fallback if 8b is 429'd.
+# Combined router pool: 15,400 req/day | 800k tokens/day | 16k TPM
+ROUTER_MODELS = [
+    "llama-3.1-8b-instant",           # 14,400 req/day | 500k TPD | 6k TPM
+    "moonshotai/kimi-k2-instruct",    #  1,000 req/day | 300k TPD | 10k TPM
+]
 
+# Answer pool — ordered by tokens/day descending so high-capacity models absorb
+# the bulk of traffic before rotating into lower-budget fallbacks.
+# At ~5,800 tokens/call: combined ~310 effective calls/day from the token budget.
+# Combined answer pool: 6,000 req/day | 1,800k tokens/day | 74k TPM
 ANSWER_MODELS = [
-    "llama-3.3-70b-versatile",
-    "meta-llama/llama-4-scout-17b-16e-instruct",
-    "qwen/qwen3-32b",
-    "openai/gpt-oss-120b",
-    "openai/gpt-oss-20b",
+    "meta-llama/llama-4-scout-17b-16e-instruct",  # 500k TPD | 30k TPM — best throughput
+    "qwen/qwen3-32b",                              # 500k TPD |  6k TPM | 60 RPM
+    "moonshotai/kimi-k2-instruct",                 # 300k TPD | 10k TPM
+    "openai/gpt-oss-20b",                          # 200k TPD |  8k TPM
+    "openai/gpt-oss-120b",                         # 200k TPD |  8k TPM
+    "llama-3.3-70b-versatile",                     # 100k TPD | 12k TPM — last resort
 ]
 
 intents = discord.Intents.default()
@@ -163,7 +174,7 @@ async def groq_chat(messages: list, model: str,
 
 async def triage(question: str) -> tuple[bool, str | None]:
     """
-    Uses llama-3.1-8b-instant to decide:
+    Uses ROUTER_MODELS (with fallback) to decide:
       needs_db → whether a knowledge-base file is needed
       key      → which file stem to load (or None)
     """
@@ -176,7 +187,17 @@ async def triage(question: str) -> tuple[bool, str | None]:
         {"role": "user",   "content": f"Available keys: {keys}\n\nMessage: {question}"},
     ]
 
-    text, _ = await groq_chat(messages, model=ROUTER_MODEL, max_tokens=80)
+    text = None
+    for router_model in ROUTER_MODELS:
+        result, rotate = await groq_chat(messages, model=router_model, max_tokens=80)
+        if result:
+            if router_model != ROUTER_MODELS[0]:
+                print(f"   🔀 Router fallback used: [{router_model}]", flush=True)
+            text = result
+            break
+        if not rotate:
+            break
+
     if not text:
         return True, None
 
@@ -242,7 +263,8 @@ async def handle_render_ping(reader, writer):
 @bot.event
 async def on_ready():
     print(f"🤖 Hafu Bot online as {bot.user.name} (ID: {bot.user.id})")
-    print(f"✨ Answer model pool: {ANSWER_MODELS}")
+    print(f"🧭 Router pool:  {ROUTER_MODELS}")
+    print(f"✨ Answer pool:  {ANSWER_MODELS}")
     print("🌸 Hafu is ready to reluctantly answer questions from the lobby.")
 
     port = int(os.environ.get("PORT", 10000))
