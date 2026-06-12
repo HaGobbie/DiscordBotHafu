@@ -6,10 +6,6 @@ import httpx
 import discord
 from pathlib import Path
 
-# ══════════════════════════════════════════════════════════════════════════════
-# CONFIGURATION
-# ══════════════════════════════════════════════════════════════════════════════
-
 TOKEN      = os.environ.get("DISCORD_TOKEN", "")
 GROQ_TOKEN = os.environ.get("GROQ_TOKEN", "")
 GROQ_URL   = "https://api.groq.com/openai/v1/chat/completions"
@@ -28,10 +24,6 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = discord.Client(intents=intents)
 
-# ══════════════════════════════════════════════════════════════════════════════
-# DYNAMIC DATABASE INDEXING
-# ══════════════════════════════════════════════════════════════════════════════
-
 KNOWLEDGE_BASE_DIR = Path("./knowledge_base")
 LOCAL_FILE_MAP: dict[str, str] = {}
 
@@ -41,10 +33,6 @@ if KNOWLEDGE_BASE_DIR.exists():
     print(f"📦 Indexed [{len(LOCAL_FILE_MAP)}] knowledge base files.")
 else:
     print("⚠️  Warning: 'knowledge_base/' directory not found.")
-
-# ══════════════════════════════════════════════════════════════════════════════
-# PROMPTS
-# ══════════════════════════════════════════════════════════════════════════════
 
 TRIAGE_SYSTEM = (
     "You are a triage router for a PSO2: New Genesis Discord bot named Hafu. "
@@ -82,10 +70,6 @@ Rules for answering game questions:
 - The catchphrase "Lobby afk 0$ best job!" may appear AT MOST ONCE per response, only when combat or grinding is the actual topic, and only if it fits naturally. Never force it — if you used it recently or it doesn't fit, skip it entirely.
 - Be concise. No filler like "Great question!".
 - When no CONTEXT block is given, respond purely from personality — keep it short and fun."""
-
-# ══════════════════════════════════════════════════════════════════════════════
-# LOCAL KEYWORD ROUTER
-# ══════════════════════════════════════════════════════════════════════════════
 
 KEYWORD_ROUTES = [
     (r"\b(sega|maintenance|patch note|live (update|feed))\b",              "sega_live_feed"),
@@ -209,11 +193,6 @@ KEYWORD_ROUTES = [
                                                             "worldview_story"),
 ]
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# CONVERSATIONAL BYPASS
-# ══════════════════════════════════════════════════════════════════════════════
-
 _CASUAL_PATTERNS = [
     r"^h+e+y+\b",
     r"^h+e+l+o+\b",
@@ -250,17 +229,8 @@ def is_casual(text: str) -> bool:
     return any(re.search(p, t) for p in _CASUAL_PATTERNS)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# SECTION EXTRACTION
-# ══════════════════════════════════════════════════════════════════════════════
-
 def extract_relevant_sections(file_text: str, question: str,
                                max_chars: int = 2_500) -> str:
-    """
-    Split the file into sections and score each by keyword overlap with the
-    question. If no section scores well (generic question vs nav-heavy file),
-    fall back to a raw top-of-file cap instead of locking in a nav header.
-    """
     q_words = set(re.findall(r"\b\w{3,}\b", question.lower()))
 
     # Match markdown headers (# / ## / ###) OR lines starting with a capital/[
@@ -287,8 +257,6 @@ def extract_relevant_sections(file_text: str, question: str,
     scored    = [(score(s), s) for s in sections]
     top_score = max(sc for sc, _ in scored)
 
-    # If nothing scores well, the question is too generic for keyword extraction
-    # to be useful — fall back to raw top-of-file so we don't pick a nav header.
     if top_score <= 1:
         print(f"   📐 Low relevance (best={top_score}) — raw cap "
               f"{min(len(file_text), max_chars)}/{len(file_text)} chars", flush=True)
@@ -304,7 +272,12 @@ def extract_relevant_sections(file_text: str, question: str,
         total += len(section)
 
     if not result:
-        return file_text[:max_chars]
+        # Best section alone exceeds budget — send it truncated rather than
+        # falling back to the raw file top (which is usually a nav blob).
+        best_section = ranked[0][1]
+        print(f"   📐 Best section > budget — truncating to {max_chars} chars "
+              f"(best={top_score})", flush=True)
+        return best_section[:max_chars]
 
     extracted = "\n\n".join(result)
     print(f"   📐 Section extract: {len(file_text)} → {len(extracted)} chars "
@@ -322,10 +295,6 @@ def route_local(question: str) -> str | None:
                 return stem
     return None
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# GROQ API HELPER
-# ══════════════════════════════════════════════════════════════════════════════
 
 async def groq_chat(messages: list, model: str,
                     max_tokens: int) -> tuple[str | None, bool]:
@@ -359,10 +328,6 @@ async def groq_chat(messages: list, model: str,
         return None, False
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# TRIAGE ROUTER
-# ══════════════════════════════════════════════════════════════════════════════
-
 async def triage(question: str) -> tuple[bool, str | None]:
     if not LOCAL_FILE_MAP:
         return True, None
@@ -392,10 +357,6 @@ async def triage(question: str) -> tuple[bool, str | None]:
         return True, None
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# ANSWER HELPER
-# ══════════════════════════════════════════════════════════════════════════════
-
 async def get_answer(messages: list) -> str:
     for model in ANSWER_MODELS:
         result, rotate = await groq_chat(messages, model=model, max_tokens=800)
@@ -409,10 +370,6 @@ async def get_answer(messages: list) -> str:
         "Give it a minute and try again? *dramatically collapses in lobby*"
     )
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# LIGHTWEIGHT PORT KEEP-ALIVE (Render)
-# ══════════════════════════════════════════════════════════════════════════════
 
 async def handle_render_ping(reader, writer):
     try:
@@ -428,10 +385,6 @@ async def handle_render_ping(reader, writer):
         except Exception:
             pass
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# DISCORD BOT
-# ══════════════════════════════════════════════════════════════════════════════
 
 @bot.event
 async def on_ready():
@@ -522,10 +475,6 @@ async def on_message(message: discord.Message):
 
         await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# ENTRYPOINT
-# ══════════════════════════════════════════════════════════════════════════════
 
 if __name__ == "__main__":
     if not TOKEN:
