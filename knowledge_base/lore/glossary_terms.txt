@@ -1,0 +1,1509 @@
+=== [In-Universe Vocabulary & Lore Glossary] ===
+=== REFRESH NODE: 2026-06-12 05:29:33 UTC ===
+
+--- [Section: General Overview] ---
+Notice from [sWIKI] Glossary HTML ConvertTime 0.754 sec. Beginner-friendly Phantasy Star Online 2 New Genesis Glossary In most web browsers, you can search for words within a page by pressing Ctrl and F on your keyboard. For terms used from the old PSO2, please also refer to the glossary on the old PSO2 Strategy Wiki. Some of the terms from past series that are not used in this work are introduced in the old PSO2 Strategy Wiki's Terms of Past Works. Please refer to the NPCs for explanations of characters, and the world map for explanations of each area (section). Terms that have only a derogatory meaning are not listed. Legend [NGS]: PSO2: Terms used in NGS [PSO2]: Terms used in the old PSO2 [es]: Terms used in PSO2es [Game]: Terms widely used in the game world [General]: Terms used in general society [Slang]: Slang terms used in chats between PSO2 players [wiki]: Terms used in this wiki ▼ Examples of abbreviations for past works Abbreviation Official name Notes PSⅠ, first generation Phantasy Star Released in December 1987 PSⅡ Phantasy Star II At the End of the Time of No Return Released in March 1989 PSⅢ Successor of Time Phantasy Star III Released in April 1990 PSⅣ Phantasy Star At the End of the Millennium Released in December 1993 PSO Phantasy Star Online Launched in December 2000 PSU Phantasy Star Universe Released in August 2006 PSZ, PS0 Phantasy Star ZERO Released in December 2008 PSPo, PSP Phantasy Star Portable Released in July 2008 PSPo2 Phantasy Star Portable 2 Released in December 2009 PSPo2i Phantasy Star Portable 2 Infinity Released in February 2011 PSO2, Old, Old PSO2 Phantasy Star Online 2 Service started in July 2012 PSO2es, es Phantasy Star Online 2 es Service started in April 2014 PSNOVA, NOVA Phantasy Star Nova Released in November 2014 Hydra Hydra Phantasy Star Saga Service started in November 2018 PSO2: NGS, NGS Phantasy Star Online 2 New Genesis Service starts in June 2021 ▼ Table of Contents Table of Contents A Line Ark's Ark's Card Ark's Cash Ark's Base Ark's Search Ark's Ship Ark's History Ark's Record Item Enhancement Blue Damage Red Box Active Skill Active Sonar Assault Rifle Assist NPC Updrafter Add-on Skill Atrandom Event Record Alters Rain Prayer Ando / Yu Ando Yellow Portal Anger state Equalizer Equalizing enemy Phase space Power lower limit correction Instance dungeon Whisper Waker Vera Wall kick Wand Floating island Passive Song Aerio region Aerio town Aerial Enemy marker Energy plant Elnoza Ancient enemy Expedition preparation special ticket Enhancer Enhanced enemy Autoword Open field Great light Otsu / Oto Oma Tamaki Oracle Online Arcs card Ka line Guard Guard point Gaira Number of times bonus Guide marker Evasion action Counter Chaos trial Scarecrow punch Virtual space Over-the-shoulder view Katana Robust Environmental creatures Gunslave Gunslash Gunner Limited time quest Gigantics Armor type Gathering Cast Character Character creation Gorge Cooperative trial Cooperative NPC Giant mutant Base Urgent quest Qvaris region Qval Quest trigger Quest Points Quest Rank Quest Pt Grass Good Job Kurasu Cloud Gaming Class Class Skill Clear Rank Crispe Critical Global Version Experience Points Gerobi Limit Break Primal Species Steel Fist Cocoon Drop Pod Scorching Troops Clad in Inferno Strong Bow Successor Class Here Wiki Fixed Komurappi Gold Conscicon Container Saline Side Task Dust Storm Requiem for Dust Playing Photo Room Soccer Sudden Incident Mackerel Coordinates Soundtrack Seasonal Event Seasonal Points Seasonal Region Mag Seasonal Enemy Seasonal Symbol Seasonal World Trial Jet Boots Genesis Point Support Item Select Time-Space Vibration Resource Extraction Rig Resource Extraction Rig Defense Free Spear City Map Sifdeva Just Guard Bayonet Title Status Abnormality Shopping Plaza Silva Profound Darkness Symbol Art Super Armor Skill Skill Tree Skill Reset Skill Point Scroll Scratch Prize Exchange Ticket Sked Star Star Gem Starless Stamp Ste Stage Live Steal Region Stealer Steal Can Stealth Can Stellar Gift Stellar Grace Super Luck Slayer Slot / Slo Elite Section Rank Despair Battlefield Control Dolls Potential Release All Ship Matching/All Ships Former Dark False Combat Section Unable to Combat Combat Power Central Girls Central Cannon Central City Central Tower Centerru! Sword Twin machine guns Musical instruments Twin small swords Supposed exercise Attribute down Ta line Dark phallus Great sword Great waterfall Dive attack Cannon Rice planting Down Tact Task Double saber Talis Tower Exploration section Short staff Single photon particle cannon Team Team task Team task record Chat Long gun Long staff Long spear Super/Souseisai Chou Seitansai Chou PSO2 Day! TripleBurst Twin Dagger Twin Machine Gun Moon Tier Day Shift Day/Night Shift Tames Appropriate Distance Dext Dekunoza Technique Degreb Waiting Duman Dual Blade Delivery Device Teleport Electric Shock Damnation Dome Dolls Guide Controlled Dolls Throwing Action Special Ability Capsule Special Ability Addition Independent Guerrilla Force Trial Trial Marker Tri Boost Trab Trigger Trigger Quest Trigger Portal Trinites Trainier Trainier Advanced Dread Enemy Drome Na Line Nerf Night Shift Knuckle Newman Stray Ha Line Burst Money Plan Party Purple Portal High Rank Section Bouncer Destruction Type Bakufu Hako Drawn Sword Passive Skill Battle Deer Battle Trigger Hafd Addicted Hamuru Parry Partisan Halfa Halfa People Halfa Letters Bullet Bow Bullet Bow Irude EX Bunker Type. 1 Bunker Type.2 Hunter Flying Sword Hit Points Human Five Wills to Pierce the Ice Wall Hiro Arai Food Stand Fighter Fast Travel Field Gimmick Field Race Force Photon Photon Arts Photon Accelerator Photon Glide Photon Crystal Photon Dash Photon Tuner Photon Blast Photon Point Photon Generator Weapon Action Complex Tech Complex Attribute Technique Puso Pusonavi Two Names Desire Sensor Physical Down Floating Object Floating Board Block Preset Abilities Blue Portal Braver Player Skill Player ID Name Premium Set Hate Headshot Headline Border Bridge Defense Quest Reward Period Hoshiwata Ri Boss Enemy Pop Popona Homi Ma-Yo My Shop Mag Magic Magic Legs Multi-Weapon Marupon Mischief Symbol Mission Pass Movie Live Moon Moon Atomizer Invincibility Main Task Megalotics Meseta Mediora Memeta Maintenance Mobile Cannon Yarow Tokopero Transport Truck Unit Forecast Emergency Quest Rarow Thunderstorm Rappy Gathering Hall Rappy.com Rapitan Launcher Ranbuta Region Region Boss Region Mag Region Map Region Leader Recast Resurgent Arcs Retem Region Ridel Reverser Sign Refined Form Repop Ryoken Ryukor Device Dragon Tribe Rewind Collection Loop Task Room Luciel Radar Map Leador Resta Sign Lettuce Revagacha Ranger Veteran Veteran Hunt Lost Technology Rod Lobby Action Robiak Wa Line World Trial Wired Lance Spring One Time Password Alphabet ARKS ARKS EXPO AA AC A.I.S AR BGM BTrigger Bo Br BREAK CβT / CBT CV DB DF DPP DPS DPS Check DS E Trial E Marker EP EXP EX Special Abilities F Attitude Fi Fo FPS G GG GJ GP Gu HP Hu JB k M M.A.R.S. MOB N- N-Class Excube N-Meseta NGS Headline NGS Authorized Creator NPC OP OST OTP PA PCU Photon Sensitive Effect PP PS PSE PSE Climax PSE Gauge PSE Burst PSE Burst Climax PSE Burst Encore PSE Burst f(Forte) PSE Burst f (Forte) Encore PSE Level PSO2 Day PSO2 New Genesis ver.2 PT Q Trigger Ra Rank. Re RMT S Point SA SG SP Sympathy T Marker Te TMG U Technique Wa WB Xi Numbers/Symbols 1000 years ago/1000 years later 1184 630 #NGSHeadline #Making_of_NGS Comment A line | K line | Sa line | Ta line | Na line | Ha line | Ma line | Ya line | Ra line | Wa line Alphabet | Numbers/symbols
+
+--- [Section: あ行] ---
+▲ ▼
+
+--- [Section: アークス] ---
+[NGS][PSO2] 1. Name of the organization to which the player character belongs. Also, the individuals who belong to it are called ARKS. Arkus as an individual has a special talent. Not all people who belong to ARCS as an organization are called ARCS as individuals. "Arks" also existed in the old PSO2, and the player character was set to belong to it. "ARKS" is an acronym that stands for "Artificial Relict to Keep Species," and literally translates to "artificial residual species for the preservation of species." Residual species are species that were once widely distributed, but due to changes in the environment, they now survive only in limited areas. In the setting materials and in-game stories of the old PSO2 published in the past, it is said that Arcus as a species was created artificially. For other details, see the Culture/Civilization page. 2. About PSO2 users. ▲ ▼
+
+--- [Section: アークスカード] ---
+[NGS][PSO2] A card that allows you to register your own profile in-game. You can edit and check your profile by selecting ``Arcus Card'' from ``Personal'' in the ``main menu.'' On the editing screen, you can edit ARCS cards by combining comments, character appearance, symbol art, stamps, acquired titles, etc. By setting it to public, other players can view it. For details, see the ARKS Card page. ▲ ▼
+
+--- [Section: アークスキャッシュ] ---
+[NGS][PSO2] A so-called charging currency that is charged with real money. Often called "AC". For details, see About AC (Arccache). ▲ ▼
+
+--- [Section: アークス拠点] ---
+[NGS] An area, such as Central City, that serves as a base for ARKS, one prepared for each region. Lined with various shops and warehouses, you can prepare for your adventure here. Enemies will not appear within the base, and you will not be able to hold weapons. In the past, in the game, when returning from some quests to places like Central City, a message such as ``Press and hold to return to Arx base'' was displayed, but now the specifications have been changed so that it simply says ``Press and hold to return.'' For details, see the Field Equipment/Combat/Status page. ▲ ▼
+
+--- [Section: アークスサーチ] ---
+[NGS][PSO2] You can search for other players and their characters by opening the "Main Menu" and selecting "Arks Search" from "Communication". You can search by player ID name, character name, or team name. From the search results, you can also perform whisper chats and friend requests. ▲ ▼
+
+--- [Section: アークスシップ] ---
+[PSO2] The ship of the Oracle fleet, which is the setting of the old PSO2. The lobby, shop, my room, etc. of the old PSO2 are all located here. This setting is why each server is called a "Ship". ▲ ▼
+
+--- [Section: アークスヒストリー] ---
+[NGS] Quests that can be ordered from the "Quest Counter" installed at each ARCS base. In addition to retrying story quests that you have already cleared, you can also rewatch previously viewed event scenes. For details, please refer to the ARCS History page. ▲ ▼
+
+--- [Section: アークスレコード] ---
+[NGS] Content where players compete to see how well they have achieved the target content and aim to obtain better reward items. There is the ``At Random Event Record,'' which is held irregularly, and the ``Team Task Record,'' which is held weekly. For details, see the ARCS Records page. ▲ ▼
+
+--- [Section: アイテム強化] ---
+[NGS][PSO2] Weapons and armor can be strengthened in the "Item Lab" to improve their performance. In addition to "N-Meseta" and "N-Grinder", other weapons and armor are required for reinforcement. Depending on the material items used to strengthen weapons and armor, you will receive "enhancement EXP" and the "enhancement value" will increase. For details, see the item enhancement/limit breaking page. ▲ ▼
+
+--- [Section: 青ダメ] ---
+[NGS][PSO2][Slang] In NGS, it refers to weak point damage. It is so called because the damage is displayed in blue when attacking a weak point. In the old PSO2, critical damage was displayed in blue, so blue damage meant critical damage. ▲ ▼
+
+--- [Section: 赤箱] ---
+[NGS][PSO2][vulgar] Item container [red]. The old PSO2 also has red item containers, but in the old PSO2, boss drop containers and unidentified rare items are called red boxes, and it almost never refers to item containers. ▲ ▼
+
+--- [Section: アクティブスキル] ---
+[Game] A skill that exerts its effect depending on the player's operations. Mainly used by setting it in a subpalette. (Can also be set to the main palette) The antonym is passive skill. In NGS, it is used as a class skill classification. ▲ ▼
+
+--- [Section: アクティブソナー] ---
+[NGS] A function where Mag notifies you when undiscovered Trainiers, Ryukor Devices, gathering materials, item containers, etc. on the field are nearby. It is also commonly called sonar or mag sonar. See Active Sonar for details. ▲ ▼
+
+--- [Section: アサルトライフル] ---
+[NGS][PSO2] Weapon types that can be equipped by Rangers and Gunners. A long-range weapon that allows you to move and attack enemies from a distance. For details, see the Assault Rifle and Assault Rifle/Action/PA pages. ▲ ▼
+
+--- [Section: アシストNPC] ---
+[NGS] A feature that targets all combat sections and some emergency quests and trigger quests. Even in rooms with a small number of players, an "assist NPC" will appear and follow the players to provide combat support. Up to 6 people will automatically appear according to the number of players in the room, and the number of NPCs that will follow will be automatically adjusted according to the number of players. Since assist NPCs are not included in the number correction of enemy HP, they are also an excellent force. If you want to fight without relying on assist NPCs, you can disable them from the room keyword settings. For details, see the Field Equipment/Combat/Status page. ▲ ▼
+
+--- [Section: アップドラフター] ---
+[NGS] A transportation device for moving to high places. If you Photon Glide inside, you will be swept in the direction of the air current. Basically, all Updrafters installed in the field are facing straight up, but some Trainiers are also facing sideways. See also updrafter. ▲ ▼
+
+--- [Section: アドオンスキル] ---
+[NGS] One of the training elements. Create and register add-on skills by consuming "N-Class Excube" and "N-Meseta" at the class counter at each ARCS base, and set the registered add-on skills to achieve the effect. The registration status of add-on skills is shared among characters within the account. Add-on skills are divided by class, and to generate them you will need an "N-Class Excube" with the abbreviation corresponding to the class. (Hunter: N-Hu Ex-Cube, Fighter: N-Fi Ex-Cube...) The generated skills include one fixed "main effect" set for each class and two "sub effects" from random candidates, and the effect size of the skill changes depending on the "effect level" of both. If you repeatedly generate an add-on skill, you will be able to lower the lower limit of the effect level of the generated skill instead of increasing the amount of N-Meseta consumed during generation. Each time you generate an add-on skill for each class for the first time, an "add-on skill boost" will be activated that increases the experience points, N-Meseta, and rare drop multiplier. Once activated, this boost is permanent and stacks for each class. For other details, please refer to the Add-on Skills page. ▲ ▼
+
+--- [Section: アトランダムイベントレコード] ---
+[NGS] A type of ARCS record. A limited time event that is held irregularly, where players compete for the score of the target content. Depending on the score, players will be divided into ranks of "Gold", "Silver", and "Bronze", and will receive a reward "Arks Record Badge" according to their rank at the time of the final day's tally. For details, see the ARCS Records page. ▲ ▼
+
+--- [Section: アルターズ] ---
+[NGS] An enemy group with a distinctive eyeball-like pattern. It has the ability to change its shape and strength during the day and night, called "Day/Night Shift." See Alters for details. ▲ ▼
+
+--- [Section: 雨乞い] ---
+[NGS] [vulgar] Waiting for Giganticus to occur. This is because Gigantics of the Airio region, which was first implemented, uses thunderstorms as a trigger. Waiting for Giganticus in the Ritem region is also called praying for rain, and it is rare to wait for a dust storm. ▲ ▼
+
+--- [Section: 安藤 / 安藤優] ---
+[NGS][PSO2][Slang] The main character, the player character. This is a pun on the phrase "And You" written at the end of the credits in Phantasy Star Universe (PSU), which is compared to a person's name. In particular, in PSO2, users can freely decide the name of the main character, so it is sometimes used as a slang term to refer to the main character. There is a sticker that says "AND YOU" in oracle characters for the name tag of the school swimsuit costume distributed in the old PSO2. ▲ ▼
+
+--- [Section: イエローポータル] ---
+[NGS] A type of trigger portal. By using this, you can challenge quests classified as "Battle Deer: Yellow". ▲ ▼
+
+--- [Section: 怒り状態] ---
+[NGS] A strengthened state that changes when the boss enemy's HP falls below a certain level. Official term used in TIPS when incapacitated. They wear strengthening effects, and if they are dolls, they turn red. There are also enemies whose shape itself changes. As a verb, it can also be used as ``to get angry'' or ``to get angry.'' ▲ ▼
+
+--- [Section: イコライザー] ---
+[NGS] A red spiral wedge-like object that pierces Equalizing Enemy's body. Since the Equalizer cannot be destroyed, it is necessary to defeat the enemy itself in order to prevent it from being strengthened by the Equalizing Enemy. See Equalizing Enemy for details. ▲ ▼
+
+--- [Section: イコライジングエネミー] ---
+[NGS] A strengthened enemy whose body is pierced by a red spiral wedge-like object called the Equalizer. It has the ability to strengthen the attack power and defense performance of surrounding enemies. See Equalizing Enemy for details. ▲ ▼
+
+--- [Section: 位相空間] ---
+[NGS] A space where injured Dark Fals can temporarily escape by teleport. According to Crawford, the Dark False travels through phase space to the docks in the heart of Stia, where it recovers. Note that "topological space" is a technical term originally used in academic fields such as mathematics. In the global version of NGS, the word corresponding to "topological space" is translated as "space-time," which expresses the concept of "space" with a different nuance from "topological space." ▲ ▼
+
+--- [Section: 威力下限補正] ---
+[NGS] Weapons have a range of fluctuation in power (more precisely, attack power), and this is an effect that corrects the lower limit of that range. This lower limit can be raised with special abilities such as arms. You can check the blur width in the ``Damage Correction'' column on the second tab of the weapon's item details. ▲ ▼
+
+--- [Section: インスタンスダンジョン] ---
+[Game] A dungeon that is generated each time for each party or small group. In NGS, rooms for up to 32 or 8 people are generated each time the exploration and battle sections look like open worlds, and virtually all of them can be said to be instanced dungeons. However, because the exploration and battle sections are created and matched automatically and without the player's knowledge, these are not called instanced dungeons, and cocoons and towers, which are similar to the image of instanced dungeons in MMOs, are sometimes introduced as instanced dungeons. The unfamiliar term "instance" is used in computer science to refer to something that is created and materialized from a template in a way that can actually be used. It seems that dungeon generation is likened to this. ▲ ▼
+
+--- [Section: ウィスパー] ---
+[NGS][PSO2][Game] A means of one-on-one chat. It is also called wis, abbreviated from whisper. In PSO2, text is displayed in pink, and when a call arrives, a special ringtone that is different from other chats sounds. ▲ ▼
+
+--- [Section: ウェイカー] ---
+[NGS] A class that fights together by making full use of "Familiar". You can demonstrate your power by using different familiars in battle depending on the battle situation. Can be equipped with tact. See the Waker page for details. ▲ ▼
+
+--- [Section: ヴェラ] ---
+[NGS] The name given to a particular subspecies of Dolls. The spelling in the global version is "Vera". In the context of comparison with the original Enemy, individuals bearing this name are sometimes referred to as "Vera versions". All Dolls with the name "Vera" wear white armor, have larger bodies than their original species, and have different attack patterns. Also, they generally appear as subjugation targets in emergency quests, but they may appear in some story quests as an exception. ▼ List of "Vera" type enemies (click to expand) Vera version Original species Pedus Vera "Pedas" series Nex Vera Nex Aerio Snider Vera Snider Hammer Renus Vera Renus Ritem Crocodalus Vera Crocodalus Ammus Vera Ammus Kuvaris Dordris Vera Dordris Nils Vera Nils Steer Venogia Vera Zephet Venogia The "Vera"-type dolls that appear as subjugation targets in emergency quests are classified as "control type" or "battle control type" like each region boss. In the side story ``Melody of Resurrection'', when Renus Vera attacked Ritem City, Manon warned those around him that he was ``a different type (from Lenus Ritem)'' and ``His attack performance was different.'' Furthermore, among the Vera species, Venogia Vera is an exception, and although its body is the same size as Zephet Venogia, the difference is that it does not have a passenger. There is no mention of its true identity, and the fact that it is a battlefield control type is never seen in the game, making it a heretical entity. ▲ ▼
+
+--- [Section: ウォールキック] ---
+[NGS] If you move towards a wall in the air, you will kick the wall and perform a jump action. The default setting is to automatically wall kick, but you can also change the setting to wall kick by button input. Once you do this, you will not be able to use it until you land. You can use it after taking the tutorial in the cocoon "First Step" that you visit during the main task. ▲ ▼
+
+--- [Section: ウォンド] ---
+[NGS][PSO2] Weapon type that Tector can equip. A weapon that is characterized by an attribute attack using a "hogeki explosion" that occurs when attacking. For details, see the Wondo and Wondo/Action/PA pages. ▲ ▼
+
+--- [Section: 浮島] ---
+[NGS] Lake Halfiria A huge structure that stands in the sky. It is also prominently depicted in the key visual for "NGS". See the Field Objects page for details. ▲ ▼
+
+--- [Section: 受け身] ---
+[NGS] An action that allows you to quickly recover your stance by pressing the jump button at the right time when you are launched or blown away. It corresponds to the old PSO2's Just Reversal and Air Reversal. See also passive. ▲ ▼
+
+--- [Section: 歌] ---
+[NGS] A special ability possessed by the chief clan of the Ritem region. By deploying a special photon field along with the song, it brings advantageous effects to allies. From the depiction in the story, it has been revealed that people such as Naderev can wield this power. ▲ ▼
+
+--- [Section: エアリオリージョン] ---
+[NGS] The region where the player first lands. There are various terrains such as plains, mountains, coasts, and lakes. Greenery flourishes in this land with a mild climate. ▲ ▼
+
+--- [Section: エアリオタウン] ---
+[NGS] The first town the player will visit. It is located in West Aerio, and although it does not have a defensive wall like Central City, it is in an easy-to-defend location with its back to a cliff. See Airio Town for details. ▲ ▼
+
+--- [Section: エアル] ---
+[NGS] Words attached to the names of items related to Airio Region. An example is the fruit ``Matta airappou''. ▲ ▼
+
+--- [Section: エネミーマーカー] ---
+[NGS] Official name of "E Marker". ▲ ▼
+
+--- [Section: エネルギープラント] ---
+[NGS] It is a large-scale facility that can be seen in the Lower Makuad of the Ritem Region and the Dreisen Plant of the Steer Region, and energy is generated semi-permanently inside. Although it is said that production of Dolls is underway in some quarters, the details have not been revealed. ▼ Spoilers for the short episode ``Chapter 2: Investigation of the lower levels of Makuado'' It seems that the energy produced by the energy plants in the lower levels of Macuado is also supplied to Ritem City, and Hardy describes it as ``ironic'' that there is a possibility that one's own life is based on something produced at the enemy's base. ▼ Spoiler for Main Story Chapter 4 ``The Scorching Troops Clad in Hellfire'' According to Kanui, relatively small Dolls are being produced at the Dreisen Plant, but it is still unclear where the large ones will come from. ▲ ▼
+
+--- [Section: エルノザ] ---
+[NGS] Abbreviation for Litem Elnoza, one of the combat sections. A sacred place for the Rithem people, where the leader of Ritim performs rituals. Since there are many relatively small enemies that are easy to defeat, there are a certain number of players who use it to complete tasks related to the number of enemy subjugation. ▲ ▼
+
+--- [Section: エンシェントエネミー] ---
+[NGS] A boss enemy that appears in specific fields in the Qvaris Region and is said to be more powerful than Gigantics. It has been given the double name ``Distant World'' and is characterized by its appearance as if its entire body is covered in frost. See the Ancient Enemy page for details. ▲ ▼
+
+--- [Section: 遠征準備特別票] ---
+[NGS] A general term for special items that can be obtained in conjunction with the release of new regions. There are types such as ``Special Voucher for Preparing for the Kvaris Expedition'' and ``Special Voucher for Preparing for the Stia Expedition.'' You can exchange them for various items such as weapons at the "Expedition Preparation Special Ticket Exchange" exchange shop, which is available for a limited time from item traders at each ARCS base. There is also a special operational preparation ticket that can be obtained as a similar item when a new class is implemented, with item names such as "Slayer Operational Preparation Special Voucher." For specific information on how to obtain and use, please refer to the material item page. ▲ ▼
+
+--- [Section: エンハンサー] ---
+[NGS] A wedge-like object that pierces the body of an Enhanced Enemy. Since the enhancer puts a shield on the main body, almost no damage will pass through it unless it is destroyed. See Enhanced Enemy for details. ▲ ▼
+
+--- [Section: エンハンスドエネミー] ---
+[NGS] A strengthened enemy whose body is penetrated by a wedge-like object called an enhancer. Since the enhancer puts a shield on the main body, almost no damage will pass through it unless it is destroyed. See Enhanced Enemy for details. ▲ ▼
+
+--- [Section: オートワード] ---
+[NGS][PSO2] A function that allows you to pre-register what you want to say automatically in certain situations, such as when leveling up. Open the ``Main Menu'', select ``Chat'' and select ``Auto Word Settings'' to register chat content that will be automatically uttered when various conditions are met. If you register multiple contents for the same condition, a message will be randomly selected from among them. Up to three chat contents can be registered for each condition. See the chat page for details. ▲ ▼
+
+--- [Section: オープンフィールド] ---
+[NGS] [Game] A field that allows seamless movement between different areas. Open fields in "NGS" are roughly divided into "exploration section," "combat section," and "Arx base" based on their role. ▲ ▼
+
+--- [Section: 大いなる光] ---
+[PSO2] First appearance is "Phantasy Star: At the End of the Millennium" (PSⅣ). The setting differs for each work, but in many past works it has been described as a ``spiritual lifeform that is the counterpart of the profound darkness.'' In the old "PSO2": ▼ Spoiler for EP6 A collection of human emotions such as prayers and hopes sent to the protagonists through photons. It is the only power that can dispel [primordial darkness]. The protagonist has simply become a vessel for the Great Light, and his body and mind remain human. ▲ ▼
+
+--- [Section: おつ / 乙] ---
+[Game] [General] [Slang] Abbreviation for "Thank you for your hard work." The original word was ``fell down'', which means being unable to fight. It is sometimes written as ``1 Otsu'' to indicate the number of times a person was unable to fight. A synonym in PSO2 is tokopero. ▲ ▼
+
+--- [Section: おま環] ---
+[Game] [Slang] Abbreviation for "Your playing environment is bad." It is used to refer to errors, defects, or phenomena that do not occur in other environments or have low reproducibility. It was originally used as an abbreviation to mean "Is your environment the cause of this problem?", such as "It falls off when I do XX" or "It's a maka ring, right?", but it has also become common as in "Is it a maka ring that falls off when I do a ○○"? and "If it doesn't work after trying XX, it might be a maka ring". Please note that if used in a reply, it may be interpreted as an offensive connotation. ▲ ▼
+
+--- [Section: オラクル] ---
+[PSO2] The name of the fleet that is the stage of the old PSO2. Also called the Oracle Fleet. The official name is ``Interplanetary Navigation Fleet ``Oracle.'' It is a large-scale fleet of spaceships centered on the mothership that leads the planet, and the lobby, shop, and my room of the old PSO2 are all located inside the ships of this fleet. This setting is why each server is called a ``Ship.'' The world of the old PSO2 is sometimes referred to as the "Oracle side" or "Oracle's world." ▲ ▼
+
+--- [Section: オンラインアークスカード] ---
+[NGS] A service developed on the web. A feature that allows you to easily create your own original Arc Card online using a screenshot of your own character. The purpose is to share on social services such as Twitter and encourage interaction among players. Click here for the player's site announcement, and click here for the ``Online ARKS Card Generator'' itself. ▲ ▼
+
+--- [Section: か行] ---
+▲ ▼
+
+--- [Section: ガード] ---
+[NGS][PSO2] A general term for weapon actions that allow you to reduce or nullify damage by blocking enemy attacks with weapons. In the old PSO2, it was only set as a weapon action for some weapon types, but in NGS it can now be used with many weapons. An event that can be said to be a type of bullet processing in that it "occurs when it comes into contact with the enemy's attack judgment." Unlike evasion actions, basically, if the attack is not a multi-stage attack, once the attack is blocked, you will not be hit even if you are within the attack range during the duration of the attack detection. However, the evasion judgment for evasion actions remains, and there are also small tricks such as safely connecting from guard to evasion counter. On the other hand, some enemy attacks cannot be blocked by guarding, and are called unblockable attacks. Sword and Katana weapon actions. By holding down the weapon action button, you can reduce damage by consuming a certain amount of PP when attacked by an enemy from the front. The advantage is that if you keep pressing it, you can continue to take a guard motion permanently. Also, by timing the enemy's attack and guarding it, it is possible to completely negate the enemy's attack without consuming PP (Just Guard). If you have learned the skill, a counter will be activated automatically when you use Just Guard. The difference in guard performance is that the sword can be used in all directions by acquiring skills, while the katana can be used in all directions without skills. (When it was first implemented, the katana could only attack from 180 degrees in front, just like a sword without skills, but with the update it became compatible in all directions.) In addition to weapon actions, certain PAs also have timings called guard points. Synonyms: Parry ▲ ▼
+
+--- [Section: ガードポイント] ---
+[NGS][PSO2][Game] Also known as Garpo. (It was also abbreviated as GP, but now there is a risk of confusion with Genesis Points.) Some PAs and actions can just guard and nullify enemy attacks at specific times. These are called guard points. A term that is often mentioned and used in explanations of balance adjustments on the management/official website, but is almost never seen in-game. (Reference: December 2021 update (Bo adjustment items)) Unlike invincibility and evasion, where the hit detection itself disappears, only attacks that can be blocked can be blocked. As a result, it is set for a relatively wide variety of weapons and PAs, so you can often benefit from it even if you don't intend to. Whether it applies only to the front or all around is set individually depending on the generation means. The name guard point comes from fighting games. To put it simply, it is a "defensive judgment within an attack movement." ▲ ▼
+
+--- [Section: ガイーラ] ---
+[NGS] One of the celestial bodies visible from the planet Halfa. The name is known from the explanation when ordering Shandy's task "[Moon Viewing] Shining Star Monster I" in the Autumn Event (2021). During the Autumn Event, the light will become brighter and two ring-like effects will be added around it. ▼ Autumn Event 2021: Shandy's lines... Gaira. We call the stars that shine brightly in the night sky. We suspect that Gaira is the cause of this change. Gaira shines especially brightly at this time of year, and it seems to have an effect on the surrounding plants. For details, see Satellite Gaira. ▲ ▼
+
+--- [Section: 回数ボーナス] ---
+[NGS][PSO2] Scratch count bonus. A system where if you pull a scratch a certain number of times, you can get a bonus item set for each scratch in addition to the scratch prize. When linked with "PSO2es", the number of scratches is also linked. The content of the benefits and the number of times required differ for each scratch, but the main benefits include limited lobby actions and motion change items. In addition, you can also get a ``Scratch Prize Exchange Ticket'', commonly known as a ceiling, as a bonus. The required number of times is basically fixed. Once you have earned all the number bonuses, you will move to the "second round" lineup, which will be simple except that you can get "exchange tickets" again. By the way, this system was implemented from scratch after the start of "PSO2" update "Reborn: EPISODE 4". The "Second Round" system was implemented in Scratch after the start of the update "The End of Light, the Future of Illusion." ▲ ▼
+
+--- [Section: ガイドマーカー] ---
+[NGS] A diamond-shaped marker that points to the destination for accomplishing a task. Main tasks are displayed in orange, and side tasks and limited-time tasks are displayed in white. ▲ ▼
+
+--- [Section: 回避アクション] ---
+[NGS][PSO2] A general term for actions that result in temporary invincibility when performing a step or weapon action. The timing and effect duration vary depending on the action, but in general, you can bypass enemy attacks by ``eliminating your own hit detection for a very short period of time.'' Unlike guarding, even if you successfully evade the attack, the attack judgment of that attack will continue until its original duration, so if you are within the attack range when the invincibility period of the evasion action ends, you will be hit if the attack judgment still lasts. Therefore, if you don't connect with a counter, you may end up getting hit even though you should have avoided it. On the other hand, it is also possible to repeatedly issue evasion counters for attacks that have been evaded once, as long as the duration allows. It is a general term for actions that are applicable in nature, and the actual names are various (step, knuckle sway, slide shot, stylish roll, bullet bow loop, boot trick, etc.) ▲ ▼
+
+--- [Section: カウンター] ---
+[NGS][PSO2] An attack that is activated or becomes available when an enemy's attack is evaded or blocked. ▲ ▼
+
+--- [Section: カオストライアル] ---
+[NGS] Two types of trials occur simultaneously within one section. Also written as "CHAOS TRIAL". When you complete both Chaos Trials, the PSE gauge will always rise by one. See the Trial page for details. ▲ ▼
+
+--- [Section: 案山子殴り] ---
+[NGS][PSO2][Slang] Refers to the situation of attacking a ``scarecrow'', that is, an ``enemy that stands still and does not move''. The scene where you mainly attack a downed enemy is familiar. Since this is an ideal attack situation, it may be treated as an unrealizable theoretical theory depending on the context. Related: DPS ▲ ▼
+
+--- [Section: 仮想空間] ---
+[NGS] A space virtually constructed in a world isolated from normal open fields, such as inside Trainier or Battledia. Arcus and others utilize this in training programs and simulations aimed at improving combat techniques. As a side note, while in this virtual space, horizontal stripes appear across the screen, making it unsuitable for taking pictures. A similar phenomenon also occurs in quests with the name of hypothetical exercises, so be careful when aiming at SS during battle. ▲ ▼
+
+--- [Section: 肩越し視点] ---
+[NGS][PSO2] The viewpoint when pressing the viewpoint switching key in normal conditions. Also from TPS perspective. Since it does not automatically capture enemies like a normal viewpoint, you can use ranged attacks to aim at areas where there are no enemies to involve more enemies, aim at areas that cannot be locked on, or use long-range attacks to aim beyond the lock-on distance on your own. On the other hand, there are disadvantages such as the visibility is narrow and you are more susceptible to enemy attacks, you cannot turn around instantly and the amount of maneuver increases, and the accuracy of your aim is required. ▼ Modification history Maintenance on October 11, 2023 Changed specifications so that enemies located further away than the maximum lock-on distance cannot be targeted ▲ ▼
+
+--- [Section: カタナ] ---
+[NGS][PSO2] Weapon type that can be equipped by Braver. A melee weapon that can attack repeatedly with agile movements and reduce damage taken with the weapon action "Katana Guard". For more information, see the Katana and Katana/Action PA pages. ▲ ▼
+
+--- [Section: 頑強] ---
+[NGS][PSO2][Slang] In the old PSO2, a state in which the player character or enemy is not affected by effects such as being blown away. So-called "super armor". Although it is not an official term in NGS, it is used as a convention among players. See also Super Armor section. ▲ ▼
+
+--- [Section: 環境生物] ---
+[NGS] A common name used among the development team to refer to unnamed creatures that can be seen in open fields. See also Field Objects page. Reference: “Hiro’s development interview “Key points of the June major update”” (SEGA, 2022.5.18 12:00) ▲ ▼
+
+--- [Section: ガンスラ] ---
+[NGS][PSO2][Slang] Abbreviation for the weapon type "Gun Slash" used among players. As a similar abbreviation/common name in ``PSO2'', until the implementation of the successor class Raster, enthusiasts who used Gunslash as their main weapon were sometimes called ``Gunslash''. ▲ ▼
+
+--- [Section: ガンスラッシュ] ---
+[NGS][PSO2] Weapon types that can be equipped by Slayer. A shooting weapon that specializes in close-range combat using rapid fire and slashing attacks. For details, see the Gun Slash and Gun Slash/Action PA pages. ▲ ▼
+
+--- [Section: ガンナー] ---
+[NGS][PSO2] A class that has excellent maneuverability in the air and can deal high damage at short and medium ranges. Can be equipped with assault rifles and twin machine guns. See the Gunner page for details. ▲ ▼
+
+--- [Section: 期間限定クエスト] ---
+[NGS] A quest that is distributed only during a specific period, such as when a seasonal event is held. During the distribution period, orders can be accepted from the "Quest Counter" at each ARCS base. For details, please refer to the limited time quest page. ▲ ▼
+
+--- [Section: ギガンティクス] ---
+[NGS] A special boss enemy that only appears during special weather. It is given the double name ``Despair'', and its entire body is covered in a purple aura. The level is set 4 higher than the player's upper limit, and if the upper limit is not reached, it will not be able to do much damage. The damage compensation is also high, and if you get hit by a big move, there is a possibility that you will be unable to fight in one hit. Additionally, the damage Gigantics receives is uniformly halved. See Gigantics for details. ▲ ▼
+
+--- [Section: 機甲種] ---
+[PSO2][wiki] A mechanical enemy species that appeared on the planet Lilypa in the old PSO2. In ``NGS'', Formers with a similar appearance, such as Gardinan Roa, have appeared, and on this wiki, Formers are sometimes expressed as ``old armored type'' when distinguishing them by their appearance. Also see the corresponding page on the old PSO2 Strategy Wiki. ▲ ▼
+
+--- [Section: ギャザリング] ---
+[NGS][PSO2] Mining ore and gathering vegetables and fruits in the exploration section. Used as quick food, material for equipment enhancement, and food for region mags. See Gathering for details. The old PSO2 also has Gathering, but the stamina system is very different. ▲ ▼
+
+--- [Section: キャスト] ---
+[NGS][PSO2] One of the races that the player can select. Features a mechanical body. Rather than being a machine from birth, he is a cyborg whose body was partially replaced with a machine after birth. In the old PSO2, it was designed as a race with excellent durability, striking and shooting power, but inferior legal attack power and legal attack defense. Although the player cannot select it as a race, in the old PSO2 there was an individual called High Cast who was made with a mechanical body from the beginning. Related: Human, Newman, Duman ▲ ▼
+
+--- [Section: キャラ] ---
+[NGS][PSO2][General] Abbreviation for "character". ▲ ▼
+
+--- [Section: キャラクリ] ---
+[NGS][PSO2][Game] Abbreviation for "Character Create". ▲ ▼
+
+--- [Section: 峡江] ---
+[Game] [General] Gorge is another name for ``fjord,'' and is a geographical term that refers to a bay created by seawater seeping into a cliff that has been sharply eroded by glaciers. In NGS, this corresponds to Rejord Gorge, which exists in the Kvaris region. In the real world, this terrain can mainly be seen in cold regions such as Norway. ▲ ▼
+
+--- [Section: 共闘トライアル] ---
+[NGS] A trial in which you fight together with NPCs and aim to achieve something. See the Trial page for details. ▲ ▼
+
+--- [Section: 共闘NPC] ---
+[NGS] An NPC that appears when a cooperative trial occurs. See the Trial page for details. ▲ ▼
+
+--- [Section: 巨大化変異体] ---
+[NGS] An enemy named "Geo" that has a much larger body than its original species. Examples include Wawron Geo, Garongo Geo, and Rockbear Geo. This is a limited time event where the giant enemy mentioned above appears. For information on the first event, see the Giant Mutant (2023) page, and for information after that, see the Seasonal Events page. ▲ ▼
+
+--- [Section: 拠点] ---
+[NGS][wiki] About ARCS base. A term referring to a resource extraction rig. ▲ ▼
+
+--- [Section: 緊急クエスト] ---
+[NGS][PSO2] A special quest that occurs randomly and can only be accepted for 30 minutes from the time it occurs. An announcement will be made in-game 15 minutes before the start. Battles take place in an isolated state like a dedicated room. As a general rule, "notice" emergency quests, which were an important part of the old PSO2, are not performed except during event periods. See Emergency Quest for details. ▲ ▼
+
+--- [Section: クヴァリスリージョン] ---
+[NGS] Third region implemented on June 8, 2022. There was once a capital that was the predecessor of Central City, but it collapsed and was abandoned during the battle with the Dolls, and is now a cold region covered in snow. It is said that the Arcus of Kvaris at that time had far higher technological capabilities than the Arcus of today. ▲ ▼
+
+--- [Section: クヴァル] ---
+[NGS] Words attached to the names of items related to Qvaris Region. An example is the fruit 'Sappa Kvarpuram'. ▲ ▼
+
+--- [Section: クエストトリガー] ---
+[NGS] A general term for trigger items required when challenging "Trigger Quest". It is also written as "Q trigger". For details, see the Trigger Quest and Material Item pages. ▲ ▼
+
+--- [Section: クエストポイント] ---
+[NGS] It is a concept that appears in specific quests such as "Assumed Exercise: Battle of Aerio in Autumn Clear", and is a special point that is acquired and accumulated while completing the quest. It is also written as "Quest Pt". ▲ ▼
+
+--- [Section: クエストランク] ---
+[NGS] A value indicating the difficulty level of the quest in stages. They are expressed in descending order as "Rank.1", "Rank.2", etc. As the quest rank increases, the level of the enemies that appear and the required combat power also increase accordingly. This is different from the "clear rank" which indicates the evaluation upon clearing the quest. Related: Section rank ▲ ▼
+
+--- [Section: クエストPt] ---
+[NGS] Another name for "Quest Point". ▲ ▼
+
+--- [Section: 草] ---
+[NGS] [Colloquial] A term used mainly among players to refer to photon crystals such as Resta Sign and Reverser Sign. The appearance of these signs on the field is derived from the fact that it looks like plants are growing on the ground. A slang expression that refers to the appearance of laughing and its emotions. ▲ ▼
+
+--- [Section: グッジョブ] ---
+[NGS][PSO2][General] One of the communication functions available in the game. By sending simple fixed phrases such as "Like!" or free short sentences, you can convey your favorable intentions to other players. In addition to directly selecting the target player and executing it, you can also send it from the Coordination Catalog. You can also earn 1 Star Gem by sending Good Jobs to different players up to 5 times a day, so it's a good idea to take advantage of it. Katakana notation for "Good Job". Meanings such as "good job." ▲ ▼
+
+--- [Section: 蔵] ---
+[Game] [Slang] A client. A term commonly used in online games, where when the client application freezes, it is sometimes expressed as ``the warehouse is frozen.'' Related: Mackerel ▲ ▼
+
+--- [Section: クラース] ---
+[PSO2] Refers to the series weapon/armor "Light Mantle Clath" that appeared in the old PSO2. Items that can be obtained by upgrading the "Dark Conqueror Agel" series dropped from "[Primal Darkness] Sodam/Gomolus", the final boss of the old PSO2, under a specific NPC. It is said to be the so-called final boss weapon, and in the old PSO2, it was touted as the strongest equipment in the game. Like other new weapons/units, it is possible to carry over from the old PSO2 to "NGS", but the performance will be significantly reduced accordingly. It may be an excellent piece of equipment as a link in the early stages, but it is not suitable for long-term use. ▲ ▼
+
+--- [Section: クラウドゲーミング] ---
+[NGS][PSO2][Game] A technology that provides a certain level of comfortable gameplay, regardless of the performance of the device used by the user, by sending video and audio streaming data from a cloud server to a dedicated client application at any time. ``PSO2 New Genesis Cloud'' (PC/Nintendo Switch) uses this mechanism, and can be played as long as there is a stable communication environment. Another big advantage is that all large game data, such as game graphics, resides on a "cloud server," so there is no need for large-scale downloads or updates. Also see the online manuals on the players site, “Setup for the PC version” and “Setup on Nintendo Switch™.” ▲ ▼
+
+--- [Section: クラス] ---
+[NGS][PSO2] "Professions" are divided into areas of specialization, such as hunter, ranger, force, etc. See the class page for details. ▲ ▼
+
+--- [Section: クラススキル] ---
+[NGS][PSO2] Various abilities (skills) that can be acquired by consuming "skill points" obtained through specific content to give you an advantage in battle. There are many skills available that take advantage of the characteristics of each class, and you can create a skill structure that suits your fighting style. There are two types of skills: ``passive skills'' that automatically activate their effects just by learning them, and ``active skills'' that can be used by setting them on the sub-palette or main palette. See the class page for details. Related: SP ▲ ▼
+
+--- [Section: クリアランク] ---
+[NGS][PSO2] The final evaluation given when a quest is cleared. There are ``S'', ``A'', ``B'', and ``C'' in descending order of evaluation, and the score is determined based on indicators such as elapsed time and number of enemies defeated. This is different from the "section rank," which indicates the difficulty level of a section. ▲ ▼
+
+--- [Section: クリスペ] ---
+[NGS] Abbreviation for "Creative Space." ▲ ▼
+
+--- [Section: クリティカル] ---
+[NGS][PSO2][Game] When attacking an enemy, the attack becomes more powerful than normal. In NGS, damage is displayed in slightly larger white text. If the attack is a weak point and is critical, the color of the text will be whitish blue. In the old PSO2, a critical hit was the upper limit damage of a normal attack, and was not a "more powerful attack than normal," but in NGS, it now has a critical multiplier. See Critical for details. ▲ ▼
+
+--- [Section: グローバル版] ---
+[NGS][PSO2] "PSO2 NGS - Global". This version is aimed at players living outside of Japan, and is available on ``PlayStation 4,'' ``Xbox One,'' ``Windows 11,'' ``Steam,'' and ``Epic Games Store.'' There are two languages ​​that can be selected in the game: "English" and "Japanese". Although the service content is almost the same as the domestic version, the game servers are managed separately from the domestic version, and there are small differences in the campaigns etc. For details, please refer to the global version official website. ▲ ▼
+
+--- [Section: 経験値] ---
+[NGS][PSO2][Game] Points can be earned by actions such as defeating enemies and completing tasks. By gaining a certain amount of experience points, you can increase the level of the class you are using. For details and specifications related to experience points in "NGS", please refer to the cumulative experience points page. ▲ ▼
+
+--- [Section: ゲロビ] ---
+[Game] [Slang] Abbreviation for "Gerobeam". A beam attack like heat rays, light rays, or breath that is emitted from the mouth. Depending on the game, it may also refer to a particularly long-lasting beam attack. ▲ ▼
+
+--- [Section: 限界突破] ---
+[NGS][PSO2] There is an upper limit to the "enhancement value" of weapons and armor, and you can increase the upper limit of the reinforcement value from "Limit Break" in "Item Lab". Breaking the limit consumes gathering materials and N-Meseta. Depending on the rarity of the item and the stage of breaking the limit, various ores such as Monotite, Dualomite, and Trinite, and materials such as Arms Refiner are required. For details, see the item enhancement/limit breaking page. ▲ ▼
+
+--- [Section: 原生種] ---
+[PSO2][wiki] A bird-and-beast type enemy that appeared on the planet Naberius in the old PSO2. In ``NGS'', Formers with similar appearances, such as Wudan Roa, appear, and on this wiki, Formers are sometimes expressed as ``Old Primeval Species'' when distinguishing them based on their appearance. Also see the corresponding page on the old PSO2 Strategy Wiki. ▲ ▼
+
+--- [Section: 鋼拳] ---
+[NGS][PSO2] Another name for "Knuckle". ▲ ▼
+
+--- [Section: コクーン] ---
+[NGS] A type of training facility called a Trainier, a small structure built in an open field. You can accept quests solo or in a party, and earn skill points when you complete them. Related: Tower ▲ ▼
+
+--- [Section: 降下ポッド] ---
+[NGS] A pod that the “star travelers” including the protagonist board when descending to the planet Halfa. Pod parts are so valuable that they are usually recovered quickly, but the main character's drop pod has not yet been recovered and remains abandoned at the scene. ▼ Announcement played in the main character's drop pod when landing in Halfa Pod 909, system check... complete. Condition: All green. Descent sequence...Standby. It takes 10 seconds to reach the target coordinates. Final confirmation of descent trajectory. ...Error corrected. 5…4…3…2…1…. purge. ▲ ▼
+
+--- [Section: 業火纏いし灼熱の兵団] ---
+[NGS] The title of the third major update for "NGS", which was implemented on December 7, 2022. A new open field ``Steer Region'' and Chapter 4 of the main story have been released. For details, please refer to the announcement page on the official website as well as the individual page on this Wiki. ▲ ▼
+
+--- [Section: 強弓] ---
+[NGS][PSO2] Another name for "Bullet Bow". ▲ ▼
+
+--- [Section: 後継クラス] ---
+[PSO2] A general term for the classes implemented in the old PSO2: "Hero (Hr)," "Phantom (Ph)," "Etoile (Et)," and "Luster (Lu)." It cannot be selected from the beginning, and can be selected by raising the level of the specified base class to a certain level. When the first successor class, the hero, was introduced, it was called the "advanced class," but it was later renamed to the "successor class" as the difference in abilities between it and the basic class was reduced. The weapon types used by each class were handled by existing classes, but their actions and related skills were completely different. ▼ Successor classes and usable weapon types Class Weapon type Hero Sword / Twin Machine Gun / Talis Phantom Katana / Assault Rifle / Rod Etoile Double Saber / Dual Blade / Wand Luster Gun Slash ▲ ▼
+
+--- [Section: ここwiki] ---
+[Slang][wiki] Meaning "This is a PSO2NGS Strategy Wiki, so please read the related pages." When you ask a question in the comment section about something that is clearly written on the Wiki, you may get a response like this. ▲ ▼
+
+--- [Section: 固定] ---
+[Game] Doing a quest in a room that can only be accessed by specific players agreed upon in advance. The aim is often to aim for efficient clearing by adjusting the number of people in the class in advance and communicating more proactively than in the field. In NGS, you can set a password for the room for emergency quests and trainiers by going to "Party Settings" in Main Menu → Communication → Party Commands, and in the section Main Menu → Communication → Room Matching Settings. Antonym: Nora ▲ ▼
+
+--- [Section: コムラッピー] ---
+[NGS] A person who uses the "PSO2" official community Twitter account "Lappy.com" to post stories and information that cannot be published on the "PSO2" official website. The unique tone of voice, such as the first person ``wai'' and the ending ``kyukyu♪'', is impressive. From the images attached to each tweet, it can be seen that he is always wearing the N-Rappy suit in the game. After a certain point, there are no explanatory notes regarding the characters, but there are reports that they are still alive, such as being used in April Fool's Day. A term often used among players to refer to the official PSO2 community Twitter account ``Lappy.com''. Since Mr. Comrappy is the main operator of "Rappy.com," this account itself is sometimes referred to as such. ▲ ▼
+
+--- [Section: ゴルド] ---
+[NGS] About "Goldo Prim Sword". A rare enemy with the double name "Golden" will drop. The special ability "Esperio II", which increases the amount of experience points gained when used as a reinforcement material, is guaranteed. You can also exchange items for N-special ability addition success rate +10%. “Gold Prim Sword II” exists in the higher version. As of 2024, Type II will be used exclusively as a reinforcing material. Related: Silva ▲ ▼
+
+--- [Section: コンサイコン] ---
+[PSO2][vulgar][wiki] A wand that looks like a demon's metal club. It first appeared in the series "PSPo2" and was also implemented in the old PSO2. ▼ Below is the slang usage For some reason, on the PSO2 strategy wiki, it has become established as something that gets screwed up when you make a mistake in checking, double posting, line breaks, etc. when posting on the chat bulletin board *1. Such usage was confirmed on the old PSO2 strategy wiki chat bulletin board Vol. 2573 on December 17, 2018, and has since spread rapidly. In turn, these writing errors are sometimes referred to as "considerations." Please note that this usage is an inside joke only related to PSO2wiki (swiki), and it is best to assume that it will not be used on other sites or in games. Furthermore, since the Concicon is an old-style weapon and the Concicon-NT is not implemented, the Concicon itself cannot be brought into NGS. Although it is possible to bring a New World Won whose form has been changed to the Consicon, weapons obtained in NGS cannot be brought into the old PSO2, so the only way to wield the Consicon in NGS is to use a wand whose form has been changed from an NT weapon from the old PSO2. Let's wait for the appearance of N-Consicon. ▲ ▼
+
+--- [Section: コンテナ] ---
+[NGS][PSO2] Item container. There is also the old PSO2, but the color type and contents are different. ▲ ▼
+
+--- [Section: さ行] ---
+▲ ▼
+
+--- [Section: サイドタスク] ---
+[NGS] Tasks that occur as you progress through the main story. Tasks progress by accepting requests from NPCs with icons displayed above their heads. See the Tasks page for details. ▲ ▼
+
+--- [Section: 砂塵嵐] ---
+[NGS] One of the weather conditions in the Ritem region. Visibility becomes very poor and lightning strikes. In the exploration section, the powerful boss enemy Gigantics will appear. During combat sections, PSE level will not drop below 4, making PSE bursts more likely. See also weather change. ▲ ▼
+
+--- [Section: 砂塵奏でる鎮魂歌] ---
+[NGS] The title of the first major update for "NGS", which was implemented on December 15, 2021. A new open field ``Litem Region'' and Chapter 2 of the main story have been released. For details, please refer to the announcement page on the official website as well as the individual page on this Wiki. ▲ ▼
+
+--- [Section: 撮影専用ルーム] ---
+[NGS][PSO2] A feature that allows you to play in a room that is suitable for taking screenshots and videos. It can only be enabled in the ``exploration section'' and ``combat section'', there are no enemies or tames, and no trials or PSE bursts occur. In addition, you can set and fix your favorite weather and time for shooting using ``Setting a room for shooting only'' in ``Party Command.'' To play in the shooting-only room, check ``Photography-only room'' when setting the ``Room Keyword.'' Also, if you enter a keyword given to you by another player, you can play in the same room as that player. For other details, see the Ship Block Room page. ▲ ▼
+
+--- [Section: サッカー] ---
+[NGS] [Slang] Gunslash's Photon Arts, "Reaping Regulus". Mainly in the Move Arts version, it is called this because of the motion of kicking a bomb into a medium-range position. It is also sometimes used in the Stay Arts version. This is a motion where you step back a little while detonating at your feet. ▲ ▼
+
+--- [Section: サドンインシデント] ---
+[NGS] A sudden event in which many troublesome enemies appear, including Doll's Weapon and Enhanced Enemy. There is a chance that this will occur during defense-type emergency quests. ▲ ▼
+
+--- [Section: 鯖] ---
+[Game] [Slang] A server. This is a term commonly used in online games, and when it becomes impossible to connect to the game server, it is sometimes expressed as ``sabaotoshi''. Related: Kura ▲ ▼
+
+--- [Section: 座標] ---
+[NGS] A value indicating the location on the map. It is represented by a combination of letters and numbers, such as "A-1". If you type in the chat command, you can say the coordinates of your current location. The alphabets indicate position information on the horizontal axis, and the numbers indicate position information on the vertical axis, and the diagram is as shown below. ▼ Diagram: Coordinate example (click to expand) A B C D E F G H 1 A-1 B-1 C-1 D-1 E-1 F-1 G-1 H-1 2 A-2 B-2 C-2 D-2 E-2 F-2 G-2 H-2 3 A-3 B-3 C-3 D-3 E-3 F-3 G-3 H-3 4 A-4 B-4 C-4 D-4 E-4 F-4 G-4 H-4 5 A-5 B-5 C-5 D-5 E-5 F-5 G-5 H-5 6 A-6 B-6 C-6 D-6 E-6 F-6 G-6 H-6 7 A-7 B-7 C-7 D-7 E-7 F-7 G-7 H-7 8 A-8 B-8 C-8 D-8 E-8 F-8 G-8 H-8 ▲ ▼
+
+--- [Section: サントラ] ---
+[General] Abbreviation for "sound track". Music used in video works, etc., and CDs that contain it. ▲ ▼
+
+--- [Section: シーズナルイベント] ---
+[NGS] A general term for in-game events held during a specific period. It is sometimes expressed as "seasonal event," "seasonal event," "limited-time event," etc., depending on the notation. At NGS, seasonal events are held about once every two months. Seasonal points that can be earned through this seasonal event can be exchanged for various items at a dedicated exchange shop. Please also refer to the Seasonal Events page for past event history and current event information. ▲ ▼
+
+--- [Section: シーズナルポイント] ---
+[NGS] Points that can only be earned and used during the seasonal event period. They can be obtained by defeating seasonal enemies and completing limited-time tasks, and can be exchanged for various items only during the event period. It is not possible to save across events, and unused seasonal points will expire when the event ends, so you need to try to use them as much as possible. ▲ ▼
+
+--- [Section: シーズナルリージョンマグ] ---
+[NGS] During the period of a seasonal event, the appearance and function of a region mug may change, and this is called a "seasonal region mug." There are various variations in appearance depending on seasonal events. ▲ ▼
+
+--- [Section: シーズンエネミー] ---
+[NGS] An enemy with a "season symbol" on its head that appears during seasonal events. By defeating them, you can earn Seasonal Points. For other details, please refer to the Season Enemy page. ▲ ▼
+
+--- [Section: シーズンシンボル] ---
+[NGS] A distinctive symbol given to the head of a seasonal enemy. There are various variations depending on the seasonal event being held. For other details, please refer to the Season Enemy page. ▲ ▼
+
+--- [Section: シーズンワールドトライアル] ---
+[NGS] A World Trial held during a seasonal event. The basic specifications are the same as normal World Trials, but the decorations and boost effects will be special depending on the event. ▲ ▼
+
+--- [Section: ジェットブーツ] ---
+[NGS][PSO2] Weapon type that Bouncer can be equipped with. A melee weapon that features powerful kicking techniques and excellent maneuverability in the air, and can also be used with techniques while equipped. For details, see the Jet Boots and Jet Boots/Action/PA pages. ▲ ▼
+
+--- [Section: ジェネシスポイント] ---
+The abbreviation is GP. A type of currency used in creative spaces. In addition to purchasing various build parts from the shop menu in the creative space, you can also exchange ores and capsules by exchanging Genesis Points with Arche, an ARCS architectural researcher located in each city. ▲ ▼
+
+--- [Section: 支援アイテムセレクト] ---
+[NGS] A scratch-off site that displays many powerful items that support your adventures, such as special ability capsules that allow you to add special abilities that increase your attack stats, and auxiliary items that unlock your potential. Representative examples include "AC support item select" and "'PSO2' support item select". For past sales history and details of "NGS", please refer to the AC Shop Scratch and SG Shop Scratch pages. ▲ ▼
+
+--- [Section: 時空振動] ---
+[NGS] A term that can be seen in the quest summary of emergency quests, etc., and is a term used by operators. A phenomenon observed when a powerful enemy appears. ▲ ▼
+
+--- [Section: 資源採掘リグ] ---
+[NGS] A device used by ARCS to dig up underground resources. In various defense quests, you will be asked to protect it from enemy invasions. By accessing the console installed on the rig, you can repair damaged areas and deploy a barrier shield to prevent destruction by external enemies. On the strategy pages on this wiki, it is often written as "base" for convenience. For details, see the resource extraction rig page. ▲ ▼
+
+--- [Section: 資源採掘リグ防衛戦] ---
+[NGS] An emergency quest to protect the resource extraction rig deployed for resource extraction from enemy attacks. It is also sometimes called a "defense quest." There are various variations such as "Resource Extraction Rig Defense Battle: Aerio" and "Resource Extraction Rig Defense Battle: Ritem." In the old PSO2, a quest group called ``Mining Base Defense Battle'' appeared as content with a similar concept. ▲ ▼
+
+--- [Section: 自在槍] ---
+[NGS][PSO2] Another name for "wired lance". ▲ ▼
+
+--- [Section: シティマップ] ---
+[NGS] Map that can be viewed from "Open Region/City Map" in "Quick Menu". A map is displayed in the form of a large expanded version of the radar map at the top left of the screen, and various information about the current Arcus base is displayed. You can stop viewing by opening the "Quick Menu" again while the city map is displayed. Related: Region Map ▲ ▼
+
+--- [Section: シフデバ] ---
+[NGS][PSO2][Slang] Abbreviation for Tector's class skill "Shifter Deband". A generic name/abbreviation for "Shifter" and "Deband", which are techniques that appeared in the old "PSO2". ▲ ▼
+
+--- [Section: ジャストガード] ---
+[NGS][PSO2] Also abbreviated as "Jasuga" and "JG". The reception judgment of a guard that nullifies damage, or the state in which the guard is successful. Basically, it is set to be a very short time for guard-type actions. Sometimes called ``parry'' or ``paring'', which are used in weapon action names and skill names. There seems to be no systematic distinction from the automatic word "Just Guard Success" judgment. Please note that Just Guard will not activate if the attack is unblockable. Since PSO2's sword had JG as a skill, JG was not possible unless Hu was included in either the main or sub, but in NGS, the JG function was built into the weapon itself, just like the Katana, so JG is possible even in a configuration that does not include the original class. However, without the relevant counter skills, it becomes very rigid. Related: Guard, Guard Point, Parry ▲ ▼
+
+--- [Section: 銃剣] ---
+[NGS][PSO2] Another name for "Gun Slash". ▲ ▼
+
+--- [Section: 称号] ---
+[NGS][PSO2] A “proof” awarded when a specific goal is achieved in-game. Open the ``Main Menu'' and select ``Title'' under ``Personal'' to check the achievement status, achievement conditions, and rewards for title tasks. The acquired "Title Name" can be placed on the "Arcus Card". See the title page for details. ▲ ▼
+
+--- [Section: 状態異常] ---
+[NGS][PSO2] A state that has disadvantages that the player may fall into due to receiving a specific attack. There are various types such as "Burn", "Freeze", "Shock", "Mirage", "Panic", "Poison", and "Stun". In the old PSO2, the same status ailments as the player were valid for enemies, but in NGS, status ailments are basically only for the player. Instead, some NGS enemies receive attribute down, which is similar to a status abnormality. For details, see the Status Abnormality/Resistance page. ▲ ▼
+
+--- [Section: ショッピングプラザ] ---
+[NGS] A plaza lined with the "Class Counter," "Item Lab," "Esthetics," "My Shop," "Item Trader," and "Item Shop" in each ARCS base, including Central City. Although this term is rarely used officially, the term "Shopping Plaza" can be discovered by reading the text written in Halfa characters on the signboards installed inside the base. In the old PSO2, there was an area called the ``Shop Area'' inside the Arc Ship that had a similar function. ▲ ▼
+
+--- [Section: シルヴァ] ---
+[NGS] About "Silva Prim Sword". A rare enemy named "Silver" will drop. It comes with a guaranteed special ability "Esperio I" that increases the amount of experience points you gain when used as a reinforcement material. Related: Gordo ▲ ▼
+
+--- [Section: 深遠なる闇] ---
+[PSO2] First appearance is "Phantasy Star: At the End of the Millennium" (PSⅣ). Although the setting differs greatly depending on the work, it is mainly talked about as ``the being who created the Dark False.'' Additionally, there is a contradictory concept called ``great light.'' In the old "PSO2": A being born from the fusion of Photoner's negative emotions and Shion's imitation body. As a result of calculations, the answer was to erase all photons and destroy the universe. The [Profound Darkness] that was born in the Photoner era is sealed in subspace along with Shiva. However, the four Dark Fals created by the [Profound Darkness] remained in space. The collection of Dark False factors is the [Profound Darkness] that appears in the story of EP3. Although the circumstances of their birth are different, their purpose is the same. ▲ ▼
+
+--- [Section: シンボルアート] ---
+[NGS][PSO2] A function that allows you to chat with pictures and characters created by combining shapes, or the data that is created. Also abbreviated as "SA". You can edit and save from Main Menu → Chat → Symbol Art. Images cannot be imported directly. The old PSO2 has the same function, and many highly skilled SA craftsmen have produced many high-quality SAs that can be mistaken for anime traces or live-action captures. Symbol art said by surrounding players is recorded in the history tab and can be copied to your own save list. It is also distributed on a site run by volunteers, and can be imported by placing it in a specific folder (*). *"Document" → "SEGA" → "PHANTASYSTARONLINE2_NGS" → "symbolarts" → "import" ▲ ▼
+
+--- [Section: スーパーアーマー] ---
+[Game] A state in which the player or enemy does not ``flinch'' or ``stagger'' motion when attacked, and their movements are not interrupted. Also abbreviated as "Armor" and "SA". It is an effect attached to specific motions such as PA, and also has the ability to ``nullify some hold attacks.'' Most boss class enemies are always in this state. In NGS, "Massive Hunter" is a skill that has a similar effect. This cannot nullify the hold attack, but it is always active during the duration of the effect, not limited to specific motions. Also, note that super armor only prevents you from being ``backward'' or ``staggering,'' and cannot nullify damage. Since it is unaffected by attacks that would normally cause it to be blown away and its action interrupted, it also has the disadvantage of being more susceptible to continuous enemy attacks. Although it is not used as an official expression on the official website or in-game, it has been used to explain class adjustment during official live broadcasts. *2 In the old PSO2, expressions such as "stubborn" were used to describe this state, and "eliminating knockback" were used to negate only the flip-flop. Originally a fighting game term from another company. It is sometimes referred to as "super armor" when it is only exerted for a short period of time, such as during a specific action, and "hyper armor" when it is always exerted. ▲ ▼
+
+--- [Section: スキル] ---
+[NGS][PSO2] Various abilities that players can exercise in the game. In ``NGS'', there are types such as ``class skills'' and ``add-on skills,'' but when this wiki explains simply ``skills,'' it often refers to class skills. ▲ ▼
+
+--- [Section: スキルツリー] ---
+[NGS][PSO2] A system for learning "class skills". If class skills are connected by a line, in order to learn the class skill below the line, you must first learn the class skill above it. Additionally, some class skills require special conditions to be acquired, such as ``the class level must be above a certain level.'' For other details, see the class page. ▲ ▼
+
+--- [Section: スキルリセット] ---
+[NGS][PSO2] You can reset all acquired "class skills" by selecting "Initialize all skill trees" on the "class counter" of each ARCS base. At that time, you will need the item "N-All Skill Tree Initialization Pass". See the class page for details. ▲ ▼
+
+--- [Section: スキルポイント] ---
+[NGS][PSO2] Points required to learn skills. Obtained by clearing Trainier. Skill points are common to all classes, for example, if you have 10 points, you can use 10 points for each class in all classes. The old PSO2 also has skill points, but they are not shared by classes and are mainly earned by leveling up, so they have completely different specifications. ▲ ▼
+
+--- [Section: スク] ---
+[NGS][PSO2][slang] A word that means "scratch", mainly used among players. For example, "AC Scratch" is sometimes called "AC Scratch", "SG Scratch" is sometimes called "SG Scratch", etc. ▲ ▼
+
+--- [Section: スクラッチ景品交換券] ---
+[NGS][PSO2] Exchange item that can be obtained by selecting one of the scratch prize items. The actual "Scratch Prize Exchange Ticket" is a "○○ Ticket" named after the Scratch that corresponds to the exchange. Example: Scratch name: "9th Anniversary! Weapon Camouflage Memory", "Refined Form 2", "PSO2 10th Anniversary SP Scratch" → Prize Exchange Ticket Name: "9th Anniversary! Weapon Camouflage M Ticket", "Refined Form 2 Ticket", "PSO2 10th Anniversary SP Select Ticket" Basically, it can be obtained with the number of times bonus. SG Scratch prize exchange tickets are also set as Mission Pass Gold Rewards (Season 6 onwards) and can only be exchanged for prizes during the distribution period of each Scratch. After completion, only recycling and exchange will be accepted. In particular, be careful not to forget to receive or use mission pass rewards. By the way, the "Scratch Prize Exchange Ticket" was implemented in Scratch after the start of the "PSO2" update "Heroes: EPISODE 5". ▲ ▼
+
+--- [Section: スケド] ---
+[NGS][PSO2][Slang] Abbreviation for the resuscitation device "N-Scape Doll" used among players. Related: Hafd ▲ ▼
+
+--- [Section: スター] ---
+[NGS] Dedicated points required to advance through the tiers of the "Mission Pass". It is indicated by a special icon with a yellow star on a purple background. Stars can be earned by completing certain daily or weekly tasks. For other details, please refer to the Mission Pass page. ▲ ▼
+
+--- [Section: スタージェム] ---
+[NGS][PSO2] In-game currency/points that can be used in various situations. In addition to purchasing it for a fee by consuming Arc Cash, you can also obtain it for free by meeting certain conditions. Please refer to the SG Shop Scratch page for details. ▲ ▼
+
+--- [Section: スターレス] ---
+[NGS] ▼ Contains major spoilers for Chapter 5 of the main story A hostile entity suddenly appeared in front of Arcus, which had enjoyed peace for 500 years after the battle against the primordial darkness. It destroyed the Arcus research fleet, and went on to destroy the surrounding stars, taking 50 planetary systems and 700 billion lives. ▲ ▼
+
+--- [Section: スタンプ] ---
+[NGS] A communication function that displays illustrations in speech bubbles in chat. It is often used in messenger apps etc. You cannot make your own stamps. See Stamps for details. ▲ ▼
+
+--- [Section: ステ] ---
+[NGS][PSO2][Slang] Abbreviation for "Status". In addition, the special abilities ``Power ○'', ``Shoot ○'', and ``Technique ○'' are collectively referred to as ``Ste ○'' (Sute ○ if it is III). ▲ ▼
+
+--- [Section: ステージライブ] ---
+[NGS] An event that occurs randomly several times a day. Naderev and others will hold a concert in Ritem City, and the concert will be broadcast on giant monitors at each ARCS base. If you are within the ARCS base when the stage live ends, you can obtain a boost effect called the "stage live effect". See the Stage Live page for details. ▲ ▼
+
+--- [Section: スティアリージョン] ---
+[NGS] Fourth region implemented on December 7, 2022. There is a harsh environment surrounded by lava. For strategy information, see World Map, and for world view, see Planets. ▲ ▼
+
+--- [Section: スティラ] ---
+[NGS] Words attached to the names of items related to Star Region. An example is the special ability capsule "C/Stira Domina". ▲ ▼
+
+--- [Section: ステカン] ---
+[NGS][PSO2][slang] Abbreviation for "step counter". ▲ ▼
+
+--- [Section: ステキャン] ---
+[NGS][PSO2][slang] Abbreviation for "step cancel." ▲ ▼
+
+--- [Section: ステラーギフト] ---
+[NGS] A mysterious capsule falling from outside the atmosphere. It contains minerals and other resources. See also Stellar Gift Recovery. ▲ ▼
+
+--- [Section: ステラーグレイス] ---
+[NGS] Pyramid-shaped containers falling all over the world. By opening it, you can obtain various resources. In the past, there were gold and silver Stellar Grace, but from July 28, 2022, they have been consolidated into one normal color with upwardly revised rewards. See also Operation Stellar Grace Recovery. ▲ ▼
+
+--- [Section: すば運] ---
+[PSO2][Slang] Abbreviation for "You're incredibly unlucky." The original story is a line from Dudu, the NPC in charge of equipment reinforcement in the old PSO2, when reinforcement fails. Although Dudu himself was the one who failed in the reinforcement work, he became a popular character (?) due to his lines that provoked the users. ▲ ▼
+
+--- [Section: スレイヤー] ---
+[NGS] A class that combines quick and stylish continuous attacks with instantaneous explosive power. Although it is super offensive, the class's status and skills are both weak in terms of durability. Can be equipped with Gun Slash. See the Slayer page for details. ▲ ▼
+
+--- [Section: スロット / スロ] ---
+[NGS][PSO2][Slang] The number of special abilities given to weapons and armor. Although there is no strict difference from OP, there are many usages where the term slot refers to the number of abilities, and the term OP refers to the content of the ability. Examples of each usage are "many slots", "strong OP", etc. Suro is sometimes further abbreviated as "○s". This is the Rappy slot located inside the old PSO2 casino. It is a very popular way to earn money because it is almost guaranteed to increase your casino coins and the playing effort is low. In rare cases, it includes Arkuma slots and even casinos in general. ▲ ▼
+
+--- [Section: 精鋭] ---
+[NGS] Megalots Enemy. The enemy name has the prefix "elite" (two names). ▲ ▼
+
+--- [Section: セクションランク] ---
+[NGS] A value that indicates the difficulty level of the section. They are expressed in descending order as "Rank.1", "Rank.2", etc. As the section rank increases, the level of the enemies that appear and the required combat power also increase accordingly. This is different from the "clear rank" which indicates the evaluation upon clearing the quest. Related: Quest rank ▲ ▼
+
+--- [Section: 絶望] ---
+[NGS] Gigantics Enemy. The enemy name has the prefix "of despair" (two names). ▲ ▼
+
+--- [Section: 戦域統制型ドールズ] ---
+[NGS] Some powerful Dolls such as Nex Vera. A dangerous individual that activates the movements of other dolls. It is a particularly powerful individual among the control types, and has the ability to command the Dolls of the entire region. In the global version, it is written as "The Command DOLLS Unit", same as "controlled type", and the difference between it and that one is not clearly distinguished. ▲ ▼
+
+--- [Section: 潜在能力開放] ---
+[NGS][PSO2] In "Unleash Potential" in "Item Lab", you can release the "potential" unique to each weapon by consuming Gathering Materials and N-Meseta. Even after unlocking your potential, you can level up your potential by consuming gathering materials and N-Meseta again. To unlock your potential, you will need various ores such as Monotite, Dualomite, Trinite, and Photon Chunk, as well as materials such as N-Excube. See the Potential page for details. ▲ ▼
+
+--- [Section: 全シップマッチング/全シ] ---
+[NGS] [Slang] A system that allows you to do quests and interact from all ships (servers) randomly or through passwords. The advantage is that matching can be done at any time, but the disadvantage is that players are selected regardless of their quality and ability, just like in normal matching. Participating with the same ship is called "local," while participating with all ship matching is called "all ships." ▲ ▼
+
+--- [Section: 前ダークファルス] ---
+[NGS] The Dark False that attacked the Qvaris Region 100 years before the beginning of the story. Crawford, who is acting based on the records left behind by Lysus, used this expression to distinguish between what is now and what was 100 years ago. ▲ ▼
+
+--- [Section: 戦闘セクション] ---
+[NGS] An area where many enemies appear. Up to 8 people can play. PSE occurs only in this section. See also Exploration Section/Combat Section. ▲ ▼
+
+--- [Section: 戦闘不能] ---
+When HP reaches 0, you will be unable to fight. While incapacitated, you will not be able to move or attack, and only the displayed ``Incapacitated Menu'' will be available for operation. Also, if you wait for a while without being able to fight, you will no longer be able to obtain experience points or items from surrounding battles. In the incapacitated menu, you can take actions such as returning to the nearest Ryukor Device, reviving using N-Scape Doll, or chatting. To recover from a state of incapacity, in addition to performing the selections from the incapacity menu above, there are other methods such as having another player use the "Reverser Sign". ▲ ▼
+
+--- [Section: 戦闘力] ---
+[NGS] A comprehensive numerical representation of the player's status and equipment performance. There are some situations where combat power above a certain level is required to participate in emergency quests or progress through the main story. The old PSO2 had no concept of combat power. See Combat Power for details. ▲ ▼
+
+--- [Section: セントラルガールズ] ---
+[NGS] Operators who report directly to Crawford, the central leader. This applies to Rossa, Orange, Lulin, and Lan. ▲ ▼
+
+--- [Section: セントラルキャノン] ---
+[NGS] A dreadnought weapon possessed by Central City, and a trump card against Dark Falz. It transforms the central tower itself into a gun barrel and uses it as a super-large-caliber, single-barrel photon particle cannon. For other details, see the Central City page. ▲ ▼
+
+--- [Section: セントラルシティ] ---
+[NGS] The largest city on the planet Halfa, located in central Aerio. According to Galois, it is the "center of government and economy." This is the player's base, and there are facilities such as a warehouse, my shop, and a beauty salon. It seems small for the ``largest city,'' but according to volunteers who deciphered the text on the electronic bulletin board, it is a structure that extends underground. See Central City for details. ▲ ▼
+
+--- [Section: セントラルタワー] ---
+[NGS] Central City A huge building located in the center. It plays the role of a radio tower that can transmit and receive radio waves over a wide range, but in the event of an emergency, it can transform into the barrel of the "Central Cannon". There are food stands and quest counters on the first floor, and if you take the teleporter to the basement, you can go to the command room where Crawford and others work. ▲ ▼
+
+--- [Section: せんとらるっ！] ---
+[NGS] Official web manga serialized on the players site. The daily life of the four operators who support the Arks in Central City, which cannot be seen in the game, is depicted. Distribution started on September 15, 2021, and has been updated every Wednesday since then. The author is Fudechin. Click here for the announcement and here for the full story. ▲ ▼
+
+--- [Section: ソード] ---
+[NGS][PSO2] Weapon types that can be equipped by hunters. An easy-to-use melee weapon with a good balance of attack range and damage. For details, see the Sword and Sword/Action/PA pages. ▲ ▼
+
+--- [Section: 双機銃] ---
+[NGS][PSO2] Another name for "twin machine gun". ▲ ▼
+
+--- [Section: 奏具] ---
+[NGS][PSO2] Another name for "Tact". ▲ ▼
+
+--- [Section: 双小剣] ---
+[NGS][PSO2] Another name for "Twin Dagger". ▲ ▼
+
+--- [Section: 想定演習] ---
+[NGS] Words attached to the names of quests that can be ordered from the quest counter. This refers to the fact that the quest is a simulation aimed at preparing for future battles. Many limited-time quests and trigger quests are positioned as this "hypothetical exercise." ▲ ▼
+
+--- [Section: 属性ダウン] ---
+[NGS] If you continue to attack some enemies with their weak attributes, they will be unable to move for a certain period of time. It can be called a status abnormality on the enemy's side, and when an attribute goes down, it goes down while taking on an effect that corresponds to its weak attribute. Another type of down is physical down. The old PSO2 had similar specifications, but did not have an official name. ▲ ▼
+
+--- [Section: た行] ---
+▲ ▼
+
+--- [Section: ダークファルス] ---
+[NGS][PSO2] The description in the global version is "Dark Falz". Sometimes abbreviated as "DF". It has appeared in different settings and appearances since the original Phantasy Star, and throughout the series it is positioned as an important strong enemy, including the final boss. For details on "NGS" and past works, see the Dark False page. The spelling in English was "Dark Phallus" at the beginning of the series, but now it is "Dark Falz". "Phallus" actually has a slang meaning in English-speaking countries, but the staff who named it at the time didn't seem to know that. ▲ ▼
+
+--- [Section: 大剣] ---
+[NGS][PSO2] Another name for "Sword". ▲ ▼
+
+--- [Section: 大瀑布] ---
+[Game] [General] Taki is a synonym of "waterfall". A place name that is sometimes used in games, and is often characterized by an abundance of water and terrain with varying elevations. In NGS, there is Balfrow Great Falls located in South Aerio. In many cases, not just NGS, locations are completely covered with water, but in reality, the abundance of water often results in lush greenery and forest areas. In the real world, Iguazu Falls and Niagara Falls are famous. On the other hand, something shaped like an angel fall is not often called a waterfall. ▲ ▼
+
+--- [Section: ダイブアタック] ---
+[NGS] A slam attack that can be performed by pressing the jump key and normal attack key at the same time. It can be used with all weapons, has decent power, is a range attack, and has a fall effect. The actions are different, but the performance is the same for all weapon types. It is not suitable for aerial combat as it will always land, but if you are at a low altitude like Aginis Roa, the shock wave will reach you. The detailed input reception structure is as follows: ``If a normal attack is input after the jump key is input and before the jump key is released or the character is in the landing state, a dive attack will be activated.'' Therefore, in the game, it is explained as ``pressing the jump key and normal attack key at the same time,'' but in reality, it is not necessary to press the jump key at the same time. It can also be activated by ``holding down the jump key and attacking normally,'' ``After pressing the jump key, don't let go of the key, switch to photon glide, and then attack normally,'' or ``while jumping or photon glide, press the jump key again (transition to mid-air jump or cancel glide), and then attack normally without releasing the key.'' On the other hand, you can also disable the jump + normal attack commands from the options and set them to only be used from those set in the weapon palette and subpalette. The power increases if you fall a certain distance or more between activation and landing. (Height is about the same height as the top of a double dash jump) Although it descends faster than free fall, the distance traveled in the horizontal direction when inputting movement while descending is nearly twice that of free fall. ▲ ▼
+
+--- [Section: 大砲] ---
+[NGS][PSO2] Another name for "Launcher". ▲ ▼
+
+--- [Section: 田植え] ---
+[NGS] [Slang] Gunslash's Photon Arts, "Waving Rigel." It is called this because the motion of Stay Arts lowers its hips and thrusts its weapon, so if you hit it repeatedly it looks like planting rice seedlings. ▲ ▼
+
+--- [Section: ダウン] ---
+[Game] An enemy is temporarily unable to act. Also, the condition. In NGS, there are physical downs and attribute downs. For details, see the Enemy Down/Part Destruction page. The character falls. If you press the jump key while falling, you can immediately get back on your feet. It may also include blowing. For details, see the Abnormal Status/Resistance page. Incapable of fighting. It is rarely used in PSO2. ▲ ▼
+
+--- [Section: タクト] ---
+[NGS][PSO2] Weapon type that Waker can equip. A weapon that allows you to fight at both short and long range by calling on your "Familiar". For details, see Takt and Takt/Action/PA pages. ▲ ▼
+
+--- [Section: タスク] ---
+[NGS] A request accepted from a resident of the Arcus base. By achieving this, you will automatically receive rewards such as experience points and N-Meseta. There are classifications such as "main tasks," "side tasks," "daily tasks," "weekly tasks," and "limited-time tasks." See Tasks for details. ▲ ▼
+
+--- [Section: ダブルセイバー] ---
+[NGS][PSO2] Weapon types that can be equipped by fighters. A melee weapon with a wide attack range that can be used in a variety of situations. For details, see the Double Saber and Double Saber/Action/PA pages. ▲ ▼
+
+--- [Section: タリス] ---
+[NGS][PSO2] Weapon types that can be equipped by Force and Tector. After activating PA, a Tallis formation will be deployed in the air for a while, and if you activate Technique in that state, it is a long-range weapon that can attack with special bullets. For details, see the Talis and Talis/Action PA pages. ▲ ▼
+
+--- [Section: タワー] ---
+[NGS] A type of training facility called a Trainier, a large structure built in an open field. By clearing it, you can earn more skill points than Cocoon, but it is much more difficult than Cocoon. See Trainier for details. Related: Cocoon ▲ ▼
+
+--- [Section: 探索セクション] ---
+[NGS] An area with relatively few enemies and suitable for gathering. However, this does not mean that boss enemies and high-level enemies will not appear at all. Up to 32 people can play. See also Exploration Section/Combat Section. ▲ ▼
+
+--- [Section: 短杖] ---
+[NGS][PSO2] Another name for "Wondo". ▲ ▼
+
+--- [Section: 単装フォトン粒子砲] ---
+[NGS] According to Crawford, the official name of "Central Cannon." The Central Cannon seems to be one of the lost technologies that modern Halfan people have not been able to understand, and for this reason, in the short episode, he emphasizes that this name is only ``apparently so.'' ▲ ▼
+
+--- [Section: チーム] ---
+[NGS][PSO2] One of the communication functions available in "NGS" and "PSO2". An organization that can be formed by any player, and is equivalent to concepts such as ``guilds'' and ``clans'' in general games. See the team page for details. ▲ ▼
+
+--- [Section: チームタスク] ---
+[NGS] A group of tasks that can be ordered if you are a member of the team. You can accept orders by talking to the team activity supporter "Tim" at each ARCS base. When you complete a team task, you will receive an item called a ``team badge,'' which can be exchanged for various items. See the NPC/Tim page for details. ▲ ▼
+
+--- [Section: チームタスクレコード] ---
+[NGS] A type of ARCS record. Compete for the total number of team tasks completed within your team during the event period. For details, see the ARCS Records page. ▲ ▼
+
+--- [Section: チャット] ---
+[NGS][PSO2] A feature that allows you to communicate with other players through text and images. By selecting the range in which you want to continue speaking from the ``Speak to'' tab, you can also choose to speak only to party members. You can also change the shape of the balloon using the various buttons at the bottom of the chat window. See the chat page for details. ▲ ▼
+
+--- [Section: 長銃] ---
+[NGS][PSO2] Another name for "assault rifle." ▲ ▼
+
+--- [Section: 長杖] ---
+[NGS][PSO2] Another name for "rod". ▲ ▼
+
+--- [Section: 長槍] ---
+[NGS][PSO2] Another name for "Partisan". ▲ ▼
+
+--- [Section: 超・創世祭] ---
+[NGS] A campaign held to commemorate the 2.5th anniversary of the launch of the "NGS" service. The notation in the global version is "Super Genesis Festival". See the page below for details. Super Genesis Festival - "NGS" 2.5th Anniversary Campaign - Part 1 (Players Site) Super Genesis Festival - "NGS" 2.5th Anniversary Campaign - Part 2 (Players Site) Super Genesis Festival - "NGS" 2.5th Anniversary Campaign - Part 3 (Players Site) ▲ ▼
+
+--- [Section: 超・星譚祭] ---
+[NGS] A campaign held to commemorate the 3rd anniversary of the launch of the "NGS" service. The notation in the global version is "Halpha's Super Origin Festival". See the page below for details. “Super Seitan Festival” Countdown Campaign (Players Site) Super Seitan Festival ~ “NGS” 3rd Anniversary Campaign ~ Part 1 (Players Site) ▲ ▼
+
+--- [Section: 超PSO2の日！TripleBurst] ---
+[NGS][PSO2] *See the “PSO2 Day” section. ▲ ▼
+
+--- [Section: ツインダガー] ---
+[NGS][PSO2] Weapon types that can be equipped by fighters. A melee weapon characterized by rapid consecutive attacks and high maneuverability in the air. For details, see the Twin Dagger and Twin Dagger/Action/PA pages. ▲ ▼
+
+--- [Section: ツインマシンガン] ---
+[NGS][PSO2] Weapon types that can be equipped by Gunner. A shooting weapon that shows its true value in close combat. For details, see the Twin Machine Gun and Twin Machine Gun/Action/PA pages. ▲ ▼
+
+--- [Section: 月] ---
+[PSO2][slang] See moon atomizer. ▲ ▼
+
+--- [Section: ティア] ---
+[NGS] The "Mission Pass" stage. ▲ ▼
+
+--- [Section: デイシフト] ---
+[NGS] The appearance and nature of Alters change when in-game time shifts to daylight. Related: Night Shift ▲ ▼
+
+--- [Section: デイナイトシフト] ---
+[NGS] A generic term that combines "day shift" and "night shift." A phenomenon in which enemies called "Alters" change their appearance and properties during the day and night. ▲ ▼
+
+--- [Section: テイムズ] ---
+[NGS] Wild animals living in the field. Except for a few, they do not attack from the other side. If you attack it from here, it will immediately run away. You can obtain Gathering materials by defeating them. See here for a list of Tames. ▲ ▼
+
+--- [Section: 適正距離] ---
+[NGS] Assault rifles, twin machine guns, and wired lances have an "appropriate distance", and the damage will increase or decrease depending on the distance to the enemy. For details, see Appropriate Distance. ▲ ▼
+
+--- [Section: デクスト] ---
+[NGS] Dextbase, one of the combat sections. Since there are many relatively small enemies that are easy to defeat, there are a certain number of players who use specific hunting methods to make money. ▲ ▼
+
+--- [Section: デクノザ] ---
+[NGS][Slang] A combination of the above dextbase and litem ernoza. They are often referred to together because both are suitable for monetary policy. ▲ ▼
+
+--- [Section: テクター] ---
+[NGS][PSO2] A class that is good at assisting allies. The main attack is with a wand, but if you attack an enemy, a "legal attack explosion" will occur depending on the weapon attribute, and you can aim to "down the attribute". Can equip Taris Wand. See the Tector page for details. ▲ ▼
+
+--- [Section: テクニック] ---
+[NGS][PSO2] A concept in the "Phantasy Star" series that "magic, a supernatural power that can only be used by those with special talents, has been recreated through science so that it can be used by others." Something like magic in a typical RPG. In "NGS", it can only be used if the main class or subclass is Force Tector Bouncer. Newman is said to be good at setting the world, but in terms of game status, there is no difference between them and other races. See "Techniques" for details. ▲ ▼
+
+--- [Section: デグレブ] ---
+[NGS] A columnar structure on the Sagaan mountain pass in West Rithem. It is said to be interfering with the surrounding electromagnetic and gravitational fields, but details have not been disclosed. ▲ ▼
+
+--- [Section: 出待ち] ---
+[Vulgar] To charge a PA etc. before an enemy appears, wait for it, and attack immediately after it appears. This is the basic usage of long-charge, high-power attacks like Flex Arrow's two-stage charge. The aim is to improve DPS by completing a long charge at a time when the enemy cannot attack (before appearance, invincibility, etc.). Due to the nature of waiting, it is limited to PAs that can stand by in a charged state. ▲ ▼
+
+--- [Section: デューマン] ---
+[NGS][PSO2] One of the races that the player can select. It is characterized by odd eyes and a horn on its head. Men have one horn and women have two horns.In the old PSO2, they were designed as an attack-oriented race with superior attack power and inferior HP. Related: Human, Newman, Cast ▲ ▼
+
+--- [Section: デュアルブレード] ---
+[NGS][PSO2] Weapon type that Bouncer can be equipped with. A melee weapon that can perform a variety of attacks using two swords and a photon blade. For details, see the Dual Blade and Dual Blade/Action/PA pages. ▲ ▼
+
+--- [Section: デリバリーデバイス] ---
+[NGS] A device for calling and transferring ARKS special weapons. See the Special Weapons page for details. Related: Mobile Canon ▲ ▼
+
+--- [Section: テレポート] ---
+[NGS] A function that allows you to teleport to a discovered Ryukor device from the world map. It's the equivalent of fast travel in other games. ▲ ▼
+
+--- [Section: 電撃] ---
+[NGS][PSO2] "Dengeki" is a brand of Media Works, a subsidiary of KADOKAWA. We have a close relationship with the Phantasy Star series through collaborations on in-game implementations and publication of books such as strategy guides and mook books. NGS posts web articles on ``Dengeki Online'', and mainly on update implementation days (Wednesdays during regular maintenance), various articles with the latest information that appear to be provided by SEGA officials are published. In PSO2, strategy articles and activities are serialized as "Dengeki PSO2" on "Dengeki PlayStation" (Dengeki PS). Similarly, he was involved in collaborations (items, quest implementation, event implementation) and the publication of various books, and staff interviews were also conducted. However, since "Dengeki PS" ceased publication after its last issue released on March 28, 2020, the publication medium has been shifted to "Dengeki Online" (WEB serialization). ▲ ▼
+
+--- [Section: 天罰] ---
+[PSO] [Slang] A colloquial name for a beam-type attack that rains down from the sky. If it looks like the bullets are falling vertically, it is sometimes called this even if it is not a beam attack. It originates from the attack of Dark Falz, the boss of the first PSO. ▲ ▼
+
+--- [Section: ドーム] ---
+[NGS] A term that refers to the area that includes Roof Makuad and Lower Makuad. ▲ ▼
+
+--- [Section: ドールズ] ---
+[NGS] An unknown life form that is hostile to Arcus. Its main body is made of blue gel and looks like a piece of metal armor attached to it. See Dolls for details. ▲ ▼
+
+--- [Section: 導具] ---
+[NGS][PSO2] Another name for "Talis". ▲ ▼
+
+--- [Section: 統制型ドールズ] ---
+[NGS] Some powerful Dolls, such as Pedas Vera. A dangerous individual who can activate the movements of other Dolls and control them within a certain range. There is a theater control type among the higher ranks. In the global version, it is written as "The Command DOLLS Unit", same as "Theater Control Type", and the difference between it and that one is not clearly distinguished. ▲ ▼
+
+--- [Section: 投擲アクション] ---
+[NGS] A special action that attacks by throwing a specific object. ``Throwable objects'' may appear due to the destruction of objects or enemy attack actions. Accessing this object allows you to "throw" the object with the throw action. The thrown object disappears when thrown or after time passes. Objects that can be thrown have various effects, and by making good use of them, you can bring down enemies or advance the trial to your advantage. See the Throwing Action page for details. ▲ ▼
+
+--- [Section: 特殊能力カプセル] ---
+[NGS][PSO2] A general term for items that give special abilities to weapons and armor. All item names start with the letter "C/" followed by the name of the special ability that can be given. See the special abilities page for details. ▲ ▼
+
+--- [Section: 特殊能力追加] ---
+[NGS][PSO2] Special abilities can be added to equipment using ``Special Abilities Addition'' in ``Item Lab.'' To add special abilities, you will need ``Special Abilities Capsule'' and N-Meseta as materials. There are various types of special ability capsules, and the special abilities that can be added differ. Although the success rate of one special ability capsule may be low, consuming multiple of the same special ability capsules at the same time increases the additional success rate of that special ability. See the special abilities page for details. ▲ ▼
+
+--- [Section: 独立遊撃隊] ---
+[NGS] Troops authorized to operate in high-rank sections of each region. Main Story Players will be allowed to participate by achieving the goal of the main task set at the end of each chapter, ``Raise combat power to XX or higher''. ▲ ▼
+
+--- [Section: トライアル] ---
+[NGS] An unexpected event that occurs randomly on the field. Perform small missions such as subjugating powerful enemies and defending equipment. The old PSO2 also had a similar system called "E-Trial," but in the old PSO2, it often occurred in the form of getting caught up in the progress of a quest, whereas in NGS, it is a format that rushes to a trial that is occurring in another location. See Trial for details. ▲ ▼
+
+--- [Section: トライアルマーカー] ---
+[NGS] Official name of "T marker". ▲ ▼
+
+--- [Section: トライブースト] ---
+[NGS][PSO2] The following three multipliers will be increased: experience points obtained, meseta obtained, and rare drop multipliers. Also, in a narrow sense, it refers to ticket/boost items that make this possible. It is often abbreviated as "Trab" among players. In "NGS", a boost-type item named "Triboost" appeared in June 2022. Before this item was implemented, it was mainly written as ``Acquired Experience Points/Acquired Meseta/Rare Drop Multiplier,'' and its use as an in-game term was decreasing, but it often had effects similar to Tri Boost, such as Quick Food premium set benefits and Party Boost obtained when using the Party function. ▲ ▼
+
+--- [Section: トラブ] ---
+[NGS][PSO2][Slang] Abbreviation for "Triboost". ▲ ▼
+
+--- [Section: トリガー] ---
+[NGS][PSO2] Items such as "B Trigger/XX" (Battle Trigger) and "Q Trigger/XX" (Quest Trigger) that are required when accepting specific quests such as Battle Deer or Trigger Quest. For details, see the Battle Deer and Trigger Quest pages. ▲ ▼
+
+--- [Section: トリガークエスト] ---
+[NGS] Quests that can be challenged and cleared by using specific trigger items. In addition to the "Trigger Portal" set up in the field, orders can be accepted from the "Quest Counter" at each ARCS base. For details, see the Battle Deer and Trigger Quest pages. ▲ ▼
+
+--- [Section: トリガーポータル] ---
+[NGS] A special terminal used to accept orders for Battle Dear Quest. There are types such as "Yellow Portal", "Purple Portal", and "Blue Portal", and they are placed on the open field. After launching, you can challenge the corresponding quest by setting a specified number of items called "Battle Trigger". See also the Field Equipment/Combat/Status page. ▲ ▼
+
+--- [Section: トリニテス] ---
+[NGS] A huge training facility with a square pyramid-shaped exterior that is said to be a ``trainier for advanced players''. It stands in the desert of Central Ritem Region, and you can take on the highly difficult quest ``Geometric Labyrinth.'' See the Trainier page for details. ▲ ▼
+
+--- [Section: トレイニア] ---
+[NGS] Ark's training facility. There are multiple types, and for ``Cocoon'' and ``Tower,'' you can earn skill points by achieving goals. Once discovered, you will be able to challenge it directly from the world map. See the Trainier page for details. ▲ ▼
+
+--- [Section: トレイニアアドバンス] ---
+[NGS] A training facility that is said to be a "trainier for advanced players." They exist all over Halfa, and there are different types such as ``Bunker Type.1'' and ``Bunker Type.2''. See the Trainier page for details. ▲ ▼
+
+--- [Section: ドレッドエネミー] ---
+[NGS] A boss enemy that appears in specific locations in the exploration section. It is given the double name ``Veteran'' and has small scratches all over its body. See the Dread Enemy page for details. ▲ ▼
+
+--- [Section: ドローム] ---
+[NGS] A special enemy that appears in the ruins of Wamford Laboratory. Once defeated, it becomes an ally and can follow the player and fight together for a certain period of time. When a Drome is following you, defeating another Drome will change its shape. When the shape changes, Drome will be able to perform ranged attacks and use skills that strengthen the player. See Drome for details. ▲ ▼
+
+--- [Section: な行] ---
+▲ ▼
+
+--- [Section: ナーフ] ---
+[Game] [Slang] A slang expression that refers to downwardly modifying (weakening) the abilities of existing characters and weapons for the purpose of balance adjustment, etc. in online games. The name comes from the name of a toy gun. ▲ ▼
+
+--- [Section: ナイトシフト] ---
+[NGS] The appearance and nature of Alters change when in-game time shifts to night. When Alters enter the Night Shift state, their characteristic parts change and their attack power increases significantly. Related: Dayshift ▲ ▼
+
+--- [Section: ナックル] ---
+[NGS][PSO2] Weapon types that can be equipped by fighters. Although it has a narrow attack range, it has high movement performance and is a top-class melee weapon that deals damage. For more information, see the Knuckle and Knuckle/Action PA pages. ▲ ▼
+
+--- [Section: ニューマン] ---
+[NGS][PSO2] One of the races that the player can select. It is characterized by long, pointed ears called elf ears. In the old PSO2, they were designed as a race that fought from long distances, with excellent attack power and low HP techniques. Related: Human, Cast, Duman ▲ ▼
+
+--- [Section: 野良] ---
+[NGS][PSO2][Game][Slang] Playing solo or by forming a party with players you don't know. Or the players who play like that. Antonyms: Fixed / Party ▲ ▼
+
+--- [Section: は行] ---
+▲ ▼
+
+--- [Section: バースト金策] ---
+[NGS] A method of earning Meseta by processing large amounts of enemies using PSE bursts. This can be said to be the mainstream of current financial policy. See the financial policy page for details. ▲ ▼
+
+--- [Section: パーティー] ---
+[NGS][PSO2][Game] To form a team with a specific player in advance and take action. In "NGS", you can form a party of up to 4 people. There are benefits such as being able to receive the effect of Shifta Deband by Techter regardless of the distance from the person, and boosting the rare drop multiplier, the acquired experience value multiplier, and the obtained N-Meseta multiplier. If a party is made up of familiar members, it is an antonym of ``Nara,'' but a party gathered on the spot is called a ``Nora Party.'' Although it is often written as "party," it is written as "party" in "NGS." See the party page for details. ▲ ▼
+
+--- [Section: パープルポータル] ---
+[NGS] A type of trigger portal. By using this, you can challenge quests classified as "Battle Deer: Purple". ▲ ▼
+
+--- [Section: ハイランクセクション] ---
+[NGS] One of the field classifications. The map is similar to the original section, but the levels and types of enemies that appear have changed to be more powerful. It is mainly unlocked by clearing a specific main task, but in order to actually enter it, your combat power must be above a certain value. The sections where high-rank sections exist are classified into Rank.1, Rank.2, etc., and the sections after Rank.2 are high-rank sections. When entering on foot, the highest rank that meets the conditions will be automatically selected, and when teleporting to the Ryukor Device in the relevant section, you can select any available rank. If you accidentally appear while fighting near the area border of a low-rank section, you will be automatically matched to a high-rank section when you re-enter, so be careful. The worldview is a powerful enemy mop-up operation conducted by an ``independent guerrilla force'' in which those who have been recognized for their work as ARCS are allowed to participate. For other details, see the Field Facilities/Combat/Status page. ▲ ▼
+
+--- [Section: バウンサー] ---
+[NGS][PSO2] A class with high mobility that can give you an advantage, especially in aerial combat. In addition, class skills can induce physical down or attribute down, giving you an advantage in battle. Can be equipped with dual blades and jet boots. See the Bouncer page for details. ▲ ▼
+
+--- [Section: 覇壊種] ---
+[NGS] A word that is presumed to refer to the enemy species "Dolls". When the setting pictures of "NGS" were exhibited at the offline event "ARKS EXPO 2022" held on July 17, 2022, this word was seen in many of the setting pictures of Dolls-type enemies. At this point, it cannot be confirmed as a term in the game, and it is thought that it was a common name at the concept stage, but the details are unknown. ▲ ▼
+
+--- [Section: 瀑布] ---
+[Game] [General] Great Waterfall See. ▲ ▼
+
+--- [Section: ハコ] ---
+[NGS][PSO2][Slang] A slang term referring to the "cast" race that seems to have started to be used among fans of the "Phantasy Star" series after the first "PSO". It is said that this comes from the angular appearance peculiar to the cast, which makes it look like a box. ▲ ▼
+
+--- [Section: 抜剣] ---
+[NGS][PSO2] Another name for "Katana". ▲ ▼
+
+--- [Section: パッシブスキル] ---
+[Game] A skill that is effective depending on the situation without any player interaction. The antonym is active skill. In NGS, it is used as a class skill classification. ▲ ▼
+
+--- [Section: バトルディア] ---
+[NGS] A type of training facility that can be accessed by setting a special key "Battle Trigger" on a special terminal called "Trigger Portal". There are three types: "Battle Deer: Yellow", "Battle Deer: Purple", and "Blue Portal: Variable". In addition to accepting quests by directly accessing each trigger portal, you can also challenge them from the "Quest Counter" set up within each ARCS base. A dedicated trigger is required to challenge each training menu, for example, the yellow "Yellow Portal" corresponds to "B Trigger/Common Yellow". See the Battle Deer page for details. ▲ ▼
+
+--- [Section: バトルトリガー] ---
+[NGS] A general term for trigger items required when challenging "Battle Deer". It is also written as "B trigger". For details, see the Battle Deer and Material Items pages. ▲ ▼
+
+--- [Section: ハフド] ---
+[NGS][PSO2][Slang] Abbreviation for the resuscitation device "N-Half Doll" used among players. Related: Sked ▲ ▼
+
+--- [Section: ハマり] ---
+[Game] [General] A character, friend or foe, falls into a specific situation, making it difficult or impossible for them to return on their own. Also called stack. With 3D action, it's more or less addictive. Fortunately, there are remedies if you get stuck in both PSO2/NGS. In NGS, after a certain period of time, players will be transferred to the Ryukor device or quest start point in the same area, and enemies will be transferred to the spawn location. If you are outside of a quest, you can teleport (fast travel) from the map as usual, so if you think you've gotten stuck, you'll be able to return quickly if you teleport. ▲ ▼
+
+--- [Section: ハムる] ---
+[Game] [Slang] Going around quests for low-probability drop items. It is called this because it resembles a hamster that keeps running on a wheel. ▲ ▼
+
+--- [Section: パリィ] ---
+[NGS][Game] An action where you dodge enemy attacks. It is derived from the English word parry (meaning to parry, miss, evade, or evade). Unlike Guard, it cannot be activated by holding down the button, and it will only take effect at the same time as Just Guard. Instead, it is compatible with all surroundings as a basic function. Reception hours are set individually. In the game, it is mainly used as a class skill name. Note that there are many actions in the game that are labeled as guards, although the actual action is a parry. (ex. Explanation of Saber Parry Counter) Parrying is also a word with almost the same meaning and usage. (Ex. Hunter Arts Just Paring) This is written as invalid in the description. Synonyms: guard ▲ ▼
+
+--- [Section: パルチザン] ---
+[NGS][PSO2] Weapon types that can be equipped by hunters. A melee weapon with excellent explosive power. For details, see Partisan and Partisan/Action/PA pages. ▲ ▼
+
+--- [Section: ハルファ] ---
+[NGS][General] The planet where the player who started playing "NGS", that is, the starwalker, lands. The notation in the global version is “Halpha”. It has a large city called "Central City" as its political and economic center. At first glance, it appears to be a planet with a diverse natural environment, but there are still many mysteries surrounding it, including the fact that some artificial structures are exposed here and there. See the planets page for details. The name of a star that exists in the real world. In June 2023, SEGA Corporation purchased the naming rights to this star (HD 10498) using services provided by Australia's Springbrook Observatory and named it "Halpha". As seen from Earth, it is located in the direction of the constellation Perseus, near the planetary nebula M76. Note that this type of ``star naming right'' is not academically recognized, and the above-mentioned astronomical observatory issues its own certificate. ▲ ▼
+
+--- [Section: ハルファ人] ---
+[NGS] The people who live on the planet Halfa. For details, see the Culture/Civilization page. ▲ ▼
+
+--- [Section: ハルファ文字] ---
+[NGS] Characters used in the NGS world. Although the name "Halfa Moji" does not appear in the game, it is called this way in a tweet from Rappy.commu. The font is distributed as a fan kit on the official website along with the old PSO2 oracle characters. For correspondence with real numbers, letters, and symbols based on this font, see Characters Used in the NGS World. ▲ ▼
+
+--- [Section: バレットボウ] ---
+[NGS][PSO2] Weapon type that can be equipped by Braver. A shooting weapon that deals consistent damage from a long distance. For details, see the Bullet Bow and Bullet Bow/Action/PA pages. ▲ ▼
+
+--- [Section: バレットボウイルードEX] ---
+[NGS] Abbreviation for "Bullet Bow Rude Expand". ▲ ▼
+
+--- [Section: バンカーType.1] ---
+[NGS] One of the categories of Trainier Advanced. Quests such as ``Cannonball Rumble'' and ``Cannonball Strike'' fall under this category. See the Trainier page for details. ▲ ▼
+
+--- [Section: バンカーType.2] ---
+[NGS] One of the categories of Trainier Advanced. Quests such as "Ordinal Tower" fall under this category. See the Trainier page for details. ▲ ▼
+
+--- [Section: ハンター] ---
+[NGS][PSO2] A class that uses "guard" and "step" to evade enemy attacks, and can deal great damage with "counter". Can be equipped with sword, wired lance, and partisan. See the Hunter page for details. ▲ ▼
+
+--- [Section: 飛翔剣] ---
+[NGS][PSO2] Another name for "Dual Blade". ▲ ▼
+
+--- [Section: ヒットポイント] ---
+[NGS][PSO2][Game] Also called "HP". A numerical value that represents the character's physical strength. ▲ ▼
+
+--- [Section: ヒューマン] ---
+[NGS][PSO2] One of the races that the player can select. They have the same characteristics as real humans. In the old PSO2, they were designed as a balanced race with slightly superior HP, striking and shooting power, and no particular drawbacks. Related: Newman, cast, Duman ▲ ▼
+
+--- [Section: 氷壁を穿つ五つの志] ---
+[NGS] The title of the second major update for "NGS", which was implemented on June 8, 2022. A new open field ``Quvaris Region'' and Chapter 3 of the main story have been distributed. For details, please refer to the announcement page on the official website as well as the individual page on this Wiki. ▲ ▼
+
+--- [Section: ヒロ・アライ] ---
+[NGS] A person who served as the official navigator for "PSO2: NGS". Belongs to SEGA Co., Ltd. Regarding the role of ``official navigator'', in ``PSO2 NEW GENESIS Introduction'' distributed on September 25, 2020, it was stated that ``I am in a position to navigate this game in a better direction and make it more exciting, such as by providing information and conducting activities to connect the development and players so that as many people as possible can enjoy PSO2''. As for specific activities, in addition to hosting the official program "NGS Headline", disseminating information on the official community Twitter "Lappy.com", and responding to interviews with various media. Due to various reasons, she will retire from the official program in March 2025 and will be succeeded by Yui Hasegawa. ▲ ▼
+
+--- [Section: フードスタンド] ---
+[NGS] One of the facilities in Central City. You can create food that has a boost effect using materials obtained through gathering. Food can also be created using the Ryukor Device, so it is rarely used. ▲ ▼
+
+--- [Section: ファイター] ---
+[NGS][PSO2] A class that deals high damage by using various actions depending on the situation. Can be equipped with twin daggers, double sabers, and knuckles. See the Fighter page for details. ▲ ▼
+
+--- [Section: ファストトラベル] ---
+[Game] A feature that allows you to teleport between two discovered locations. In NGS, this corresponds to teleport. ▲ ▼
+
+--- [Section: フィールドギミック] ---
+[NGS][wiki] A term used to refer to objects that are not treated as enemies but can be locked onto or attacked, such as training targets, Tendar, and Tranzave.The term ``field gimmick'' is not officially used, and the above items are simply referred to as ``objects'' in announcements on the player's site, but in order to classify them according to their characteristics and characteristics, this wiki uses this expression for convenience. ▲ ▼
+
+--- [Section: フィールドレース] ---
+[NGS] Content where you run on the field in the exploration section with other players and compete for time and points. You can start the competition from the ``Racing Console'' installed near the Ryukor Device in the exploration section. If you move to another section or teleport, you will leave the competition. See the Field Race page for details. ▲ ▼
+
+--- [Section: フォース] ---
+[NGS][PSO2] A class that can attack enemies' weaknesses with long-distance technical attacks and actively aim to "down" their attributes. Can be equipped with Rod Tallis. See the Force page for details. ▲ ▼
+
+--- [Section: フォトン] ---
+[NGS][PSO2] A concept that has been used in the "Phantasy Star" series since it appeared in the first "Phantasy Star Online" (PSO). Although the treatment differs slightly depending on the work, they have generally been depicted as ``particles that exist everywhere'' or ``things that can be used as weapons or energy by special talents or advanced science and technology.'' In "NGS" and "PSO2", it is used when using Photon Arts and Techniques. It can be said that it is similar to the concept of so-called "magic power" in general RPG works. Note that "photon" is a physical term used to mean "photon" in reality. For other details, see the Culture/Civilization page. ▲ ▼
+
+--- [Section: フォトンアーツ] ---
+[NGS][PSO2] Also abbreviated as "PA". A powerful technique that can be performed by consuming photons existing within the body. For details, see the "Photon Arts" section for each weapon. In the old PSO2, "Kaishiki Photon Arts" appeared as a derivative form. ▲ ▼
+
+--- [Section: フォトン加速器] ---
+[NGS] One of the parts that make up the central cannon. ▲ ▼
+
+--- [Section: フォトングライド] ---
+[NGS] New NGS action. If you hold down Jump, you can move while descending gently through the air. If you perform a normal attack in this state, a dive attack will occur while falling. It becomes available in the Prologue tutorial ("Going to the Cliffs of Kanai Island"). According to Galois and Manon, it seems to use "the energy within its body, called photons, by concentrating it in its arms and legs." ▲ ▼
+
+--- [Section: フォトン結晶] ---
+[NGS] Photons in the atmosphere are excited and manifest as crystals. In addition to ``Resta Sign'' and ``Reverser Sign,'' which are used as recovery items, items with various effects have been confirmed, such as ``Collect Sign.'' ▲ ▼
+
+--- [Section: フォトンダッシュ] ---
+[NGS] New NGS action. If you hold down the step, it will move over long distances at high speed. During Photon Dash, PP natural recovery stops. If you perform a normal attack in this state, a special attack called a dash attack will occur. ▲ ▼
+
+--- [Section: フォトンチューナー] ---
+[NGS] Ritem Region A huge speaker-like structure that exists in various places. It is a device that increases the power of the ``songs'' exercised by the Ritem leaders. See the Field Objects page for details. ▲ ▼
+
+--- [Section: フォトンブラスト] ---
+[NGS][PSO2] One of the attack actions. Uses the photon blast gauge accumulated in battle to unleash a powerful attack. The motion and attack characteristics change depending on the type of weapon equipped at the time of activation. In the old PSO2, the energy stored in the Mag took the form of a mythical beast to attack and provide support, but in NGS, the player character now performs great moves. See Photon Blast for details. ▲ ▼
+
+--- [Section: フォトンポイント] ---
+[NGS][PSO2] Also called "PP". By consuming this, you can perform Photon Arts and Techniques. ▲ ▼
+
+--- [Section: フォトンジェネレーター] ---
+[NGS] One of the parts that make up the central cannon. "Generator" is a word that means "generator" or "generator." ▲ ▼
+
+--- [Section: 武器アクション] ---
+[NGS][PSO2] Unique actions set for each weapon. There are various effects you can get, such as a guard that can nullify/reduce enemy attacks with a sword, a sticky bomb that explodes with a time lag and can greatly recover PP with a launcher, and a trick (evasion action) that makes you invincible and automatically counters enemy attacks with jet boots. Most weapon actions have an invincibility time or guard. Many of them are based on strengthening with class skills. Although weapon actions themselves can be performed regardless of class composition as long as they are equipped, there are some that have little benefit in their original state. Typical examples of basic actions that are considered to be excellent include Talis (invincibility + continuous PP recovery) and Wire Lance (rapidly approaching the target). When creating a multi-weapon, these are worth considering as they do not require changes to the class composition. For details, see the page for each weapon type. ▲ ▼
+
+--- [Section: 複合テク] ---
+[NGS][PSO2][slang] Abbreviation for "complex attribute technique." ▲ ▼
+
+--- [Section: 複合属性テクニック] ---
+[NGS][PSO2] Special actions that can be used with Force and Tector weapons. You can use it by learning the Force or Tector class skill "Unite Technique". Note that skill points are not required to acquire this class skill. There are three types of composite attribute techniques: ``Formergion'', ``Berlanzion'', and ``Zandion'', all of which are activated by consuming a common composite attribute technique gauge. The composite attribute technique gauge fills up by hitting enemies with techniques and legal explosions. For complex attribute techniques, the damage does not change depending on the enemy's weak attribute, and class skills that target the technique are not applied. For other details, see the Techniques/Complex Attributes page. ▲ ▼
+
+--- [Section: ぷそ] ---
+[NGS][PSO2][Slang] A twist on the abbreviation "PSO" for "Phantasy Star Online," and a nickname used among fans of the series. In this connection, ``PSO2'' is sometimes called ``Pusoni'' or ``Pusotsu.'' ▲ ▼
+
+--- [Section: ぷそなび] ---
+[NGS][PSO2] Common name for the official Twitter account of "Phantasy Star Online 2". The words had been written in the account's profile section for a long time, but since more than a year has passed since the start of NGS service, the words can no longer be confirmed. (Time unknown) Even after the word "Pusonavi" is no longer officially used, it is still widely used by players who are familiar with it. ▲ ▼
+
+--- [Section: 二つ名] ---
+[Game] [General] A nickname, common name, or street name given to a famous person or monster. In NGS, it refers to the prefix given to rare enemies and enemies that appear in specific regions and quests. List Two names Classification name Appearance location Silver rare enemy General Golden rare enemy General/PSE Burst F Veteran Dread enemy Exploration section (Specific location) Despair Gigantics Exploration section (during bad weather), Battle Deer: Purple Elite Megalotics Combat section (Lv35-) Distant Ancient Enemy Rejord Gorge (Specific location) Seasonal Enemies of Flower Dance / Shining Star / Ancient / Snow Flower / Star Frost Limited Time Quest Invasion / Miraculous Invasion - Investigation of Halfa Environmental Experiment Zone Flash of Conquest - Roof Makuado (Specific Location/Specific Conditions), Red Realm Profound Calamity Dark False Class Enemy Important Target Subjugation Mission Twin Laws - Cooperative Starless Subjugation Indomitable - Duel Quest Calamity - Fictional Light ▲ ▼
+
+--- [Section: 物欲センサー] ---
+[Game] [Common] A phenomenon in which when you don't need a specific item, you can get it as much as you want, but you can't get it as much as when you want it. The point is, the difference is whether you are aware of it or not, so the drop rate does not actually change. However, it is strongly believed that the drop will be found by those who give up their material desires and spin it without thinking. ▲ ▼
+
+--- [Section: 物理ダウン] ---
+[NGS] If you continue to attack certain parts of some boss enemies, they will be unable to move for a certain period of time. When attacking the target area, yellow ripples are generated, and SE and yellow flash effects occur when knocked down. Some enemies only stagger for a moment, while others take a long downward motion. There are other types of downs, such as attribute downs. A similar system existed for some enemies in the old PSO2, but it was given an official name in NGS. ▲ ▼
+
+--- [Section: 浮遊物体] ---
+[NGS] A large number of objects lined up on the border of each region. See the Field Objects page for details. ▲ ▼
+
+--- [Section: フローティングボード] ---
+[NGS] A special weapon that can be called from a dedicated terminal called a "board terminal." By boarding it, you can move at high speed on the field. You can also deal damage by ramming into an enemy. See the Floating Board page for details. ▲ ▼
+
+--- [Section: ブロック] ---
+[NGS][PSO2] Separated and numbered compartments within a ship. Outside the ARCS base, they are further divided into rooms. To join up with other players, including friends, you need to be on the same ship, in the same block, and in the same room. The name is also abbreviated as B001, etc. Related: Room ▲ ▼
+
+--- [Section: プリセット能力] ---
+[NGS] An ability that is separate from special abilities and is given to dropped weapons and armor with a low probability. Also called Puri for short. The level is added after the ability name, such as "Fixer Attack Lv.5", and the higher the level, the better. The probability of being granted a high-level preset ability is extremely low. See Preset Capabilities for details. ▲ ▼
+
+--- [Section: ブルーポータル] ---
+[NGS] A type of trigger portal. By using this, you can challenge quests classified as "Blue Portal: Variable". Previously, it was placed for limited-time quests, but it has now been changed to a form that allows you to accept orders from the quest counter without requiring a trigger. ▲ ▼
+
+--- [Section: ブレイバー] ---
+[NGS][PSO2] A well-balanced class that can respond to a variety of situations by properly using melee attacks with the katana and long-range attacks with the bullet bow. Can be equipped with Katana and Bullet Bow. See the Braver page for details. ▲ ▼
+
+--- [Section: プレイヤースキル] ---
+[Game] A term used to describe a player's skill at playing a game, summarizing their operating skills and knowledge. In a broad sense, it may include external factors that contribute to playing, such as the communication environment, equipment used, and even the living environment. Player Skill is often abbreviated as PS. ▲ ▼
+
+--- [Section: プレイヤーIDネーム] ---
+[NGS][PSO2] A name used to identify a player in-game. Unlike character names, you cannot set a name that is the same as another player's name. When you play for the first time with the SEGA ID you entered when logging in, it will be issued automatically, but you can change it to any player ID name later (first time is free). ▲ ▼
+
+--- [Section: プレミアムセット] ---
+[NGS][PSO2] This is a paid service that allows you to use functions such as the right to open a My Shop and the right to use a premium warehouse for a certain period of time. You can choose the period from 30 days, 60 days, or 90 days. At certified internet cafes, services equivalent to the premium set are available for free. For information on opening a My Shop, please refer to the My Shop page, and for information on premium warehouses, please refer to the Warehouse page. For details on the Premium Set, refer to the online manual "Premium Set" on the official website. ▲ ▼
+
+--- [Section: ヘイト] ---
+[PSO2][Game] Indicates hostile attention from enemy mobs. (The meaning in communication between players is not described.) The action of intentionally raising or lowering hate to create an advantageous situation is called hate management, and it is evaluated as an important player skill, especially in cooperative games like NGS. Hate management basically refers to ``actions that collect hate for oneself,'' and aims to stabilize and improve the efficiency of the battlefield by ``protecting other players by becoming the target of bullets,'' ``increasing attack opportunities for other players with high damage sources,'' and ``gathering multiple enemy mobs in one place and making them targets for area attacks.'' A player whose main role is to collect hate is called a tank. In addition, in order for players other than the tank to support the tank's hate management, it is necessary to take appropriate actions to "redirect hate away from oneself." In the case of NGS, since it is designed so that everyone can play an active role as an attacker, hate management by a single tanker tends to be less stable than in other games. For this reason, it is becoming increasingly important for players other than tanks to have ``skills and special abilities that counter hate.'' ▲ ▼
+
+--- [Section: ヘッドショット] ---
+[PSO2][Game] An attack on the enemy's head. It is especially used when attacking with projectiles such as projectile weapons. In many games, the head is set as the part with the highest damage multiplier, and it is not uncommon for a bullet to the head to kill you in one hit, especially in FPS. In NGS, there is no special magnification even if you perform a headshot (unless there is a weak point in the head), so there is no need to be aware of it. ▼ In the old PSO2 In the old PSO2, there was a headshot judgment mainly for shooting weapons, and although it was not as strong as weak points, it was possible to deal a large amount of damage efficiently. However, most enemies do not have head lock detection, and in many cases it is necessary to switch to an over-the-shoulder perspective and aim for the head on your own. On the other hand, impact weapons and legal weapons do not have such a concept, so there is no need to forcefully aim at the head. It often becomes a source of conflict between shooting classes who want to attack efficiently by attaching weak bullets to their heads, and hitting classes who want to attach weak bullets to areas that are easy to hit and aim to efficiently destroy parts or knock them down. There were also balance issues, such as the difference in firepower between when a headshot was taken and when it wasn't, and because there was a headshot, the original attack multiplier had to be set low. For this reason, in high difficulty levels, headshot multipliers were set low, except for boss enemies, and adjustments were sometimes made to increase attack multipliers instead. ▲ ▼
+
+--- [Section: ヘッドライン] ---
+[NGS] The official program of "NGS", "NGS Headlines". Recorded videos are broadcast on YouTube about once a month, and information such as game update schedules, various campaigns, collaborations, and goods are covered. For details, see the official live broadcast page. ▲ ▼
+
+--- [Section: ボーダーブリッジ] ---
+[NGS] A bridge that separates each region. See the Field Objects page for details. ▲ ▼
+
+--- [Section: 防衛クエスト] ---
+[NGS] Another name for “Resource Extraction Rig Defense Battle.” ▲ ▼
+
+--- [Section: 報酬期間] ---
+[NGS][PSO2] A period of 1 to 2 weeks during events and campaigns that increase N-Meseta earned and experience points, increase the success rate of enhancements, increase the success rate of adding special abilities, and discount the cost of breaking limits and unlocking potential. Strengthening equipment becomes much easier. The name comes from the old PSO2 player challenge project, which was implemented as a reward for achieving a certain goal. ▲ ▼
+
+--- [Section: 星渡り] ---
+[NGS] A phenomenon in which a drop pod lands on the ground from space. It also refers to the people who came to Halfa for that reason. The Starwalkers have no memory of what happened before they came down, and like the Dolls, we don't know where they came to Halfa and for what purpose. However, the Starwalkers have unique abilities as Arcus, and many of them choose to coexist with the Halfans and throw themselves into the fight against the Dolls as members of the Arcus. The player will go on an adventure as one of these "star travelers." For other details, see the Culture/Civilization page. ▲ ▼
+
+--- [Section: ボスエネミー] ---
+[NGS] A general term for powerful enemies that mainly appear during situations such as various trials and PSE burst climaxes. On the map, medium-sized objects are indicated by a triangle icon, and large objects are indicated by a diamond-shaped icon. ▲ ▼
+
+--- [Section: ポップ] ---
+[Game][wiki] Spelled as "pop". Objects such as enemies appear on the field. Sometimes expressed as "spawn". Related: Repop ▲ ▼
+
+--- [Section: ポポナ] ---
+[NGS] A person who was active as an official VTuber of "NGS". He used to spread the appeal of "NGS" through game distribution, but retired at the end of March 2025. See also the official live broadcast/Popona page. ▲ ▼
+
+--- [Section: ホミ] ---
+[NGS] [slang] Abbreviation for PA of assault rifle, homing dart. ▲ ▼
+
+--- [Section: ま行] ---
+▲ ▼
+
+--- [Section: マイショップ] ---
+[NGS][PSO2] A place where you can list items you own and purchase items posted by other players. Anyone can purchase it, but to list it you need a premium set that can be purchased at AC Shop or a My Shop entry ticket. Many players use it because they can list various items such as weapons, armor, capsules, and AC scratch items. The old PSO2 also has a My Shop with almost the same specifications, but items obtained through NGS cannot be listed, and rules such as fees and minimum listing prices are different. See My Shop for details. ▲ ▼
+
+--- [Section: マグ] ---
+[NGS][PSO2] A mechanical life form that floats around and follows the player. There is a function called active sonar that alerts you when undiscovered equipment, gathering materials, item containers, etc. on the field are nearby. It also existed in the old PSO2, and by feeding and training it, it was possible to improve the player's abilities and provide combat support with attacks, recovery, photon blasts, etc. See Mag for details. ▲ ▼
+
+--- [Section: マジック] ---
+[NGS][PSO2] It is considered to be a more fundamental power than technique, and Manon first mentioned it in the short episode ``Chapter 2: Consideration of the Power of Song.'' The term ``Magic'' itself appeared in the original ``Phantasy Star,'' and can also be seen in the original ``PSO.'' In both works, the role in setting up the world is similar, and it has generally been considered to be a ``superpower that requires innate talent and is higher than technique.'' For other details, see the Culture/Civilization page. ▲ ▼
+
+--- [Section: 魔装脚] ---
+[NGS][PSO2] Another name for "jet boots". ▲ ▼
+
+--- [Section: マルチウェポン] ---
+[NGS] A weapon that combines another type of weapon from the same series. You can now set both normal attacks, weapon actions, and PA in one weapon palette. See Multi Weapon for details. ▲ ▼
+
+--- [Section: マルポン] ---
+[NGS] [slang] Multi-weapon. ▲ ▼
+
+--- [Section: ミスチーフシンボル] ---
+[NGS] During the seasonal event, 3D images will appear in Central City and other parts of Halfa. (It is described as "holographic" in the game.) It is thought to be one of the functions of Central City, but it seems that it is not even clear which system has jurisdiction over it. The appearance changes for each event, and when accessed, changes occur depending on the appearance. Depending on the event, there may be a limited time task to find a set number of Mischief symbols. ▲ ▼
+
+--- [Section: ミッションパス] ---
+[NGS][PSO2] Content that allows you to earn rewards for each stage called "tier". Tiers progress by collecting "stars". Stars are awarded by completing specific "daily tasks" or "weekly tasks." Mission pass rewards include ``normal rewards'' and ``gold rewards.'' Each is a reward that can be obtained according to the progress of the tier, and gold rewards can be obtained by enabling the "Premium Set" or using the "N-Mission Gold Pass". For other details, see the Mission Pass page. ▲ ▼
+
+--- [Section: ムービーライブ] ---
+[NGS] This is an event held at a specific date and time, and you can enjoy various images depending on the event on the giant monitors installed at each ARCS base. The schedule will be announced in advance on the players' website. If you are inside the ARCS base when Movie Live ends, you can obtain a boost effect called "Stage Live Effect". See the Movie Live page for details. ▲ ▼
+
+--- [Section: ムーン] ---
+[PSO2] Abbreviation for Moon Atomizer. ▲ ▼
+
+--- [Section: ムーンアトマイザー] ---
+[PSO2] An item that appeared in past games that revives other players who are unable to fight. It is abbreviated as "Moon" or "Moon". It corresponds to the reverse sign in NGS. NGS does not have a moon atomizer (=moon), but users who have continued from the old PSO2 often say it when it comes back by reusing the autoword from the old PSO2. ▲ ▼
+
+--- [Section: 無敵] ---
+[Game] A state where you are not attacked by enemies. NGS also has various invincibility states, such as during photon blast and evasion actions, and is effective against attacks that cannot be blocked. However, even if you overcome an attack with invincibility, if the attack judgment remains when invincibility ends, you will be attacked. While invincible, there is no collision detection for the enemy's attack detection, so actions based on contact detection such as guard will not work. ▲ ▼
+
+--- [Section: メインタスク] ---
+[NGS] Tasks to advance the main story. Once you accomplish this, a new task will occur and the story will progress. The next destination for a task is indicated by an orange guide marker, so check this if you're lost. For other details, see the main story page. ▲ ▼
+
+--- [Section: メガロティクス] ---
+[NGS] Appears in the battle section with enemies level 35 and above. It is given the double name "Elite", and its entire body is metallic in color. It has the second highest damage compensation after Gigantics, and if you neglect your armor, you will receive severe damage. Not only boss enemies but also regular enemies can become megalotics. Please see the Megalotics page for details. ▲ ▼
+
+--- [Section: メセタ] ---
+[NGS][PSO2] In-game currency familiar from the Phantasy Star series. You can obtain them by defeating enemies, receiving them as rewards for successful trials, or selling items in your My Shop. There is no information other than that it is currency, and it is unknown what kind of substance it is. In "NGS", it is called "N-Meseta" to distinguish it from the old "PSO2". ▲ ▼
+
+--- [Section: メディオラ] ---
+[NGS] A place name that refers to the entire area including Mediora Outer Ward 2/1 and Halfa Mediora in the Steer region. ▲ ▼
+
+--- [Section: メメタ] ---
+[NGS][PSO2][slang] A colloquial name for "Meseta." This is also what some users call it. ▲ ▼
+
+--- [Section: メンテナンス] ---
+[NGS][PSO2][General] Pausing a game server for the purpose of updating or bug fixing. "NGS" and "PSO2" will undergo regular maintenance every Wednesday from 11:00 to 17:00. During regular maintenance, updates are executed for each client application, and ship transfers that have been requested in advance are also carried out. For information on currently scheduled maintenance, please see the announcement page on the Players Site. ▲ ▼
+
+--- [Section: モバイルキャノン] ---
+[NGS] Special weapons that can be used under certain conditions. Its shape is similar to the weapon type ``Launcher''. It can unleash powerful attacks, and while in use, the weapon palette and sub-palette are replaced with special ones. Can only be used in some emergency quests and limited time quests, including resource mining rig defense battles. ▲ ▼
+
+--- [Section: や行] ---
+▲ ▼
+
+--- [Section: 床ペロ] ---
+[NGS][PSO2][vulgar] A state of being unable to fight. In PSO2 and NGS, when unable to fight, with some exceptions, they take a motion of falling face down, which gives the appearance of licking the floor, hence the name. It is sometimes abbreviated as ``pero'' and ``toko,'' or used as a verb, such as ``perotta.'' Synonyms: “Kiss the ground” etc. ▲ ▼
+
+--- [Section: 輸送トラック] ---
+[NGS] A truck used by ARCS to transport resources. It moves by hovering rather than by wheels. The transport truck has a shield function that allows it to withstand attacks from enemies to a certain extent. The transport trucks are also made with technology unknown to Halfa's Arcus, and the ones currently in use seem to be just reusing relics of the past. Related: Transport truck defense ▲ ▼
+
+--- [Section: ユニット] ---
+[PSO2] This is a concept of equipment that appeared in the old ``PSO2'', and includes types such as ``rear unit'', ``arm unit'', ``leg unit'', and ``subunit''. Among players, it is sometimes called ``Uni'' for short. In "NGS", all of them are unified under the concept of "armor". ▲ ▼
+
+--- [Section: 予告緊急クエスト] ---
+[NGS][PSO2] An emergency quest that is scheduled to occur at a specific date and time. In the past, preview emergency quests were held regularly in PSO2, but since the start of the NGS service, they have been held irregularly to coincide with specific events. Currently, when an emergency preview quest is held, advance notice is given on the player's site with a heading such as ``About the date and time of the emergency quest.'' ▲ ▼
+
+--- [Section: ら行] ---
+▲ ▼
+
+--- [Section: 雷雨] ---
+[NGS] One of the weather conditions in Airio Region. It rains heavily and lightning strikes. In the exploration section, the powerful boss enemy Gigantics will appear. During combat sections, PSE level will not drop below 4, making PSE bursts more likely. See also weather change. ▲ ▼
+
+--- [Section: ラッピーの集会場] ---
+[NGS] An event that may occur on the field when the conditions specified at the time of a specific seasonal event are met. Various types of Rappies appear sporadically, and finally Empe Rappy or Greto Rappy appear. The timing and conditions of occurrence differ for each event, so please refer to each event page for details. ▲ ▼
+
+--- [Section: ラッピードットコミュ] ---
+[NGS][PSO2] "PSO2" official community Twitter account "Rappy.commu". Sends out topics and information that are not covered by the official PSO2 Twitter account. The information is mainly sent by ``Comrappy'' and ``Rapitan,'' but occasionally Hiro Arai, the official NGS navigator, also sends out information from this account. ▲ ▼
+
+--- [Section: ラピ担] ---
+[NGS] A new person in charge of the PSO2 official community Twitter account "Lappy.com" from July 3, 2023. Mr. Rappi's first tweet includes the enthusiastic message, ``I would like to actively communicate with everyone through 'NGS''!!'' and a photo of a Rappy costume that appears to have been taken at the venue of ``ARKS EXPO 2022''. ▲ ▼
+
+--- [Section: ランチャー] ---
+[NGS][PSO2] Weapon types that can be equipped by Ranger. A dynamic long-range weapon with a wide attack range and long firing range. For details, see the Launcher and Launcher/Action/PA pages. ▲ ▼
+
+--- [Section: らん豚] ---
+[Wiki][Slang] Chat message board topics. A specific emoticon → (´・ω・｀) or a person who writes using it. It originated from the main thread (2channel online game commentary board) for Square Enix's online game ``FEZ (Fantasy Earth Zero)''. A pig whose heart was broken by a shitty game. The first person is "Ranran". As a side note, this "FEZ" service will end in 2022 (about 15 years). On PSO2sWiki's chat bulletin board, it is used more to soften the tone than to complain. Mysterious fag tone. After migrating to NGSWiki, for some reason the number of people using it has increased day by day, and now it is occurring in large numbers. ▲ ▼
+
+--- [Section: リージョン] ---
+[NGS] A certain area of ​​the planet Halfa. It is said that the climate, terrain, enemies, gathering materials, etc. differ depending on the region. The region is further divided into "sections". See the World Map page for a list of regions and sections. ▲ ▼
+
+--- [Section: リージョンボス] ---
+[NGS] An enemy representing each region, depicted as a silhouette in the logo of a major update. Although it is not a term officially used in the game, it is said to be a common name among the development team. ▼ Enemies that correspond to region bosses are as follows. Region Region Boss Vera ver. Limited time event ver. Airio Region Nex Airio Nex Vera Nex Litem Region Renus Ritem Renus Vera - Kvaris Region Ams Kvaris Ams Vera Ams Steergeon Nils Steer Nils Vera - Reference: "Hiro's development interview "Key points of the June major update"" (Sega, 2022.5.18 12:00) ▲ ▼
+
+--- [Section: リージョンマグ] ---
+[NGS] Large mug-shaped equipment installed throughout the field. If you access it, you can feed it with gathering materials, and get boost effects on attack power, experience points gained, rare drop multiplier, etc. When it is hungry, it will sleep quietly, but if you approach it or give it an item, it will start flying around. Cute See region mug for details. ▲ ▼
+
+--- [Section: リージョンマップ] ---
+[NGS] Map that can be viewed from "Open Region/City Map" in "Quick Menu". A map is displayed in the form of a large expanded version of the radar map at the top left of the screen, and various information about the current field is displayed. You can stop viewing by opening the "Quick Menu" again while the region map is displayed. Related: City Map ▲ ▼
+
+--- [Section: リージョンリーダー] ---
+[NGS] An entity that coordinates the ARCS bases in each region and the ARCS that belong there. In Aerio Town, Galois is in charge, and in Central City, Crawford is in charge. ▲ ▼
+
+--- [Section: リキャスト] ---
+[Game] Reusable time. Also called cool time or CT. It is mainly used for the required waiting time after using a skill. Although "recast" itself is an expression used in the game, the use of skills itself is rarely called "cast" (perhaps because it overlaps with "cast" for races). In the old PSO2, the recast time of the used skill progressed even during the skill's effect period, and the actual reusable time was (recast time - effect time), but in NGS, the recast time does not progress during the skill's effect time. By the way, when events occur between battles, such as in story mode, only the skill's effect time progresses, and recasting does not progress. ▲ ▼
+
+--- [Section: リサージェントアークス] ---
+[NGS] ▼ Contains major spoilers for Chapter 5 of the main story An organization that was born after the Starless invasion 500 years ago. Zephet is the governor. He has been conducting experiments for 300 years to recover the true power of Arcus from 1,000 years ago in preparation for the predicted return of Starless. ▲ ▼
+
+--- [Section: リテナ] ---
+[NGS] Words attached to the names of items related to Litem Region. An example is the fruit ``Matta Ritenaccheri.'' ▲ ▼
+
+--- [Section: リテムリージョン] ---
+[NGS] Second region implemented on December 15, 2021. It is a scorching desert, but it is said that there are rich resources hidden underground. ▲ ▼
+
+--- [Section: リデル] ---
+[NGS] The name of the bird that appears at the beginning of the first opening of NGS. It is a bluish-white bird with a long, forked tail. Although he does not appear as Tames, he can be seen occasionally in the game. ▲ ▼
+
+--- [Section: リバーサーサイン] ---
+[NGS] An item that revives nearby players who are unable to fight. Any number of people within the effective range can be revived. They grow on the field like grass, and you can have up to 5 of them. The old PSO2 had a similar resurrection item called the "Moon Atomizer", and some players say "Thank you Moon" when they are revived in NGS. Although the name does not exist in the old PSO2, it seems to be derived from the similar effect technique ``Reverser'' in other Phantasy Star series. ▲ ▼
+
+--- [Section: リファインドフォーム] ---
+[NGS] SG scratches with carefully selected specific items. Mainly, the costumes that ranked high in the "New World Costume Request General Election" will be arranged to the "NGS" specifications and will appear. ▲ ▼
+
+--- [Section: リポップ] ---
+[Game][wiki] Spelled as "repop". Objects such as enemies reappear on the field. Related: Pop ▲ ▼
+
+--- [Section: 両剣] ---
+[NGS][PSO2] Another name for "Double Saber". ▲ ▼
+
+--- [Section: リューカーデバイス] ---
+[NGS] Pillar-shaped terminals installed throughout the field. You can use the functions of ``teleport'', ``open warehouse'', ``quick food creation'', ``move blocks'', ``move rooms'', and ``set room matching''. If there are enemies around, functions other than teleport and room matching settings cannot be used. The name is thought to be derived from the technique "Ryuka" used to return to the city that appeared in the first PSO. See also Leuker device. ▲ ▼
+
+--- [Section: 龍族] ---
+[PSO2][wiki] A dragon-like race that appeared on the planet Amduskia in the old PSO2. In ``NGS'', Formers with a similar appearance, such as Digg Roar, appear, and in this wiki, Formers are sometimes expressed as ``Old Dragon Clan'' when distinguishing them based on their appearance. Also see the corresponding page on the old PSO2 Strategy Wiki. ▲ ▼
+
+--- [Section: リワインドコレクション] ---
+[NGS] AC Scratch is a display of selected items that have not yet been re-distributed from among the "NGS" specification items that were distributed at a specific time. Please refer to the AC Shop Scratch page for details such as past distribution history. ▲ ▼
+
+--- [Section: ループタスク] ---
+[NGS] A group of tasks in which once an order is received, each time one task is completed, the next task is automatically ordered one after another. On the task list screen, it is indicated by a special icon with an "infinity" symbol. When the last task is cleared, the first task is accepted again, so it can be said that it is a never-ending "loop". This includes side tasks such as the ``repeat training'' type task that Ronaldin is in charge of. ▲ ▼
+
+--- [Section: ルーム] ---
+[NGS][PSO2] A room allocated outside the ARCS base. Even if you try to join up with a friend, etc., you will not be able to join up if you are in a different room. (And you cannot check the number of the room you are currently in.) If you are having trouble merging, the current number of people in the room/maximum number of people joining the room are displayed in the upper left corner, so check to see if this is the upper limit. By the way, you can also search for rooms with friends etc. from the Ryukor device. Related: Block ▲ ▼
+
+--- [Section: ルシエル] ---
+[NGS] Name of floating island. ▲ ▼
+
+--- [Section: レーダーマップ] ---
+[NGS] A circular minimap displayed at the top left of the screen. A certain range of information centered around you is displayed, allowing you to determine the current location of each player and enemy, the location of the trial, the general topography of the field, etc. For some quests, "NO DATA" may be displayed and no information may be obtained. ▲ ▼
+
+--- [Section: レアドロ] ---
+[NGS][PSO2] Abbreviation for "rare drop". Refers to the dropping of rare or valuable items. ▲ ▼
+
+--- [Section: レスタサイン] ---
+[NGS] Item that recovers HP. They grow like grass on the field, and you can have up to 10 of them. Normally, only you can heal yourself, but Tector and Force have skills that can heal nearby players as well. The name seems to be derived from the HP recovery technique "Resta" from the old PSO2 and Phantasy Star series. ▼ Aside: HP recovery items in the Phantasy Star series were traditionally called ○○ mates, such as Pelory Mate and Mono Mate, but they finally disappeared with NGS ▲ ▼
+
+--- [Section: レタス] ---
+[NGS] [Colloquial] Common name for Resta sign. ▲ ▼
+
+--- [Section: レバガチャ] ---
+[Game] Entering direction input continuously. It originates from violently clicking left and right with a lever (joystick) type controller such as in an arcade game. This operation is often used in action games such as fighting games, and the input processing specifications differ depending on the game. In PSO2, you don't need to input anything intensely; just a few rotations of the analog stick is often enough. However, 2 to 3 rotations of the analog stick is equivalent to 8 to 24 movement inputs when converted to a keyboard operation, so the perception of the difficulty of the operation varies considerably depending on the operating device. It is set as a means of recovering from a stun or escaping from a grab move. ▲ ▼
+
+--- [Section: レンジャー] ---
+[NGS][PSO2] In addition to long-range shooting attacks, this class can also support other players with special bullets. Can be equipped with an assault rifle and launcher. See the Ranger page for details. ▲ ▼
+
+--- [Section: 老練] ---
+[NGS] About Dread Enemy. The enemy name has the prefix "veteran" (two names). ▲ ▼
+
+--- [Section: 老練狩り] ---
+[NGS] [Various] Defeating the dread enemies with two names: ``Experienced'' that spawn at various locations on the field. Dread enemies appear after a certain amount of time after a room is created, so in the early days, the hunting method was to move from room to room. Currently, the enemy repop time has been shortened to 5 minutes, so if you visit several veteran spawn points in the same room, you won't have to wait that long. ▲ ▼
+
+--- [Section: ロストテクノロジー] ---
+[NGS] A general term for technology that is difficult to reproduce by modern Halfan people, as well as the various facilities and equipment built using this technology. It is said that who created it, when it was created, and why it was created remains unknown. ▲ ▼
+
+--- [Section: ロッド] ---
+[NGS][PSO2] Weapon types that can be equipped by Force. A long-range weapon that uses techniques of various attributes and makes it easy to attack enemies based on their weak points. See the Rod and Rod/Action pages for details. ▲ ▼
+
+--- [Section: ロビーアクション] ---
+[NGS][PSO2] Commands that allow characters to perform various actions. This can be done from the chat window or quick menu. Lobby actions that can be used can be added with special ticket items. See the Lobby Actions page for details. ▲ ▼
+
+--- [Section: ロビアク] ---
+[NGS][PSO2][slang] Abbreviation for "lobby action." ▲ ▼
+
+--- [Section: わ行] ---
+▲ ▼
+
+--- [Section: ワールドトライアル] ---
+[NGS] An event that occurs simultaneously in multiple sections throughout the ship and that all players automatically participate in. This is different from a trial. The event period is announced in advance on the official website. See World Trial for details. ▲ ▼
+
+--- [Section: ワイヤードランス] ---
+[NGS][PSO2] Weapon types that can be equipped by hunters. A melee weapon that has a wide attack range and can deal high damage by attacking with its tip. For details, see the Wired Lance and Wired Lance/Action/PA pages. ▲ ▼
+
+--- [Section: 湧く] ---
+[Game] [Slang] The appearance of objects such as enemies. When referring to the phenomenon itself of the appearance of an object, it is sometimes expressed as ``spring''. ▲ ▼
+
+--- [Section: ワンタイムパスワード] ---
+[NGS][PSO2][Game][General] A password that can only be used once and is entered when logging into the SEGA ID management page or PC version of the game. You can increase the security of your SEGA ID by entering another password after your SEGA ID/password. For ``NGS'' and ``PSO2,'' setting a one-time password allows you to use the ``OTP warehouse,'' and campaign items are presented every month, so it is recommended that you use it to maintain important game data. It is sometimes abbreviated as "OTP" in in-game displays and information on official websites. Please also refer to the official website page below. One-time password | "PSO2 New Genesis" Player's Site | SEGA To play "PSO2 New Genesis" with peace of mind | "PSO2 New Genesis" Player's Site | SEGA Security Guide | How to register for Google Authentication System | SEGA ID management page ▲ ▼
+
+--- [Section: アルファベット] ---
+▲ ▼
+
+--- [Section: ARKS] ---
+[NGS][PSO2] Another notation for "Arks". ▲ ▼
+
+--- [Section: ARKS EXPO] ---
+[NGS] An offline event held for fans of "PSO2" and "NGS". In addition to displaying game and anime setting images and selling various related goods, there will also be previews of new content scheduled to be released in future updates. ▲ ▼
+
+--- [Section: AA] ---
+[Game] Abbreviation for "Anti-Aliasing." Setting items in optional graphics. Abbreviation for "ASCII Art". ▲ ▼
+
+--- [Section: AC] ---
+[NGS][PSO2] Arccash. A so-called charging currency that is charged with real money. For details, see About AC (Arccache). ▲ ▼
+
+--- [Section: A.I.S] ---
+[PSO2][es] A humanoid weapon for base defense developed by the ARCS Research Department. The official name is "Arks Interception Silhouette". It was put into practice during the mining base defense battle in the old PSO2 EP2. Because it was designed for land combat, it was initially unable to fly, but an improved version equipped with a booster pack was later deployed. In EP6, A.I.S-Vega, designed by Lyudmila for space battles, appears. Counter shield is now a basic weapon, and a booster for operation in outer space has been added. In addition, the enemy's "A.I.S Exorda" is A.I.S eroded by Darker. Also, in "PSO2es", A.I.S TYPE-S, which uses Darker factor for power, appears. Some users also call it ``ice''. In NGS, it is depicted on the stamp ``A.I.S: Engagement''. ▲ ▼
+
+--- [Section: AR] ---
+[Game] Abbreviation for "Assault Rifle." It is an abbreviation often used in the FPS world, and was often used during the PSO2 era, but for some reason it is no longer used in NGS. Abbreviation for “Augmented Reality.” Distribution and service have already ended, but in the old PS Vita version of PSO2 there was a feature called ``Character Portrait'' that allowed you to combine your character with a photo of the real world. ▲ ▼
+
+--- [Section: BGM] ---
+[General] Abbreviation for "background music". Also called ``background music'', it refers to music that is played at a low volume in the background of a specific space or video to create a certain atmosphere. You can play songs from registered music discs as BGM from the Main Menu > Equipment > Mug item. ▲ ▼
+
+--- [Section: Bトリガー] ---
+[NGS] Another name for the item "Battle Trigger". ▲ ▼
+
+--- [Section: Bo] ---
+[NGS][PSO2] Abbreviation for class "Bouncer". ▲ ▼
+
+--- [Section: Br] ---
+[NGS][PSO2] Abbreviation for class "Braver". ▲ ▼
+
+--- [Section: BREAK] ---
+[NGS] When the down gauge of a boss enemy in a subjugation type emergency quest is displayed and reaches zero, "BREAK" is displayed and a special down effect occurs for a certain period of time. See Downgauge for details. ▲ ▼
+
+--- [Section: CβT / CBT] ---
+[Game] Abbreviation for "closed beta test". For information on the history of CβT in "NGS", please refer to the NGS Overview page, and for information on events held at that time, please also refer to the Beta Test Information page. ▲ ▼
+
+--- [Section: CV] ---
+[NGS] Abbreviation for “character voice.” Abbreviation for "color variant". ▲ ▼
+
+--- [Section: DB] ---
+[NGS][PSO2] Abbreviation for "Dual Blade". In the old PSO2, such expressions were used in some item names. Abbreviation for "Dark Blast", one of the actions that appeared in the old "PSO2". Dark Blast is an element exclusive to the old PSO2, so it is rarely used in this context in the context of NGS, and among players it is often used as an abbreviation for the above-mentioned "Dual Blade." ▲ ▼
+
+--- [Section: DF] ---
+[NGS][PSO2] Abbreviation for "Dark False". ▲ ▼
+
+--- [Section: DPP] ---
+[Game] [Slang] Abbreviation for Damage Per PP. The damage dealt to the enemy per PP consumed. The key is PP efficiency, and the higher it is, the better the fuel efficiency. It depends on the PA, so it can't be generalized, but the longer the motion is and the harder it is to hit until the end, the better the DPP is, and the shorter the motion is, the more likely it is that the PA that can be hit repeatedly has a lower DPP. Related: DPS ▲ ▼
+
+--- [Section: DPS] ---
+[Game] [Slang] Abbreviation for Damage Per Second. The original meaning is "the amount of damage that a specific attack can do per second if no preconditions are set." From there, it is also used to mean the efficiency of damage dealt to enemies per hour. It is only a hypothetical value calculated by calculating the damage inflicted according to the catalog specifications, and does not take into account any "prerequisites for an attack to succeed" such as resource consumption, positioning, and ease of attack, so it is difficult to produce the same value in actual battle.If the enemy changes, the enemy's defense power and weaknesses will also change, and the DPS will fluctuate even with the same equipment. In order to compensate for the difference between virtual reality and reality, there is also the concept of DPM, which measures the amount of damage per minute after specifying several conditions. Although it is an index that is somewhat closer to actual measurement because the measured values ​​include shortness of breath due to the amount of PP consumed, it has the disadvantage that it is less objective than DPS because the numerical value is more likely to fluctuate depending on the skill of the measurer and specified conditions, and above all, it is still only a theoretical value like DPS. Related: DPP ▲ ▼
+
+--- [Section: DPSチェック] ---
+[Game] [Common] An attack or gimmick that will cause you to receive instant death-level damage if you do not deal a certain amount of damage within a certain amount of time. The time limit for quests and the like can also be called a DPS check in a broad sense, but it is basically used in situations where it is necessary to gain damage against an ``immovable target'' in a ``short amount of time''. ▲ ▼
+
+--- [Section: DS] ---
+[NGS][PSO2] Abbreviation for Double Saber. Abbreviation used in-game in the old PSO2. ▲ ▼
+
+--- [Section: Eトライアル] ---
+[PSO2] The emergency trial of the old PSO2. Similar to NGS Trials, they suddenly appear on the field, and you fight enemies and collect items. It is abbreviated as "E-tora" or "ET". Players from the old PSO2 may also refer to NGS Trials as E-Tora. ▲ ▼
+
+--- [Section: Eマーカー] ---
+[NGS] Also called "enemy marker." A marker that indicates where an enemy appears in a combat section. It is a yellow diamond shape with the letter "E" in the center. Related: T marker ▲ ▼
+
+--- [Section: EP] ---
+[PSO2] Abbreviation for “EPISODE”. The main story of the old "PSO2" consisted of seven main chapters, each of which was "EPISODE 1", "EISODE 2", etc. In some cases, this was abbreviated in-game and expressed as "EP1" or "EP2". As of December 7, 2022, the concept of "EPISODE" does not exist in the story structure of "NGS", and it is in the form of chapters such as "Prologue" and "Chapter 1". ▲ ▼
+
+--- [Section: EXP] ---
+[Game] Abbreviation for "ex experience point". ▲ ▼
+
+--- [Section: EX特殊能力] ---
+[NGS] Special abilities given to some equipment. It has a unique effect not found in normal special abilities, and has "EX" at the beginning of its name. There are no special ability capsules, and the abilities granted are determined when the equipment drops. You can use ``Special Abilities Transplant'' in ``Item Lab'' to replace or add abilities to other equipment. For details, see the EX special abilities page. ▲ ▼
+
+--- [Section: Fアティチュード] ---
+[NGS] Abbreviation for “fairless attitude.” ▲ ▼
+
+--- [Section: Fi] ---
+[NGS][PSO2] Abbreviation for class "Fighter". ▲ ▼
+
+--- [Section: Fo] ---
+[NGS][PSO2] Abbreviation for class "Force". ▲ ▼
+
+--- [Section: FPS] ---
+[NGS][PSO2][Game] Abbreviation for Frames Per Second. The value of how many times the image is updated per second. There is no problem in thinking that it is the same thing as what is called frame rate. (Accurately, the unit that indicates frame rate seems to be FPS.) Many works are designed at 30 to 60 FPS due to the refresh rate of general monitors, but high-performance gaming monitors can support even higher rates, and works that assume this can provide smoother images. PSO2 officially supports 144FPS from NGS. I will not give a detailed explanation of the frame rate as it would be complicated, but if this value deviates from the ``expected value in game design'', whether it is too low or too high, various problems will occur, and if it is extremely low, it will not be possible to operate the game properly. (So-called processing delays) Processing delays can be reduced by simplifying the drawing settings according to the play environment (mainly drawing-related machine power). By the way, in the cloud version, the weight of the movement does not change depending on the drawing settings. Abbreviation for first person shooting. One of the game genres. This applies to titles that are played from the ``view of the character you are controlling'', which is translated as ``subjective perspective.'' PSO2/NGS's over-the-shoulder perspective is sometimes referred to as FPS mode, but since the character being controlled is viewed from behind (third-person perspective), both PSO2/NGS perspective modes are third-person shooters (TPS). ▲ ▼
+
+--- [Section: G] ---
+[Game] Giga. 1000 times more than Mega. 1,000,000,000=1 giga=1G. In PSO2, commas are placed between every three digits in meseta notation, so it is easier to understand than Chinese numerals such as ``10,000'' or ``billion'', and when users write something like ``9G'' without any explanation, it often refers to meseta. ▲ ▼
+
+--- [Section: GG] ---
+[Game] Abbreviation for "GOOD GAME". The situation in which it is used is similar to "Thank you for your hard work." ▲ ▼
+
+--- [Section: GJ] ---
+[Game] Abbreviation for "GOOD JOB". Also called "Good job". ▲ ▼
+
+--- [Section: GP] ---
+Abbreviation for Genesis Point. ▲ ▼
+
+--- [Section: Gu] ---
+[NGS][PSO2] Abbreviation for class "Gunner". ▲ ▼
+
+--- [Section: HP] ---
+[NGS][PSO2][Game] Abbreviation for "Hit Points". ▲ ▼
+
+--- [Section: Hu] ---
+[NGS][PSO2] Abbreviation for class "Hunter". ▲ ▼
+
+--- [Section: JB] ---
+[NGS][PSO2] Abbreviation for "jet boots". In the old PSO2, such expressions were used in some item names. ▲ ▼
+
+--- [Section: k] ---
+[Game] Kilo. A unit that represents 1000 times. 1,000=1km=1k. In PSO2, commas are placed between every three digits in meseta notation, so it is easier to understand than Chinese numerals such as ``10,000'' or ``billion'', and when users write something like ``100k'' without any explanation, they often refer to meseta. By the way, please note that the notation will not be correct unless you write it in lowercase letters. ▲ ▼
+
+--- [Section: M] ---
+[Game] Mega. 1000 times more than kilo. 1,000,000=1 Mega=1M. In ``PSO2'', when indicating the amount of Meseta, a comma is placed between every three digits, which is easier to understand than Chinese numerals such as ``10,000'' or ``100 million'', so when users write something like ``20M'' without any explanation, they often refer to Meseta. The initial letters and numbers are the same as the English word "million", so the meaning is the same, but don't confuse it. ▲ ▼
+
+--- [Section: M.A.R.S.] ---
+[NGS] Special weapons that can be used within the battle area. The official name is ``Multirole Arks Reactive System,'' and the abbreviation is pronounced ``Mars.'' By combining main and sub-weapons, you can perform special actions that are different from those of the real body. By setting it on the sub-palette and calling it up, you can temporarily support other players or perform powerful attacks. ▲ ▼
+
+--- [Section: MOB] ---
+[Game] [Slang] An English word meaning "crowd." It refers to all characters, but is usually used to refer to minor enemies and anonymous NPCs. Mob character. Abbreviation for "Moving Object." Enemy in general. Sometimes used to distinguish between player characters and NPCs. ▲ ▼
+
+--- [Section: N-] ---
+[NGS] The reading is "New". However, in media such as NGSHeadline, it is only read as "N", so it is generally known as "N". When an item with the same name that appeared in the old "PSO2" appears in "NGS", the word is added to the beginning of the name. For example, ``Meseta'' in the old ``PSO2'' is referred to as ``N-Meseta'' in ``NGS'', and similarly ``Excube'' is referred to as ``N-Excube'', making a distinction between old and new. ▲ ▼
+
+--- [Section: N-クラスエクスキューブ] ---
+[NGS] A general term for cube-shaped items that correspond to each class, such as "N-Hu Ex-Cube," "N-Ra Ex-Cube," and "N-Fo Ex-Cube." They can be obtained in a variety of ways, such as by obtaining a certain amount of experience points when the level of the corresponding class has reached its maximum level. Mainly required when creating add-on skills. Please refer to the material item page for detailed acquisition methods. ▲ ▼
+
+--- [Section: N-メセタ] ---
+[NGS] In-game currency in "NGS". You can obtain them by defeating enemies, receiving them as rewards for successful trials, or selling items in your My Shop. In terms of appearance, in addition to a dedicated diamond icon, it is often indicated by an image that resembles a golden octahedron. According to the article ``Beginner ARCS Support Guide'' posted on the players' site, it is said to be ``the currency of Planet Halfa.'' The name has an ``N'' at the beginning to distinguish it from ``Meseta'', the in-game currency of the old ``PSO2''. "Meseta" cannot be exchanged for "N-Meseta" and vice versa. ▲ ▼
+
+--- [Section: NGS ヘッドライン] ---
+[NGS] Official information program that conveys the latest information on "NGS". Hiro Arai, the official NGS navigator, will provide information on the current operational status, future updates, and other campaigns and surrounding information. Basically, pre-recorded videos are distributed on YouTube Live and Twitter Live about once a month. For details such as past distribution history, please refer to the official live broadcast page. ▲ ▼
+
+--- [Section: NGS公認クリエイター] ---
+[NGS] A video distributor authorized by the NGS team. The aim is to spread the word about the appeal and fun of the game from each person's own unique perspective, and to enliven ``NGS.'' Screening is conducted monthly, and all applicants who meet the established criteria are considered. For details, please refer to the special website. ▲ ▼
+
+--- [Section: NPC] ---
+[Game] Abbreviation for "non-player character". A character that cannot be controlled by the player. When we simply say "NPC", we often refer to friendly characters, citizens, shop clerks, etc. Enemies are also NPCs, so depending on the context, they may also refer to them. ▲ ▼
+
+--- [Section: OP] ---
+[NGS][PSO2][slang] Abbreviation for "option". A slang term referring to special abilities attached to weapons and armor. The addition of special abilities is sometimes referred to as ``OP attachment.'' Abbreviation for "opening". An opening movie or opening demo. ▲ ▼
+
+--- [Section: OST] ---
+[General] "Original Sound Track". It often refers to CDs containing sound sources used in video games and video works. ▲ ▼
+
+--- [Section: OTP] ---
+[NGS][PSO2] Abbreviation for "one-time password." ▲ ▼
+
+--- [Section: PA] ---
+[NGS][PSO2] Abbreviation for "Photon Arts". In other games, this is equivalent to special moves or weapon skills. Although it consumes PP when used, it is basically set to have higher power than a normal attack. There are some that charge when you hold down the button to improve their power and range, and others that attack continuously. In the old PSO2, except for the successor classes, it was necessary to obtain items (disks) for each type of PA to learn PA. ▲ ▼
+
+--- [Section: PCU] ---
+[NGS] One of the parts that make up the central cannon. ▲ ▼
+
+--- [Section: Photon Sensitive Effect] ---
+[NGS][PSO2] Official name of "PSE". Also called the "photon-sensitive effect." ▲ ▼
+
+--- [Section: PP] ---
+[NGS][PSO2] Abbreviation for "Photon Point". ▲ ▼
+
+--- [Section: PS] ---
+[NGS][PSO2][Game] Abbreviation for "Phantasy Star". Abbreviation for "player skill". Abbreviation for Sony's home game console "PlayStation." Generally, they are called by numbering, such as "PS1" or "PS5." ▲ ▼
+
+--- [Section: PSE] ---
+[NGS][PSO2] Abbreviation for Photon Sensitive Effect. When you defeat an enemy in the battle section or clear a trial, the PSE level (the gauge next to the radar map in the upper left) changes. As the PSE level increases, the appearance rate of rare enemies increases, and at the maximum level of 5, a PSE burst will occur. The specifications of the old PSO2 PSE are different from NGS. See PSE for details. ▲ ▼
+
+--- [Section: PSEクライマックス] ---
+[NGS] "PSE Burst Climax". ▲ ▼
+
+--- [Section: PSEゲージ] ---
+[NGS] A gauge indicating the current PSE level that is displayed to the right of the radar map at the top left of the screen when in the combat section. See the PSE page for details. ▲ ▼
+
+--- [Section: PSEバースト] ---
+[NGS][PSO2] When the PSE level (the gauge next to the radar map in the upper left) reaches maximum in the battle section, a large number of enemies will appear with the announcement of "PSE BURST". During a PSE burst, the PSE level gauge represents the remaining time of the PSE burst. When the gauge reaches zero, "PSE BURST CLIMAX" will occur and a boss enemy will appear. The specifications of the PSE burst of the old PSO2 are different from those of NGS. See PSE for details. ▲ ▼
+
+--- [Section: PSEバーストクライマックス] ---
+[NGS] After the PSE burst occurs, the boss enemy will appear with the production of "PSE BURST CLIMAX" when the gauge becomes zero. See the PSE page for details. ▲ ▼
+
+--- [Section: PSEバーストアンコール] ---
+[NGS] After PSE burst ends, PSE burst occurs again with "PSE BURST ENCORE" displayed. See the PSE page for details. ▲ ▼
+
+--- [Section: PSEバーストf] ---
+[NGS] In high-rank sections where the enemy level is 60 or higher, the normal PSE burst changes and occurs. Enemies that appear during PSE burst f are all golden rare enemies and megalots. See the PSE page for details. ▲ ▼
+
+--- [Section: PSEバーストfアンコール] ---
+[NGS] In high-rank sections where the enemy level is 60 or higher, the normal PSE burst encore changes and occurs. Enemies that appear during PSE Burst F Encore will be all golden rare enemies and Megalots. See the PSE page for details. ▲ ▼
+
+--- [Section: PSEレベル] ---
+[NGS] Level of PSE. There are stages from 0 to 5, and when the level reaches 5, a PSE burst occurs. You can check the current PSE level on the "PSE Gauge" at the top left of the screen. See the PSE page for details. ▲ ▼
+
+--- [Section: PSO2の日] ---
+[NGS][PSO2] A campaign carried out after the number "2" in "PSO2". By logging in during the campaign period (2nd and 22nd of every month), you will receive star gems and special scratch tickets, as well as useful boosts. In the "NGS" block, there will be a boost that will increase the experience points gained and the rare drop multiplier, and limited-time tasks will also be distributed on "PSO2 Day". 『PSO2』ブロック では装備強化関連のほか、獲得FUN・獲得経験値・レアドロップ倍率などに対してブーストがかかる。 From September 2024 onwards, this will increase to a total of six days, from the 1st to the 3rd and the 21st to the 23rd of each month. Official Announcement Until now, you could only get a boost during the premium validity period at the end of the month, but you can now get it even if you are not a premium user. As a premium benefit, you can get more SG and material warehouse usage tickets. Furthermore, the 2nd and 22nd of February every year, when "2" is set, will be "Super PSO2 Day! Triple Burst" and will have even more luxurious campaign content. For details on past implementation history and campaign content, see the "News" page on PSO2 Day and the Players Site. ▲ ▼
+
+--- [Section: PSO2 ニュージェネシス ver.2] ---
+[NGS] A major update title also known as the "Super Evolution Update" released on June 7, 2023. Many new elements have been added, including "Creative Space", "Portable Hologram", "Toon Display", and "New Race Enemy". For details on the update contents, please refer to the "PSO2 New Genesis ver.2" page in this Wiki, as well as the special page on the players site. ▲ ▼
+
+--- [Section: PT] ---
+[NGS][PSO2][Game][Slang] (When written as "Pt") Abbreviation for "points" mainly used in "NGS" games. (When written as "PT") A slang/gaming term used as an abbreviation for "party." ▲ ▼
+
+--- [Section: Qトリガー] ---
+[NGS] Another name for the item "Quest Trigger". ▲ ▼
+
+--- [Section: Ra] ---
+[NGS][PSO2] Abbreviation for class "Ranger". ▲ ▼
+
+--- [Section: Rank.] ---
+[NGS] Reading is "rank". This term refers to the "section rank" that indicates the difficulty level of a section or quest, and the higher the difficulty, the larger the number at the end, such as "Rank.1" and "Rank.2." ▲ ▼
+
+--- [Section: Re] ---
+[NGS][PSO2][vulgar] Misprint of Ra (Ranger). ▲ ▼
+
+--- [Section: RMT] ---
+[Game] Abbreviation for "Real Money Trading." The act of trading in-game currency, items, or the account itself with real money. This is generally prohibited in online games because it would lead to the collapse of the in-game economy and shorten the lifespan of the game. PSO2NGS is no exception, and if you engage in RMT, it will be a violation of the terms and your account will be suspended. Reference July 2021 Regarding suspension of account usage due to malicious behavior July 2024 Regarding suspension of account usage due to malicious behavior ▲ ▼
+
+--- [Section: Sポイント] ---
+[NGS] Abbreviation for “Seasonal Points”. It may be written like this in the item details column, etc. ▲ ▼
+
+--- [Section: SA] ---
+[NGS][PSO2][Game][Slang] Abbreviation for "symbol art." Abbreviation for "Super Armor." ▲ ▼
+
+--- [Section: SG] ---
+[NGS][PSO2] About Stargem. Star Gems are points that are used to purchase the right to use features that make playing the game more convenient, and to draw SG scratches. It can mainly be obtained through login bonuses, events, campaigns, etc. It can also be purchased at AC (Arc Cash). See SG Shop Scratch for details. ▲ ▼
+
+--- [Section: SP] ---
+[NGS][PSO2] Abbreviation for "skill points". Abbreviation for "special". ▲ ▼
+
+--- [Section: Sympathy] ---
+[NGS][PSO2] The “Sympathy” system is a unique technology used in this work. BGM is procedurally generated using the following functions. By adopting this system in ``PSO2'' and ``NGS,'' ``BGM whose composition changes every time you listen to it'' has been realized. ・Switching songs (non-combat←transition→combat) ・Connecting parts to form one chorus ・Creating randomness with gimmicks below the movement ・Changing lines to match the scene An orchestral concert in which songs related to the Phantasy Star series are performed. ▲ ▼
+
+--- [Section: Tマーカー] ---
+[NGS] Also called "trial marker." It indicates the location when a trial occurs, and there are several color variations ( ). Related: E marker ▲ ▼
+
+--- [Section: Te] ---
+[NGS][PSO2] Abbreviation for class "Tector". ▲ ▼
+
+--- [Section: TMG] ---
+[NGS][PSO2][Slang] Abbreviation for twin machine gun. ▲ ▼
+
+--- [Section: Uテクニック] ---
+[NGS] Fo Abbreviation for skill “Unite Technique”. By learning it, you will be able to use complex attribute techniques. ▲ ▼
+
+--- [Section: Wa] ---
+[NGS][PSO2] Abbreviation for class "Waker". ▲ ▼
+
+--- [Section: WB] ---
+[NGS][PSO2][Slang] Abbreviation for Ranger's class skill "Weak Bullet". By the way, Weak Bullet has a completely different name in the global version, Blight Round. ▲ ▼
+
+--- [Section: Xi] ---
+[NGS][PSO2] Characters found at the beginning of certain characters' names in the "PSO2" series. In the old ``PSO2'', these characters were Xion, Xiao, Xiera, and Xie, and the characters in the old ``PSO2'' all have the characteristic of being ``connected to Zion'' or ``a guide to in-game events.'' According to interviews with the development team conducted in the past, there seems to be a concept that there is some kind of relationship between C and Shion as a so-called secret setting, but the details have not been disclosed. In "NGS", these include Xiandy, Xitre, and Xiemi. ▲ ▼
+
+--- [Section: 数字・記号] ---
+▲ ▼
+
+--- [Section: 1000年前／1000年後] ---
+[NGS] [slang] A term used mainly among players to distinguish between the old "PSO2" and "NGS". "1000 years ago" refers to the world of the old "PSO2", and "1000 years later" refers to the world of "NGS". This comes from the fact that the story of ``NGS'' is set in a ``new world 1000 years after the Battle of Oracle.'' ▲ ▼
+
+--- [Section: 1184] ---
+[NGS] [Professional] One passing point of combat power. The values ​​set as the emergency quests and Rank 2 map participation conditions that were implemented at the start of "NGS", and the recommended combat power of some Trainiers. Although it may seem like an odd value, there are many settings that are common, so it is considered one of the goals in the early stages. The phrase is ``1184 (it's fine) if you have that fighting power to participate.'' By the way, the combat power required to progress through the main story at the same time is "1100". ▲ ▼
+
+--- [Section: 630] ---
+[NGS][PSO2][vulgar] Error code 630. This is a so-called network error, line drop, and is probably the most familiar error code. If the line is disconnected, it will be 630, so there are various causes, and there are few cases where it can be determined that this is the cause just because 630 has occurred. 630 before an emergency, 630 during peak hours on Saturdays and Sundays, 630 even if there is no particular reason, it is a common story. Related: Omakan ▲ ▼
+
+--- [Section: #NGSHeadline] ---
+[NGS] A hashtag that is recommended to be used when posting impressions and opinions on the main game "NGS" and the official web program "NGS Headlines" on social media such as Twitter. ▲ ▼
+
+--- [Section: #Making_of_NGS] ---
+[NGS] A hashtag assigned to posts that introduce the behind-the-scenes of game development in short video format on the official PSO2 Twitter account. To commemorate the 2nd anniversary of the launch of the NGS service, a short making-of video has been released as a "small gift" from the development team, giving a glimpse behind the scenes of the development of NGS. Two eligible entries will be posted every Wednesday for six weeks from April 26, 2023 to May 31, 2023. ▲ ▼ Displaying the latest 20 items. See comment page Hide image Please refrain from making comments that violate public order and morals (incitement, slander, discriminatory expressions, obscene expressions, etc.). Also, line breaks are generally not recommended. Avoid unnecessary line breaks. For more information, see About the comment field. Lower PC body sWIKI (lower tier for PC) sWIKI (lower tier for PC) Below PC body Up to here
+
