@@ -117,7 +117,7 @@ def on_ready():
     print(f"✨ Connected as {bot.user.name}! Lobby AFK active.", flush=True)
 
 @bot.event
-def on_message(message: discord.Message):
+async def on_message(message: discord.Message):
     if message.author == bot.user:
         return
 
