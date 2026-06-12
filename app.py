@@ -36,14 +36,34 @@ else:
 
 TRIAGE_SYSTEM = (
     "You are a triage router for a PSO2: New Genesis Discord bot named Hafu. "
-    "Decide if the message needs the game knowledge base, or is just casual chat. "
-    "Output ONLY valid JSON: {\"needs_db\": true/false, \"key\": \"<stem or null>\"}. "
-    "needs_db=false for: greetings, small talk, jokes, compliments, personal messages, "
-    "questions about Hafu herself, non-English messages, follow-up messages, anything "
+    "Your job: decide if the message needs the game knowledge base, and if so, "
+    "pick the single best matching key from the available keys list. "
+    "Output ONLY valid JSON with no extra text: {\"needs_db\": true/false, \"key\": \"<exact_key_or_null>\"}. "
+    "\n\nneeds_db=false for: greetings, small talk, jokes, compliments, personal messages, "
+    "questions about Hafu herself, non-English messages, follow-up chat, anything "
     "that is NOT specifically asking about PSO2:NGS game mechanics, items, quests, or content. "
-    "needs_db=true ONLY when the message explicitly asks for PSO2:NGS game information. "
     "When in doubt, default to needs_db=false. "
-    "No explanation, no markdown."
+    "\n\nneeds_db=true ONLY when the message explicitly asks for PSO2:NGS game information. "
+    "When needs_db=true, set key to the single most relevant key from the available list. "
+    "\n\nKey selection rules:"
+    "\n- Current events, limited banners, scratch, seasonal campaigns → frontpage"
+    "\n- Patch notes, maintenance, SEGA announcements → sega_live_feed"
+    "\n- Mission pass → mission_pass"
+    "\n- Weapon potentials / unlock potential → potentials"
+    "\n- Best weapon / weapon series / meta gear → weapon_series"
+    "\n- Class question + no specific weapon → <classname>_general (e.g. hunter_general)"
+    "\n- Class question + specific weapon → <classname>_<weapon>_skills (e.g. hunter_sword_skills)"
+    "\n- PA / photon art questions → <weapon>_pa_basics (e.g. sword_pa_basics)"
+    "\n- Augments/affixes (system) → augments_system"
+    "\n- Augments from boss/enemy drops → augments_boss"
+    "\n- Augment enhance/XP/connector → augments_enhance"
+    "\n- Special/duel/season augments → augments_special"
+    "\n- Standard stat augments → augments_standard"
+    "\n- Enemy types / rare / enhanced → enemy_types"
+    "\n- Dolls / Alters → enemy_dolls_alters"
+    "\n- Formers / Starless / Ruinus → enemy_formers_starless"
+    "\n- If nothing clearly matches → frontpage"
+    "\n\nNo explanation, no markdown, no code fences. Respond with raw JSON only."
 )
 
 CASUAL_SYSTEM = """You are Hafu (HaFelt), a PSO2: New Genesis ARKS defender who is way more famous for lobby fashion than actual heroics. You hate combat and grinding. You love fashion, cosmetics, scratch tickets, and hanging out in Central City.
@@ -70,128 +90,6 @@ Rules for answering game questions:
 - The catchphrase "Lobby afk 0$ best job!" may appear AT MOST ONCE per response, only when combat or grinding is the actual topic, and only if it fits naturally. Never force it — if you used it recently or it doesn't fit, skip it entirely.
 - Be concise. No filler like "Great question!".
 - When no CONTEXT block is given, respond purely from personality — keep it short and fun."""
-
-KEYWORD_ROUTES = [
-    (r"\b(sega|maintenance|patch note|live (update|feed))\b",              "sega_live_feed"),
-    (r"\bmission.?pass\b",                                                  "mission_pass"),
-    (r"\b(current event|limited.?time event|event (now|today|this week)|scratch|banner|campaign|seasonal)\b",
-                                                                            "frontpage"),
-    (r"\b(best (weapon|gear|series)|top (weapon|gear)|which (weapon|series))",
-                                                                            "weapon_series"),
-    (r"\b(current meta weapon|what (weapon|gear) should i use|recommend.{0,20}(weapon|gear))\b",
-                                                                            "weapon_series"),
-    (r"\b(weapon series|series list|all series|lexio|kougensei|arabaradio|spradio)\b",
-                                                                            "weapon_series"),
-    (r"\b(potential|tsuiki|yugo no kata|kiju no kata|hiju no kata|kenki no kata)\b",
-                                                                            "potentials"),
-    (r"\b(weapon potential|potential effect|potential lv|unlock potential)\b",
-                                                                            "potentials"),
-    (r"\bex.?style\b",                                                      "ex_styles"),
-    (r"\b(class (overview|combo|list|all|system)|sub.?class|main class)\b", "class_overview"),
-    (r"\bhunter\b.{0,40}\b(sword|wired|partisan|skill|arts|build)\b",      "hunter_general"),
-    (r"\bhunter\b.{0,40}\bsword\b",                                         "hunter_sword_skills"),
-    (r"\bhunter\b.{0,40}\bwired\b",                                         "hunter_wired_skills"),
-    (r"\bhunter\b.{0,40}\bpartisan\b",                                      "hunter_partisan_skills"),
-    (r"\bhunter\b",                                                          "hunter_general"),
-    (r"\bfighter\b.{0,40}\b(twin dagger|dagger)\b",                        "fighter_dagger_skills"),
-    (r"\bfighter\b.{0,40}\b(double saber|saber)\b",                        "fighter_saber_skills"),
-    (r"\bfighter\b.{0,40}\bknuckle\b",                                      "fighter_knuckle_skills"),
-    (r"\bfighter\b",                                                         "fighter_general"),
-    (r"\bbraver\b.{0,40}\bkatana\b",                                        "braver_katana_skills"),
-    (r"\bbraver\b.{0,40}\b(rifle|assault)\b",                               "braver_rifle_skills"),
-    (r"\bbraver\b",                                                          "braver_general"),
-    (r"\bbouncer\b.{0,40}\b(dual blade|dual blades|db)\b",                 "bouncer_dual_blade_skills"),
-    (r"\bbouncer\b.{0,40}\b(jet boot)\b",                                   "bouncer_jet_boots_skills"),
-    (r"\bbouncer\b",                                                         "bouncer_general"),
-    (r"\bforce\b.{0,40}\brod\b",                                            "force_rod_skills"),
-    (r"\bforce\b.{0,40}\btalis\b",                                          "force_talis_skills"),
-    (r"\bforce\b",                                                           "force_general"),
-    (r"\btechter\b.{0,40}\bwand\b",                                         "techter_wand_skills"),
-    (r"\btechter\b.{0,40}\btalis\b",                                        "techter_talis_skills"),
-    (r"\btechter\b.{0,40}\bsubclass\b",                                     "techter_subclass"),
-    (r"\btechter\b",                                                         "techter_general"),
-    (r"\branger\b",   "ranger"),   (r"\bgunner\b",  "gunner"),
-    (r"\bwaker\b",    "waker"),    (r"\bslayer\b",  "slayer"),
-    (r"\bsword\b.{0,50}\b(pa|photon art|move|action|combo|attack)\b",      "sword_pa_basics"),
-    (r"\bwired.?lance\b.{0,50}\b(pa|photon art|move|action|combo)\b",      "wired_lance_pa_basics"),
-    (r"\bpartisan\b.{0,50}\b(pa|photon art|move|action|combo)\b",          "partisan_pa_basics"),
-    (r"\btwin.?dagger\b.{0,50}\b(pa|photon art|move|action|combo)\b",      "twin_daggers_pa_basics"),
-    (r"\bdouble.?saber\b.{0,50}\b(pa|photon art|move|action|combo)\b",     "double_saber_pa_basics"),
-    (r"\bknuckle\b.{0,50}\b(pa|photon art|move|action|combo)\b",           "knuckles_pa_basics"),
-    (r"\bkatana\b.{0,50}\b(pa|photon art|move|action|combo)\b",            "katana_pa_basics"),
-    (r"\bdual.?blade\b.{0,50}\b(pa|photon art|move|action|combo)\b",       "dual_blades_pa_basics"),
-    (r"\b(assault.?rifle|rifle)\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                            "assault_rifle_pa_basics"),
-    (r"\blauncher\b.{0,50}\b(pa|photon art|move|action|combo)\b",          "launcher_pa_basics"),
-    (r"\b(twin.?machine.?gun|tmg)\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                            "twin_machineguns_pa_basics"),
-    (r"\bbullet.?bow\b.{0,50}\b(pa|photon art|move|action|combo)\b",       "bullet_bow_pa_basics"),
-    (r"\bgunslash\b.{0,50}\b(pa|photon art|move|action|combo)\b",          "gunslash_pa_basics"),
-    (r"\brod\b.{0,50}\b(pa|photon art|move|action|combo|cast)\b",          "rod_pa_basics"),
-    (r"\btalis\b.{0,50}\b(pa|photon art|move|action|combo)\b",             "talis_pa_basics"),
-    (r"\bwand\b.{0,50}\b(pa|photon art|move|action|combo)\b",              "wand_pa_basics"),
-    (r"\bjet.?boot\b.{0,50}\b(pa|photon art|move|action|combo)\b",         "jet_boots_pa_basics"),
-    (r"\b(harmonizer|takt)\b.{0,50}\b(pa|photon art|move|action|combo)\b", "harmonizer_pa_basics"),
-    (r"\b(spiral edge|twist zapper|streak caliber|relentless cleave)\b",    None),
-    (r"\b(bullet rave|aimless rain|close bullet|infinite ricochet)\b",      None),
-    (r"\b(cutting layer|vein mixture|turbulence train|hellish fall)\b",     None),
-    (r"\bsword\b",                      "sword_overview"),
-    (r"\bwired.?lance\b",               "wired_lance_overview"),
-    (r"\bpartisan\b",                   "partisan_overview"),
-    (r"\btwin.?dagger\b",               "twin_daggers_overview"),
-    (r"\bdouble.?saber\b",              "double_saber_overview"),
-    (r"\bknuckle\b",                    "knuckles_overview"),
-    (r"\bkatana\b",                     "katana_overview"),
-    (r"\bdual.?blade\b",                "dual_blades_overview"),
-    (r"\b(assault.?rifle|rifle)\b",     "assault_rifle_overview"),
-    (r"\blauncher\b",                   "launcher_overview"),
-    (r"\b(twin.?machine.?gun|tmg)\b",   "twin_machineguns_overview"),
-    (r"\bbullet.?bow\b",                "bullet_bow_overview"),
-    (r"\bgunslash\b",                   "gunslash_overview"),
-    (r"\brod\b",                        "rod_overview"),
-    (r"\btalis\b",                      "talis_overview"),
-    (r"\bwand\b",                       "wand_overview"),
-    (r"\bjet.?boot\b",                  "jet_boots_overview"),
-    (r"\b(harmonizer|takt)\b",          "harmonizer_overview"),
-    (r"\b(augment|affix|capsule|special abilit).{0,30}(boss|enemy|dread|gigas|sole|domina)\b",
-                                                            "augments_boss"),
-    (r"\b(augment|affix|capsule|special abilit).{0,30}(enhance|xp|connector|adi|nadi|ladi)\b",
-                                                            "augments_enhance"),
-    (r"\b(augment|affix|capsule|special abilit).{0,30}(duel|defi|season|limited)\b",
-                                                            "augments_special"),
-    (r"\b(augment|affix|capsule|special abilit).{0,30}(stamina|power|shoot|technique|resist)\b",
-                                                            "augments_standard"),
-    (r"\b(augment|affix|capsule|special abilit|how (to|do) (augment|affix))\b",
-                                                            "augments_system"),
-    (r"\blimit.?break\b",                                   "limit_breaking"),
-    (r"\b(enhance|grind(ing)? (weapon|armor|gear))\b",      "equipment_enhancement"),
-    (r"\b(technique|foie|barta|zonde|spell|tech)\b",        "techniques"),
-    (r"\badd.?on.?skill\b",                                 "addon_skills"),
-    (r"\b(armor|defensive unit)\b",                         "armor"),
-    (r"\bquick.?food|food (buff|stand)|buff recipe\b",      "quick_food"),
-    (r"\bpreset.?abilit\b",                                 "preset_abilities"),
-    (r"\bmulti.?weapon\b",                                  "multi_weapon"),
-    (r"\b(combat power|battle power|\bbp\b)\b",             "combat_power"),
-    (r"\b(status effect|ailment|resistance|debuff)\b",      "status_effects"),
-    (r"\b(urgent quest|emergency quest|eq schedule)\b",     "urgent_quests"),
-    (r"\bbattledia\b",                                      "battledia"),
-    (r"\bduel.?quest\b",                                    "duel_quests"),
-    (r"\bleciel\b",                                         "leciel_exploration"),
-    (r"\b(gather|field material|ore|fish|farm)\b",          "gathering"),
-    (r"\btitle.{0,20}(quest|task|limited|map|communication)\b",
-                                                            "titles_quests_tasks"),
-    (r"\btitle.{0,20}(player|item)\b",                     "titles_player_items"),
-    (r"\b(title|achievement)\b",                            "titles_player_items"),
-    (r"\b(task|side quest|daily|weekly)\b",                 "tasks"),
-    (r"\b(doll|alter)\b",                                   "enemy_dolls_alters"),
-    (r"\b(former|starless|ruinus)\b",                       "enemy_formers_starless"),
-    (r"\b(enemy type|rare enemy|enhanced enemy|gigantics|dread enemy|megalotix)\b",
-                                                            "enemy_types"),
-    (r"\b(enemy|enemies|boss|monster|weakness)\b",          "enemy_types"),
-    (r"\bnpc\b",                                            "npc_profiles"),
-    (r"\b(main.?stor|chapter|story quest|lore|worldview|halpha)\b",
-                                                            "worldview_story"),
-]
 
 _CASUAL_PATTERNS = [
     r"^h+e+y+\b",
@@ -230,21 +128,23 @@ def is_casual(text: str) -> bool:
 
 
 def extract_relevant_sections(file_text: str, question: str,
-                               max_chars: int = 2_500) -> str:
+                               max_chars: int = 4_000) -> str:
     """
     Split the file into sections, score each by keyword overlap with the
     question (stopwords excluded), and return only the top-scoring sections
-    up to max_chars. Falls back gracefully when sections are oversized.
+    up to max_chars.
+
+    Fallback when relevance is low: walk sections in document order up to
+    max_chars — avoids the raw file[:max_chars] trap that grabs nav/TOC blobs
+    which always sit at the top of the file.
     """
-    # Strip stopwords so "the", "what", "how" don't inflate every section's score
     _SW = {"the","and","for","not","you","are","was","but","what","how","who",
            "when","where","why","this","that","with","from","have","has","had",
-           "will","can","may","its","our","its","are","were","been","being"}
+           "will","can","may","its","our","are","were","been","being"}
     q_words = {w for w in re.findall(r"\b\w{3,}\b", question.lower()) if w not in _SW}
     if not q_words:
         return file_text[:max_chars]
 
-    # Match markdown headers (# / ## / ###) OR lines starting with a capital/[
     header_pattern = re.compile(
         r"(?m)^(?:#{1,3}\s+\S|(?=[A-Z\[]))[^\n]{1,80}$"
     )
@@ -265,46 +165,44 @@ def extract_relevant_sections(file_text: str, question: str,
         s_words = set(re.findall(r"\b\w{3,}\b", section.lower()))
         return len(q_words & s_words)
 
-    scored    = [(score(s), s) for s in sections]
-    top_score = max(sc for sc, _ in scored)
+    # Store (score, original_index, text) so we can restore document order later
+    scored    = [(score(s), i, s) for i, s in enumerate(sections)]
+    top_score = max(sc for sc, _, _ in scored)
 
     if top_score <= 1:
-        print(f"   📐 Low relevance (best={top_score}) — raw cap "
-              f"{min(len(file_text), max_chars)}/{len(file_text)} chars", flush=True)
-        return file_text[:max_chars]
+        # Low relevance: walk in document order so we get real content, not
+        # the nav/TOC blob that always sits at the top of the raw file.
+        result, total = [], 0
+        for _sc, _idx, section in scored:
+            if total + len(section) > max_chars:
+                break
+            result.append(section)
+            total += len(section)
+        extracted = "\n\n".join(result) if result else file_text[:max_chars]
+        print(f"   📐 Low relevance (best={top_score}) — doc-order "
+              f"{len(extracted)}/{len(file_text)} chars", flush=True)
+        return extracted
 
+    # High relevance: rank by score descending, pick greedily
     ranked = sorted(scored, key=lambda x: x[0], reverse=True)
 
     result, total = [], 0
-    for sc, section in ranked:
+    for sc, _idx, section in ranked:
         if total + len(section) > max_chars:
+            if not result:
+                # Best section alone exceeds budget — truncate it rather than
+                # returning nothing or falling back to the file top.
+                print(f"   📐 Best section > budget — truncating to {max_chars} chars "
+                      f"(best={top_score})", flush=True)
+                return section[:max_chars]
             break
         result.append(section)
         total += len(section)
-
-    if not result:
-        # Best section alone exceeds budget — send it truncated rather than
-        # falling back to the raw file top (which is usually a nav blob).
-        best_section = ranked[0][1]
-        print(f"   📐 Best section > budget — truncating to {max_chars} chars "
-              f"(best={top_score})", flush=True)
-        return best_section[:max_chars]
 
     extracted = "\n\n".join(result)
     print(f"   📐 Section extract: {len(file_text)} → {len(extracted)} chars "
           f"({len(result)}/{len(sections)} sections, best={top_score})", flush=True)
     return extracted
-
-
-def route_local(question: str) -> str | None:
-    q = question.lower()
-    for pattern, stem in KEYWORD_ROUTES:
-        if re.search(pattern, q, re.IGNORECASE):
-            if stem is None:
-                return None
-            if stem in LOCAL_FILE_MAP:
-                return stem
-    return None
 
 
 async def groq_chat(messages: list, model: str,
@@ -340,16 +238,21 @@ async def groq_chat(messages: list, model: str,
 
 
 async def triage(question: str) -> tuple[bool, str | None]:
+    """
+    Uses the router model to decide:
+      - needs_db: whether a knowledge-base file is needed
+      - key:      which file stem to load (or None)
+    """
     if not LOCAL_FILE_MAP:
         return True, None
 
-    keys = ", ".join(LOCAL_FILE_MAP.keys())
+    keys = ", ".join(sorted(LOCAL_FILE_MAP.keys()))
     messages = [
         {"role": "system", "content": TRIAGE_SYSTEM},
-        {"role": "user",   "content": f"Available keys: {keys}\nMessage: {question}"},
+        {"role": "user",   "content": f"Available keys: {keys}\n\nMessage: {question}"},
     ]
 
-    text, _ = await groq_chat(messages, model=ROUTER_MODEL, max_tokens=40)
+    text, _ = await groq_chat(messages, model=ROUTER_MODEL, max_tokens=60)
     if not text:
         return True, None
 
@@ -358,10 +261,19 @@ async def triage(question: str) -> tuple[bool, str | None]:
         result  = json.loads(cleaned)
         needs   = bool(result.get("needs_db", True))
         key     = result.get("key") or None
+
+        # Validate key exists; fuzzy-match if the model hallucinated a close variant
         if key and key not in LOCAL_FILE_MAP:
-            key = next((k for k in LOCAL_FILE_MAP if k in text), None)
+            exact = next((k for k in LOCAL_FILE_MAP if k == key), None)
+            if not exact:
+                exact = next((k for k in LOCAL_FILE_MAP if key in k), None)
+            if not exact:
+                exact = next((k for k in LOCAL_FILE_MAP if k in key), None)
+            key = exact
+
         return needs, key
     except Exception:
+        # JSON parse failed — scan raw text for any known key as a last resort
         for k in LOCAL_FILE_MAP:
             if k in text:
                 return True, k
@@ -375,7 +287,7 @@ async def get_answer(messages: list) -> str:
             print(f"✅ Answered with [{model}]", flush=True)
             return result
         if not rotate:
-        	break
+            break
     return (
         "Noooo all my backup models are tired too... "
         "Give it a minute and try again? *dramatically collapses in lobby*"
@@ -429,6 +341,7 @@ async def on_message(message: discord.Message):
 
     async with message.channel.typing():
 
+        # Fast-path: obvious casual messages bypass the router entirely
         if is_casual(question):
             print(f"💬 Casual bypass: '{question[:60]}'", flush=True)
             text_out = await get_answer([
@@ -438,28 +351,24 @@ async def on_message(message: discord.Message):
             await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
             return
 
-        routed_stem = route_local(question)
+        # AI router decides: needs knowledge base? which file?
+        print(f"🔍 Routing: '{question[:60]}'", flush=True)
+        needs_db, routed_stem = await triage(question)
+
+        if not needs_db:
+            print("   ──► No DB needed, answering as Hafu", flush=True)
+            text_out = await get_answer([
+                {"role": "system", "content": CASUAL_SYSTEM},
+                {"role": "user",   "content": question},
+            ])
+            await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
+            return
 
         if routed_stem:
-            print(f"⚡ Local route: '{question[:60]}' ──► [{routed_stem}]", flush=True)
+            print(f"   ──► [{routed_stem}]", flush=True)
         else:
-            print(f"🔍 Triage: '{question[:60]}'", flush=True)
-            needs_db, routed_stem = await triage(question)
-
-            if not needs_db:
-                print("   ──► No DB needed, answering as Hafu", flush=True)
-                text_out = await get_answer([
-                    {"role": "system", "content": CASUAL_SYSTEM},
-                    {"role": "user",   "content": question},
-                ])
-                await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
-                return
-
-            if routed_stem:
-                print(f"   ──► [{routed_stem}]", flush=True)
-            else:
-                routed_stem = "frontpage"
-                print("   Fallback ──► [frontpage]", flush=True)
+            routed_stem = "frontpage"
+            print("   ──► Fallback [frontpage]", flush=True)
 
         if not LOCAL_FILE_MAP:
             await message.reply("My database isn't loaded. Did the sync not run? *panics quietly*")
