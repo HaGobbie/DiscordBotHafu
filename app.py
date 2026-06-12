@@ -52,8 +52,8 @@ DB_MATRIX = None
 # ==================== LINE-BASED VECTOR SEARCH ENGINE ====================
 def initialize_vector_database():
     """
-    Loads knowledge_database.txt and splits it into strict, evenly sized 
-    line-based chunks to ensure total prompt tokens never exceed free tier caps.
+    Loads knowledge_database.txt, handles structural normalization for Windows lines,
+    and splits it into strict, size-guarded line-based fragments.
     """
     global DB_CHUNKS, VECTORIZER, DB_MATRIX
     
@@ -63,18 +63,20 @@ def initialize_vector_database():
 
     print("📂 Analyzing database structure...", flush=True)
     with open("knowledge_database.txt", "r", encoding="utf-8") as f:
-        lines = f.readlines()
+        # Read full content and explicitly purge carriage returns (\r)
+        content = f.read().replace("\r", "")
 
-    # Clean empty rows to maximize real content per chunk
-    clean_lines = [l for l in lines if l.strip()]
+    # Split into clean individual lines
+    lines = content.split("\n")
+    clean_lines = [l.strip() for l in lines if l.strip()]
     
-    # Slice the entire wiki cleanly into small blocks of 25 lines each
+    # Slice the entire registry into predictable, small blocks of 25 lines each
     lines_per_chunk = 25
     DB_CHUNKS = []
     
     for i in range(0, len(clean_lines), lines_per_chunk):
         chunk_slice = clean_lines[i:i + lines_per_chunk]
-        DB_CHUNKS.append("".join(chunk_slice))
+        DB_CHUNKS.append("\n".join(chunk_slice))
 
     if not DB_CHUNKS:
         print("⚠️ Warning: No valid data extracted from database.", flush=True)
