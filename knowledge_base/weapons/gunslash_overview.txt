@@ -1,9 +1,0 @@
-=== [Gunslash Overview] ===
-=== COMPILED: 2026-06-12 09:19:19 UTC ===
-
---- [Overview] ---
-Announcement from [sWIKI] Gun Slash HTML ConvertTime 0.224 sec. Weapons and Armor (Series) Sword (PA) Wired Lance (PA) Partisan (PA) Twin Dagger (PA) Double Saber (PA) Knuckle (PA) Katana (PA) Dual Blade (PA) Assault Rifle (PA) Launcher (PA) Twin Machine Gun (PA) Bullet Bow (PA) Gun Slash (PA) Rod (AC) Talis (PA) Wand (PA) Jet Boots (PA) Tact (PA) Armor Skill Ring Technique Fire Attribute Ice Attribute Lightning Attribute Wind Attribute Light Attribute Dark Attribute Complex Attribute Equipment Enhancement/Technique/PA Customization Item Enhancement/Limit Break Multi Weapon Special Abilities (Comparison Table) EX Special Abilities Potential Abilities Preset Abilities Tech Arts Customization Table of Contents Overview List Comments
-
---- [overview] ---
-Released on April 5, 2023 Weapons that can be equipped by Slayer. It is sometimes written as "bayonet". For basic behavior, photon blast, PA, etc., see Gun Slash/Action/PA. When using Gun Slash across the old "PSO2" and "NGS", please be aware of the following points. In the "NGS" block, the power increase effect is applied to the power of shooting weapons. In the NGS block, the background color of icons containing weapon camouflage is blue. (It will be orange in the PSO2 block.) Also see the announcement on the player's site, ``About the new weapon category ``Gun Slash'' scheduled to be released in April''. ▲ ▼
-

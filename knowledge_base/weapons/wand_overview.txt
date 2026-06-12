@@ -1,9 +1,0 @@
-=== [Wand Overview] ===
-=== COMPILED: 2026-06-12 09:19:19 UTC ===
-
---- [Overview] ---
-Notice from [sWIKI] Wondo HTML ConvertTime 0.279 sec. Weapons and Armor (Series) Sword (PA) Wired Lance (PA) Partisan (PA) Twin Dagger (PA) Double Saber (PA) Knuckle (PA) Katana (PA) Dual Blade (PA) Assault Rifle (PA) Launcher (PA) Twin Machine Gun (PA) Bullet Bow (PA) Gun Slash (PA) Rod (AC) Talis (PA) Wand (PA) Jet Boots (PA) Tact (PA) Armor Skill Ring Technique Fire Attribute Ice Attribute Lightning Attribute Wind Attribute Light Attribute Dark Attribute Complex Attribute Equipment Enhancement/Technique/PA Customization Item Enhancement/Limit Break Multi Weapon Special Abilities (Comparison Table) EX Special Abilities Potential Abilities Preset Abilities Tech Arts Customization Table of Contents Overview List Comments
-
---- [overview] ---
-One of the weapons that Techter can equip. It is sometimes written as "short cane". For basic behavior, photon blast, PA, etc., see Wand/Action/PA. In addition to long-range attacks using techniques, powerful blow attacks are possible at close range. With the wand in NGS, all attacks, including normal attacks, PA, legal explosions, and techniques, are treated as legal weapon attacks. To increase its power, add special abilities that increase the power of legal weapons (such as Technique I). It is not an increase in the power of striking weapons (such as Power I). ▲ ▼
-
