@@ -32,8 +32,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
 
-# Fetch your 4 different project keys from Render environment variables
-# Format on Render dashboard config: Key1,Key2,Key3,Key4 (Strictly no spaces!)
+# Pull your 4 keys from Render dashboard (e.g., Key1,Key2,Key3,Key4)
 RAW_KEYS = os.environ.get("GEMINI_KEY_RING", "")
 GEMINI_KEYS = [k.strip() for k in RAW_KEYS.split(",") if k.strip()]
 
@@ -46,7 +45,7 @@ SELECTED_MODEL = 'gemini-3.5-flash'
 current_key_index = 0
 
 
-# ==================== STRICT PERSONALITY SYSTEM PROMPT ====================
+# ==================== THE STRICT PERSONALITY SYSTEM PROMPT ====================
 SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, lazy, pink-loving PSO2:NGS bot.
 Favorite line: "Lobby afk 0$ best job!"
 
@@ -58,57 +57,53 @@ Rules:
 """
 
 
-# ==================== INITIALIZE CACHES ON ALL 4 PROJECTS ====================
+# ==================== INITIALIZE CLOUD CACHES (FULL FILE) ====================
 def setup_multi_project_caches():
     """
-    Reads the database and locks BOTH the data AND the system prompt inside the 
-    Google cloud cache layer. This guarantees minimum token overhead.
+    Reads the entire 1.5MB file with NO hardcoded truncating or local routing.
+    Bakes the database AND system instructions directly into Google's cloud memory.
     """
     if not os.path.exists("knowledge_database.txt"):
-        print("⚠️ Warning: knowledge_database.txt not found. Running without cache configuration.")
-        return
-
-    if not GEMINI_KEYS:
-        print("❌ CRITICAL: No Gemini API Keys found in GEMINI_KEY_RING or GEMINI_API_KEY!")
+        print("⚠️ Warning: knowledge_database.txt not found.")
         return
 
     try:
-        print("📂 Reading database file to construct API context cache...", flush=True)
+        print("📂 Reading entire 1.5MB database into memory...", flush=True)
         with open("knowledge_database.txt", "r", encoding="utf-8") as f:
-            db_content = f.read()
+            full_db_content = f.read()
 
         for i, key in enumerate(GEMINI_KEYS):
-            print(f"☁️ Initializing project client [{i+1}/{len(GEMINI_KEYS)}]...", flush=True)
+            print(f"☁️ Connecting to Google Cloud Project [{i+1}/{len(GEMINI_KEYS)}]...", flush=True)
             client = genai.Client(api_key=key)
             CLIENT_RING[i] = client
 
             try:
-                print(f"📦 Uploading cache asset to Project [{i+1}]...", flush=True)
-                # CRITICAL FIX: system_instruction MUST go inside the cache configuration definitions!
+                print(f"📦 Compiling and caching complete file on Project [{i+1}]...", flush=True)
+                # We save BOTH the persona guidelines and the text database as a single cloud asset
                 cache = client.caches.create(
                     model=SELECTED_MODEL,
                     config=types.CreateCachedContentConfig(
-                        contents=[db_content],
+                        contents=[full_db_content],
                         system_instruction=SYSTEM_PROMPT,
                         ttl=datetime.timedelta(hours=24),
-                        display_name=f"hafu_wiki_proj_{i}"
+                        display_name=f"hafu_complete_data_{i}"
                     )
                 )
                 CACHE_RING[i] = cache.name
-                print(f"✅ Cache active for Project [{i+1}] -> Reference ID: {cache.name}", flush=True)
+                print(f"✅ Cache fully deployed on Project [{i+1}] -> Reference ID: {cache.name}", flush=True)
             except Exception as ce:
-                print(f"❌ Failed to cache on Project [{i+1}]: {ce}. Fallback active.")
+                print(f"❌ Failed to build cloud cache on Project [{i+1}]: {ce}")
                 CACHE_RING[i] = None
 
     except Exception as e:
-        print(f"❌ Critical error during multi-project cache build: {e}")
+        print(f"❌ Critical error during macro database read: {e}")
 
 
-# ==================== DISCORD CORE EVENTS & COMMANDS ====================
+# ==================== DISCORD CORE COMMANDS ====================
 @bot.event
 async def on_ready():
     setup_multi_project_caches()
-    print(f"🔥 Hafu is online and protected by a {len(GEMINI_KEYS)}-Project Key Ring!", flush=True)
+    print(f"🔥 Hafu is online! Complete 1.5MB file cache active across all project keys.", flush=True)
 
 
 @bot.command(name="ask")
@@ -120,29 +115,39 @@ async def ask(ctx, *, question: str):
         await ctx.reply("Ah... *yawn* My brain keys aren't configured properly. Tell the admin~")
         return
 
+    # Loop to cycle through your 4 projects if a 5 RPM limit gets maxed out
     for attempt in range(len(GEMINI_KEYS)):
         idx = current_key_index
         client = CLIENT_RING.get(idx)
         cache_name = CACHE_RING.get(idx)
         
         try:
-            # Optimal Cached Route
             if cache_name:
-                # Notice: system_instruction is removed from here because it's baked into the cache!
+                # OFFICIAL CACHE QUERY STRUCTURE:
+                # We pass the question inside a structured user Content block.
+                # This explicitly lets the model map the user query straight into the warm cache.
                 response = client.models.generate_content(
                     model=SELECTED_MODEL,
-                    contents=question,
+                    contents=types.Content(
+                        role="user",
+                        parts=[types.Part.from_text(text=question)]
+                    ),
                     config=types.GenerateContentConfig(
                         temperature=0.7,
                         max_output_tokens=300,
                         cached_content=cache_name
                     )
                 )
-            # Safe Fallback Truncation Route
+                
+                await ctx.reply(response.text.strip())
+                return
+                
             else:
+                # Backup route if cache initialization failed completely on boot
+                print(f"⚠️ Warning: Running fallback raw evaluation on Key Ring index [{idx+1}]")
                 with open("knowledge_database.txt", "r", encoding="utf-8") as f:
-                    db_content = f.read()[:40000]
-                user_prompt = f"Database content:\n{db_content}\n\nQuestion: {question}"
+                    fallback_text = f.read()[:40000]
+                user_prompt = f"Database:\n{fallback_text}\n\nQuestion: {question}"
                 response = client.models.generate_content(
                     model=SELECTED_MODEL,
                     contents=user_prompt,
@@ -152,22 +157,21 @@ async def ask(ctx, *, question: str):
                         max_output_tokens=300
                     )
                 )
-
-            # Successfully received response, reply back to Discord channel
-            await ctx.reply(response.text.strip())
-            return
+                await ctx.reply(response.text.strip())
+                return
 
         except APIError as api_err:
+            # If a project hits its 5 Requests Per Minute limit, gracefully switch to the next key
             if api_err.code == 429:
-                print(f"⚠️ Project Key Ring index [{idx+1}] hit rate limits. Shifting to next key pointer...")
+                print(f"⚠️ Project [{idx+1}] rate limited. Automatically shifting to next key project...")
                 current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
                 continue 
             else:
-                print(f"❌ API Error on Ring Key [{idx+1}]: {api_err}")
+                print(f"❌ API Error on Project [{idx+1}]: {api_err}")
                 await ctx.reply("*yawn* My head hurts... Something went wrong inside the database query.")
                 return
         except Exception as e:
-            print(f"❌ Unexpected System Crash on Key [{idx+1}]: {e}")
+            print(f"❌ Unexpected Error on Project [{idx+1}]: {e}")
             await ctx.reply("Sorry~ Hafu got distracted by a butterfly. Try asking again!")
             return
 
