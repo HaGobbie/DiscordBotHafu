@@ -360,7 +360,7 @@ for jp_page, (english_title, rel_path) in ASSET_ROUTING_MAP.items():
 
     try:
         html  = fetch_url(url)
-        soup  = BeautifulSoup(html, "lxml")
+        soup  = BeautifulSoup(html, "html.parser")
         ctable = get_ctable(soup)
 
         # Weapon overview pages: strip gear tables, keep 概要 only
@@ -406,7 +406,7 @@ print(" → SEGA official feed  ──►  announcements/sega_live_feed.txt", fl
 try:
     sega_url  = "https://pso2.jp/players/update/"
     sega_html = fetch_url(sega_url, timeout=12)
-    sega_soup = BeautifulSoup(sega_html, "lxml")
+    sega_soup = BeautifulSoup(sega_html, "html.parser")
 
     # Pull h2/h3/p tags, min 20 chars, first 15 items to stay lightweight
     raw_texts = [
