@@ -1,5 +1,6 @@
 import os
 import json
+import asyncio
 import discord
 from discord.ext import commands
 from pathlib import Path
@@ -124,12 +125,41 @@ async def route_user_query_ai(client, question_text):
     return LOCAL_FILE_MAP.get("frontpage") or list(LOCAL_FILE_MAP.values())[0]
 
 # ==========================================
+# LIGHTWEIGHT PORT KEEP-ALIVE SERVER
+# ==========================================
+async def handle_render_ping(reader, writer):
+    """Simple raw socket interaction responder to clear Render's deployment port checking checks."""
+    try:
+        await reader.read(256)
+        http_response = "HTTP/1.1 200 OK\r\nContent-Length: 2\r\nContent-Type: text/plain\r\n\r\nOK"
+        writer.write(http_response.encode('utf-8'))
+        await writer.drain()
+    except Exception:
+        pass
+    finally:
+        writer.close()
+        try:
+            await writer.wait_closed()
+        except Exception:
+            pass
+
+# ==========================================
 # DISCORD BOT EVENT & COMMAND HANDLERS
 # ==========================================
 @bot.event
 async def on_ready():
     print(f"🤖 Hafu Bot operational as {bot.user.name} (ID: {bot.user.id})")
     print("✨ Core systems are loaded and ready to parse incoming query pipelines.")
+    
+    # Fire up the background port-binding keep-alive server for Render
+    port = int(os.environ.get("PORT", 10000))
+    try:
+        server = await asyncio.start_server(handle_render_ping, "0.0.0.0", port)
+        # Safely loop-nest execution directly inside discord's active main run tasks
+        bot.loop.create_task(server.serve_forever())
+        print(f"🌐 Keep-alive online on port {port}", flush=True)
+    except Exception as server_error:
+        print(f"⚠️ Keep-alive socket initialization failed: {server_error}", flush=True)
 
 @bot.command(name="ask")
 async def ask(ctx, *, question: str):
@@ -140,7 +170,7 @@ async def ask(ctx, *, question: str):
         await ctx.reply("Ah... *yawn* My local context files or API system profiles are unassigned. Did you run the synchronization?")
         return
 
-    # Check remaining API cluster instances to handle rate limits seamlessly
+    # Check remaining API cluster instances to handle temporary glitches or limits seamlessly
     for attempt in range(len(GEMINI_KEYS)):
         idx = current_key_index
         client = CLIENT_RING.get(idx)
@@ -183,12 +213,13 @@ async def ask(ctx, *, question: str):
             return
 
         except APIError as api_err:
-            if api_err.code == 429:
-                print(f"⚠️ Key [{idx+1}] hit rate restrictions. Moving to alternative slot...", flush=True)
+            # Catch BOTH 429 (Rate Limit) and 503 (Server Congestion) to rotate keys dynamically
+            if api_err.code in [429, 503]:
+                print(f"⚠️ Key [{idx+1}] hit temporary status {api_err.code}. Rotating key position...", flush=True)
                 current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
                 continue 
             else:
-                print(f"❌ API Exception occurred on Key [{idx+1}]: {api_err}", flush=True)
+                print(f"❌ Permanent API Exception occurred on Key [{idx+1}]: {api_err}", flush=True)
                 await ctx.reply("*yawn* Something went wrong inside the model pipelines.")
                 return
         except Exception as e:
