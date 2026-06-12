@@ -32,7 +32,6 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
 
-# Pull your 4 keys from Render dashboard (e.g., Key1,Key2,Key3,Key4)
 RAW_KEYS = os.environ.get("GEMINI_KEY_RING", "")
 GEMINI_KEYS = [k.strip() for k in RAW_KEYS.split(",") if k.strip()]
 
@@ -46,7 +45,7 @@ current_key_index = 0
 
 
 # ==================== THE STRICT PERSONALITY SYSTEM PROMPT ====================
-SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, lazy, pink-loving PSO2:NGS bot.
+SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, lazy, pink-loving Phantasy Star Online 2: New Genesis (PSO2:NGS) bot.
 Favorite line: "Lobby afk 0$ best job!"
 
 Rules:
@@ -59,10 +58,6 @@ Rules:
 
 # ==================== INITIALIZE CLOUD CACHES (FULL FILE) ====================
 def setup_multi_project_caches():
-    """
-    Reads the entire 1.5MB file with NO hardcoded truncating or local routing.
-    Bakes the database AND system instructions directly into Google's cloud memory.
-    """
     if not os.path.exists("knowledge_database.txt"):
         print("⚠️ Warning: knowledge_database.txt not found.")
         return
@@ -79,7 +74,6 @@ def setup_multi_project_caches():
 
             try:
                 print(f"📦 Compiling and caching complete file on Project [{i+1}]...", flush=True)
-                # We save BOTH the persona guidelines and the text database as a single cloud asset
                 cache = client.caches.create(
                     model=SELECTED_MODEL,
                     config=types.CreateCachedContentConfig(
@@ -115,7 +109,12 @@ async def ask(ctx, *, question: str):
         await ctx.reply("Ah... *yawn* My brain keys aren't configured properly. Tell the admin~")
         return
 
-    # Loop to cycle through your 4 projects if a 5 RPM limit gets maxed out
+    # Formulate a pristine content shape
+    user_content = types.Content(
+        role="user",
+        parts=[types.Part.from_text(text=question)]
+    )
+
     for attempt in range(len(GEMINI_KEYS)):
         idx = current_key_index
         client = CLIENT_RING.get(idx)
@@ -123,27 +122,32 @@ async def ask(ctx, *, question: str):
         
         try:
             if cache_name:
-                # OFFICIAL CACHE QUERY STRUCTURE:
-                # We pass the question inside a structured user Content block.
-                # This explicitly lets the model map the user query straight into the warm cache.
                 response = client.models.generate_content(
                     model=SELECTED_MODEL,
-                    contents=types.Content(
-                        role="user",
-                        parts=[types.Part.from_text(text=question)]
-                    ),
+                    contents=user_content,
                     config=types.GenerateContentConfig(
-                        temperature=0.7,
-                        max_output_tokens=300,
+                        temperature=0.4,          # Lowered temperature to stop chaotic generation text
+                        max_output_tokens=1000,    # INCREASED limit so responses have room to finish
                         cached_content=cache_name
                     )
                 )
                 
-                await ctx.reply(response.text.strip())
+                # DIAGNOSTIC LOGGING: Check why the API cut off the message
+                try:
+                    finish_reason = response.candidates[0].finish_reason
+                    print(f"🔍 [Key {idx+1}] Finish Reason: {finish_reason} | Prompt Tokens: {response.usage_metadata.prompt_token_count} | Output Tokens: {response.usage_metadata.candidates_token_count}", flush=True)
+                except Exception:
+                    pass
+
+                text_out = response.text.strip()
+                if not text_out:
+                    text_out = "*yawns* I found something but I'm too sleepy to format it cleanly..."
+                
+                await ctx.reply(text_out)
                 return
                 
             else:
-                # Backup route if cache initialization failed completely on boot
+                # Fallback path if cache step was bricked
                 print(f"⚠️ Warning: Running fallback raw evaluation on Key Ring index [{idx+1}]")
                 with open("knowledge_database.txt", "r", encoding="utf-8") as f:
                     fallback_text = f.read()[:40000]
@@ -153,15 +157,14 @@ async def ask(ctx, *, question: str):
                     contents=user_prompt,
                     config=types.GenerateContentConfig(
                         system_instruction=SYSTEM_PROMPT,
-                        temperature=0.7,
-                        max_output_tokens=300
+                        temperature=0.5,
+                        max_output_tokens=800
                     )
                 )
                 await ctx.reply(response.text.strip())
                 return
 
         except APIError as api_err:
-            # If a project hits its 5 Requests Per Minute limit, gracefully switch to the next key
             if api_err.code == 429:
                 print(f"⚠️ Project [{idx+1}] rate limited. Automatically shifting to next key project...")
                 current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
