@@ -89,8 +89,6 @@ Rules for answering game questions:
 
 # ══════════════════════════════════════════════════════════════════════════════
 # LOCAL KEYWORD ROUTER
-# Handles the majority of questions for zero API cost.
-# Order matters: more specific patterns first.
 # ══════════════════════════════════════════════════════════════════════════════
 
 KEYWORD_ROUTES = [
@@ -101,7 +99,7 @@ KEYWORD_ROUTES = [
     (r"\b(current event|event (now|today|this week)|scratch|banner|campaign|seasonal)\b",
                                                                             "frontpage"),
 
-    # ── Weapon series / best weapon (before class/weapon name patterns) ───────
+    # ── Weapon series / best weapon ───────────────────────────────────────────
     (r"\b(best (weapon|gear|series)|top (weapon|gear)|which (weapon|series))",
                                                                             "weapon_series"),
     (r"\b(current meta weapon|what (weapon|gear) should i use|recommend.{0,20}(weapon|gear))\b",
@@ -119,83 +117,58 @@ KEYWORD_ROUTES = [
     (r"\bex.?style\b",                                                      "ex_styles"),
     (r"\b(class (overview|combo|list|all|system)|sub.?class|main class)\b", "class_overview"),
 
-    # ── Classes: general + weapon-axis splits ─────────────────────────────────
-    # Hunter
+    # ── Classes ───────────────────────────────────────────────────────────────
     (r"\bhunter\b.{0,40}\b(sword|wired|partisan|skill|arts|build)\b",      "hunter_general"),
     (r"\bhunter\b.{0,40}\bsword\b",                                         "hunter_sword_skills"),
     (r"\bhunter\b.{0,40}\bwired\b",                                         "hunter_wired_skills"),
     (r"\bhunter\b.{0,40}\bpartisan\b",                                      "hunter_partisan_skills"),
     (r"\bhunter\b",                                                          "hunter_general"),
-    # Fighter
     (r"\bfighter\b.{0,40}\b(twin dagger|dagger)\b",                        "fighter_dagger_skills"),
     (r"\bfighter\b.{0,40}\b(double saber|saber)\b",                        "fighter_saber_skills"),
     (r"\bfighter\b.{0,40}\bknuckle\b",                                      "fighter_knuckle_skills"),
     (r"\bfighter\b",                                                         "fighter_general"),
-    # Braver
     (r"\bbraver\b.{0,40}\bkatana\b",                                        "braver_katana_skills"),
     (r"\bbraver\b.{0,40}\b(rifle|assault)\b",                               "braver_rifle_skills"),
     (r"\bbraver\b",                                                          "braver_general"),
-    # Bouncer
     (r"\bbouncer\b.{0,40}\b(dual blade|dual blades|db)\b",                 "bouncer_dual_blade_skills"),
     (r"\bbouncer\b.{0,40}\b(jet boot)\b",                                   "bouncer_jet_boots_skills"),
     (r"\bbouncer\b",                                                         "bouncer_general"),
-    # Force
     (r"\bforce\b.{0,40}\brod\b",                                            "force_rod_skills"),
     (r"\bforce\b.{0,40}\btalis\b",                                          "force_talis_skills"),
     (r"\bforce\b",                                                           "force_general"),
-    # Techter
     (r"\btechter\b.{0,40}\bwand\b",                                         "techter_wand_skills"),
     (r"\btechter\b.{0,40}\btalis\b",                                        "techter_talis_skills"),
     (r"\btechter\b.{0,40}\bsubclass\b",                                     "techter_subclass"),
     (r"\btechter\b",                                                         "techter_general"),
-    # Simple classes
     (r"\branger\b",   "ranger"),   (r"\bgunner\b",  "gunner"),
     (r"\bwaker\b",    "waker"),    (r"\bslayer\b",  "slayer"),
 
-    # ── PA questions: weapon + PA keyword ─────────────────────────────────────
-    (r"\bsword\b.{0,50}\b(pa|photon art|move|action|combo|attack)\b",
-                                                                "sword_pa_basics"),
-    (r"\bwired.?lance\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "wired_lance_pa_basics"),
-    (r"\bpartisan\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "partisan_pa_basics"),
-    (r"\btwin.?dagger\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "twin_daggers_pa_basics"),
-    (r"\bdouble.?saber\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "double_saber_pa_basics"),
-    (r"\bknuckle\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "knuckles_pa_basics"),
-    (r"\bkatana\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "katana_pa_basics"),
-    (r"\bdual.?blade\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "dual_blades_pa_basics"),
+    # ── PA questions ──────────────────────────────────────────────────────────
+    (r"\bsword\b.{0,50}\b(pa|photon art|move|action|combo|attack)\b",      "sword_pa_basics"),
+    (r"\bwired.?lance\b.{0,50}\b(pa|photon art|move|action|combo)\b",      "wired_lance_pa_basics"),
+    (r"\bpartisan\b.{0,50}\b(pa|photon art|move|action|combo)\b",          "partisan_pa_basics"),
+    (r"\btwin.?dagger\b.{0,50}\b(pa|photon art|move|action|combo)\b",      "twin_daggers_pa_basics"),
+    (r"\bdouble.?saber\b.{0,50}\b(pa|photon art|move|action|combo)\b",     "double_saber_pa_basics"),
+    (r"\bknuckle\b.{0,50}\b(pa|photon art|move|action|combo)\b",           "knuckles_pa_basics"),
+    (r"\bkatana\b.{0,50}\b(pa|photon art|move|action|combo)\b",            "katana_pa_basics"),
+    (r"\bdual.?blade\b.{0,50}\b(pa|photon art|move|action|combo)\b",       "dual_blades_pa_basics"),
     (r"\b(assault.?rifle|rifle)\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "assault_rifle_pa_basics"),
-    (r"\blauncher\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "launcher_pa_basics"),
+                                                                            "assault_rifle_pa_basics"),
+    (r"\blauncher\b.{0,50}\b(pa|photon art|move|action|combo)\b",          "launcher_pa_basics"),
     (r"\b(twin.?machine.?gun|tmg)\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "twin_machineguns_pa_basics"),
-    (r"\bbullet.?bow\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "bullet_bow_pa_basics"),
-    (r"\bgunslash\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "gunslash_pa_basics"),
-    (r"\brod\b.{0,50}\b(pa|photon art|move|action|combo|cast)\b",
-                                                                "rod_pa_basics"),
-    (r"\btalis\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "talis_pa_basics"),
-    (r"\bwand\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "wand_pa_basics"),
-    (r"\bjet.?boot\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "jet_boots_pa_basics"),
-    (r"\b(harmonizer|takt)\b.{0,50}\b(pa|photon art|move|action|combo)\b",
-                                                                "harmonizer_pa_basics"),
+                                                                            "twin_machineguns_pa_basics"),
+    (r"\bbullet.?bow\b.{0,50}\b(pa|photon art|move|action|combo)\b",       "bullet_bow_pa_basics"),
+    (r"\bgunslash\b.{0,50}\b(pa|photon art|move|action|combo)\b",          "gunslash_pa_basics"),
+    (r"\brod\b.{0,50}\b(pa|photon art|move|action|combo|cast)\b",          "rod_pa_basics"),
+    (r"\btalis\b.{0,50}\b(pa|photon art|move|action|combo)\b",             "talis_pa_basics"),
+    (r"\bwand\b.{0,50}\b(pa|photon art|move|action|combo)\b",              "wand_pa_basics"),
+    (r"\bjet.?boot\b.{0,50}\b(pa|photon art|move|action|combo)\b",         "jet_boots_pa_basics"),
+    (r"\b(harmonizer|takt)\b.{0,50}\b(pa|photon art|move|action|combo)\b", "harmonizer_pa_basics"),
+    (r"\b(spiral edge|twist zapper|streak caliber|relentless cleave)\b",    None),
+    (r"\b(bullet rave|aimless rain|close bullet|infinite ricochet)\b",      None),
+    (r"\b(cutting layer|vein mixture|turbulence train|hellish fall)\b",     None),
 
-    # Specific named PA queries → AI router will pick the correct _pa_<name> file
-    (r"\b(spiral edge|twist zapper|streak caliber|relentless cleave)\b",     None),  # → AI
-    (r"\b(bullet rave|aimless rain|close bullet|infinite ricochet)\b",       None),  # → AI
-    (r"\b(cutting layer|vein mixture|turbulence train|hellish fall)\b",      None),  # → AI
-
-    # ── Weapon overview (no PA keyword) ──────────────────────────────────────
+    # ── Weapon overview ───────────────────────────────────────────────────────
     (r"\bsword\b",                      "sword_overview"),
     (r"\bwired.?lance\b",               "wired_lance_overview"),
     (r"\bpartisan\b",                   "partisan_overview"),
@@ -264,47 +237,33 @@ KEYWORD_ROUTES = [
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# CONVERSATIONAL BYPASS  (zero API cost for obvious chit-chat)
+# CONVERSATIONAL BYPASS
 # ══════════════════════════════════════════════════════════════════════════════
 
 _CASUAL_PATTERNS = [
-    # Greetings — including typo/extended variants like "hellloo", "heyyy"
     r"^h+e+y+\b",
     r"^h+e+l+o+\b",
     r"^(hi+|yo+|sup|heya|hiya|howdy|ello)\b",
-    # Wellbeing / check-ins
     r"^(how are you|how r u|you okay|u ok|you good|you alive|you there|still there)\b",
     r"\b(are you (there|still there|alive|okay|awake)|you still (there|awake|alive))\b",
-    # Time-of-day
     r"^(good (morning|afternoon|evening|night)|gm\b|gn\b|goodnight)\b",
-    # Reactions
     r"^(lol+|lmao+|haha+|xd|omg+|omfg|bruh|oof|rip|aww+)\b",
-    # Thanks / acknowledgements
     r"^(thanks|thank you|ty\b|thx|tysm|np\b|no problem|you're welcome|yw\b)\b",
-    # Compliments / affection — anywhere in the message
     r"\byou.{0,25}(cute|pretty|adorable|sweet|lovely|gorgeous|amazing|cool|best)\b",
     r"\b(i (love|like|adore|miss)|love|like).{0,15}(you|u\b|hafu|hafelt)\b",
     r"\b(you'?re|ur|your).{0,10}(cute|pretty|adorable|sweet|lovely|gorgeous|my fav)\b",
     r"\b(hafu|hafelt).{0,30}(cute|pretty|cool|best|fav|love|like|adorable)\b",
-    # Goodbye
     r"^(bye+|cya|see ya|later|gtg|afk)\b",
-    # Self-intro / who are you
     r"^(who are you|what are you|tell me about yourself|introduce yourself)\b",
 ]
 
-# Regex to detect if a string contains Korean (Hangul) characters
 _KOREAN_RE = re.compile(r"[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]")
 
 
 def is_casual(text: str) -> bool:
     t = text.strip().lower()
-
-    # Non-Latin / Korean text → always casual (no game keywords in Korean)
     if _KOREAN_RE.search(text):
         return True
-
-    # If message is very short (≤ 4 words) and has no game-related word, treat as casual.
-    # This catches things like "Hellloo??", "You there?", lone punctuation greetings.
     words = t.split()
     if len(words) <= 4:
         has_game_word = bool(re.search(
@@ -314,29 +273,23 @@ def is_casual(text: str) -> bool:
         ))
         if not has_game_word:
             return True
-
     return any(re.search(p, t) for p in _CASUAL_PATTERNS)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# SECTION EXTRACTION  (selects only relevant parts of a knowledge base file)
-# No extra API call — pure keyword overlap scoring.
+# SECTION EXTRACTION
 # ══════════════════════════════════════════════════════════════════════════════
 
 def extract_relevant_sections(file_text: str, question: str,
                                max_chars: int = 2_500) -> str:
     """
-    Split the file into sections, score each by keyword overlap with the
-    question, and return only the top-scoring sections up to max_chars.
-    Falls back to the raw file (capped) if splitting produces nothing useful.
+    Split the file into sections, always keep the first (top-of-file content
+    is most current/primary), then fill remaining budget with sections scored
+    by keyword overlap against the question.
     """
     q_words = set(re.findall(r"\b\w{3,}\b", question.lower()))
 
-    # Try splitting on lines that look like section headers:
-    # a short line (≤ 80 chars) that starts with a capital or [
-    header_pattern = re.compile(
-        r"(?m)^(?=[A-Z\[])[^\n]{1,80}$"
-    )
+    header_pattern = re.compile(r"(?m)^(?=[A-Z\[])[^\n]{1,80}$")
     split_points = [m.start() for m in header_pattern.finditer(file_text)]
 
     if len(split_points) > 1:
@@ -345,29 +298,29 @@ def extract_relevant_sections(file_text: str, question: str,
             end = split_points[i + 1] if i + 1 < len(split_points) else len(file_text)
             sections.append(file_text[start:end].strip())
     else:
-        # No clear headers — split on blank lines (paragraphs)
         sections = [s.strip() for s in file_text.split("\n\n") if s.strip()]
 
     if not sections:
         return file_text[:max_chars]
 
-    # Score each section by keyword overlap with the question
+    # Always anchor the first section (top of file = most current/primary info)
+    first = sections[0]
+    rest  = sections[1:]
+
     def score(section: str) -> int:
         s_words = set(re.findall(r"\b\w{3,}\b", section.lower()))
         return len(q_words & s_words)
 
-    ranked = sorted(sections, key=score, reverse=True)
+    ranked_rest = sorted(rest, key=score, reverse=True)
 
-    # Pack top sections into the char budget
-    result, total = [], 0
-    for section in ranked:
+    result = [first]
+    total  = len(first)
+
+    for section in ranked_rest:
         if total + len(section) > max_chars:
             break
         result.append(section)
         total += len(section)
-
-    if not result:
-        return file_text[:max_chars]
 
     extracted = "\n\n".join(result)
     print(f"   📐 Section extract: {len(file_text)} → {len(extracted)} chars "
@@ -381,7 +334,7 @@ def route_local(question: str) -> str | None:
     for pattern, stem in KEYWORD_ROUTES:
         if re.search(pattern, q, re.IGNORECASE):
             if stem is None:
-                return None   # explicit → AI router
+                return None
             if stem in LOCAL_FILE_MAP:
                 return stem
     return None
@@ -393,7 +346,6 @@ def route_local(question: str) -> str | None:
 
 async def groq_chat(messages: list, model: str,
                     max_tokens: int) -> tuple[str | None, bool]:
-    """Returns (text, should_rotate). should_rotate=True on 429."""
     headers = {
         "Authorization": f"Bearer {GROQ_TOKEN}",
         "Content-Type": "application/json",
@@ -425,14 +377,10 @@ async def groq_chat(messages: list, model: str,
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# TRIAGE ROUTER  (called only when keyword match fails)
-# One small call to llama-3.1-8b-instant:
-#   a) decides if DB is needed at all
-#   b) if yes, picks the best file key from the full list
+# TRIAGE ROUTER
 # ══════════════════════════════════════════════════════════════════════════════
 
 async def triage(question: str) -> tuple[bool, str | None]:
-    """Returns (needs_db, file_key_or_None)."""
     if not LOCAL_FILE_MAP:
         return True, None
 
@@ -462,7 +410,7 @@ async def triage(question: str) -> tuple[bool, str | None]:
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# ANSWER HELPER  ─  rotates through model pool on 429
+# ANSWER HELPER
 # ══════════════════════════════════════════════════════════════════════════════
 
 async def get_answer(messages: list) -> str:
@@ -550,7 +498,7 @@ async def on_message(message: discord.Message):
         if routed_stem:
             print(f"⚡ Local route: '{question[:60]}' ──► [{routed_stem}]", flush=True)
         else:
-            # ── Step 2: Triage call (router model, ~40 tokens out) ─────────────
+            # ── Step 2: Triage call ────────────────────────────────────────────
             print(f"🔍 Triage: '{question[:60]}'", flush=True)
             needs_db, routed_stem = await triage(question)
 
