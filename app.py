@@ -6,7 +6,6 @@ from google.genai import types
 from google.genai.errors import APIError
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
-import datetime
 
 # ==================== KEEP-ALIVE SERVER CONFIGURATION ====================
 class KeepAliveHandler(BaseHTTPRequestHandler):
@@ -32,6 +31,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
 
+# Fetch your 4 different project keys from Render environment variables
 RAW_KEYS = os.environ.get("GEMINI_KEY_RING", "")
 GEMINI_KEYS = [k.strip() for k in RAW_KEYS.split(",") if k.strip()]
 
@@ -58,8 +58,12 @@ Rules:
 
 # ==================== INITIALIZE CLOUD CACHES (FULL FILE) ====================
 def setup_multi_project_caches():
+    """
+    Reads the entire 1.5MB file and deploys it safely to Google's cloud memory cache.
+    Uses the correct string configuration for the TTL argument to pass validation.
+    """
     if not os.path.exists("knowledge_database.txt"):
-        print("⚠️ Warning: knowledge_database.txt not found.")
+        print("⚠️ Warning: knowledge_database.txt not found.", flush=True)
         return
 
     try:
@@ -74,30 +78,31 @@ def setup_multi_project_caches():
 
             try:
                 print(f"📦 Compiling and caching complete file on Project [{i+1}]...", flush=True)
+                # FIX: ttl MUST be passed as a string duration (e.g. "86400s" for 24 hours)
                 cache = client.caches.create(
                     model=SELECTED_MODEL,
                     config=types.CreateCachedContentConfig(
                         contents=[full_db_content],
                         system_instruction=SYSTEM_PROMPT,
-                        ttl=datetime.timedelta(hours=24),
+                        ttl="86400s",
                         display_name=f"hafu_complete_data_{i}"
                     )
                 )
                 CACHE_RING[i] = cache.name
                 print(f"✅ Cache fully deployed on Project [{i+1}] -> Reference ID: {cache.name}", flush=True)
             except Exception as ce:
-                print(f"❌ Failed to build cloud cache on Project [{i+1}]: {ce}")
+                print(f"❌ Failed to build cloud cache on Project [{i+1}]: {ce}", flush=True)
                 CACHE_RING[i] = None
 
     except Exception as e:
-        print(f"❌ Critical error during macro database read: {e}")
+        print(f"❌ Critical error during macro database read: {e}", flush=True)
 
 
 # ==================== DISCORD CORE COMMANDS ====================
 @bot.event
 async def on_ready():
     setup_multi_project_caches()
-    print(f"🔥 Hafu is online! Complete 1.5MB file cache active across all project keys.", flush=True)
+    print(f"🔥 Hafu is online!", flush=True)
 
 
 @bot.command(name="ask")
@@ -109,7 +114,7 @@ async def ask(ctx, *, question: str):
         await ctx.reply("Ah... *yawn* My brain keys aren't configured properly. Tell the admin~")
         return
 
-    # Formulate a pristine content shape
+    # Pack the incoming question into a formal user content container
     user_content = types.Content(
         role="user",
         parts=[types.Part.from_text(text=question)]
@@ -126,13 +131,12 @@ async def ask(ctx, *, question: str):
                     model=SELECTED_MODEL,
                     contents=user_content,
                     config=types.GenerateContentConfig(
-                        temperature=0.4,          # Lowered temperature to stop chaotic generation text
-                        max_output_tokens=1000,    # INCREASED limit so responses have room to finish
+                        temperature=0.4,
+                        max_output_tokens=1000,
                         cached_content=cache_name
                     )
                 )
                 
-                # DIAGNOSTIC LOGGING: Check why the API cut off the message
                 try:
                     finish_reason = response.candidates[0].finish_reason
                     print(f"🔍 [Key {idx+1}] Finish Reason: {finish_reason} | Prompt Tokens: {response.usage_metadata.prompt_token_count} | Output Tokens: {response.usage_metadata.candidates_token_count}", flush=True)
@@ -147,8 +151,7 @@ async def ask(ctx, *, question: str):
                 return
                 
             else:
-                # Fallback path if cache step was bricked
-                print(f"⚠️ Warning: Running fallback raw evaluation on Key Ring index [{idx+1}]")
+                print(f"⚠️ Warning: Running fallback raw evaluation on Key Ring index [{idx+1}]", flush=True)
                 with open("knowledge_database.txt", "r", encoding="utf-8") as f:
                     fallback_text = f.read()[:40000]
                 user_prompt = f"Database:\n{fallback_text}\n\nQuestion: {question}"
@@ -166,15 +169,15 @@ async def ask(ctx, *, question: str):
 
         except APIError as api_err:
             if api_err.code == 429:
-                print(f"⚠️ Project [{idx+1}] rate limited. Automatically shifting to next key project...")
+                print(f"⚠️ Project [{idx+1}] rate limited. Automatically shifting to next key project...", flush=True)
                 current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
                 continue 
             else:
-                print(f"❌ API Error on Project [{idx+1}]: {api_err}")
+                print(f"❌ API Error on Project [{idx+1}]: {api_err}", flush=True)
                 await ctx.reply("*yawn* My head hurts... Something went wrong inside the database query.")
                 return
         except Exception as e:
-            print(f"❌ Unexpected Error on Project [{idx+1}]: {e}")
+            print(f"❌ Unexpected Error on Project [{idx+1}]: {e}", flush=True)
             await ctx.reply("Sorry~ Hafu got distracted by a butterfly. Try asking again!")
             return
 
