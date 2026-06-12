@@ -34,17 +34,18 @@ jobs:
       run: |
         git config --global user.name "Hafu Datastream Core"
         git config --global user.email "actions@github.com"
-
+    
         # 1. Cleanly delete and untrack the old master text asset if it exists
         git rm -f knowledge_database.txt || true
-
+    
         # 2. Stage the entire new ultra-granular database folder structure
         git add knowledge_base/
-
+    
         # Evaluates modification differentials across deletions and additions
         if git diff-index --quiet HEAD --; then
           echo "No new data changes detected. Skipping tree commit."
         else
           git commit -m "🤖 Synchronized granular live text asset matrix - $(date -u +'%Y-%m-%d %H:%M:%S') UTC"
+          git pull origin ${{ github.ref }} --rebase
           git push origin HEAD:${{ github.ref }}
         fi
