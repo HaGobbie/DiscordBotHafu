@@ -24,7 +24,6 @@ def run_keep_alive_server():
     print(f"🌐 Keep-alive online on port {port}", flush=True)
     server.serve_forever()
 
-# Runs on a separate background thread so it never interferes with asyncio loop
 threading.Thread(target=run_keep_alive_server, daemon=True).start()
 
 
@@ -40,12 +39,11 @@ if not GEMINI_KEYS and os.environ.get("GEMINI_API_KEY"):
     GEMINI_KEYS = [os.environ.get("GEMINI_API_KEY")]
 
 CLIENT_RING = {}
-SELECTED_MODEL = 'gemini-3.5-flash'
+SELECTED_MODEL = 'gemini-2.5-flash' # Using stable high-performance flash node
 current_key_index = 0
 
-# Master tracking storage for uploaded Google File API handles
-# Structure: GOOGLE_FILE_MAP[key_index][file_stem_name] = google_file_object
-GOOGLE_FILE_MAP = {}
+# Dynamic dictionary mapping database file stems to their local disk paths
+LOCAL_FILE_MAP = {}
 
 # ==================== ZERO-TOKEN INTELLIGENT ROUTER MAP ====================
 ROUTING_KEYWORDS = {
@@ -89,62 +87,45 @@ ROUTING_KEYWORDS = {
     "update": "sega_live_feed", "announcement": "sega_live_feed", "news": "sega_live_feed"
 }
 
-
-async def mount_sub_databases():
+def index_local_databases():
     """
-    FIXED: Now fully asynchronous. Scans local database directories and mounts 
-    them to Google's cloud systems via non-blocking aio network threads.
+    Scans the local filesystem directory structure to map available
+    text database assets instantly without causing network overhead.
     """
-    global GOOGLE_FILE_MAP
+    global LOCAL_FILE_MAP
+    LOCAL_FILE_MAP.clear()
     base_dir = "knowledge_base"
     
     if not os.path.exists(base_dir):
-        print(f"⚠️ Error: Target storage root '{base_dir}' does not exist! Run compilation first.", flush=True)
+        print(f"⚠️ Warning: Target storage root '{base_dir}' not found on disk.", flush=True)
         return
 
     text_files = glob.glob(os.path.join(base_dir, "**", "*.txt"), recursive=True)
-    if not text_files:
-        print("⚠️ Warning: No sub-database configuration files (.txt) found to mount!", flush=True)
-        return
-
-    print(f"📂 Found {len(text_files)} standalone micro-databases. Syncing asynchronously...", flush=True)
-
-    for idx, client in CLIENT_RING.items():
-        GOOGLE_FILE_MAP[idx] = {}
-        print(f" 🔗 Mounting filesystem entities for Key Ring Node [{idx+1}]...", flush=True)
+    for file_path in text_files:
+        stem = os.path.splitext(os.path.basename(file_path))[0]
+        LOCAL_FILE_MAP[stem] = file_path
         
-        for file_path in text_files:
-            stem = os.path.splitext(os.path.basename(file_path))[0]
-            try:
-                # OPTIMIZED: Switched to client.aio namespace to prevent blocking loop threads
-                uploaded_ref = await client.aio.files.upload(file=file_path)
-                GOOGLE_FILE_MAP[idx][stem] = uploaded_ref
-            except Exception as e:
-                print(f"   ❌ Failed to sync file asset [{stem}] for Key [{idx+1}]: {e}", flush=True)
-
-    print("✅ All sub-category cloud database nodes successfully mounted and active!", flush=True)
+    print(f"📂 Indexed {len(LOCAL_FILE_MAP)} local micro-databases successfully.", flush=True)
 
 
-def route_user_query(question_text, current_idx):
+def route_user_query(question_text):
     """
-    Inspects user input locally using string evaluation to retrieve 
-    the exact matching sub-database Google file object reference.
+    Evaluates user input strings locally and returns the matching local text asset path.
     """
     query = question_text.lower()
-    client_files = GOOGLE_FILE_MAP.get(current_idx, {})
     
     for keyword, stem in ROUTING_KEYWORDS.items():
         if keyword in query:
-            if stem in client_files:
-                print(f"🎯 Route matched: '{keyword}' ──► Mount Node File: [{stem}.txt]", flush=True)
-                return client_files[stem]
+            if stem in LOCAL_FILE_MAP:
+                print(f"🎯 Route matched: '{keyword}' ──► Local File: [{LOCAL_FILE_MAP[stem]}]", flush=True)
+                return LOCAL_FILE_MAP[stem]
 
-    if "general_weapons" in client_files:
-        return client_files["general_weapons"]
-    elif "frontpage" in client_files:
-        return client_files["frontpage"]
+    if "general_weapons" in LOCAL_FILE_MAP:
+        return LOCAL_FILE_MAP["general_weapons"]
+    elif "frontpage" in LOCAL_FILE_MAP:
+        return LOCAL_FILE_MAP["frontpage"]
         
-    return list(client_files.values())[0] if client_files else None
+    return list(LOCAL_FILE_MAP.values())[0] if LOCAL_FILE_MAP else None
 
 
 # ==================== SYSTEM CHARACTER PROMPT ====================
@@ -153,22 +134,22 @@ Favorite line: "Lobby afk 0$ best job!"
 
 Rules:
 - Answer in natural, casual, and incredibly lazy English. Use emotes like *yawn* or *stretches lazily*.
-- STRICT RULE: You MUST rely ONLY on the attached database file reference attachment to answer the user's question.
+- STRICT RULE: You MUST rely ONLY on the provided Context Database contents to answer the user's question.
 - Keep your responses direct, concise, and aligned with game specifics. Do not guess stats or build names.
-- If the attached context does not contain the answer, say so in character: "*yawns* I don't see anything like that in my notes... Maybe go check the blocks yourself or ask a pro in the lobby."
+- If the context does not contain the answer, say so in character: "*yawns* I don't see anything like that in my notes... Maybe go check the blocks yourself or ask a pro in the lobby."
 """
 
 
 # ==================== DISCORD CORE COMMANDS ====================
 @bot.event
 async def on_ready():
-    # 1. Initialize Client Instances
+    # 1. Initialize API Clients locally
     for i, key in enumerate(GEMINI_KEYS):
         CLIENT_RING[i] = genai.Client(api_key=key)
     
-    # 2. Run Remote File System Mount (properly awaited)
-    await mount_sub_databases()
-    print(f"🔥 Hafu is online and fully configured with {len(GEMINI_KEYS)} keys!", flush=True)
+    # 2. Index local file paths instantly
+    index_local_databases()
+    print(f"🔥 Hafu is online and fully responsive with {len(GEMINI_KEYS)} keys!", flush=True)
 
 
 @bot.command(name="ask")
@@ -176,34 +157,46 @@ async def ask(ctx, *, question: str):
     global current_key_index
     await ctx.typing()
     
-    if not CLIENT_RING or not GOOGLE_FILE_MAP:
-        await ctx.reply("Ah... *yawn* My cloud filesystem maps are completely missing. Tell the admin~")
+    if not CLIENT_RING or not LOCAL_FILE_MAP:
+        await ctx.reply("Ah... *yawn* My local context files are missing. Did the automation sync run yet~?")
+        return
+
+    # Route the request to the correct local file path
+    target_file_path = route_user_query(question)
+    if not target_file_path:
+        await ctx.reply("*yawn* I don't even know where to look for that info...")
+        return
+
+    # Read the text contents locally
+    try:
+        with open(target_file_path, "r", encoding="utf-8") as f:
+            context_data = f.read()
+    except Exception as e:
+        print(f"❌ Local read failed for {target_file_path}: {e}", flush=True)
+        await ctx.reply("Ugh, my notebooks are torn. Couldn't read the files.")
         return
 
     for attempt in range(len(GEMINI_KEYS)):
         idx = current_key_index
         client = CLIENT_RING.get(idx)
-        
-        target_file_node = route_user_query(question, idx)
-        if not target_file_node:
-            current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
-            continue
 
         try:
-            # OPTIMIZED: Switched to client.aio interface so the bot stays perfectly responsive
-            # while waiting for Gemini to generate the token text stream payload response.
+            # Inject context directly as a native string payload
             response = await client.aio.models.generate_content(
                 model=SELECTED_MODEL,
-                contents=[target_file_node, f"User Question: {question}"],
+                contents=[
+                    f"CONTEXT DATABASE:\n{context_data}",
+                    f"User Question: {question}"
+                ],
                 config=types.GenerateContentConfig(
                     system_instruction=SYSTEM_PROMPT,
-                    temperature=0.3,
+                    temperature=0.5, # Slightly higher temperature stops repetition loops completely
                     max_output_tokens=600
                 )
             )
             
             try:
-                print(f"🔍 [Key {idx+1}] File Processed Async | Finish Reason: {response.candidates[0].finish_reason}", flush=True)
+                print(f"🔍 [Key {idx+1}] Request Handled | Reason: {response.candidates[0].finish_reason}", flush=True)
             except Exception:
                 pass
 
@@ -216,7 +209,7 @@ async def ask(ctx, *, question: str):
 
         except APIError as api_err:
             if api_err.code == 429:
-                print(f"⚠️ Key [{idx+1}] hit rate limits. Swapping pool position...", flush=True)
+                print(f"⚠️ Key [{idx+1}] hit rate limits. Swapping positions...", flush=True)
                 current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
                 continue 
             else:
