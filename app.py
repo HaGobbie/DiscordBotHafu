@@ -14,16 +14,14 @@ TOKEN      = os.environ.get("DISCORD_TOKEN", "")
 GROQ_TOKEN = os.environ.get("GROQ_TOKEN", "")
 GROQ_URL   = "https://api.groq.com/openai/v1/chat/completions"
 
-# Router: 14,400 RPD / 500,000 TPD — used for triage + file selection
 ROUTER_MODEL = "llama-3.1-8b-instant"
 
-# Answer models: tried in order on 429, each has its own independent RPD/TPD pool
 ANSWER_MODELS = [
-    "llama-3.3-70b-versatile",                    # 1,000 RPD / 100,000 TPD
-    "meta-llama/llama-4-scout-17b-16e-instruct",  # 1,000 RPD / 500,000 TPD
-    "qwen/qwen3-32b",                              # 1,000 RPD / 500,000 TPD
-    "openai/gpt-oss-120b",                         # 1,000 RPD / 200,000 TPD
-    "openai/gpt-oss-20b",                          # 1,000 RPD / 200,000 TPD
+    "llama-3.3-70b-versatile",
+    "meta-llama/llama-4-scout-17b-16e-instruct",
+    "qwen/qwen3-32b",
+    "openai/gpt-oss-120b",
+    "openai/gpt-oss-20b",
 ]
 
 intents = discord.Intents.default()
@@ -60,7 +58,6 @@ TRIAGE_SYSTEM = (
     "No explanation, no markdown."
 )
 
-# Used for casual / no-DB conversations — full personality, no info constraints
 CASUAL_SYSTEM = """You are Hafu (HaFelt), a PSO2: New Genesis ARKS defender who is way more famous for lobby fashion than actual heroics. You hate combat and grinding. You love fashion, cosmetics, scratch tickets, and hanging out in Central City.
 
 Right now someone is just chatting with you — no game questions, pure vibes. Be your full dramatic, playful self.
@@ -73,7 +70,6 @@ Rules for casual chat:
 - Do NOT drop "Lobby afk 0$ best job!" here — save that for combat/grinding talk.
 - No filler like "Great question!" or "Of course!"."""
 
-# Used when answering with game knowledge — personality in delivery, facts first
 ANSWER_SYSTEM = """You are Hafu (HaFelt), an ARKS defender on Halpha in PSO2: New Genesis. You're the only person who can still use the old Summoner class, fighting with photon pets you adore. You're a Central City lobby regular — more famous for fashion than heroics.
 
 Personality: Dramatic, witty, playful, expressive, kind, mischievous. You hate combat and grinding. You love fashion, cosmetics, scratch tickets, and lobby life.
@@ -92,32 +88,22 @@ Rules for answering game questions:
 # ══════════════════════════════════════════════════════════════════════════════
 
 KEYWORD_ROUTES = [
-
-    # ── Announcements ─────────────────────────────────────────────────────────
     (r"\b(sega|maintenance|patch note|live (update|feed))\b",              "sega_live_feed"),
     (r"\bmission.?pass\b",                                                  "mission_pass"),
     (r"\b(current event|event (now|today|this week)|scratch|banner|campaign|seasonal)\b",
                                                                             "frontpage"),
-
-    # ── Weapon series / best weapon ───────────────────────────────────────────
     (r"\b(best (weapon|gear|series)|top (weapon|gear)|which (weapon|series))",
                                                                             "weapon_series"),
     (r"\b(current meta weapon|what (weapon|gear) should i use|recommend.{0,20}(weapon|gear))\b",
                                                                             "weapon_series"),
     (r"\b(weapon series|series list|all series|lexio|kougensei|arabaradio|spradio)\b",
                                                                             "weapon_series"),
-
-    # ── Potentials ────────────────────────────────────────────────────────────
     (r"\b(potential|tsuiki|yugo no kata|kiju no kata|hiju no kata|kenki no kata)\b",
                                                                             "potentials"),
     (r"\b(weapon potential|potential effect|potential lv|unlock potential)\b",
                                                                             "potentials"),
-
-    # ── EX Styles & Class Overview ────────────────────────────────────────────
     (r"\bex.?style\b",                                                      "ex_styles"),
     (r"\b(class (overview|combo|list|all|system)|sub.?class|main class)\b", "class_overview"),
-
-    # ── Classes ───────────────────────────────────────────────────────────────
     (r"\bhunter\b.{0,40}\b(sword|wired|partisan|skill|arts|build)\b",      "hunter_general"),
     (r"\bhunter\b.{0,40}\bsword\b",                                         "hunter_sword_skills"),
     (r"\bhunter\b.{0,40}\bwired\b",                                         "hunter_wired_skills"),
@@ -142,8 +128,6 @@ KEYWORD_ROUTES = [
     (r"\btechter\b",                                                         "techter_general"),
     (r"\branger\b",   "ranger"),   (r"\bgunner\b",  "gunner"),
     (r"\bwaker\b",    "waker"),    (r"\bslayer\b",  "slayer"),
-
-    # ── PA questions ──────────────────────────────────────────────────────────
     (r"\bsword\b.{0,50}\b(pa|photon art|move|action|combo|attack)\b",      "sword_pa_basics"),
     (r"\bwired.?lance\b.{0,50}\b(pa|photon art|move|action|combo)\b",      "wired_lance_pa_basics"),
     (r"\bpartisan\b.{0,50}\b(pa|photon art|move|action|combo)\b",          "partisan_pa_basics"),
@@ -167,8 +151,6 @@ KEYWORD_ROUTES = [
     (r"\b(spiral edge|twist zapper|streak caliber|relentless cleave)\b",    None),
     (r"\b(bullet rave|aimless rain|close bullet|infinite ricochet)\b",      None),
     (r"\b(cutting layer|vein mixture|turbulence train|hellish fall)\b",     None),
-
-    # ── Weapon overview ───────────────────────────────────────────────────────
     (r"\bsword\b",                      "sword_overview"),
     (r"\bwired.?lance\b",               "wired_lance_overview"),
     (r"\bpartisan\b",                   "partisan_overview"),
@@ -187,8 +169,6 @@ KEYWORD_ROUTES = [
     (r"\bwand\b",                       "wand_overview"),
     (r"\bjet.?boot\b",                  "jet_boots_overview"),
     (r"\b(harmonizer|takt)\b",          "harmonizer_overview"),
-
-    # ── Mechanics ────────────────────────────────────────────────────────────
     (r"\b(augment|affix|capsule|special abilit).{0,30}(boss|enemy|dread|gigas|sole|domina)\b",
                                                             "augments_boss"),
     (r"\b(augment|affix|capsule|special abilit).{0,30}(enhance|xp|connector|adi|nadi|ladi)\b",
@@ -209,8 +189,6 @@ KEYWORD_ROUTES = [
     (r"\bmulti.?weapon\b",                                  "multi_weapon"),
     (r"\b(combat power|battle power|\bbp\b)\b",             "combat_power"),
     (r"\b(status effect|ailment|resistance|debuff)\b",      "status_effects"),
-
-    # ── World Content ─────────────────────────────────────────────────────────
     (r"\b(urgent quest|emergency quest|eq schedule)\b",     "urgent_quests"),
     (r"\bbattledia\b",                                      "battledia"),
     (r"\bduel.?quest\b",                                    "duel_quests"),
@@ -221,15 +199,11 @@ KEYWORD_ROUTES = [
     (r"\btitle.{0,20}(player|item)\b",                     "titles_player_items"),
     (r"\b(title|achievement)\b",                            "titles_player_items"),
     (r"\b(task|side quest|daily|weekly)\b",                 "tasks"),
-
-    # ── Enemies ───────────────────────────────────────────────────────────────
     (r"\b(doll|alter)\b",                                   "enemy_dolls_alters"),
     (r"\b(former|starless|ruinus)\b",                       "enemy_formers_starless"),
     (r"\b(enemy type|rare enemy|enhanced enemy|gigantics|dread enemy|megalotix)\b",
                                                             "enemy_types"),
     (r"\b(enemy|enemies|boss|monster|weakness)\b",          "enemy_types"),
-
-    # ── Lore ──────────────────────────────────────────────────────────────────
     (r"\bnpc\b",                                            "npc_profiles"),
     (r"\b(main.?stor|chapter|story quest|lore|worldview|halpha)\b",
                                                             "worldview_story"),
@@ -283,13 +257,16 @@ def is_casual(text: str) -> bool:
 def extract_relevant_sections(file_text: str, question: str,
                                max_chars: int = 2_500) -> str:
     """
-    Split the file into sections, always keep the first (top-of-file content
-    is most current/primary), then fill remaining budget with sections scored
-    by keyword overlap against the question.
+    Split the file into sections and score each by keyword overlap with the
+    question. If no section scores well (generic question vs nav-heavy file),
+    fall back to a raw top-of-file cap instead of locking in a nav header.
     """
     q_words = set(re.findall(r"\b\w{3,}\b", question.lower()))
 
-    header_pattern = re.compile(r"(?m)^(?=[A-Z\[])[^\n]{1,80}$")
+    # Match markdown headers (# / ## / ###) OR lines starting with a capital/[
+    header_pattern = re.compile(
+        r"(?m)^(?:#{1,3}\s+\S|(?=[A-Z\[]))[^\n]{1,80}$"
+    )
     split_points = [m.start() for m in header_pattern.finditer(file_text)]
 
     if len(split_points) > 1:
@@ -303,33 +280,39 @@ def extract_relevant_sections(file_text: str, question: str,
     if not sections:
         return file_text[:max_chars]
 
-    # Always anchor the first section (top of file = most current/primary info)
-    first = sections[0]
-    rest  = sections[1:]
-
     def score(section: str) -> int:
         s_words = set(re.findall(r"\b\w{3,}\b", section.lower()))
         return len(q_words & s_words)
 
-    ranked_rest = sorted(rest, key=score, reverse=True)
+    scored    = [(score(s), s) for s in sections]
+    top_score = max(sc for sc, _ in scored)
 
-    result = [first]
-    total  = len(first)
+    # If nothing scores well, the question is too generic for keyword extraction
+    # to be useful — fall back to raw top-of-file so we don't pick a nav header.
+    if top_score <= 1:
+        print(f"   📐 Low relevance (best={top_score}) — raw cap "
+              f"{min(len(file_text), max_chars)}/{len(file_text)} chars", flush=True)
+        return file_text[:max_chars]
 
-    for section in ranked_rest:
+    ranked = sorted(scored, key=lambda x: x[0], reverse=True)
+
+    result, total = [], 0
+    for sc, section in ranked:
         if total + len(section) > max_chars:
             break
         result.append(section)
         total += len(section)
 
+    if not result:
+        return file_text[:max_chars]
+
     extracted = "\n\n".join(result)
     print(f"   📐 Section extract: {len(file_text)} → {len(extracted)} chars "
-          f"({len(result)}/{len(sections)} sections)", flush=True)
+          f"({len(result)}/{len(sections)} sections, best={top_score})", flush=True)
     return extracted
 
 
 def route_local(question: str) -> str | None:
-    """Returns a file stem, or None if no keyword match (or match returns None sentinel)."""
     q = question.lower()
     for pattern, stem in KEYWORD_ROUTES:
         if re.search(pattern, q, re.IGNORECASE):
@@ -482,7 +465,6 @@ async def on_message(message: discord.Message):
 
     async with message.channel.typing():
 
-        # ── Fast path: obvious casual chat ────────────────────────────────────
         if is_casual(question):
             print(f"💬 Casual bypass: '{question[:60]}'", flush=True)
             text_out = await get_answer([
@@ -492,13 +474,11 @@ async def on_message(message: discord.Message):
             await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
             return
 
-        # ── Step 1: Local keyword route (zero API cost) ────────────────────────
         routed_stem = route_local(question)
 
         if routed_stem:
             print(f"⚡ Local route: '{question[:60]}' ──► [{routed_stem}]", flush=True)
         else:
-            # ── Step 2: Triage call ────────────────────────────────────────────
             print(f"🔍 Triage: '{question[:60]}'", flush=True)
             needs_db, routed_stem = await triage(question)
 
@@ -517,7 +497,6 @@ async def on_message(message: discord.Message):
                 routed_stem = "frontpage"
                 print("   Fallback ──► [frontpage]", flush=True)
 
-        # ── Step 3: Load context file ──────────────────────────────────────────
         if not LOCAL_FILE_MAP:
             await message.reply("My database isn't loaded. Did the sync not run? *panics quietly*")
             return
@@ -534,7 +513,6 @@ async def on_message(message: discord.Message):
             await message.reply("Ugh, I went for my notes and the file just vanished. Something's wrong with the file system.")
             return
 
-        # ── Step 4: Extract relevant sections, then generate answer ───────────
         context_data = extract_relevant_sections(context_data, question)
 
         text_out = await get_answer([
