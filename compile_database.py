@@ -3,16 +3,17 @@ import re
 import urllib.parse
 import os
 import shutil
+import time
 from bs4 import BeautifulSoup
 import datetime
 from deep_translator import GoogleTranslator
 
-print("🚀 Launching ULTRA-GRANULAR Multi-File Translation Compiler...", flush=True)
+print("🚀 Launching NEXT-GEN LORE-EXPANDED Ultra-Granular Compiler Engine...", flush=True)
 
-HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) HafuBotNGSDatabase/6.0'}
+HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) HafuBotNGSDatabase/7.5'}
 BASE_DIR = "knowledge_base"
 
-# 1. Fresh Start: Wipe out the old directory if it exists to prevent duplicate data stacking
+# 1. Fresh Start: Wipe out old directory to guarantee clean structural alignment and eliminate duplicate stacking
 if os.path.exists(BASE_DIR):
     print(f"🧹 Clearing out old {BASE_DIR} directory for a clean compilation...", flush=True)
     shutil.rmtree(BASE_DIR)
@@ -21,12 +22,18 @@ os.makedirs(BASE_DIR, exist_ok=True)
 
 translator = GoogleTranslator(source='ja', target='en')
 
-# Explicit mapping of Japanese wiki nodes to English titles and targeted micro-paths
+# Global translation memory cache to reduce network latency and prevent translation API throttling
+TRANSLATION_CACHE = {}
+
+# 2. Expanded Asset Routing Map: Now featuring an isolated, deep-dive Lore system
 ASSET_ROUTING_MAP = {
+    # Announcements & Timelines
     "FrontPage": ("FrontPage Registry", "announcements/frontpage.txt"),
+    "ミッションパス": ("Mission Pass Season Tracks", "announcements/mission_pass.txt"),
     
-    "クラス": ("General Class Systems & EX Styles", "classes/general_classes.txt"),
-    "EXスタイル": ("General Class Systems & EX Styles", "classes/general_classes.txt"),
+    # Class Systems (Completely segregated for precise vector lookup/indexing)
+    "クラス": ("Class System Overview", "classes/class_overview.txt"),
+    "EXスタイル": ("EX Style Mechanics", "classes/ex_styles.txt"),
     "ハンター": ("Hunter Class Skills & Data", "classes/hunter.txt"),
     "ファイター": ("Fighter Class Skills & Data", "classes/fighter.txt"),
     "レンジャー": ("Ranger Class Skills & Data", "classes/ranger.txt"),
@@ -38,7 +45,8 @@ ASSET_ROUTING_MAP = {
     "ウェイカー": ("Waker Class Skills & Data", "classes/waker.txt"),
     "スレイヤー": ("Slayer Class Skills & Data", "classes/slayer.txt"),
     
-    "武器": ("General Weapon Systems", "weapons/general_weapons.txt"),
+    # Weapon Stats & Photon Arts
+    "武器": ("General Weapon Core Systems", "weapons/general_weapons.txt"),
     "ソード": ("Sword Weapon Stats & Photon Arts", "weapons/sword.txt"),
     "ワイヤードランス": ("Wired Lance Weapon Stats & Photon Arts", "weapons/wired_lance.txt"),
     "パルチザン": ("Partisan Weapon Stats & Photon Arts", "weapons/partisan.txt"),
@@ -52,18 +60,36 @@ ASSET_ROUTING_MAP = {
     "ウォンド": ("Wand Weapon Stats & Photon Arts", "weapons/wand.txt"),
     "タクト": ("Harmonizer Takt Weapon Stats & Photon Arts", "weapons/harmonizer.txt"),
     "ジェットブーツ": ("Jet Boots Weapon Stats & Photon Arts", "weapons/jet_boots.txt"),
+    "武器迷彩": ("Weapon Camouflage Cosmetics", "weapons/weapon_camouflage.txt"),
     
+    # Core Game Mechanics & Progression Systems
     "防具": ("Armor Units & Defensive Gear", "mechanics/armor.txt"),
     "スキルリング": ("Skill Rings Additions", "mechanics/skill_rings.txt"),
-    "装備強化": ("Equipment Enhancement Systems", "mechanics/enhancement.txt"),
-    "アイテム強化・限界突破": ("Item Enhancement & Limit Breaking", "mechanics/enhancement.txt"),
+    "装備強化": ("Equipment Enhancement Systems", "mechanics/equipment_enhancement.txt"),
+    "アイテム強化・限界突破": ("Item Limit Breaking Mechanics", "mechanics/limit_breaking.txt"),
     "テクニック": ("Elemental Techniques & Magic", "mechanics/techniques.txt"),
     "特殊能力": ("Augments & Special Ability Affixes", "mechanics/augments.txt"),
+    "アドオンスキル": ("Add-on Skills System", "mechanics/addon_skills.txt"),
+    "クリエイティブスペース": ("Creative Space Mechanics", "mechanics/creative_space.txt"),
+    "フードスタンド": ("Quick Food Stand Buff Recipes", "mechanics/quick_food.txt"),
     
+    # World Content, Quests, Gathering & Activities
     "タスク": ("Main Tasks & Side Quests", "world_quests/tasks.txt"),
     "緊急クエスト": ("Urgent Quests & Raid Schedules", "world_quests/urgent_quests.txt"),
     "リージョン": ("Regions & Exploits Area Maps", "world_quests/regions.txt"),
-    "アークスヒストリー": ("Arks History Chronicles & Lore", "world_quests/arks_history.txt")
+    "バトルディア": ("Battledia Trigger Quests", "world_quests/battledia.txt"),
+    "デュエルクエスト": ("Duel Quests Solo Challenges", "world_quests/duel_quests.txt"),
+    "ルシエル探索": ("Leciel Exploration Quests", "world_quests/leciel_exploration.txt"),
+    "ギャザリング": ("Gathering & Field Materials", "world_quests/gathering.txt"),
+    "エネミー": ("Enemy Species & Boss Data", "enemies/enemy_data.txt"),
+    "称号": ("Titles & Achievements", "world_quests/titles.txt"),
+
+    # Deep In-Game Lore, Chronicles & Storyline Records
+    "メインストーリー": ("Main Storyline Chapters & Quests", "lore/main_story.txt"),
+    "登場NPC": ("NPC Profiles, Affiliations & Character Lore", "lore/npc_profiles.txt"),
+    "世界観・設定": ("Worldview Lore, Background Settings & Environment", "lore/worldview_settings.txt"),
+    "用語集": ("In-Universe Vocabulary & Lore Glossary", "lore/glossary_terms.txt"),
+    "アークスヒストリー": ("Arks Historical Chronicles & Timeline", "lore/arks_chronology.txt")
 }
 
 def clean_text(text):
@@ -73,8 +99,8 @@ def clean_text(text):
     text = re.sub(r'<[^>]+>', ' ', text)
     return text.strip()
 
-def split_japanese_text(text, max_chars=2500):
-    sentences = re.split(r'(?<=[。、])', text)
+def split_japanese_text(text, max_chars=2000):
+    sentences = re.split(r'(?<=[。、\.?!])', text)
     chunks = []
     current_chunk = ""
     for sentence in sentences:
@@ -96,68 +122,130 @@ def split_japanese_text(text, max_chars=2500):
 def safe_translate(text):
     if not text:
         return ""
+    
+    if len(text) < 300 and text in TRANSLATION_CACHE:
+        return TRANSLATION_CACHE[text]
+        
     try:
-        text_chunks = split_japanese_text(text, max_chars=2000)
+        text_chunks = split_japanese_text(text, max_chars=1800)
         translated_chunks = []
+        
         for chunk in text_chunks:
             if not chunk.strip():
                 continue
-            try:
-                translated_part = translator.translate(chunk)
-                translated_chunks.append(translated_part if translated_part else chunk)
-            except Exception:
-                translated_chunks.append(chunk)
-        return " ".join(translated_chunks)
+            
+            if chunk in TRANSLATION_CACHE:
+                translated_chunks.append(TRANSLATION_CACHE[chunk])
+                continue
+                
+            translated_part = None
+            for attempt in range(3):
+                try:
+                    translated_part = translator.translate(chunk)
+                    if translated_part:
+                        TRANSLATION_CACHE[chunk] = translated_part
+                        break
+                except Exception as ex:
+                    if attempt == 2:
+                        print(f"   ⚠️ Chunk translation temporary failure, appending raw text block.", flush=True)
+                        translated_part = chunk
+                    else:
+                        time.sleep(1.5 ** attempt)
+                        
+            translated_chunks.append(translated_part if translated_part else chunk)
+            
+        full_translation = " ".join(translated_chunks)
+        if len(text) < 300:
+            TRANSLATION_CACHE[text] = full_translation
+        return full_translation
+        
     except Exception as e:
-        print(f"   ❌ Critical translation issue: {e}.", flush=True)
+        print(f"   ❌ Critical translation framework issue: {e}.", flush=True)
         return text
+
+def fetch_url_with_retry(url, headers, timeout=15, retries=3):
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                return response.read().decode('utf-8')
+        except Exception as e:
+            if attempt == retries - 1:
+                raise e
+            time.sleep(2 ** attempt)
 
 timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
 
-# Loop through our granular registry map
+# 3. Compile Granular Database Matrix
 for jp_page, (english_title, relative_path) in ASSET_ROUTING_MAP.items():
     encoded_page = urllib.parse.quote(jp_page)
     url = f"https://pso2ngs.swiki.jp/index.php?{encoded_page}"
     
-    # Resolve sub-directory file targets dynamically
     full_target_path = os.path.join(BASE_DIR, relative_path)
     os.makedirs(os.path.dirname(full_target_path), exist_ok=True)
     
     print(f" -> Synchronizing targeted asset: {jp_page} ──► {relative_path}", flush=True)
     
     try:
-        req = urllib.request.Request(url, headers=HEADERS)
-        with urllib.request.urlopen(req, timeout=15) as response:
-            html = response.read().decode('utf-8')
-            
+        html = fetch_url_with_retry(url, HEADERS)
         soup = BeautifulSoup(html, 'html.parser')
+        
+        # Performance optimization: Decompose volatile user comment/bulletin nodes before mapping strings
+        for element in soup.find_all(id=re.compile(r'(comment|reply|pcomment|vote)')):
+            element.decompose()
+            
         content = soup.find('div', id='body') or soup.find('table', class_='ltable')
         
         if content:
-            text = content.get_text(separator=' ', strip=True)
-            cleaned = clean_text(text)
-            translated_text = safe_translate(cleaned)
+            sections = content.find_all(['h2', 'h3'])
             
-            # Using append 'a' here so overlapping mappings (like クラス and EXスタイル) combine safely into one file
-            with open(full_target_path, "a", encoding="utf-8") as f:
-                f.write(f"\n=== [{english_title}] ===\n")
-                f.write(f"=== REFRESH NODE: {timestamp} ===\n")
-                f.write(translated_text + "\n\n")
-            print(f"   ✅ Node Saved: {english_title}", flush=True)
+            with open(full_target_path, "w", encoding="utf-8") as f:
+                f.write(f"=== [{english_title}] ===\n")
+                f.write(f"=== REFRESH NODE: {timestamp} ===\n\n")
+                
+                if not sections:
+                    text = content.get_text(separator=' ', strip=True)
+                    cleaned = clean_text(text)
+                    f.write(safe_translate(cleaned) + "\n")
+                else:
+                    current_section_title = "General Overview"
+                    current_section_chunks = []
+                    
+                    for child in content.descendants:
+                        if child.name in ['h2', 'h3']:
+                            if current_section_chunks:
+                                combined_text = clean_text(" ".join(current_section_chunks))
+                                if combined_text:
+                                    f.write(f"--- [Section: {current_section_title}] ---\n")
+                                    f.write(safe_translate(combined_text) + "\n\n")
+                                current_section_chunks = []
+                            current_section_title = clean_text(child.get_text(strip=True))
+                        elif isinstance(child, str):
+                            parent_names = [p.name for p in child.parents]
+                            if not any(x in parent_names for x in ['script', 'style', 'h2', 'h3']):
+                                val = child.strip()
+                                if val:
+                                    current_section_chunks.append(val)
+                                    
+                    if current_section_chunks:
+                        combined_text = clean_text(" ".join(current_section_chunks))
+                        if combined_text:
+                            f.write(f"--- [Section: {current_section_title}] ---\n")
+                            f.write(safe_translate(combined_text) + "\n\n")
+                            
+            print(f"   ✅ Node Saved with Fine Section-Splitting: {english_title}", flush=True)
             
     except Exception as e:
         print(f"   ❌ Failed to fetch asset path {jp_page}: {e}", flush=True)
 
-# Handle live SEGA update node stream separately into its own isolated file
+# 4. Handle Isolated Live SEGA update stream
 sega_path = os.path.join(BASE_DIR, "announcements/sega_live_feed.txt")
 os.makedirs(os.path.dirname(sega_path), exist_ok=True)
 print(f" -> Fetching SEGA Live Update Stream ──► announcements/sega_live_feed.txt", flush=True)
 
 try:
     sega_url = "https://pso2.jp/players/update/2026-06/"
-    req = urllib.request.Request(sega_url, headers=HEADERS)
-    with urllib.request.urlopen(req, timeout=12) as res:
-        html = res.read().decode('utf-8')
+    html = fetch_url_with_retry(sega_url, HEADERS, timeout=12)
     soup = BeautifulSoup(html, 'html.parser')
     texts = [p.get_text(strip=True) for p in soup.find_all(['h2','h3','p']) if len(p.get_text(strip=True)) > 20]
     translated_sega = safe_translate(" ".join(texts[:12]))
@@ -166,10 +254,10 @@ try:
         f.write(f"=== [LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS] ===\n")
         f.write(f"=== REFRESH NODE: {timestamp} ===\n")
         f.write(translated_sega + "\n")
-    print("   ✅ SEGA Stream Node Saved.", flush=True)
+    print("   ✅ SEGA Stream Node Saved Successfully.", flush=True)
 except Exception as e:
     with open(sega_path, "w", encoding="utf-8") as f:
         f.write("=== [LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS] ===\n- New seasonal updates active.\n")
-    print(f"   ⚠️ SEGA Stream failed, wrote backup generic row: {e}", flush=True)
+    print(f"   ⚠️ SEGA Stream failed, wrote backup placeholder row: {e}", flush=True)
 
-print("✨ All sub-category data paths compiled and translated into separate databases cleanly.", flush=True)
+print("✨ Database successfully refactored into high-density independent text assets.", flush=True)
