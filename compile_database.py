@@ -1,56 +1,62 @@
 import urllib.request
 import re
 import urllib.parse
+import os
 from bs4 import BeautifulSoup
 import datetime
 from deep_translator import GoogleTranslator
 
-print("🚀 Launching RAW SEAMLESS multi-sentence translation mirror for pso2ngs.swiki.jp...", flush=True)
+print("🚀 Launching ULTRA-GRANULAR Multi-File Translation Compiler...", flush=True)
 
 HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) HafuBotNGSDatabase/6.0'}
-DATABASE_FILE = "knowledge_database.txt"
+BASE_DIR = "knowledge_base"
 
 translator = GoogleTranslator(source='ja', target='en')
 
-# Map Japanese header keys to direct English titles to guarantee perfect scanning inside app.py
-HEADER_TRANSLATION_MAP = {
-    "FrontPage": "FrontPage",
-    "クラス": "Classes",
-    "EXスタイル": "EX Style",
-    "ハンター": "Hunter",
-    "ファイター": "Fighter",
-    "レンジャー": "Ranger",
-    "ガンナー": "Gunner",
-    "フォース": "Force",
-    "テクター": "Techter",
-    "ブレイバー": "Braver",
-    "バウンサー": "Bouncer",
-    "ウェイカー": "Waker",
-    "スレイヤー": "Slayer",
-    "スキルリング": "Skill Rings",
-    "装備強化": "Equipment Enhancement",
-    "アイテム強化・限界突破": "Item Enhancement and Limit Breaking",
-    "武器": "Weapons",
-    "防具": "Armor Units",
-    "ソード": "Sword",
-    "ワイヤードランス": "Wired Lance",
-    "パルチザン": "Partisan",
-    "ツインダガー": "Twin Daggers",
-    "デュアルブレード": "Dual Blades",
-    "アサルトライフル": "Assault Rifle",
-    "ツインマシンガン": "Twin Machine Guns",
-    "カタナ": "Katana",
-    "ナックル": "Knuckles",
-    "ジェットブーツ": "Jet Boots",
-    "タリス": "Talis",
-    "ウォンド": "Wand",
-    "タクト": "Harmonizer Takt",
-    "テクニック": "Techniques",
-    "タスク": "Tasks",
-    "緊急クエスト": "Urgent Quests",
-    "リージョン": "Regions and Areas",
-    "特殊能力": "Augments Special Ability",
-    "アークスヒストリー": "Arks History"
+# Explicit mapping of Japanese wiki nodes to English titles and targeted micro-paths
+ASSET_ROUTING_MAP = {
+    # "Wiki_Page_Key": ("Clean English Identifier Header", "Sub-Folder/Specific_File.txt")
+    "FrontPage": ("FrontPage Registry", "announcements/frontpage.txt"),
+    
+    "クラス": ("General Class Systems & EX Styles", "classes/general_classes.txt"),
+    "EXスタイル": ("General Class Systems & EX Styles", "classes/general_classes.txt"),
+    "ハンター": ("Hunter Class Skills & Data", "classes/hunter.txt"),
+    "ファイター": ("Fighter Class Skills & Data", "classes/fighter.txt"),
+    "レンジャー": ("Ranger Class Skills & Data", "classes/ranger.txt"),
+    "ガンナー": ("Gunner Class Skills & Data", "classes/gunner.txt"),
+    "フォース": ("Force Class Skills & Data", "classes/force.txt"),
+    "テクター": ("Techter Class Skills & Data", "classes/techter.txt"),
+    "ブレイバー": ("Braver Class Skills & Data", "classes/braver.txt"),
+    "バウンサー": ("Bouncer Class Skills & Data", "classes/bouncer.txt"),
+    "ウェイカー": ("Waker Class Skills & Data", "classes/waker.txt"),
+    "スレイヤー": ("Slayer Class Skills & Data", "classes/slayer.txt"),
+    
+    "武器": ("General Weapon Systems", "weapons/general_weapons.txt"),
+    "ソード": ("Sword Weapon Stats & Photon Arts", "weapons/sword.txt"),
+    "ワイヤードランス": ("Wired Lance Weapon Stats & Photon Arts", "weapons/wired_lance.txt"),
+    "パルチザン": ("Partisan Weapon Stats & Photon Arts", "weapons/partisan.txt"),
+    "ツインダガー": ("Twin Daggers Weapon Stats & Photon Arts", "weapons/twin_daggers.txt"),
+    "デュアルブレード": ("Dual Blades Weapon Stats & Photon Arts", "weapons/dual_blades.txt"),
+    "ナックル": ("Knuckles Weapon Stats & Photon Arts", "weapons/knuckles.txt"),
+    "カタナ": ("Katana Weapon Stats & Photon Arts", "weapons/katana.txt"),
+    "アサルトライフル": ("Assault Rifle Weapon Stats & Photon Arts", "weapons/assault_rifle.txt"),
+    "ツインマシンガン": ("Twin Machine Guns Weapon Stats & Photon Arts", "weapons/twin_machine_guns.txt"),
+    "タリス": ("Talis Weapon Stats & Photon Arts", "weapons/talis.txt"),
+    "ウォンド": ("Wand Weapon Stats & Photon Arts", "weapons/wand.txt"),
+    "タクト": ("Harmonizer Takt Weapon Stats & Photon Arts", "weapons/harmonizer.txt"),
+    "ジェットブーツ": ("Jet Boots Weapon Stats & Photon Arts", "weapons/jet_boots.txt"),
+    
+    "防具": ("Armor Units & Defensive Gear", "mechanics/armor.txt"),
+    "スキルリング": ("Skill Rings Additions", "mechanics/skill_rings.txt"),
+    "装備強化": ("Equipment Enhancement Systems", "mechanics/enhancement.txt"),
+    "アイテム強化・限界突破": ("Item Enhancement & Limit Breaking", "mechanics/enhancement.txt"),
+    "テクニック": ("Elemental Techniques & Magic", "mechanics/techniques.txt"),
+    "特殊能力": ("Augments & Special Ability Affixes", "mechanics/augments.txt"),
+    
+    "タスク": ("Main Tasks & Side Quests", "world_quests/tasks.txt"),
+    "緊急クエスト": ("Urgent Quests & Raid Schedules", "world_quests/urgent_quests.txt"),
+    "リージョン": ("Regions & Exploits Area Maps", "world_quests/regions.txt"),
+    "アークスヒストリー": ("Arks History Chronicles & Lore", "world_quests/arks_history.txt")
 }
 
 def clean_text(text):
@@ -86,69 +92,79 @@ def safe_translate(text):
     try:
         text_chunks = split_japanese_text(text, max_chars=2000)
         translated_chunks = []
-        for idx, chunk in enumerate(text_chunks):
+        for chunk in text_chunks:
             if not chunk.strip():
                 continue
             try:
                 translated_part = translator.translate(chunk)
-                if translated_part:
-                    translated_chunks.append(translated_part)
-                else:
-                    translated_chunks.append(chunk)
+                translated_chunks.append(translated_part if translated_part else chunk)
             except Exception:
                 translated_chunks.append(chunk)
         return " ".join(translated_chunks)
     except Exception as e:
-        print(f"   ❌ Critical translation step issue: {e}.", flush=True)
+        print(f"   ❌ Critical translation issue: {e}.", flush=True)
         return text
 
-# 1. Initialize file
-with open(DATABASE_FILE, "w", encoding="utf-8") as db:
-    current_time = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
-    db.write("=== MASTER REFRESH REPOSITORY FOR HAFU AI ===\n")
-    db.write(f"=== LAST UPDATED: {current_time} ===\n\n")
-    db.write("=== FULL EN-TRANSLATED IN-GAME DATA REGISTRY ===\n")
+# Ensure root knowledge directory exists
+os.makedirs(BASE_DIR, exist_ok=True)
+timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
 
-# 2. Append content with English Title Markers
-with open(DATABASE_FILE, "a", encoding="utf-8") as db:
-    for page in HEADER_TRANSLATION_MAP.keys():
-        encoded_page = urllib.parse.quote(page)
-        url = f"https://pso2ngs.swiki.jp/index.php?{encoded_page}"
-        english_title = HEADER_TRANSLATION_MAP[page]
-        
-        print(f" -> Synchronizing asset path: {page} ({english_title})", flush=True)
-        try:
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-            with urllib.request.urlopen(req, timeout=15) as response:
-                html = response.read().decode('utf-8')
-                
-            soup = BeautifulSoup(html, 'html.parser')
-            content = soup.find('div', id='body') or soup.find('table', class_='ltable')
-            
-            if content:
-                text = content.get_text(separator=' ', strip=True)
-                cleaned = clean_text(text)
-                translated_text = safe_translate(cleaned)
-                
-                # Write direct translated section headers
-                db.write(f"\n=== [{english_title}] ===\n")
-                db.write(translated_text + "\n\n")
-                print(f"   ✅ Mirrored & Full Translated: {english_title}", flush=True)
-        except Exception as e:
-            print(f"   ❌ Failed to resolve layout path {page}: {e}", flush=True)
-
-    # 3. Handle live SEGA update node stream fallback
-    db.write("\n\n=== LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS ===\n")
+# Loop through our granular registry map
+for jp_page, (english_title, relative_path) in ASSET_ROUTING_MAP.items():
+    encoded_page = urllib.parse.quote(jp_page)
+    url = f"https://pso2ngs.swiki.jp/index.php?{encoded_page}"
+    
+    # Resolve sub-directory file targets dynamically
+    full_target_path = os.path.join(BASE_DIR, relative_path)
+    os.makedirs(os.path.dirname(full_target_path), exist_ok=True)
+    
+    print(f" -> Synchronizing targeted asset: {jp_page} ──► {relative_path}", flush=True)
+    
     try:
-        sega_url = "https://pso2.jp/players/update/2026-06/"
-        req = urllib.request.Request(sega_url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, timeout=12) as res:
-            html = res.read().decode('utf-8')
+        req = urllib.request.Request(url, headers=HEADERS)
+        with urllib.request.urlopen(req, timeout=15) as response:
+            html = response.read().decode('utf-8')
+            
         soup = BeautifulSoup(html, 'html.parser')
-        texts = [p.get_text(strip=True) for p in soup.find_all(['h2','h3','p']) if len(p.get_text(strip=True)) > 20]
-        translated_sega = safe_translate(" ".join(texts[:12]))
-        db.write(translated_sega + "\n")
-    except Exception:
-        db.write("- New seasonal weapon lines active.\n")
+        content = soup.find('div', id='body') or soup.find('table', class_='ltable')
+        
+        if content:
+            text = content.get_text(separator=' ', strip=True)
+            cleaned = clean_text(text)
+            translated_text = safe_translate(cleaned)
+            
+            # Write in separate standalone micro-database tracking files
+            # Note: Using 'a' (append) so overlapping keys like general_classes combine safely
+            with open(full_target_path, "a", encoding="utf-8") as f:
+                f.write(f"\n=== [{english_title}] ===\n")
+                f.write(f"=== REFRESH NODE: {timestamp} ===\n")
+                f.write(translated_text + "\n\n")
+            print(f"   ✅ Node Saved: {english_title}", flush=True)
+            
+    except Exception as e:
+        print(f"   ❌ Failed to fetch asset path {jp_page}: {e}", flush=True)
 
-print("✨ All data paths compiled and translated cleanly.", flush=True)
+# Handle live SEGA update node stream separately into its own isolated file
+sega_path = os.path.join(BASE_DIR, "announcements/sega_live_feed.txt")
+print(f" -> Fetching SEGA Live Update Stream ──► announcements/sega_live_feed.txt", flush=True)
+
+try:
+    sega_url = "https://pso2.jp/players/update/2026-06/"
+    req = urllib.request.Request(sega_url, headers=HEADERS)
+    with urllib.request.urlopen(req, timeout=12) as res:
+        html = res.read().decode('utf-8')
+    soup = BeautifulSoup(html, 'html.parser')
+    texts = [p.get_text(strip=True) for p in soup.find_all(['h2','h3','p']) if len(p.get_text(strip=True)) > 20]
+    translated_sega = safe_translate(" ".join(texts[:12]))
+    
+    with open(sega_path, "w", encoding="utf-8") as f:
+        f.write(f"=== [LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS] ===\n")
+        f.write(f"=== REFRESH NODE: {timestamp} ===\n")
+        f.write(translated_sega + "\n")
+    print("   ✅ SEGA Stream Node Saved.", flush=True)
+except Exception as e:
+    with open(sega_path, "w", encoding="utf-8") as f:
+        f.write("=== [LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS] ===\n- New seasonal updates active.\n")
+    print(f"   ⚠️ SEGA Stream failed, wrote backup generic row: {e}", flush=True)
+
+print("✨ All sub-category data paths compiled and translated into separate databases cleanly.", flush=True)
