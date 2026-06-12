@@ -1,4 +1,4 @@
-discord.py==2.3.2
-google-genai
-beautifulsoup4==4.12.3
-deep-translator==1.11.4
+discord.py>=2.3.2
+httpx>=0.27.0
+beautifulsoup4>=4.12.0
+deep-translator>=1.11.0
