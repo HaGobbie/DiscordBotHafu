@@ -2,6 +2,7 @@ import urllib.request
 import re
 import urllib.parse
 import os
+import shutil
 from bs4 import BeautifulSoup
 import datetime
 from deep_translator import GoogleTranslator
@@ -11,11 +12,17 @@ print("🚀 Launching ULTRA-GRANULAR Multi-File Translation Compiler...", flush=
 HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) HafuBotNGSDatabase/6.0'}
 BASE_DIR = "knowledge_base"
 
+# 1. Fresh Start: Wipe out the old directory if it exists to prevent duplicate data stacking
+if os.path.exists(BASE_DIR):
+    print(f"🧹 Clearing out old {BASE_DIR} directory for a clean compilation...", flush=True)
+    shutil.rmtree(BASE_DIR)
+
+os.makedirs(BASE_DIR, exist_ok=True)
+
 translator = GoogleTranslator(source='ja', target='en')
 
 # Explicit mapping of Japanese wiki nodes to English titles and targeted micro-paths
 ASSET_ROUTING_MAP = {
-    # "Wiki_Page_Key": ("Clean English Identifier Header", "Sub-Folder/Specific_File.txt")
     "FrontPage": ("FrontPage Registry", "announcements/frontpage.txt"),
     
     "クラス": ("General Class Systems & EX Styles", "classes/general_classes.txt"),
@@ -105,8 +112,6 @@ def safe_translate(text):
         print(f"   ❌ Critical translation issue: {e}.", flush=True)
         return text
 
-# Ensure root knowledge directory exists
-os.makedirs(BASE_DIR, exist_ok=True)
 timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
 
 # Loop through our granular registry map
@@ -133,8 +138,7 @@ for jp_page, (english_title, relative_path) in ASSET_ROUTING_MAP.items():
             cleaned = clean_text(text)
             translated_text = safe_translate(cleaned)
             
-            # Write in separate standalone micro-database tracking files
-            # Note: Using 'a' (append) so overlapping keys like general_classes combine safely
+            # Using append 'a' here so overlapping mappings (like クラス and EXスタイル) combine safely into one file
             with open(full_target_path, "a", encoding="utf-8") as f:
                 f.write(f"\n=== [{english_title}] ===\n")
                 f.write(f"=== REFRESH NODE: {timestamp} ===\n")
@@ -146,6 +150,7 @@ for jp_page, (english_title, relative_path) in ASSET_ROUTING_MAP.items():
 
 # Handle live SEGA update node stream separately into its own isolated file
 sega_path = os.path.join(BASE_DIR, "announcements/sega_live_feed.txt")
+os.makedirs(os.path.dirname(sega_path), exist_ok=True)
 print(f" -> Fetching SEGA Live Update Stream ──► announcements/sega_live_feed.txt", flush=True)
 
 try:
