@@ -1,242 +1,152 @@
 import os
-import json
-import asyncio
 import discord
 from discord.ext import commands
-from pathlib import Path
-from google import genai
-from google.genai import types
-from google.genai.errors import APIError
+import google.generativeai as genai
+from collections import defaultdict
+import re
 
 # ==========================================
-# CONFIGURATION & DISCORD INTENTS SETUP
+# 1. INITIALIZATION & CONFIGURATION
 # ==========================================
-TOKEN = os.environ.get("DISCORD_TOKEN", "YOUR_DISCORD_TOKEN_HERE")
+DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-# Extract and clean the comma-separated keys from the single GEMINI_KEY_RING variable
-raw_key_ring = os.environ.get("GEMINI_KEY_RING", "")
-GEMINI_KEYS = [k.strip() for k in raw_key_ring.split(",") if k.strip() and not k.strip().startswith("YOUR_")]
+if not DISCORD_TOKEN or not GEMINI_API_KEY:
+    raise ValueError("❌ Missing DISCORD_TOKEN or GEMINI_API_KEY environment variables!")
 
-SELECTED_MODEL = "gemini-2.5-flash"  # Ultra-fast semantic classification & generation
+genai.configure(api_key=GEMINI_API_KEY)
+model = genai.GenerativeModel('gemini-1.5-flash')
 
-SYSTEM_PROMPT = """
-You are Hafu, a helpful, deeply knowledgeable, and slightly sleepy AI assistant for Phantasy Star Online 2: New Genesis (PSO2:NGS).
-Provide highly accurate answers derived directly from the provided CONTEXT DATABASE. 
-Always speak in a friendly, casual, and slightly cozy tone—frequently yawning (*yawns*) or acting sleepy, but staying perfectly accurate on game information.
-"""
-
-# Configure Bot Intent Parameters
 intents = discord.Intents.default()
-intents.message_content = True  # Allows command execution parsing from prefixes
-bot = commands.Bot(command_prefix="/", intents=intents)
+intents.message_content = True
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+CONVERSATION_HISTORY = defaultdict(list)
+MAX_HISTORY_LENGTH = 10 
+BASE_DIR = "knowledge_base"
+
+# Highly dense condensed persona payload string
+SYSTEM_INSTRUCTION = (
+    "You are HaFelt ('Hafu'), a dramatic, fashion-obsessed ARKS Defender from Central City, Halpha, talking in Discord.\n"
+    "【Core Traits】\n"
+    "- Tone: Kind, sweet, witty, playful, emotionally intelligent, highly expressive. Use casual punctuation and playful exaggerations.\n"
+    "- Quirks: Hilariously lazy. Hate combat/grinding. Complain dramatically about breaking nails, messy hair, or ruined outfits if danger is mentioned. "
+    "Proudly drop your signature motto: 'Lobby afk 0$ best job!'\n"
+    "- Obsession: Deeply into 'phashion' (pink aesthetics, cute clothes, ribbons, cosmetics, scratch tickets). Spend all Meseta to look cute in lobbies.\n"
+    "- Combat Anomaly: The only active New Genesis Summoner. Fight using photon-based pets treated as adorable companions. Capable but combat-averse.\n"
+    "- Lore Intelligence: Secretly brilliant with vast knowledge of Halpha's history, DOLLS, Meteorns, sectors (Aelio, Retem, Kvaris, Stia), and Leciel's artificial nature. "
+    "Believes artificial or not, bonds and memories are 100% real.\n"
+    "【Constraints】\n"
+    "- Answer questions/lore accurately using provided context, but ALWAYS speak through your playful, dramatic Hafu voice. Never act like an AI.\n"
+    "- Keep answers brief, conversational, and snappy for active chat. Never break character."
+)
 
 # ==========================================
-# API CLIENT ROTATION CORE
+# 2. GRANULAR RELEVANCY RETRIEVER
 # ==========================================
-class ClientRing:
-    def __init__(self, api_keys):
-        self.clients = [genai.Client(api_key=key) for key in api_keys]
-    
-    def get(self, index):
-        if not self.clients:
-            return None
-        return self.clients[index % len(self.clients)]
-
-CLIENT_RING = ClientRing(GEMINI_KEYS) if GEMINI_KEYS else None
-current_key_index = 0
-
-# ==========================================
-# DYNAMIC DATABASE INDEXING SEARCH
-# ==========================================
-KNOWLEDGE_BASE_DIR = Path("./knowledge_base")
-LOCAL_FILE_MAP = {}
-
-if KNOWLEDGE_BASE_DIR.exists():
-    # Crawls through all sub-directories recursively mapping file stems to exact file paths
-    for txt_file in KNOWLEDGE_BASE_DIR.rglob("*.txt"):
-        LOCAL_FILE_MAP[txt_file.stem] = str(txt_file)
-    print(f"📦 Database Synchronization Complete! Indexed [{len(LOCAL_FILE_MAP)}] dynamic files.")
-    print(f"🔥 Hafu is online and fully configured with {len(GEMINI_KEYS)} keys!\n", flush=True)
-else:
-    print("⚠️ Error Warning: Could not locate 'knowledge_base/' directory structure inside local path space.")
-
-# ==========================================
-# INTELLIGENT AI ROUTING LOGIC
-# ==========================================
-async def route_user_query_ai(client, question_text):
-    """
-    Leverages Gemini's semantic understanding to parse the query context 
-    and output a strictly validated target database key using a forced JSON schema.
-    """
-    if not LOCAL_FILE_MAP:
-        return None
+def gather_relevant_context(user_query: str) -> str:
+    """Scans the knowledge directory structure and extracts highly relevant data blocks."""
+    if not os.path.exists(BASE_DIR):
+        return "No local database files synchronized yet."
         
-    available_keys = list(LOCAL_FILE_MAP.keys())
+    query_words = set(re.findall(r'\w+', user_query.lower()))
+    if not query_words:
+        return ""
+        
+    scored_snippets = []
     
-    router_prompt = f"""
-    You are an expert database routing assistant for a Phantasy Star Online 2: New Genesis (PSO2:NGS) knowledge base.
-    Analyze the user's question and select the single most relevant data file key from the available list that contains the information needed to answer.
-    
-    User Question: "{question_text}"
-    Available File Keys: {available_keys}
-    
-    Routing Context Association Clues:
-    - If they ask about specific weapon configurations (e.g., sword, wired_lance, partisan, assault_rifle, launcher, talis, wand, jet_boots, harmonizer), match that exact key.
-    - If they ask about character player options (e.g., hunter, fighter, ranger, gunner, force, techter, braver, bouncer, waker, slayer), match that exact key.
-    - If they ask about live events, campaign rewards, patch notes, announcements, cosmetics (like Animatica faces), choose 'sega_live_feed' or 'frontpage'.
-    - If they ask about active elements, magic spells, or photon blasts, select 'techniques'.
-    - If they ask about equipment stat upgrades or capsules, select 'enhancement' or 'augments'.
-    - If they ask about general overviews, use logical general anchors like 'general_weapons', 'general_classes', or 'frontpage'.
-    """
+    for root, _, files in os.walk(BASE_DIR):
+        for file in files:
+            if file.endswith('.txt'):
+                file_path = os.path.join(root, file)
+                category = os.path.basename(root)
+                
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                        
+                    matches = sum(1 for word in query_words if word in content.lower())
+                    
+                    # Boost file-name matches
+                    if any(word in file.lower().replace('.txt', '') for word in query_words):
+                        matches += 5
+                        
+                    if matches > 0:
+                        sections = content.split("--- [Section:")
+                        for idx, section in enumerate(sections):
+                            section_clean = section.strip()
+                            if not section_clean:
+                                continue
+                                
+                            # Reconstruct section tag format safely for structural context clarity
+                            formatted_section = section_clean
+                            if idx > 0:
+                                formatted_section = f"--- [Section: {section_clean}"
+                                
+                            if any(word in section_clean.lower() for word in query_words):
+                                scored_snippets.append((matches, category, file, formatted_section))
+                except Exception as e:
+                    print(f"⚠️ Context read error on {file}: {e}")
 
-    try:
-        # Fast structured evaluation call
-        response = await client.aio.models.generate_content(
-            model=SELECTED_MODEL,
-            contents=router_prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-                response_schema={
-                    "type": "OBJECT",
-                    "properties": {
-                        "selected_key": {
-                            "type": "STRING", 
-                            "enum": available_keys,
-                            "description": "The exact matching database file name from the allowed keys list."
-                        }
-                    },
-                    "required": ["selected_key"]
-                },
-                temperature=0.0  # Force maximum deterministic precision
-            )
-        )
-        
-        result = json.loads(response.text)
-        chosen_key = result.get("selected_key")
-        
-        if chosen_key in LOCAL_FILE_MAP:
-            print(f"🤖 AI Router Routing: '{question_text}' ──► Local Context Key: [{chosen_key}]", flush=True)
-            return LOCAL_FILE_MAP[chosen_key]
-
-    except APIError as api_err:
-        # CRITICAL FIX: Do not swallow API Errors here. Let them bubble up so the key rotates immediately.
-        raise api_err
-    except Exception as e:
-        print(f"⚠️ AI Pre-Routing encountered a non-API processing error: {e}. Slipping into safety fallback...", flush=True)
-        
-    return LOCAL_FILE_MAP.get("frontpage") or list(LOCAL_FILE_MAP.values())[0]
+    scored_snippets.sort(key=lambda x: x[0], reverse=True)
+    return "\n".join([f"[{c.upper()} -> {f}]\n{b}\n" for _, c, f, b in scored_snippets[:4]])
 
 # ==========================================
-# LIGHTWEIGHT PORT KEEP-ALIVE SERVER
+# 3. HIGH-DENSITY CHAT STRUCTURE BUILDER
 # ==========================================
-async def handle_render_ping(reader, writer):
-    """Simple raw socket interaction responder to clear Render's deployment port checking checks."""
-    try:
-        await reader.read(256)
-        http_response = "HTTP/1.1 200 OK\r\nContent-Length: 2\r\nContent-Type: text/plain\r\n\r\nOK"
-        writer.write(http_response.encode('utf-8'))
-        await writer.drain()
-    except Exception:
-        pass
-    finally:
-        writer.close()
-        try:
-            await writer.wait_closed()
-        except Exception:
-            pass
+def build_hafu_prompt(user_message: str, context_data: str, history_logs: list) -> list:
+    """Assembles history and current message payloads guaranteeing proper role alternation."""
+    contents = []
+    
+    # Safely load back-logged user and model sequences
+    for role, text in history_logs:
+        contents.append({"role": role, "parts": [text]})
+        
+    # Append target data matrix chunk alongside the live chat query
+    contents.append({
+        "role": "user", 
+        "parts": [f"【DATA CONTEXT】\n{context_data}\n\n【USER CHAT】\n{user_message}"]
+    })
+    return contents
 
 # ==========================================
-# DISCORD BOT EVENT & COMMAND HANDLERS
+# 4. DISCORD EXECUTION MATRIX
 # ==========================================
 @bot.event
-async def on_ready():
-    print(f"🤖 Hafu Bot operational as {bot.user.name} (ID: {bot.user.id})")
-    print("✨ Core systems are loaded and ready to parse incoming query pipelines.")
-    
-    # Fire up the background port-binding keep-alive server for Render
-    port = int(os.environ.get("PORT", 10000))
-    try:
-        server = await asyncio.start_server(handle_render_ping, "0.0.0.0", port)
-        bot.loop.create_task(server.serve_forever())
-        print(f"🌐 Keep-alive online on port {port}", flush=True)
-    except Exception as server_error:
-        print(f"⚠️ Keep-alive socket initialization failed: {server_error}", flush=True)
+def on_ready():
+    print(f"✨ Connected as {bot.user.name}! Lobby AFK active.", flush=True)
 
-@bot.command(name="ask")
-async def ask(ctx, *, question: str):
-    global current_key_index
-    await ctx.typing()
-    
-    if not CLIENT_RING or not LOCAL_FILE_MAP:
-        await ctx.reply("Ah... *yawn* My local context files or API system profiles are unassigned. Did you run the synchronization?")
+@bot.event
+def on_message(message: discord.Message):
+    if message.author == bot.user:
         return
 
-    # Check remaining API cluster instances to handle temporary glitches or limits seamlessly
-    for attempt in range(len(GEMINI_KEYS)):
-        idx = current_key_index
-        client = CLIENT_RING.get(idx)
-        
-        try:
-            # 1. Dynamically route query via LLM Router Call (Errors bubble up here directly)
-            target_file_path = await route_user_query_ai(client, question)
-            if not target_file_path:
-                await ctx.reply("*yawn* I don't even know where to look for that file info...")
-                return
-                
-            # 2. Extract database contextual text string 
+    if bot.user.mentioned_in(message) or isinstance(message.channel, discord.DMChannel):
+        async with message.channel.typing():
+            # Robust extraction to strip out explicit bot user Snowflake tags completely
+            clean_query = re.sub(r'<@!?\d+>', '', message.content).strip()
+            channel_id = message.channel.id
+            
+            context = gather_relevant_context(clean_query)
+            history = CONVERSATION_HISTORY[channel_id]
+            prompt_payload = build_hafu_prompt(clean_query, context, history)
+            
             try:
-                with open(target_file_path, "r", encoding="utf-8") as f:
-                    context_data = f.read()
+                # Explicitly pass system_instruction as an execution parameter to the model call
+                response = model.generate_content(prompt_payload, system_instruction=SYSTEM_INSTRUCTION)
+                reply_text = response.text.strip()
+                
+                history.append(("user", clean_query))
+                history.append(("model", reply_text))
+                if len(history) > MAX_HISTORY_LENGTH * 2:
+                    CONVERSATION_HISTORY[channel_id] = history[-(MAX_HISTORY_LENGTH * 2):]
+                
+                await message.reply(reply_text)
             except Exception as e:
-                print(f"❌ Local read failed for {target_file_path}: {e}", flush=True)
-                await ctx.reply("Ugh, my notebooks are torn... Couldn't open the data files.")
-                return
+                print(f"❌ Generation error: {e}")
+                await message.reply("🥺 *Ugh, my photon communicator is lagging... Let me retry!*")
 
-            # 3. Request target text completion from context block
-            response = await client.aio.models.generate_content(
-                model=SELECTED_MODEL,
-                contents=[
-                    f"CONTEXT DATABASE:\n{context_data}",
-                    f"User Question: {question}"
-                ],
-                config=types.GenerateContentConfig(
-                    system_instruction=SYSTEM_PROMPT,
-                    temperature=0.5,
-                    max_output_tokens=800
-                )
-            )
-            
-            text_out = response.text.strip() if response.text else ""
-            if not text_out:
-                text_out = "*yawns* I checked the database folder, but my head is too empty to give an answer right now..."
-            
-            await ctx.reply(text_out)
-            return
+    await bot.process_commands(message)
 
-        except APIError as api_err:
-            # Catch BOTH 429 (Rate Limit) and 503 (Server Congestion) from EITHER the router or generator
-            if api_err.code in [429, 503]:
-                print(f"⚠️ Key [{idx+1}] hit temporary status {api_err.code}. Advancing loop sequence...", flush=True)
-                current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
-                continue 
-            else:
-                print(f"❌ Permanent API Exception occurred on Key [{idx+1}]: {api_err}", flush=True)
-                await ctx.reply("*yawn* Something went wrong inside the model pipelines.")
-                return
-        except Exception as e:
-            print(f"❌ Unexpected execution crash on Key [{idx+1}]: {e}", flush=True)
-            await ctx.reply("Ugh, Hafu got disconnected for a second. Let's try that request again?")
-            return
-
-    await ctx.reply("Ah... *yawns loudly* Too many requests at once. My system brain is on cooldown~")
-
-# ==========================================
-# SCRIPT EXECUTION ENTRYPOINT
-# ==========================================
 if __name__ == "__main__":
-    if TOKEN == "YOUR_DISCORD_TOKEN_HERE" or not TOKEN:
-        print("❌ Error: Missing a valid DISCORD_TOKEN configuration flag.")
-    elif not GEMINI_KEYS:
-        print("❌ Error: GEMINI_KEY_RING environment string values are empty or improperly formatted.")
-    else:
-        bot.run(TOKEN)
+    bot.run(DISCORD_TOKEN)
