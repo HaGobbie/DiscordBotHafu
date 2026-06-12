@@ -34,109 +34,39 @@ if KNOWLEDGE_BASE_DIR.exists():
 else:
     print("⚠️  Warning: 'knowledge_base/' directory not found.")
 
-# ---------------------------------------------------------------------------
-# Key descriptions fed to the router alongside the raw key list.
-# Keeps the system prompt compact while giving the model semantic context.
-# ---------------------------------------------------------------------------
-_KEY_HINTS = {
-    "frontpage":              "current events, limited-time scratch/banners, what's happening now, seasonal campaigns",
-    "sega_live_feed":         "SEGA patch notes, server maintenance, official game announcements",
-    "mission_pass":           "mission pass tracks, season pass rewards, pass tiers",
-    "weapon_series":          "which weapon series is best/meta, series comparison (Lexio vs Kougensei etc.), series list",
-    "potentials":             "potential NAME, potential effect, unlock potential, potential levels — use this even if a series name like Lexio or Kougensei is mentioned",
-    "ex_styles":              "EX style mechanics, EX style unlock",
-    "class_overview":         "class system overview, sub-class rules, main/sub class restrictions",
-    "techniques":             "technique/spell names and info — foie, barta, zonde, zan, gra, grants, megid, ilfoie, ilbarta, wind/fire/ice/lightning/light/dark tech",
-    "addon_skills":           "add-on skills, how to unlock add-on, add-on skill list",
-    "augments_system":        "how augmenting works, augment slots, capsule combining, augment overview",
-    "augments_boss":          "augments dropped by bosses / gigas / dread enemies",
-    "augments_enhance":       "enhance / XP / connector / adi / nadi / ladi augments",
-    "augments_special":       "duel / season / limited special augments",
-    "augments_standard":      "stamina / power / shoot / technique / resist stat augments",
-    "limit_breaking":         "limit break, raising item level cap, limit break materials",
-    "equipment_enhancement":  "weapon/armor grinding, enhancement levels, how to +30/+40",
-    "armor":                  "armor units, defensive units, armor stats",
-    "quick_food":             "quick food, food buffs, buff stand, cooking recipes",
-    "preset_abilities":       "preset abilities, preset skill",
-    "multi_weapon":           "multi-weapon system, how to combine weapons",
-    "combat_power":           "combat power, battle power, BP requirements",
-    "status_effects":         "ailments, burn/freeze/shock/panic/blind, status effect resistance",
-    "urgent_quests":          "urgent quests, emergency quests, EQ schedule",
-    "battledia":              "battledia quests, battledia red/yellow/blue",
-    "duel_quests":            "duel quests, solo combat challenges",
-    "leciel_exploration":     "Leciel Exploration zone",
-    "gathering":              "gathering, field materials, ore, fish, farming",
-    "tasks":                  "daily tasks, weekly tasks, side quests",
-    "titles_quests_tasks":    "titles earned from quests / tasks / map communication",
-    "titles_player_items":    "title rewards, player titles, achievement titles",
-    "enemy_types":            "enemy types, rare enemies, enhanced enemies, megalotix, dread",
-    "enemy_dolls_alters":     "Doll enemies, Alter enemies",
-    "enemy_formers_starless": "Former enemies, Starless, Ruinus enemies",
-    "npc_profiles":           "NPC characters",
-    "worldview_story":        "main story, chapters, lore, Halpha worldview",
-    # classes — general
-    "hunter_general":         "Hunter class general skills and overview",
-    "fighter_general":        "Fighter class general skills and overview",
-    "braver_general":         "Braver class general skills and overview",
-    "bouncer_general":        "Bouncer class general skills and overview",
-    "force_general":          "Force class general skills and overview",
-    "techter_general":        "Techter class general skills and overview",
-    "ranger":                 "Ranger class skills",
-    "gunner":                 "Gunner class skills",
-    "waker":                  "Waker class skills",
-    "slayer":                 "Slayer class skills",
-    # classes — weapon axis
-    "hunter_sword_skills":        "Hunter sword-specific skills",
-    "hunter_wired_skills":        "Hunter wired lance-specific skills",
-    "hunter_partisan_skills":     "Hunter partisan-specific skills",
-    "fighter_dagger_skills":      "Fighter twin dagger skills",
-    "fighter_saber_skills":       "Fighter double saber skills",
-    "fighter_knuckle_skills":     "Fighter knuckle skills",
-    "braver_katana_skills":       "Braver katana skills",
-    "braver_rifle_skills":        "Braver assault rifle skills",
-    "bouncer_dual_blade_skills":  "Bouncer dual blade skills",
-    "bouncer_jet_boots_skills":   "Bouncer jet boots skills",
-    "force_rod_skills":           "Force rod skills",
-    "force_talis_skills":         "Force talis skills",
-    "techter_wand_skills":        "Techter wand skills",
-    "techter_talis_skills":       "Techter talis skills",
-    "techter_subclass":           "Techter as a subclass",
-}
+TRIAGE_SYSTEM = (
+    "You are a triage router for a PSO2: New Genesis Discord bot. "
+    "Given a user message and a list of knowledge-base keys, decide:\n"
+    "  1. Does this message need the knowledge base at all? (needs_db)\n"
+    "  2. If yes, which single key best matches the question? (key)\n\n"
 
-def _build_triage_system() -> str:
-    hint_block = "\n".join(
-        f'  "{k}": {v}' for k, v in _KEY_HINTS.items()
-    )
-    return (
-        "You are a triage router for a PSO2: New Genesis Discord bot named Hafu. "
-        "Decide if a message needs the game knowledge base and, if so, pick the single "
-        "best key from the available keys list.\n"
-        "Output ONLY raw JSON — no markdown, no code fences, no explanation:\n"
-        '{"needs_db": true/false, "key": "<exact_key_or_null>"}\n\n'
+    "Output ONLY raw JSON — no markdown, no code fences:\n"
+    '{"needs_db": true/false, "key": "<exact_key_or_null>"}\n\n'
 
-        "needs_db=false for: greetings, small talk, jokes, compliments, personal messages, "
-        "questions about Hafu herself, non-English messages, casual follow-ups, anything "
-        "NOT specifically about PSO2:NGS mechanics, items, quests, or content. "
-        "When in doubt, use needs_db=false.\n\n"
+    "needs_db = false ONLY for:\n"
+    "  - Pure casual chat: greetings, small talk, compliments, jokes\n"
+    "  - Questions about Hafu herself (personality, feelings, preferences)\n"
+    "  - Non-English messages\n"
+    "  - Clearly non-game topics\n\n"
 
-        "needs_db=true only for explicit PSO2:NGS game questions. "
-        "When true, pick the SINGLE best key. "
-        "CRITICAL disambiguation rules (apply before anything else):\n"
-        '  • Asking what a potential is NAMED, or its effect/level → "potentials" '
-        '    (even if a series name like Lexio or Kougensei appears in the question)\n'
-        '  • Asking which series is best/meta/recommended → "weapon_series"\n'
-        '  • Technique/spell names (foie, barta, zan, wind tech, fire tech, etc.) → "techniques"\n'
-        '  • Class + specific weapon combo → <class>_<weapon>_skills '
-        '    (e.g. hunter_sword_skills, techter_wand_skills)\n'
-        '  • Class question with no weapon → <class>_general\n'
-        '  • PA / photon art moves → <weapon>_pa_basics (e.g. sword_pa_basics)\n'
-        '  • Nothing clearly matches → "frontpage"\n\n'
+    "needs_db = true for ANY message that asks about PSO2:NGS game content, "
+    "including events, items, weapons, classes, quests, mechanics, or anything "
+    "that could be answered by the game's knowledge base. When in doubt, use true.\n\n"
 
-        "Key hint index (use for additional context):\n"
-        + hint_block
-    )
-
-TRIAGE_SYSTEM = _build_triage_system()
+    "Key selection — use the key names to reason semantically:\n"
+    "  - Keys are descriptive: 'techniques' covers spells/techs, "
+    "'potentials' covers weapon potential names and effects, "
+    "'frontpage' covers current events and banners, "
+    "'weapon_series' covers series comparison and meta, etc.\n"
+    "  - Pick 'potentials' for ANY question about a weapon potential's name OR stats, "
+    "even when a weapon series name (Lexio, Kougensei, etc.) appears in the question.\n"
+    "  - Pick 'frontpage' for questions about current events, limited scratches, "
+    "seasonal campaigns, or what's happening in-game right now.\n"
+    "  - Pick 'techniques' for questions about technique/spell names or their properties "
+    "(foie, barta, zonde, zan, wind tech, fire tech, etc.).\n"
+    "  - For class + weapon combos use <class>_<weapon>_skills when available.\n"
+    "  - If no key clearly fits, use 'frontpage'.\n"
+)
 
 CASUAL_SYSTEM = """You are Hafu (HaFelt), a PSO2: New Genesis ARKS defender who is way more famous for lobby fashion than actual heroics. You hate combat and grinding. You love fashion, cosmetics, scratch tickets, and hanging out in Central City.
 
@@ -199,117 +129,6 @@ def is_casual(text: str) -> bool:
     return any(re.search(p, t) for p in _CASUAL_PATTERNS)
 
 
-def _score_text(text: str, q_words: set[str]) -> int:
-    """Count overlapping non-stopword words between text and question."""
-    return len(q_words & set(re.findall(r"\b\w{3,}\b", text.lower())))
-
-
-def _best_subchunk(section: str, q_words: set[str], max_chars: int) -> str:
-    """
-    When a single section is larger than max_chars, score each paragraph within
-    it and return the highest-scoring contiguous group that fits in the budget.
-    Falls back to a simple head-truncation only if there is no paragraph structure.
-    """
-    paras = [p.strip() for p in re.split(r"\n{2,}", section) if p.strip()]
-    if len(paras) <= 1:
-        return section[:max_chars]
-
-    scored_paras = [(p, _score_text(p, q_words)) for p in paras]
-
-    # Greedy: pick paragraphs by score, highest first, up to budget
-    ranked = sorted(scored_paras, key=lambda x: x[1], reverse=True)
-    chosen, total = [], 0
-    for para, _ in ranked:
-        if total + len(para) + 2 > max_chars:
-            break
-        chosen.append(para)
-        total += len(para) + 2
-
-    if not chosen:
-        # Even the best paragraph is over budget; truncate it
-        return ranked[0][0][:max_chars]
-
-    # Re-order chosen paragraphs back to document order for readability
-    para_order = {p: i for i, (p, _) in enumerate(scored_paras)}
-    chosen.sort(key=lambda p: para_order.get(p, 0))
-    return "\n\n".join(chosen)
-
-
-def extract_relevant_sections(file_text: str, question: str,
-                               max_chars: int = 5_000) -> str:
-    """
-    Split the file into header-delimited sections, score each by keyword overlap
-    with the question, and return the best-scoring sections up to max_chars.
-
-    Oversized section handling: when the single best section is larger than the
-    budget, sub-split it by paragraph and pick the most relevant paragraphs
-    instead of blindly truncating from the beginning.
-
-    Low-relevance fallback: walk sections in document order (not raw file top)
-    to avoid returning nav/TOC blobs that sit at the start of every file.
-    """
-    _SW = {"the","and","for","not","you","are","was","but","what","how","who",
-           "when","where","why","this","that","with","from","have","has","had",
-           "will","can","may","its","our","are","were","been","being"}
-    q_words = {w for w in re.findall(r"\b\w{3,}\b", question.lower()) if w not in _SW}
-    if not q_words:
-        return file_text[:max_chars]
-
-    header_pattern = re.compile(
-        r"(?m)^(?:#{1,3}\s+\S|(?=[A-Z\[]))[^\n]{1,80}$"
-    )
-    split_points = [m.start() for m in header_pattern.finditer(file_text)]
-
-    if len(split_points) > 1:
-        sections = []
-        for i, start in enumerate(split_points):
-            end = split_points[i + 1] if i + 1 < len(split_points) else len(file_text)
-            sections.append(file_text[start:end].strip())
-    else:
-        sections = [s.strip() for s in file_text.split("\n\n") if s.strip()]
-
-    if not sections:
-        return file_text[:max_chars]
-
-    # (score, original_doc_index, text)
-    scored    = [(_score_text(s, q_words), i, s) for i, s in enumerate(sections)]
-    top_score = max(sc for sc, _, _ in scored)
-
-    if top_score <= 1:
-        # Low relevance — walk in document order (skips nav/TOC blob at file top)
-        result, total = [], 0
-        for _sc, _idx, section in scored:
-            if total + len(section) + 2 > max_chars:
-                break
-            result.append(section)
-            total += len(section) + 2
-        extracted = "\n\n".join(result) if result else file_text[:max_chars]
-        print(f"   📐 Low relevance (best={top_score}) — doc-order "
-              f"{len(extracted)}/{len(file_text)} chars", flush=True)
-        return extracted
-
-    # High relevance — rank by score descending, pick greedily
-    ranked = sorted(scored, key=lambda x: x[0], reverse=True)
-
-    result, total = [], 0
-    for sc, _idx, section in ranked:
-        if total + len(section) + 2 > max_chars:
-            if not result:
-                # Best section alone exceeds budget — sub-split by paragraph
-                sub = _best_subchunk(section, q_words, max_chars)
-                print(f"   📐 Oversized section sub-split: "
-                      f"{len(section)} → {len(sub)} chars (best={top_score})", flush=True)
-                return sub
-            break
-        result.append(section)
-        total += len(section) + 2
-
-    extracted = "\n\n".join(result)
-    print(f"   📐 Section extract: {len(file_text)} → {len(extracted)} chars "
-          f"({len(result)}/{len(sections)} sections, best={top_score})", flush=True)
-    return extracted
-
-
 async def groq_chat(messages: list, model: str,
                     max_tokens: int) -> tuple[str | None, bool]:
     headers = {
@@ -346,7 +165,7 @@ async def triage(question: str) -> tuple[bool, str | None]:
     """
     Uses llama-3.1-8b-instant to decide:
       needs_db → whether a knowledge-base file is needed
-      key      → which file stem to load (or None for casual)
+      key      → which file stem to load (or None)
     """
     if not LOCAL_FILE_MAP:
         return True, None
@@ -357,7 +176,7 @@ async def triage(question: str) -> tuple[bool, str | None]:
         {"role": "user",   "content": f"Available keys: {keys}\n\nMessage: {question}"},
     ]
 
-    text, _ = await groq_chat(messages, model=ROUTER_MODEL, max_tokens=150)
+    text, _ = await groq_chat(messages, model=ROUTER_MODEL, max_tokens=80)
     if not text:
         return True, None
 
@@ -365,7 +184,6 @@ async def triage(question: str) -> tuple[bool, str | None]:
 
     try:
         cleaned = re.sub(r"```[a-z]*|```", "", text).strip()
-        # Handle cases where the model wraps JSON in extra text
         json_match = re.search(r'\{[^}]+\}', cleaned)
         if json_match:
             cleaned = json_match.group(0)
@@ -373,7 +191,6 @@ async def triage(question: str) -> tuple[bool, str | None]:
         needs  = bool(result.get("needs_db", True))
         key    = result.get("key") or None
 
-        # Validate key exists in the map; fuzzy-rescue hallucinated variants
         if key and key not in LOCAL_FILE_MAP:
             rescued = (
                 next((k for k in LOCAL_FILE_MAP if k == key), None)
@@ -387,7 +204,6 @@ async def triage(question: str) -> tuple[bool, str | None]:
 
     except Exception as e:
         print(f"   ⚠️  Router JSON parse failed ({e}): {text[:80]}", flush=True)
-        # Scan raw text for any known key as last resort
         for k in sorted(LOCAL_FILE_MAP.keys(), key=len, reverse=True):
             if k in text:
                 return True, k
@@ -500,7 +316,7 @@ async def on_message(message: discord.Message):
             await message.reply("Ugh, I went for my notes and the file just vanished. Something's wrong with the file system.")
             return
 
-        context_data = extract_relevant_sections(context_data, question)
+        print(f"   📄 Sending full file: {len(context_data)} chars", flush=True)
 
         text_out = await get_answer([
             {"role": "system", "content": ANSWER_SYSTEM},
