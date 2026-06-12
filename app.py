@@ -7,7 +7,6 @@ from google.genai.errors import APIError
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import datetime
-import asyncio
 
 # ==================== KEEP-ALIVE SERVER CONFIGURATION ====================
 class KeepAliveHandler(BaseHTTPRequestHandler):
@@ -34,20 +33,19 @@ intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
 
 # Fetch your 4 different project keys from Render environment variables
-# Format on Render: Key1,Key2,Key3,Key4 (no spaces)
+# Format on Render dashboard config: Key1,Key2,Key3,Key4 (Strictly no spaces!)
 RAW_KEYS = os.environ.get("GEMINI_KEY_RING", "")
 GEMINI_KEYS = [k.strip() for k in RAW_KEYS.split(",") if k.strip()]
 
-# Fail-safe fallback to a single key if the ring isn't set up yet
+# Fail-safe backup if you only supplied a traditional singular API key variable
 if not GEMINI_KEYS and os.environ.get("GEMINI_API_KEY"):
     GEMINI_KEYS = [os.environ.get("GEMINI_API_KEY")]
 
-# Dictionaries to track initialized clients and their respective cloud caches
 CLIENT_RING = {}
 CACHE_RING = {}
 SELECTED_MODEL = 'gemini-3.5-flash'
 
-# Index tracking the current active key in the rotation loop
+# Global tracker pointing to which key is currently acting as primary
 current_key_index = 0
 
 
@@ -66,8 +64,8 @@ Rules:
 # ==================== INITIALIZE CACHES ON ALL 4 PROJECTS ====================
 def setup_multi_project_caches():
     """
-    Initializes standalone clients and uploads the 1.5MB database as a 
-    Context Cache across all available project keys simultaneously.
+    Reads the 1.5MB file and uploads it securely to Google's context cache 
+    across all available project keys. This avoids the 250K TPM limit completely.
     """
     if not os.path.exists("knowledge_database.txt"):
         print("⚠️ Warning: knowledge_database.txt not found. Running without cache configuration.")
@@ -88,7 +86,7 @@ def setup_multi_project_caches():
             CLIENT_RING[i] = client
 
             try:
-                print(f"📦 Uploading cache to Project [{i+1}]...", flush=True)
+                print(f"📦 Uploading cache asset to Project [{i+1}]...", flush=True)
                 cache = client.caches.create(
                     model=SELECTED_MODEL,
                     config=types.CreateCachedContentConfig(
@@ -98,9 +96,9 @@ def setup_multi_project_caches():
                     )
                 )
                 CACHE_RING[i] = cache.name
-                print(f"✅ Cache active for Project [{i+1}] -> Reference: {cache.name}", flush=True)
+                print(f"✅ Cache active for Project [{i+1}] -> Reference ID: {cache.name}", flush=True)
             except Exception as ce:
-                print(f"❌ Failed to cache on Project [{i+1}]: {ce}. This key will run raw text.")
+                print(f"❌ Failed to cache on Project [{i+1}]: {ce}. This key will fallback to truncated text.")
                 CACHE_RING[i] = None
 
     except Exception as e:
@@ -123,14 +121,14 @@ async def ask(ctx, *, question: str):
         await ctx.reply("Ah... *yawn* My brain keys aren't configured properly. Tell the admin~")
         return
 
-    # Attempt to cycle through keys up to the total number of keys available
+    # Loop allows the request to attempt hitting every key in the pool before giving up
     for attempt in range(len(GEMINI_KEYS)):
         idx = current_key_index
         client = CLIENT_RING.get(idx)
         cache_name = CACHE_RING.get(idx)
         
         try:
-            # If the specific project successfully cached the file, run a near-zero token query
+            # Optimal Scenario: Use the pre-cached server file (Cost: ~100 tokens total)
             if cache_name:
                 response = client.models.generate_content(
                     model=SELECTED_MODEL,
@@ -142,10 +140,10 @@ async def ask(ctx, *, question: str):
                         cached_content=cache_name
                     )
                 )
-            # Backup behavior if this specific key failed cache initialization
+            # Fallback Scenario: Safe-truncated input strings if cloud cache failed to compile
             else:
                 with open("knowledge_database.txt", "r", encoding="utf-8") as f:
-                    db_content = f.read()[:40000] # Safe truncate so it doesn't break baseline TPM
+                    db_content = f.read()[:40000]
                 user_prompt = f"Database content:\n{db_content}\n\nQuestion: {question}"
                 response = client.models.generate_content(
                     model=SELECTED_MODEL,
@@ -157,27 +155,27 @@ async def ask(ctx, *, question: str):
                     )
                 )
 
-            # Successful response! Send to Discord and exit the function cleanly
+            # Reply to user on discord and exit loop cleanly
             await ctx.reply(response.text.strip())
             return
 
         except APIError as api_err:
-            # Catch Rate Limit / Quota Exceeded errors specifically (HTTP Status 429)
+            # If the current project key has hit its 5 RPM free allocation cap
             if api_err.code == 429:
-                print(f"⚠️ Project Key [{idx+1}] rate limited. Automatically rotating to next key...")
-                # Advance pointer to the next key in line
+                print(f"⚠️ Project Key Ring index [{idx+1}] hit rate limits. Shifting to next key pointer...")
+                # Instantly move index pointer forward to next project bucket
                 current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
-                continue # Skip to next iteration loop instantly
+                continue # Immediately triggers next iteration with the updated key
             else:
-                print(f"❌ API Error on Key [{idx+1}]: {api_err}")
+                print(f"❌ API Error on Ring Key [{idx+1}]: {api_err}")
                 await ctx.reply("*yawn* My head hurts... Something went wrong inside the database query.")
                 return
         except Exception as e:
-            print(f"❌ Unexpected Error on Key [{idx+1}]: {e}")
+            print(f"❌ Unexpected System Crash on Key [{idx+1}]: {e}")
             await ctx.reply("Sorry~ Hafu got distracted by a butterfly. Try asking again!")
             return
 
-    # If the loop finishes completely, it means ALL 4 keys threw a 429 error in a row
+    # Triggers only if all 4 projects threw a concurrent 429 back-to-back
     await ctx.reply("Ugh... *yawns loudly* The whole lobby is screaming at me at once! Give me a minute to rest, okay?~")
 
 
