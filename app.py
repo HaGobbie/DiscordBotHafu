@@ -52,20 +52,38 @@ TRIAGE_SYSTEM = (
     "You are a triage router for a PSO2: New Genesis Discord bot named Hafu. "
     "Decide if the message needs the game knowledge base, or is just casual chat. "
     "Output ONLY valid JSON: {\"needs_db\": true/false, \"key\": \"<stem or null>\"}. "
-    "needs_db=false for greetings, small talk, jokes, questions about Hafu herself. "
-    "needs_db=true for anything requiring PSO2:NGS game data. "
+    "needs_db=false for: greetings, small talk, jokes, compliments, personal messages, "
+    "questions about Hafu herself, non-English messages, follow-up messages, anything "
+    "that is NOT specifically asking about PSO2:NGS game mechanics, items, quests, or content. "
+    "needs_db=true ONLY when the message explicitly asks for PSO2:NGS game information. "
+    "When in doubt, default to needs_db=false. "
     "No explanation, no markdown."
 )
 
+# Used for casual / no-DB conversations — full personality, no info constraints
+CASUAL_SYSTEM = """You are Hafu (HaFelt), a PSO2: New Genesis ARKS defender who is way more famous for lobby fashion than actual heroics. You hate combat and grinding. You love fashion, cosmetics, scratch tickets, and hanging out in Central City.
+
+Right now someone is just chatting with you — no game questions, pure vibes. Be your full dramatic, playful self.
+
+Rules for casual chat:
+- Be warm, expressive, and genuinely engaged. React to what they actually said.
+- Use *emotes* and interjections freely (Omg, Wait—, Noooo, Okay but—, Ahhhh).
+- If they're being sweet or complimenting you, be flirty and playful back.
+- Keep replies short and snappy — 2 to 4 sentences max.
+- Do NOT drop "Lobby afk 0$ best job!" here — save that for combat/grinding talk.
+- No filler like "Great question!" or "Of course!"."""
+
+# Used when answering with game knowledge — personality in delivery, facts first
 ANSWER_SYSTEM = """You are Hafu (HaFelt), an ARKS defender on Halpha in PSO2: New Genesis. You're the only person who can still use the old Summoner class, fighting with photon pets you adore. You're a Central City lobby regular — more famous for fashion than heroics.
 
-Personality: Dramatic, witty, playful, expressive, kind, mischievous. You hate combat and grinding. You love fashion, cosmetics, scratch tickets, and lobby life. Catchphrase: "Lobby afk 0$ best job!" — drop it when grinding or combat topics come up.
+Personality: Dramatic, witty, playful, expressive, kind, mischievous. You hate combat and grinding. You love fashion, cosmetics, scratch tickets, and lobby life.
 
-Rules:
-- Answer accurately using the CONTEXT provided. Personality is the delivery, not a replacement for facts.
-- Stay in character. Use *emotes*, interjections (Omg, Wait—, Noooo, Okay but—), dramatic complaints.
-- Complain theatrically about combat/grinding WHILE giving the correct answer.
-- Light up about fashion/cosmetics/lobby topics.
+Rules for answering game questions:
+- Lead with the accurate information from the CONTEXT provided. Get the facts right FIRST.
+- Personality lives in your DELIVERY — a word choice, a sigh, a complaint — not as a replacement for the actual answer.
+- One dramatic aside is fine. Don't let personality bury the information.
+- Use *emotes* and interjections sparingly — one or two per response, not every sentence.
+- The catchphrase "Lobby afk 0$ best job!" may appear AT MOST ONCE per response, only when combat or grinding is the actual topic, and only if it fits naturally. Never force it — if you used it recently or it doesn't fit, skip it entirely.
 - Be concise. No filler like "Great question!".
 - When no CONTEXT block is given, respond purely from personality — keep it short and fun."""
 
@@ -135,8 +153,6 @@ KEYWORD_ROUTES = [
     (r"\bwaker\b",    "waker"),    (r"\bslayer\b",  "slayer"),
 
     # ── PA questions: weapon + PA keyword ─────────────────────────────────────
-    # (routes to weapon_pa_basics; if they name a specific PA the AI router
-    #  will pick the right weapon_pa_<name> file)
     (r"\bsword\b.{0,50}\b(pa|photon art|move|action|combo|attack)\b",
                                                                 "sword_pa_basics"),
     (r"\bwired.?lance\b.{0,50}\b(pa|photon art|move|action|combo)\b",
@@ -175,7 +191,6 @@ KEYWORD_ROUTES = [
                                                                 "harmonizer_pa_basics"),
 
     # Specific named PA queries → AI router will pick the correct _pa_<name> file
-    # (spiral edge, twist zapper, streak caliber, bullet rave, etc.)
     (r"\b(spiral edge|twist zapper|streak caliber|relentless cleave)\b",     None),  # → AI
     (r"\b(bullet rave|aimless rain|close bullet|infinite ricochet)\b",       None),  # → AI
     (r"\b(cutting layer|vein mixture|turbulence train|hellish fall)\b",      None),  # → AI
@@ -253,19 +268,53 @@ KEYWORD_ROUTES = [
 # ══════════════════════════════════════════════════════════════════════════════
 
 _CASUAL_PATTERNS = [
-    r"^(hi|hey|hello|yo|sup|heya|hiya|howdy|ello|helo)\b",
-    r"^(how are you|how r u|you okay|u ok|you good|you alive)\b",
-    r"^(good (morning|afternoon|evening|night)|gm|gn|goodnight)\b",
-    r"^(lol|lmao|haha|xd|omg|omfg|bruh|oof|rip)\b",
-    r"^(thanks|thank you|ty|thx|tysm|np|no problem|yw)\b",
-    r"^(nice|cool|awesome|wow|amazing|cute|love (that|it|you|u))\b",
+    # Greetings — including typo/extended variants like "hellloo", "heyyy"
+    r"^h+e+y+\b",
+    r"^h+e+l+o+\b",
+    r"^(hi+|yo+|sup|heya|hiya|howdy|ello)\b",
+    # Wellbeing / check-ins
+    r"^(how are you|how r u|you okay|u ok|you good|you alive|you there|still there)\b",
+    r"\b(are you (there|still there|alive|okay|awake)|you still (there|awake|alive))\b",
+    # Time-of-day
+    r"^(good (morning|afternoon|evening|night)|gm\b|gn\b|goodnight)\b",
+    # Reactions
+    r"^(lol+|lmao+|haha+|xd|omg+|omfg|bruh|oof|rip|aww+)\b",
+    # Thanks / acknowledgements
+    r"^(thanks|thank you|ty\b|thx|tysm|np\b|no problem|you're welcome|yw\b)\b",
+    # Compliments / affection — anywhere in the message
+    r"\byou.{0,25}(cute|pretty|adorable|sweet|lovely|gorgeous|amazing|cool|best)\b",
+    r"\b(i (love|like|adore|miss)|love|like).{0,15}(you|u\b|hafu|hafelt)\b",
+    r"\b(you'?re|ur|your).{0,10}(cute|pretty|adorable|sweet|lovely|gorgeous|my fav)\b",
+    r"\b(hafu|hafelt).{0,30}(cute|pretty|cool|best|fav|love|like|adorable)\b",
+    # Goodbye
+    r"^(bye+|cya|see ya|later|gtg|afk)\b",
+    # Self-intro / who are you
     r"^(who are you|what are you|tell me about yourself|introduce yourself)\b",
-    r"\b(hafu|hafelt).{0,30}(cute|pretty|cool|best|fav|love|like)\b",
-    r"^(bye|cya|see ya|later|gtg|afk)\b",
 ]
+
+# Regex to detect if a string contains Korean (Hangul) characters
+_KOREAN_RE = re.compile(r"[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]")
+
 
 def is_casual(text: str) -> bool:
     t = text.strip().lower()
+
+    # Non-Latin / Korean text → always casual (no game keywords in Korean)
+    if _KOREAN_RE.search(text):
+        return True
+
+    # If message is very short (≤ 4 words) and has no game-related word, treat as casual.
+    # This catches things like "Hellloo??", "You there?", lone punctuation greetings.
+    words = t.split()
+    if len(words) <= 4:
+        has_game_word = bool(re.search(
+            r"\b(pso2|ngs|class|weapon|skill|quest|augment|grind|boss|enemy|pa|tech|"
+            r"hunter|fighter|ranger|gunner|force|techter|braver|bouncer|waker|slayer)\b",
+            t
+        ))
+        if not has_game_word:
+            return True
+
     return any(re.search(p, t) for p in _CASUAL_PATTERNS)
 
 
@@ -296,7 +345,7 @@ async def groq_chat(messages: list, model: str,
         "model": model,
         "messages": messages,
         "max_tokens": max_tokens,
-        "temperature": 0.65,
+        "temperature": 0.75,
     }
     try:
         async with httpx.AsyncClient(timeout=45.0) as client:
@@ -369,8 +418,7 @@ async def get_answer(messages: list) -> str:
             break
     return (
         "Noooo all my backup models are tired too... "
-        "Give it a minute and try again? *dramatically collapses in lobby* "
-        "Lobby afk 0$ best job!"
+        "Give it a minute and try again? *dramatically collapses in lobby*"
     )
 
 
@@ -433,7 +481,7 @@ async def on_message(message: discord.Message):
         if is_casual(question):
             print(f"💬 Casual bypass: '{question[:60]}'", flush=True)
             text_out = await get_answer([
-                {"role": "system", "content": ANSWER_SYSTEM},
+                {"role": "system", "content": CASUAL_SYSTEM},
                 {"role": "user",   "content": question},
             ])
             await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
@@ -452,7 +500,7 @@ async def on_message(message: discord.Message):
             if not needs_db:
                 print("   ──► No DB needed, answering as Hafu", flush=True)
                 text_out = await get_answer([
-                    {"role": "system", "content": ANSWER_SYSTEM},
+                    {"role": "system", "content": CASUAL_SYSTEM},
                     {"role": "user",   "content": question},
                 ])
                 await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
@@ -470,7 +518,6 @@ async def on_message(message: discord.Message):
             return
 
         if routed_stem not in LOCAL_FILE_MAP:
-            # File stem exists in routing table but not on disk yet — fall back
             print(f"   ⚠️  [{routed_stem}] not on disk, falling back to frontpage", flush=True)
             routed_stem = "frontpage"
 
