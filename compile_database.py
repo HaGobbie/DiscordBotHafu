@@ -18,6 +18,10 @@ Key improvements over previous version
    avoid GoogleTranslator 5 000-char limit; retries with back-off.
 6. Per-page token budget  ─  each written section is capped at MAX_SECTION_CHARS
    so no single .txt file bloats the context window.
+7. Weapon series page added  ─  full list of all series with rarity, stats,
+   potentials, equip level; routes to weapons/weapon_series.txt
+8. Enhanced potentials page  ─  now keeps the full 能力詳細 section instead of
+   only 概要, giving the bot actual effect descriptions for every potential.
 """
 
 import urllib.request
@@ -38,7 +42,7 @@ from deep_translator import GoogleTranslator
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "HafuBotNGSDatabase/8.0"
+        "HafuBotNGSDatabase/9.0"
     )
 }
 
@@ -144,6 +148,9 @@ ASSET_ROUTING_MAP = {
     "ウォンド/アクション・PA":        ("Wand PAs & Actions",           "weapons/wand_pa.txt"),
     "ジェットブーツ/アクション・PA":  ("Jet Boots PAs & Actions",      "weapons/jet_boots_pa.txt"),
     "タクト/アクション・PA":          ("Harmonizer PAs & Actions",     "weapons/harmonizer_pa.txt"),
+
+    # ── Weapons: Series list (all series with stats, potentials, equip Lv) ────
+    "武器・防具/シリーズ":   ("Weapon & Armor Series List",     "weapons/weapon_series.txt"),
 
     # ── Mechanics ─────────────────────────────────────────────────────────────
     "防具":                ("Armor & Defensive Gear",         "mechanics/armor.txt"),
@@ -274,7 +281,8 @@ def get_ctable(soup: BeautifulSoup):
     return contents
 
 
-def extract_sections(ctable, keep_only_overview: bool = False) -> list[tuple[str, str]]:
+def extract_sections(ctable, keep_only_overview: bool = False,
+                     keep_sections: set | None = None) -> list[tuple[str, str]]:
     """
     Walk the ctable and return a list of (section_title, cleaned_text) pairs
     after applying junk filters.
@@ -282,6 +290,11 @@ def extract_sections(ctable, keep_only_overview: bool = False) -> list[tuple[str
     keep_only_overview=True  ─  used for weapon overview pages; keeps only the
                                  概要 section and drops everything else (including
                                  the giant 一覧 gear table).
+
+    keep_sections=set(...)   ─  whitelist of h2/h3 titles to retain (in addition
+                                 to the intro/Overview block). Used for potentials
+                                 to keep 概要, 潜在能力一覧, 能力詳細, and cost tables
+                                 while still blocking コメント and patch notes.
     """
     # Remove known junk elements in-place before iterating
     for el in ctable.find_all(id=re.compile(r"comment|reply|pcomment|vote", re.I)):
@@ -334,14 +347,51 @@ def extract_sections(ctable, keep_only_overview: bool = False) -> list[tuple[str
         overview_titles = {"概要", "Overview", "General Overview", ""}
         return [(t, c) for t, c in sections if t in overview_titles]
 
+    if keep_sections is not None:
+        # Keep intro block (title="Overview" or "") plus explicitly listed sections
+        keep_sections_lower = {s.lower() for s in keep_sections}
+        return [
+            (t, c) for t, c in sections
+            if t in ("Overview", "", "概要")
+            or t.lower() in keep_sections_lower
+            or any(k.lower() in t.lower() for k in keep_sections)
+        ]
+
     return sections
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# POTENTIALS SECTION WHITELIST
+# We want: 概要, the full ability list (潜在能力一覧), the detail block (能力詳細),
+# and the material cost tables (潜在能力解放に必要な素材とN-メセタ, 素材, 補助アイテム)
+# We do NOT want: コメント, 変更履歴
+# ─────────────────────────────────────────────────────────────────────────────
+POTENTIAL_KEEP_SECTIONS = {
+    "概要",
+    "潜在能力一覧",
+    "能力詳細",
+    "潜在能力解放に必要な素材とN-メセタ",
+    "素材",
+    "補助アイテム",
+    "解放費用割引期間",
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# WEAPON SERIES: keep the full page (概要 + 実装履歴 + シリーズ武器一覧)
+# but drop コメント
+# ─────────────────────────────────────────────────────────────────────────────
+SERIES_KEEP_SECTIONS = {
+    "概要",
+    "実装履歴",
+    "シリーズ武器一覧",
+}
 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # MAIN COMPILATION LOOP
 # ─────────────────────────────────────────────────────────────────────────────
 
-print("🚀 PSO2:NGS Database Compiler v8  ─  starting fresh build...", flush=True)
+print("🚀 PSO2:NGS Database Compiler v9  ─  starting fresh build...", flush=True)
 
 # Wipe old output for a clean run
 if os.path.exists(BASE_DIR):
@@ -363,13 +413,21 @@ for jp_page, (english_title, rel_path) in ASSET_ROUTING_MAP.items():
         soup  = BeautifulSoup(html, "html.parser")
         ctable = get_ctable(soup)
 
-        # Weapon overview pages: strip gear tables, keep 概要 only
+        # Determine extraction mode
         is_weapon_overview = (
             "/アクション・PA" not in jp_page
             and rel_path.startswith("weapons/")
             and rel_path.endswith("_overview.txt")
         )
-        sections = extract_sections(ctable, keep_only_overview=is_weapon_overview)
+        is_potentials = (jp_page == "潜在能力")
+        is_series     = (jp_page == "武器・防具/シリーズ")
+
+        if is_potentials:
+            sections = extract_sections(ctable, keep_sections=POTENTIAL_KEEP_SECTIONS)
+        elif is_series:
+            sections = extract_sections(ctable, keep_sections=SERIES_KEEP_SECTIONS)
+        else:
+            sections = extract_sections(ctable, keep_only_overview=is_weapon_overview)
 
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(f"=== [{english_title}] ===\n")
