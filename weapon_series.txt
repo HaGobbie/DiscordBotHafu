@@ -1,0 +1,165 @@
+=== [Weapon & Armor Series List] ===
+=== SOURCE: pso2ngs.swiki.jp/index.php?武器・防具/シリーズ ===
+
+--- [Overview] ---
+Weapons with the same series name (e.g., "Prim Sword" and "Prim Rifle") belong to the same series. Multi-Weapon creation is only possible between weapons of the same series. Exceptions that can be combined across series: "Neos Astrion" + "Neos Yustiron", "Kaizeram" + "Kaizeram Test Type 1", "Rouwzeram" + "Rouwzeram Test Type 1".
+
+--- [Complete Series List — Rarity, Attack, Potential, Weapon Types] ---
+Format: [Rarity] Series Name — Base ATK / +100 ATK — Equip Lv — Potential — Weapon Coverage
+
+[LG4] Lexio — 1300 / 1573 — Lv100 — Tsuiki no Kata (追輝の型) — All types
+[★15] Kougensei — 1290 / 1563 — Lv105 — Yugo no Kata (幽豪の型) — All types
+[★14] Arabaradio — 1200 / 1478 — Lv95 — Hiju no Kata · Kyokushiki (秘樹の型・極式) — All types
+[★14] Aruserio — 1200 / 1478 — Lv95 — Kiju no Kata (気隆の型) — All types
+[★14] Rifuradio — 1195 / 1473 — Lv95 — Hiju no Kata · Nishiki (秘樹の型・弐式) — All types
+[★14] Supuradio — 1190 / 1468 — Lv95 — Hiju no Kata (秘樹の型) — All types
+[★14] Epis Ilinion IV — 1185 / 1463 — Lv65 — Kenki no Kata · Yonshiki (堅気の型・肆式) — All types
+[LG3] Reitii II — 1180 / 1458 — Lv95 — Sakugeki no Kata · Kyokushiki (削撃の型・極式) — All types
+[LG3] Rejesu II — 1180 / 1458 — Lv95 — Meiiki no Kata · Kyokushiki (盟域の型・極式) — All types
+[LG3] Towaru II — 1180 / 1458 — Lv95 — Seiko no Kata · Kyokushiki (征功の型・極式) — All types
+[★13] Zenesu — 1060 / 1369 — Lv90 — Kombu no Kata · Kyokushiki (煌武の型・極式) — All types
+[LG2] Reitii — 1057 / 1366 — Lv90 — Sakugeki no Kata (削撃の型) — All types
+[★13] Ainderu — 1055 / 1364 — Lv90 — Houma no Kata · Kyokushiki (宝磨の型・極式) — All types
+[★13] Voruheru — 1050 / 1359 — Lv90 — Houma no Kata · Nishiki (宝磨の型・弐式) — All types
+[★13] Kuresu / Kuresu AT — 1050 / 1359 — Lv90 — Kombu no Kata (煌武の型) — All types
+[★13] Yuveru — 1045 / 1354 — Lv90 — Houma no Kata (宝磨の型) — All types
+[★13] Epis Ilinion III — 1040 / 1349 — Lv65 — Kenki no Kata · Sanshiki (堅気の型・参式) — All types
+[LG1] Rejesu — 955 / 1333 — Lv85 — Meiiki no Kata (盟域の型) — All types
+[★12] Akurosserio — 950 / 1328 — Lv80 — Souki no Kata · Kyokushiki (創器の型・極式) — All types
+[★12] Kurodimu — 945 / 1323 — Lv85 — Senpa no Kata (戦破の型) — All types
+[★12] Towaru / Towaru AT — 945 / 1323 — Lv80 — Seiko no Kata (征功の型) — All types
+[★12] Epis Ilinion II — 940 / 1318 — Lv65 — Kenki no Kata · Nishiki (堅気の型・弐式) — All types
+[★11] Toraiseriо — 855 / 1279 — Lv80 — Souki no Kata · Sanshiki (創器の型・参式) — All types
+[★11] Duoseriо — 845 / 1269 — Lv80 — Souki no Kata · Nishiki (創器の型・弐式) — All types
+[★11] Wingard — 824 / 1248 — Lv80 — Rибaku no Kata (理爆の型) — All types
+[★11] Excelio — 802 / 1226 — Lv80 — Souki no Kata (創器の型) — All types
+[★11] Eredim — 801 / 1225 — Lv80 — Senki no Kata (戦旗の型) — All types
+[★11] Epis Ilinion — 799 / 1223 — Lv65 — Kenki no Kata (堅気の型) — All types
+[★10] Corvo — 738 / 1220 — Lv75 — Rikken/Rishin/Risou no Kata — Striking/Ranged/Technique split
+[★10] Rouwzeram — 735 / 1217 — Lv75 — Toki no Shiki (渡気の式) — All types
+[★10] Fluugard — 731 / 1213 — Lv75 — Ryoho no Kata (領朋の型) — All types
+[★10] Rouwzeram Test Type 1 — 605 / 1087 — Lv75 — Toki no Shiki (渡気の式) — All types
+[★9] Rikustaru — 643 / 1219 — Lv50 — Kisен no Kata (季旋の型) — All types
+[★9] Fashimeru — 637 / 1213 — Lv71 — Hissen no Kata (必閃の型) — All types
+[★9] Tesua — 637 / 1213 — Lv71 — Senki/Myoubu/Juki no Kata — Striking/Ranged/Technique split
+[★9] Mereku — 635 / 1211 — Lv71 — Yuken·弐/Bakuryo·弐/Kaishin·弐/Saiki·弐 — each weapon type has own potential
+[★9] Aoni Dikerion — 630 / 1206 — Lv50 — Kisen no Kata (季遷の型) — All types
+[★9] Millenniumround — 625 / 1201 — Lv50 — Kisen no Kata (季遷の型) — All types
+[★9] Bariokuru — 620 / 1196 — Lv50 — Kisen no Kata (季遷の型) — All types
+[★9] Monorekusu — 620 / 1196 — Lv53 — Tangyо no Shiki (鍛業の式) — All types
+[★9] Radiakuru — 586 / 1162 — Lv65 — Kanyu no Kata (緩癒の型) — All types
+[★9] Rajantie — 586 / 1162 — Lv65 — Kanyu no Kata (緩癒の型) — All types
+[★8] Neos Astrion — 535 / 1222 — Lv70 — Ririuu no Kata (理流の型) — All types
+[★8] Buronaga — 535 / 1222 — Lv40 — Kikаi no Kata (季廻の型) — All types
+[★8] Arcaim — 530 / 1217 — Lv40 — Kiкai no Kata (季廻の型) — All types
+[★8] Gunblaze — 526 / 1213 — Lv65 — Musou no Kata (無創の型) — All types
+[★8] Revolucourt — 524 / 1211 — Lv67 — Kikаi no Kata (季廻の型) — All types
+[★8] Kukrofisu — 520 / 1207 — Lv62 — Guki Tometsu no Kata (偶機討滅の型) — All types
+[★8] Tranquill — 500 / 1187 — Lv62 — Ruiken no Kata (累堅の型) — All types
+[★8] Riviita — 466 / 1153 — Lv63 (has elemental) — Kanyu no Kata (緩癒の型) — All types
+[★8] Seigain — 448 / 1135 — Lv60 (has elemental) — Sokugeki no Kata (即撃の型) — All types
+[★8] Seigayou — 446 / 1133 — Lv60 (has elemental) — Sokugeki no Kata (即撃の型) — All types
+[★8] Neos Yustiron — 445 / 1132 — Lv70 (has elemental) — Rizyun no Kata (理巡の型) — All types
+[★8] Primu Libra — 436 / 1123 — Lv55 (has elemental) — Kanyu no Kata (緩癒の型) — All except some
+[★7] Ragedo — 490 / 1213 — Lv57 — Sekijo/Kanki/Tsuigeki no Kata — Striking/Ranged/Technique split
+[★7] Obzodeia — 488 / 1211 — Lv61 — Senretsu no Kata (閃烈の型) — All types
+[★7] Kaizeram — 485 / 1208 — Lv60 — Tangyо no Shiki (鍛業の式) — All types
+[★7] Kurisutia — 473 / 1096 — Lv55 — Shuki no Kata (収気の型) — All types
+[★7] Kaizeram Test Type 1 — 465 / 1188 — Lv53 — Tangyо no Shiki (鍛業の式) — All types
+[★7] Gorudo II — 452 / 1175 — Lv50 — Seisē no Kata (節制の型) — Striking only
+[★6] Evol Ova — 355 / 1041 — Lv53 — Shunhi no Kata (瞬避の型) — All except some
+[★6] Locus — 353 / 1039 — Lv52 — Tenki/Katsu/Keigeki no Kata — split by type
+[★6] Kordik — 351 / 1037 — Lv40 — Kenken no Kata (堅強の型) — All except some
+[★6] Zextor — 350 / 1036 — Lv45 — Jutsurin no Kata (蹂躙の型) — All types
+[★6] Evol Ikuris — 346 / 1032 — Lv40 — Sunhi no Kata (寸避の型) — All except some
+[★5] Sanquaim — 293 / 1055 — Lv36 — Myote no Kata (妙手の型) — All types (special unlock cost)
+[★5] Reriku — 284 / 1046 — Lv31 — Yuken/Bakuryo/Kaishin/Saiki no Kata — split by type
+[★5] Kukurozeato — 280 / 1042 — Lv27 — Meisai no Kata (迷塞の型) — All except some
+[★5] Guretiiga — 280 / 1042 — Lv27 — Toshi no Kata (闘志の型) — All except some
+[★5] Fibura — 277 / 1039 — Lv21 — Senseki no Kata (穿石の型) — Striking only
+[★5] Gorushika — 277 / 1039 — Lv21 — Kimeguri no Kata (気巡の型) — Ranged only
+[★5] Kuinteru — 277 / 1039 — Lv21 — Kenjou no Kata (堅城の型) — Technique only
+[★5] Obusukuraru — 263 / 1040 — Lv15 (has elemental) — Yuumou no Kata (勇猛の型) — All types
+[★5] Rumeiru — 263 / 1040 — Lv15 (has elemental) — Yuumou no Kata (勇猛の型) — All types
+[★5] Tenpesutaa — 263 / 1040 — Lv15 (has elemental) — Yuumou no Kata (勇猛の型) — All types
+[★4] Sutoraaga — 243 / 1040 — Lv15 — Moretsu no Kata (猛滅の型) — All types
+[★4] Evol Court — 242 / 1039 — Lv15 — Rihou no Kata (理放の型) — All types
+[★4] Viaarto — 242 / 1039 — Lv14 — Kikou no Kata (気功の型) — Striking only
+[★4] Foorshisu — 242 / 1039 — Lv14 — Gajou no Kata (牧城の型) — Ranged only
+[★4] Kyatoria — 242 / 1039 — Lv14 — Konshin no Kata (渾身の型) — Technique only
+[★4] Furanmeru — 240 / 1037 — Lv14 (has elemental) — Yuumou no Kata (勇猛の型) — All types
+[★4] Risaaジュ — 240 / 1037 — Lv11 — Shungeki no Kata (瞬撃の型) — All types
+[★3] Furosuteru — 225 / 1072 — Lv13 (has elemental) — Yuumou no Kata (勇猛の型) — All types
+[★3] Gurissen — 225 / 1072 — Lv13 (has elemental) — Yuumou no Kata (勇猛の型) — All types
+[★3] Ekusuteru — 224 / 1071 — Lv1 — Jinsugeki no Kata (迅撃の型) — All types
+[★3] Renessa — 224 / 1071 — Lv1 — Jinsugeki no Kata (迅撃の型) — All types (no unlock cost)
+[★3] Gorudo — 223 / 1070 — Lv10 — Seisē no Kata (節制の型) — Striking only
+[★3] Teruceusu — 223 / 1070 — Lv8 — Shousei no Jin (守勢の陣) — Technique only
+[★3] Torowaado — 223 / 1070 — Lv8 — Kousei no Jin (攻勢の陣) — Striking only
+[★2] Shiruva — 195 / — — Lv5 — Seisē no Kata (節制の型) — Striking only
+[★2] Tsuvia — 195 / — — Lv4 — Fukutsu no Kata (不屈の型) — All types
+[★1] Multi-Weapon Substitute Material — 177 / 1070 — Lv1 — (no potential) — All types
+[★1] Prim — 177 / 1070 — Lv1 — Seisē no Kata (節制の型) — All types
+
+--- [Series Implementation History] ---
+2026/06/03: Kougensei, Epis Ilinion IV
+2026/04/08: Lexio
+2026/04/01: Arabaradio
+2026/03/04: Rifuradio
+2026/02/04: Supuradio
+2025/12/17: Aruserio
+2025/12/03: Towaru AT, Towaru II, Reitii II, Rejesu II, Epis Ilinion III
+2025/09/03: Kuresu AT, Zenesu, Ainderu
+2025/08/06: Reitii, Voruheru
+2025/07/02: Yuveru
+2025/06/11: Kuresu
+2025/06/04: Epis Ilinion II
+2025/04/02: Kurodimu, Rejesu
+2025/02/05: Akurosserio
+2024/12/18: Towaru
+2024/12/04: Epis Ilinion
+2024/11/06: Toraiseriо
+2024/10/02: Multi-Weapon Substitute Material, Duoseriо
+2024/08/28: Excelio
+2024/07/03: Rikustaru
+2024/06/05: Eredim, Radiakuru
+2024/04/24: Aoni Dikerion
+2024/04/17: Wingard
+2024/04/10: Corvo
+2024/03/13: Millenniumround
+2024/01/31: Rouwzeram, Rouwzeram Test Type 1
+2023/12/20: Bariokuru
+2023/12/06: Rajantie
+2023/11/22: Mereku
+2023/11/01: Fluugard
+2023/10/18: Buronaga
+2023/09/06: Arcaim
+2023/08/02: Fashimeru
+2023/07/05: Revolucourt
+2023/06/14: Tesua, Gorudo II
+2023/06/07: Monorekusu, Ekusuteru
+2023/04/19: Riviita
+2023/03/08: Tranquill
+2023/02/08: Neos Yustiron
+2023/01/25: Neos Astrion
+2022/12/21: Seigain
+2022/12/07: Primu Libra, Seigayou, Kukrofisu, Gunblaze
+2022/11/02: Kurisutia
+2022/10/05: Obzodeia
+2022/09/07: Kordik
+2022/08/03: Kaizeram Test Type 1
+2022/07/06: Evol Ova
+2022/06/15: Kaizeram
+2022/06/08: Renessa, Evol Ikuris, Zextor, Locus, Ragedo
+2022/05/11: Obusukuraru
+2022/04/06: Kukurozeato
+2022/02/16: Sanquaim
+2022/03/09: Rumeiru
+2022/01/12: Tenpesutaa
+2021/12/15: Kuinteru, Gorushika, Fibura, Guretiiga, Reriku
+2021/10/27: Furanmeru
+2021/09/01: Furosuteru
+2021/08/18: Evol Court
+2021/07/07: Gurissen
+2021/06/09: Shiruva, Gorudo, Risaaジュ, Kyatoria, Foorshisu, Viaarto, Sutoraaga
+2021/01/29: Prim, Tsuvia, Torowaado, Teruceusu
