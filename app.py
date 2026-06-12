@@ -118,10 +118,12 @@ async def route_user_query_ai(client, question_text):
             print(f"🤖 AI Router Routing: '{question_text}' ──► Local Context Key: [{chosen_key}]", flush=True)
             return LOCAL_FILE_MAP[chosen_key]
 
+    except APIError as api_err:
+        # CRITICAL FIX: Do not swallow API Errors here. Let them bubble up so the key rotates immediately.
+        raise api_err
     except Exception as e:
-        print(f"⚠️ AI Pre-Routing encountered a processing error: {e}. Slipping into safety fallback...", flush=True)
+        print(f"⚠️ AI Pre-Routing encountered a non-API processing error: {e}. Slipping into safety fallback...", flush=True)
         
-    # Standard safety fallbacks if execution drops out mid-process
     return LOCAL_FILE_MAP.get("frontpage") or list(LOCAL_FILE_MAP.values())[0]
 
 # ==========================================
@@ -155,7 +157,6 @@ async def on_ready():
     port = int(os.environ.get("PORT", 10000))
     try:
         server = await asyncio.start_server(handle_render_ping, "0.0.0.0", port)
-        # Safely loop-nest execution directly inside discord's active main run tasks
         bot.loop.create_task(server.serve_forever())
         print(f"🌐 Keep-alive online on port {port}", flush=True)
     except Exception as server_error:
@@ -176,7 +177,7 @@ async def ask(ctx, *, question: str):
         client = CLIENT_RING.get(idx)
         
         try:
-            # 1. Dynamically route query via LLM Router Call
+            # 1. Dynamically route query via LLM Router Call (Errors bubble up here directly)
             target_file_path = await route_user_query_ai(client, question)
             if not target_file_path:
                 await ctx.reply("*yawn* I don't even know where to look for that file info...")
@@ -213,9 +214,9 @@ async def ask(ctx, *, question: str):
             return
 
         except APIError as api_err:
-            # Catch BOTH 429 (Rate Limit) and 503 (Server Congestion) to rotate keys dynamically
+            # Catch BOTH 429 (Rate Limit) and 503 (Server Congestion) from EITHER the router or generator
             if api_err.code in [429, 503]:
-                print(f"⚠️ Key [{idx+1}] hit temporary status {api_err.code}. Rotating key position...", flush=True)
+                print(f"⚠️ Key [{idx+1}] hit temporary status {api_err.code}. Advancing loop sequence...", flush=True)
                 current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
                 continue 
             else:
