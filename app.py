@@ -1,5 +1,6 @@
 import os
 import glob
+import re
 import discord
 from discord.ext import commands
 from google import genai
@@ -39,10 +40,9 @@ if not GEMINI_KEYS and os.environ.get("GEMINI_API_KEY"):
     GEMINI_KEYS = [os.environ.get("GEMINI_API_KEY")]
 
 CLIENT_RING = {}
-SELECTED_MODEL = 'gemini-2.5-flash' # Using stable high-performance flash node
+SELECTED_MODEL = 'gemini-2.5-flash'
 current_key_index = 0
 
-# Dynamic dictionary mapping database file stems to their local disk paths
 LOCAL_FILE_MAP = {}
 
 # ==================== ZERO-TOKEN INTELLIGENT ROUTER MAP ====================
@@ -77,21 +77,23 @@ ROUTING_KEYWORDS = {
     "armor": "armor", "unit": "armor",
     "ring": "skill_rings",
     "enhance": "enhancement", "limit break": "enhancement",
-    "technique": "techniques", "tech": "techniques",
-    "augment": "augments", "affix": "augments", "op": "augments",
     
+    # Technique mappings protected against short class collisions
+    "technique": "techniques", "tech": "techniques", 
+    "light": "techniques", "fire": "techniques", "ice": "techniques", 
+    "lightning": "techniques", "wind": "techniques", "dark": "techniques",
+    
+    "augment": "augments", "affix": "augments", "op": "augments",
     "task": "tasks", "quest": "urgent_quests", "urgent": "urgent_quests",
     "region": "regions", "area": "regions", "map": "regions",
     "history": "arks_history", "lore": "arks_history",
     
+    # Event keywords now explicitly mapping to live announcements
+    "event": "sega_live_feed", "events": "sega_live_feed",
     "update": "sega_live_feed", "announcement": "sega_live_feed", "news": "sega_live_feed"
 }
 
 def index_local_databases():
-    """
-    Scans the local filesystem directory structure to map available
-    text database assets instantly without causing network overhead.
-    """
     global LOCAL_FILE_MAP
     LOCAL_FILE_MAP.clear()
     base_dir = "knowledge_base"
@@ -110,22 +112,32 @@ def index_local_databases():
 
 def route_user_query(question_text):
     """
-    Evaluates user input strings locally and returns the matching local text asset path.
+    Evaluates user input using regular expression word boundaries 
+    to eliminate partial matching substring collisions.
     """
     query = question_text.lower()
     
     for keyword, stem in ROUTING_KEYWORDS.items():
-        if keyword in query:
+        # strict boundary checks prevent 'te' from triggering on 'techniques'
+        if re.search(r'\b' + re.escape(keyword) + r'\b', query):
             if stem in LOCAL_FILE_MAP:
                 print(f"🎯 Route matched: '{keyword}' ──► Local File: [{LOCAL_FILE_MAP[stem]}]", flush=True)
                 return LOCAL_FILE_MAP[stem]
 
-    if "general_weapons" in LOCAL_FILE_MAP:
-        return LOCAL_FILE_MAP["general_weapons"]
-    elif "frontpage" in LOCAL_FILE_MAP:
-        return LOCAL_FILE_MAP["frontpage"]
+    # Explicit logged fallback handling
+    fallback_stem = None
+    if "frontpage" in LOCAL_FILE_MAP:
+        fallback_stem = "frontpage"
+    elif "general_weapons" in LOCAL_FILE_MAP:
+        fallback_stem = "general_weapons"
+    elif LOCAL_FILE_MAP:
+        fallback_stem = list(LOCAL_FILE_MAP.keys())[0]
+
+    if fallback_stem:
+        print(f"⚠️ No exact keyword route. Fallback triggered ──► Local File: [{LOCAL_FILE_MAP[fallback_stem]}]", flush=True)
+        return LOCAL_FILE_MAP[fallback_stem]
         
-    return list(LOCAL_FILE_MAP.values())[0] if LOCAL_FILE_MAP else None
+    return None
 
 
 # ==================== SYSTEM CHARACTER PROMPT ====================
@@ -143,11 +155,9 @@ Rules:
 # ==================== DISCORD CORE COMMANDS ====================
 @bot.event
 async def on_ready():
-    # 1. Initialize API Clients locally
     for i, key in enumerate(GEMINI_KEYS):
         CLIENT_RING[i] = genai.Client(api_key=key)
     
-    # 2. Index local file paths instantly
     index_local_databases()
     print(f"🔥 Hafu is online and fully responsive with {len(GEMINI_KEYS)} keys!", flush=True)
 
@@ -161,13 +171,11 @@ async def ask(ctx, *, question: str):
         await ctx.reply("Ah... *yawn* My local context files are missing. Did the automation sync run yet~?")
         return
 
-    # Route the request to the correct local file path
     target_file_path = route_user_query(question)
     if not target_file_path:
         await ctx.reply("*yawn* I don't even know where to look for that info...")
         return
 
-    # Read the text contents locally
     try:
         with open(target_file_path, "r", encoding="utf-8") as f:
             context_data = f.read()
@@ -181,7 +189,6 @@ async def ask(ctx, *, question: str):
         client = CLIENT_RING.get(idx)
 
         try:
-            # Inject context directly as a native string payload
             response = await client.aio.models.generate_content(
                 model=SELECTED_MODEL,
                 contents=[
@@ -190,7 +197,7 @@ async def ask(ctx, *, question: str):
                 ],
                 config=types.GenerateContentConfig(
                     system_instruction=SYSTEM_PROMPT,
-                    temperature=0.5, # Slightly higher temperature stops repetition loops completely
+                    temperature=0.5,
                     max_output_tokens=600
                 )
             )
