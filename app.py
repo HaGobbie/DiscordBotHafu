@@ -74,7 +74,7 @@ Rules for answering game questions:
 KEYWORD_ROUTES = [
     (r"\b(sega|maintenance|patch note|live (update|feed))\b",              "sega_live_feed"),
     (r"\bmission.?pass\b",                                                  "mission_pass"),
-    (r"\b(current event|event (now|today|this week)|scratch|banner|campaign|seasonal)\b",
+    (r"\b(current event|limited.?time event|event (now|today|this week)|scratch|banner|campaign|seasonal)\b",
                                                                             "frontpage"),
     (r"\b(best (weapon|gear|series)|top (weapon|gear)|which (weapon|series))",
                                                                             "weapon_series"),
@@ -231,7 +231,18 @@ def is_casual(text: str) -> bool:
 
 def extract_relevant_sections(file_text: str, question: str,
                                max_chars: int = 2_500) -> str:
-    q_words = set(re.findall(r"\b\w{3,}\b", question.lower()))
+    """
+    Split the file into sections, score each by keyword overlap with the
+    question (stopwords excluded), and return only the top-scoring sections
+    up to max_chars. Falls back gracefully when sections are oversized.
+    """
+    # Strip stopwords so "the", "what", "how" don't inflate every section's score
+    _SW = {"the","and","for","not","you","are","was","but","what","how","who",
+           "when","where","why","this","that","with","from","have","has","had",
+           "will","can","may","its","our","its","are","were","been","being"}
+    q_words = {w for w in re.findall(r"\b\w{3,}\b", question.lower()) if w not in _SW}
+    if not q_words:
+        return file_text[:max_chars]
 
     # Match markdown headers (# / ## / ###) OR lines starting with a capital/[
     header_pattern = re.compile(
@@ -364,7 +375,7 @@ async def get_answer(messages: list) -> str:
             print(f"✅ Answered with [{model}]", flush=True)
             return result
         if not rotate:
-            break
+        	break
     return (
         "Noooo all my backup models are tired too... "
         "Give it a minute and try again? *dramatically collapses in lobby*"
