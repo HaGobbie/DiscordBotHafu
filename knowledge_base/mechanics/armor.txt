@@ -1,0 +1,9 @@
+=== [Armor & Defensive Gear] ===
+=== COMPILED: 2026-06-12 09:19:19 UTC ===
+
+--- [Overview] ---
+Notice from [sWIKI] Armor HTML ConvertTime 0.264 sec. Weapons/Armor (Series) Sword (PA) Wired Lance (PA) Partisan (PA) Twin Dagger (PA) Double Saber (PA) Knuckle (PA) Katana (PA) Dual Blade (PA) Assault Rifle (PA) Launcher (PA) Twin Machine Gun (PA) Bullet Bow (PA) Gun Slash (PA) Rod (AC) Talis (PA) Wand (PA) Jet Boots (PA) Tact (PA) Armor Skill Ring Technique Fire Attribute Ice Attribute Lightning Attribute Wind Attribute Light Attribute Dark Attribute Complex Attribute Equipment Enhancement/Technique/PA Customization Item Enhancement/Limit Break Multi Weapon Special Abilities (Comparison Table) EX Special Abilities Potential Abilities Preset Abilities Tech Arts Customization Table of Contents Overview List Comments
+
+--- [overview] ---
+It can be equipped from Main Menu → Equipment/Sub Palette → Armor Equipment. There are three equipment slots: Slot1, 2, and 3. There are no restrictions on equipment depending on class. Like weapons, it is possible to enhance them and add special abilities. Preset abilities specific to armor are also granted. See Damage Calculation for the effect of each parameter on damage. The distinction between the rear, arms, and legs of the old PSO2 is gone, and they are all treated like subunits. It is no longer reflected in appearance (always in stealth state). For information on the handling of old PSO2 units, please refer to the information disclosure page on the official website. ▲ ▼
+

@@ -1,0 +1,9 @@
+=== [Katana Overview] ===
+=== COMPILED: 2026-06-12 09:19:19 UTC ===
+
+--- [Overview] ---
+Notice from [sWIKI] Katana HTML ConvertTime 0.302 sec. Weapons and Armor (Series) Sword (PA) Wired Lance (PA) Partisan (PA) Twin Dagger (PA) Double Saber (PA) Knuckle (PA) Katana (PA) Dual Blade (PA) Assault Rifle (PA) Launcher (PA) Twin Machine Gun (PA) Bullet Bow (PA) Gun Slash (PA) Rod (AC) Talis (PA) Wand (PA) Jet Boots (PA) Tact (PA) Armor Skill Ring Technique Fire Attribute Ice Attribute Lightning Attribute Wind Attribute Light Attribute Dark Attribute Complex Attribute Equipment Enhancement/Technique/PA Customization Item Enhancement/Limit Break Multi Weapon Special Abilities (Comparison Table) EX Special Abilities Potential Abilities Preset Abilities Tech Arts Customization Table of Contents Overview List Comments
+
+--- [overview] ---
+Implemented on August 4, 2021 One of the weapons that Braver can equip. It is sometimes written as ``Bukiken''. A melee weapon that allows you to attack with agile movements. For basic behavior, photon blast, PA, etc., see Katana/Action/PA. ▲ ▼
+
