@@ -10,18 +10,13 @@ from google.genai.errors import APIError
 # ==========================================
 # CONFIGURATION & DISCORD INTENTS SETUP
 # ==========================================
-TOKEN = os.environ.get("DISCORD_BOT_TOKEN", "YOUR_DISCORD_BOT_TOKEN_HERE")
+TOKEN = os.environ.get("DISCORD_TOKEN", "YOUR_DISCORD_TOKEN_HERE")
 
-# API Keys Token Rotation Setup
-GEMINI_KEYS = [
-    os.environ.get("GEMINI_API_KEY_1", ""),
-    os.environ.get("GEMINI_API_KEY_2", ""),
-    os.environ.get("GEMINI_API_KEY_3", "")
-]
-# Strip empty environment definitions or template values
-GEMINI_KEYS = [k for k in GEMINI_KEYS if k and not k.startswith("YOUR_")]
+# Extract and clean the comma-separated keys from the single GEMINI_KEY_RING variable
+raw_key_ring = os.environ.get("GEMINI_KEY_RING", "")
+GEMINI_KEYS = [k.strip() for k in raw_key_ring.split(",") if k.strip() and not k.strip().startswith("YOUR_")]
 
-SELECTED_MODEL = "gemini-2.5-flash"  # Ultra-fast semantic response classification & generation
+SELECTED_MODEL = "gemini-2.5-flash"  # Ultra-fast semantic classification & generation
 
 SYSTEM_PROMPT = """
 You are Hafu, a helpful, deeply knowledgeable, and slightly sleepy AI assistant for Phantasy Star Online 2: New Genesis (PSO2:NGS).
@@ -60,7 +55,7 @@ if KNOWLEDGE_BASE_DIR.exists():
     for txt_file in KNOWLEDGE_BASE_DIR.rglob("*.txt"):
         LOCAL_FILE_MAP[txt_file.stem] = str(txt_file)
     print(f"📦 Database Synchronization Complete! Indexed [{len(LOCAL_FILE_MAP)}] dynamic files.")
-    print(f"🔍 Indexed Keys: {list(LOCAL_FILE_MAP.keys())}\n")
+    print(f"🔥 Hafu is online and fully configured with {len(GEMINI_KEYS)} keys!\n", flush=True)
 else:
     print("⚠️ Error Warning: Could not locate 'knowledge_base/' directory structure inside local path space.")
 
@@ -123,7 +118,7 @@ async def route_user_query_ai(client, question_text):
             return LOCAL_FILE_MAP[chosen_key]
 
     except Exception as e:
-        print(f"⚠️ AI Pre-Routing encountered an processing error: {e}. Slipping into safety fallback...", flush=True)
+        print(f"⚠️ AI Pre-Routing encountered a processing error: {e}. Slipping into safety fallback...", flush=True)
         
     # Standard safety fallbacks if execution drops out mid-process
     return LOCAL_FILE_MAP.get("frontpage") or list(LOCAL_FILE_MAP.values())[0]
@@ -207,9 +202,9 @@ async def ask(ctx, *, question: str):
 # SCRIPT EXECUTION ENTRYPOINT
 # ==========================================
 if __name__ == "__main__":
-    if TOKEN == "YOUR_DISCORD_BOT_TOKEN_HERE":
-        print("❌ Error: Missing a valid DISCORD_BOT_TOKEN configuration flag.")
+    if TOKEN == "YOUR_DISCORD_TOKEN_HERE" or not TOKEN:
+        print("❌ Error: Missing a valid DISCORD_TOKEN configuration flag.")
     elif not GEMINI_KEYS:
-        print("❌ Error: At least one structural GEMINI_API_KEY value must be provided inside runtime profile environment.")
+        print("❌ Error: GEMINI_KEY_RING environment string values are empty or improperly formatted.")
     else:
         bot.run(TOKEN)
