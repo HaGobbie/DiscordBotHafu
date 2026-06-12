@@ -46,6 +46,5 @@ jobs:
           echo "No new data changes detected. Skipping tree commit."
         else
           git commit -m "🤖 Synchronized granular live text asset matrix - $(date -u +'%Y-%m-%d %H:%M:%S') UTC"
-          git pull origin ${{ github.ref }} --rebase
           git push origin HEAD:${{ github.ref }}
         fi
