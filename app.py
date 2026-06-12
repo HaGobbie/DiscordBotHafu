@@ -318,6 +318,63 @@ def is_casual(text: str) -> bool:
     return any(re.search(p, t) for p in _CASUAL_PATTERNS)
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+# SECTION EXTRACTION  (selects only relevant parts of a knowledge base file)
+# No extra API call — pure keyword overlap scoring.
+# ══════════════════════════════════════════════════════════════════════════════
+
+def extract_relevant_sections(file_text: str, question: str,
+                               max_chars: int = 2_500) -> str:
+    """
+    Split the file into sections, score each by keyword overlap with the
+    question, and return only the top-scoring sections up to max_chars.
+    Falls back to the raw file (capped) if splitting produces nothing useful.
+    """
+    q_words = set(re.findall(r"\b\w{3,}\b", question.lower()))
+
+    # Try splitting on lines that look like section headers:
+    # a short line (≤ 80 chars) that starts with a capital or [
+    header_pattern = re.compile(
+        r"(?m)^(?=[A-Z\[])[^\n]{1,80}$"
+    )
+    split_points = [m.start() for m in header_pattern.finditer(file_text)]
+
+    if len(split_points) > 1:
+        sections = []
+        for i, start in enumerate(split_points):
+            end = split_points[i + 1] if i + 1 < len(split_points) else len(file_text)
+            sections.append(file_text[start:end].strip())
+    else:
+        # No clear headers — split on blank lines (paragraphs)
+        sections = [s.strip() for s in file_text.split("\n\n") if s.strip()]
+
+    if not sections:
+        return file_text[:max_chars]
+
+    # Score each section by keyword overlap with the question
+    def score(section: str) -> int:
+        s_words = set(re.findall(r"\b\w{3,}\b", section.lower()))
+        return len(q_words & s_words)
+
+    ranked = sorted(sections, key=score, reverse=True)
+
+    # Pack top sections into the char budget
+    result, total = [], 0
+    for section in ranked:
+        if total + len(section) > max_chars:
+            break
+        result.append(section)
+        total += len(section)
+
+    if not result:
+        return file_text[:max_chars]
+
+    extracted = "\n\n".join(result)
+    print(f"   📐 Section extract: {len(file_text)} → {len(extracted)} chars "
+          f"({len(result)}/{len(sections)} sections)", flush=True)
+    return extracted
+
+
 def route_local(question: str) -> str | None:
     """Returns a file stem, or None if no keyword match (or match returns None sentinel)."""
     q = question.lower()
@@ -529,7 +586,9 @@ async def on_message(message: discord.Message):
             await message.reply("Ugh, I went for my notes and the file just vanished. Something's wrong with the file system.")
             return
 
-        # ── Step 4: Generate answer ────────────────────────────────────────────
+        # ── Step 4: Extract relevant sections, then generate answer ───────────
+        context_data = extract_relevant_sections(context_data, question)
+
         text_out = await get_answer([
             {"role": "system", "content": ANSWER_SYSTEM},
             {"role": "user",   "content": f"CONTEXT:\n{context_data}\n\nQuestion: {question}"},
