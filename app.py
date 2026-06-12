@@ -24,6 +24,7 @@ def run_keep_alive_server():
     print(f"🌐 Keep-alive online on port {port}", flush=True)
     server.serve_forever()
 
+# Runs on a separate background thread so it never interferes with asyncio loop
 threading.Thread(target=run_keep_alive_server, daemon=True).start()
 
 
@@ -47,7 +48,6 @@ current_key_index = 0
 GOOGLE_FILE_MAP = {}
 
 # ==================== ZERO-TOKEN INTELLIGENT ROUTER MAP ====================
-# Maps common in-game search phrases and abbreviations directly to your granular database stems
 ROUTING_KEYWORDS = {
     "sword": "sword",
     "wired lance": "wired_lance", "wiredlance": "wired_lance",
@@ -90,10 +90,10 @@ ROUTING_KEYWORDS = {
 }
 
 
-def mount_sub_databases():
+async def mount_sub_databases():
     """
-    Scans the local knowledge_base directories and registers every micro-database
-    to Google's File API for every single key configuration inside the client ring.
+    FIXED: Now fully asynchronous. Scans local database directories and mounts 
+    them to Google's cloud systems via non-blocking aio network threads.
     """
     global GOOGLE_FILE_MAP
     base_dir = "knowledge_base"
@@ -102,24 +102,22 @@ def mount_sub_databases():
         print(f"⚠️ Error: Target storage root '{base_dir}' does not exist! Run compilation first.", flush=True)
         return
 
-    # Find all text data files inside subdirectories recursively
     text_files = glob.glob(os.path.join(base_dir, "**", "*.txt"), recursive=True)
     if not text_files:
         print("⚠️ Warning: No sub-database configuration files (.txt) found to mount!", flush=True)
         return
 
-    print(f"📂 Found {len(text_files)} standalone micro-databases. Syncing with Google File API...", flush=True)
+    print(f"📂 Found {len(text_files)} standalone micro-databases. Syncing asynchronously...", flush=True)
 
-    # Mount files separately across every project client to prevent cross-key 404 validation failures
     for idx, client in CLIENT_RING.items():
         GOOGLE_FILE_MAP[idx] = {}
-        print(f" 🔗 Mounting remote filesystem entities for Key Ring Node [{idx+1}]...", flush=True)
+        print(f" 🔗 Mounting filesystem entities for Key Ring Node [{idx+1}]...", flush=True)
         
         for file_path in text_files:
-            # Extract file stem name (e.g., 'knowledge_base/weapons/sword.txt' -> 'sword')
             stem = os.path.splitext(os.path.basename(file_path))[0]
             try:
-                uploaded_ref = client.files.upload(file=file_path)
+                # OPTIMIZED: Switched to client.aio namespace to prevent blocking loop threads
+                uploaded_ref = await client.aio.files.upload(file=file_path)
                 GOOGLE_FILE_MAP[idx][stem] = uploaded_ref
             except Exception as e:
                 print(f"   ❌ Failed to sync file asset [{stem}] for Key [{idx+1}]: {e}", flush=True)
@@ -135,20 +133,17 @@ def route_user_query(question_text, current_idx):
     query = question_text.lower()
     client_files = GOOGLE_FILE_MAP.get(current_idx, {})
     
-    # Run structural keyword matching checks
     for keyword, stem in ROUTING_KEYWORDS.items():
         if keyword in query:
             if stem in client_files:
                 print(f"🎯 Route matched: '{keyword}' ──► Mount Node File: [{stem}.txt]", flush=True)
                 return client_files[stem]
 
-    # Clean fallbacks if no precise keyword triggers match
     if "general_weapons" in client_files:
         return client_files["general_weapons"]
     elif "frontpage" in client_files:
         return client_files["frontpage"]
         
-    # Absolute bare fallback (returns first element available)
     return list(client_files.values())[0] if client_files else None
 
 
@@ -171,8 +166,8 @@ async def on_ready():
     for i, key in enumerate(GEMINI_KEYS):
         CLIENT_RING[i] = genai.Client(api_key=key)
     
-    # 2. Run Remote File System Mount
-    mount_sub_databases()
+    # 2. Run Remote File System Mount (properly awaited)
+    await mount_sub_databases()
     print(f"🔥 Hafu is online and fully configured with {len(GEMINI_KEYS)} keys!", flush=True)
 
 
@@ -185,21 +180,19 @@ async def ask(ctx, *, question: str):
         await ctx.reply("Ah... *yawn* My cloud filesystem maps are completely missing. Tell the admin~")
         return
 
-    # Request loop over key ring to cleanly bypass 429 errors or rate blocks
     for attempt in range(len(GEMINI_KEYS)):
         idx = current_key_index
         client = CLIENT_RING.get(idx)
         
-        # Determine the targeted micro-database reference for this active client node
         target_file_node = route_user_query(question, idx)
-        
         if not target_file_node:
             current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
             continue
 
         try:
-            # Call the model natively attaching the single target cloud database text reference object
-            response = client.models.generate_content(
+            # OPTIMIZED: Switched to client.aio interface so the bot stays perfectly responsive
+            # while waiting for Gemini to generate the token text stream payload response.
+            response = await client.aio.models.generate_content(
                 model=SELECTED_MODEL,
                 contents=[target_file_node, f"User Question: {question}"],
                 config=types.GenerateContentConfig(
@@ -209,9 +202,8 @@ async def ask(ctx, *, question: str):
                 )
             )
             
-            # Simple log verification tracker
             try:
-                print(f"🔍 [Key {idx+1}] File Processed Natively | Finish Reason: {response.candidates[0].finish_reason}", flush=True)
+                print(f"🔍 [Key {idx+1}] File Processed Async | Finish Reason: {response.candidates[0].finish_reason}", flush=True)
             except Exception:
                 pass
 
