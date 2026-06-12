@@ -1,166 +1,140 @@
 import os
-import glob
-import re
+import json
 import discord
 from discord.ext import commands
+from pathlib import Path
 from google import genai
 from google.genai import types
 from google.genai.errors import APIError
-import threading
-from http.server import HTTPServer, BaseHTTPRequestHandler
 
-# ==================== KEEP-ALIVE SERVER CONFIGURATION ====================
-class KeepAliveHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header("Content-type", "text/plain")
-        self.end_headers()
-        self.wfile.write(b"Hafu is alive!")
-    def log_message(self, format, *args):
-        return 
+# ==========================================
+# CONFIGURATION & DISCORD INTENTS SETUP
+# ==========================================
+TOKEN = os.environ.get("DISCORD_BOT_TOKEN", "YOUR_DISCORD_BOT_TOKEN_HERE")
 
-def run_keep_alive_server():
-    port = int(os.environ.get("PORT", 8080))
-    server = HTTPServer(("0.0.0.0", port), KeepAliveHandler)
-    print(f"🌐 Keep-alive online on port {port}", flush=True)
-    server.serve_forever()
+# API Keys Token Rotation Setup
+GEMINI_KEYS = [
+    os.environ.get("GEMINI_API_KEY_1", ""),
+    os.environ.get("GEMINI_API_KEY_2", ""),
+    os.environ.get("GEMINI_API_KEY_3", "")
+]
+# Strip empty environment definitions or template values
+GEMINI_KEYS = [k for k in GEMINI_KEYS if k and not k.startswith("YOUR_")]
 
-threading.Thread(target=run_keep_alive_server, daemon=True).start()
+SELECTED_MODEL = "gemini-2.5-flash"  # Ultra-fast semantic response classification & generation
 
-
-# ==================== BOT INITIALIZATION & KEY RING ====================
-intents = discord.Intents.default()
-intents.message_content = True
-bot = commands.Bot(command_prefix="/", intents=intents)
-
-RAW_KEYS = os.environ.get("GEMINI_KEY_RING", "")
-GEMINI_KEYS = [k.strip() for k in RAW_KEYS.split(",") if k.strip()]
-
-if not GEMINI_KEYS and os.environ.get("GEMINI_API_KEY"):
-    GEMINI_KEYS = [os.environ.get("GEMINI_API_KEY")]
-
-CLIENT_RING = {}
-SELECTED_MODEL = 'gemini-2.5-flash'
-current_key_index = 0
-
-LOCAL_FILE_MAP = {}
-
-# ==================== ZERO-TOKEN INTELLIGENT ROUTER MAP ====================
-ROUTING_KEYWORDS = {
-    "sword": "sword",
-    "wired lance": "wired_lance", "wiredlance": "wired_lance",
-    "partisan": "partisan",
-    "twin dagger": "twin_daggers", "twindagger": "twin_daggers", "dagger": "twin_daggers",
-    "dual blade": "dual_blades", "dualblade": "dual_blades",
-    "knuckle": "knuckles",
-    "默默": "katana", "katana": "katana",
-    "assault rifle": "assault_rifle", "rifle": "assault_rifle",
-    "twin machine gun": "twin_machine_guns", "tmg": "twin_machine_guns", "machine gun": "twin_machine_guns",
-    "talis": "talis",
-    "wand": "wand",
-    "harmonizer": "harmonizer", "takt": "harmonizer",
-    "jet boot": "jet_boots", "jetboot": "jet_boots",
-    
-    "hunter": "hunter", "hu": "hunter",
-    "fighter": "fighter", "fi": "fighter",
-    "ranger": "ranger", "ra": "ranger",
-    "gunner": "gunner", "gu": "gunner",
-    "force": "force", "fo": "force",
-    "techter": "techter", "te": "techter",
-    "braver": "braver", "br": "braver",
-    "bouncer": "bouncer", "bo": "bouncer",
-    "waker": "waker", "wa": "waker",
-    "slayer": "slayer", "sl": "slayer",
-    
-    "class": "general_classes", "ex style": "general_classes",
-    "weapon": "general_weapons",
-    "armor": "armor", "unit": "armor",
-    "ring": "skill_rings",
-    "enhance": "enhancement", "limit break": "enhancement",
-    
-    # Technique mappings protected against short class collisions
-    "technique": "techniques", "tech": "techniques", 
-    "light": "techniques", "fire": "techniques", "ice": "techniques", 
-    "lightning": "techniques", "wind": "techniques", "dark": "techniques",
-    
-    "augment": "augments", "affix": "augments", "op": "augments",
-    "task": "tasks", "quest": "urgent_quests", "urgent": "urgent_quests",
-    "region": "regions", "area": "regions", "map": "regions",
-    "history": "arks_history", "lore": "arks_history",
-    
-    # Event keywords now explicitly mapping to live announcements
-    "event": "sega_live_feed", "events": "sega_live_feed",
-    "update": "sega_live_feed", "announcement": "sega_live_feed", "news": "sega_live_feed"
-}
-
-def index_local_databases():
-    global LOCAL_FILE_MAP
-    LOCAL_FILE_MAP.clear()
-    base_dir = "knowledge_base"
-    
-    if not os.path.exists(base_dir):
-        print(f"⚠️ Warning: Target storage root '{base_dir}' not found on disk.", flush=True)
-        return
-
-    text_files = glob.glob(os.path.join(base_dir, "**", "*.txt"), recursive=True)
-    for file_path in text_files:
-        stem = os.path.splitext(os.path.basename(file_path))[0]
-        LOCAL_FILE_MAP[stem] = file_path
-        
-    print(f"📂 Indexed {len(LOCAL_FILE_MAP)} local micro-databases successfully.", flush=True)
-
-
-def route_user_query(question_text):
-    """
-    Evaluates user input using regular expression word boundaries 
-    to eliminate partial matching substring collisions.
-    """
-    query = question_text.lower()
-    
-    for keyword, stem in ROUTING_KEYWORDS.items():
-        # strict boundary checks prevent 'te' from triggering on 'techniques'
-        if re.search(r'\b' + re.escape(keyword) + r'\b', query):
-            if stem in LOCAL_FILE_MAP:
-                print(f"🎯 Route matched: '{keyword}' ──► Local File: [{LOCAL_FILE_MAP[stem]}]", flush=True)
-                return LOCAL_FILE_MAP[stem]
-
-    # Explicit logged fallback handling
-    fallback_stem = None
-    if "frontpage" in LOCAL_FILE_MAP:
-        fallback_stem = "frontpage"
-    elif "general_weapons" in LOCAL_FILE_MAP:
-        fallback_stem = "general_weapons"
-    elif LOCAL_FILE_MAP:
-        fallback_stem = list(LOCAL_FILE_MAP.keys())[0]
-
-    if fallback_stem:
-        print(f"⚠️ No exact keyword route. Fallback triggered ──► Local File: [{LOCAL_FILE_MAP[fallback_stem]}]", flush=True)
-        return LOCAL_FILE_MAP[fallback_stem]
-        
-    return None
-
-
-# ==================== SYSTEM CHARACTER PROMPT ====================
-SYSTEM_PROMPT = """You are Hafu, a cheerful, dramatic, lazy, pink-loving Phantasy Star Online 2: New Genesis (PSO2:NGS) bot.
-Favorite line: "Lobby afk 0$ best job!"
-
-Rules:
-- Answer in natural, casual, and incredibly lazy English. Use emotes like *yawn* or *stretches lazily*.
-- STRICT RULE: You MUST rely ONLY on the provided Context Database contents to answer the user's question.
-- Keep your responses direct, concise, and aligned with game specifics. Do not guess stats or build names.
-- If the context does not contain the answer, say so in character: "*yawns* I don't see anything like that in my notes... Maybe go check the blocks yourself or ask a pro in the lobby."
+SYSTEM_PROMPT = """
+You are Hafu, a helpful, deeply knowledgeable, and slightly sleepy AI assistant for Phantasy Star Online 2: New Genesis (PSO2:NGS).
+Provide highly accurate answers derived directly from the provided CONTEXT DATABASE. 
+Always speak in a friendly, casual, and slightly cozy tone—frequently yawning (*yawns*) or acting sleepy, but staying perfectly accurate on game information.
 """
 
+# Configure Bot Intent Parameters
+intents = discord.Intents.default()
+intents.message_content = True  # Allows command execution parsing from prefixes
+bot = commands.Bot(command_prefix="/", intents=intents)
 
-# ==================== DISCORD CORE COMMANDS ====================
+# ==========================================
+# API CLIENT ROTATION CORE
+# ==========================================
+class ClientRing:
+    def __init__(self, api_keys):
+        self.clients = [genai.Client(api_key=key) for key in api_keys]
+    
+    def get(self, index):
+        if not self.clients:
+            return None
+        return self.clients[index % len(self.clients)]
+
+CLIENT_RING = ClientRing(GEMINI_KEYS) if GEMINI_KEYS else None
+current_key_index = 0
+
+# ==========================================
+# DYNAMIC DATABASE INDEXING SEARCH
+# ==========================================
+KNOWLEDGE_BASE_DIR = Path("./knowledge_base")
+LOCAL_FILE_MAP = {}
+
+if KNOWLEDGE_BASE_DIR.exists():
+    # Crawls through all sub-directories recursively mapping file stems to exact file paths
+    for txt_file in KNOWLEDGE_BASE_DIR.rglob("*.txt"):
+        LOCAL_FILE_MAP[txt_file.stem] = str(txt_file)
+    print(f"📦 Database Synchronization Complete! Indexed [{len(LOCAL_FILE_MAP)}] dynamic files.")
+    print(f"🔍 Indexed Keys: {list(LOCAL_FILE_MAP.keys())}\n")
+else:
+    print("⚠️ Error Warning: Could not locate 'knowledge_base/' directory structure inside local path space.")
+
+# ==========================================
+# INTELLIGENT AI ROUTING LOGIC
+# ==========================================
+async def route_user_query_ai(client, question_text):
+    """
+    Leverages Gemini's semantic understanding to parse the query context 
+    and output a strictly validated target database key using a forced JSON schema.
+    """
+    if not LOCAL_FILE_MAP:
+        return None
+        
+    available_keys = list(LOCAL_FILE_MAP.keys())
+    
+    router_prompt = f"""
+    You are an expert database routing assistant for a Phantasy Star Online 2: New Genesis (PSO2:NGS) knowledge base.
+    Analyze the user's question and select the single most relevant data file key from the available list that contains the information needed to answer.
+    
+    User Question: "{question_text}"
+    Available File Keys: {available_keys}
+    
+    Routing Context Association Clues:
+    - If they ask about specific weapon configurations (e.g., sword, wired_lance, partisan, assault_rifle, launcher, talis, wand, jet_boots, harmonizer), match that exact key.
+    - If they ask about character player options (e.g., hunter, fighter, ranger, gunner, force, techter, braver, bouncer, waker, slayer), match that exact key.
+    - If they ask about live events, campaign rewards, patch notes, announcements, cosmetics (like Animatica faces), choose 'sega_live_feed' or 'frontpage'.
+    - If they ask about active elements, magic spells, or photon blasts, select 'techniques'.
+    - If they ask about equipment stat upgrades or capsules, select 'enhancement' or 'augments'.
+    - If they ask about general overviews, use logical general anchors like 'general_weapons', 'general_classes', or 'frontpage'.
+    """
+
+    try:
+        # Fast structured evaluation call
+        response = await client.aio.models.generate_content(
+            model=SELECTED_MODEL,
+            contents=router_prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                response_schema={
+                    "type": "OBJECT",
+                    "properties": {
+                        "selected_key": {
+                            "type": "STRING", 
+                            "enum": available_keys,
+                            "description": "The exact matching database file name from the allowed keys list."
+                        }
+                    },
+                    "required": ["selected_key"]
+                },
+                temperature=0.0  # Force maximum deterministic precision
+            )
+        )
+        
+        result = json.loads(response.text)
+        chosen_key = result.get("selected_key")
+        
+        if chosen_key in LOCAL_FILE_MAP:
+            print(f"🤖 AI Router Routing: '{question_text}' ──► Local Context Key: [{chosen_key}]", flush=True)
+            return LOCAL_FILE_MAP[chosen_key]
+
+    except Exception as e:
+        print(f"⚠️ AI Pre-Routing encountered an processing error: {e}. Slipping into safety fallback...", flush=True)
+        
+    # Standard safety fallbacks if execution drops out mid-process
+    return LOCAL_FILE_MAP.get("frontpage") or list(LOCAL_FILE_MAP.values())[0]
+
+# ==========================================
+# DISCORD BOT EVENT & COMMAND HANDLERS
+# ==========================================
 @bot.event
 async def on_ready():
-    for i, key in enumerate(GEMINI_KEYS):
-        CLIENT_RING[i] = genai.Client(api_key=key)
-    
-    index_local_databases()
-    print(f"🔥 Hafu is online and fully responsive with {len(GEMINI_KEYS)} keys!", flush=True)
-
+    print(f"🤖 Hafu Bot operational as {bot.user.name} (ID: {bot.user.id})")
+    print("✨ Core systems are loaded and ready to parse incoming query pipelines.")
 
 @bot.command(name="ask")
 async def ask(ctx, *, question: str):
@@ -168,27 +142,31 @@ async def ask(ctx, *, question: str):
     await ctx.typing()
     
     if not CLIENT_RING or not LOCAL_FILE_MAP:
-        await ctx.reply("Ah... *yawn* My local context files are missing. Did the automation sync run yet~?")
+        await ctx.reply("Ah... *yawn* My local context files or API system profiles are unassigned. Did you run the synchronization?")
         return
 
-    target_file_path = route_user_query(question)
-    if not target_file_path:
-        await ctx.reply("*yawn* I don't even know where to look for that info...")
-        return
-
-    try:
-        with open(target_file_path, "r", encoding="utf-8") as f:
-            context_data = f.read()
-    except Exception as e:
-        print(f"❌ Local read failed for {target_file_path}: {e}", flush=True)
-        await ctx.reply("Ugh, my notebooks are torn. Couldn't read the files.")
-        return
-
+    # Check remaining API cluster instances to handle rate limits seamlessly
     for attempt in range(len(GEMINI_KEYS)):
         idx = current_key_index
         client = CLIENT_RING.get(idx)
-
+        
         try:
+            # 1. Dynamically route query via LLM Router Call
+            target_file_path = await route_user_query_ai(client, question)
+            if not target_file_path:
+                await ctx.reply("*yawn* I don't even know where to look for that file info...")
+                return
+                
+            # 2. Extract database contextual text string 
+            try:
+                with open(target_file_path, "r", encoding="utf-8") as f:
+                    context_data = f.read()
+            except Exception as e:
+                print(f"❌ Local read failed for {target_file_path}: {e}", flush=True)
+                await ctx.reply("Ugh, my notebooks are torn... Couldn't open the data files.")
+                return
+
+            # 3. Request target text completion from context block
             response = await client.aio.models.generate_content(
                 model=SELECTED_MODEL,
                 contents=[
@@ -198,42 +176,40 @@ async def ask(ctx, *, question: str):
                 config=types.GenerateContentConfig(
                     system_instruction=SYSTEM_PROMPT,
                     temperature=0.5,
-                    max_output_tokens=600
+                    max_output_tokens=800
                 )
             )
             
-            try:
-                print(f"🔍 [Key {idx+1}] Request Handled | Reason: {response.candidates[0].finish_reason}", flush=True)
-            except Exception:
-                pass
-
-            text_out = response.text.strip()
+            text_out = response.text.strip() if response.text else ""
             if not text_out:
-                text_out = "*yawns* I checked the file, but my head is too empty to give a good answer right now..."
+                text_out = "*yawns* I checked the database folder, but my head is too empty to give an answer right now..."
             
             await ctx.reply(text_out)
             return
 
         except APIError as api_err:
             if api_err.code == 429:
-                print(f"⚠️ Key [{idx+1}] hit rate limits. Swapping positions...", flush=True)
+                print(f"⚠️ Key [{idx+1}] hit rate restrictions. Moving to alternative slot...", flush=True)
                 current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
                 continue 
             else:
-                print(f"❌ API Error on Key [{idx+1}]: {api_err}", flush=True)
-                await ctx.reply("*yawn* Something went wrong inside the API pipeline.")
+                print(f"❌ API Exception occurred on Key [{idx+1}]: {api_err}", flush=True)
+                await ctx.reply("*yawn* Something went wrong inside the model pipelines.")
                 return
         except Exception as e:
-            print(f"❌ Unexpected Error on Key [{idx+1}]: {e}", flush=True)
-            await ctx.reply("Ugh, Hafu got disconnected for a second. Try again?")
+            print(f"❌ Unexpected execution crash on Key [{idx+1}]: {e}", flush=True)
+            await ctx.reply("Ugh, Hafu got disconnected for a second. Let's try that request again?")
             return
 
-    await ctx.reply("Ah... *yawns loudly* Too many requests at once. My brain is on cooldown~")
+    await ctx.reply("Ah... *yawns loudly* Too many requests at once. My system brain is on cooldown~")
 
-
+# ==========================================
+# SCRIPT EXECUTION ENTRYPOINT
+# ==========================================
 if __name__ == "__main__":
-    DISCORD_TOKEN = os.environ.get("DISCORD_TOKEN")
-    if DISCORD_TOKEN:
-        bot.run(DISCORD_TOKEN)
+    if TOKEN == "YOUR_DISCORD_BOT_TOKEN_HERE":
+        print("❌ Error: Missing a valid DISCORD_BOT_TOKEN configuration flag.")
+    elif not GEMINI_KEYS:
+        print("❌ Error: At least one structural GEMINI_API_KEY value must be provided inside runtime profile environment.")
     else:
-        print("❌ CRITICAL: DISCORD_TOKEN is completely missing from environment variables!")
+        bot.run(TOKEN)
