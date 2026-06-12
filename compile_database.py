@@ -30,7 +30,7 @@ ASSET_ROUTING_MAP = {
     # Announcements & Timelines
     "FrontPage": ("FrontPage Registry", "announcements/frontpage.txt"),
     "ミッションパス": ("Mission Pass Season Tracks", "announcements/mission_pass.txt"),
-    
+
     # Class Systems (Completely segregated for precise vector lookup/indexing)
     "クラス": ("Class System Overview", "classes/class_overview.txt"),
     "EXスタイル": ("EX Style Mechanics", "classes/ex_styles.txt"),
@@ -44,7 +44,7 @@ ASSET_ROUTING_MAP = {
     "バウンサー": ("Bouncer Class Skills & Data", "classes/bouncer.txt"),
     "ウェイカー": ("Waker Class Skills & Data", "classes/waker.txt"),
     "スレイヤー": ("Slayer Class Skills & Data", "classes/slayer.txt"),
-    
+
     # Weapon Stats & Photon Arts
     "武器": ("General Weapon Core Systems", "weapons/general_weapons.txt"),
     "ソード": ("Sword Weapon Stats & Photon Arts", "weapons/sword.txt"),
@@ -61,7 +61,7 @@ ASSET_ROUTING_MAP = {
     "タクト": ("Harmonizer Takt Weapon Stats & Photon Arts", "weapons/harmonizer.txt"),
     "ジェットブーツ": ("Jet Boots Weapon Stats & Photon Arts", "weapons/jet_boots.txt"),
     "武器迷彩": ("Weapon Camouflage Cosmetics", "weapons/weapon_camouflage.txt"),
-    
+
     # Core Game Mechanics & Progression Systems
     "防具": ("Armor Units & Defensive Gear", "mechanics/armor.txt"),
     "スキルリング": ("Skill Rings Additions", "mechanics/skill_rings.txt"),
@@ -72,7 +72,7 @@ ASSET_ROUTING_MAP = {
     "アドオンスキル": ("Add-on Skills System", "mechanics/addon_skills.txt"),
     "クリエイティブスペース": ("Creative Space Mechanics", "mechanics/creative_space.txt"),
     "フードスタンド": ("Quick Food Stand Buff Recipes", "mechanics/quick_food.txt"),
-    
+
     # World Content, Quests, Gathering & Activities
     "タスク": ("Main Tasks & Side Quests", "world_quests/tasks.txt"),
     "緊急クエスト": ("Urgent Quests & Raid Schedules", "world_quests/urgent_quests.txt"),
@@ -91,6 +91,36 @@ ASSET_ROUTING_MAP = {
     "用語集": ("In-Universe Vocabulary & Lore Glossary", "lore/glossary_terms.txt"),
     "アークスヒストリー": ("Arks Historical Chronicles & Timeline", "lore/arks_chronology.txt")
 }
+
+# ==========================================
+# TOKEN-SAVING JUNK STRIPPER
+# Removes recurring wiki boilerplate (nav arrows, comment-section
+# notices, mobile-view footers, etc.) that adds zero informational
+# value but burns hundreds of tokens per file when sent to the LLM.
+# ==========================================
+JUNK_PATTERNS = [
+    r"▲\s*▼",
+    r"▼\s*▲",
+    r"Displaying the latest \d+ items.*?(?:Up to here|$)",
+    r"See comment page.*?comment field\.",
+    r"Please refrain from making comments.*?comment field\.",
+    r"Lower PC body.*?Up to here",
+    r"sWIKI \(lower tier for PC\)",
+    r"Hide image",
+    r"Show image",
+    r"Edit this page",
+    r"\*\d+\s",  # stray footnote markers like "*1 " "*2 "
+]
+
+def strip_junk(text):
+    if not text:
+        return text
+    for pat in JUNK_PATTERNS:
+        text = re.sub(pat, " ", text, flags=re.DOTALL | re.IGNORECASE)
+    # Collapse whitespace left behind by removals
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
 
 def clean_text(text):
     if not text:
@@ -122,22 +152,22 @@ def split_japanese_text(text, max_chars=2000):
 def safe_translate(text):
     if not text:
         return ""
-    
+
     if len(text) < 300 and text in TRANSLATION_CACHE:
         return TRANSLATION_CACHE[text]
-        
+
     try:
         text_chunks = split_japanese_text(text, max_chars=1800)
         translated_chunks = []
-        
+
         for chunk in text_chunks:
             if not chunk.strip():
                 continue
-            
+
             if chunk in TRANSLATION_CACHE:
                 translated_chunks.append(TRANSLATION_CACHE[chunk])
                 continue
-                
+
             translated_part = None
             for attempt in range(3):
                 try:
@@ -151,14 +181,14 @@ def safe_translate(text):
                         translated_part = chunk
                     else:
                         time.sleep(1.5 ** attempt)
-                        
+
             translated_chunks.append(translated_part if translated_part else chunk)
-            
+
         full_translation = " ".join(translated_chunks)
         if len(text) < 300:
             TRANSLATION_CACHE[text] = full_translation
         return full_translation
-        
+
     except Exception as e:
         print(f"   ❌ Critical translation framework issue: {e}.", flush=True)
         return text
@@ -180,41 +210,41 @@ timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
 for jp_page, (english_title, relative_path) in ASSET_ROUTING_MAP.items():
     encoded_page = urllib.parse.quote(jp_page)
     url = f"https://pso2ngs.swiki.jp/index.php?{encoded_page}"
-    
+
     full_target_path = os.path.join(BASE_DIR, relative_path)
     os.makedirs(os.path.dirname(full_target_path), exist_ok=True)
-    
+
     print(f" -> Synchronizing targeted asset: {jp_page} ──► {relative_path}", flush=True)
-    
+
     try:
         html = fetch_url_with_retry(url, HEADERS)
         soup = BeautifulSoup(html, 'html.parser')
-        
+
         # Performance optimization: Decompose volatile user comment/bulletin nodes before mapping strings
         for element in soup.find_all(id=re.compile(r'(comment|reply|pcomment|vote)')):
             element.decompose()
-            
+
         content = soup.find('div', id='body') or soup.find('table', class_='ltable')
-        
+
         if content:
             sections = content.find_all(['h2', 'h3'])
-            
+
             with open(full_target_path, "w", encoding="utf-8") as f:
                 f.write(f"=== [{english_title}] ===\n")
                 f.write(f"=== REFRESH NODE: {timestamp} ===\n\n")
-                
+
                 if not sections:
-                    text = content.get_text(separator=' ', strip=True)
-                    cleaned = clean_text(text)
-                    f.write(safe_translate(cleaned) + "\n")
+                    text = clean_text(content.get_text(separator=' ', strip=True))
+                    text = strip_junk(text)
+                    f.write(safe_translate(text) + "\n")
                 else:
                     current_section_title = "General Overview"
                     current_section_chunks = []
-                    
+
                     for child in content.descendants:
                         if child.name in ['h2', 'h3']:
                             if current_section_chunks:
-                                combined_text = clean_text(" ".join(current_section_chunks))
+                                combined_text = strip_junk(clean_text(" ".join(current_section_chunks)))
                                 if combined_text:
                                     f.write(f"--- [Section: {current_section_title}] ---\n")
                                     f.write(safe_translate(combined_text) + "\n\n")
@@ -226,15 +256,15 @@ for jp_page, (english_title, relative_path) in ASSET_ROUTING_MAP.items():
                                 val = child.strip()
                                 if val:
                                     current_section_chunks.append(val)
-                                    
+
                     if current_section_chunks:
-                        combined_text = clean_text(" ".join(current_section_chunks))
+                        combined_text = strip_junk(clean_text(" ".join(current_section_chunks)))
                         if combined_text:
                             f.write(f"--- [Section: {current_section_title}] ---\n")
                             f.write(safe_translate(combined_text) + "\n\n")
-                            
+
             print(f"   ✅ Node Saved with Fine Section-Splitting: {english_title}", flush=True)
-            
+
     except Exception as e:
         print(f"   ❌ Failed to fetch asset path {jp_page}: {e}", flush=True)
 
@@ -248,8 +278,8 @@ try:
     html = fetch_url_with_retry(sega_url, HEADERS, timeout=12)
     soup = BeautifulSoup(html, 'html.parser')
     texts = [p.get_text(strip=True) for p in soup.find_all(['h2','h3','p']) if len(p.get_text(strip=True)) > 20]
-    translated_sega = safe_translate(" ".join(texts[:12]))
-    
+    translated_sega = safe_translate(strip_junk(" ".join(texts[:12])))
+
     with open(sega_path, "w", encoding="utf-8") as f:
         f.write(f"=== [LIVE FEED: OFFICIAL SEGA ANNOUNCEMENTS] ===\n")
         f.write(f"=== REFRESH NODE: {timestamp} ===\n")
