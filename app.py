@@ -19,7 +19,7 @@ GROQ_URL   = "https://api.groq.com/openai/v1/chat/completions"
 # Each model has its own independent RPD pool on one key.
 #
 # ROUTER models — small/fast, only outputs ~30 tokens
-#   llama-3.1-8b-instant : 14,400 RPD  ← primary router
+#   llama-3.1-8b-instant : 14,400 RPD  ← primary router (file + section)
 #   (router fallback isn't needed at 14,400/day)
 #
 # ANSWER models — tried in order on 429, each has separate 1,000 RPD pool
@@ -63,6 +63,15 @@ ROUTER_SYSTEM = (
     "You are a file router for a PSO2: New Genesis knowledge base. "
     "Given a question and a list of file keys, output ONLY valid JSON "
     "{\"key\": \"<stem>\"} with the single best matching key. "
+    "No explanation, no markdown, no extra text."
+)
+
+SECTION_ROUTER_SYSTEM = (
+    "You are a section router for a PSO2: New Genesis knowledge base file. "
+    "Given a question and a numbered list of section titles from that file, "
+    "output ONLY valid JSON {\"sections\": [<int>, ...]} containing the index "
+    "numbers of the 1-3 sections most likely to contain the answer. "
+    "If unsure, include more rather than fewer, but never list every section. "
     "No explanation, no markdown, no extra text."
 )
 
@@ -138,6 +147,52 @@ def route_local(question: str) -> str | None:
     return None
 
 # ==========================================
+# SECTION PARSING / TRIMMING
+# Each compiled file has the form:
+#   --- [Section: <title>] ---
+#   <body text>
+#
+# We parse these so the bot can send only the 1-3 sections
+# relevant to a question instead of the entire file — this is
+# the single biggest token saver for large files like
+# main_story.txt, glossary_terms.txt, enemy_data.txt, etc.
+# ==========================================
+SECTION_RE = re.compile(r"--- \[Section: (.*?)\] ---\s*\n", re.MULTILINE)
+
+# Below this size, just send the whole file — not worth a second
+# router call (saves a Groq request on small files).
+SECTION_ROUTE_THRESHOLD = 1500  # characters
+
+# Absolute safety cap on context sent to the answer model, regardless
+# of routing outcome (~ a few hundred tokens of headroom either way).
+MAX_CONTEXT_CHARS = 6000
+
+def parse_sections(text: str):
+    """
+    Split a compiled knowledge file into (title, body) tuples.
+    Any text before the first '--- [Section: ...] ---' marker is
+    returned as a section titled 'General'.
+    """
+    matches = list(SECTION_RE.finditer(text))
+    if not matches:
+        return [("General", text.strip())]
+
+    sections = []
+    preamble = text[:matches[0].start()].strip()
+    if preamble:
+        sections.append(("General", preamble))
+
+    for i, m in enumerate(matches):
+        title = m.group(1).strip()
+        start = m.end()
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        body = text[start:end].strip()
+        if body:
+            sections.append((title, body))
+
+    return sections
+
+# ==========================================
 # GROQ API HELPER
 # ==========================================
 async def groq_chat(messages: list, model: str, max_tokens: int) -> tuple[str | None, bool]:
@@ -208,6 +263,36 @@ async def route_ai(question: str) -> str | None:
     return None
 
 # ==========================================
+# AI SECTION ROUTER
+# Given a file's parsed sections, picks the 1-3 most relevant
+# ones for the question instead of sending the whole file.
+# Same cheap router model — adds only ~30 output tokens but can
+# save THOUSANDS of input tokens on large files.
+# ==========================================
+async def route_section_ai(question: str, sections: list) -> list[int] | None:
+    if len(sections) <= 1:
+        return None
+
+    titles = "\n".join(f"{i}: {title}" for i, (title, _) in enumerate(sections))
+    messages = [
+        {"role": "system", "content": SECTION_ROUTER_SYSTEM},
+        {"role": "user",   "content": f"Sections:\n{titles}\n\nQuestion: {question}"},
+    ]
+
+    text, _ = await groq_chat(messages, model=ROUTER_MODEL, max_tokens=40)
+    if not text:
+        return None
+
+    try:
+        cleaned = re.sub(r"```[a-z]*|```", "", text).strip()
+        result = json.loads(cleaned)
+        indices = result.get("sections", [])
+        valid = [i for i in indices if isinstance(i, int) and 0 <= i < len(sections)]
+        return valid or None
+    except Exception:
+        return None
+
+# ==========================================
 # LIGHTWEIGHT PORT KEEP-ALIVE (Render)
 # ==========================================
 async def handle_render_ping(reader, writer):
@@ -271,11 +356,32 @@ async def ask(ctx, *, question: str):
             raw = f.read()
         # Strip the === header and timestamp lines compiled into every file
         # e.g. "=== [Hunter Class Skills & Data] ===" and "=== REFRESH NODE: ... ==="
-        context_data = re.sub(r"^===.*===\s*\n?", "", raw, flags=re.MULTILINE).strip()
+        full_text = re.sub(r"^===.*===\s*\n?", "", raw, flags=re.MULTILINE).strip()
     except Exception as e:
         print(f"❌ File read error: {e}", flush=True)
         await ctx.reply("Ugh, I went for my notes and the file just vanished. Something's wrong with the file system.")
         return
+
+    # ── Step 2b: Narrow down to relevant section(s) only ──
+    # This is the big token-saver: large files (main_story, glossary_terms,
+    # enemy_data, etc.) get split by their existing "--- [Section: ...] ---"
+    # markers, and a cheap router call picks only the 1-3 sections that
+    # matter for this question instead of sending the whole file.
+    context_data = full_text
+    if len(full_text) > SECTION_ROUTE_THRESHOLD:
+        sections = parse_sections(full_text)
+        if len(sections) > 1:
+            chosen = await route_section_ai(question, sections)
+            if chosen:
+                titles_used = [sections[i][0] for i in chosen]
+                print(f"   📑 Section route ──► {titles_used}", flush=True)
+                context_data = "\n\n".join(sections[i][1] for i in chosen)
+            else:
+                print("   📑 Section route ──► (none, using full file)", flush=True)
+
+    # ── Step 2c: Hard cap as a final safety net ──
+    if len(context_data) > MAX_CONTEXT_CHARS:
+        context_data = context_data[:MAX_CONTEXT_CHARS] + "\n...[truncated]"
 
     # ── Step 3: Try answer models in order, rotate on 429 ──
     messages = [
@@ -285,7 +391,7 @@ async def ask(ctx, *, question: str):
 
     text_out = None
     for model in ANSWER_MODELS:
-        result, rotate = await groq_chat(messages, model=model, max_tokens=800)
+        result, rotate = await groq_chat(messages, model=model, max_tokens=500)
         if result:
             print(f"✅ Answered with [{model}]", flush=True)
             text_out = result
