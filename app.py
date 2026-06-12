@@ -49,11 +49,11 @@ VECTORIZER = None
 DB_MATRIX = None
 
 
-# ==================== INTELLIGENT CHUNKING & VECTOR ENGINE ====================
+# ==================== LINE-BASED VECTOR SEARCH ENGINE ====================
 def initialize_vector_database():
     """
-    Loads knowledge_database.txt and aggregates text into overlapping,
-    semantically meaningful chunks to keep tables and item blocks contiguous.
+    Loads knowledge_database.txt and splits it into strict, evenly sized 
+    line-based chunks to ensure total prompt tokens never exceed free tier caps.
     """
     global DB_CHUNKS, VECTORIZER, DB_MATRIX
     
@@ -65,40 +65,22 @@ def initialize_vector_database():
     with open("knowledge_database.txt", "r", encoding="utf-8") as f:
         lines = f.readlines()
 
-    current_chunk = []
-    current_length = 0
-    max_chunk_chars = 800  # Sweet spot for table blocks and stats
+    # Clean empty rows to maximize real content per chunk
+    clean_lines = [l for l in lines if l.strip()]
     
-    for line in lines:
-        stripped = line.strip()
-        if not stripped:
-            continue
-            
-        # If we see a distinct section header, finalize the previous block immediately
-        if stripped.startswith("===") and current_chunk:
-            DB_CHUNKS.append("\n".join(current_chunk))
-            current_chunk = []
-            current_length = 0
-            
-        current_chunk.append(line)
-        current_length += len(line)
-        
-        if current_length >= max_chunk_chars:
-            DB_CHUNKS.append("\n".join(current_chunk))
-            # Keep a 2-line overlap buffer to prevent context fracturing
-            current_chunk = current_chunk[-2:] if len(current_chunk) > 2 else []
-            current_length = sum(len(l) for l in current_chunk)
-
-    if current_chunk:
-        DB_CHUNKS.append("\n".join(current_chunk))
-
-    DB_CHUNKS = [c.strip() for c in DB_CHUNKS if len(c.strip()) > 20]
+    # Slice the entire wiki cleanly into small blocks of 25 lines each
+    lines_per_chunk = 25
+    DB_CHUNKS = []
+    
+    for i in range(0, len(clean_lines), lines_per_chunk):
+        chunk_slice = clean_lines[i:i + lines_per_chunk]
+        DB_CHUNKS.append("".join(chunk_slice))
 
     if not DB_CHUNKS:
         print("⚠️ Warning: No valid data extracted from database.", flush=True)
         return
 
-    print(f"🧩 Synthesized {len(DB_CHUNKS)} database fragments. Compiling vector space...", flush=True)
+    print(f"🧩 Synthesized {len(DB_CHUNKS)} strict database fragments. Compiling vector space...", flush=True)
     
     # Text scoring parameters optimized for shorthand wiki queries and gaming jargon
     VECTORIZER = TfidfVectorizer(
@@ -108,7 +90,7 @@ def initialize_vector_database():
     )
     DB_MATRIX = VECTORIZER.fit_transform(DB_CHUNKS)
     
-    print("✅ Local Semantic Database is fully online and safe!", flush=True)
+    print("✅ Local Semantic Database is fully online and size-guarded!", flush=True)
 
 
 def get_semantic_context(user_query, top_k=3):
@@ -171,7 +153,7 @@ async def ask(ctx, *, question: str):
     # 1. Fetch relevant sections over the local vector database
     relevant_chunks = get_semantic_context(question, top_k=4)
 
-    # 2. Bundle query context safely below 2,500 tokens total
+    # 2. Bundle query context safely below 2,000 tokens total
     user_prompt = f"""Context from Game Files:
 {relevant_chunks}
 
