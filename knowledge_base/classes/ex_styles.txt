@@ -1,0 +1,13 @@
+# EX Style Mechanics
+
+Announcement from [sWIKI] EX Style Class (Addon Skill) Hunter (Hu) Fighter (Fi) Ranger (Ra) Gunner (Gu) Force (Fo) Tector (Te) Braver (Br) Bouncer (Bo) Waker (Wa) Slayer (Sl) EX Style Adrus Blitz Celeste Table of Contents Overview Style Skills After Blast (AB) Blast Echo Trigger Attack Comments
+
+## After blast (AB)
+Dedicated actions that become available when you acquire style skills. After activating Photon Blast (PB), press the PB button again to activate ``After Blast (AB)''. Even if you don't use AB, the next PB gauge will rise. If PB and AB are both available, AB takes precedence. Gunner's "Chain Finish" is not applied to AB, but the count continues. AB has different damage and DPS depending on the style. The effect of the weapon's preset ability "Fixer Blastle" does not apply to AB. To change the effect when activated, go to System>Options>Camera>Camera Effect Settings. Since this is an online game, the enemies will move during the performance (= the camera will move between the player and the enemy, causing you to lose sight of the enemy for a moment), so if you are concerned about this, you may want to change this. If you look over your shoulder when activating, the effect will not occur regardless of the setting.
+
+## blast echo
+A player strengthening effect that activates for a certain period of time after activating After Blast. The effect size is divided into 4 levels, and the effect size increases with each stage. By performing the specific actions required for each style, it becomes easier to move up the stages.
+
+## trigger attack
+A pursuit attack that occurs at regular intervals. This pursuit has the effect of shortening the recast time of Photon Blast (PB), and also accumulates the PB gauge. Similar to Blast Echo, the recast time for follow-up attacks is reduced by performing the specific actions required for each style. Displaying the latest 20 items. See comment page Hide image Please refrain from making comments that violate public order and morals (incitement, slander, discriminatory expressions, obscene expressions, etc.). Also, line breaks are generally not recommended. Avoid unnecessary line breaks. For more information, see About the comment field. Lower PC body sWIKI (lower tier for PC) sWIKI (lower tier for PC) Below PC body Up to here
+
