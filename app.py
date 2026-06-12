@@ -1,5 +1,5 @@
 import os
-import json
+import re
 import asyncio
 import discord
 from discord.ext import commands
@@ -13,7 +13,6 @@ from google.genai.errors import APIError
 # ==========================================
 TOKEN = os.environ.get("DISCORD_TOKEN", "YOUR_DISCORD_TOKEN_HERE")
 
-# Extract and clean the comma-separated keys from the single GEMINI_KEY_RING variable
 raw_key_ring = os.environ.get("GEMINI_KEY_RING", "")
 GEMINI_KEYS = [k.strip() for k in raw_key_ring.split(",") if k.strip() and not k.strip().startswith("YOUR_")]
 
@@ -44,7 +43,6 @@ Despite your laid-back persona, you possess deep and accurate knowledge about Ha
 - Do not pad responses with "Great question!" or generic AI filler phrases.
 """
 
-# Configure Bot Intent Parameters
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="/", intents=intents)
@@ -79,154 +77,97 @@ else:
     print("⚠️ Warning: Could not locate 'knowledge_base/' directory.")
 
 # ==========================================
-# ROUTING HINT MAP (stem → category description)
-# Keeps the AI router grounded on what each file actually contains
+# LOCAL KEYWORD ROUTER
+# Zero API calls. Instant. Free.
+# Maps keyword patterns → file stem.
+# Order matters: more specific rules first.
 # ==========================================
-ROUTING_HINTS = {
-    # Announcements
-    "frontpage":             "General NGS front page news, current events, patch notes, campaigns, scratch ticket banners, seasonal content",
-    "mission_pass":          "Mission Pass season tracks, rewards, SG and AC tiers",
-    "sega_live_feed":        "Official SEGA live update stream, latest patch announcements, maintenance notices",
+KEYWORD_ROUTES = [
+    # --- Announcements & Live Events ---
+    (r"\b(sega|maintenance|patch note|update note|server|live (update|feed))\b",         "sega_live_feed"),
+    (r"\b(mission pass|season pass|sg tier|ac tier|pass reward)\b",                       "mission_pass"),
+    (r"\b(current event|event (right now|today|this week)|scratch ticket|banner|campaign|seasonal|front ?page)\b", "frontpage"),
 
-    # Classes
-    "class_overview":        "General overview of all classes, sub-class mechanics, class combinations, BP contributions",
-    "ex_styles":             "EX Style system, how EX styles work, unlocking EX styles",
-    "hunter":                "Hunter class skills, skill tree, Photon Arts, playstyle — Sword, Wired Lance, Partisan",
-    "fighter":               "Fighter class skills, skill tree, Photon Arts, playstyle — Twin Daggers, Dual Blades, Knuckles",
-    "ranger":                "Ranger class skills, skill tree, Photon Arts, playstyle — Assault Rifle, Launcher",
-    "gunner":                "Gunner class skills, skill tree, Photon Arts, playstyle — Twin Machine Guns",
-    "force":                 "Force class skills, skill tree, Techniques, playstyle — Rod, Talis",
-    "techter":               "Techter class skills, skill tree, support Techniques, playstyle — Wand, Talis",
-    "braver":                "Braver class skills, skill tree, Photon Arts, playstyle — Katana, Assault Rifle",
-    "bouncer":               "Bouncer class skills, skill tree, Photon Arts, playstyle — Jet Boots, Dual Blades",
-    "waker":                 "Waker class skills, skill tree, Photon Arts, playstyle — Harmonizer/Takt, pets",
-    "slayer":                "Slayer class skills, skill tree, Photon Arts, playstyle — Gunblade",
+    # --- Classes (specific first) ---
+    (r"\b(ex.?style|extra style)\b",                                                       "ex_styles"),
+    (r"\b(class (overview|system|combo|combination|list|all)|sub.?class|subclass|main class|bp (from|contrib))\b", "class_overview"),
+    (r"\bhunter\b",                                                                        "hunter"),
+    (r"\bfighter\b",                                                                       "fighter"),
+    (r"\branger\b",                                                                        "ranger"),
+    (r"\bgunner\b",                                                                        "gunner"),
+    (r"\bforce\b",                                                                         "force"),
+    (r"\btechter\b",                                                                       "techter"),
+    (r"\bbraver\b",                                                                        "braver"),
+    (r"\bbouncer\b",                                                                       "bouncer"),
+    (r"\bwaker\b",                                                                         "waker"),
+    (r"\bslayer\b",                                                                        "slayer"),
 
-    # Weapons
-    "general_weapons":       "General weapon systems, weapon categories, potentials, weapon stats overview",
-    "sword":                 "Sword weapon stats, Photon Arts list, notable swords",
-    "wired_lance":           "Wired Lance weapon stats, Photon Arts list",
-    "partisan":              "Partisan weapon stats, Photon Arts list",
-    "twin_daggers":          "Twin Daggers weapon stats, Photon Arts list",
-    "dual_blades":           "Dual Blades weapon stats, Photon Arts list",
-    "knuckles":              "Knuckles weapon stats, Photon Arts list",
-    "katana":                "Katana weapon stats, Photon Arts list",
-    "assault_rifle":         "Assault Rifle weapon stats, Photon Arts list",
-    "twin_machine_guns":     "Twin Machine Guns weapon stats, Photon Arts list",
-    "talis":                 "Talis weapon stats, Photon Arts/Technique support list",
-    "wand":                  "Wand weapon stats, Photon Arts list",
-    "harmonizer":            "Harmonizer (Takt) weapon stats, Photon Arts, Waker pet interactions",
-    "jet_boots":             "Jet Boots weapon stats, Photon Arts list",
-    "weapon_camouflage":     "Weapon camouflage cosmetics, how weapon skins work",
+    # --- Weapons (specific first) ---
+    (r"\b(wired.?lance)\b",                                                                "wired_lance"),
+    (r"\b(twin.?dagger|twin dagger)\b",                                                    "twin_daggers"),
+    (r"\b(dual.?blade|dual blade)\b",                                                      "dual_blades"),
+    (r"\b(twin.?machine.?gun|tmg)\b",                                                      "twin_machine_guns"),
+    (r"\b(assault.?rifle|rifle)\b",                                                        "assault_rifle"),
+    (r"\b(jet.?boot)\b",                                                                   "jet_boots"),
+    (r"\b(harmonizer|takt)\b",                                                             "harmonizer"),
+    (r"\b(weapon.?camo|camo|camouflage|weapon skin)\b",                                    "weapon_camouflage"),
+    (r"\b(partisan)\b",                                                                    "partisan"),
+    (r"\b(knuckle)\b",                                                                     "knuckles"),
+    (r"\b(katana)\b",                                                                      "katana"),
+    (r"\b(talis)\b",                                                                       "talis"),
+    (r"\b(wand)\b",                                                                        "wand"),
+    (r"\b(sword)\b",                                                                       "sword"),
+    (r"\b(weapon (list|type|overview|general|stat|potential))\b",                          "general_weapons"),
 
-    # Mechanics
-    "armor":                 "Armor units, defensive gear stats, armor sets",
-    "skill_rings":           "Skill Rings, ring types, ring effects, how to equip",
-    "equipment_enhancement": "Equipment enhancement, grinding weapons and armor, enhancement levels",
-    "limit_breaking":        "Item limit breaking, raising enhancement caps, limit break materials",
-    "techniques":            "Elemental techniques, magic spells, technique types, Photon Blast",
-    "augments":              "Augments, special abilities, affixing, capsules, augment effects",
-    "addon_skills":          "Add-on skill system, how to unlock and equip add-on skills",
-    "creative_space":        "Creative Space, housing, room decorations, CAST customization",
-    "quick_food":            "Quick Food Stand, buff recipes, food effects, stat boosts",
+    # --- Mechanics ---
+    (r"\b(augment|affix|capsule|special abilit)\b",                                        "augments"),
+    (r"\b(limit.?break|limit break|break cap)\b",                                          "limit_breaking"),
+    (r"\b(enhance|grind(ing)? (weapon|armor|gear)|enhancement level)\b",                   "equipment_enhancement"),
+    (r"\b(skill ring|ring (type|effect|equip))\b",                                         "skill_rings"),
+    (r"\b(technique|tech|foie|barta|zonde|photon blast|spell|magic)\b",                    "techniques"),
+    (r"\b(add.?on skill|addon skill)\b",                                                   "addon_skills"),
+    (r"\b(armor|unit|defensive gear|armor set)\b",                                         "armor"),
+    (r"\b(creative space|housing|room decoration|cast custom)\b",                          "creative_space"),
+    (r"\b(quick food|food (buff|stand|effect)|buff recipe|food stand)\b",                  "quick_food"),
 
-    # World / Quests
-    "tasks":                 "Main tasks, side quests, daily/weekly tasks, ARCS tasks",
-    "urgent_quests":         "Urgent quests, emergency quests, raid schedules, occurrence times",
-    "regions":               "Halpha regions, area maps, Aelio, Retem, Kvaris, Stia, Mediora, Ritem, Airio",
-    "battledia":             "Battledia trigger quests, yellow/red/blue Battledia",
-    "duel_quests":           "Duel Quests, solo boss challenges",
-    "leciel_exploration":    "Leciel Exploration quests, floating structure, Leciel rewards",
-    "gathering":             "Gathering, field materials, ore, fruit, fishing, farming",
-    "titles":                "Titles, achievements, title rewards, title unlock conditions",
+    # --- World & Quests ---
+    (r"\b(urgent quest|emergency quest|raid (schedule|time)|eq schedule)\b",               "urgent_quests"),
+    (r"\b(battledia|trigger quest)\b",                                                     "battledia"),
+    (r"\b(duel quest|solo (boss|challenge))\b",                                            "duel_quests"),
+    (r"\b(leciel|floating structure|leciel reward)\b",                                     "leciel_exploration"),
+    (r"\b(gather|field material|ore|fruit|fish(ing)?|farm(ing)?)\b",                       "gathering"),
+    (r"\b(title|achievement)\b",                                                           "titles"),
+    (r"\b(region|area|map|aelio|retem|kvaris|stia|mediora|ritem|airio)\b",                 "regions"),
+    (r"\b(task|side quest|daily|weekly|arcs task)\b",                                      "tasks"),
 
-    # Lore
-    "main_story":            "Main story chapters, main quest progression, story summaries",
-    "npc_profiles":          "NPC profiles, character lore, affiliations, ARKS members",
-    "worldview_settings":    "World lore, background settings, Halpha environment, ARKS history",
-    "glossary_terms":        "In-universe vocabulary, lore glossary, term definitions",
-    "arks_chronology":       "ARKS historical chronicles, timeline of events, Halpha history",
+    # --- Lore ---
+    (r"\b(npc|character lore|affiliation|arks member)\b",                                  "npc_profiles"),
+    (r"\b(main story|story chapter|quest chapter|chapter \d)\b",                           "main_story"),
+    (r"\b(lore|worldview|world (setting|lore)|halpha (histor|origin|background))\b",       "worldview_settings"),
+    (r"\b(glossar|term|definition|in.universe|what (is|are) (doll|arks|meteron|meteorn|cast))\b", "glossary_terms"),
+    (r"\b(arks histor|chronolog|timeline|histor(y|ical))\b",                               "arks_chronology"),
 
-    # Enemies
-    "enemy_data":            "Enemy species, boss data, DOLLS types, enemy stats and locations",
-}
+    # --- Enemies ---
+    (r"\b(enemy|enemies|boss|doll|monster|spawn|weak(ness|point))\b",                      "enemy_data"),
+]
 
-# ==========================================
-# INTELLIGENT AI ROUTING LOGIC
-# ==========================================
-async def route_user_query_ai(client, question_text):
+def route_local(question: str) -> str | None:
     """
-    Uses Gemini to semantically match the user's question to the best
-    knowledge base file key, using ROUTING_HINTS as context for each key.
+    Keyword-based router. Zero API usage.
+    Returns a file stem string or None if no match found.
+    Falls back to 'frontpage' as a last resort.
     """
-    if not LOCAL_FILE_MAP:
-        return None
-
-    available_keys = list(LOCAL_FILE_MAP.keys())
-
-    # Build a compact hint block for the router
-    hint_lines = "\n".join(
-        f'  "{k}": {ROUTING_HINTS.get(k, "General game data")}' for k in available_keys
-    )
-
-    router_prompt = f"""You are a database routing assistant for a PSO2: New Genesis (NGS) knowledge base.
-Select the single most relevant file key from the list below to answer the user's question.
-
-User Question: "{question_text}"
-
-Available file keys and what they contain:
-{hint_lines}
-
-Rules:
-- Match as specifically as possible. If they ask about a specific weapon type, class, or mechanic, prefer that exact file over a general one.
-- For current events, banners, or patch notes → prefer "sega_live_feed" or "frontpage".
-- For urgent/emergency quest schedules → prefer "urgent_quests".
-- For lore questions about the story or NPCs → prefer "main_story", "npc_profiles", or "worldview_settings".
-- For augment capsules or affixing → prefer "augments".
-- For grinding/enhancement → prefer "equipment_enhancement" or "limit_breaking".
-- Only fall back to "frontpage" if truly nothing else fits.
-"""
-
-    try:
-        response = await client.aio.models.generate_content(
-            model=SELECTED_MODEL,
-            contents=router_prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-                response_schema={
-                    "type": "OBJECT",
-                    "properties": {
-                        "selected_key": {
-                            "type": "STRING",
-                            "enum": available_keys,
-                            "description": "The exact file key from the allowed keys list."
-                        }
-                    },
-                    "required": ["selected_key"]
-                },
-                temperature=0.0
-            )
-        )
-
-        result = json.loads(response.text)
-        chosen_key = result.get("selected_key")
-
-        if chosen_key in LOCAL_FILE_MAP:
-            print(f"🤖 Router: '{question_text[:60]}' ──► [{chosen_key}]", flush=True)
-            return LOCAL_FILE_MAP[chosen_key]
-
-    except APIError as api_err:
-        raise api_err
-    except Exception as e:
-        print(f"⚠️ Router non-API error: {e}. Falling back to frontpage.", flush=True)
-
-    return LOCAL_FILE_MAP.get("frontpage") or list(LOCAL_FILE_MAP.values())[0]
+    q = question.lower()
+    for pattern, stem in KEYWORD_ROUTES:
+        if re.search(pattern, q, re.IGNORECASE):
+            if stem in LOCAL_FILE_MAP:
+                return stem
+    return None
 
 # ==========================================
 # LIGHTWEIGHT PORT KEEP-ALIVE SERVER
 # ==========================================
 async def handle_render_ping(reader, writer):
-    """Simple HTTP responder for Render's deployment port health checks."""
     try:
         await reader.read(256)
         http_response = "HTTP/1.1 200 OK\r\nContent-Length: 2\r\nContent-Type: text/plain\r\n\r\nOK"
@@ -269,27 +210,31 @@ async def ask(ctx, *, question: str):
         )
         return
 
+    # ── Step 1: Local keyword routing (FREE, instant, no API call) ──
+    routed_stem = route_local(question)
+    if routed_stem:
+        target_file_path = LOCAL_FILE_MAP[routed_stem]
+        print(f"⚡ Local Router: '{question[:60]}' ──► [{routed_stem}]", flush=True)
+    else:
+        # No keyword match — fall back to frontpage
+        target_file_path = LOCAL_FILE_MAP.get("frontpage") or list(LOCAL_FILE_MAP.values())[0]
+        print(f"🔀 No keyword match for: '{question[:60]}' ──► [frontpage fallback]", flush=True)
+
+    # ── Step 2: Load context ──
+    try:
+        with open(target_file_path, "r", encoding="utf-8") as f:
+            context_data = f.read()
+    except Exception as e:
+        print(f"❌ File read failed for {target_file_path}: {e}", flush=True)
+        await ctx.reply("Ugh, I went to grab my notes and they were just... gone. Something's wrong with the file system.")
+        return
+
+    # ── Step 3: Single Gemini call for the actual answer ──
     for attempt in range(len(GEMINI_KEYS)):
         idx = current_key_index
         client = CLIENT_RING.get(idx)
 
         try:
-            # Step 1: Route the query to the best knowledge base file
-            target_file_path = await route_user_query_ai(client, question)
-            if not target_file_path:
-                await ctx.reply("Wait— I don't even know which part of my notes covers that. Can you be a bit more specific?")
-                return
-
-            # Step 2: Load the knowledge base context
-            try:
-                with open(target_file_path, "r", encoding="utf-8") as f:
-                    context_data = f.read()
-            except Exception as e:
-                print(f"❌ File read failed for {target_file_path}: {e}", flush=True)
-                await ctx.reply("Ugh, I went to grab my notes and they were just... gone. Something's wrong with the file system.")
-                return
-
-            # Step 3: Generate the answer with Hafu's personality
             response = await client.aio.models.generate_content(
                 model=SELECTED_MODEL,
                 contents=[
@@ -299,7 +244,7 @@ async def ask(ctx, *, question: str):
                 config=types.GenerateContentConfig(
                     system_instruction=SYSTEM_PROMPT,
                     temperature=0.65,
-                    max_output_tokens=900
+                    max_output_tokens=850
                 )
             )
 
@@ -315,7 +260,7 @@ async def ask(ctx, *, question: str):
 
         except APIError as api_err:
             if api_err.code in [429, 503]:
-                print(f"⚠️ Key [{idx+1}] hit status {api_err.code}. Rotating to next key...", flush=True)
+                print(f"⚠️ Key [{idx+1}] hit status {api_err.code}. Rotating...", flush=True)
                 current_key_index = (current_key_index + 1) % len(GEMINI_KEYS)
                 continue
             else:
