@@ -1,0 +1,66 @@
+# Seasonal Points Exchange Shop and Point Exchange Rewards (Part 1)
+
+== Overview ==
+The Seasonal Points Exchange Shop is an event-limited Exchange Shop that is only available during Seasonal Events.
+Previous iterations of the of the Seasonal Points Exchange Shop can be viewed on this page , or can be individually viewed on each event's Event Page .
+
+== Seasonal Points ==
+Seasonal Points ( ) are obtained by completing Xiandy's Tasks and Event Limited Tasks which will reward the player with Seasonal Points. Enemies with the Season Mark will also drop Seasonal Points upon death.
+
+=== Point Table ===
+
+=== Aelio Region ===
+Seasonal Points Earned | Category | Notes
+7 | Small Enemies | Drops from the following enemies: Grulf Lore, Udan Lore, Rappy
+10 | Small Enemies | Drops from the following enemies: Agnis Lore, Fuwan, Lizard Fray, Lizard Ice, Lizard Thunder, Phongrulf Lore, Tinos, Za'Udan Lore
+21 | Small Enemies | Drops from the following enemies: Banehog, Evil Angelo, Gara Garongo, Heruc
+42 | Small Enemies | Drops from the following enemies: Dotts, Gororon, Gororox, Pettas Axe, Pettas Gun, Pettas Launcher, Pettas Sword
+62 | Small and Medium Enemies | Drops from the following enemies: Crag Bear, Pettax Axe, Pettax Gun, Pettax Launcher, Pettax Sword, Emperappy, Great Rappy
+125 | Medium Enemies | Drops from the following enemies: Ard Banser, Ard Banshee, Bigg Frogga, Bujin, Chiacurio, Eldi Scythe, Nogleth, Oruq, Thunder Banser, Thunder Banshee, Varas, Waulon
+250 | Large Enemies | Drops from the following enemies: Daityl Axe, Daityl Sword, Nex Aelio
+1,000 | Urgent Quest (Enemies) | Drops from the following enemies: Nex Vera, Pettas Vera
+500 - 1,500 | Urgent Quest (Mining Rig Defense) | S Rank: 1,500 A Rank: 1,250 B Rank: 1,000 C Rank: 500
+
+=== Retem Region ===
+Seasonal Points Earned | Category | Notes
+7 | Small Enemies | Drops from the following enemies: Grulf Delore, Guardinan Lore, Rappy
+10 | Small Enemies | Drops from the following enemies: Agnis Delore, Kerogero, Lizard Fray, Mumidog, Phongrulf Delore, Sand Fuwan, Sand Koron, Sand Tinos, Spardun A Lore, Spargun A Lore, Sparzile Lore, Sval Angelo, Svaruc
+21 | Small Enemies | Drops from the following enemies: Alma Rongo, Crowpa, Dingale Lore, Gillnach Lore, Glasneg, Roufin Bear, Savinehog, Signogun Lore, Heruc
+42 | Small Enemies | Drops from the following enemies: Brancle, Deser Gun, Deser Launcher, Deser Sword, Metius, Sand Roron, Sand Rorox, Sand Dotts
+62 | Small and Medium Enemies | Drops from the following enemies: Dune Bear, Deser Gunblade, Emperappy, Great Rappy
+125 | Medium Enemies | Drops from the following enemies: Bubble Snapper, Fortos Laser, Fortos Launcher, Kelkundo, Lizentos, Sand Nogleth, Svacurio, Svadi Scythe, Svaulon
+250 | Large Enemies | Drops from the following enemies: Dustyl Hammer, Renus Retem
+1,000 | Urgent Quest (Enemies) | Drops from the following enemies: Dustyl Vera, Renus Vera
+500 - 1,500 | Urgent Quest (Mining Rig Defense) | S Rank: 1,500 A Rank: 1,250 B Rank: 1,000 C Rank: 500
+
+=== Kvaris Region ===
+Seasonal Points Earned | Category | Notes
+7 | Small Enemies | Drops from the following enemies: Grulfer Lore, Rappy
+10 | Small Enemies | Drops from the following enemies: Agnis Zalore, Arcticgero, Brrgero, Chillycurio, Chillydog, Chillyhedge, Chillyron, Freezicurio, Freezidog, Freezihedge, Freeziron, Jangis, Phangrulfer Lore, Marmoth Lore, Snow Fuwan, Snow Tinos, Yedi Lore
+21 | Small Enemies | Drops from the following enemies: Blizza Rongo, Chillyhog, Chillyrowpa, Chillysneg, Freezihog, Freezirowpa, Freezisneg
+42 | Small Enemies | Drops from the following enemies: Freeztts, Proctys Ael, Proctys Retem, Rinshan, Snororox, Snororon, Snow Rorox, Zams Gun, Zams Launcher, Zams Sword,
+62 | Small and Medium Enemies | Drops from the following enemies: Konigssee Yedi, Zams Gunblade, Emperappy, Great Rappy
+125 | Medium Enemies | Drops from the following enemies: Ice Banser, Ice Banshee, Malachride, Malachroid, Pangolan, Relyn, Snoruq, Za Marmoth
+250 | Large Enemies | Drops from the following enemies: Ams Kvaris, Crocodylis, Frostyl Sword
+1,000 | Urgent Quest (Enemies) | Drops from the following enemies: Ams Vera, Crocodylis Vera
+
+=== Stia Region ===
+Seasonal Points Earned | Category | Notes
+7 | Small Enemies | Drops from the following enemies: Deeg Lore, Grulf Volore, Guardinan Volore, Rappy
+10 | Small Enemies | Drops from the following enemies: Agnis Volore, Baridran Lore, Basalpion, Flayray, Koadori, Lava Fuwan, Lava Tinos, Nordeeran Lore, Phongrulf Volore, Rock Hound, Sol Deegahla Lore, Spardun A Volore, Spargun Volore, Stein Hound, Thunderay
+21 | Small Enemies | Drops from the following enemies: Bigar Clore, Boa Clore, Boostas, Fodran Lore, Grinbear, Krisnukl, Mag Head, Signogun Volore, Slug Head, Vol Garongo
+42 | Small Enemies | Drops from the following enemies: Gazzas Axe, Gazzas Gun, Gazzas Launcher, Lava Metius, Lava Roron, Lava Rorox, Vanizz
+62 | Small and Medium Enemies | Drops from the following enemies: Gazzas Gunblade, Stratis, Volg Bear, Emperappy, Great Rappy
+125 | Medium Enemies | Drops from the following enemies: Blaze Nogleth, Blazentos, Dark Lemnas, Dark Magilz, Dusk Snapper, Dusk Snapper, Duskdi Scythe, Engouku, Volt Lemnas
+250 | Large Enemies | Drops from the following enemies: Doldoris, Flamedyl Sword, Nils Stia
+1,000 | Urgent Quest (Enemies) | Drops from the following enemies: Doldoris Vera, Nils Vera
+
+=== Point Multiplier ===
+Seasonal Points acquired from Special enemy variants will be affected by an additional point multiplier.
+Multiplier | Enemy Variant | Enemy Type
+x1.1 | Silver | Rare Enemy
+x1.1 | Elite | Megalotix Enemy
+x1.2 | Golden | Rare Enemy
+x1.5 | Veteran | Dread Enemy
+x2.0 | Veteran (Golden) | Dread Enemy
+x2.0 | Malevolent | Gigantix Enemy

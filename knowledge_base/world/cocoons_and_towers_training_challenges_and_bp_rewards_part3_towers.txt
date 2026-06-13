@@ -1,0 +1,73 @@
+# Cocoons and Towers — Training Challenges and BP Rewards (Part 3)
+
+== Towers ==
+=== Aelio Region ===
+
+=== ALTERS Rush ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+North Aelio - Altolani Plateau | 4 Players | 1184 | Complete the Main Mission | None | Incapacitated 30 times
+Detail | Entry
+Main Mission | Defeat the Chiacurio.
+Side Missions | Clear before 8:00 Clear having suppressed under 4 of the enemies Clear without being incapacitated 5 times Complete all Side Missions and clear
+Rewards | +4 Skill Points 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat abilities. Avoid combat with enemies whenever possible and make use of your battle skills to defeat the Chiacurio in the final area.
+
+=== Great Wall ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+Central Aelio | 4 Players | 1184 | Complete the Main Mission | None | Time exceeds 1:00:00
+Detail | Entry
+Main Mission | Defeat the Daityl Sword.
+Side Missions | Clear before 23:00 Clear without being incapacitated 5 times Obtain 5 Point Cubes Complete all Side Missions and clear
+Rewards | +4 Skill Points 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their abilities. Defeat the Daityl Sword in the final area using your battle skills.
+
+=== Aero Runner ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+South Aelio - Mt. Piccolt | 4 Players | 1184 | Complete the Main Mission | None | Fall 99 times
+Detail | Entry
+Main Mission | Reach the finish point.
+Side Missions | Clear before 2:05 Clear without falling 5 times Obtain 10 Point Cubes Complete all Side Missions and clear
+Rewards | +4 Skill Points 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their gliding capabilities. Use Photon Glide to reach the target destination.
+
+=== Retem Region ===
+
+=== DOLLS Burrow ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+North Retem - Cape Keenlad | 4 Players | 1592 | Complete the Main Mission | None | Incapacitated 99 times
+Detail | Entry
+Main Mission | Defeat the Destragras.
+Side Missions | Obtain 5 Point Cubes Clear without being incapacitated 3 times Clear before 10:00 Complete all Side Missions and clear
+Rewards | +4 Skill Points 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat abilities. Defeat the Destragras in the final area using your battle skills.
+-- Additional Info
+The layout of the DOLLS Burrow Tower is as follows:
+- Yellow Squares: Point Cube
+- Green Icons: Enemy Spawns
+- Switch Icons: Gate Switches
+- Blue Icon: Destragras
+DOLLS Burrow Map (B1)
+DOLLS Burrow Map (B2)
+DOLLS Burrow Map (B3)
+
+=== Kvaris Region ===
+
+=== Deepwell ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+West Kvaris - Mt. Ihana | 4 Players | 2506 | Complete the Main Mission | None | Incapacitated 5 times
+Detail | Entry
+Main Mission | Defeat 3 target enemies (Ams Krone).
+Side Missions | Clear before 2:50 Clear having taken damage fewer than 30 times Obtain 5 Point Cubes Complete all Side Missions and clear
+Rewards | +4 Skill Points 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat abilities. Make use of your battle skills to defeat the Ams Krone in the final area.
+
+=== Stia Region ===
+
+=== Broken World ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+Stia Outskirts - Bourganiss Island | 4 Players | 2972 | Complete the Main Mission | None | Time exceeds 20:00
+Detail | Entry
+Main Mission | Defeat the Dark Magilz.
+Side Missions | Clear without falling 3 times Clear before 7:00 Clear without being incapacitated 1 times Complete all Side Missions and clear
+Rewards | +4 Skill Points 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat abilities. Make use of your battle skills to defeat the Dark Magilz in the final area.

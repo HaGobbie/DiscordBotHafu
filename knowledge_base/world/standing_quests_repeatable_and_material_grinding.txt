@@ -1,0 +1,23 @@
+# Standing Quests — Repeatable and Material Grinding
+
+Quests
+Urgent Quests | Battledia Quests | Trigger Quests | Trinitas Quests
+Trainia Advance Quests | Standing Quests | Duel Quests | Limited-Time Quests
+Major Target Suppression Missions | Time Extension Quests
+
+== Overview ==
+Standing Quests are instanced quests that the player can undertake in Phantasy Star Online 2: New Genesis. In Standing Quests, the player must fulfill all the conditions in the requested Standing Quest in order to complete the quest. Standing Quests take place in instanced areas that are randomized for each instance.
+
+== Leciel Exploration ==
+Leciel Exploration
+Halpha Environmental Testing Zone Survey | Leciel Combat Analysis Zone Survey
+
+== Nameless City Exploration ==
+Nameless City Exploration
+Nameless City Residential District Investigation | Nameless City Entertainment Zone Investigation
+
+== Alter Realm Exploration ==
+Alter Realm Interception Sectors
+Altered Investigation: Central Desert Area | Altered Investigation: South Tundra Area
+Alter Realm Combat Sectors
+Altered Battle Line: West Desert Area | Altered Battle Line: Tundra Area Gorge

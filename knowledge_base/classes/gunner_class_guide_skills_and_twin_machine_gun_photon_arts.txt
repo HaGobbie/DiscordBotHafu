@@ -1,0 +1,167 @@
+# Gunner Class Guide — Skills and Twin Machine Gun Photon Arts
+
+Hunter | Fighter | Ranger | Gunner | Force | Techter | Braver | Bouncer | Waker | Slayer
+Gunner is a returning class in Phantasy Star Online 2: New Genesis. A class geared towards close range combat, that excels at wielding ranged weapons point-blank. They make light work of enemies with their great mobility and relentless torrent of bullets.
+
+== Class Weapon Overview ==
+Gunners have access to two unique weapons: Twin Machine Guns and Rifles .
+
+=== Twin Machine Guns ===
+A pair of lightweight, rapid-firing ranged weapons that serve as the primary weapon of Gunners. While their shots deal relatively low damage, they make up for this with the sheer amount of hits they can rain on enemies in a short amount of time, and possess versatile mobility. While TMGs are considered a Ranged weapon, their ideal attack range is medium to point-plank range, where they will deal increased damage.
+Using the Stylish Roll Weapon Action allows you to stylishly evade attacks, reposition yourself in midair, and shoot at the same time.
+
+=== Rifles ===
+A heavy-duty rifle loaded with bullets. Possesses a high rate of attack as well as extreme precision. Rifles have a unique property of dealing increased damage for attacking at medium range.
+The Sliding Shot Weapon Action performs an evasive slide forward, backwards, or to the sides while shooting at the same time. This allows the Gunner to keep their distance from an enemy to avoid damage as well as shoot at the same time.
+While the Rifle is better suited at fighting from longer ranges than the Twin Machine Guns, the Gunner lacks many of the Class Skills that enhance the Rifle, so the weapon is instead more regarded as a side weapon at times.
+
+== Skill Tree Overview ==
+Chain Trigger | Attack PP Recovery | Overwhelm | Dodge PP Gain | Slow Landing Attack-Gunner | Slow Landing Charge-Gunner
+Hail of Bullets | Stylish Onslaught | Rising Drive | TMG Alternate Arts PP Preservation | Long Range Advantage Gu
+Chain Trigger Quick Reload | Chain Boost | Chain Trigger Count Retain | Stylish Roll Arts | Spread Shot
+Chain Finish Advance | Chain Trigger Increase | Chain Boost Advanced | Stylish Roll Strike back | Stylish Roll Counter Bullet | Spread Shot Quick Getaway
+Chain Finish PP Preservation | Hail of Bullets Amplify | Strikeback Advanced
+
+== Skills ==
+Chain Trigger | Unleashed by hitting an enemy with a charged Photon Art. For a set time, the Chain Number increases each time you hit. Landing another charged Photon Art during this time launches a Chain Finisher Boost, increasing damage dealt for a set time, according to the Chain Number. Can only be used with a Main Class/Twin Machine Guns.
+Prerequisite -
+Effect | Skill Level
+1
+Maximum Chain Number | 100
+Chain Finish Starting Potency | 150%
+Potency Increase Per Chain | 1%
+Chain Trigger Duration | 30s
+Chain Trigger Recast | 15s
+Attack PP Recovery | Increases PP recovery when attacking.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15
+PP Recovery | 120% | 122% | 123% | 124% | 125% | 126% | 127% | 128% | 129% | 130% | 131% | 132% | 133% | 134% | 135%
+PP Recovery | 115% | 117% | 118% | 119% | 120% | 121% | 122% | 123% | 124% | 125% | 126% | 127% | 128% | 129% | 130%
+Overwhelm | Increases PP recovery when attacking any enemies other than bosses.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+PP Recovery | 120% | 122% | 123% | 124% | 125% | 126% | 127% | 128% | 129% | 130%
+PP Recovery | 115% | 117% | 118% | 119% | 120% | 121% | 122% | 123% | 124% | 125%
+Dodge PP Gain | A successful dodge using Sidestep or a Twin Machine Gun weapon action recovers PP. Can only be used with a Main Class.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+PP Recovery | +10 | +13 | +16 | +18 | +20
+Slow Landing Attack-Gunner | Slows fall speed when performing a Normal Attack. Can only be used with Gunner weapons.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Slow Landing Charge-Gunner | Slows fall speed when charging a Photon Art. Can only be used with Gunner weapons.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Hail of Bullets | [Active Skill] Performs a sustained rapid-fire attack by expending a gauge built up via attacking. Chain Finish and Chain Boost effects are not added to this attack. Can only be used with Twin Machine Guns.
+Prerequisite -
+Effect | Skill Level
+1
+Potency | 850
+Cooldown | 20s
+Stylish Onslaught | Performing Weapon Actions without any directional input will turn it into an advancing rush. Can only be used with Twin Machine Guns.
+Prerequisite -
+Effect | Skill Level
+1
+PP Consumption | +10 PP
+Rising Drive | At just the right timing after performing a weapon action, pressing the normal attack button will cause you to rise while attacking. Can only be used by a Main Class/Twin Machine Guns.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+TMG Alternate Arts PP Preservation | Decreases your PP consumption when you chain different Photon Arts together. Can only be used by Twin Machine Guns.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+PP Consumption | 90% | 85% | 80% | 75% | 70%
+Long Range Advantage Gu | Increases PA damage to boss enemies that are not targetting you. Main Class/Gunner Weapons only.
+Prerequisite -
+Effect | Skill Level
+1
+Potency | 115%
+Chain Trigger Quick Reload | After Chain Finisher Boost has triggered, depending on the size of the Chain during Chain Trigger, the re-use time will be shortened. Can only be used with a Main Class.
+Prerequisite - Chain Trigger Lv. 1
+Effect | Skill Level
+1
+- | -
+Chain Boost | For a set time after Chain Finisher Boost has triggered, Weapon Actions will change, and attack speed will increase depending on the size of the chain. Can only be used by a Main Class/Twin Machine Guns.
+Prerequisite - Chain Trigger Lv. 1
+Effect | Skill Level
+1
+Duration | 120
+Below 50 Chain Attack Speed | 100%
+Below 80 Chain Attack Speed | 105%
+Above 81 Chain Attack Speed | 110%
+Attack Speed Max Increase | 120%
+Chain Trigger Count Retain | When a Chain Trigger ends without a Chain Finisher Boost, the Chain Number of the next Chain Trigger you use will start at a higher number based on the previous Chain Number. Can only be used by a Main Class/Twin Machine Guns.
+Prerequisite - Chain Trigger Lv. 1
+Effect | Skill Level
+1
+- | -
+Stylish Roll Arts | While Weapon Action is active, pressing the PA button will consume PP to perform a high potency attack. Can only be used with Twin Machine Guns.
+Prerequisite -
+Effect | Skill Level
+1
+Damage | 100%
+PP Consumption | +10 PP
+Spread Shot | [Active Skill] Expend a gauge built up by attacks to fire a special close range shotgun blast. Can only be used with an Assault Rifle.
+Prerequisite -
+Effect | Skill Level
+1
+Damage | 60%
+Chain Finish Advance | Makes you invulnerable for a set period of time when you perform a Chain Finish. Can only be used with a Main Class/Twin Machine Guns.
+Prerequisite - Chain Trigger Quick Reload Lv. 1
+Effect | Skill Level
+1
+Effect Duration | 3s
+Chain Trigger Increase | Increases the Maximum Chain Number of a Chain Trigger to 150. However, potency increase per each chain will be reduced after Chain 101. Can only be used with a Main Class/Twin Machine Guns.
+Prerequisite - Chain Boost Lv. 1
+Effect | Skill Level
+1
+Maximum Chain Number | 150
+Potency Increase Per Chain | 0.50%
+Chain 101 or Above Attack Speed | 120%
+Chain Boost Advanced | During a Chain Boost, your weapon action's invulnerability is extended. Successful dodges using your weapon action extend the duration of your chain boost. Can only be used by a Main Class/Twin Machine Guns.
+Prerequisite - Chain Boost Lv. 1
+Effect | Skill Level
+1
+- | -
+Stylish Roll Strike Back | After a successful dodge with Weapon Actions, your next Photon Art will consume more PP but also have increased potency. Can only be used with Twin Machine Guns.
+Prerequisite - Stylish Roll Arts Lv. 1
+Effect | Skill Level
+1
+Potency | 120%
+PP Consumption | 120%
+Stylish Roll Counter Bullet | A successful dodge with Weapon Action simultaneously unleashes a counterattack. Can only be used by Twin Machine Guns.
+Prerequisite - Stylish Roll Arts Lv. 1
+Effect | Skill Level
+1
+- | -
+Spread Shot Quick Getaway | Triggers an invulnerability period when you use Spread Shot. Inputting a direction will also extend the distance of the evasive action.
+Prerequisite - Spread Shot Lv. 1
+Effect | Skill Level
+1
+- | -
+Chain Finish PP Preservation | Decreases your PP consumption for a set period of time when you perform a Chain Finish. Can only be used by Twin Machine Guns.
+Prerequisite - Chain Finish Advance Lv. 1
+Effect | Skill Level
+1 | 2 | 3
+Effect Duration | 3s | 3s | 3s
+PP Consumption | 75% | 50% | 25%
+Hail of Bullets Amplify | Increases the gauge charge rate for Hail of Bullets for a set period of time after performing a Chain Finish. Can only be used with a Main Class/Twin Machine Guns.
+Prerequisite - Chain Finish Advance Lv. 1
+Effect | Skill Level
+1
+Effect Duration | 3 sec
+Gauge Accumulation Rate | 350%
+Strikeback Advanced | After a successful dodge using a Weapon Action, the next Photon Art you use will grant an invulnerability period. Can only be used by a Main Class.
+Prerequisite - Stylish Roll Strike Back Lv. 1
+Effect | Skill Level
+1
+- | -

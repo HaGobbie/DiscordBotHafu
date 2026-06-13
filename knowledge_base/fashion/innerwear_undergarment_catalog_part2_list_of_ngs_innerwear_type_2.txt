@@ -1,0 +1,133 @@
+# Innerwear — Undergarment Catalog (Part 2)
+
+== List of NGS Innerwear (Type 2) ==
+Preview | Name | Availability | Marketable | Implementation Date | Notes
+Actis [In] | Default | 06/08/21
+Actis/B [In] | Default | 06/08/21
+Aelio Valkys [In] | AC Scratch Tickets: Soldier Line AC Scratch Tickets: Rewind Collection | 06/09/21
+Aelio Valkys/2 [In] | AC Scratch Tickets: Soldier Line | 06/09/21
+Miness Lodia [In] | AC Scratch Tickets: Soldier Line AC Scratch Tickets: Rewind Collection | 06/09/21
+Miness Lodia/2 [In] | AC Scratch Tickets: Soldier Line | 06/09/21
+D'Or Vitesse [In] | AC Scratch Tickets: Wedding Celebration AC Scratch Tickets: Rewind Collection | 06/22/21
+D'Or Vitesse/2 [In] | AC Scratch Tickets: Wedding Celebration | 06/22/21
+N-Viola Magica [In] | AC Scratch Tickets: Oracle Renewal Collection AC Scratch Tickets: Oracle Revival | 06/29/21
+N-Viola Magica/2 [In] | AC Scratch Tickets: Oracle Renewal Collection | 06/29/21
+N-Stripes [In] | AC Scratch Tickets: Sweet Summer AC Scratch Tickets: Rewind Collection 2 | 07/07/21
+N-Stripes/2 [In] | AC Scratch Tickets: Sweet Summer | 07/07/21
+Allaia Quartz [In] | AC Scratch Tickets: Trainee Line AC Scratch Tickets: Rewind Collection 2 | 07/21/21
+Allaia Quartz/2 [In] | AC Scratch Tickets: Trainee Line | 07/21/21
+Besti Rayfoot [In] | AC Scratch Tickets: Sunshine Marine Stars AC Scratch Tickets: Rewind Collection 3 | 08/03/21
+Besti Rayfoot/2 [In] | AC Scratch Tickets: Sunshine Marine Stars | 08/03/21
+Santisse Marina [In] | AC Scratch Tickets: Sunshine Marine Stars AC Scratch Tickets: Rewind Collection 3 | 08/03/21
+Santisse Marina/2 [In] | AC Scratch Tickets: Sunshine Marine Stars | 08/03/21
+N-Heartbreaker [In] | AC Scratch Tickets: Oracle Renewal Collection II AC Scratch Tickets: Oracle Revival | 08/10/21
+N-Heartbreaker/2 [In] | AC Scratch Tickets: Oracle Renewal Collection II | 08/10/21
+Diri Prudis [In] | SG Scratch Tickets: Arks Conductor SG Scratch Tickets: Soaring Bouncer SG Scratch Tickets: Halpha ARKS Revival SG Scratch Tickets: Halpha ARKS Revival 2 | 08/24/21
+Diri Prudis/2 [In] | SG Scratch Tickets: Arks Conductor SG Scratch Tickets: Soaring Bouncer SG Scratch Tickets: Halpha ARKS Revival SG Scratch Tickets: Halpha ARKS Revival 2 | 08/24/21
+Divine Yuet [In] | AC Scratch Tickets: Moonlight Sanctuary AC Scratch Tickets: Rewind Collection 4 | 08/31/21
+Divine Yuet/2 [In] | AC Scratch Tickets: Moonlight Sanctuary | 08/31/21
+Dazzle Code [In] | AC Scratch Tickets: Moonlight Sanctuary AC Scratch Tickets: Rewind Collection 4 | 08/31/21
+Dazzle Code/2 [In] | AC Scratch Tickets: Moonlight Sanctuary | 08/31/21
+Keika Enyou [In] | AC Scratch Tickets: Silhouette of Darkness AC Scratch Tickets: Rewind Collection 4 | 09/14/21
+Keika Enyou/2 [In] | AC Scratch Tickets: Silhouette of Darkness | 09/14/21
+N-Bright Blossom [In] | AC Scratch Tickets: Oracle Renewal Collection III AC Scratch Tickets: Oracle Revival | 09/28/21
+N-Bright Blossom/2 [In] | AC Scratch Tickets: Oracle Renewal Collection III | 09/28/21
+N-Cute [In] | AC Scratch Tickets: Oracle Renewal Collection IV AC Scratch Tickets: Oracle Revival | 10/20/21
+N-Cute/2 [In] | AC Scratch Tickets: Oracle Renewal Collection IV | 10/20/21
+N-Lady Tacker [In] | AC Scratch Tickets: Oracle Renewal Collection V AC Scratch Tickets: Oracle Revival | 12/01/21
+N-Lady Tacker/2 [In] | AC Scratch Tickets: Oracle Renewal Collection V | 12/01/21
+Picturesque Youxia [In] | AC Scratch Tickets: Quaint Ensemble | 01/12/22
+Picturesque Youxia/2 [In] | AC Scratch Tickets: Quaint Ensemble | 01/12/22
+Retem Valkys [In] | SG Scratch Tickets: Resolute Warrior SG Scratch Tickets: Diva of the Desert SG Scratch Tickets: Refined Form SG Scratch Tickets: Refined Form 2 SG Scratch Tickets: Refined Form 3 SG Scratch Tickets: Refined Form 4 SG Scratch Tickets: Halpha ARKS Revival SG Scratch Tickets: Halpha ARKS Revival 2 | 01/19/22
+Retem Valkys/2 [In] | SG Scratch Tickets: Resolute Warrior SG Scratch Tickets: Diva of the Desert SG Scratch Tickets: Refined Form SG Scratch Tickets: Refined Form 2 SG Scratch Tickets: Refined Form 3 SG Scratch Tickets: Refined Form 4 SG Scratch Tickets: Halpha ARKS Revival SG Scratch Tickets: Halpha ARKS Revival 2 | 01/19/22
+Prima Grazio [In] | SG Scratch Tickets: Diva of the Desert SG Scratch Tickets: Refined Form SG Scratch Tickets: Refined Form 2 SG Scratch Tickets: Refined Form 3 SG Scratch Tickets: Refined Form 4 SG Scratch Tickets: Halpha ARKS Revival SG Scratch Tickets: Halpha ARKS Revival 2 | 02/16/22
+Prima Grazio/2 [In] | SG Scratch Tickets: Diva of the Desert SG Scratch Tickets: Refined Form SG Scratch Tickets: Refined Form 2 SG Scratch Tickets: Refined Form 3 SG Scratch Tickets: Refined Form 4 SG Scratch Tickets: Halpha ARKS Revival SG Scratch Tickets: Halpha ARKS Revival 2 | 02/16/22
+N-Carretera Vinto [In] | SG Scratch Tickets: Refined Form 3 SG Scratch Tickets: Refined Form Revival | 05/18/22
+N-Carretera Vinto/2 [In] | SG Scratch Tickets: Refined Form 3 SG Scratch Tickets: Refined Form Revival | 05/18/22
+Yakshini Raika [In] | AC Scratch Tickets: Original Creations A AC Scratch Tickets: Remix Line | 05/25/22
+Yakshini Raika/2 [In] | AC Scratch Tickets: Original Creations A | 05/25/22
+Priella Preghiera [In] | AC Scratch Tickets: Galactic Divinity AC Scratch Tickets: Remix Line | 06/08/22
+Priella Preghiera/2 [In] | AC Scratch Tickets: Galactic Divinity | 06/08/22
+Sacre Guardie [In] | AC Scratch Tickets: Galactic Divinity AC Scratch Tickets: Remix Line | 06/08/22
+Sacre Guardie/2 [In] | AC Scratch Tickets: Galactic Divinity | 06/08/22
+N-Innocent Ensemble [In] | Special Scratch Tickets: PSO2 10th Special Scratch SP Scratch Tickets: Super Phantasy Festival '25 SP Scratch | 07/06/22
+N-Innocent Ensemble/B [In] | Special Scratch Tickets: PSO2 10th Special Scratch SP Scratch Tickets: Super Phantasy Festival '25 SP Scratch | 07/06/22
+N-Innocent Ensemble/C [In] | Special Scratch Tickets: PSO2 10th Special Scratch SP Scratch Tickets: Super Phantasy Festival '25 SP Scratch | 07/06/22
+Labors Fabrika [In] | AC Scratch Tickets: Original Creations C | 07/20/22
+Labors Fabrika/B [In] | AC Scratch Tickets: Original Creations C | 07/20/22
+N-Forge Bustier [In] | SG Scratch Tickets: Refined Form 5 | 08/17/22
+N-Forge Bustier/2 [In] | SG Scratch Tickets: Refined Form 5 | 08/17/22
+N-Holy Phantasm [In] | SG Scratch Tickets: Refined Form 5 | 08/17/22
+N-Holy Phantasm/2 [In] | SG Scratch Tickets: Refined Form 5 | 08/17/22
+N-Combat Jacket T2 [In] | SG Scratch Tickets: Refined Form 6 | 09/14/22
+N-Combat Jacket T2/2 [In] | SG Scratch Tickets: Refined Form 6 | 09/14/22
+N-Duskwake Regalia [In] | SG Scratch Tickets: Refined Form 7 | 10/12/22
+N-Duskwake Regalia/2 [In] | SG Scratch Tickets: Refined Form 7 | 10/12/22
+Sunrise Inaris [In] | AC Scratch Tickets: Celestial Saint | 11/02/22
+Sunrise Inaris/2 [In] | AC Scratch Tickets: Celestial Saint | 11/02/22
+Skelitors [In] | AC Scratch Tickets: Crystalline Concepts | 12/07/22
+Skelitors/2 [In] | AC Scratch Tickets: Crystalline Concepts | 12/07/22
+Breakdancer [In] | AC Scratch Tickets: Street Beat | 10/11/23
+Breakdancer/2 [In] | AC Scratch Tickets: Street Beat | 10/11/23
+Inferniera [In] | AC Scratch Tickets: Monster Masquerade '23 | 10/26/23
+Inferniera/2 [In] | AC Scratch Tickets: Monster Masquerade '23 | 10/26/23
+Snowbelle [In] | AC Scratch Tickets: Joyful Holly-days | 12/06/23
+Snowbelle/2 [In] | AC Scratch Tickets: Joyful Holly-days | 12/06/23
+Amoro Innerwear [In] | AC Scratch Tickets: Starlight Fashion | 02/07/24
+Amoro Innerwear/2 [In] | AC Scratch Tickets: Starlight Fashion | 02/07/24
+Striped Inner T2 [In] | AC Scratch Tickets: Vintage Classics | 04/10/24
+Striped Inner T2/2 [In] | AC Scratch Tickets: Vintage Classics | 04/10/24
+N-Active Camisole [In] | SG Scratch Tickets: Refined Form May '24 | 05/22/24
+N-Active Camisole/2 [In] | SG Scratch Tickets: Refined Form May '24 | 05/22/24
+Mariness Innerwear [In] | AC Scratch Tickets: Summer Sky Seaside '24 | 07/03/24
+Mariness Innerwear/2 [In] | AC Scratch Tickets: Summer Sky Seaside '24 | 07/03/24
+Shrine Bearer Inner T2 [In] | AC Scratch Tickets: Halpha Summer Splash | 07/31/24
+Shrine Bearer Inner T2/2 [In] | AC Scratch Tickets: Halpha Summer Splash | 07/31/24
+Vampiadora [In] | AC Scratch Tickets: Monster Masquerade '24 | 10/15/24
+Vampiadora/2 [In] | AC Scratch Tickets: Monster Masquerade '24 | 10/15/24
+Holiday Ribbon Inner [In] | AC Scratch Tickets: Joyful Holly-days '24 | 11/27/24
+Holiday Ribbon Inner/2 [In] | AC Scratch Tickets: Joyful Holly-days '24 | 11/27/24
+Bewitching Spectress [In] | AC Scratch Tickets: Demonic Elegance | 01/22/25
+Bewitching Spectress/2 [In] | AC Scratch Tickets: Demonic Elegance | 01/22/25
+Enamel Inner T2 [In] | AC Scratch Tickets: Neon Cat Martial | 02/26/25
+Enamel Inner T2/2 [In] | AC Scratch Tickets: Neon Cat Martial | 02/26/25
+Mechanized Suit T2 [In] | AC Scratch Tickets: Multi Remix Line | 03/11/25
+Enchanting Crossed Straps T2 [In] | AC Scratch Tickets: Multi Remix Line | 03/11/25
+Halterneck Inner T2 [In] | AC Scratch Tickets: Punkish Street | 04/29/25
+Halterneck Inner T2/2 [In] | AC Scratch Tickets: Punkish Street | 04/29/25
+Elfemilia T2 [In] | AC Scratch Tickets: Fantastic Symphony | 05/07/25
+Elfemilia T2/2 [In] | AC Scratch Tickets: Fantastic Symphony | 05/07/25
+Refined Celestial Lady T2 [In] | AC Scratch Tickets: Quaint Ensemble '25 | 06/10/25
+Refined Celestial Lady T2/2 [In] | AC Scratch Tickets: Quaint Ensemble '25 | 06/10/25
+Strapless Leotard T2 [In] | AC Scratch Tickets: Luxury Bath Time | 06/24/25
+Strapless Leotard T2/2 [In] | AC Scratch Tickets: Luxury Bath Time | 06/24/25
+Neu Mechanized Suit T2 [In] | AC Scratch Tickets: Multi Remix Line Jul '25 | 07/16/25
+Enamel Body Suit T2 [In] | AC Scratch Tickets: Multi Remix Line Jul '25 | 07/16/25
+N-Shiva's Attire T2 [In] | SP Scratch Tickets: Super Phantasy Festival '25 SP Scratch | 08/06/25
+Lace Corset T2 [In] | AC Scratch Tickets: Elegant Harmony '25 | 08/26/25
+Lace Corset T2/2 [In] | AC Scratch Tickets: Elegant Harmony '25 | 08/26/25
+Tien Macy T2 [In] | AC Scratch Tickets: Blazing Martial | 09/23/25
+Tien Macy T2/2 [In] | AC Scratch Tickets: Blazing Martial | 09/23/25
+Plaid Innerwear T2 [In] | AC Scratch Tickets: Stylish Autumn '25 | 11/05/25
+Plaid Innerwear T2/2 [In] | AC Scratch Tickets: Stylish Autumn '25 | 11/05/25
+Moon Rabbit Princess T2 [In] | AC Scratch Tickets: Dreamy Story | 11/12/25
+Moon Rabbit Princess T2/2 [In] | AC Scratch Tickets: Dreamy Story | 11/12/25
+Cross Micro Bikini T2 [In] | AC Scratch Tickets: Joyful Holly-days '25 | 12/17/25
+Cross Micro Bikini T2/2 [In] | AC Scratch Tickets: Joyful Holly-days '25 | 12/17/25
+Aurelia Orien T2 [In] | AC Scratch Tickets: New Year's Charm '25 | 12/24/25
+Aurelia Orien T2/2 [In] | AC Scratch Tickets: New Year's Charm '25 | 12/24/25
+Sexy Knit Dress T2 [In] | AC Scratch Tickets: Modish Winter '26 | 01/07/29
+Sexy Knit Dress T2-V2 [In] | AC Scratch Tickets: Modish Winter '26 | 01/07/29
+Lace-up Inner T2 [In] | AC Scratch Tickets: Demonic Elegance '26 | 01/28/26
+Lace-up Inner T2/2 [In] | AC Scratch Tickets: Demonic Elegance '26 | 01/28/26
+Dragforvina T2 [In] | AC Scratch Tickets: Mystical Reverie '26 | 03/03/26
+Dragforvina T2/2 [In] | AC Scratch Tickets: Mystical Reverie '26 | 03/03/26
+Lapinchic Hirondel T2 [In] | AC Scratch Tickets: Mystical Reverie '26 | 03/03/26
+Lapinchic Hirondel T2/2 [In] | AC Scratch Tickets: Mystical Reverie '26 | 03/03/26
+Kanro Adehime T2 [In] | AC Scratch Tickets: Quaint Ensemble '26 | 03/24/26
+Kanro Adehime T2/2 [In] | AC Scratch Tickets: Quaint Ensemble '26 | 03/24/26
+Casual Off-shoulder T2 [In] | AC Scratch Tickets: Stylish Avenue '26 | 04/14/26
+Casual Off-shoulder T2/2 [In] | AC Scratch Tickets: Stylish Avenue '26 | 04/14/26
+Sicariella T2 [In] | AC Scratch Tickets: Noble Shadows '26 | 05/26/26
+Sicariella T2/2 [In] | AC Scratch Tickets: Noble Shadows '26 | 05/26/26
+Back to Top

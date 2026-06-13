@@ -1,0 +1,97 @@
+# Line Strike Card List and Effects (Part 3)
+
+== Temporary Cards ==
+Name | PP | Attack | Skill | Effect Area | Created By
+CA: Fire 1 - Datapod | 1 | 3 | Info | CA: Fire 3 - Rico
+CA: Fire 5 - Magashi (Alt) | 5 | 16 | No Skills | CA: Fire 5 - Magashi
+CA: Ice 3 - Vivienne (Alt) | 3 | 17 | Ally Debuff | -3 -3 -3 -3 -3 -3 | -3 | -3 | -3 | -3 | -3 | -3 | CA: Ice 3 - Vivienne
+-3 | -3
+-3 | -3
+-3 | -3
+CA: Fire 3 - Giselle (A) | 3 | 14 | Auto Barrier | CA: Fire 3 - Giselle
+CA: Fire 3 - Giselle (B) | 3 | 14 | Unyielding (2x) | CA: Fire 3 - Giselle
+CA: Light 4 - Lindsey (A) | 4 | 22 | Buff Support | CA: Light 4 - Lindsey
+CA: Light 4 - Lindsey (B) | 4 | 20 | Buff Ally | +3 +2 +1 +2 +3 | +3 | +2 | +1 | +2 | +3 | CA: Light 4 - Lindsey
++3
++2 | +1 | +2
++3
+CA: Ice 2 - Stella (A) | 2 | 6 | Draw Card | CA: Ice 2 - Stella
+CA: Ice 2 - Stella (B) | 2 | 5 | PP Down 1 | CA: Ice 2 - Stella
+CA: Wind 3 - Windis (A) | 1 | 10 | Clone: Windis | ◎ | ◎ | CA: Wind 3 - Windis
+◎
+CA: Wind 3 - Windis (B) | 3 | 13 | Dissipate | ◎ ◎ ◎ ◎ ◎ | ◎ | ◎ | ◎ | ◎ | ◎ | CA: Wind 3 - Windis
+◎ | ◎
+◎ | ◎ | ◎
+CA: Lightning 3 - Uly (A) | 3 | 13 | Morale Boost | CA: Lightning 3 - Uly
+CA: Lightning 3 - Uly (B) | 3 | 8 | Spirited Strike | CA: Lightning 3 - Uly
+CA: Dark 4 - Jasper (A) | 4 | 20 | Summoning Seal | ✖ ✖ ✖ | ✖ | ✖ | ✖ | CA: Dark 4 - Jasper
+✖ | ✖
+✖
+CA: Dark 4 - Jasper (B) | 4 | 20 | Stun | ✖ ✖ | ✖ | ✖ | CA: Dark 4 - Jasper
+✖ | ✖
+CA: Fire 4 - Rosalinde (A) | 4 | 20 | Bodyguard | ◎ ◎ ◎ | ◎ | ◎ | ◎ | CA: Fire 4 - Rosalinde
+◎
+◎ | ◎
+CA: Fire 4 - Rosalinde (B) | 4 | 19 | Worthy Opponent | ✖ ✖ ✖ ✖ | ✖ | ✖ | ✖ | ✖ | CA: Fire 4 - Rosalinde
+✖
+✖ | ✖
+✖
+CA: Ice 4 - Abeille (A) | 4 | 21 | Block Ally Movement | ◎ ◎ ◎ ◎ | ◎ | ◎ | ◎ | ◎ | CA: Ice 4 - Abeille
+◎
+◎ | ◎ | ◎
+CA: Ice 4 - Abeille (B) | 4 | 21 | Block Enemy Movement | ✖ ✖ ✖ ✖ ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | CA: Ice 4 - Abeille
+✖ | ✖ | ✖
+✖
+✖
+CA: Lightning 5 - Gené (A) | 5 | 26 | Move Ally | ⬅ ➡ | ⬅ | ➡ | CA: Lightning 5 - Gené
+⬅
+➡
+CA: Lightning 5 - Gené (B) | 5 | 26 | Move Ally | ⬅ ➡ | ⬅ | ➡ | CA: Lightning 5 - Gené
+⬅
+➡
+CA: Wind 3 - Zola (A) | 3 | 14 | Buff Ally | +2 +3 +3 +2 | +2 | +3 | +3 | +2 | CA: Wind 3 - Zola
++2
++3 | +3
++2
+CA: Wind 3 - Zola (B) | 3 | 14 | Buff Ally | +4 +3 +3 | +4 | +3 | +3 | CA: Wind 3 - Zola
++4
++3
++3
+CA: Light 3 - Melissa (A) | 3 | 12 | Growth | CA: Light 3 - Melissa
+CA: Light 3 - Melissa (B) | 3 | 13 | Support | +1 +2 +2 +1 | +1 | +2 | +2 | +1 | CA: Light 3 - Melissa
++1 | +2
++2 | +1
+CA: Dark 1 - Odette (A) | 1 | 2 | Move Ally | ⬇ ➡ | ⬇ | ➡ | CA: Dark 1 - Odette
+⬇
+➡
+CA: Dark 1 - Odette (B) | 1 | 2 | Move Enemy | ⬇ ⬇ ⬇ | ⬇ | ⬇ | ⬇ | CA: Dark 1 - Odette
+⬇ | ⬇
+⬇
+CA: Light 0 - Kanui's Special Omurice | 0 | 1 | Exquisite Dish | CA: Fire 4 - Kanui
+CA: Dark 0 - Pharia's Special Omurice | 0 | 3 | Unique Dish | CA: Ice 4 - Pharia
+
+== Card Variants ==
+Name | Base Card | Release Date
+CA: Dark 4R - Arcueid | CA: Dark 4 - Phaleg | 12/04/24
+CA: Ice 5R - Shiki Tohno | CA: Ice 5 - Maria | 12/04/24
+CA: Light 4R - Touma Kamijo | CA: Light 4 - Yasminokov 8000C | 02/05/25
+CA: Lightning 2R - Mikoto Misaka | CA: Lightning 2 - Fourie | 02/05/25
+CA: Wind 4R - Accelerator | CA: Wind 4 - Aina | 02/05/25
+CA: Dark 5R - Rimuru Tempest | CA: Dark 5 - Pharia | 05/21/2025
+CA: Fire 5R - Milim Nava | CA: Fire 5 - Glen | 05/21/2025
+CA: Wind 2R - Sonic | CA: Wind 2 - Lumia | 06/04/25
+CA: Dark 5R - Shadow | CA: Dark 5 - Kireek | 06/04/25
+CA: Lightning 3R - Tails | CA: Lightning 3 - Ethan | 06/04/25
+CA: Light 5R - Reimu Hakurei | CA: Light 5 - Ash | 08/06/25
+CA: Lightning 4R - Marisa Kirisame | CA: Lightning 4 - Gettemhult | 08/06/25
+CA: Fire 5R - Flandre Scarlet | CA: Fire 5 - Klariskrays | 08/06/25
+CA: Dark 5R - Remilia Scarlet | CA: Dark 5 - Matoi | 08/06/25
+CA: Ice 1R - Cirno | CA: Ice 1 - Hans | 08/06/25
+CA: Wind 5R - Sakuya Izayoi | CA: Wind 5 - Tylor | 08/06/25
+CA: Light 4R - Hariette (Summer) | CA: Light 4 - Hariette | 08/06/25
+CA: Light 4R - Matoi (Summer) | CA: Light 4 - Matoi | 08/06/25
+CA: Ice 4R - Io (Summer) | CA: Ice 4 - Io | 08/06/25
+CA: Wind 2R - Seraphy (Summer) | CA: Wind 2 - Seraphy | 08/06/25
+CA: Ice 3R - Yumia | CA: Ice 3 - Tia | 09/02/25
+CA: Fire 3R - Miao | CA: Fire 3 - Catredan | 10/01/25
+CA: Light 2R - Alice | CA: Light 2 - Emilia | 10/01/25

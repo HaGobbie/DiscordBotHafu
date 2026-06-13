@@ -1,0 +1,42 @@
+# Exchange Shops — Material and Item Redemption
+
+== Overview ==
+Exchange Shops are shops where you can exchange certain items for other items.
+The available selection may vary depending on the events that are underway. In addition, some exchange shops may have set limits on how many of a specific item you can exchange, until the limit is reset.
+
+== Main Menu ==
+- Item Recycle Shop
+
+== Main Cities ==
+- Item Exchange Shop
+- Item Recycle Shop
+- Augment Capsule Exchange Shop
+- Enhancement Material Exchange Shop
+- Alliance Badge Exchange Shop
+- ARKS Record Badge Exchange Shop
+- Stia Exchange Shop
+- Giga Strugment Exchange Shop‎‎
+- Growthment Exchange Shop
+- Growthment II Exchange Shop
+- SG Legacy Coordination Exchange Shop‎‎
+- Special Scratch Exchange
+- Dread Scale Exchange
+- Genesis Point Exchange Shop‎‎
+- Equipment Upgrade (Augment Transfer)
+- N-Weapons Badge Exchange Shop
+
+== Kvaris Camp ==
+- Kvaris Exchange Shop
+
+== Event ==
+- Seasonal Points Exchange Shop
+- Seasonal Gathering Exchange Shop
+- NGS 1st Anniversary Ticket Exchange Shop‎‎
+- Xiemi's Exchange Shop‎‎
+- Seasonal Item Recycle‎‎
+
+== Limited-Time ==
+- Kvaris Expedition Prep Ticket Exchange Shop
+- Stia Expedition Prep Ticket Exchange Shop
+- Slayer Operation Prep Ticket Exchange Shop
+- Special Edition Exchange Shop‎‎

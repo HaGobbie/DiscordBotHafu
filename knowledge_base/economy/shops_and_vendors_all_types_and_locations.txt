@@ -1,0 +1,34 @@
+# Shops and Vendors — All Types and Locations
+
+== Item Shops ==
+Item Shops are shops where you can exchange N-Meseta for other items.
+
+=== Central City ===
+- Item Shop
+
+== Exchange Shops ==
+Exchange Shops are shops where you can exchange certain items for other items.
+The available selection may vary depending on the events that are underway. In addition, some exchange shops may have set limits on how many of a specific item you can exchange, until the limit is reset.
+
+=== Main Menu ===
+- Item Recycle Shop
+
+=== Central City ===
+- Item Exchange Shop
+- Item Recycle Shop
+- Augment Capsule Exchange Shop
+
+=== Event ===
+- Seasonal Points Exchange Shop
+
+== ARKS Cash Shop ==
+ARKS Cash Shop is a shop where you can exchange ARKS Cash for premium items.
+
+=== Main Menu ===
+- ARKS Cash Shop
+
+== Star Gems Shop ==
+Star Gems Shop is a shop where you can exchange Star Gems for premium items.
+
+=== Main Menu ===
+- Star Gems Shop

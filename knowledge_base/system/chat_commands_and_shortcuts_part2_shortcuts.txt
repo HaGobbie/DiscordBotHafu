@@ -1,0 +1,5 @@
+# Chat Commands and Shortcuts (Part 2)
+
+== Shortcuts ==
+- Ctrl - can be held to speed up NPC conversations
+- Shift - has various uses, including toggling between daily missions and mission pass, and reverting clothing in the shop preview to original clothing

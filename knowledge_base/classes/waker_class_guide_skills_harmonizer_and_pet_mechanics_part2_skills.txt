@@ -1,0 +1,133 @@
+# Waker Class Guide — Skills, Harmonizer and Pet Mechanics (Part 2)
+
+== Skills ==
+Harmonizer Focus | Hitting an enemy with a Photon Art will fill the Focus Gauge of the corresponding familiar. Can only be used with a Harmonizer.
+Prerequisite -
+Effect | Skill Level
+1
+Max Stock | 2
+Retro Friends Rescue | You have a chance of recovering HP when your HP drops a certain percentage below Max.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Activation Probability | 50% | 60% | 65% | 70% | 75% | 80% | 85% | 90% | 95% | 100%
+HP Recovery Rate | 40% | 40% | 40% | 40% | 40% | 40% | 40% | 40% | 40% | 40%
+Activation Probability | 50% | 60% | 65% | 70% | 75% | 80% | 85% | 90% | 95% | 100%
+HP Recovery Rate | 30% | 30% | 30% | 30% | 30% | 30% | 30% | 30% | 30% | 30%
+Cooldown | 30s
+Activation Damage | 25%
+Welfare Management | Reduces damage taken and increases Restasigne Heal Amount when your HP drops below a certain percentage.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Damage Reduction Rate | 80% | 75% | 70% | 65% | 60%
+Damage Reduction Rate | 90% | 85% | 80% | 75% | 70%
+Activation HP | 50%
+Heal Potency Increase Rate | 125%
+Heal Potency Increase Rate | 110%
+Resta Effect Continuance | When using Restasigne, the amount of HP you recover is reduced, but you gain sustained HP recovery for a set time.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Effect Duration | 10s
+HP Recovery Rate | 95% | 90% | 85% | 80% | 75% | 70% | 65% | 60% | 55% | 50%
+HP Recovery Rate | 95% | 90% | 85% | 80% | 75% | 70% | 65% | 60% | 55% | 50%
+HP Sustained Recovery Rate | 1.00% | 1.50% | 2.00% | 2.50% | 3.00% | 3.50% | 4.00% | 4.50% | 5.00% | 5.50%
+HP Sustained Recovery Rate | 0.40% | 0.80% | 1.20% | 1.60% | 2.00% | 2.40% | 2.80% | 3.20% | 3.60% | 4.00%
+Lucky Sign | When using Restasigne and Reverasigne, there is a chance that they will not be consumed.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Activation Rate | 10% | 13% | 16% | 18% | 20%
+Familiar Harmony | [Active Skill] Launch a linked attack with Familiars Fredran and Wulfen by expending some of their Harmonizer Focus Gauges. Can only be used with a Harmonizer.
+Prerequisite - Harmonizer Focus
+Effect | Skill Level
+1
+Potency | 600
+Harmonizer Focus Extra | Increases Harmonizer Focus stock to 3. Can only be used with a Harmonizer.
+Prerequisite - Harmonizer Focus
+Effect | Skill Level
+1
+Treble Clef Marking | Hitting an enemy several times will cause it to be Marked. Marked enemies take more damage and their Down Factor is increased. Can only be used with a Harmonizer.
+Prerequisite - Harmonizer Focus
+Effect | Skill Level
+1
+Potency | 103%
+Phy. Down Factor Increase | 120%
+Elem. Down Factor Increase | 120%
+Marmelo Strike | Negating a certain number of attacks with a Weapon Action will cause Marmelo to grow up to two times. Press and hold the Weapon Action button to throw Marmelo, causing an explosion upon a successful hit. Can only be used with a Main Class/Harmonizer.
+Prerequisite - Harmonizer Focus
+Effect | Skill Level
+1
+Number Required (Stage 1) | 1 times
+Number Required (Stage 2) | 3 times
+Potency (No Charge) | 400
+Potency (Stage 1) | 800
+Potency (Stage 2) | 2000
+Call Again PP Preservation | When a Familiar's Focus Gauge stock is depleted, the PP consumption of the Photon Art that summons the Familiar is reduced for a set time. Can only be used with a Harmonizer.
+Prerequisite - Familiar Harmony
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Effect Duration | 10s | 13s | 16s | 18s | 20s
+PP Consumption | 90%
+Familiar Harmony Marking Clef | Marks enemies hit by Familiar Harmony with a Treble Clef Mark. Can only be used with a Harmonizer.
+Prerequisite - Treble Clef Marking
+Effect | Skill Level
+1
+Treble Clef Ignition | By pressing and holding Normal Attack and hitting a Marked Enemy, the Mark will detonate. Can only be used with a Harmonizer.
+Prerequisite - Treble Clef Marking
+Effect | Skill Level
+1
+Hot Marmelo Parry | [Active Skill] Enemy attacks are negated without interrupting your own attack. Can only be used with a Main Class/Harmonizer.
+Prerequisite - Marmelo Strike
+Effect | Skill Level
+1
+Cooldown | 5s
+Marmelo Strike Tracing | Marmelo Strike gains the ability to home in on enemies. Can only be used with a Main Class/Harmonizer.
+Prerequisite - Marmelo Strike
+Effect | Skill Level
+1
+Marmelo Patience | While you have the Weapon Action button held down, reduces damage received and protects you from being knocked back or launched. In addition, Marmelo's gauge builds when you are hit by an attack. Can only be used with a Main Class/Harmonizer.
+Prerequisite - Marmelo Strike
+Effect | Skill Level
+1 | 2 | 3
+Damage Taken Rate | 70% | 60% | 50%
+Gauge Accumulation Cooldown | 1 Sec | 1 Sec | 1 Sec
+Familiar Harmony Marmelo+ | While Familiar Harmony is active, if Marmelo's gauge is at Stage 1 or higher, Marmelo performs an additional attack and consumes 1 charge. Can only be used with a Main Class/Harmonizer.
+Prerequisite - Familiar Harmony Marking Clef Lv.1
+Effect | Skill Level
+1
+Potency | 2,000
+Familiar Support | When you activate Treble Clef Ignition, you will generate a crest that emits periodic attacks. The type of attack varies depending on which Familiar you summoned last. Can only be used with a Harmonizer.
+Prerequisite - Treble Clef Ignition
+Effect | Skill Level
+1
+Effect Duration | 20s
+Hot Marmelo Parry Short Cooldown | Cooldown time for Hot Marmelo Parry is reduced when you successfully avoid an attack with it. Can only be used with a Main Class/Harmonizer.
+Prerequisite - Hot Marmelo Parry
+Effect | Skill Level
+1
+Cooldown Reduction | 2s
+Harmonizer Parry Counter | Performing a Normal Attack upon successfully negating an attack with a Weapon Action unleashes a counterattack. Can only be used with a Harmonizer.
+Prerequisite -
+Effect | Skill Level
+1
+Linear Drive | Move forward at high speed and attack by pressing the Normal Attack button at just the right time after a Photon Art. Pressing back on the directional pad will cause you to retreat. Can only be used with a Harmonizer.
+Prerequisite -
+Effect | Skill Level
+1
+Familiar Support Amplifier | Each time you activate Familiar Support again while it's already active, that Familiar's Focus Gauge increases for a set time. Can only be used with a Harmonizer.
+Prerequisite - Familiar Support
+Effect | Skill Level
+1
+Effect Duration | 20s
+Focus Gauge Boost Rate | 50%
+Focus Gauge Boost Rate Maximum | 100%
+Harmonizer Parry PP Gain | Recover PP when you successfully negate an attack with a Weapon Action. Can only be used with a Harmonizer.
+Prerequisite -
+Effect | Skill Level
+1
+Linear Drive Encore | Make an additional move forward and back and launch an attack by pressing the Normal Attack button at just the right time after a Linear Drive. Can only be used with a Harmonizer.
+Prerequisite - Linear Drive
+Effect | Skill Level
+1

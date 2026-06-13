@@ -1,0 +1,74 @@
+# Item Lab — Enhancement, Limit Break, Augment Affixing and Multi-Weapon (Part 3)
+
+== NGS Augment Transfer ==
+At the Item Lab, there is the option for "All Augment Transfer" and "EX Augment Transfer".
+Using "All Augment Transfer" will overwrite all augments on the Base item with the augments on the Material item and requires 1x "N-Augment Transfer Pass".
+- Using Eredim , Klirodim , or Juvolg series weapons as a Material item for "All Augment Transfer" does not require N-Augment Transfer Passes, even if the Base is not a weapon from those series. E.g. You can use "All Augment Transfer" to put all augments from an Eredim weapon (including its EX augments) onto a Wingard weapon without using an "N-Augment Transfer Pass". However, this will remove all prior augments that the Wingard weapon had.
+- The Material item will lose all of its augments; however, you'll still have the now blank material item.
+Using "EX Augment Transfer" will overwrite all EX augments on the Base item with the EX augments on the Material item and requires 1x "N-Augment Transfer Pass".
+- Using Eredim, Klirodim, or Juvolg series weapons as a Material item for "EX Augment Transfer" does not require N-Augment Transfer Passes, even if the Base is not a weapon from those series.
+- This requires that the Material item has the same number of EX augments as the Base item.
+- Only EX Augments on the Base item will be affected - non-EX Augments will not be affected.
+- The Material item will lose all of its EX Augments; however, you'll still have the material item afterwards (with any non-EX augments still attached).
+
+=== Example for EX Augment Transfer ===
+This shows the case of overwriting the preexisting EX augments on a weapon that has already been affixed. The EX augments on the Base weapon are replaced with the EX augments on the Material weapon, and the Material Weapon loses the corresponding EX augments.
+Augment # | Initial Base Weapon | Initial Material Weapon | -> | Final Base Weapon | Final Material Weapon
+1 | EX Tri-Shield X | EX Stealth Wall P | -> | EX Stealth Wall P | -
+2 | EX Sign Shielding R | EX Shortage PP Burn Up H | -> | EX Shortage PP Burn Up H | -
+3 | EX Heavy Attack Protect D | EX Endure Pain PB Boost X | -> | EX Endure Pain PB Boost X | -
+4 | Anaddi Spiratech | Junk A | -> | Anaddi Spiratech | Junk A
+5 | Halphinale LC | Junk B | -> | Halphinale LC | Junk B
+6 | Gladia Soul LC | Junk C | -> | Gladia Soul LC | Junk C
+7 | Grand Dread Keeper LC | Junk D | -> | Grand Dread Keeper LC | Junk D
+
+=== Example for Augment Transfer #1 ===
+This is an example of Augment Transferring the augments of one weapon onto another weapon. Note that this completely over-writes the base weapon with the augments on the material weapon, and leaves the material weapon behind without any augments attached.
+Augment # | Initial Base Weapon | Initial Material Weapon | -> | Final Base Weapon | Final Material Weapon
+1 | EX Tri-Shield X | EX Shortage PP Burn Up R | -> | EX Shortage PP Burn Up R | -
+2 | EX Sign Shielding R | EX Patient Defense D | -> | EX Patient Defense D | -
+3 | EX Heavy Attack Protect D | EX Endure Pain PB Boost X | -> | EX Endure Pain PB Boost X | -
+4 | Exdi Spi Parfait | Anaddi Spiratech | -> | Anaddi Spiratech | -
+5 | Halphinale LC | Glan Gigas Maste | -> | Glan Gigas Maste | -
+6 | Gladia Soul LC | Lux Halphinale | -> | Lux Halphinale | -
+7 | Grand Dread Keeper LC | Mega Triyal | -> | Mega Triyal | -
+
+=== Example for Augment Transfer #2 ===
+This is an example of adding EX augments to a weapon that was affixed and did not have EX augments. Note that this completely over-writes the base weapon with the augments on the material weapon, and leaves the material weapon behind without any augments attached.
+Augment # | Initial Base Weapon | Initial Material Weapon | -> | Final Base Weapon | Final Material Weapon
+1 | Lux Halphinale | EX Gradual PP Gauge D | -> | EX Gradual PP Gauge D | -
+2 | Glan Gigas Maste | EX Tough Mind H | -> | EX Tough Mind H | -
+3 | Anaddi Spi Parfait | EX Dazzle Camouflage R | -> | EX Dazzle Camouflage R | -
+4 | Gladia Soul | - | -> | - | -
+5 | Grand Dread Keeper | - | -> | - | -
+6 | Mega Triyal | - | -> | - | -
+7 | Highkvar Domina | - | -> | - | -
+
+== Unlock Potential ==
+For weapons only, a Potential can be added. This provides unique abilities to the player depending on the weapon, usually including a Potency (damage) multiplier and boosts to various abilities which may be temporary and conditional on specific actions or states such as high HP.
+Potentials can be increased in level by repeating this process. The maximum level of potentials is currently 6.
+Adding or increasing Potential costs and materials. This cost increases for higher Rarity weapons and for higher Potential levels. At Potential levels 1-3 the materials are minerals . Starting from level 4, they are special materials such as N-EX-Cubes.
+Potential Level | Materials Required
+Level 1 | 10,000 Monotite x10 Photon Chunk x5 | 20,000 Monotite x20 Photon Chunk x10 | 30,000 Monotite x30 Photon Chunk x15 | 40,000 Monotite x40 Photon Chunk x20 | 50,000 Monotite x40 Tetracite x40 Photon Chunk x25 | 60,000 Monotite x50 Dualomite x50 Photon Chunk x30 | 70,000 Monotite x60 Dualomite x60 Photon Chunk x35 | 80,000 Monotite x70 Dualomite x70 Photon Chunk x40 | 90,000 Monotite x80 Dualomite x80 Photon Chunk x45 | 100,000 Monotite x90 Dualomite x90 Photon Chunk x50 | 100,000 Monotite x100 Dualomite x100 Photon Chunk x55 | 100,000 Monotite x110 Dualomite x110 Photon Chunk x60
+Level 2 | 20,000 Dualomite x10 Photon Chunk x10 | 40,000 Dualomite x20 Photon Chunk x15 | 60,000 Dualomite x30 Photon Chunk x20 | 80,000 Dualomite x40 Photon Chunk x30 | 100,000 Dualomite x40 Tetracite x40 Photon Chunk x40 | 120,000 Trinite x50 Tetracite x50 Photon Chunk x45 | 140,000 Trinite x60 Tetracite x60 Photon Chunk x50 | 160,000 Trinite x70 Tetracite x70 Photon Chunk x55 | 180,000 Trinite x80 Tetracite x80 Photon Chunk x60 | 200,000 Trinite x90 Tetracite x90 Photon Chunk x65 | 200,000 Trinite x100 Tetracite x100 Photon Chunk x70 | 200,000 Trinite x110 Tetracite x110 Photon Chunk x75
+Level 3 | 30,000 Trinite x10 Photon Chunk x20 | 60,000 Trinite x20 Photon Chunk x30 | 90,000 Trinite x30 Photon Chunk x40 | 120,000 Trinite x40 Photon Chunk x50 | 150,000 Trinite x40 Tetracite x40 Photon Chunk x60 | 180,000 Pentalite x80 Tetracite x50 Photon Chunk x65 | 210,000 Pentalite x100 Tetracite x60 Photon Chunk x70 | 240,000 Hexakite x100 Pentalite x70 Photon Chunk x75 | 270,000 Hexakite x110 Pentalite x80 Photon Chunk x80 | 300,000 Hexakite x120 Pentalite x90 Photon Chunk x85 | 300,000 Hexakite x130 Pentalite x100 Photon Chunk x90 | 300,000 Hexakite x140 Pentalite x110 Photon Chunk x95
+Level 4 | 40,000 N-EX-Cube x5 | 80,000 N-EX-Cube x5 | 120,000 N-EX-Cube x5 | 160,000 N-EX-Cube x5 | 200,000 N-EX-Cube x5 | 240,000 N-EX-Cube x5 | 280,000 N-EX-Cube x5 | 320,000 N-EX-Cube x5 | 360,000 N-EX-Cube x5 | 400,000 N-EX-Cube x5 | 400,000 N-EX-Cube x5 | 400,000 N-EX-Cube x5
+Level 5 | 40,000 N-EX-Cube x5 | 80,000 N-EX-Cube x5 | 120,000 N-EX-Cube x5 | 160,000 N-EX-Cube x5 | 200,000 N-EX-Cube x5 | 240,000 N-EX-Cube x5 | 280,000 N-EX-Cube x5 | 320,000 N-EX-Cube x5 | 360,000 N-EX-Cube x5 | 400,000 N-EX-Cube x5 | 400,000 N-EX-Cube x5 | 400,000 N-EX-Cube x5
+Level 6 | 50,000 Photon Chunk IIA x30 Photon Chunk IIB x30 | 100,000 Photon Chunk IIA x30 Photon Chunk IIB x30 | 150,000 Photon Chunk IIA x30 Photon Chunk IIB x30 | 200,000 Photon Chunk IIA x30 Photon Chunk IIB x30 | 250,000 Photon Chunk IIA x30 Photon Chunk IIB x30 | 300,000 Photon Chunk IIA x30 Photon Chunk IIB x30 | 350,000 Photon Chunk IIA x30 Photon Chunk IIB x30 | 400,000 Photon Chunk IIA x60 Photon Chunk IIB x60 | 450,000 Photon Chunk IIA x60 Photon Chunk IIB x60 | 500,000 Photon Chunk IIA x60 Photon Chunk IIB x60 | 500,000 Photon Chunk IIA x60 Photon Chunk IIB x60 | 500,000 Photon Chunk IIA x60 Photon Chunk IIB x60
+
+== PSO2Weapon Potentials ==
+New Type weapons imported from Phantasy Star Online 2 that have unlocked Potentials will have their Potentials converted into equivalent New Genesis Potentials. These changes are temporary; the original Potentials will remain upon returning to Phantasy Star Online 2 .
+Original Series | NGS Potential
+Lightweave Klauz Series | Assault Unit
+Fluxio Series Rinser Series | Infalliable Unit
+Steel Series | Sturdy Unit
+Adell Series Ceiroth Series Finble Series | Lucky Unit
+Rivelate Series Oblisana Series Darkweave Agile Series Puras Series Shaval Series Anacates Series Genon Series Pride Series Orb Series Dusk Series Million Series Croesus Series Nova Series Legacy Weapon Series Other Weapons | Inversion Unit
+Trailblazer Xion Series | Spirit Surge Unit
+Atlas EX Series | Endurance Unit
+Ophistia Series | Wellspring Unit
+Any to Weapon | Basic Attack Unit III
+
+== Preset Skills ==
+Preset Skills are like augments with specific effects. All equipment can have one Preset Skill, from a small set. Weapons and armor have different sets of possible Preset Skills.
+Equipment can drop from enemies or quests with Preset Skills already present, with higher levels being more rare. The highest level of Preset Skill is 5. Preset Skills can be added, increased or transferred in the Item Lab.

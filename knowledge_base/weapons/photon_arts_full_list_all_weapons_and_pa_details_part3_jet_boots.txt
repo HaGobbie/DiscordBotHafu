@@ -1,0 +1,15 @@
+# Photon Arts Full List — All Weapons and PA Details (Part 3)
+
+== Jet Boots ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Spinning Gust | Power PP | 330 15 | Default | Jet Boots Photon Art. Kick the enemy as you spin vertically. Pressing and holding the PA button will change the attack in exchange for consuming additional PP.
+Violent Gale | Power PP | 390 18 | Default | Jet Boots Photon Art. Kick the enemy as you spin horizontally. Pressing and holding the PA button will change the attack in exchange for consuming additional PP.
+Fierce Wave | Power PP | 550 12 | Default | Jet Boots Photon Art. Unleashes a shockwave in front of you as you spin vertically. Pressing and holding the PA button will change the attack in exchange for consuming additional PP.
+Surging Impulse | Power PP | 320 20 | Default | Jet Boots Photon Art. Rapidly close in on your target and deliver a powerful kick attack. Pressing and holding the PA button will deploy several photon blades that deal damage at the cost of additional PP.
+
+== Harmonizers ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Fredran Breath | Power PP | 410 13 | Default | Harmonizer Photon Art. Summons the Familiar Fredran to fire a piercing breath forward. Pressing and holding the PA button will cause the attack to target multiple enemies in your field of view at the cost of additional PP.
+Fredran Riding | Power PP | 810 10 | Default | Harmonizer Photon Art. Summons the Familiar Fredran to fire a vacuum wave at enemies. Pressing and holding the PA button will allow you to fly on Fredran at the cost of additional PP. Remain flying as long as the button is held down. Releasing the button will cause you to dismount as Fredran charges ahead to attack the enemy.
+Wulfen Demolition | Power PP | 1130 27 | Default | Harmonizer Photon Art. Summons the Familiar Wulfen to fire a shockwave and then smash both fists into the ground, causing damage to nearby enemies. Pressing and holding the PA button will make the attack chargeable at the cost of additional PP. If you do not charge the attack, a shockwave attack will be released that lingers for. set time. If you charge the attack, Wulfen will launch a powerful attack forward.
+Wulfen Raid | Power PP | 810 24 | Default | Harmonizer Photon Art. Summons the Familiar Wulfen to charge forward and perform an uppercut. Pressing and holding the PA button will unleash a combo attack forward at the cost of additional PP.

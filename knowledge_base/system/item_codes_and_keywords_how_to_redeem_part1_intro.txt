@@ -1,0 +1,24 @@
+# Item Codes and Keywords — How to Redeem (Part 1)
+
+== Overview ==
+Similar to how Item Codes work in Phantasy Star Online 2, Item Codes are codes that can be used to obtain exclusive rewards. Item Codes are limited to once per account.
+
+== Item Codes ==
+Item Codes are generally provided during special campaigns and promotions, and unlike the distribution of Item Codes in Phantasy Star Online 2, they are a one-time use, unique string of numbers that are distinct from all other Item Codes within the same promotion.
+The following is a list of all applicable promotions where Item Codes can be found:
+Campaign | Availability | Rewards
+Intel Collaboration Campaign | July 1st, 2021 to June 8th, 2023 | 746: Intel x1
+Anime Expo 2022 Promotional Campaign | July 1st, 2022 to July 4th, 2022 | Expo 2022 T-Shirt T1 [Ou] x2 Expo 2022 T-Shirt T2 [Ou] x2 MTN: Idle - PSO2 10th Anniversary x1 Mag Form/Rappy (Halpha) x1 Expo 2022 Sticker NA x2 PSO2 10th Anniversary Logo x2
+PSO2 New Genesis TwitchCon 2022 | October 7th, 2022 to N/A | Sonic Shoes x1 * Sonic Knuckles x1 Tails Mask B x1 Tails' Tails x1 Knuckles Mask x1 Sonic/Tails 2 x1 N-EXP Earned +25% x1
+Sympathy 2023 Ticket Bonus | January 25th, 2023 to January 29th, 2023 | STP: Sympathy 2023 x1 PS 35th Anniversary Logo x2 876: Play Violin x1 Mag Form/Myau x1 Phantasy Star Medley for Sympathy 2013 x1
+PSO2COMI Collection Item Code | January 25th, 2023 to January 31st, 2025 | PSO2 Manga Memory x16
+CENTRAL! Collection Item Code 1 | January 25th, 2023 to January 31st, 2025 | MTN: Idle - CENTRAL! x1 STP: CENTRAL! x1 CENTRAL! Ran Pin x1 CENTRAL! Liu Lin Pin x1 CENTRAL! Rossa Pin x1 CENTRAL! Oranje Pin x1
+April 2023 PSO2:NGS Official Newsletter Bonus | Month of April 2023 | N-Rare Drop Rate +25% x3 N-EXP Earned +25% x3
+May 2023 PSO2:NGS Official Newsletter Bonus | Month of May 2023 | N-Rare Drop Rate +25% x3 N-EXP Earned +25% x3
+June 2023 PSO2:NGS Official Newsletter Bonus | Month of June 2023 | Sonic Shoes SA2 STP: Sonic & Tails - Joy x1 STP: Sonic & Amy - Congrats x1 N-Rare Drop Rate +25% x3 N-EXP Earned +25% x3
+August 2023 PSO2:NGS Official Newsletter Bonus | Month of August 2023 | Mag Form/Tails Doll N-Rare Drop Rate +25% x3 N-EXP Earned +25% x3
+Tokyo Central x PSO2NGS Set 1 | Starting from November 23rd, 2023 | Don Quijote x NGS Shirt & Shorts T1 [Ba] Don Quijote x NGS Shirt & Shorts T2 [Ba] 917: Don Quijote x NGS Towel BP: Don Quijote x NGS Shirt
+Tokyo Central x PSO2NGS Set 2 | Starting from November 23rd, 2023 | BP: Don Quijote x NGS Towel BP: Don Quijote x NGS Towel B PH: Rare Drop Don Quijote x NGS (Pa) PH: Rare Drop Don Quijote x NGS (Ef)
+December 2023 PSO2:NGS Official Newsletter Bonus | Month of December 2023 | N-Lillipan Suit [Fu] N-Rare Drop Rate +25% x3 N-EXP Earned +25% x3
+CENTRAL! Collection Item Code 2 | January 18th, 2024 to January 31st, 2026 | 940: CENTRAL! x1 STP: CENTRAL! 2 x1 PH: CENTRAL! Logo (Pa) x1 PH: CENTRAL! Logo (Ef) x1 BP: CENTRAL! - Panel x1 BP: CENTRAL! - Panel B x1 BP: CENTRAL! - Panel C x1 BP: CENTRAL! - Panel D x1
+CENTRAL! Collection Item Code 3 | February 26th, 2025 to February 28th, 2027 | 1090: CENTRAL! 2 x1 STP: CENTRAL! 3 x1 STP: CENTRAL! - Card Battle x1 STP: CENTRAL! - Card Battle 2 x1 STP: CENTRAL! - Popona & Yui x1 STP: CENTRAL! - Popona Down x1 STP: CENTRAL! - Pharia Announcement x1 STP: CENTRAL! - Aina Chibi Face x1 STP: CENTRAL! - Manon Chibi Face x1 STP: CENTRAL! - Crawford Chibi Face x1 STP: CENTRAL! - Ran Chibi Face x1 STP: CENTRAL! - Liu Lin Chibi Face x1 STP: CENTRAL! - Nadereh Chibi Face x1 STP: CENTRAL! - Glen Chibi Face x1 STP: CENTRAL! - Win x1 STP: CENTRAL! - Lose x1 SV: CENTRAL! x1 MA: CENTRAL! x1

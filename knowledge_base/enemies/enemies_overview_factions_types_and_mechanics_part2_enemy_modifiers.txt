@@ -1,0 +1,198 @@
+# Enemies Overview — Factions, Types and Combat Mechanics (Part 2)
+
+== Enemy Modifiers ==
+=== Rare Enemies ===
+Enemies have chance of spawning as a differently-colored rare variant, which increases the experience and drops they reward upon defeat.
+In Exploration Sectors, groups of the same enemy species have a chance of spawning as Rare Enemies of the same coloration. Groups of rare enemies may also spawn accompanied by Enhanced Enemies.
+In Combat Sectors, the chance of any enemy spawning with a rare coloration increases as the PSE Level goes up, with a guaranteed Rare Enemy Boss spawn during a PSE Climax.
+Two titles exist:
+- Silver : Have a silvery metallic appearance and an aura of silver metallic sparkles. In addition Silver TAMES drop additional Meat and rarely Silver Primm Swords . Silver Normal Enemies have a chance of dropping Silver Primm Swords. Silver Bosses always drop a Silver Primm Sword or Gold Primm Sword.
+- Golden : Have a golden metallic appearance with an aura of yellow metallic sparkles. Golden TAMES drop additional Meat and rarely Gold Primm Swords and Silver Primm Swords. Golden Normal Enemies have a chance of dropping Gold Primm Swords and Silver Primm Swords. Golden Bosses always drop a Gold Primm Sword and may drop Silver Primm Swords. Veteran Bosses may also spawn with the yellow metallic sparkle aura and will drop multiple Golden Primm Swords when killed.
+Rare Enemy Details
+Enemy Title | EXP Modifer | RDR Modifer | Seasonal Point Modifier | Notable Drops
+Silver | +100% | +100% | +10% | All Silver enemies have a chance of dropping Silver Primm Swords . Additionally, a Silver TAMES unit will drop significantly more Meat.
+Gold | +200% | +200% | +20% | All Gold enemies have a chance of dropping Gold Primm Swords or, after a certain level threshold, Gold Primm Sword IIs .
+
+=== Enhanced Enemy ===
+Enhanced Enemies are Normal Enemies and Bosses that have been pierced by a mysterious object called an Enhancer, which allows them to enhance themselves. They glow with a red shield aura that reduces all damage not done to the Enhancer to minuscule amounts. The Enhancer is considered a weak point and when destroyed removes the red shield aura, replacing it with a blue aura, allowing for normal damage to be inflicted. Enhanced Enemies may spawn as part of a Trial in Combat and Gathering Zones or "escorting" a group of Rare Enemies in Gathering Zones.
+Enhanced Enemies drop an additional 100 and have a rare chance to drop Vialto Armor: Arga , Vialto Armor: Belta , Vialto Armor: Sheza , and the Evolcoat Series .
+At High Rank Combat Sectors or levels, Enhanced Enemies have a chance to drop the Obsidia Weapon Series .
+
+=== Equalizing Enemy ===
+Equalizing Enemies are a type of enemy variant that appear in Lv. 40+ Combat Sectors. Equalizing Enemies have the ability to buff other nearby enemies. Enemies buffed by this effect will not take much damage. Destroying the Equalizing Enemies will weaken other nearby enemies, allowing you to deal much more damage to them.
+At High Rank Combat Sectors or levels, Equalizing Enemies have a chance to drop N-Class-EX-Cubes of any kind.
+
+=== Megalotix Enemy ===
+Megalotix Enemies are a unique variant of enemies that exclusively appear in Level 35+ Combat Sectors. Megalotix enemies are coated with a cyan, crystal-like sheen, and depending on the level, may have considerably stronger attack power than Gigantix Enemies.
+Megalotix Enemies drop increased amounts of , Arms Refiner , and the Megas Fusia augment. They may also drop Fused Augments , such as Gua Precision and Sta Might.
+One title exists:
+- Elite : Has a cyan, crystal-like sheen as their appearance. All Elite Enemies drop increased amounts of and enhancement materials than their normal version.
+
+=== Ancient Enemy ===
+Ancient Enemies are incredibly powerful enemies found in the caves of Rayjord Gorge that have the "Ancient" designation. Not only are they even more powerful than Gigantix, but healing effects are reduced inside the caves, so make sure you're ready.
+Ancient Enemies are known to drop Icicle Cubes , which can be used to exchange for shop items in the Kvaris Exchange Shop . Ancient Enemies will spawn approximately every 10 minutes in the cave of Rayjord Gorge. The spawn timer begins once a player has created a room instance, and once the Ancient Enemy has been defeated. The weather in the Kvaris Region is not known to have any influence with the spawn conditions.
+When the conditions are met, when Ancient Enemies spawn, they will be encased in an ice structure titled "????". In order to completely spawn the Ancient Enemy, players must break the ice structure by attacking it, where then the Ancient Enemy will appear. Currently, only two Ancient Enemies exist- Ancient Ams Kvaris and Ancient Frostyl Sword.
+
+=== Dread Enemy ===
+Dread Enemies, better known as Veterans, are stronger high level versions of bosses that will only spawn in specific areas.
+One title exists:
+- Veteran : Have a "overgrown with moss" coloration added. Have a much higher HP and deal greater damage than trial versions of the same level. Gives out higher EXP and a chance of dropping Dread Keeper I and Dread Keeper II capsules when defeated. Higher level Dread Enemies drop Dread Keeper III , Dread Keeper IV .
+
+=== Dread Enemy Spawn Conditions ===
+Dread Enemies will spawn in their set locations approximately 5 minutes after a player creates a room. A room is the instance that is created whenever a player joins a particular sector.
+Should a Dread Enemy be defeated, the defeated Dread Enemy will respawn after 5 minutes have elapsed, provided all the spawn condition criteria is met.
+
+=== Dread Enemies (Aelio Region) ===
+Dread Enemy Map (Aelio Region)
+- Ard Banser
+- Ard Banshee
+- Bigg Frogga
+- Bujin
+- Chiacurio
+- Crag Bear
+- Daityl Axe
+- Daityl Sword
+- Eldi Scythe
+- Nex Aelio
+- Nogleth
+- Oruq
+- Thunder Banser
+- Thunder Banshee
+- Varas
+- Waulon
+
+=== Dread Enemies (Retem Region) ===
+Dread Enemy Map (Retem Region)
+- Bubble Snapper
+- Dustyl Hammer
+- Fortos Laser
+- Fortos Launcher
+- Kelkundo
+- Lizentos
+- Renus Retem
+- Sand Nogleth
+- Svacurio
+- Svadi Scythe
+- Svaulon
+
+=== Dread Enemies (Kvaris Region) ===
+Dread Enemy Map (Kvaris Region)
+- Crocodylis
+- Frostyl Sword
+- Ice Banser
+- Ice Banshee
+- Konigssee Yedi
+- Malachride
+- Malachroid
+- Pangolan
+- Relyn
+- Snoruq
+- Zo Marmoth
+
+=== Dread Enemies (Stia Region) ===
+Dread Enemy Map (Stia Region)
+- Blazentos
+- Dark Lemnas
+- Dark Magilz
+- Doldoris
+- Duskdi Scythe
+- Engouku
+- Flamedyl Sword
+- Volt Lemnas
+
+=== Dread Enemies (Seasonal) ===
+
+=== Seasonal Variants ===
+- Eldi Scythe (1) South Aelio (Lv. 24)
+- Sand Nogleth (2) West Retem (Lv. 30)
+- 1: Replaces Veteran Daityl Axe in South Aelio during certain Seasonal Events.
+- 2: Replaces Veteran Fortos Laser in West Retem during certain Seasonal Events.
+
+=== Gigantix Enemy ===
+Gigantix Enemies are rare Bosses that only appear during special weather conditions , and will vanish when the special weather dissipates. It is highly recommended that players take down these rare bosses in an organized room, as these weather conditions will only last a few minutes. Gigantix Enemies can be fought at Battledia Purple Trigger Portals.
+Gigantix Enemies drop exclusive items, such as the Geant Armor , the Straga Series , and Gigas Augment Capsules . Gigantix Enemies at Lv. 49+ have a chance to drop up to 3 Photon Scales . Gigantix Enemies in the Stia region may drop Infernium .
+One title exists:
+- Malevolent : Malevolent enemies have a purple sheen to them and emit a purple aura.
+
+=== Recon Gigants ===
+Recon Gigants are a series of Gigantix Enemies that appear in exploration sectors of the Stia region. Unlike most Gigantix Enemies, Recon Gigants are composed of a group of normal enemies with the Gigantix enemy modifiers. Continuously defeating all the Recon Gigants in a provided sector will spawn a specific Gigantix Boss once the conditions are met.
+Recon Gigants and their associated bosses have a chance to drop exclusive items, such as Infernium , Eclaireur Armor , and the Gunblaze Series .
+Gigantix Bosses will randomly spawn in set locations in the following regions:
+
+=== Gigantix Enemies (Aelio Region) ===
+- Daityl Axe North Aelio
+- Daityl Sword Halphia Lake
+- Nogleth Central Aelio
+- Oruq South Aelio
+- Varas West Aelio
+
+=== Gigantix Enemies (Retem Region) ===
+- Sand Nogleth North Retem
+- Lizentos Central Retem
+- Fortos Launcher South Retem
+- Dustyl Hammer West Retem
+- Kelkundo Rwh Maqead
+
+=== Gigantix Enemies (Kvaris Region) ===
+- Relyn North Kvaris
+- Snoruq West Kvaris
+- Pangolan Central Kvaris
+- Crocodylis South Kvaris
+
+=== Gigantix Enemies (Stia Region) ===
+Defeating Recon Gigants in a certain area may spawn different Stia Gigantix Bosses from other areas.
+- Doldoris Stia Outskirts
+- Engouku Dreisen Plant / Mediola Outer Area 1 (Recon Gigants)
+- Blaze Nogleth Mediola Outer Area 1 (Recon Gigants)
+- Blazentos Mediola Outer Area 1 (Recon Gigants)
+- Vardias Mediola Outer Area 1
+- Dark Magilz Mediola Outer Area 2
+
+=== Starless Gigantix Enemies ===
+Starless Gigantix Enemies will appear in certain regions after the first Gigantix that spawns in the area has been defeated.
+- Rasetsu South Aelio, West Aelio
+- Raveed North Aelio
+- Max Vang Rwh Maqead #
+Weak points:
+- Rasetsu: Blue gem on the head but the whole body should count.
+- Raveed: Blue gem on it's right hand. Weak spot on the top of it's head will appear in phase two at 50% hp, and it will also regenerate the blue gem on the right hand. Destroying the blue gem will cause the boss to flinch and remove the PP draining property from it's attacks. Recommended to focus on the blue gem and switch to the head for the rest of the fight. You may need to be airborne to hit the weak spot on the head in phase two.
+- Max Vang: Blue gem on it's right leg. Destroying it will cause it to flinch. Breaking the fin located on the back will also turn it into a weak spot. At 50% hp, the fin moves to the head. Recommended to focus on the fin.
+
+=== Gigantix Enemies (Seasonal Variants) ===
+- Ard Banser (1) South Aelio (Lv. 24)
+- Eldi Scythe (2) Central Aelio (Lv. 24)
+- Fortos Laser (3) North Retem (Lv. 39)
+- Nex Aelio (4) North Aelio (Lv. 24)
+- 1: Replaces Malevolent Oruq in South Aelio during certain Seasonal Events.
+- 2: Replaces Malevolent Nogleth in Central Aelio during certain Seasonal Events.
+- 3: Replaces Malevolent Sand Nogleth in North Retem during certain Seasonal Events.
+- 4: Replaces Malevolent Daityl Axe in North Aelio during certain Seasonal Events.
+
+=== Gigantix Drop Table (Old) ===
+Some Gigantix Enemies have been found to only drop certain weapons respective to the Straga Series. As a result, these drops are based on preliminary information that is subject to change at any time. Please refer to the table below for the following drop information:
+High Enemy Details
+Image | Boss Variant | Region | Drop List
+Malevolent Daityl Axe | North Aelio | Straga Sword Straga Knuckles Straga Machine Guns Straga Bow Straga Wand Geant Armor Gigas Augment Capsules
+Malevolent Oruq | South Aelio | Straga Daggers Straga Saber Straga Katana Straga Machine Guns Straga Rod Geant Armor Gigas Augment Capsules
+Malevolent Nogleth | Central Aelio | Straga Sword Straga Wire Straga Blades Straga Rifle Straga Launcher Straga Rod Geant Armor Gigas Augment Capsules
+Malevolent Varas | West Aelio | Straga Spear Straga Saber Straga Launcher Straga Talis Straga Wand Straga Boots Geant Armor Gigas Augment Capsules
+
+=== Seasonal Enemy ===
+During Seasonal Events , unique enemy variants will occasionally spawn with modified designs and alternative weaknesses. Seasonal enemies drop Seasonal Points and additional rewards depending on the season, and the amount of Seasonal Points obtained depend on the type of enemy killed.
+Several seasonal variants exist:
+- PSO2 9th Anniversary Variant ( PSO2 9th Anniversary ): Enemies have a blue octagram star hovering above their heads. Can drop the Glissen Series and Lightning Exploit I . Anniversary enemies include Ceremo Rappies .
+- Autumn Variant ( Moon-Gazing Autumn Event ): Enemies have a unique rabbit symbol hovering above their heads. Can drop the Frostel Series and Ice Exploit I . Autumn enemies include Moongaze Rappies .
+- Halloween Variant ( Halloween Fiesta Event ): Enemies have a unique pumpkin symbol hovering above their heads. Can drop the Flamel Series and Fire Exploit I . Halloween enemies include Reaper Rappies .
+- Winter Variant ( Winter Event ): Enemies have a unique snowflake symbol hovering above their heads. Can drop the Tempesta Series and Wind Exploit I . Winter enemies include Nord Rappies .
+- Spring Variant ( Spring '22 Event ): Enemies have a unique flower crest symbol hovering above their heads. Can drop the Lumiere Series and Light Exploit I . Spring enemies include Hululu Rappies .
+- NGS 1st Anniversary Variant ( NGS 1st Anniversary Event ): Enemies have a unique rainbow-colored star symbol hovering above their heads. Can drop the Obscura Series and Dark Exploit I . NGS 1st Anniversary enemies include Anni Rappies .
+- PSO2 10th Anniversary Variant ( PSO2 10th Anniversary Event ): Enemies have unique blue colored star symbols hovering above their heads. Can drop the Evolorbit Series and Daytime Exploit I . PSO2 10th Anniversary enemies include Ceremo Emperappies and Ceremo Great Rappies .
+- Moon-Gazing '22 Variant ( Moon-Gazing '22 Event ): Enemies have a unique blue rabbit symbol and yellow moon backdrop hovering above their heads. Can drop the Codeck Series and Nighttimetime Exploit I . Moon-Gazing '22 enemies include Moongaze Emperappies and Moongaze Great Rappies .
+- Autumn '22 Variant ( Autumn '22 Event ): Enemies have a crest with red and green autumn leaves hovering above their heads. Can drop the Crystia Series . Autumn '22 enemies include Yaolo Rappies , Yaolo Emperappies , and Yaolo Great Rappies .
+- Christmas '22 Variant ( Christmas '22 Event ): Enemies have a christmas themed symbol hovering above their heads. Can drop the Tenebrous Series . Christmas '22 enemies include Reindeer Rappies , Saint Emperappies , and Saint Great Rappies .
+- New Year '23 Variant ( New Year '23 Event ): Enemies have a new year themed symbol hovering above their heads. Can drop the Tenebrous Series . New Year '23 enemies include Nord Rappies , Nord Emperappies , and Nord Great Rappies .
+- Winter '23 Variant ( Winter '23 Event ): Enemies have a snowflake symbol hovering above their heads. Can drop the Tenebrous Series . New Year '23 enemies include Nord Rappies , Nord Emperappies , and Nord Great Rappies .
+- Spring '23 Variant ( Spring '23 Event ): Enemies have a spring flower themed symbol hovering above their heads. Can drop the Trunkul Series . Spring '23 enemies include Hululu Rappies , Hululu Emperappies , and Hululu Great Rappies .
+Special Seasonal Boss variants:
+- Petalstorm ( NGS 1st Anniversary Event ): Counts as Spring Variants without having the symbol. Petalstorm Enemies have modified attacks with spring and flower themed elements. Some Petalstorm enemies are 30% larger than their normal versions. Petalstorm enemies include Petalstorm Thunder Banser and Petalstorm Thunder Banshee .
+- Resplendent ( Spring '22 Event ): Counts as PSO2 10th Anniversary Variants without having the symbol. Resplendent enemies include Portal:New_Genesis/Dolls#Nex .

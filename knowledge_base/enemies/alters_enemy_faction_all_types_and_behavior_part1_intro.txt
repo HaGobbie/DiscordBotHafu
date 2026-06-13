@@ -1,0 +1,8 @@
+# ALTERS Enemy Faction — All Types and Behavior (Part 1)
+
+Enemies : | DOLLS | ALTERS | FORMERS | Starless | Ruinus | Special Enemies | TAMES
+Enemy EXP
+ALTERS is the common name for enemies with strange, eyeball-like symbols on their heads.
+They change form depending on Day and Night Transitions, and deal +30% more damage at night. However, Alts Secreta Augment Capsules drop more frequently from Night Shifted ALTERS.
+You can deal greater damage to them by aiming at the yellow core in their abdomen.
+In the Global version of Phantasy Star Online 2: New Genesis, the singular form of ALTERS is "ALTERS unit."

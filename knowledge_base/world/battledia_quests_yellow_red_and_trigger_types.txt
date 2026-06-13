@@ -1,0 +1,32 @@
+# Battledia Quests — Yellow, Red and Trigger Types
+
+Quests
+Urgent Quests | Battledia Quests | Trigger Quests | Trinitas Quests
+Trainia Advance Quests | Standing Quests | Duel Quests | Limited-Time Quests
+Major Target Suppression Missions | Time Extension Quests
+
+== Overview ==
+Battledia Quests are unique quests that can be accessed through a Trigger Portal ( ). Five Battle Triggers, which can be obtained from enemy drops and tasks, are required to access the Trigger Portal Quests. Battle Triggers can be sold on the Personal Shop if players are not interested in Battledia Quests.
+There are currently two types of Battledia Quests: Battledia: Yellow, and Battledia: Purple. Respectively, these quests require 5 B-Trigger/Common Yellow to access Battledia: Yellow quests or 5 B-Trigger/Common Purple to access Battledia: Purple quests. Each region has their own specific Trigger Portals.
+The Battledia: Yellow quest provides a significant amount of EXP and Materials, and is highly recommended for leveling and gathering enhancement materials. High quality enhancing materials, such as the Gold Primm Sword +20 , Gold Primm Armor +20 , Silver Primm Sword +20 , and the Silver Primm Armor +20 can be obtained upon completion.
+The Battledia: Purple quest is a high-difficulty quest which spawns continuous Gigantix enemies, but in exchange for its difficulty, provides the chance of high rarity equipment and items upon completion.
+Battledia: Yellow | Aelio Troopers | Retem Troopers | Kvaris Troopers | Stia Troopers
+Battledia: Purple | Aelio Devastators | Retem Devastators | Kvaris Devastators | Stia Devastators | Aelio Intruders
+Blue Portal: Valua | Drill: Flurry of Flowers Clean Up Op | Drill: Dazzling Chaos Suppression Op
+
+== Trigger Portal Locations ==
+West Aelio Battledia: Yellow (Aelio Troopers) | North Aelio Battledia: Purple (Aelio Devastators) | Central Retem Battledia: Yellow (Retem Troopers) | South Retem Battledia: Purple (Retem Devastators) | Central Kvaris Battledia: Yellow (Kvaris Troopers) | North Kvaris Battledia: Purple (Kvaris Devastators) | Dreisen Plant Battledia: Yellow (Stia Troopers) | Mediola Outer Area 1 Battledia: Purple (Stia Devastators) | Halphia Lake Battledia: Purple (Aelio Intruders)
+
+== Battledia Quests ==
+Battledia: Yellow
+Battledia: Yellow (Aelio Troopers) | Battledia: Yellow (Retem Troopers) | Battledia: Yellow (Kvaris Troopers) | Battledia: Yellow (Stia Troopers)
+Battledia: Purple
+Battledia: Purple (Aelio Devastators) | Battledia: Purple (Retem Devastators) | Battledia: Purple (Kvaris Devastators) | Battledia: Purple (Stia Devastators) | Battledia: Purple (Aelio Intruders)
+
+== Blue Portals ==
+Blue Portals are a special kind of trigger portal that are only available during certain periods. The battle triggers and quests available vary over time. Similar to Battledia Quests, some of these portals may require the use of a special Battle Trigger to access the quests within.
+There are currently three types of quests offered in Blue Portal: Valua. The Drill: Flurry of Flowers Clean Up Op quest requires the use of 5 B-Trigger/Spring '22 to access during the Spring '22 Event, while Drill: Dazzling Chaos Suppression Op and Drill: A Trap in the Forest do not require the use of any Battle Triggers and can be attempted an unlimited number of times during the event period.
+
+== Blue Portal Quests ==
+Blue Portal: Valua
+Blue Portal: Valua (Drill: Flurry of Flowers Clean Up Op) | Blue Portal: Valua (Drill: Dazzling Chaos Suppression Op)

@@ -1,0 +1,13 @@
+# Weapon Series — Comparison, Meta Ranking and Drop Sources (Part 1)
+
+== Overview ==
+
+=== Weapons ===
+Weapons are the means by which players are able to fight and perform Photon Arts and Techniques. By equipping a Weapon, you will gain stats to increase your battle power to battle enemies. Weapons are also unique in the sense that each of them possess inherent properties called Potentials, as well as other features that set them apart. By gaining stronger and stronger weapons, you are able to combat stronger foes and reach new heights.
+
+=== Using Weapons ===
+To use a Weapon, it must be set to your Palette. Weapons equipped to your Palette appear on your person, and will be used when you press any Attack button. Weapons have two capabilities: Normal Attacks and Photon Arts/Techniques . Normal Attacks are basic attacks used to recover your Photon Points (PP). Photon Arts/Techniques are special moves that the player can use through their weapon; by pressing a button assigned to a Photon Art or Technique, you can cast a special move at the cost of some of your PP. These are typically much stronger than your normal attacks and your primary means of dealing damage.
+
+=== Potentials ===
+Certain weapons have inherent properties called Potentials which can be considered as an additional skill for the player, so long as the weapon is equipped and drawn out; they range from damage buffs, to utility skills like improving healing items.
+Currently, Potentials can reach a maximum level of Lv 6.

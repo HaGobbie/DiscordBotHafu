@@ -1,0 +1,81 @@
+# Collectables and Collection File Items (Part 1)
+
+== Red Containers (Aelio Region) ==
+Red Container Map (Aelio Region)
+
+== Red Containers (Retem Region) ==
+Red Container Map (Retem Region)
+
+== Red Containers (Kvaris Region) ==
+Red Container Map (Kvaris Region)
+
+== Red Containers (Stia Region) ==
+Red Container Map (Stia Region)
+
+== Datapods (Aelio Region) ==
+Datapod Map (Aelio Region)
+
+=== Datapod Information (Aelio Region) ===
+Please refer to the collapsed image as a reference for the following tables:
+
+=== Central Aelio ===
+Datapod (#) | Contents | Rewards | Location
+(1) | There are various colors of Item Containers. You'll definitely find some great stuff in the Gold ones. | Central Aelio
+(2) | This area is a cornucopia of fruits and vegetables. It's a great spot for ingredient hunters. | Central Aelio
+(3) | You may be able to find abandoned Item Containers near the cliffs of Central Aelio. | Central Aelio
+(4) | I hear Rappies act differently in groups. Try observing them undetected and see what happens. | Central Aelio
+(5) | The wide plains of Central Aelio are spotted with gently sloping hills. Many TAMES inhabit these lands. | Central Aelio
+(6) | ARKS can increase their Attack for a short time by chowing down on Quick Food made with TAMES meat. | Crisp Aelio Meat x5 | Central Aelio
+(7) | Yellow, blinking Ryuker Devices have yet to be connected. Get them linked up to expand your range of operations. | Central Aelio
+(8) | Dian are known for their giant bodies and large horns. They live around Central City. | Central Aelio
+(9) | ARKS can increase their Defense for a short time by chowing down on Quick Food made with vegetables. | Light Aelio Mushroom x5 | Central Aelio
+
+=== South Aelio ===
+Datapod (#) | Contents | Rewards | Location
+(1) | There are old campsites in the underbrush and in caves around South Aelio. Feel free to keep anything from the Item Containers you may find there. | South Aelio
+(2) | The peaks and valleys of South Aelio boast plenty of mountains and waterfalls. Its bountiful natural resources make it a hotspot for mining and fishing. | South Aelio
+(3) | This area holds a bounty of ingredients. You can find some minerals here too. I highly recommend Gathering here! | South Aelio
+(4) | Internal photon stores will be bolstered for a short time by chowing down on Quick Food made with fruit. | Rich Aelio Apple x5 | South Aelio
+(5) | Dread Enemies are veterans of numerous battles. Which means they're no joke! I wish I had known that earlier... | South Aelio
+(6) | ARKS can increase their HP for a short time by chowing down on Quick Food made with seafood. | Robust Aelio Lobster x5 | South Aelio
+(7) | There's a rumor going around that putting items into a South Aelio Region Mag bolsters the luck of ARKS defenders. | South Aelio
+(8) | Noxxi are known for their prominent snouts. Careful around them. They've been known to charge! | South Aelio
+
+=== West Aelio ===
+Datapod (#) | Contents | Rewards | Location
+(1) | Birdoth have a distinct long feather on their heads. I see a lot of them around here, but not so much elsewhere. | West Aelio
+(2) | I found some item containers over by a cliff! Could someone grab the contents? I can't right now. | West Aelio
+(3) | I heard if you, like, slam some goodies in the West Aelio Region Mag, it makes ARKS stronger. I wonder if it's true. | West Aelio
+(4) | West Aelio is famous for its broad expanse of coast. Try gliding to islands from high places. | West Aelio
+(5) | Freely take of the minerals in the rocks and seafood on the coast. But make sure not to take vegetables from the fields! | West Aelio
+
+=== North Aelio ===
+Datapod (#) | Contents | Rewards | Location
+(1) | There are recon supply caches still left in the mountains of North Aelio. Make use of any Item Containers you might come across. | North Aelio
+(2) | You need minerals and ore to enhance your weapons, right? You may just strike the motherlode here. | North Aelio
+(3) | Tossing a North Aelio Region Mag some items will bolster the growth of ARKS defenders... or so they say. | North Aelio
+(4) | Frango are a TAMES unit with beautifully colored feathers. They're often found congregating by water. | North Aelio
+(5) | You won't be able to find many ingredients around here... But there's a veritable bounty of quality minerals to gather. | North Aelio
+(6) | The wetlands and plateaus of North Aelio stretch far and wide. Sightings have been reported of enormous DOLLS appearing on the plateaus... | North Aelio
+
+=== Halphia Lake ===
+Datapod (#) | Contents | Rewards | Location
+(1) | Halphia Lake... it looks so peaceful, but... something's off about it. No one can quite put their finger on it... | Halphia Lake
+(2) | Halphia Lake is so quiet and peaceful. I wonder if someone left that container near the cliff for a picnic. | Halphia Lake
+(3) | Gigantix appear during thunderstorms. If you see one, it's best not to tangle with it unless you're confident in your abilities. | Halphia Lake
+
+=== Mt. Magnus ===
+Datapod (#) | Contents | Rewards | Location
+(1) | Getting up and down Mt. Magnus can be a pain. Making good use of an available Updrafter might make things easier. | Mt. Magnus
+(2) | Mt. Magnus is a hotspot for DOLLS encounters. Don't let the Item Containers they've brought in go to waste. | Mt. Magnus
+
+=== Vanford Laboratory Ruins ===
+Datapod (#) | Contents | Rewards | Location
+(1) | They call these the lab ruins, but the truth is that some parts were operational until recently. A huge battle wiped them out... | Vanford Laboratory Ruins
+(2) | If you attack the Dromes around here and disable them, your Mag will hack them and put them to work for you. | Vanford Laboratory Ruins
+(3) | The Recon Team left things in the lab ruins. I hear you can find them in high places or between wreckage. | Vanford Laboratory Ruins
+
+=== Resol Forest ===
+Datapod (#) | Contents | Rewards | Location
+(1) | Resol Forest is overgrown with strange flora. At night it glows with an eerie unnatural light. | Resol Forest
+(2) | You can find several things left behind by scouts in Resol Forest. They hid them around the trees to protect them from the enemy. | Resol Forest

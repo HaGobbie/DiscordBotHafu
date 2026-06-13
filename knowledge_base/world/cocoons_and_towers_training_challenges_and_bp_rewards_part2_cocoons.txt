@@ -1,0 +1,230 @@
+# Cocoons and Towers — Training Challenges and BP Rewards (Part 2)
+
+== Cocoons ==
+=== Aelio Region ===
+
+=== First Step ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+Central Aelio | Solo | 800 | Complete the Main Mission | None | Time exceeds 30:00
+Detail | Entry
+Main Mission | Reach the finish point.
+Side Missions | Clear before 5:00 Clear before 10:00 Obtain 10 Point Cubes Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their abilities. Follow the instructions to reach the goal while learning the new action.
+This cocoon tasks you with completing a training course. Using movement techniques and your weapon, you must destroy targets, collect Point Cubes and traverse the terrain with your Photon Dash and Photon Glide. At the end of the course, you use your Photon Blast to destroy a target. After doing this, the Finish Line is unlocked.
+
+=== Enhanced Enemy ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+Central Aelio - Halphana Plains | 4 Players | 894 | Complete the Main Mission | None | Incapacitated 30 times
+Detail | Entry
+Main Mission | Defeat the Pettas Sword.
+Side Missions | Clear before 0:55 Clear without being incapacitated 5 times Clear having taken damage fewer than 10 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their abilities. Defeat the enhanced Pettas Sword using your battle skills.
+This Cocoon asks you to defeat a lone Pedas Sword. On the back of its neck is a yellow core that reduces damage taken by the Pedas Sword. Once the core is broken, the shield is removed.
+
+=== Swift Jump ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+North Aelio - Halphana Wetlands | 4 Players | 916 | Complete the Main Mission | None | Fall 99 times
+Detail | Entry
+Main Mission | Reach the Goal!
+Side Missions | Clear before 1:25 Clear without falling 5 times Clear while using used Glide fewer than 5 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their abilities. Reach the goal using "Jump" and "Double Jump".
+This Cocoon contains a platforming challenge consisting of platforms suspended over a bottomless void. By Photon Dashing, you can extend the reach of your jumps.
+
+=== Wild Rush ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+South Aelio - Mt. Piccolt | 4 Players | 894 | Complete the Main Mission | None | Time exceeds 1:00:00
+Detail | Entry
+Main Mission | Defeat 42 Enemies.
+Side Missions | Clear before 1:45 Clear without being incapacitated 5 times Obtain 5 Point Cubes Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their abilities. Defeat all enemies using your battle skills.
+
+=== Test Flight ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+West Aelio - Cryano Cliffs | 4 Players | 835 | Complete the Main Mission | None | Fall 99 times
+Detail | Entry
+Main Mission | Reach the finish point.
+Side Missions | Clear before 1:15 Clear without falling 5 times Obtain 5 Point Cubes Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their gliding capabilities. Use Photon Glide to reach the target destination.
+
+=== Roaring Rush ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+West Aelio - Crykau Hills | 4 Players | 1184 | Complete the Main Mission | None | Incapacitated 30 times
+Detail | Entry
+Main Mission | Reach the finish point.
+Side Missions | Clear before 6:30 Clear without being incapacitated 2 times Clear having taken damage fewer than 15 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat abilities. Make use of your battle skills to defeat the Gororox.
+
+=== Fleeting Fight ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+Halphia Lake | 4 Players | 1184 | Complete the Main Mission | None | Incapacitated 30 times
+Detail | Entry
+Main Mission | Defeat the Bujin.
+Side Missions | Clear before 5:00 Clear without being incapacitated 5 times Clear having taken damage fewer than 20 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat abilities. Make use of your battle skills to defeat the Bujin.
+
+=== Runway ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+Mt. Magnus | 4 Players | 1009 | Complete the Main Mission | None | Time exceeds 1:00:00
+Detail | Entry
+Main Mission | Reach the finish point.
+Side Missions | Clear before 1:55 Clear before 2:35 Obtain 5 Point Cubes Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their dashing capabilities. Use Photon Dash to reach the target destination.
+-- Additional Info
+The layout of the Runaway Cocoon is as follows:
+- Yellow Squares: Point Cube
+- Hollow Yellow Square: Finish Point
+Runway Map (Aelio Region)
+
+=== Retem Region ===
+
+=== Vanishing Path ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+West Retem | 4 Players | 1562 | Complete the Main Mission | None | Time exceeds 1:00:00
+Detail | Entry
+Main Mission | Defeat the Fortos Laser.
+Side Missions | Clear before 8:00 Obtain 5 Point Cubes Clear without falling 3 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their dashing capabilities. Defeat all the enemies while keeping an eye on Vanishing Blocks.
+
+=== Narrow Cage ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+North Retem | 4 Players | 1396 | Complete the Main Mission | None | Incapacitated 30 times
+Detail | Entry
+Main Mission | Defeat all enemies.
+Side Missions | Clear without taken damage fewer than 20 times Clear without being incapacitated 3 times Clear before 6:00 Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their dashing capabilities. Make use of your battle skills to defeat all of the enemies.
+
+=== Buddy Attack ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+North Retem | 4 Players | 1396 | Complete the Main Mission | None | Incapacitated 30 times
+Detail | Entry
+Main Mission | Defeat all enemies.
+Side Missions | Maintain your hacked Drome's level to 3 to clear Clear without being incapacitated 3 times Clear without taken damage fewer than 20 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their dashing capabilities. Defeat all the enemies with support from Dromes.
+
+=== Dyna Assault ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+Central Retem | 4 Players | 1223 | Complete the Main Mission | None | Incapacitated 30 times
+Detail | Entry
+Main Mission | Defeat all enemies.
+Side Missions | Clear before 2:35 Clear without being incapacitated 5 times Clear without taken damage fewer than 10 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their dashing capabilities. Make use of your battle skills to defeat the Lizentos.
+
+=== Parkour Master ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+South Retem | 4 Players | 1223 | Complete the Main Mission | None | Fall 99 times
+Detail | Entry
+Main Mission | Defeat all enemies.
+Side Missions | Clear having used Glide fewer than 6 times Obtain 10 Point Cubes Clear before 2:20 Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their dashing capabilities. Reach the goal using Jumps, Double Jumps, and Wall Kicks.
+
+=== Runway II ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+South Retem | 4 Players | 1223 | Complete the Main Mission | None | Time exceeds 1:00:00
+Detail | Entry
+Main Mission | Defeat all enemies.
+Side Missions | Clear before 4:35 Clear before 5:15 Obtain 4 Point Cubes Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their dashing capabilities. Use Photon Dash to reach the target destination.
+-- Additional Info
+The layout of the Runaway II Cocoon is as follows:
+- Yellow Squares: Point Cube
+- Hollow Yellow Square: Finish Point
+Runway II Map (Retem Region)
+
+=== Kvaris Region ===
+
+=== Crazy Tail ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+South Kvaris | 4 Players | 2018 | Complete the Main Mission | None | Incapacitated 30 times
+Detail | Entry
+Main Mission | Defeat the Pangolan.
+Side Missions | Clear before 3:30 Inflict over 900 dmg over 2 times Clear having taken damage fewer than 7 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat capabilities. Make use of your battle skills to defeat the Pangolan.
+
+=== Slope Style ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+South Kvaris | 4 Players | 2018 | Complete the Main Mission | None | Fall 10 times
+Detail | Entry
+Main Mission | Defeat all enemies.
+Side Missions | Clear before 2:20 Clear having used Glide fewer than 2 times Obtain 40 Point Cubes Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their dashing capabilities. Use floating boards to reach the target destination.
+
+=== Clockwork Prison ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+West Kvaris | 4 Players | 2082 | Complete the Main Mission | None | Incapacitated 5 times
+Detail | Entry
+Main Mission | Defeat 29 enemies.
+Side Missions | Clear before 5:00 Clear without being incapacitated 1 times Clear having taken damage fewer than 12 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat capabilities. Make use of your battle skills to defeat all of the enemies.
+
+=== Horrible Flapping ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+West Kvaris | 4 Players | 2082 | Complete the Main Mission | None | Incapacitated 30 times
+Detail | Entry
+Main Mission | Defeat the Malachroid.
+Side Missions | Clear before 3:00 Clear without being incapacitated 1 times Clear having taken damage fewer than 10 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat capabilities. Make use of your battle skills to defeat the Malachroid.
+
+=== Wild Avalanche ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+Central Kvaris | 4 Players | 2181 | Complete the Main Mission | None | Incapacitated 30 times
+Detail | Entry
+Main Mission | Defeat 2 enemies.
+Side Missions | Clear before 3:00 Clear having taken damage fewer than 12 times Clear having used Restasigne fewer than 3 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat capabilities. Make use of your battle skills to defeat the Ice Banser.
+
+=== Vanishing Path II ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+Central Kvaris | 4 Players | 2181 | Complete the Main Mission | None | Fall 5 times
+Detail | Entry
+Main Mission | Reach the finish point.
+Side Missions | Clear before 2:00 Obtain 6 Point Cubes Clear having used Glide fewer than 3 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their dashing capabilities. Use Photon Dash to reach the target destination.
+
+=== Stia Region ===
+
+=== Face the Darkness ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+Dreisen Plant | 4 Players | 2878 | Complete the Main Mission | None | Incapacitated 30 times
+Detail | Entry
+Main Mission | Defeat the Dark Lemnas.
+Side Missions | Clear before 3:00 Inflict over 900 dmg over 2 times Clear having taken damage fewer than 7 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat capabilities. Make use of your battle skills to defeat the Dark Lemnas.
+
+=== Quarterstaff ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+Mediola Outer Area 2 | 4 Players | 2924 | Complete the Main Mission | None | Incapacitated 30 times
+Detail | Entry
+Main Mission | Defeat the Engouku.
+Side Missions | Clear before 3:00 Inflict over 900 dmg over 2 times Clear having taken damage fewer than 7 times Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat capabilities. Make use of your battle skills to defeat the Engouku.
+
+=== Helical Line ===
+Location | Party Limit | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+Mediola Outer Area 1 | 4 Players | 1223 | Complete the Main Mission | None | Fall 99 times
+Detail | Entry
+Main Mission | Reach the finish point.
+Side Missions | Obtain 10 Point Cubes Clear having used Glide fewer than 7 times Clear before 3:00 Complete all Side Missions and clear
+Rewards | +1 Skill Point 0 EXP 0 Meseta
+Description | This is Trainia, where ARKS defenders can test their combat capabilities. Make use of your athletic abilities to reach to the target destination.

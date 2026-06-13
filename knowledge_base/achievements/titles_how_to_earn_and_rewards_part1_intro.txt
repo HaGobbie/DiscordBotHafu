@@ -1,0 +1,10 @@
+# Titles — How to Earn and Rewards (Part 1)
+
+== Overview ==
+Whenever a player performs specific actions or achieves certain feats, they are awarded a Title relative to that achievement. Titles can range in variety from beating bosses and reaching class levels to simply chatting or participating in events.
+The player can also claim Title prizes respective to the earned Title. Titles can be viewed under the Personal menu to check what Titles you currently have, to receive Title rewards, or to check on requirements for other Titles. Once a Title is achieved, it can be used as a title for the player, meaning it can be displayed above the player's head (with the right player view configurations). Titles are account-based, meaning that once a Title is achieved and the reward is claimed, it cannot be achieved again, even if using a different character of the same account.
+Equipped Titles can be previewed on a player's ARKS ID . Unlike Titles in Phantasy Star Online 2, certain Titles in New Genesis can be combined. As an example, the Title Name that ends with " only" can be appended onto a Title that starts with "Party", to make the display title "Party only". There are currently 3 Title slots that a player can use on their ARKS ID.
+Title Points can be earned for each awarded Title the player has achieved, and are used to unlock additional Backdrops for the player's ARKS ID.
+Titles and their inherent boosts are not available in Phantasy Star Online 2: New Genesis.
+Cumulative Title List
+Player Titles | Enemy Titles | Item Titles | Quest Titles | Task Titles | Communication Titles | Map Titles | Limited-Time Titles

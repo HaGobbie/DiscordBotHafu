@@ -1,0 +1,47 @@
+# Materials — Crafting and Enhancement Resources (Part 2)
+
+== Badges ==
+Rarity | Icon | Image | Name | Obtainment | Notes
+N-Recycle Badge | Obtained from the Item Recycle Shop | A badge that can be traded in at the Item Recycle as an AC Scratch Ticket Item.
+N-SG Recycle Badge | Obtained from the Item Recycle Shop | A badge that can be traded in at the Item Recycle as an SG Scratch Ticket Item.
+N-Mission Badge | Obtained from Mission Passes | A badge that can be traded in at the Item Recycle .
+Alliance Badge | Reward from Tim's Tasks | Badge given to contributing Alliance members. Can be exchanged for items in certain places .
+ARKS Record Badge | Reward from ARKS Challenge Records | Badge given to active ARKS. Can be exchanged for items at an Item Trader's " ARKS Record Badge Exchange ".
+N-Weapons Badge A | Reward from some Limited Time Quests. | A badge engraved with a distinctive crest. Can be exchanged for items at an Item Trader with the N-Weapons Badge Exchange .
+N-Weapons Badge B | Reward from some Limited Time Quests. | A badge engraved with a distinctive crest. Can be exchanged for items at an Item Trader with the N-Weapons Badge Exchange .
+N-Weapons Badge C | Reward from some Limited Time Quests. | A badge engraved with a distinctive crest. Can be exchanged for items at an Item Trader with the N-Weapons Badge Exchange .
+
+== Tickets ==
+Rarity | Icon | Image | Name | Obtainment | Notes
+Kvaris Expedition Prep Ticket | Obtained from Limited-Time Tasks (April 6th, 2022 to June 7th, 2022) | Certificate given out to active ARKS. Can be exchanged for items in the Kvaris Expedition Prep Ticket Exchange Shop .
+Stia Expedition Prep Ticket | Obtained from Limited-Time Tasks (October 25th, 2022 to December 6th, 2022) | Certificate given out to active ARKS. Can be exchanged for for 8★ weapons etc. at an Item Trader with the Special Expedition Exchange .
+Slayer Operation Prep Ticket | Obtained from Limited-Time Tasks (March 1st, 2023 to April 4th, 2023) | Certificate given out to active ARKS. Can be exchanged for items in the Slayer Operation Prep Ticket Exchange Shop at an Item Trader.
+Creative Space Special Edition | Obtained from Limited-Time Tasks (May 24th, 2023 to June 6th, 2023) | Certificate given out to active ARKS. Can be exchanged for items in a later update.
+NGS 1st Anniversary Exchange Ticket | Obtained from Limited-Time Tasks Exchange from Seasonal Points Exchange Shop (NGS 1st Anniversary Event) | Tickets that can be exchanged for items through Xitre during the corresponding event. Used to exchange for items in the NGS 1st Anniversary Ticket Exchange Shop .
+PSO2 10th Anniversary Exchange Ticket | Obtained from Limited-Time Tasks Obtained from Item Packs | During the specified event, show this ticket to an Item Trader to exchange for various items. Used to exchange for items in the Item Exchange Shop .
+PSO2 Manga Memory | PSO2 10th Anniversary Manga Special Gift Mysterious Holographs Tasks AC Purchase Campaigns | Mysterious storage device with a unique character illustration drawn on it. Can be exchanged for items at specific locations. Used to exchange for items in the PSO2 Manga Memory Exchange Shop .
+
+== Battle Triggers ==
+Rarity | Icon | Image | Name | Obtainment | Notes
+B-Trigger/Common Yellow | Rare Drop from Exploration and Combat Sectors Reward from the Mission Pass Exchange from Alliance Badge Exchange Shop Rare Drop from Emperappies and Great Rappies | A Trigger usable for any Yellow Portal . Consumed upon clearing the quest.
+B-Trigger/Common Purple | Rare Drop from Exploration and Combat Sectors Reward from the Mission Pass Exchange from Alliance Badge Exchange Shop | A Trigger usable for any Purple Portal . Consumed upon clearing the quest.
+
+== Quest Triggers ==
+Rarity | Icon | Image | Name | Obtainment | Notes
+Q-Trigger/Command DOLLS Suppression Op | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Practice Drill: Command DOLLS Suppression Op .
+Q-Trigger/Nex Vera Suppression Op | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Practice Drill: Nex Vera Suppression Op .
+Q-Trigger/Mining Rig Defense: Aelio | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Practice Drill: Mining Rig Defense: Aelio .
+Q-Trigger/DF Interception | Exchange from Alliance Badge Exchange Shop Rare Drop from Emperappies and Great Rappies | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Dark Falz Interception .
+Q-Trigger/DF Interception R.2 | Exchange from Alliance Badge Exchange Shop Rare Drop from Emperappies and Great Rappies | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Dark Falz Interception R.2 .
+Q-Trigger/Battle of Halphia Lake | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Battle of Halphia Lake .
+Q-Trigger/Nils Vera Suppression Op | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Nils Vera Suppression Op .
+Q-Trigger/Doldoris Vera Suppression Op | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Doldoris Vera Suppression Op .
+Q-Trigger/Drill: Ams Vera Suppression Op | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Ams Vera Suppression Op .
+Q-Trigger/Drill: Crocodylis Vera Suppression Op | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Crocodylis Vera Suppression Op .
+Q-Trigger/Drill: Mining Rig Defense: Kvaris | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Mining Rig Defense: Kvaris .
+Q-Trigger/Renus Vera Suppression Op | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Renus Vera Suppression Op .
+Q-Trigger/Dustyl Vera Suppression Op | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Dustyl Vera Suppression Op .
+Q-Trigger/Mining Rig Defense: Retem | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Mining Rig Defense: Retem .
+Q-Trigger/Nex Vera Suppression Op | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Nex Vera Suppression Op .
+Q-Trigger/Command DOLLS Suppression Op | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing Drill: Command DOLLS Suppression Op .
+Q-Trigger/The Battle of Halphia Lake | Exchange from Alliance Badge Exchange Shop | A Trigger usable at a Quest Counter. Consumed upon clearing The Battle of Halphia Lake .

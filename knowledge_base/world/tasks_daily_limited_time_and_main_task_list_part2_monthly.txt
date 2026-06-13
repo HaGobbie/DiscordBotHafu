@@ -1,0 +1,15 @@
+# Tasks — Daily, Limited Time and Main Task List (Part 2)
+
+== Monthly ==
+The following Tasks reset at the first maintenance of every month and are located in the Limited-Time Tasks tab. These tasks are account-bound and can only be done on one character per cycle.
+Task Name | Objectives | Rewards | Description
+Genesis Point Exchange Shop List | View Genesis Point Exchange Shops (0/1) | 1,500 | View Genesis Point Exchange Shops. *Do this by accessing Arche, ARKS Architectural Researcher.
+Creative Space Edit Mode | Enter Edit Mode in Creative Space (0/1) | 1,500 | Enter Edit Mode in Creative Space.
+Use Creative Space Designs | Use Creative Space Designs to place Build Parts (0/1) | 1,500 | Use Creative Space Designs to place Build Parts.
+Change Build Parts Color | Change Build Parts colors in Creative Space (0/1) | 1,500 | Change Build Parts colors in Creative Space.
+Visit Featured Creative Spaces | Visit Featured Creative Spaces (0/1) | 1,500 | Visit Featured Creative Spaces. *Do this by selecting Featured Creative Spaces from the Creative Space Menu.
+Acquiring Genesis Points | Obtain Genesis Points from GP Trees (0/10) | 1,500 | Obtain Genesis Points from GP Trees.
+Visit Creative Spaces | Go to other Players' Creative Spaces (0/20) | 1,500 | Visit other Players' Creative Spaces.
+Place Build Parts | Place Build Parts (0/100) | 1,500 | Place Build Parts in Creative Space.
+Earn Genesis Points I | Earn the designated number of Genesis Points (0/10,000) | 1,500 | Earn 10,000 Genesis Points.
+Earn Genesis Points II | Earn the designated number of Genesis Points (0/30,000) | 1,500 | Earn 30,000 Genesis Points.

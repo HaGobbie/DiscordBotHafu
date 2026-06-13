@@ -1,0 +1,57 @@
+# ALTERS Enemy Faction — All Types and Behavior (Part 2)
+
+== Normal Enemies ==
+=== Aelio Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Banehog | • North Aelio • West Aelio • Vanford Labratory Ruins • Resol Forest | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | ALTERS that resemble blue hedgehogs. Despite their lumbering appearance, Banehogs can quickly cover distances either by running or through utilizing their Spin Dash Attack. Additionally, Banehogs can also attack with lumbering claw swipes and energy quills released from their backs.
+Evil Angelo | • Central Aelio • West Aelio • Aelio Region Combat Sectors | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | ALTERS that resemble harpies. Usually attacks with energy projectiles released from its wings. Can also fire a ball of light from their mouths, which can inflict Panic.
+Heruc | • West Aelio • Mt. Magnus • Resol Forest | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Elk-esque ALTERS that will attempt to mow down targets with a charge. They can also swipe at targets with their tails, or perform a stomp attack to damage nearby ARKS Defenders.
+Lizard Fray | • Central Aelio • West Aelio • North Retem • West Retem • Aelio Region Combat Sectors | Alts Soul Alts Secreta | - | Weak to: | Small ALTERS that resemble bipedal lizards. Attacks with fire projeciles, which can inflict Burn. They can also attack close-range targets by flashing the membrane within their arms to inflict Stun. Enhanced during Clear Skies .
+Lizard Ice | • Central Aelio • West Aelio • Vanford Laboratory Ruins • Resol Forest | Alts Soul Alts Secreta | - | Weak to: | Small ALTERS that resemble bipedal lizards. Attacks with ice projeciles, which can inflict Freeze. They can also attack close-range targets by flashing the membrane within their arms to inflict Stun.
+Lizard Thunder | • West Aelio • North Aelio • Aelio Region Combat Sectors | Alts Soul Alts Secreta | - | Weak to: | Small ALTERS that resemble bipedal lizards. Attacks with thunder projeciles, which can inflict Shock. They can also attack close-range targets by flashing the membrane within their arms to inflict Stun. Enhanced during Thunderstorms .
+
+=== Retem Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Crowpa | • Central Retem • Retem Alnothe | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | ALTERS that slither along the ground, using their massive claws to attack. They can pounce from a distance, or even release long-distance energy slashes from their claws.
+Glasneg | • North Retem • South Retem • Retem Alnothe | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Serpentine ALTERS that will always remain partially submerged in the ground. Can fire rocks and beams of sand from its mouth, as well as rise from the ground underneath targets.
+Kerogero | • South Retem • West Retem • Rwh Maqead • Retem Alnothe | Alts Soul Alts Secreta | - | Weak to: | Small ALTERS that can spit projectiles at ARKS Defenders.
+Lizard Fray | • Central Aelio • West Aelio • North Retem • West Retem • Aelio Region Combat Sectors | Alts Soul Alts Secreta | - | Weak to: | Small ALTERS that resemble bipedal lizards. Attacks with fire projeciles, which can inflict Burn. They can also attack close-range targets by flashing the membrane within their arms to inflict Stun. Enhanced during Clear Skies .
+Mumidog | • Central Retem • North Retem • South Retem • Retem Alnothe | Alts Soul Alts Secreta | - | Weak to: | Quadruped ALTERS that swim through the ground to ambush ARKS Defenders. They are also capable of launching blade-like energy projectiles. Diving Attacks can force a swimming Mumidog to immediately submerge, temporarily disabling it.
+Roufin Bear | • Central Retem • North Retem • Retem Alnothe | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Eerie, bear-like ALTERS that will attempt to rush any ARKS Defender it spots. Attacks with slashes from its claws, and energy projectiles from its core.
+Savinehog | • North Retem • West Retem • Retem Alnothe | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Retem variants of Banehogs. Shares all of their attacks with their Aelio counterparts, with the addition of a new Spin Jump Attack.
+Sval Angelo | • North Retem • Rwh Maqead • Retem Alnothe | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Retem Variants of Evil Angelos. Possesses the same attacks, despite being noticably smaller.
+Svaruc | • South Retem • West Retem • Rwh Maqead • Retem Alnothe | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Retem Variants of Herucs. Possesses the same attacks, despite being noticably smaller.
+
+=== Kvaris Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Arctigero | • North Kvaris • West Kvaris • Rayjord Gorge • Lost Central | Alts Soul Alts Secreta | - | Weak to: | Kvaris variants of Kerogero with the same behaviors.
+Brrgero | • Central Kvaris • Belugana Ruins | Alts Soul Alts Secreta | - | Weak to: | Variants of Arctigero that are identical in essentially every way.
+Freezicurio | • Belugana Ruins | Alts Soul Alts Secreta | - | Weak to: | Extremely minitaured Kvaris variants of the Curio ALTERS. Attacks by swinging its abdomen at melee range, as well as with balls of ice generated by their tentacles.
+Chillycurio | • South Kvaris • West Kvaris | Alts Soul Alts Secreta | - | Weak to: | Variants of Freezicurio that are identical in essentially every way.
+Freezidog | • Central Kvaris • Belugana Ruins | Alts Soul Alts Secreta | - | Weak to: | Kvaris variants of Mumidogs with the same behaviors.
+Chillydog | • South Kvaris • Rayjord Gorge • Lost Central | Alts Soul Alts Secreta | - | Weak to: | Variants of Freezidogs that are identical in essentially every way.
+Freezihedge | • Central Kvaris • Belugana Ruins | Alts Soul Alts Secreta | - | Weak to: | Miniaturized Freezihogs. Lack a weakpoint, but have significantly less health.
+Chillyhedge | • West Kvaris | Alts Soul Alts Secreta | - | Weak to: | Variants of Freezihedge that are identical in essentially every way.
+Freezihog | • Central Kvaris • Belugana Ruins | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Kvaris variants of the Hog ALTERS. Possesses all of the same abilities as their Aelio and Retem counterparts, alongside the unique ability to hurl snowballs.
+Chillyhog | • West Kvaris • Lost Central | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Variants of Freezihog that are identical in essentially every way.
+Freeziron | • Belugana Ruins | Alts Soul Alts Secreta | - | Weak to: | Extremely minitaured Kvaris variants of the Lon ALTERS. Attacks with kicks.
+Chillyron | • North Kvaris • South Kvaris • Rayjord Gorge | Alts Soul Alts Secreta | - | Weak to: | Variants of Freeziron that are identical in essentially every way.
+Freezirowpa | • Central Kvaris • Belugana Ruins | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Kvaris variants of Crowpa that utilize Freeze.
+Chillyrowpa | • West Kvaris • Rayjord Gorge • Lost Central | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Variants of Freezirowpa that are identical in essentially every way.
+Freezisneg | • Central Kvaris • Belugana Ruins | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Kvaris variants of Glasneg that utilize Freeze.
+Chillysneg | • South Kvaris • Rayjord Gorge • Lost Central | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Variants of Freezisneg that are identical in essentially every way.
+
+=== Stia Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Basalpion | • Stia Outskirts (Emergency Trials) • Mediola Outer Area 1 • Mediola Outer Area 2 • Dext Base | Alts Soul Alts Secreta | - | Weak to: | A Scorpion-shaped Alters. At night it grows large yellow front pincers.
+Bigar Clore | • Dext Base | Alts Soul Alts Secreta | - | Weak to: | Variants of Boa Clore that are identical but it has bigger horns.
+Boa Clore | • Stia Outskirts (Veteran Volt Lemnas) • Mediola Outer Area 1 | Alts Soul Alts Secreta | - | Weak to: | Alters crawl on all fours with a eye shape face. At night it grows yellow horns.
+Flayray | • Stia Outskirts | Alts Soul Alts Secreta | Weak to: | Stingray-type Alters. At night it grows large yellow spikes on it back.
+Grinbear | • Stia Outskirts • Mediola Outer Area 1 • Dext Base | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Stia variants of Roufin Bear with the same behaviors.
+Koadori | • Stia Outskirts (Veteran Duskdi Scythe) • Mediola Outer Area 1 • Dext Base | Alts Soul Alts Secreta | - | Weak to: | Bird-shaped Alters that cant fly. At night it grows red spikes on it wings.
+Krisnukl | • Stia Outskirts (Emergency Trials) • Mediola Outer Area 1 • Mediola Outer Area 2 • Dext Base | Alts Soul Alts Secreta | - | Weak to: | Bipedal Alters whose bodies are made of rock covered with crystals and its only arm is shape as a shield.
+Mag Head | • Mediola Outer Area 2 (Veteran Dark Lemnas) • Dext Base | Alts Soul Alts Secreta | - | Weak to: | Variants of Slug Head that are identical in essentially every way.
+Rock Hound | • Stia Outskirts • Dreisen Plant | Alts Soul Alts Secreta | - | Weak to: | Stia variants of Mumidog with the same behaviors.
+Slug Head | • Stia Outskirts | Alts Soul Alts Secreta | - | Weak to: | Alters that have long slender quadrupedal bodies with round faces on the tips of their bodies. At night the rounded faces get yellow spikes around it.
+Stein Hound | • Mediola Outer Area 1 • Dext Base | Alts Soul Alts Secreta | - | Weak to: | Variants of Rock Hound that are identical in essentially every way.
+Thunderay | • Mediola Outer Area 1 • Mediola Outer Area 2 • Dext Base | Alts Soul Alts Secreta | - | Weak to: | Variants of Flayray that are identical in essentially every way.

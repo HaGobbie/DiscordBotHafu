@@ -1,0 +1,21 @@
+# Compound Techniques — Combined Element Techs and Full List
+
+Techniques
+Fire | Ice | Lightning | Wind | Light | Dark | Compound
+
+== Overview ==
+Compound Techniques are actions that can be used only with Force or Techter weapons. They become available once you learn the Force or Techter United Techniques skill. Learning this Class Skill does not require a skill point.
+There are 3 types of Compound Techniques known as Fomelgion, Barantsion, and Zandion which all draw from the same Compound Technique Gauge. Hitting enemies with Techniques and Photonic Fury will fill the Compound Technique Gauge.
+Damage caused by Compound Techniques does not vary based on an enemy's elemental weakness, and Technique class skills have no effect.
+
+== Fomelgion ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Fomelgion | Default | Fire and Dark Compound Technique. Uses the Compound Technique Gauge. Slash down in front of you with a massive sword forged from fire and dark.
+
+== Barantsion ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Barantsion | Default | Ice and Light Compound Technique. Uses the Compound Technique Gauge. Hurl a spear forged from ice and light in front of you, creating an ice vortex.
+
+== Zandion ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Zandion | Default | Lightning and Wind Compound Technique. Uses the Compound Technique Gauge. After charging in and lashing about clad in lightning and wind, you retreat, leaving a tornado in your wake.

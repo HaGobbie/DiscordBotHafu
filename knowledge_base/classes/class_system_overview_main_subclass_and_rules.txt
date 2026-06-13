@@ -1,0 +1,75 @@
+# Class System Overview — Main Class, Subclass and Rules
+
+Hunter | Fighter | Ranger | Gunner | Force | Techter | Braver | Bouncer | Waker | Slayer
+
+== Overview ==
+Phantasy Star Online 2: New Genesis currently has 10 different classes, each possessing unique skills. Every Class in the game can be freely changed in the Shopping Plaza by going to the Class Counter Admin, Croche. Skills can be acquired by spending the Skill Points that are obtained from clearing Cocoons and Towers that are found across Planet Halpha.
+Skills in New Genesis refer to the supplementary effects that enhance the player’s own abilities, and are different from the so-called special moves.
+There are two types of skills: Passive Skills , which will take effect at any time if learned. Active Skills , which are activated manually by pressing the skill icon during combat.
+If the active skill is interfered by an attack during the activation motion, it will not activate and will go into cooldown time. Stance skills of the same class cannot be used together at the same time.
+
+== Skill Points ==
+Most class skills require skill points, which can be obtained by clearing Cocoons and Towers for the first time. Unlike in PSO2, obtained Skill Point progress is shared with all of your characters on your account and the total amount can be individually assigned to each Class Skill Tree separately.
+
+== Class Skills ==
+
+== Skill Tree ==
+The Skill Tree is a list of skills that can be learned for each class. The skills in the tree are arranged like a “tree diagram” with several branches.
+- You can learn skills by selecting the skill you want to learn from the "Skill Tree" confirmation screen at the class counter.
+- Some prerequisite skills are required to be learnt before you can learn a new skill. These points are denoted by the lines above the skill.
+- By adding a “Skill Tree” with the purchase of 500 AC, you can create a completely different skill build for the same class. Skill points that have already been acquired can be used separately for each added skill tree. However, you can only have one skill tree set per class, so the effects of the added skill trees cannot be obtained all at once. To select the skill tree, select “Change Class” - “Select Skill Tree”.
+- To reset the skill tree, you will need to do a “Skill Tree Reset” at the class counter (This requires a N-Reset All Skills pass). If you do not have enough points for a particular skill or have misallocated points, you can alternatively select another tree by purchasing “Add Skill Tree” at the class counter. Resetting the skill tree does not reduce or increase the total amount of skill points accumulated so far.
+
+== Types of Skills ==
+- Main Class Only Skill - Skills that are effective only when playing as the Main Class.
+- Weapon Only Skill - Skills that are effective only when the appropriate weapon type is equipped (can also have a requirement with Main Class Only Skills)
+
+== Class ==
+- You can choose and switch to all classes if you go to the class counter and talk to a Class Counter Admin
+
+== Class List ==
+Class | Equippable Weapons
+Normal Class
+Hunter (Hu) | Sword | Wired Lance | Partisan
+Fighter (Fi) | Daggers | Double Saber | Knuckles
+Ranger (Ra) | Launcher | Rifle
+Gunner (Gu) | Twin Machine Guns
+Force (Fo) | Rod | Talis
+Techter (Te) | Wand
+Braver (Br) | Katana | Bow
+Bouncer (Bo) | Soaring Blades | Jet Boots
+Waker (Wa) | Harmonizer
+Slayer (SL) | Gunblade
+
+== Class Counter Admin Locations ==
+Aelio City | NPC
+Croche
+Retem City | NPC
+Ouragan
+Kvaris Camp | NPC
+Aldiss
+Stia Camp | NPC
+Asama
+
+== Subclass ==
+- It cannot be set when creating a character; and can only be set by completing the following conditions.
+- Complete the Main Story Task, " Residents of Central City " to unlock Class Counter functionality.
+
+== Subclass Overview ==
+- Like Main Classes, you can freely switch to any of them, with the exception of the class that is currently set as Main Class.
+- Unlike in PSO2, Subclasses do not add any additional stats towards the Main Class.
+- You can use “Class Skills”, “Photon Arts”, and “Techniques” that are used in subclasses. There are some class skills (This skill can only be used with a Main Class) that exist for each class. For details, refer to the page of each class. Stance skills of the same class cannot be used together, but stance skills of different classes can be used together. Unlike in PSO2, weapons in both the Main and Sub Class can be used. Equipping Sub Class weapons is based on the Main Class' current level. Damage is slightly reduced when using Sub Class weapons. (In other words, there is a 10% damage bonus for using Main Class weapons) Sub Class stats do not affect Battle Power, however, learned Skills in the Sub Class Skill Tree will contribute towards Battle Power. For Classes that has access to Techniques, they can only be used if their appropriate Weapon Type is equipped.
+
+== Experience Gained for Subclasses ==
+- If the subclass level is less than 5 levels from the current Level Cap, 90% of the experience gained from the Main Class will be added to the Subclass.
+- If the subclass level is 5 levels or higher you will no longer get experience gained from the Main Class.
+- The same will be applied to the reward experience value of Tasks and Trials.
+
+== Class Equipment ==
+
+== Loadouts ==
+Loadouts are a feature that allows you to save the current class and equipment status in advance and recall them at any time in the lobby.
+- Available from “Loadouts” at the class counter. Up to 21 loadouts can be registered for each character.
+- The parts that are saved to the Loadout are “Main Class / Sub Class (Including selected Skill Tree)”, “Main Palette”, “Sub Palette”, “Unit”, and Weapon Camo”. Settings saved to the main palette are “Weapon”, “PA”, “Technique”, and “Adjusted Position of Sheath”. Book numbers are saved for the sub-palette settings. The contents inside are not saved.
+- When recalling a saved Loadout, items in the storage are automatically retrieved. However, items in the extended storage other than your selected favorite will not be taken out. Previous equipment will be unequipped (while still in your inventory). It is not sent to the storage automatically.
+- You can also recall Loadouts with a chat command (/ms#, where # is the loadout you wish to recall).

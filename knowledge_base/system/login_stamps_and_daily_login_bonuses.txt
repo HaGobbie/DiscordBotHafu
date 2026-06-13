@@ -1,0 +1,27 @@
+# Login Stamps and Daily Login Bonuses
+
+== Overview ==
+Login Stamps is a system where logging in daily will net you rewards. You will be rewarded once a day when you log in or when you move to one of the main cities. The login stamp occurs at 7 AM PST / 10 AM EST. You can only receive one login bonus per account. The login bonus information can be found in the Main Menu -> System -> Login Bonus.
+If you have an active Premium Set, you will be rewarded with additional Premium stamps in addition to the regular stamps. Even if you start using the Premium Set after receiving the regular login bonus, you will still receive the premium additional quota reward for the day when you use the ticket or move to a new section.
+With the start of NGS, the old PSO2 login stamps have been discontinued.
+For a list of all previous Login Stamps, please visit the Login Stamps Archive page.
+
+== Regular Daily Login Bonus ==
+Login Stamp Bonus (Week 1)
+Regular | Premium
+Day 1 | N-Grinder x5 | N-Grinder x10
+Day 2 | Salon Free Pass x1 | N-Color-Change Pass x1
+Day 3 | 10 Star Gems | 10 Star Gems
+Day 4 | N-Augmentation Success Rate +10% x1 | N-Augmentation Success Rate +10% x1
+Day 5 | N-Grinder x5 | Alpha Reactor x15
+Day 6 | N-Enhancement Success Rate +20% x1 | N-Enhancement Success Rate +20% x2
+Day 7 | 20 Star Gems | 20 Star Gems
+Login Stamp Bonus (Week 2)
+Regular | Premium
+Day 8 | N-Grinder x5 | N-Grinder x10
+Day 9 | Salon Free Pass x1 | Special Scratch Ticket x1
+Day 10 | 10 Star Gems | 10 Star Gems
+Day 11 | N-Augmentation Success Rate +10% x1 | N-Augmentation Success Rate +10% x1
+Day 12 | N-Grinder x5 | Alpha Reactor x15
+Day 13 | N-Enhancement Success Rate +20% x1 | N-Enhancement Success Rate +20% x2
+Day 14 | 20 Star Gems | 20 Star Gems

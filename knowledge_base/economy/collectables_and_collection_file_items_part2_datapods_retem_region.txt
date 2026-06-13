@@ -1,0 +1,66 @@
+# Collectables and Collection File Items (Part 2)
+
+== Datapods (Retem Region) ==
+Datapod Map (Retem Region)
+
+=== Datapod Information (Retem Region) ===
+Please refer to the collapsed image as a reference for the following tables:
+
+=== Central Retem ===
+Datapod (#) | Contents | Rewards | Location
+(1) | Fortos Launchers are DOLLS shaped like heavy artillery. Destroying all of their legs will expose their cores to attack. | Central Retem
+(2) | This oasis is a resting point for long journeys. I wish I had the resources to station some ARKS defenders on it... | Central Retem
+(3) | This vast land is inhabited by many creatures that are smaller than TAMES. Try studying the trees and ground carefully sometimes. | Central Retem
+(4) | That huge structure in Central Retem is known as Trinitas. I'd love to look into what it might have been used for... | Central Retem
+(5) | Vegetables can be found here and there in this area. There's also some fruit that appears only at night, so don't miss that. | Crisp Retem Carambola x5 | Central Retem
+(6) | Noxxi. Or, Lamur Noxxi, I should say. These also seem a little different from their Aelio counterparts. | Central Retem
+(7) | Sand Korons appear in the desert. Don't be fooled by their cute appearance or you'll be in a world of hurt. | Central Retem
+(8) | Central Retem had several layers of defense against the DOLLS assault. Those item containers are vestiges of that battle. | Central Retem
+(9) | "Stellar Fragment" is a rock that falls during meteor showers. The connection isn't clear, but it has been observed glowing brightly during meteor showers. | Stellar Fragment x1 | Central Retem
+
+=== West Retem ===
+Datapod (#) | Contents | Rewards | Location
+(1) | Apparently an electromagnetic abnormality occurs in West Retem. Maybe that's why sometimes you see floating boulders. | West Retem
+(2) | There are tons of vegetables around here. You can also find seafood by the waterfront. | Robust Retem Cauliflower x5 | West Retem
+(3) | Item containers were left behind on the clifftops in the area. Feel free to use anything you find. | West Retem
+(4) | Giving items to the West Retem Region Mag will temporarily boost the growth of ARKS defenders. So they say. | West Retem
+(5) | The reedy Kelkundo throw powerful kicks. Stay calm and don't be intimidated by their strange movements. | West Retem
+(6) | A Camelio is a TAMES unit with two humps on its back. Occasionally you find specimens of a different color. | West Retem
+
+=== North Retem ===
+Datapod (#) | Contents | Rewards | Location
+(1) | North Retem is the biggest mining spot in Retem. The scaffolding is also used for ARKS training drills. | North Retem
+(2) | Lizentos move deceptively fast for their size. They're dangerous even at a distance and their tail attacks pack serious power. | North Retem
+(3) | Be on the lookout for Transorves. They're like spawn points that crank out tons of enemies. | North Retem
+(4) | Fruits are easy to find around here. You also might find some interesting seafood around the beach at night. | Light Retem Sea Slug x5 | North Retem
+(5) | Hmm. Apparently there are minerals here not found in Aelio. With different uses and properties. Be sure to look into them. | Tetracite x5 | North Retem
+(6) | It seems that throwing items to the North Retem Region Mag temporarily boosts the growth of ARKS defenders. | North Retem
+(7) | Those item containers on the clifftops were left behind by the mining crew. I'm sure they'd be happy to have you make use of them. | North Retem
+(8) | I saw a Lamur Birdoth. Those aren't found in Aelio. They seem to have mutated as an adaptation to the harsh environment. | North Retem
+
+=== South Retem ===
+Datapod (#) | Contents | Rewards | Location
+(1) | Pippotam are a TAMES unit with powerful teeth and jaws. They often move in groups, and sometimes you'll see one that looks different. | South Retem
+(2) | There are some vegetables to be found around here, too. If you encounter a sandstorm, try looking for some seafood. | Robust Retem Hermit Crab x5 | South Retem
+(3) | Whirlwinds stir up something called "Blastisigne." I bet ingesting one would cause you to overflow with photon power. | South Retem
+(4) | Retem Alnothe is a special place for Retem's ARKS defenders. It was once even a ceremonial site... | South Retem
+(5) | Take care not to get lost if you run into a sandstorm. Also, we have reports of a Gigantix. Be careful. | South Retem
+(6) | This campsite isn't used much anymore. Feel free to grab things from any item containers you find. | South Retem
+(7) | They say giving items to the South Retem Region Mag brings good luck to ARKS defenders for a while. | South Retem
+(8) | Bubble Snappers are ALTERS with huge arms. Try attacking with Lightning to dispel the bubbles from their claws. | South Retem
+(9) | Rwh Maqead... we call it "The Dome." It's said that inside the enormous rock is a vast subterranean expanse... | South Retem
+
+=== Rwh Maqead ===
+Datapod (#) | Contents | Rewards | Location
+(1) | Fruits and vegetables grow here, too... and you can even find seafood by the sea. | Crisp Retem Mushroom x5 | Rwh Maqead
+(2) | I leave these item containers for those who come after me. It is my hope that they serve you in this task. | Rwh Maqead
+
+=== Retem Alnothe ===
+Datapod (#) | Contents | Rewards | Location
+(1) | With no one to visit, this place is also succumbing to disuse. If you don't unload item containers here, no one else will. | Retem Alnothe
+
+=== Maqead Lower Level ===
+Datapod (#) | Contents | Rewards | Location
+(1) | This rock glows like a starry sky every time there's a meteor shower. I'd love to find out why once everything calms down... | Maqead Lower Level
+(2) | Brancles are DOLLS with a bizarre appearance. When their abdomen tentacles are extended, their cores are vulnerable to attack. | Maqead Lower Level
+(3) | Metius are DOLLS adapted for defense and support. They use sonic waves to buff and heal nearby enemies. | Maqead Lower Level

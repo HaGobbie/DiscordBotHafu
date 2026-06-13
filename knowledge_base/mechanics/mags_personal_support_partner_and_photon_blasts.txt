@@ -1,0 +1,104 @@
+# Mags — Personal Support Partner and Photon Blasts
+
+Mags are small devices that accompany the player in Phantasy Star Online 2: New Genesis. A feature called Active Sonar is installed in Mags, which points out undiscovered Cocoons, Towers, Ryuker Devices & Region Mags. Mags can also be setup to discover Materials like Fruits, Minerals and certain Item Containers through the use of the Active Sonar. Mag visibility can be hidden through the Main Menu.
+Certain Mag Forms can have their appearances altered using Mag Kits . As an example, items like the N-Mag Color Coordination Kit can sync the color of your mag with the color of your worn outfit.
+Mag Forms that originate from PSO2 can be used in Phantasy Star Online 2: New Genesis.
+
+== List of NGS Mags ==
+Preview | Name | Availability | Marketable | Implementation Date | Notes
+Mag Form/Tails Doll | Get your Tweet on! Campaign | 10/20/21
+Mag Form/Calamar | NGS Season 1 Mission Pass Special Scratch Tickets: Autumn '22 Special Scratch‎ | 10/13/21
+Mag Form/Autumn Minimo | Seasonal Points Exchange Shop (Halloween Fiesta) | 10/27/21
+Mag Form/Alliche | NGS Season 2 Mission Pass Special Scratch Tickets: Autumn '22 Special Scratch‎ | 11/10/21
+Mag Form/Demoog | NGS Season 3 Mission Pass Special Scratch Tickets: Spring '23 Special Scratch‎ | 12/14/21
+Mag Form/Winter Minimo | Seasonal Points Exchange Shop (Winter Event) | 01/12/22
+Mag Form/Re-Rati | NGS Season 4 Mission Pass Special Scratch Tickets: Spring '23 Special Scratch‎ | 01/12/22
+Mag Form/Naderis Mag | SG Scratch Tickets: Resolute Warrior SG Scratch Tickets: Diva of the Desert SG Scratch Tickets: Refined Form SG Scratch Tickets: Refined Form 2 SG Scratch Tickets: Refined Form 3 SG Scratch Tickets: Refined Form 4 SG Scratch Tickets: Halpha ARKS Revival SG Scratch Tickets: Halpha ARKS Revival 2 | 01/19/22
+Mag Form/Will-o' | NGS Season 5 Mission Pass Special Scratch Tickets: NGS 2nd SP Scratch‎ | 02/09/22
+Mag Form/Spring Minimo | Seasonal Points Exchange Shop (Spring '22 Event) | 03/09/22
+Mag Form/Flower Bell | NGS Season 6 Mission Pass Special Scratch Tickets: NGS 2nd SP Scratch‎ | 03/16/22
+Mag Form/Maripo Machina | NGS Season 7 Mission Pass | 04/13/22
+Mag Form/Coccyx Machina | Trinitas High Scorer IV Title Reward | 04/20/22
+Mag Form/Felicita Minimo | Seasonal Points Exchange Shop (NGS 1st Anniversary Event) | 05/11/22
+Mag Form/Anniva Rappy | NGS Season 8 Mission Pass | 05/18/22
+Mag Form/Icicle Drana | NGS Season 9 Mission Pass | 06/15/22
+Mag Form/Rappy (Halpha) | Anime Expo 2022 Item Code ARKS Expo Online Keyword | 07/01/22
+Mag Form/Anniva Minimo | Seasonal Points Exchange Shop (PSO2 10th Anniversary Event) | 07/06/22
+Mag Form/Madillo Machina | NGS Season 10 Mission Pass | 07/13/22
+Mag Form/R Mag Minimo | 7/27 Use AC, Get Items! Special Campaign | 07/27/22
+Mag Form/Arion Machina | NGS Season 11 Mission Pass | 08/17/22
+Mag Form/Sabakuro | AC Scratch Tickets: Virtual Streamers‎‎ | 08/24/22
+Mag Form/Lapint Minimo | Seasonal Points Exchange Shop (Moon-Gazing '22 Event) | 09/07/22
+Mag Form/Nyanpet | NGS Season 12 Mission Pass | 09/14/22
+Mag Form/Wanda | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Wanda S | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Trim | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Trim S | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Sally | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Sally S | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Marron | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Marron S | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Melon | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Melon S | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Viola | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Viola S | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Rappy (Pet) | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Synchro | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Synchro S | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Jinga | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Jinga S | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Aero | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Aero S | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Popple | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Popple S | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Redran | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Redran S | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Herbie | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Vulcan | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Vulcan S | Your Pet Loves You Campaign | 10/05/22
+Mag Form/Jack-O' | NGS Season 13 Mission Pass | 10/12/22
+Mag Form/Maplon Minimo | Seasonal Points Exchange Shop (Autumn '22 Event) | 11/02/22
+Mag Form/Arm Machina | NGS Season 14 Mission Pass | 11/09/22
+Mag Form/Ainz | AC Scratch Tickets: Overlord Style | 11/16/22
+Mag Form/Raindear | NGS Season 15 Mission Pass | 12/14/22
+Mag Form/Noela Minimo | Seasonal Points Exchange Shop (Christmas '22 Event) | 12/21/2022
+Mag Form/Bitrab Machina | NGS Season 16 Mission Pass | 01/18/23
+Mag Form/Myau | Sympathy 2023 Ticket Bonus | 01/25/23
+Mag Form/Snow Bell | NGS Season 17 Mission Pass | 02/15/23
+Mag Form/Blanc Cheval | Trinitas High Scorer VIII Title Reward | 03/01/23
+Mag Form/Owl Machina | NGS Season 18 Mission Pass | 03/15/23
+Mag Form/RAM-1000 Millenion | NGS Season 19 Mission Pass | 04/12/23
+Mag Form/Re-Agastia | Death Defier Title Reward | 04/19/23
+Mag Form/Di Alwing | NGS Season 20 Mission Pass | 05/17/23
+Mag Form/AQ-21 Wagtail | NGS Season 21 Mission Pass | 06/14/23
+Mag Form/Tornado | Sonic Collab Celebration Login Bonus | 06/21/23
+Mag Form/Tachikoma | AC Scratch Tickets: GHOST IN THE SHELL: SAC_2045 Style | 06/27/23
+Mag Form/Tibron | NGS Season 22 Mission Pass | 07/12/23
+Mag Form/Warrior Girl | NGS Season 24 Mission Pass | 09/13/23
+Mag Form/Autumn Empress | NGS Season 26 Mission Pass | 11/15/23
+Mag Form/Hresvelgr=Ater G | AC Scratch Tickets: Frame Arms Style | 11/22/23
+Mag Form/Guardiantik | NGS Season 28 Mission Pass | 01/17/24
+Mag Form/Patt | NGS Season 30 Mission Pass | 03/13/24
+Mag Form/Mini Kanui | NGS Season 31 Mission Pass | 04/10/24
+Mag Form/Mini Aina & Mini Manon | Special Scratch Tickets: Anniversary SP Scratch | 04/24/2024
+Mag Form/Nyu | AC Scratch Tickets: Echoes of Idola | 05/19/24
+Mag Form/Fi | AC Scratch Tickets: Atelier Style | 05/15/24
+Mag Form/Fairy | AC Scratch Tickets: Atelier Style | 05/15/24
+Mag Form/Mini Zephetto | NGS Season 32 Mission Pass | 05/22/24
+Mag Form/GUREN "SEITEN" | AC Scratch Tickets: CODE GEASS Style | 06/19/24
+Mag Form/Lancelot Albion | AC Scratch Tickets: CODE GEASS Style | 06/19/24
+Mag Form/Shinkiro | AC Scratch Tickets: CODE GEASS Style | 06/19/24
+Mag Form/Poko Panda | NGS Season 34 Mission Pass | 07/17/24
+Mag Form/Magi Feathers | NGS Season 36 Mission Pass | 09/11/24
+Mag Form/Captan | NGS Season 38 Mission Pass | 11/06/24
+Mag Form/Fenice Machina | NGS Season 40 Mission Pass | 01/15/25
+Mag Form/Sunny | NGS Season 42 Mission Pass | 03/12/25
+Mag Form/Otarica Doll | NGS Season 44 Mission Pass | 05/13/25
+Mag Form/Voks Doll | NGS Season 46 Mission Pass | 07/08/25
+Mag Form/Yukkuri Reimu & Marisa | AC Scratch Tickets: Touhou Project Style | 08/06/25
+Mag Form/Flammi | AC Scratch Tickets: Atelier Yumia Style | 09/02/25
+Mag Form/Re-Pheus | NGS Season 48 Mission Pass | 09/17/25
+Mag Form/Reaper Rappy | NGS Season 50 Mission Pass | 11/11/25
+Mag Form/Reindeer Rappy | NGS Season 52 Mission Pass | 01/07/26
+Mag Form/Stragio Casrk | AC Scratch Tickets: PSO2es Weaponoid Style | 01/14/26
+Mag Form/ORB | AC Scratch Tickets: Hexa Gear & Megami Device Style | 02/03/26

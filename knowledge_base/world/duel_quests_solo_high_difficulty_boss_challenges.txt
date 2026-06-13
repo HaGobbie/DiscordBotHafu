@@ -1,0 +1,33 @@
+# Duel Quests — Solo High Difficulty Boss Challenges
+
+Quests
+Urgent Quests | Battledia Quests | Trigger Quests | Trinitas Quests
+Trainia Advance Quests | Standing Quests | Duel Quests | Limited-Time Quests
+Major Target Suppression Missions | Time Extension Quests
+
+== Overview ==
+Duel Quests are high-difficulty, solo quests where you have to defeat boss enemies that have been greatly strengthened, and are recommended for players who are confident in their combat capabilities. In addition to the high boss difficulty, there are time limits in which the Duel Quest must be cleared in, or else the quest will be failed. (Update 10/11/23 increased all Duel Quests from 5 to 10 minutes, With Boost Effects from Region Mags disabled and Enemy HP has been lowered.)
+Equipment affixed with the Duel Quest Augment series Defi , such as "Defi Eriss P.01", can be used to increase your potency and damage resistance in these quests. In order to fully receive the effects from the "Defi" Augment series, you must be in a Duel Quest, and you must be using a weapon equippable by your Main Class.
+
+== Duel Quests ==
+Duel Quests
+Duel: Phase 1-1 | Duel: Phase 1-2 | Duel: Phase 1-3 | Duel: Phase 1-4
+Duel: Phase 2
+Duel: Phase 3
+Duel: Phase 4
+Duel: Phase 5
+
+=== Extra Duels ===
+Extra Duels are high-difficulty Duel Quests facing off against very strong Boss Enemies. Unlike Standard Duel, Defi-type Augments have no effect in these quests and should NOT be used for them.
+Fictitious Beam is a high-difficulty solo quest in which your goal is to defeat Ruine Masquerader . Starting from Depth 1, every time Ruine Masquerader is defeated, a new Rank within the Depth is unlocked. Each Rank adds buffs to the enemy, while adding debuffs to the player. Buffs and debuffs are only applied within the Depths they are obtained.
+Fictitious Beam
+Fictitious Beam
+Planetfall Strike is a series of high-difficulty solo quest in which your goal is to defeat the boss enemy presented in each Stage. Stages 1 through 10 are unlocked by default. When you clear a Rank within a Stage, the next Rank is unlocked to a max of 5 Ranks per Stage. Each Rank adds buffs to the enemy, while adding debuffs to the player. Buffs and debuffs are only applied within the Depths they are obtained.
+Once all 5 Ranks have been cleared in all 10 initial Stages, Stage 11 is unlocked, featuring as the final challenge of this series of quests.
+Planetfall Strike
+Planetfall Strike: Stage 1 | Planetfall Strike: Stage 2
+Planetfall Strike: Stage 3 | Planetfall Strike: Stage 4
+Planetfall Strike: Stage 5 | Planetfall Strike: Stage 6
+Planetfall Strike: Stage 7 | Planetfall Strike: Stage 8
+Planetfall Strike: Stage 9 | Planetfall Strike: Stage 10
+Planetfall Strike: Stage 11

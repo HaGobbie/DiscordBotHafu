@@ -1,0 +1,37 @@
+# Quests Overview — All Quest Types and How to Access (Part 3)
+
+== Standing Quests ==
+Standing Quests are quests that can be accepted through the Quest Counter. Standing Quests take place in instanced areas that are randomized for each instance.
+
+=== Leciel Exploration ===
+Leciel Exploration quests take place within the floating station Leciel. These quests have layouts that are randomized every day.
+Halpha Environmental Testing Zone Survey is a quest which involves capturing each sector of the field within the time limit to acquire Ability Buffs, helping players to defeat the boss enemies in the deepest area. The structure of this quest is more free-form as the layout consists of a 5x5 grid of sectors for players to capture in whichever order they want.
+Leciel Combat Analysis Zone Survey is a quest that involves proceeding through multiple zones and completing trials. At the end of each zone, players can select an Ability Buff to obtain from a random set of Ability Buffs - these Ability Buffs are individual. The structure of this quest is more linear, following one specific route, dealing with each sector one after another until reaching the end.
+Leciel Exploration
+Halpha Environmental Testing Zone Survey List of Evergreen Drops Genesis Points 1400/1600/1800/2000 (C/B/A/S Rank) * Meteor Cudgel * Yasha * Aste Unicorn * Divine Staff Amaterasu * Gal Wind * Motav's Prophecy * Ruine Elder Pain * Ruine Ragne Answerer * Ruine Darf Ferita * Ruine Dahrl Weigl * Ruine Megalith Glaive * Ruine Vibras Cannon * Ruine Orgei Rancor * Ruine Gigur Domina * Ruine Crushers Atanasha * Verschmelz Almati CV * Klirodim Almati * Klirodim Almati CV Glan Schild Glan Pike | List of Evergreen Drops | Genesis Points 1400/1600/1800/2000 (C/B/A/S Rank) * Meteor Cudgel * Yasha * Aste Unicorn * Divine Staff Amaterasu * Gal Wind * Motav's Prophecy * Ruine Elder Pain * Ruine Ragne Answerer * Ruine Darf Ferita * Ruine Dahrl Weigl * Ruine Megalith Glaive * Ruine Vibras Cannon * Ruine Orgei Rancor * Ruine Gigur Domina * Ruine Crushers Atanasha * Verschmelz Almati CV * Klirodim Almati * Klirodim Almati CV Glan Schild Glan Pike | Leciel Combat Analysis Zone Survey List of Evergreen Drops Genesis Points 1400/1600/1800/2000 (C/B/A/S Rank) * Meteor Cudgel * Yasha * Aste Unicorn * Divine Staff Amaterasu * Gal Wind * Motav's Prophecy * Ruine Elder Pain * Ruine Ragne Answerer * Ruine Darf Ferita * Ruine Dahrl Weigl * Ruine Megalith Glaive * Ruine Vibras Cannon * Ruine Orgei Rancor * Ruine Gigur Domina * Ruine Crushers Atanasha * Verschmelz Almati CV * Klirodim Almati * Klirodim Almati CV Glan Schild Glan Pike | List of Evergreen Drops | Genesis Points 1400/1600/1800/2000 (C/B/A/S Rank) * Meteor Cudgel * Yasha * Aste Unicorn * Divine Staff Amaterasu * Gal Wind * Motav's Prophecy * Ruine Elder Pain * Ruine Ragne Answerer * Ruine Darf Ferita * Ruine Dahrl Weigl * Ruine Megalith Glaive * Ruine Vibras Cannon * Ruine Orgei Rancor * Ruine Gigur Domina * Ruine Crushers Atanasha * Verschmelz Almati CV * Klirodim Almati * Klirodim Almati CV Glan Schild Glan Pike
+List of Evergreen Drops
+Genesis Points 1400/1600/1800/2000 (C/B/A/S Rank) * Meteor Cudgel * Yasha * Aste Unicorn * Divine Staff Amaterasu * Gal Wind * Motav's Prophecy * Ruine Elder Pain * Ruine Ragne Answerer * Ruine Darf Ferita * Ruine Dahrl Weigl * Ruine Megalith Glaive * Ruine Vibras Cannon * Ruine Orgei Rancor * Ruine Gigur Domina * Ruine Crushers Atanasha * Verschmelz Almati CV * Klirodim Almati * Klirodim Almati CV Glan Schild Glan Pike
+List of Evergreen Drops
+Genesis Points 1400/1600/1800/2000 (C/B/A/S Rank) * Meteor Cudgel * Yasha * Aste Unicorn * Divine Staff Amaterasu * Gal Wind * Motav's Prophecy * Ruine Elder Pain * Ruine Ragne Answerer * Ruine Darf Ferita * Ruine Dahrl Weigl * Ruine Megalith Glaive * Ruine Vibras Cannon * Ruine Orgei Rancor * Ruine Gigur Domina * Ruine Crushers Atanasha * Verschmelz Almati CV * Klirodim Almati * Klirodim Almati CV Glan Schild Glan Pike
+
+=== Nameless City Exploration ===
+Nameless City Exploration quests take place in the mysterious Nameless City, located in an ARKS Ship in orbit of Halpha.
+Nameless City Residential District Investigation is a quest that involves gathering Exploration Points while defeating enemies, completing Trials, and collecting Unlocksigne within the allotted time. These points are used to unlock Legacy Chests found throughout the district. While the Center sector is always accessible, access to the West and East sectors alternate daily. The quest is considered cleared when the time runs out.
+Nameless City Exploration
+Nameless City Residential District Investigation List of Evergreen Drops N-EX Cube * Ruine Dahrl Weigl (From Ruine Ringahda ) * Ruine Darf Ferita (From Ruine Angel ) * Ruine Megalith Glaive (From Ruine Exegul ) * Ruine Vibras Cannon (From Ruine Vibras ) * Ruine Gigur Domina (From Ruine Gunnegam ) | List of Evergreen Drops | N-EX Cube * Ruine Dahrl Weigl (From Ruine Ringahda ) * Ruine Darf Ferita (From Ruine Angel ) * Ruine Megalith Glaive (From Ruine Exegul ) * Ruine Vibras Cannon (From Ruine Vibras ) * Ruine Gigur Domina (From Ruine Gunnegam )
+List of Evergreen Drops
+N-EX Cube * Ruine Dahrl Weigl (From Ruine Ringahda ) * Ruine Darf Ferita (From Ruine Angel ) * Ruine Megalith Glaive (From Ruine Exegul ) * Ruine Vibras Cannon (From Ruine Vibras ) * Ruine Gigur Domina (From Ruine Gunnegam )
+
+=== Alter Realm Exploration ===
+Alter Realm Exploration quests take place within the mysterious Alter Realm.
+Altered Investigation: Central Desert Area is an Interception Sector where the goal is to defeat enemies and clear trials to weaken the High Boss Enemies that appear after the Invasion Timer reaches 0, but can appear early if the entire progress bar is cleared. There is no quest timer for this quest and it can be entered and left whenever you see fit.
+Alter Realm Interception Sectors
+Altered Investigation: Central Desert Area List of Evergreen Drops N-EX Cube N-EX Class Cube | List of Evergreen Drops | N-EX Cube N-EX Class Cube | Altered Investigation: South Tundra Area List of Evergreen Drops * Volgen Almati N-EX Cube N-EX Class Cube | List of Evergreen Drops | * Volgen Almati N-EX Cube N-EX Class Cube
+List of Evergreen Drops
+N-EX Cube N-EX Class Cube
+List of Evergreen Drops
+* Volgen Almati N-EX Cube N-EX Class Cube
+Alter Realm Combat Sectors
+Altered Battle Line: West Desert Area List of Evergreen Drops N-EX Cube N-EX Class Cube | List of Evergreen Drops | N-EX Cube N-EX Class Cube
+List of Evergreen Drops
+N-EX Cube N-EX Class Cube

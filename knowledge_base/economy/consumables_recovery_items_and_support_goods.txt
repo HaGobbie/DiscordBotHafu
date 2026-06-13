@@ -1,0 +1,47 @@
+# Consumables — Recovery Items and Support Goods
+
+== Boost Items ==
+Rarity | Icon | Image | Name | Obtainment | Description
+N-EXP Earned +5% | Mission Pass Reward | Boosts EXP earned 5% for 60 minutes after use. Duration will decrease while logged out.
+N-EXP Earned +10% | Campaign Reward Item Pack Content Previously available from the ARKS Cash Shop | Boosts EXP earned 10% for 60 minutes after use. Duration will decrease while logged out.
+N-EXP Earned +25% | Mission Pass Reward | Boosts EXP earned 25% for 60 minutes after use. Duration will decrease while logged out.
+N-EXP Earned +50% | ARKS Cash Shop Item Pack Content | Boosts EXP earned 50% for 60 minutes after use. Duration will decrease while logged out.
+N-EXP Earned +100% | ARKS Cash Shop | Boosts EXP earned 100% for 60 minutes after use. Duration will decrease while logged out.
+N-EXP Earned [24h] +10% | Previously available from the Star Gems Shop | Boosts EXP earned 10% for 24 hours after use. Duration will decrease while logged out.
+N-EXP Earned [24h] +50% | Star Gems Shop Item Pack Content | Boosts EXP earned 50% for 24 hours after use. Duration will decrease while logged out.
+N-EX EXP Earned +25% | Item Recycle Shop Campaign Reward | Boosts EXP earned 25% for 60 minutes after use. Effect cumulative with other boost items.
+N-EX EXP Earned +50% | Item Recycle Shop Campaign Reward | Boosts EXP earned 50% for 60 minutes after use. Effect cumulative with other boost items.
+N-Meseta Earned +25% | Mission Pass Reward | Boosts N-Meseta earned 25% for 60 minutes after use. Duration will decrease while logged out.
+N-Meseta Earned +50% | Mission Pass Reward | Boosts N-Meseta earned 50% for 60 minutes after use. Duration will decrease while logged out.
+N-Rare Drop Rate +10% | Mission Pass Reward | Boosts rare drop rate 10% for 60 minutes after use. Duration will decrease while logged out.
+N-Rare Drop Rate +25% | Item Recycle Shop Ronaldine's Tasks | Boosts rare drop rate 25% for 60 minutes after use. Duration will decrease while logged out.
+N-Rare Drop Rate +50% | Campaign Reward Item Pack Content Previously available from the ARKS Cash Shop | Boosts rare drop rate 50% for 60 minutes after use. Duration will decrease while logged out.
+N-Rare Drop Rate [24h] +50% | Star Gems Shop Item Pack Content | Boosts rare drop rate 50% for 24 hours after use. Duration will decrease while logged out.
+N-Rare Drop Rate [24h] +100% | Star Gems Shop | Boosts rare drop rate 100% for 24 hours after use. Duration will decrease while logged out.
+N-Rare Drop Rate +100% | ARKS Cash Shop | Boosts rare drop rate 100% for 60 minutes after use. Duration will decrease while logged out.
+N-Rare Drop Rate [15m] +100% | ARKS Cash Shop | Boosts rare drop rate 100% for 60 minutes after use. Duration will decrease while logged out.
+N-Rare Drop Rate +200% | ARKS Cash Shop | Boosts rare drop rate 200% for 60 minutes after use. Duration will decrease while logged out.
+N-EX Rare Drop Rate +25% | Item Recycle Shop Campaign Reward | Boosts rare drop rate 25% for 60 minutes after use. Effect cumulative with other boost items.
+N-Triboost +10% | Treasure Shop | Boosts N-Meseta earned, EXP earned, and rare drop rate for 20% for 60 minutes after use. Duration will decrease while logged out.
+N-Triboost +20% | Treasure Shop | Boosts N-Meseta earned, EXP earned, and rare drop rate for 20% for 60 minutes after use. Duration will decrease while logged out.
+N-Triboost +30% | Specified AC Scratch Bonuses | Boosts N-Meseta earned, EXP earned, and rare drop rate for 30% for 60 minutes after use. Duration will decrease while logged out.
+N-Triboost +50% | ARKS Cash Shop | Boosts N-Meseta earned, EXP earned, and rare drop rate for 50% for 60 minutes after use. Duration will decrease while logged out.
+Low Temperature Damage Resistance +20% | Kvaris Exchange Shop | Increases Low Temperature Damage Resistance by 20% for 60 minutes. Duration will decrease while logged out.
+Low Temperature Damage Resistance +50% | Kvaris Exchange Shop Rare Drop from Emergency Trials (Kvaris Region) | Increases Low Temperature Damage Resistance by 50% for 60 minutes. Duration will decrease while logged out.
+Low Temperature Damage Resistance +100% | Kvaris Exchange Shop Rare Drop from Emergency Trials (Kvaris Region) | Increases Low Temperature Damage Resistance by 100% for 60 minutes. Duration will decrease while logged out.
+
+== Food Items ==
+Rarity | Icon | Image | Name | Obtainment | Description
+Balloonimix | Seasonal Gathering Exchange Shop | Seasonal Points acquired by defeating enemies increases by 10% for 120 minutes after its usage. Note: Limited to during the Spring event
+Moongaze Dango | Seasonal Gathering Exchange Shop | Seasonal Points acquired by defeating enemies increases by 10% for 120 minutes after its usage. Note: Limited to during the Moon-Gazing '22 event The translated description is incorrect on the Global version of the game, and the boost to Seasonal Points is increased by 50% rather than 10%.
+Rappy-Shaped Fritters | Promotional Keywords AC Scratch Bonus | Boosts N-Meseta earned, EXP earned, and rare drop rate 10% for 24 hours after use. Duration will decrease while logged out.
+Roll Cake | 1/11 Use AC, Get Items! Special Campaign | Boosts N-Meseta earned, EXP earned, and rare drop rate 10% for 24 hours after use. Duration will decrease while logged out.
+
+== Scape Dolls ==
+Rarity | Icon | Image | Name | Obtainment | Description
+N-Half Scape Doll | Login Stamps Mission Pass Reward Campaign Reward | A revival device that can be used when its owner is incapacitated. HP will restore to half.
+N-Scape Doll | ARKS Cash Shop | A revival device that can be used when its owner is incapacitated. HP will restore to max.
+
+== Quick Food ==
+You can cook Quick Food that can boost your ability temporarily by using the items acquired by Gathering.
+Quick Food can be cooked by talking to the Food Stand Staff, and by Ryuker Devices.

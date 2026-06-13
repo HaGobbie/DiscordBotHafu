@@ -1,0 +1,88 @@
+# Trainia Advance Quests — Tutorial and Class Practice (Part 1)
+
+Quests
+Urgent Quests | Battledia Quests | Trigger Quests | Trinitas Quests
+Trainia Advance Quests | Standing Quests | Duel Quests | Limited-Time Quests
+Major Target Suppression Missions | Time Extension Quests
+
+== Overview ==
+Trainia Advance Quests are challenging quests that can be accessed through the Trainia Bunker ( ) located in Central Kvaris.
+Bunker Type 1 is a type of training facility called Trainia Advance. The objective of the Cannonball Rumble and Cannonball Strike quests is to throw "cannonballs" at the target and destroy a specified number of targets within a time limit.
+Cannonballs will appear when you defeat enemies. Throwing them at Standard Targets and Extra Targets will destory the targets, but they won't do much damage to enemies. There are two types of targets: Standard Targets, which will spawn more smaller enemies, and Extra Targets, which will spawn more larger enemies. Targets can only be destroyed with cannonballs.
+In Cannonball Rumble, there are 3 waves with 3 unique scenarios. Each wave can be completed by destroying all the targets, defeating all the enemies, or by exceeding the time limit for each wave. The overall score of the quest is determined by defeating as many enemies as possible.
+
+== Trainia Advance Entrances ==
+Central Kvaris Cannonball Rumble | South Kvaris Cannonball Strike | South Aelio Ordinal Tower
+
+== Cannonball Rumble ==
+=== Ranking Details ===
+Rank | Score Required
+S Rank | Score > 2,249
+A Rank | Score > 1,249
+B Rank | Score > 449
+
+=== Quest Details ===
+Party Limit | Enemy Level | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+4 | Lv.51 | 2,251 | Defeat the enemies and destroy the targets | None | None
+Detail | Entry
+Main Mission | Reach the final area
+Description | This is Trainia Advance, an advanced training system meant to test an ARKS defender's overall level of skill. Use every ability available to you to defeat the enemies and destroy the targets.
+
+=== Notable Rewards ===
+Notable Items
+Weapons / Units | Augments
+Gold Primm Sword Silver Primm Sword Gold Primm Armor Silver Primm Armor | C/Super Might I C/Super Precision I C/Super Technique I C/Super Spimel I C/Super Spira I C/Super Spitech I C/Super Stamel I C/Super Stara I C/Super Statech I C/Decold Standard I - III
+Materials | Other
+N-HU-EX-Cube ⁽¹⁾ N-FI-EX-Cube ⁽¹⁾ N-RA-EX-Cube ⁽¹⁾ N-GU-EX-Cube ⁽¹⁾ N-FO-EX-Cube ⁽¹⁾ N-TE-EX-Cube ⁽¹⁾ N-BR-EX-Cube ⁽¹⁾ N-BO-EX-Cube ⁽¹⁾ N-WA-EX-Cube ⁽¹⁾ Arms Refiner Strugment A Strugment B Strugment C | * Yasminokov 9000M
+Additional Information
+⁽¹⁾ All Class N-EX-Cubes will drop regardless of what class and subclass is currently equipped. The rate and quantity at which Class N-EX-Cubes drop is affected by the final score of the completed quest.
+
+== Cannonball Strike ==
+=== Ranking Details ===
+Rank | Score Required
+S Rank | Reach Wave 3 & Score > 2,239
+A Rank | Score > 1,493
+B Rank | Score > 746
+
+=== Quest Details ===
+Party Limit | Enemy Level | Recommended Power | Clear Condition | Accept Condition | Fail Condition
+4 | Lv.60 | 2,647 | Defeat the enemies and destroy the targets | None | None
+Detail | Entry
+Main Mission | Reach the final area
+Description | This is Trainia Advance, an advanced training system meant to test an ARKS defender's overall level of skill. Use every ability available to you to defeat the enemies and destroy the targets.
+
+=== Challenge Settings ===
+Enemy Attack
+Challenge | Description | Score Multiplier
+Enemy Attack +25% | Increases Enemy Attack Power. | +5.0%
+Enemy Attack +50% | Increases Enemy Attack Power. | +10.0%
+Enemy Attack +75% | Increases Enemy Attack Power. | +15.0%
+Enemy Attack +100% | Increases Enemy Attack Power. | +20.0%
+Enemy Attack +125% | Increases Enemy Attack Power. | +25.0%
+Enemy Attack +150% | Increases Enemy Attack Power. | +30.0%
+Enemy Attack +175% | Increases Enemy Attack Power. | +35.0%
+Enemy Attack +200% | Increases Enemy Attack Power. | +40.0%
+Enemy Attack +250% | Increases Enemy Attack Power. | +50.0%
+Enemy Attack +300% | Increases Enemy Attack Power. | +60.0%
+Restasigne Conditions
+Challenge | Description | Score Multiplier
+Increase Restasigne Consumption: Lv. 1 | Restasigne consumption will increase by x2. | +25.0%
+Increase Restasigne Consumption: Lv. 2 | Restasigne consumption will increase by x3. | +35.0%
+Increase Restasigne Consumption: Lv. 3 | Restasigne consumption will increase by x4. | +45.0%
+Increase Restasigne Consumption: Lv. 4 | Restasigne consumption will increase by x5. | +55.0%
+Increase Restasigne Consumption: Lv. 5 | Restasigne consumption will increase by x6. | +65.0%
+Restasigne and Reversasigne Conditions
+Challenge | Description | Score Multiplier
+Decreased Max Carry Limit of Signe Items: Lv. 1 | The maximum carry limit of Restasigne and Reversasigne will decrease by 1. | +15.0%
+Decreased Max Carry Limit of Signe Items: Lv. 2 | The maximum carry limit of Restasigne and Reversasigne will decrease by 2. | +20.0%
+Decreased Max Carry Limit of Signe Items: Lv. 3 | The maximum carry limit of Restasigne and Reversasigne will decrease by 3. | +25.0%
+Decreased Max Carry Limit of Signe Items: Lv. 4 | The maximum carry limit of Restasigne and Reversasigne will decrease by 4. | +30.0%
+
+=== Notable Rewards ===
+Notable Items
+Weapons / Units | Augments
+Gold Primm Sword Silver Primm Sword Gold Primm Armor Silver Primm Armor | C/Super Might I C/Super Precision I C/Super Technique I C/Super Spimel I C/Super Spira I C/Super Spitech I C/Super Stamel I C/Super Stara I C/Super Statech I C/Decold Standard I - III
+Materials | Other
+N-HU-EX-Cube ⁽¹⁾ N-FI-EX-Cube ⁽¹⁾ N-RA-EX-Cube ⁽¹⁾ N-GU-EX-Cube ⁽¹⁾ N-FO-EX-Cube ⁽¹⁾ N-TE-EX-Cube ⁽¹⁾ N-BR-EX-Cube ⁽¹⁾ N-BO-EX-Cube ⁽¹⁾ N-WA-EX-Cube ⁽¹⁾ Arms Refiner Strugment A Strugment B Strugment C | Pettas Vera Multiturret Pettas Vera Hand L Pettas Vera Hand R Pettas Vera Wings MTN: Dash - Skate/B MTN: Idle - Yummy Ice Cream 3 * Demonic Fork
+Additional Information
+⁽¹⁾ All Class N-EX-Cubes will drop regardless of what class and subclass is currently equipped. The rate and quantity at which Class N-EX-Cubes drop is affected by the final score of the completed quest.

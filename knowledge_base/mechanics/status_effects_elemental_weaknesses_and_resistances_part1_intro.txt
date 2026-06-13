@@ -1,0 +1,114 @@
+# Status Effects, Elemental Weaknesses and Resistances (Part 1)
+
+== Overview ==
+The player may be affected by an enemy's elemental attack or a specific attack, or the player's attack may put the enemy into a special state. In addition, there are various state changes caused by attacks. Skill-specific effects such as Blight Rounds are not covered here.
+- In NGS, there is no way for the player to make the enemy into a normal status effect such as Burn.
+
+== Status Effect Accumulation (Down Accumulation) ==
+Unlike in PSO2 Classic, which had a probability of granting it, status effects in NGS have been changed to occurring when a certain value is accumulated. If the same attack and resistance is used, it is assumed that the effect will occur in the same number of hits each time.
+
+=== All Debuff Resistance and All Down Resistance ===
+All Down Resistance: This effect increases the player's resistance to Status Ailments/Debuff effects. It is a Status Effect, similarly to "Burn" and "Paralysis".
+All Debuff Resistance is terminology used by unofficial translations in the past.
+Augments and Potentials, such as C/Pain Ward, C/Sovereign Ward, and Indomitable Unit can also be utilized to resist these effects individually.
+
+=== Tolerance and Accumulation Factor ===
+What can be seen ingame is "Status Ailment Resistance" (hereafter referred to as "Resistance"), but this number is not actually used to calculate the application of the status effect. In the game, "Status Effect Accumulation Value Multiplier" (tentative name, hereafter referred to as "Accumulation Factor") is set for some of the Units and Augments, and calculations are performed using this value. The conversion between Accumulation Factor and Resistance can be calculated by the following formula:
+Tolerance = (1 - Accumulation Factor) x 100
+In order to make it intuitive and easy to understand, it seems to have been converted and expressed as a Tolerance. (The larger the number, the more advantageous and stronger the effect.)
+- The calculation of the Accumulation Factor is done by multiplication in the same way as weapon potency. Since it is a multiplication, stacking resistances does not make them 100% resistant. For Geant Armor, the Accumulation Factor is 1.5 and the Resistance displayed is -50.0%. For Viosel Armor and Sovereign Ward I, the Accumulation Factor is 0.8 and the Resistance displayed is +20.0% When equipped with these in combination, Example 1) 3 Geant Armor - Accumulation Factor = 1.5 x 1.5 x 1.5 = 3.375, Resistance displayed is -237.5% Example 2) 1 Geant Armor, 1 Viosel Armor, Sovereign Ward I - Accumulation Factor = 1.5 x 0.8 x 0.8 = 0.96, Resistance displayed is +4.0%
+
+=== Accumulated Value ===
+- The accumulation values for each attack and the threshold for the onset of status effects are not clearly stated in or outside the game, so the details are unknown. You can make a deduction by altering your resistance with equipment and seeing how many hits it takes for the attack to occur. Based on the findings, the accumulated value of enemy attacks is set at a roughly fixed value. For exmaple, all attacks of the enemies in the Aelio Region are constant (including Nex Aelio's major moves), and if 4 hits are taken with 0% resistance, the status effect will occur (Accumulation / Low) On the other hand, the Accumulated Value for enemies in the Retem Region is set higher overall. Svacurio and other elemental attacks are 3 hits. (Accumulation / Medium) 2 hits are unconfirmed. The stun from Dustyl Hammer's special attack is 1 hit. (Accumulation / High) Assuming that the Accumulation Value of Accumulation / Low is 100, the threshold of the Status Effect occurring is estimated to be around 330. Over time, the player's accumulated value will decrease.
+Resistance | Accumulation Factor | Number of Hits Until Occurrence (Low) | Number of Hits Until Occurrence (Medium) | Number of Hits Until Occurrence (High)
++20.0% | x 0.8 | 1
+0.0% | x 1.0 | 4 | 3 | 1
+-50.0% | x 1.5 | 3 | 2 | 1
+-102.5% | x 2.025 | 1 | 1
+-125.0% | x 2.25 | 2 | 1 | 1
+-237.5% | x 3.375 | 1 | 1 | 1
+- Down Accumulation Values for Enemies The accumulation values set for each attack and the threshold at which down occurs are not explicitly stated in or outside the game, so the details are not fully researched yet.
+
+== Player Status Effects ==
+When being struck by the corresponding attack, the Accumulation Value increases, and when it is fully accumulated, the status effect occurs. When a player is affected by a status effect, various effects will be displayed, as well as an icon indicating the status effect on the player's HP gauge. The duration of the effect will also be displayed in the character information. There are currently 7 types of status effects that occur on the player's side.
+
+=== Elemental Status Effect ===
+When being struck by the elemental attack, the Accumulation Value increases, and when it is fully accumulated, the status effect occurs. These elemental status effects are Burn, Freeze, Shock, Blind, Panic, and Poison.
+- Multiple effects will not overlap, and will be overwritten by later effects.
+- If the same effect overlaps, the level of it will increase by 1, up to 5 levels. The effect level is not displayed in the game, but it is written as I , II , III , IV , and V as in PSO2 Classic.
+
+=== Burn ===
+Caused by an enemy's Fire element attack. The player character starts burning and has their HP gradually reduced. Their damage dealt is also reduced.
+Lv. | Damage Taken | Attack Decrease | Interval | Effect Duration
+I | 1.0% Max HP | 0.95x | Every 2 Seconds | 21 seconds when granted +2 seconds when overlapping +31 seconds maximum
+II | 1.1% Max HP | 0.94x
+III | 1.3% Max HP | 0.93x
+IV | 1.4% Max HP | 0.92x
+V | 1.5% Max HP | 0.90x
+The main enemies of Fire-based attacks are Lizard Fray and Nex Aelio. Currently, there is no means to actively dispel the status effect, so the accumulated damage is rather absurd. Unlike in PSO2 Classic, the fire spread effect has disappeared. Going underwater will not dispel the effect.
+
+=== Freeze ===
+Caused by an enemy's Ice element attack. The player character becomes frozen and becomes unable to act for a certain period of time.
+Lv. | Effect | Ice Durability | Effect Duration
+I | Frozen | 3 (?) | 7 seconds when granted +5 seconds when overlapping +7 seconds maximum
+II
+III
+IV
+V
+The main enemies of Ice-based attacks are Lizard Ice and Chiacurio. The effect time is short, but has high risk due to the inability to do anything.
+
+=== Shock ===
+Caused by an enemy's Lightning element attack. The player character becomes electrified and periodically gets staggered or knocked down.
+Lv. | Chance of Knockdown | Flinch Interval | Effect Duration
+I | 10% | 6 seconds | 15 seconds when granted +6 seconds when overlapping +27 seconds maximum
+II | 12% | 5 seconds
+III | 14%
+IV | 14% | 4 seconds
+V | 16%
+This effect is disabled while effects that prevent knockback/flinching of certain PAs or skills are in use. The main enemies of Lightning-based attacks are Lizard Thunder and Thunder Banser / Thunder Banshee.
+
+=== Blind ===
+Caused by an enemy's Wind element attack. Increases PP Consumption.
+Lv. | PP Consumption | Effect Duration
+I | +10% | 25 seconds when granted +7 seconds when overlapping +35 seconds maximum
+II | +15%
+III | +20%
+IV | +25%
+V | +30%
+The main enemies of Wind-based attacks are Ard Banser / Ard Banshee.
+
+=== Panic ===
+Caused by an enemy's Light element attack. A rainbow-colored effect appears on the player character, and swaps around the movement directions periodically.
+Lv. | Effect | Change Interval | Effect Duration
+I | The move input is replaced by one of ↗ → ↘ ↓ ↙ ← ↖. | 15 seconds | 30 seconds when granted +5 seconds when overlapping +40 seconds maximum
+II | 10 seconds
+III
+IV | 8 seconds
+V | 7 seconds
+The input switching is randomly determined for each interval. The main enemies of Light-based attacks are Evil Angelo.
+
+=== Poison ===
+Caused by an enemy's Dark element attack. The player character is poison and HP gradually decreases.
+Lv. | Damage Taken | Interval | Effect Duration
+I | 3.0% Max HP | Every 3 Seconds | 25 seconds when granted +7 seconds when overlapping +31 seconds maximum
+II | 3.5% Max HP
+III | 4.0% Max HP
+IV | 4.5% Max HP
+V | 5.0% Max HP
+The main enemies of Dark-based attacks are Big Frogga.
+
+=== Physical Status Effects (Temporary) ===
+When struck are hit by a specific attack, the Accumulation Value increases, and when it is fully accumulated, the status effect occurs. The accumulated value can be reduced by Physical Down resistance. Currently, the only physical status effect type is stun.
+
+=== Environmental Status Effects ===
+When the player is in certain regions with harsh environments, such as Rayjord Gorge in Kvaris, the player will be afflicted with an environmental status effect. If the player does not have any resistances against a specific environmental status effect, they will start to receive periodical damage. The damage taken will depend on the amount of resistance they have against the environmental status effect, with more damage being taken the lower their resistance is. , which can be obtained from Kvaris Quick Food bonuses, Region Mag bonuses, Boost items, and from Augments, can resist the low temperature status effects from Rayjord Gorge. Players may also be Frozen as a result of , although the frequency of freezes is affected by .
+
+=== Stun ===
+Caused by an enemy's stun effect attack. A star rotates over the player character's head, rendering them unable to act.
+Lv. | Effect | Effect Duration
+I | Incapacitated | 6 seconds when granted +2 seconds when overlapping +14 seconds maximum
+II
+III
+IV
+V
+The effect duration can be shortened by repeatedly rotating the direction input. Can also be canceled by being attacked during the effect. Receiving a stun attack during the effect will let the cancel be prioritized. The main enemies of stun-based attacks are Lizard Fray / Lizard Ice / Lizard Thunder.

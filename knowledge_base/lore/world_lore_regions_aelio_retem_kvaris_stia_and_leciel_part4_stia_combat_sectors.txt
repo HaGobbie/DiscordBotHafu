@@ -1,0 +1,58 @@
+# World Lore — Regions: Aelio, Retem, Kvaris, Stia and Leciel (Part 4)
+
+== Stia Combat Sectors ==
+=== Dext Base ===
+Dext Base
+Combat Area (8 Players) Recommended Battle Power: 2972 Average Enemy Level: Lv.65 | Ryuker Devices : 2 Collectables : 18 ( Datapods, 18 Red Boxes)
+Sub-locations : None
+Sector Rank
+Rank 1 | Average Enemy Level: Lv. 65
+Recommended Battle Power: 2972
+Rank 2 | Average Enemy Level: Lv. 95
+Recommended Battle Power: 4063
+Notable Items
+Weapons | Units
+Materials | Augments
+N/A | C/Dexta Note
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Boostas Gazzas Gunblade Lava Fuwan Lava Metius Stratis Vanizz Doldoris Engouku Flamedyl Sword | Basalpion Bigar Clore Grinbear Koadori Mag Head Stein Hound Thunderray Krisnukl Dark Lemnas Dusk Snapper Duskdi Scythe Dusklon | Agnis Volore Deeg Lore Fodran Lore Guardinan Volore Nordeeran Lore Grulf Volore Phongrulf Lore Signogun Volore Spardun A Volore Vol Garongo Volg Bear | N/A
+
+=== Neusen Plant ===
+Neusen Plant
+Combat Area (8 Players) Recommended Battle Power: 3069 Average Enemy Level: Lv.67 | Ryuker Devices : 1
+Sub-locations : None
+Sector Rank
+Rank 1 | Average Enemy Level: Lv. 67
+Recommended Battle Power: 3069
+Rank 2 | Average Enemy Level: Lv. 95
+Recommended Battle Power: 4063
+Notable Items
+Weapons | Units
+Gunblaze Series
+Materials / Other | Augments
+* Gunblaze Almati * Koukloziat Almati CV * Kouklophis Almati CV * Curio Dragon Slayer | C/Noizel Note
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+All Regional DOLLS except Renus Retem | N/A | Quartz Skodin | N/A
+
+== Ryuker Devices ==
+Ryuker Devices, represented on the World Map as green icons ( ), can be used for several purposes, including changing Blocks, accessing your Storage remotely, creating Quick Food , and moving to different Rooms. Ryuker Devices can also be used for quick travel via teleportation. By interacting with a Ryuker Device, or by opening your World Map, you can teleport to any other known Ryuker Device. Highlight the icon for the Ryuker Device you want to teleport to, then hold the confirm button down for a few seconds to start the teleport.
+
+== Region Mags ==
+Region Mags are facilities that looks like an enormous Mag.
+Putting gathering materials inside of it can grant a boost effect that other ARKS members can share.
+
+== Item Containers ==
+There are three types of Item Containers in the field: Green, Red, and Gold. Attack Item Containers to break them and reveal the items.
+Green Containers contain N-Grinders , and Gold Containers contain Photon Quartz or Photon Chunk . Rarely, a Gold Container can also contain valuable materials exchangeable for N-Meseta, such as Alpha Reactors .
+Red Containers can contain either 10,000, 10, or Note Augments . Certain Red Containers contain exclusive items, like the Qual De Armor: Arga , Qual De Armor: Belta , and Qual De Armor: Sheza .
+The number of red containers that appear per account is limited. In addition, some barriers are created around the Red Container and the container cannot be destroyed without destroying the devices that are creating the barrier.
+For a list of all Red Containers and collectables, please visit this page .
+
+== Frozen Item Containers ==
+Frozen Item Containers are containers covered in thick ice that can only be destroyed by hitting them with a Floating Board or colliding a Crystaline Ice Shard into them. Frozen Item Containers are found in the Kvaris region and usually contain Icicle Orbs , but also have a rare chance to contain Blizzardium in them.
+
+== Invisible Boxes ==
+Invisible Boxes are transparent item containers that can be found within Dreisen Plant in the Stia region. They can be found by spotting and following the faint traces of light they emanate, or from the reaction of a mag's active sonar. There are two types of Invisible Boxes, Invisible Box and Invisible Box: Rare. Invisible Box: Rare is characterized by light particles around the box. These boxes have a high probability of containing valuable items.
+Invisible Boxes will contain Alpha Reactor , but also have a rare chance to contain Infernium , N-EX-Cube , and Arms Refiner in them.

@@ -1,0 +1,37 @@
+# ALTERS Enemy Faction — All Types and Behavior (Part 3)
+
+== Boss Enemies ==
+=== Aelio Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Bigg Frogga | • North Aelio • Vanford Laboratory Ruins • Resol Forest | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Frog-like ALTERS minibosses that primarily attacks through hops and slams. Can also launch Poison-inflicting projectiles from its tail-like head. Recieves a damage bonus during Clear Skies .
+Chiacurio | • North Aelio • Mt. Magnus • Resol Forest | Alts Soul Alts Secreta | • Back Protrusion • Abdomen • Core (weakpoint) | Weak to: | Strange ALTERS minibosses that resemble sea angels. Attacks through a variety of means, including pillars of flames, ice projectiles that inflict Freeze, and swings from its abdomen. They can also provide surrounding enemies with Shifta via a substance from the protrusion on their back. Finally, Chiacurio can grab ARKS Defenders with tentacles from their heads in a maneuver that can not be avoided with parries or guarding. However, it is possible to free oneself from the grab with repeated movement inputs. Breaking the tip of a Chiacurio's abdomen reveals its core, while breaking its back protrusion prevents it from buffing other enemies. The flames produced by a Chiacurio do not inflict Burn, and a Chiacurio's damage is boosted during Rain .
+Eldi Scythe | • Central Aelio • West Aelio • Resol Forest • Vanford Laboratory Ruins | Alts Soul Alts Secreta | • Left Arm • Right Arm • Core (weakpoint) | Weak to: | ALTERS minibosses that resemble mantises. Primarily attacks with its scythe-like arms, but can also release lightining—either in the form of energy spheres or a gas-like emission from its body. Eldi Scythes are boosted during Clear Skies , and can apply Shifta and Deband to nearby enemies, as well as themselves. However, attacks from a broken Eldi Scythe's arm deal significantly less damage.
+Waulon | • Central Aelio • North Aelio • Mt. Magnus | Alts Soul Alts Secreta | • Core (weakpoint) | Weak to: | Wolfman-esque ALTERS minibosses that primarily attacks with slashes and kicks. Waulons can also launch a beam of energy from their face. Waulons receive a damage bonus during Clear Skies .
+
+=== Retem Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Bubble Snapper | • North Retem • South Retem • Retem Alnothe | Alts Soul Alts Secreta Relik Sturm and Drang (Lv. 30+) | • Core (weakpoint) | Weak to: | A type of ALTERS minibosses that resembles crustaceans. Attacks with its enormous claws—using them for swipes and slams. Bubble Snappers can also launch bubbles and water beams from its claws. Uniquely, Lightning Elemental Downs can only be inflicted on Bubble Snapper through targetting its foaming claws with Lightning attacks. In addition, activating an Elemental Down on a Bubble Snapper's claw disperes its foam—preventing the ALTERS unit from launching bubbles with that claw.
+Svacurio | • Central Retem • Retem Alnothe | Alts Soul Alts Secreta Relik Barbatos (Lv. 30+) | • Back Protrusion • Abdomen • Core (weakpoint) | Weak to: | Retem variants of Chiacurio. Utilizes wind projectiles instead of ice—potentially inflicting Blind.
+Svadi Scythe | • North Retem • Retem Alnothe | Alts Soul Alts Secreta Relik Despertar (Lv. 30+) | • Left Arm • Right Arm • Core (weakpoint) | Weak to: | Retem variants of Eldi Scythe. Utilizes wind instead of lightning—potentially inflicting Blind. Additionally, Svadi Scythe have the ability to fire a continous beam of wind while enraged.
+Svaulon | • South Retem • Retem Alnothe | Alts Soul Alts Secreta Relik Expeditios (Lv. 30+) | • Core (weakpoint) | Weak to: | Retem variants of Waulon. Instead of launching itself with its spinning kick, it will launch tornadoes.
+
+=== Kvaris Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Malachroid | • Central Kvaris • North Kvaris • South Kvaris • West Kvaris • Rayjord Gorge | Alts Soul Alts Secreta Rokz Sixiemes Boots | • Wings (x2) • Core (weakpoint) | Weak to: | ALTERS minibosses that resemble chickens. Attacks with kicks and twisters, and can release a blinding flash from their wings to inflict Stun. Destroying both of a Malachroid's wings prevents it from performing its stunning flash.
+Malachride | • Central Kvaris • West Kvaris • Rayjord Gorge • Belugana Ruins | Alts Soul Alts Secreta Rokz Curva Spear | • Wings (x2) • Core (weakpoint) | Weak to: | Variants of Malachroid that are identical in essentially every way.
+
+=== Stia Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Dark Lemnas | • | Alts Soul Alts Secreta | Weak to:
+Volt Lemnas | • | Alts Soul Alts Secreta | Weak to:
+Dusklon | • | Alts Soul Alts Secreta | Weak to:
+Duskdi Scythe | • | Alts Soul Alts Secreta | Weak to:
+Dusk Snapper | • | Alts Soul Alts Secreta | Weak to:
+
+== High ==
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+High Waulon | • Drill: Flaming Wave Dash! • Drill: Flaming Hell Dash! | Weak to: Unknown Due to Season Event. | A High variant of the Waulon.
+
+== Event Bosses ==
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Waulon Geo | Event Dependent | * Sophistis Obs Waulon Mask Waulon Mask/B | Weak to: | A giant, mutated variant of the Waulon that can be found during certain events. Part of the Giant Mutant enemy category.

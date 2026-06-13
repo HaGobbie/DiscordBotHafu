@@ -1,0 +1,37 @@
+# Formers Enemy Faction — All Types and Behavior (Part 2)
+
+== Boss Enemies ==
+=== Aelio Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Ard Banser | • South Aelio • Mt. Magnus | Forms Soul | • Head • Claws (x4) • Head (weakpoint) | Weak to: | FORMERS minibosses akin to the Banser Sylvants . Attacks with fercious pounces, razorwinds, and a powerful wind tunnel. Upon becoming enraged, Fang Bansers will release a tremendous roar and begin to fight with new ferocity. Ard Banser's wind attacks—including his roar—can all potentially inflict Blind. Breaking all four of his claws will cause the Banser to stumble after leaps. Unlike his female counterpart, Ard Banser cannot launch razor winds while grounded. However, he can instead perform quick charge tackles, backflips, and use his wind tunnel while in the air.
+Ard Banshee | • South Aelio • Mt. Magnus | Forms Soul | • Head • Claws (x4) • Head (weakpoint) | Weak to: | FORMERS minibosses akin to the Banshee Sylvants . Attacks with fercious pounces, razorwinds, and a powerful wind tunnel. Upon becoming enraged, Fang Banshees will release a tremendous roar and begin to fight with new ferocity. Ard Banshee's wind attacks—including her roar—can all potentially inflict Blind. Breaking all four of her claws will cause the Banshee to stumble after leaps. Ard Banshees lack several moves exclusive to their male counterparts. However, they do have the unique ability to launch razor winds while grounded.
+Thunder Banser | • West Aelio • Resol Forest | Forms Soul | • Head • Claws (x4) • Head (weakpoint) | Weak to: | Variants of Ard Banser ultilizing electricity. Utilizes the same moves, swapping wind for electricity, but inflicts Shock with his electric attacks. Individuals with the Petalstorm title fights using modified attacks with new behaviors and a floral flair.
+Thunder Banshee | • West Aelio • Resol Forest | Forms Soul | • Head • Claws (x4) • Head (weakpoint) | Weak to: | Variants of Ard Banshee ultilizing electricity. Utilizes the same moves, swapping wind for electricity, but inflicts Shock with her electric attacks. Individuals with the Petalstorm title fights using modified attacks with new behaviors and a floral flair.
+Crag Bear | • Central Aelio • Mt. Magnus • Resol Forest | Forms Soul | • Head (weakpoint) | Weak to: | FORMERS minibosses akin to the Sylvant Rockbear. Prefers close-range attacks, but will jump towards its foes from faraway, and some of its punches will release a shockwave. Can potentially grab ARKS defenders in a maneuver that can be avoided by invincibility, but not with guards or parries. Uniquely, Crag Bear is susceptible to neither Physical or Elemental Downs.
+
+=== Retem Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Dune Bear | • Retem Alnothe | Forms Sand Soul Relik Punishment (Lv. 30+) | • Head (weakpoint) | Weak to: | Retem variants of Crag Bear. Fights identically to their Aelio counterparts.
+Granmizer | • Maqead Lower Level | Forms Machini Soul | • Core (weakpoint) | Weak to: | FORMERS minibosses akin to the Automata Tranmizer. An adaptive mech that can take the form of a biped brawler, which focuses on melee swipes and slams, or an armored vehicle, which focuses on gunfire and homing missiles. When enraged, it can additionally transform into a laser turret that makes up for its lacking mobility with powerful melee and ranged attacks. A Granmizer's vulnerable core is only temporarily revealed after it uses its current form's strongest attack. In addition, Granmizer is susceptible to neither Physical or Elemental Downs.
+
+=== Kvaris Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Ice Banser | • Central Kvaris • Rayjord Gorge • Belugana Ruins | Forms Soul Rokz Sixiemes Daggers Rokz Sixiemes Machine Guns | - | Weak to:
+Ice Banshee | • South Kvaris • West Kvaris • Rayjord Gorge • Belugana Ruins | Forms Soul Rokz Roughewn Rifle | - | Weak to:
+Konigssee Yedi | • Central Kvaris • South Kvaris • Belugana Ruins | Forms Soul Rokz Curva Talis | - | Weak to:
+Zo Marmoth | • South Kvaris • West Kvaris • Belugana Ruins | Forms Soul Rokz Sixiemes Wire | - | Weak to:
+
+=== Stia Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Quartz Skodin | • Neusen Plant | * Curio Dragon Slayer | - | Weak to:
+Volg Bear | • Dext Base | Forms Sand Soul | - | Weak to:
+
+=== High ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+High Granmizer | • Invasion on Shifting Sands | Weak to: | High version of Granmizer.
+
+== Event Bosses ==
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Garongo Geo | Event Dependent | * Curio Holy Ray Head-Mount Gara Garongo Head-Mount Gara Garongo/B | Weak to: | A giant, mutated variant of the Garongo that can be found during certain events. Part of the Giant Mutant enemy category.
+Rockbear Geo | • Drill: A Trap in the Forest | Forms Soul | - | Weak to: - | -
+Konigssee Yedi Geo | • Practice Drill: The Chilliest Chase | Forms Soul | - | Weak to: | A giant, mutated variant of the Konigssee Yedi with the colors closely matching the Sylvant King Yedi. Mostly have the same attacks with Konigssee Yedi with a new ice attack that he throws at you.

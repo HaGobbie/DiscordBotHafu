@@ -1,0 +1,24 @@
+# Battle Power (BP) System — Formula and Gear Requirements
+
+== Battle Power ==
+Battle Power is a comprehensive quantification of player stats and equipment (weapons/units) performance.
+Some content, such as participation in Urgent Quests, requires a certain level of Battle Power.
+There are several ways to increase your Battle Power:
+- Leveling up - This will give an increase to battle power usually between 10 and 20 points.
+- Applying Skill Points - Skill points (acquired from Cocoons and Towers) can be applied to raise your battle power.
+- Using all skill points in both main AND sub classes skill trees. - Since you can have two classes, a main and sub class, you're able to take advantage of skills in your sub class. By applying skill points (even in skills that you can't use because of "main class required" flavor text), you enhance that subclass' ability to perform/support you.
+- Weapon/Armor stats - Stronger weapons and stronger armor increase your BP more then weaker ones. Enhancing weapons and armor also increases your stat more depending on how enhanced you've made a weapon.
+- Unlocking Weapon Potential- Awakening a weapon's potential gives it new passive abilities making it more effective in combat. Each weapon has its own potential.
+
+== Battle Power Calculation Formula ==
+Battle Power is the value obtained by adding all of the following and rounding down to the nearest whole number.
+Category | Details / Notes
+Base Attack Power | Base Attack Power acquired by leveling up your main class
+Average Weapon Attack Power | Weapon Attack Power x (Maximum Damage % + Minimum Damage %) / 2
+Defense / 2 | Including Armor etc.
+Equipment HP Bonus / 10 | Excluding Augments etc.
+Equipment PP Bonus | Excluding Augments etc.
+Augments | Separate BP value assigned to each Augment.
+Armors | Separate BP value assigned to Armors and above.
+Potential Level x 10 | Weapon Potential Level x 10
+Number of learned Class Skills x 3 | Including Subclasses

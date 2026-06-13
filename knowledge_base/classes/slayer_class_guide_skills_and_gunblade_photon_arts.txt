@@ -1,0 +1,147 @@
+# Slayer Class Guide — Skills and Gunblade Photon Arts
+
+Hunter | Fighter | Ranger | Gunner | Force | Techter | Braver | Bouncer | Waker | Slayer
+Slayer is a class in Phantasy Star Online 2: New Genesis.
+
+== Class Weapon Overview ==
+Slayers have access to one unique weapon: Gunblades .
+
+== Class Overview ==
+Slayers are a highly mobile class with a large variety of abilities, through the use of their Gunblade weapons.
+The Class Skill Gunblade Focus will cause the Focus Gauge to be displayed above the Main Palette. The Focus Gauge will build up after attacking enemies, increasing the Focus Gauge level. Your PP Consumption will decrease and your Attack Potency and Offensive PP Recovery will increase depending on the gauge level.
+The Class Skill Gunblade Focus Overdrive can be activated by completely expending Gunblade Focus gauge when it is at its maximum level. This will greatly decrease your PP Consumption and greatly increase your Attack Potency and Offensive PP Recovery temporarily. Using this skill again while already activated will unleash a powerful finishing blow.
+
+== Gunblade ==
+Gunblades are highly-mobile ranged weapons that possess a mix of ranged attacks and potent melee attacks. Using Photon Arts while inputting a direction will cause the Photon Art to change.
+The Class Skill Relentless Blade allows you to perform an additional attack if you press the Normal Attack button at just the right time while performing a Photon Art. The additional attack deals damage and has a PP recovery effect, so try to use this whenever you can.
+
+=== Skill Tree Overview ===
+Gunblade Focus | Critical Up | Gallant Attack Up | Critical Hit PP Gain | Short Range Hot Shot | Charged Blade
+Gunblade Focus Overdrive | Gunblade Focus Critical Up | Gunblade Focus Gauge Amplifier | Gunblade Focus Reset PP Gain | Slug Shot | Relentless Blade
+Gunblade Focus Quick Recharge | Gunblade Focus Overflow | Unleashed Rage | Blade Counter | Mobile Blade | Relentless Blade Reinforce
+Unleashed Rage After Effect | Blade Counter Critical Up | Mobile Blade Counter
+
+== Skills ==
+Gunblade Focus | Build up the Focus Gauge by hitting enemies. Attack Potency and Offensive PP Recovery increase and PP Consumption decreases in accordance with the gauge level. The Focus Gauge will reset to zero after a certain amount of time passes without hitting an enemy. Can only be used by Gunblades.
+Prerequisite -
+Effect | Skill Level
+1
+Potency Increase Per Level | 1%
+PP Consumption Reduction Per Level | 1%
+Offensive PP Recovery Per Level | 2%
+Critical Up | Increases Critical Hit Rate.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15
+Critical Hit Rate Increase (Main) | 0.50% | 1.00% | 1.50% | 2.00% | 2.50% | 3.00% | 3.25% | 3.50% | 3.75% | 4.00% | 4.20% | 4.40% | 4.60% | 4.80% | 5.00%
+Critical Hit Rate Increase (Sub) | 0.20% | 0.40% | 0.60% | 0.80% | 1.00% | 1.20% | 1.40% | 1.60% | 1.80% | 2.00% | 2.20% | 2.40% | 2.60% | 2.80% | 3.00%
+Gallant Attack Up | Increases Critical Hit Rate when attacking boss enemies.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Critical Hit Rate Increase (Main) | 1.00% | 2.00% | 3.00% | 4.00% | 4.20% | 4.40% | 4.60% | 4.80% | 4.90% | 5.00%
+Critical Hit Rate Increase (Sub) | 0.20% | 0.40% | 0.60% | 0.80% | 1.00% | 1.20% | 1.40% | 1.60% | 1.80% | 2.00%
+Critical Hit PP Gain | There is a chance of recovering PP when you land a Critical Hit.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Activation Probability | 30% | 50% | 70% | 85% | 100%
+PP Recovery (Main) | +4
+PP Recovery (Sub) | +2
+Cooldown | 1 sec
+Short Range Hot Shot | Increases Potency when you hit an enemy with a Normal Attack at close range. Can only be used with a Gunblade.
+Prerequisite -
+Effect | Skill Level
+1
+Potency | 130%
+Charged Blade | Pressing the Weapon Action button at just the right time after a charged Normal Attack will unleash a thrust attack. Can only be used with a Gunblade.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Gunblade Focus Overdrive | [Active Skill] Expend your entire full Focus Gauge to temporarily increase the effects of Gunblade Focus. Using the skill again while it is active will unleash a powerful attack. Can only be used with a Main Class/Gunblade.
+Prerequisite - Gunblade Focus Lv. 1
+Effect | Skill Level
+1
+Effect Duration | 30 sec
+Cooldown | 90 sec
+Potency | 110%
+PP Consumption | 80%
+PP Recovery | 150%
+Finisher Potency | 2450
+Gunblade Focus Critical Up | Critical Hit Rate increases according to the Gunblade Focus Gauge level. The Focus Gauge is treated as "at maximum" while Gunblade Focus Overdrive is active. Can only be used with a Main Class/Gunblade.
+Prerequisite - Gunblade Focus Lv. 1
+Effect | Skill Level
+1
+Critical Hit Rate Increase | 2%
+Gunblade Focus Gauge Amplifier | Increased Focus Gauge charging up to Gunblade Focus Gauge level one. Can only be used with a Gunblade.
+Prerequisite - Gunblade Focus Lv. 1
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Focus Gauge Increase Rate (Main) | 150% | 160% | 170% | 185% | 200%
+Focus Gauge Increase Rate (Sub) | 120% | 125% | 130% | 140% | 150%
+Gunblade Focus Reset PP Gain | When the Gunblade Focus Gauge is reset, recover an amount of PP in accordance with the Focus Gauge level. Can only be used with a Gunblade.
+Prerequisite - Gunblade Focus Lv. 1
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+PP Recovery Rate Per Level (Main) | 10.00% | 12.00% | 14.00% | 17.00% | 20.00% | PP Recovery Rate Per Level (Sub) | 5.00% | 6.00% | 7.00% | 8.50% | 10.00%
+Slug Shot | Pressing the Normal Attack Button without inputting a direction right after performing a Photon Art will unleash a short-range shot. Can only be used with a Gunblade.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Relentless Blade | Pressing the Normal Attack button at just the right time while performing a Photon Art will allow you to perform an additional attack. Can only be used with a Gunblade.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Gunblade Focus Quick Recharge | The Gunblade Focus gauge charge rate temporarily increases after the effects of Gunblade Focus Overdrive have ended.. Can only be used with a Main Class/Gunblade.
+Prerequisite - Gunblade Focus Overdrive Lv. 1
+Prerequisite -
+Effect | Skill Level
+1
+Focus Gauge Boost Rate | 120%
+Effect Duration | 20 sec
+Gunblade Focus Overflow | When the Gunblade Focus Gauge is at its maximum level or while Gunblade Focus Overdrive is active, the Unleashed Rage gauge will charge up and its cooldown time will be reduced. Can only be used with a Main Class/Gunblade.
+Prerequisite - Gunblade Focus Critical Up Lv. 1
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Gauge Accumulation Rate | 110% | 120% | 130% | 140% | 150%
+Cooldown Reduction | 5 sec
+Unleashed Rage | [Active Skill] Build up the gauge with Photon Arts and/or Relentless Blade, then expend it to fire a single powerful blast. Can only be used with a Main Class/Gunblade.
+Prerequisite -
+Effect | Skill Level
+1
+Potency | 1000
+Cooldown | 20 sec
+Blade Counter | When you successfully negate an attack using a Weapon Action, using a Normal Attack or Weapon Action will unleash a counter. The counter varies depending on which you use. Can only be used with a Gunblade.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Mobile Blade | Using a Weapon Action while inputting a direction will make you temporarily invincible and cause you to attack while moving. Can only be used by Gunblades.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Relentless Blade Reinforce | Increases Relentless Blade Potency. Can only be used with a Main Class/Gunblade.
+Prerequisite - Relentless Blade Lv. 1
+Effect | Skill Level
+1
+Potency | 500%
+Unleashed Rage After Effect | Temporarily increases Critical Hit Rate after activating Unleashed Rage. Can only be used with a Main Class/Gunblade.
+Prerequisite - Unleashed Rage Lv. 1
+Effect | Skill Level
+1
+Critical Hit Rate Increase | 5%
+Effect Duration | 20 sec
+Blade Counter Critical Up | Increases Blade Counter's Critical Hit Rate. Can only be used with a Main Class/Gunblade.
+Prerequisite - Blade Counter Lv. 1
+Effect | Skill Level
+1
+Critical Hit Rate Increase | 5%
+Mobile Blade Counter | When you successfully dodge using Mobile Blade, using a Normal Attack or Weapon Action will unleash a counter. The counter varies depending on which you use. Can only be used by Gunblades.
+Prerequisite - Mobile Blade Lv. 1
+Effect | Skill Level
+1
+- | -

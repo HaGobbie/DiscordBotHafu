@@ -1,0 +1,385 @@
+# Outerwear — Jacket and Coat Costume Catalog (Part 3)
+
+== List of NGS Outerwear (Type 2) ==
+Preview | Name | Availability | Marketable | Implementation Date | Notes
+Operatii Unifa [Ou] | SG Scratch Tickets: Arks Conductor SG Scratch Tickets: Soaring Bouncer SG Scratch Tickets: Halpha ARKS Revival Reward from Advice from Liu Lin I SG Scratch Tickets: Halpha ARKS Revival 2 | 08/24/21
+Operatii Unifa/2 [Ou] | SG Scratch Tickets: Arks Conductor SG Scratch Tickets: Soaring Bouncer SG Scratch Tickets: Halpha ARKS Revival SG Scratch Tickets: Halpha ARKS Revival 2 | 08/24/21
+Operatii Unifa/3 [Ou] | SG Scratch Tickets: Arks Conductor SG Scratch Tickets: Soaring Bouncer SG Scratch Tickets: Halpha ARKS Revival SG Scratch Tickets: Halpha ARKS Revival 2 | 08/24/21
+Operatii Unifa/4 [Ou] | SG Scratch Tickets: Arks Conductor SG Scratch Tickets: Soaring Bouncer SG Scratch Tickets: Halpha ARKS Revival SG Scratch Tickets: Halpha ARKS Revival 2 | 08/24/21
+Magister Machia [Ou] | AC Scratch Tickets: Monster Masquerade AC Scratch Tickets: Rewind Collection 5 | 10/27/21
+Magister Machia/2 [Ou] | AC Scratch Tickets: Monster Masquerade | 10/27/21
+Magister Machia/B [Ou] | AC Scratch Tickets: Monster Masquerade AC Scratch Tickets: Rewind Collection 5 | 10/27/21
+Magister Machia/B2 [Ou] | AC Scratch Tickets: Monster Masquerade | 10/27/21
+Fascina Diavola [Ou] | AC Scratch Tickets: Monster Masquerade AC Scratch Tickets: Rewind Collection 5 | 10/27/21
+Fascina Diavola/2 [Ou] | AC Scratch Tickets: Monster Masquerade | 10/27/21
+Fascina Diavola/B [Ou] | AC Scratch Tickets: Monster Masquerade AC Scratch Tickets: Rewind Collection 5 | 10/27/21
+Fascina Diavola/B2 [Ou] | AC Scratch Tickets: Monster Masquerade | 10/27/21
+Retem Valkys [Ou] | SG Scratch Tickets: Resolute Warrior SG Scratch Tickets: Diva of the Desert SG Scratch Tickets: Refined Form SG Scratch Tickets: Refined Form 2 SG Scratch Tickets: Refined Form 3 SG Scratch Tickets: Refined Form 4 SG Scratch Tickets: Halpha ARKS Revival SG Scratch Tickets: Halpha ARKS Revival 2 | 01/19/22
+Retem Valkys/2 [Ou] | SG Scratch Tickets: Resolute Warrior SG Scratch Tickets: Diva of the Desert SG Scratch Tickets: Refined Form SG Scratch Tickets: Refined Form 2 SG Scratch Tickets: Refined Form 3 SG Scratch Tickets: Refined Form 4 SG Scratch Tickets: Halpha ARKS Revival SG Scratch Tickets: Halpha ARKS Revival 2 | 01/19/22
+Operatii Unifa/B [Ou] | NGS Season 5 Mission Pass | 02/09/22
+Operatii Unifa/C [Ou] | NGS Season 5 Mission Pass | 02/09/22
+Stehr Lidiya [Ou] | AC Scratch Tickets: Smart Military AC Scratch Tickets: Rewind Collection 9 | 02/21/22
+Stehr Lidiya/2 [Ou] | AC Scratch Tickets: Smart Military | 02/21/22
+Stehr Lidiya/B [Ou] | AC Scratch Tickets: Smart Military AC Scratch Tickets: Rewind Collection 9 | 02/21/22
+Stehr Lidiya/B2 [Ou] | AC Scratch Tickets: Smart Military | 02/21/22
+Cozy Quiltier [Ou] | AC Scratch Tickets: Bright Eminence AC Scratch Tickets: Rewind Collection 10 | 03/09/22
+Cozy Quiltier/2 [Ou] | AC Scratch Tickets: Bright Eminence | 03/09/22
+Cozy Quiltier/3 [Ou] | AC Scratch Tickets: Bright Eminence | 03/09/22
+Cozy Quiltier/4 [Ou] | AC Scratch Tickets: Bright Eminence | 03/09/22
+Blanche Tiaresse [Ou] | AC Scratch Tickets: Bright Eminence AC Scratch Tickets: Rewind Collection 10 | 03/09/22
+Blanche Tiaresse/2 [Ou] | AC Scratch Tickets: Bright Eminence | 03/09/22
+Blanche Tiaresse/B [Ou] | AC Scratch Tickets: Bright Eminence AC Scratch Tickets: Rewind Collection 10 | 03/09/22
+Blanche Tiaresse/B2 [Ou] | AC Scratch Tickets: Bright Eminence | 03/09/22
+N-Sophis Raynal [Ou] | SG Scratch Tickets: Refined Form SG Scratch Tickets: Refined Form Revival | 03/16/22
+N-Sophis Raynal/2 [Ou] | SG Scratch Tickets: Refined Form SG Scratch Tickets: Refined Form Revival | 03/16/22
+Loosse Ceinture [Ou] | AC Scratch Tickets: Flappy Clan AC Scratch Tickets: Remix Line | 03/23/22
+Loosse Ceinture/2 [Ou] | AC Scratch Tickets: Flappy Clan | 03/23/22
+Loosse Ceinture/3 [Ou] | AC Scratch Tickets: Flappy Clan | 03/23/22
+Loosse Ceinture/4 [Ou] | AC Scratch Tickets: Flappy Clan | 03/23/22
+Sizable Silueta [Ou] | AC Scratch Tickets: Casual Comfort | 04/06/22
+Sizable Silueta/2 [Ou] | AC Scratch Tickets: Casual Comfort | 04/06/22
+Sizable Silueta/B [Ou] | AC Scratch Tickets: Casual Comfort AC Scratch Tickets: Remix Line | 04/06/22
+Sizable Silueta/B2 [Ou] | AC Scratch Tickets: Casual Comfort | 04/06/22
+Forte Maestrona [Ou] | AC Scratch Tickets: Casual Comfort | 04/06/22
+Forte Maestrona/2 [Ou] | AC Scratch Tickets: Casual Comfort | 04/06/22
+Forte Maestrona/B [Ou] | AC Scratch Tickets: Casual Comfort AC Scratch Tickets: Remix Line | 04/06/22
+Forte Maestrona/B2 [Ou] | AC Scratch Tickets: Casual Comfort | 04/06/22
+N-Off-shoulder Knit [Ou] | SG Scratch Tickets: Refined Form 2 SG Scratch Tickets: Refined Form Revival | 04/13/22
+N-Off-shoulder Knit/2 [Ou] | SG Scratch Tickets: Refined Form 2 SG Scratch Tickets: Refined Form Revival | 04/13/22
+Retem Valkys/B [Ou] | NGS Season 7 Mission Pass | 04/13/22
+Retem Valkys/C [Ou] | NGS Season 7 Mission Pass | 04/13/22
+N-Carretera Vinto [Ou] | SG Scratch Tickets: Refined Form 3 SG Scratch Tickets: Refined Form Revival | 05/18/22
+N-Carretera Vinto/2 [Ou] | SG Scratch Tickets: Refined Form 3 SG Scratch Tickets: Refined Form Revival | 05/18/22
+Yakshini Raika [Ou] | AC Scratch Tickets: Original Creations A AC Scratch Tickets: Remix Line | 05/25/22
+Yakshini Raika/2 [Ou] | AC Scratch Tickets: Original Creations A | 05/25/22
+Yakshini Raika/B [Ou] | AC Scratch Tickets: Original Creations A | 05/25/22
+Yakshini Raika/C [Ou] | AC Scratch Tickets: Original Creations A | 05/25/22
+Apis Melby [Ou] | AC Scratch Tickets: Original Creations B | 06/22/22
+Apis Melby/2 [Ou] | AC Scratch Tickets: Original Creations B | 06/22/22
+Apis Melby/B [Ou] | AC Scratch Tickets: Original Creations B AC Scratch Tickets: Remix Line | 06/22/22
+Apis Melby/B2 [Ou] | AC Scratch Tickets: Original Creations B | 06/22/22
+Expo 2022 T-Shirt T2 [Ou] | Anime Expo 2022 Item Code ARKS Expo Online Keyword | 07/01/22
+N-Innocent Ensemble [Ou] | Special Scratch Tickets: PSO2 10th Special Scratch | 07/06/22
+N-Innocent Ensemble/B [Ou] | Special Scratch Tickets: PSO2 10th Special Scratch | 07/06/22
+N-Innocent Ensemble/C [Ou] | Special Scratch Tickets: PSO2 10th Special Scratch | 07/06/22
+Anemos Ghiaccia [Ou] | SG Scratch Tickets: Polar Raiment SG Scratch Tickets: Waker Caparison SG Scratch Tickets: Refined Form 5 SG Scratch Tickets: Refined Form 6 SG Scratch Tickets: Refined Form 7 SG Scratch Tickets: Refined Form 8 SG Scratch Tickets: Refined Form 9 SG Scratch Tickets: Refined Form 10 | 07/13/22
+Anemos Ghiaccia/2 [Ou] | SG Scratch Tickets: Polar Raiment SG Scratch Tickets: Waker Caparison SG Scratch Tickets: Refined Form 5 SG Scratch Tickets: Refined Form 6 SG Scratch Tickets: Refined Form 7 SG Scratch Tickets: Refined Form 8 SG Scratch Tickets: Refined Form 9 SG Scratch Tickets: Refined Form 10 | 07/13/22
+Anemos Neve [Ou] | SG Scratch Tickets: Polar Raiment SG Scratch Tickets: Waker Caparison SG Scratch Tickets: Refined Form 5 SG Scratch Tickets: Refined Form 6 SG Scratch Tickets: Refined Form 7 SG Scratch Tickets: Refined Form 8 SG Scratch Tickets: Refined Form 9 SG Scratch Tickets: Refined Form 10 | 07/13/22
+Anemos Neve/2 [Ou] | SG Scratch Tickets: Polar Raiment SG Scratch Tickets: Waker Caparison SG Scratch Tickets: Refined Form 5 SG Scratch Tickets: Refined Form 6 SG Scratch Tickets: Refined Form 7 SG Scratch Tickets: Refined Form 8 SG Scratch Tickets: Refined Form 9 SG Scratch Tickets: Refined Form 10 | 07/13/22
+Jaatas Viisis [Ou] | SG Scratch Tickets: Polar Raiment SG Scratch Tickets: Waker Caparison SG Scratch Tickets: Refined Form 5 SG Scratch Tickets: Refined Form 6 SG Scratch Tickets: Refined Form 7 SG Scratch Tickets: Refined Form 8 SG Scratch Tickets: Refined Form 9 SG Scratch Tickets: Refined Form 10 | 07/13/22
+Jaatas Viisis/2 [Ou] | SG Scratch Tickets: Polar Raiment SG Scratch Tickets: Waker Caparison SG Scratch Tickets: Refined Form 5 SG Scratch Tickets: Refined Form 6 SG Scratch Tickets: Refined Form 7 SG Scratch Tickets: Refined Form 8 SG Scratch Tickets: Refined Form 9 SG Scratch Tickets: Refined Form 10 | 07/13/22
+N-Forge Dress [Ou] | SG Scratch Tickets: Refined Form 5 | 08/17/22
+N-Forge Dress/2 [Ou] | SG Scratch Tickets: Refined Form 5 | 08/17/22
+N-Holy Phantasm [Ou] | SG Scratch Tickets: Refined Form 5 | 08/17/22
+N-Holy Phantasm/2 [Ou] | SG Scratch Tickets: Refined Form 5 | 08/17/22
+Basic Top T2 [Ou] | Amazon Prime Gaming Rewards | 08/22/22
+NGS ARKS Top T2 [Ou] | PlayStation 4 First Login Bonus Reward | 08/31/22
+N-Combat Jacket T2 [Ou] | SG Scratch Tickets: Refined Form 6 | 09/14/22
+N-Combat Jacket T2/2 [Ou] | SG Scratch Tickets: Refined Form 6 | 09/14/22
+Operatii Unifa/D [Ou] | NGS Season 12 Mission Pass | 09/14/22
+Operatii Unifa AF [Ou] | NGS Season 12 Mission Pass | 09/14/22
+Spooky Silhouette T2 [Ou] | AC Scratch Tickets: Monster Masquerade '22 | 10/19/22
+Spooky Silhouette T2/2 [Ou] | AC Scratch Tickets: Monster Masquerade '22 | 10/19/22
+Nudiblanket [Ou] | AC Scratch Tickets: Monster Masquerade '22 | 10/19/22
+Nudiblanket/2 [Ou] | AC Scratch Tickets: Monster Masquerade '22 | 10/19/22
+Nudiblanket/B [Ou] | AC Scratch Tickets: Monster Masquerade '22 | 10/19/22
+Nudiblanket/B2 [Ou] | AC Scratch Tickets: Monster Masquerade '22 | 10/19/22
+N-Frilled Hoodie [Ou] | SG Scratch Tickets: Refined Form 8 | 11/09/22
+N-Frilled Hoodie/2 [Ou] | SG Scratch Tickets: Refined Form 8 | 11/09/22
+N-Mod Coat T2 [Ou] | SG Scratch Tickets: Refined Form 8 | 11/09/22
+N-Mod Coat T2/2 [Ou] | SG Scratch Tickets: Refined Form 8 | 11/09/22
+MAX-1000 Jacket T2 [Ou] | AC Scratch Tickets: Snug Style | 11/22/22
+MAX-1000 Jacket T2/2 [Ou] | AC Scratch Tickets: Snug Style | 11/22/22
+MAX-1000 Jacket T2/B [Ou] | AC Scratch Tickets: Snug Style | 11/22/22
+MAX-1000 Jacket T2/B2 [Ou] | AC Scratch Tickets: Snug Style | 11/22/22
+Mountain Parka T2 [Ou] | AC Scratch Tickets: Crystalline Concepts | 12/07/22
+Mountain Parka T2/2 [Ou] | AC Scratch Tickets: Crystalline Concepts | 12/07/22
+Mountain Parka T2/B [Ou] | AC Scratch Tickets: Crystalline Concepts | 12/07/22
+Mountain Parka T2/B2 [Ou] | AC Scratch Tickets: Crystalline Concepts | 12/07/22
+Mountain Parka T2 V2 [Ou] | AC Scratch Tickets: Crystalline Concepts | 12/07/22
+Mountain Parka T2 V2/2 [Ou] | AC Scratch Tickets: Crystalline Concepts | 12/07/22
+Sant Reina [Ou] | AC Scratch Tickets: Frozen World '22 | 12/21/22
+Sant Reina/2 [Ou] | AC Scratch Tickets: Frozen World '22 | 12/21/22
+Sant Reina/B [Ou] | AC Scratch Tickets: Frozen World '22 | 12/21/22
+Sant Reina/B2 [Ou] | AC Scratch Tickets: Frozen World '22 | 12/21/22
+Sizable Silueta/C [Ou] | AC Scratch Tickets: Remix Line | 01/01/23
+Chaosblossom Kaliyuga T2 [Ou] | AC Scratch Tickets: Quaint Ensemble '23 | 01/11/23
+Chaosblossom Kaliyuga T2/2 [Ou] | AC Scratch Tickets: Quaint Ensemble '23 | 01/11/23
+Chaosblossom Kaliyuga T2/B [Ou] | AC Scratch Tickets: Quaint Ensemble '23 | 01/11/23
+Chaosblossom Kaliyuga T2/B2 [Ou] | AC Scratch Tickets: Quaint Ensemble '23 | 01/11/23
+Striped Uniform T2 [Ou] | 1/11 Use AC, Get Items! Special Campaign | 01/11/23
+Anemos Neve/B [Ou] | NGS Season 16 Mission Pass | 01/18/23
+Anemos Ghiaccia/B [Ou] | NGS Season 16 Mission Pass | 01/18/23
+Hoshikawa Sara Replica [Ou] | AC Scratch Tickets: Virtual Liver Style | 02/01/23
+Hoshikawa Sara Replica/2 [Ou] | AC Scratch Tickets: Virtual Liver Style | 02/01/23
+Hoshikawa Sara Replica/B [Ou] | AC Scratch Tickets: Virtual Liver Style | 02/01/23
+Hoshikawa Sara Replica/B2 [Ou] | AC Scratch Tickets: Virtual Liver Style | 02/01/23
+Hikami no Kagutsu [Ou] | SG Scratch Tickets: Volcanic Heart | 02/15/23
+Hikami no Kagutsu/2 [Ou] | SG Scratch Tickets: Volcanic Heart | 02/15/23
+Chesterfield Coat T2 [Ou] | AC Scratch Tickets: Modish Winter | 02/22/23
+Chesterfield Coat T2/2 [Ou] | AC Scratch Tickets: Modish Winter | 02/22/23
+Chesterfield Coat T2/B [Ou] | AC Scratch Tickets: Modish Winter | 02/22/23
+Chesterfield Coat T2/B2 [Ou] | AC Scratch Tickets: Modish Winter | 02/22/23
+Mod Punk [Ou] | AC Scratch Tickets: Modish Winter | 02/22/23
+Mod Punk/2 [Ou] | AC Scratch Tickets: Modish Winter | 02/22/23
+Mod Punk/3 [Ou] | AC Scratch Tickets: Modish Winter | 02/22/23
+Mod Punk/4 [Ou] | AC Scratch Tickets: Modish Winter | 02/22/23
+Mercant T2 [Ou] | AC Scratch Tickets: Mystic Explorer | 03/08/23
+Mercant T2/2 [Ou] | AC Scratch Tickets: Mystic Explorer | 03/08/23
+Mercant T2/B [Ou] | AC Scratch Tickets: Mystic Explorer | 03/08/23
+Mercant T2/B2 [Ou] | AC Scratch Tickets: Mystic Explorer | 03/08/23
+Cyber Trance T2 [Ou] | AC Scratch Tickets: Vigilant Recruit | 03/22/23
+Cyber Trance T2/2 [Ou] | AC Scratch Tickets: Vigilant Recruit | 03/22/23
+Cyber Trance T2/B [Ou] | AC Scratch Tickets: Vigilant Recruit | 03/22/23
+Cyber Trance T2/B2 [Ou] | AC Scratch Tickets: Vigilant Recruit | 03/22/23
+MAX-2000 Jacket T2 [Ou] | AC Scratch Tickets: Combat Classics | 04/05/23
+MAX-2000 Jacket T2/2 [Ou] | AC Scratch Tickets: Combat Classics | 04/05/23
+MAX-2000 Jacket T2/B [Ou] | AC Scratch Tickets: Combat Classics | 04/05/23
+MAX-2000 Jacket T2/B2 [Ou] | AC Scratch Tickets: Combat Classics | 04/05/23
+Mass Geard T2 [Ou] | AC Scratch Tickets: Combat Classics | 04/05/23
+Mass Geard T2/2 [Ou] | AC Scratch Tickets: Combat Classics | 04/05/23
+Mass Geard T2/B [Ou] | AC Scratch Tickets: Combat Classics | 04/05/23
+Mass Geard T2/B2 [Ou] | AC Scratch Tickets: Combat Classics | 04/05/23
+Fearal Cat [Ou] | AC Scratch Tickets: Designer Dreams May '23 | 05/10/23
+Fearal Cat/2 [Ou] | AC Scratch Tickets: Designer Dreams May '23 | 05/10/23
+Bearsark T2 [Ou] | AC Scratch Tickets: Soul of the Wild | 05/24/23
+Bearsark T2/2 [Ou] | AC Scratch Tickets: Soul of the Wild | 05/24/23
+Bearsark T2/B [Ou] | AC Scratch Tickets: Soul of the Wild | 05/24/23
+Bearsark T2/B2 [Ou] | AC Scratch Tickets: Soul of the Wild | 05/24/23
+Foxxiontech [Ou] | AC Scratch Tickets: Designer Dreams Jun '23 | 06/07/23
+Foxxiontech/2 [Ou] | AC Scratch Tickets: Designer Dreams Jun '23 | 06/07/23
+Foxxiontech/B [Ou] | AC Scratch Tickets: Designer Dreams Jun '23 | 06/07/23
+Foxxiontech/B2 [Ou] | AC Scratch Tickets: Designer Dreams Jun '23 | 06/07/23
+Ribbon Cape [Ou] | AC Scratch Tickets: Designer Dreams Jun '23 | 06/07/23
+Ribbon Cape/2 [Ou] | AC Scratch Tickets: Designer Dreams Jun '23 | 06/07/23
+Ribbon Cape/B [Ou] | AC Scratch Tickets: Designer Dreams Jun '23 | 06/07/23
+Ribbon Cape/B2 [Ou] | AC Scratch Tickets: Designer Dreams Jun '23 | 06/07/23
+Motoko Kusanagi's Jacket [Ou] | AC Scratch Tickets: GHOST IN THE SHELL: SAC_2045 Style | 06/27/23
+Motoko Kusanagi's Jacket/2 [Ou] | AC Scratch Tickets: GHOST IN THE SHELL: SAC_2045 Style | 06/27/23
+Motoko Kusanagi's Jacket/3 [Ou] | AC Scratch Tickets: GHOST IN THE SHELL: SAC_2045 Style | 06/27/23
+Motoko Kusanagi's Jacket/4 [Ou] | AC Scratch Tickets: GHOST IN THE SHELL: SAC_2045 Style | 06/27/23
+N-Hitsugi Awakening [Ou] | Special Scratch Tickets: PSO2 11th SP Scratch | 07/05/23
+N-Hitsugi Awakening/B [Ou] | Special Scratch Tickets: PSO2 11th SP Scratch | 07/05/23
+Fluffy Outer [Ou] | AC Scratch Tickets: Designer Dreams Aug '23 | 08/02/23
+Fluffy Outer/2 [Ou] | AC Scratch Tickets: Designer Dreams Aug '23 | 08/02/23
+Fluffy Outer/B [Ou] | AC Scratch Tickets: Designer Dreams Aug '23 | 08/02/23
+Fluffy Outer/B2 [Ou] | AC Scratch Tickets: Designer Dreams Aug '23 | 08/02/23
+Inari Happi T2 [Ou] | AC Scratch Tickets: Moonlight Sanctuary '23 | 09/06/23
+Inari Happi T2/2 [Ou] | AC Scratch Tickets: Moonlight Sanctuary '23 | 09/06/23
+Inari Happi T2/B [Ou] | AC Scratch Tickets: Moonlight Sanctuary '23 | 09/06/23
+Inari Happi T2/B2 [Ou] | AC Scratch Tickets: Moonlight Sanctuary '23 | 09/06/23
+Rappy Happi T2 [Ou] | AC Scratch Tickets: Moonlight Sanctuary '23 | 09/06/23
+Rappy Happi T2/2 [Ou] | AC Scratch Tickets: Moonlight Sanctuary '23 | 09/06/23
+Rappy Happi T2/B [Ou] | AC Scratch Tickets: Moonlight Sanctuary '23 | 09/06/23
+Rappy Happi T2/B2 [Ou] | AC Scratch Tickets: Moonlight Sanctuary '23 | 09/06/23
+N-Tight Jacket [Ou] | SG Scratch Tickets: Refined Form Sep '23 | 09/13/23
+N-Tight Jacket/2 [Ou] | SG Scratch Tickets: Refined Form Sep '23 | 09/13/23
+Oversized Hoodie T2 [Ou] | AC Scratch Tickets: Street Beat | 10/11/23
+Oversized Hoodie T2/2 [Ou] | AC Scratch Tickets: Street Beat | 10/11/23
+Oversized Hoodie T2/B [Ou] | AC Scratch Tickets: Street Beat | 10/11/23
+Oversized Hoodie T2/B2 [Ou] | AC Scratch Tickets: Street Beat | 10/11/23
+Jaatas Viisis/B [Ou] | NGS Season 25 Mission Pass | 10/18/23
+Errant De La Mort T2 [Ou] | AC Scratch Tickets: Monster Masquerade '23 | 10/26/23
+Errant De La Mort T2/2 [Ou] | AC Scratch Tickets: Monster Masquerade '23 | 10/26/23
+Errant De La Mort T2/B [Ou] | AC Scratch Tickets: Monster Masquerade '23 | 10/26/23
+Errant De La Mort T2/B2 [Ou] | AC Scratch Tickets: Monster Masquerade '23 | 10/26/23
+N-Combat Jacket T2/B [Ou] | AC Scratch Tickets: Remix Line Nov '23 | 11/01/23
+N-Sophis Raynal/B [Ou] | AC Scratch Tickets: Remix Line Nov '23 | 11/01/23
+N-Sophis Raynal V2 [Ou] | AC Scratch Tickets: Remix Line Nov '23 | 11/01/23
+N-Mod Coat T2/B [Ou] | AC Scratch Tickets: Remix Line Nov '23 | 11/01/23
+N-Holy Phantasm/B [Ou] | AC Scratch Tickets: Remix Line Nov '23 | 11/01/23
+N-Holy Phantasm/C [Ou] | AC Scratch Tickets: Remix Line Nov '23 | 11/01/23
+N-Holy Phantasm AF [Ou] | AC Scratch Tickets: Remix Line Nov '23 | 11/01/23
+N-Off-shoulder Knit/B [Ou] | AC Scratch Tickets: Remix Line Nov '23 | 11/01/23
+N-Carretera Vinto/B [Ou] | AC Scratch Tickets: Remix Line Nov '23 | 11/01/23
+N-Carretera Vinto AF [Ou] | AC Scratch Tickets: Remix Line Nov '23 | 11/01/23
+N-Frilled Hoodie/B [Ou] | AC Scratch Tickets: Remix Line Nov '23 | 11/01/23
+Attentater T2 [Ou] | AC Scratch Tickets: Elemental Defender | 11/08/23
+Attentater T2/2 [Ou] | AC Scratch Tickets: Elemental Defender | 11/08/23
+Attentater T2/B [Ou] | AC Scratch Tickets: Elemental Defender | 11/08/23
+Attentater T2/B2 [Ou] | AC Scratch Tickets: Elemental Defender | 11/08/23
+N-Nocturnal Mists T2 [Ou] | SG Scratch Tickets: Refined Form Nov '23 | 11/15/23
+N-Nocturnal Mists T2/2 [Ou] | SG Scratch Tickets: Refined Form Nov '23 | 11/15/23
+Hikami no Kagutsu/B [Ou] | NGS Season 26 Mission Pass | 11/15/23
+Hikami no Kagutsu/C [Ou] | NGS Season 26 Mission Pass | 11/15/23
+Blanche Tiaresse/C [Ou] | AC Scratch Tickets: New Year's Remix Line | 01/01/24
+Rhapsody Loudne T2 [Ou] | AC Scratch Tickets: New Year's Remix Line | 01/01/24
+Orien Struise T2 [Ou] | AC Scratch Tickets: New Year's Remix Line | 01/01/24
+Orien Struise T2/B [Ou] | AC Scratch Tickets: New Year's Remix Line | 01/01/24
+Orien Struise T2/C [Ou] | AC Scratch Tickets: New Year's Remix Line | 01/01/24
+Orien Strauda [Ou] | AC Scratch Tickets: New Year's Remix Line | 01/01/24
+Orien Strauda/B [Ou] | AC Scratch Tickets: New Year's Remix Line | 01/01/24
+Orien Strauda/C [Ou] | AC Scratch Tickets: New Year's Remix Line | 01/01/24
+Vinter Spir T2 [Ou] | AC Scratch Tickets: Modish Winter '24 | 01/10/24
+Vinter Spir T2/2 [Ou] | AC Scratch Tickets: Modish Winter '24 | 01/10/24
+Vinter Spir T2-V2 [Ou] | AC Scratch Tickets: Modish Winter '24 | 01/10/24
+Vinter Spir T2-V2/2 [Ou] | AC Scratch Tickets: Modish Winter '24 | 01/10/24
+Lurking Ogre T2 [Ou] | AC Scratch Tickets: Street Smart | 01/31/24
+Lurking Ogre T2/2 [Ou] | AC Scratch Tickets: Street Smart | 01/31/24
+Lurking Ogre T2/B [Ou] | AC Scratch Tickets: Street Smart | 01/31/24
+Lurking Ogre T2/B2 [Ou] | AC Scratch Tickets: Street Smart | 01/31/24
+Matsukai Mao Replica [Ou] | AC Scratch Tickets: Virtual Liver Style '24 | 02/14/24
+Matsukai Mao Replica/2 [Ou] | AC Scratch Tickets: Virtual Liver Style '24 | 02/14/24
+Matsukai Mao Replica/B [Ou] | AC Scratch Tickets: Virtual Liver Style '24 | 02/14/24
+Matsukai Mao Replica/B2 [Ou] | AC Scratch Tickets: Virtual Liver Style '24 | 02/14/24
+Comfy Shirt T2 [Ou] | AC Scratch Tickets: Downy Dream | 03/06/24
+Comfy Shirt T2/2 [Ou] | AC Scratch Tickets: Downy Dream | 03/06/24
+Comfy Shirt T2/B [Ou] | AC Scratch Tickets: Downy Dream | 03/06/24
+Comfy Shirt T2/B2 [Ou] | AC Scratch Tickets: Downy Dream | 03/06/24
+Giselle Replica [Ou] | AC Scratch Tickets: Echoes of Idola | 03/19/24
+Giselle Replica/B [Ou] | AC Scratch Tickets: Echoes of Idola | 03/19/24
+Giselle Replica V2 [Ou] | AC Scratch Tickets: Echoes of Idola | 03/19/24
+Giselle Replica V2/B [Ou] | AC Scratch Tickets: Echoes of Idola | 03/19/24
+Manica Tatuya T2 [Ou] | AC Scratch Tickets: Noble Shadows | 04/24/24
+Manica Tatuya T2/2 [Ou] | AC Scratch Tickets: Noble Shadows | 04/24/24
+Manica Tatuya T2-V2 [Ou] | AC Scratch Tickets: Noble Shadows | 04/24/24
+Manica Tatuya T2-V2/2 [Ou] | AC Scratch Tickets: Noble Shadows | 04/24/24
+Fluore Faste T2 [Ou] | AC Scratch Tickets: Urban Cybernetics | 05/08/24
+Fluore Faste T2/2 [Ou] | AC Scratch Tickets: Urban Cybernetics | 05/08/24
+Fluore Faste T2/B [Ou] | AC Scratch Tickets: Urban Cybernetics | 05/08/24
+Fluore Faste T2/B2 [Ou] | AC Scratch Tickets: Urban Cybernetics | 05/08/24
+N-Sleeveless Coat T2 [Ou] | SG Scratch Tickets: Refined Form May '24 | 05/22/24
+N-Sleeveless Coat T2/B [Ou] | SG Scratch Tickets: Refined Form May '24 | 05/22/24
+Cropped Hoodie T2 [Ou] | AC Scratch Tickets: Stylish Avenue | 06/12/24
+Cropped Hoodie T2/2 [Ou] | AC Scratch Tickets: Stylish Avenue | 06/12/24
+Cropped Hoodie T2/3 [Ou] | AC Scratch Tickets: Stylish Avenue | 06/12/24
+Cropped Hoodie T2/4 [Ou] | AC Scratch Tickets: Stylish Avenue | 06/12/24
+Rashguard T2 [Ou] | AC Scratch Tickets: Summer Sky Seaside '24 | 07/03/24
+Rashguard T2/2 [Ou] | AC Scratch Tickets: Summer Sky Seaside '24 | 07/03/24
+Rashguard T2/B [Ou] | AC Scratch Tickets: Summer Sky Seaside '24 | 07/03/24
+Rashguard T2/B2 [Ou] | AC Scratch Tickets: Summer Sky Seaside '24 | 07/03/24
+N-Baggy T Shirt T2 [Ou] | SG Scratch Tickets: Refined Form Jul '24 | 07/17/24
+N-Baggy T Shirt T2/2 [Ou] | SG Scratch Tickets: Refined Form Jul '24 | 07/17/24
+N-Baggy T Shirt T2/B [Ou] | SG Scratch Tickets: Refined Form Jul '24 | 07/17/24
+N-Baggy T Shirt T2/B2 [Ou] | SG Scratch Tickets: Refined Form Jul '24 | 07/17/24
+Sporty Jets T2 [Ou] | AC Scratch Tickets: Summer Athlete | 08/07/24
+Sporty Jets T2/B [Ou] | AC Scratch Tickets: Summer Athlete | 08/07/24
+Sporty Jets T2-V2 [Ou] | AC Scratch Tickets: Summer Athlete | 08/07/24
+Sporty Jets T2-V2B [Ou] | AC Scratch Tickets: Summer Athlete | 08/07/24
+Acti Jets T2 [Ou] | AC Scratch Tickets: Summer Athlete | 08/07/24
+Acti Jets T2/B [Ou] | AC Scratch Tickets: Summer Athlete | 08/07/24
+Acti Jets T2-V2 [Ou] | AC Scratch Tickets: Summer Athlete | 08/07/24
+Acti Jets T2-V2/B [Ou] | AC Scratch Tickets: Summer Athlete | 08/07/24
+Dia Cape T2 [Ou] | AC Scratch Tickets: Shadowblade Knights | 09/11/24
+Dia Cape T2/2 [Ou] | AC Scratch Tickets: Shadowblade Knights | 09/11/24
+Cropped Denim Jacket T2 [Ou] | AC Scratch Tickets: Stylish Autumn | 09/24/24
+Cropped Denim Jacket T2/2 [Ou] | AC Scratch Tickets: Stylish Autumn | 09/24/24
+Cropped Denim Jacket T2/3 [Ou] | AC Scratch Tickets: Stylish Autumn | 09/24/24
+Cropped Denim Jacket T2/4 [Ou] | AC Scratch Tickets: Stylish Autumn | 09/24/24
+N-Yoshino Tefura [Ou] | SG Scratch Tickets: Refined Form Oct '24 | 10/02/24
+N-Yoshino Tefura/2 [Ou] | SG Scratch Tickets: Refined Form Oct '24 | 10/02/24
+N-Yoshino Tefura/B [Ou] | SG Scratch Tickets: Refined Form Oct '24 | 10/02/24
+N-Yoshino Tefura/B2 [Ou] | SG Scratch Tickets: Refined Form Oct '24 | 10/02/24
+Magister Machia/C [Ou] | NGS Season 37 Mission Pass | 10/02/24
+Magister Machia/D [Ou] | NGS Season 37 Mission Pass | 10/02/24
+Giselle Replica [Ou] | AC Scratch Tickets: Echoes of Idola 2 | 11/12/24
+Giselle Replica V2 [Ou] | AC Scratch Tickets: Echoes of Idola 2 | 11/12/24
+Flafinir Bunny T2 [Ou] | AC Scratch Tickets: Joyful Holly-days '24 | 11/27/24
+Flafinir Bunny T2/2 [Ou] | AC Scratch Tickets: Joyful Holly-days '24 | 11/27/24
+Flafinir Bunny T2/B [Ou] | AC Scratch Tickets: Joyful Holly-days '24 | 11/27/24
+Flafinir Bunny T2/B2 [Ou] | AC Scratch Tickets: Joyful Holly-days '24 | 11/27/24
+Duffle Student [Ou] | AC Scratch Tickets: Winter Campus Fashion | 12/18/24
+Duffle Student/2 [Ou] | AC Scratch Tickets: Winter Campus Fashion | 12/18/24
+Duffle Student/3 [Ou] | AC Scratch Tickets: Winter Campus Fashion | 12/18/24
+Duffle Student/4 [Ou] | AC Scratch Tickets: Winter Campus Fashion | 12/18/24
+Freyja Warmy T2 [Ou] | AC Scratch Tickets: Winter Campus Fashion | 12/18/24
+Freyja Warmy T2/2 [Ou] | AC Scratch Tickets: Winter Campus Fashion | 12/18/24
+Freyja Warmy T2/3 [Ou] | AC Scratch Tickets: Winter Campus Fashion | 12/18/24
+Freyja Warmy T2/4 [Ou] | AC Scratch Tickets: Winter Campus Fashion | 12/18/24
+N-Nocturnal Mists T2-V2 [Ou] | AC Scratch Tickets: New Year's Remix Line '25 | 01/01/25
+Bearsark T2-V2 [Ou] | AC Scratch Tickets: New Year's Remix Line '25 | 01/01/25
+Bearsark T2-V2/B [Ou] | AC Scratch Tickets: New Year's Remix Line '25 | 01/01/25
+Vinter Spir T2/B [Ou] | AC Scratch Tickets: New Year's Remix Line '25 | 01/01/25
+Vinter Spir T2-V2/B [Ou] | AC Scratch Tickets: New Year's Remix Line '25 | 01/01/25
+Favle Sweater T2 [Ou] | AC Scratch Tickets: Sweet Bitter Fashion | 02/12/25
+Favle Sweater T2/2 [Ou] | AC Scratch Tickets: Sweet Bitter Fashion | 02/12/25
+Favle Sweater T2/B [Ou] | AC Scratch Tickets: Sweet Bitter Fashion | 02/12/25
+Favle Sweater T2/B2 [Ou] | AC Scratch Tickets: Sweet Bitter Fashion | 02/12/25
+Leathers Rider T2 [Ou] | AC Scratch Tickets: Punk Rock Pulse | 03/05/25
+Leathers Rider T2/2 [Ou] | AC Scratch Tickets: Punk Rock Pulse | 03/05/25
+Leathers Rider T2-V2 [Ou] | AC Scratch Tickets: Punk Rock Pulse | 03/05/25
+Leathers Rider T2-V2/2 [Ou] | AC Scratch Tickets: Punk Rock Pulse | 03/05/25
+Medi Coat T2 [Ou] | AC Scratch Tickets: Workers Ensemble | 04/01/25
+Medi Coat T2/2 [Ou] | AC Scratch Tickets: Workers Ensemble | 04/01/25
+Medi Coat T2-V2 [Ou] | AC Scratch Tickets: Workers Ensemble | 04/01/25
+Medi Coat T2-V2/2 [Ou] | AC Scratch Tickets: Workers Ensemble | 04/01/25
+Sizable Silueta/D [Ou] | NGS Season 43 Mission Pass | 04/09/25
+N-Forge Dress/B [Ou] | AC Scratch Tickets: Remix Line Apr '25 | 04/23/25
+Spirited Uniform T2 [Ou] | AC Scratch Tickets: Remix Line Apr '25 | 04/23/25
+Oversized Hoodie T2-V2 [Ou] | AC Scratch Tickets: Remix Line Apr '25 | 04/23/25
+Oversized Hoodie T2-V2/B [Ou] | AC Scratch Tickets: Remix Line Apr '25 | 04/23/25
+Mode Vanka T2 [Ou] | AC Scratch Tickets: Punkish Street | 04/29/25
+Mode Vanka T2/2 [Ou] | AC Scratch Tickets: Punkish Street | 04/29/25
+Mode Vanka T2/B [Ou] | AC Scratch Tickets: Punkish Street | 04/29/25
+Mode Vanka T2/B2 [Ou] | AC Scratch Tickets: Punkish Street | 04/29/25
+Yakshini Raika/D [Ou] | NGS Season 45 Mission Pass | 06/10/25
+Short Hoodie T2 [Ou] | AC Scratch Tickets: Summer Sky Seaside '25 | 07/22/25
+Short Hoodie T2/2 [Ou] | AC Scratch Tickets: Summer Sky Seaside '25 | 07/22/25
+Short Hoodie T2/3 [Ou] | AC Scratch Tickets: Summer Sky Seaside '25 | 07/22/25
+Short Hoodie T2/4 [Ou] | AC Scratch Tickets: Summer Sky Seaside '25 | 07/22/25
+N-Shiva's Attire T2 [Ou] | SP Scratch Tickets: Super Phantasy Festival '25 SP Scratch | 08/06/25
+Melfan Cape T2 [Ou] | AC Scratch Tickets: Elegant Harmony '25 | 08/26/25
+Melfan Cape T2/2 [Ou] | AC Scratch Tickets: Elegant Harmony '25 | 08/26/25
+Melfan Cape T2/3 [Ou] | AC Scratch Tickets: Elegant Harmony '25 | 08/26/25
+Melfan Cape T2/4 [Ou] | AC Scratch Tickets: Elegant Harmony '25 | 08/26/25
+Yumia's Clothes T2 [Ou] | AC Scratch Tickets: Atelier Yumia Style | 09/02/25
+Yumia's Clothes T2/2 [Ou] | AC Scratch Tickets: Atelier Yumia Style | 09/02/25
+Yumia's Clothes T2/B [Ou] | AC Scratch Tickets: Atelier Yumia Style | 09/02/25
+Yumia's Clothes T2/B2 [Ou] | AC Scratch Tickets: Atelier Yumia Style | 09/02/25
+Tien Macy T2 [Ou] | AC Scratch Tickets: Blazing Martial | 09/23/25
+Tien Macy T2/2 [Ou] | AC Scratch Tickets: Blazing Martial | 09/23/25
+Tien Macy T2/3 [Ou] | AC Scratch Tickets: Blazing Martial | 09/23/25
+Tien Macy T2/4 [Ou] | AC Scratch Tickets: Blazing Martial | 09/23/25
+Short Fur Coat T2 [Ou] | AC Scratch Tickets: Stylish Autumn '25 | 11/05/25
+Short Fur Coat T2/2 [Ou] | AC Scratch Tickets: Stylish Autumn '25 | 11/05/25
+Short Fur Coat T2/3 [Ou] | AC Scratch Tickets: Stylish Autumn '25 | 11/05/25
+Short Fur Coat T2/4 [Ou] | AC Scratch Tickets: Stylish Autumn '25 | 11/05/25
+Chaperouge T2 [Ou] | AC Scratch Tickets: Dreamy Story | 11/12/25
+Chaperouge T2/2 [Ou] | AC Scratch Tickets: Dreamy Story | 11/12/25
+Chaperouge T2/B [Ou] | AC Scratch Tickets: Dreamy Story | 11/12/25
+Chaperouge T2/B2 [Ou] | AC Scratch Tickets: Dreamy Story | 11/12/25
+Khorshid Swimwear T2 [Ou] | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+Khorshid Swimwear T2/2 [Ou] | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+Khorshid Swimwear T2/B [Ou] | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+Khorshid Swimwear T2/B2 [Ou] | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+Bruno Swimwear T2 [Ou] | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+Bruno Swimwear T2/2 [Ou] | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+Bruno Swimwear T2/B [Ou] | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+Bruno Swimwear T2/B2 [Ou] | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+Short Down Jacket T2 [Ou] | AC Scratch Tickets: Modish Winter '26 | 01/07/26
+Short Down Jacket T2/2 [Ou] | AC Scratch Tickets: Modish Winter '26 | 01/07/26
+Short Down Jacket T2/3 [Ou] | AC Scratch Tickets: Modish Winter '26 | 01/07/26
+Short Down Jacket T2/4 [Ou] | AC Scratch Tickets: Modish Winter '26 | 01/07/26
+PUNI☆MOFU MAO T2 [Ou] | AC Scratch Tickets: Hexa Gear & Megami Device Style | 02/03/26
+PUNI☆MOFU MAO T2/2 [Ou] | AC Scratch Tickets: Hexa Gear & Megami Device Style | 02/03/26
+PUNI☆MOFU MAO T2/B [Ou] | AC Scratch Tickets: Hexa Gear & Megami Device Style | 02/03/26
+PUNI☆MOFU MAO T2/B2 [Ou] | AC Scratch Tickets: Hexa Gear & Megami Device Style | 02/03/26
+PUNI☆MOFU TU T2 [Ou] | AC Scratch Tickets: Hexa Gear & Megami Device Style | 02/03/26
+PUNI☆MOFU TU T2/2 [Ou] | AC Scratch Tickets: Hexa Gear & Megami Device Style | 02/03/26
+PUNI☆MOFU TU T2/B [Ou] | AC Scratch Tickets: Hexa Gear & Megami Device Style | 02/03/26
+PUNI☆MOFU TU T2/B2 [Ou] | AC Scratch Tickets: Hexa Gear & Megami Device Style | 02/03/26
+Grimoilèvina T2 [Ou] | AC Scratch Tickets: Sorcery Academia | 02/24/26
+Grimoilèvina T2/2 [Ou] | AC Scratch Tickets: Sorcery Academia | 02/24/26
+Grimoilèvina T2/B [Ou] | AC Scratch Tickets: Sorcery Academia | 02/24/26
+Grimoilèvina T2/B2 [Ou] | AC Scratch Tickets: Sorcery Academia | 02/24/26
+Lapinchic Hirondel T2 [Ou] | AC Scratch Tickets: Mystical Reverie '26 | 03/03/26
+Lapinchic Hirondel T2/2 [Ou] | AC Scratch Tickets: Mystical Reverie '26 | 03/03/26
+Lapinchic Hirondel T2/B [Ou] | AC Scratch Tickets: Mystical Reverie '26 | 03/03/26
+Lapinchic Hirondel T2/B2 [Ou] | AC Scratch Tickets: Mystical Reverie '26 | 03/03/26
+Cardigan Over T2 [Ou] | AC Scratch Tickets: Stylish Avenue '26 | 04/14/26
+Cardigan Over T2/2 [Ou] | AC Scratch Tickets: Stylish Avenue '26 | 04/14/26
+Cardigan Over T2/3 [Ou] | AC Scratch Tickets: Stylish Avenue '26 | 04/14/26
+Cardigan Over T2/4 [Ou] | AC Scratch Tickets: Stylish Avenue '26 | 04/14/26
+Rinei Kenkaku T2 [Ou] | AC Scratch Tickets: Noble Shadows '26 | 05/26/26
+Rinei Kenkaku T2/2 [Ou] | AC Scratch Tickets: Noble Shadows '26 | 05/26/26
+Rinei Kenkaku T2/B [Ou] | AC Scratch Tickets: Noble Shadows '26 | 05/26/26
+Rinei Kenkaku T2/B2 [Ou] | AC Scratch Tickets: Noble Shadows '26 | 05/26/26
+Igarashi Rika Replica [Ou] | AC Scratch Tickets: Virtual Liver Style '26 | 06/03/26
+Igarashi Rika Replica/2 [Ou] | AC Scratch Tickets: Virtual Liver Style '26 | 06/03/26
+Igarashi Rika Replica/B [Ou] | AC Scratch Tickets: Virtual Liver Style '26 | 06/03/26
+Igarashi Rika Replica/B2 [Ou] | AC Scratch Tickets: Virtual Liver Style '26 | 06/03/26
+Meloco Kyoran Replica [Ou] | AC Scratch Tickets: Virtual Liver Style '26 | 06/03/26
+Meloco Kyoran Replica/2 [Ou] | AC Scratch Tickets: Virtual Liver Style '26 | 06/03/26
+Meloco Kyoran Replica/B [Ou] | AC Scratch Tickets: Virtual Liver Style '26 | 06/03/26
+Meloco Kyoran Replica/B2 [Ou] | AC Scratch Tickets: Virtual Liver Style '26 | 06/03/26
+Back to Top

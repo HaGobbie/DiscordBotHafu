@@ -1,0 +1,5 @@
+# Storage and Inventory Management
+
+== Overview ==
+Storages act as locations to store your items if your Inventory is getting full or too cluttered. Storages in Phantasy Star Online 2: New Genesis can be accessed through Storage Terminals located throughout the plaza of Central City. Items that come from either Phantasy Star Online 2: New Genesis or Phantasy Star Online 2 can be accessed from either version if they are deposited throughout the storages.
+By default, players have access to the Default Storage (200 slots), and the Character Storage (250 slots). Players can unlock more storages with ARKS Cash or Star Gems. Players with Premium status will have access to the Premium Storage (400 slots), and Extended Storages (500 slots) can be purchased using ARKS Cash. One Extended Storage and the Material Storage (1500 slots) can be unlocked with the use of Star Gems.

@@ -1,0 +1,54 @@
+# Game Version Updates and Patch Notes
+
+== Versions ==
+Version Number | Update Details | Notable Changes
+ver.7.2401.1 | Maintenance Notes 12/27/2023 | Addition of AC Scratch Ticket New Year's Charm . Bug fixes.
+ver.7.2401.1 | Maintenance Notes 12/20/2023 | Addition of Reward Boxes . Addition of King Captan . Addition of Christmas '23 Event . Addition of A Gift From Benefan! . Addition of AC Scratch Ticket BLACK LAGOON Style . Bug fixes.
+ver.7.2401.0 | Maintenance Notes 12/13/2023 | Addition of Halphia Lake Interception Part II Addition of NGS Mission Pass Season 27 . Bug fixes.
+ver.7.2401.0 | Maintenance Notes 12/06/2023 | Addition of Bouncer Renewal. Addition of Tech Arts Customization . Addition of Genesis Festival: NGS 2.5th Anniversary . Addition of new Mechanics for Leciel Exploration . Addition of AC Scratch Ticket Joyful Holly-days . Addition of Main Story: Chapter 6, Part 4. Bug fixes.
+ver.7.2301.2 | Maintenance Notes 11/29/2023 | Addition of Drill: Cave Clean-Up Op . Bug fixes.
+ver.7.2301.2 | Maintenance Notes 11/22/2023 | Addition of Halvaldi Vera to Rwh Maqead . Addition of AC Scratch Ticket Frame Arms Style . Addition of AC Scratch Ticket Accessory Collection Nov '23 Bug fixes.
+ver.7.2301.1 | Maintenance Notes 11/15/2023 | Addition of Omen of the Planetbreaker . Addition of Special Training: Green Hill Sprint 2 . Addition of AC Support Item Select Nov '23 Addition of SG Scratch Ticket Refined Form Nov '23 . Addition of NGS Mission Pass Season 26 . Bug fixes.
+ver.7.2301.1 | Maintenance Notes 11/01/2023 | Addition of Rank 5 Retem Alnothe . Addition of AC Scratch Ticket Elemental Defender . Addition of AC Scratch Ticket Remix Line Nov '23 Bug fixes.
+ver.7.2301.0 | Maintenance Notes 10/25/2023 | Addition of Dreisen Plant Interception . Addition of AC Scratch Ticket Monster Masquerade '23 . Bug fixes.
+ver.7.2301.0 | Maintenance Notes 10/18/2023 | Addition of Duel: Phase 3 . Addition of Rank 5 Maqead Lower Level . Addition of Halloween '23 Event . Addition of Haunted Domain Addition of AC Scratch Ticket SPRIGGAN Style . Addition of Special Scratch Ticket Halloween '23 Special Scratch‎‎ . Bug fixes.
+ver.7.2301.0 | Maintenance Notes 10/11/2023 | Addition of Class Level up to 80. Addition of Weapons . Addition of Warp Saucers to Retem . Addition of Starless Enemies to Retem . Addition of TAMES Trapping Trial Addition of Alliance Spaces in Creative Space . Addition of Rank 3 Mining Rig Defense: Retem . Addition of AC Scratch Ticket Street Beat . Addition of NGS Mission Pass Season 25 . Bug fixes.
+ver.7.2201.2 | Maintenance Notes 10/04/2023 | Addition of Night Chill Battle‎‎ . Addition of Main Story: Chapter 6, Part 3‎‎. Bug fixes.
+ver.7.2201.2 | Maintenance Notes 09/27/2023 | Addition of Drill: Autumn Night Aelio Defense 23‎ . Addition of SG Scratch Ticket SG Support Item Select Sep '23‎ . Bug fixes.
+ver.7.2201.2 | Maintenance Notes 09/20/2023 | Addition of Drill: Caldera Clean-Up Op . Addition of AC Scratch Ticket Cyber Comfort . Bug fixes.
+ver.7.2201.2 | Maintenance Notes 09/13/2023 | Addition of Drill: Moonlight Invasion '23 . Addition of AC Scratch Ticket [OSHI NO KO] Style . Addition of SG Scratch Ticket Refined Form Sep '23 . Addition of NGS Mission Pass Season 24 . Bug fixes.
+ver.7.2201.2 | Maintenance Notes 09/06/2023 | Addition of Autumn '23 Event . Addition of Drill: Unidentified Region A32 . Addition of AC Scratch Ticket Moonlight Sanctuary '23 . Addition of Special Scratch Ticket Autumn '23 Special Scratch‎‎ . Bug fixes.
+ver.7.2201.2 | Maintenance Notes 08/30/2023 | Addition of A Ruins Interception . Addition of AC Scratch Ticket Emote Collection Aug '23 . Bug fixes.
+ver.7.2201.1 | Maintenance Notes 08/23/2023 | Addition of Blazing Battle . Addition of AC Scratch Ticket Stylish Summer . Bug fixes.
+ver.7.2201.1 | No Maintenance 08/16/2023 | Addition of AC Scratch Ticket Rewind Collection Aug '23 . Addition of AC Scratch Ticket AC Support Item Select Aug '23 .
+ver.7.2201.1 | Maintenance Notes 08/09/2023 | Addition of Sign of the Planetbreaker . Addition of AC Scratch Ticket Uncle from Another World Style‎‎ . Addition of Special Scratch Ticket Treasure Scratch Vol. 1‎‎ . Addition of NGS Mission Pass Season 23 . Bug fixes.
+ver.7.2201.0 | Maintenance Notes 08/02/2023 | Addition of Halpha Environmental Testing Zone Survey . Addition of Growthment Exchange Shop . Addition of AC Scratch Ticket Designer Dreams Aug' 23 . Bug fixes.
+ver.7.2101.4 | Maintenance Notes 07/26/2023 | Addition of Nazun's Big Quiz Part 2 . Addition of AC Scratch Ticket Remix Line Jul '23 . Addition of AC Scratch Ticket Rewind Collection Jul '23 . Addition of NGS Mission Pass Season 22 . Bug fixes.
+ver.7.2101.4 | Maintenance Notes 07/19/2023 | Addition of AC Scratch Ticket Exotic Summer Night . Bug fixes.
+ver.7.2101.3 | Maintenance Notes 07/12/2023 | Addition of The Fortress in the Forest . Addition of AC Scratch Ticket 11th Anniv Memories . Addition of SG Scratch Ticket Resurgent Force . Bug fixes.
+ver.7.2101.3 | Maintenance Notes 07/05/2023 | Addition of Remnants of Ambition‎ . Addition of PSO2 11th Anniversary Event . Addition of Nazun's Big Quiz Part 1 . Addition of AC Scratch Ticket Designer Dreams Jul' 23 . Addition of SG Scratch Ticket Halpha Revival Jul '23 . Addition of Special Scratch Ticket PSO2 11th SP Scratch . Bug fixes.
+ver.7.2101.2 | Maintenance Notes 06/28/2023 | Addition of AC Scratch Ticket GHOST IN THE SHELL: SAC_2045 Style Bug fixes.
+ver.7.2101.2 | Maintenance Notes 06/21/2023 | Addition of Duel: Phase 2 missions. Addition of Sonic's Birthday '23 Event . Addition of Special Training: Green Hill Sprint . Addition of AC Scratch Ticket Spiritual Conflict . Bug fixes.
+ver.7.2101.1 | Maintenance Notes 06/14/2023 | Addition of Starless Enemies. Addition of Level 70 Combat Zones in Aelio . Addition of Weapons . Addition of Rank 3 Dark Falz Interception . Addition of Rank 2 Drill: Dark Falz Interception R.2 . Addition of AC Scratch Ticket AC Support Item Select Jun '23 . Addition of AC Scratch Ticket Accessory Collection Jun '23 . Addition of NGS Mission Pass Season 21 . Bug fixes.
+ver.7.2101.0 | Maintenance Notes 06/07/2023 | Addition of Creative Space Addition of Genesis Points . Addition of Portable Holograms . Various Class balance adjustments. Various Photon Arts balance adjustments. Various Technique balance adjustments. Addition of AC Scratch Ticket Designer Dreams Jun '23 . Bug fixes.
+ver.7.2001.1 | Maintenance Notes 05/24/2023 | Addition of Dazzling Chaos Suppression Op '23 . Addition of AC Scratch Ticket Soul of the Wild . Bug fixes.
+ver.7.2001.1 | Maintenance Notes 05/17/2023 | Addition of SG Scratch Ticket Refined Form May '23 . Addition of NGS Mission Pass Season 20 . Bug fixes.
+ver.7.2001.1 | Maintenance Notes 05/10/2023 | Addition of A Wasteland Interception . Addition of AC Scratch Ticket Designer Dreams May '23 . Addition of AC Scratch Ticket 2nd Anniv Thankful . Bug fixes.
+ver.7.2001.1 | Maintenance Notes 04/26/2023 | Addition of A Wetlands Interception . Addition of AC Scratch Ticket School Day Memories . Bug fixes.
+ver.7.2001.1 | Maintenance Notes 04/19/2023 | Addition of Level 6 Potentials . Addition of Duel Quests . Addition of Happy Rappy Rumble . Addition of NGS 2nd Anniversary Event . Addition of AC Scratch Ticket Armor of Darkness . Addition of Special Scratch Ticket NGS 2nd SP Scratch . Bug fixes.
+ver.7.2001.0 | Maintenance Notes 04/12/2023 | Addition of Slayer class. Addition of SG Scratch Ticket Slashin' Slayer . Addition of NGS Mission Pass Season 19 . Bug fixes.
+ver.7.2001.0 | Maintenance Notes 04/05/2023 | Addition of Gunblade weapons. Addition of Slayer Operation Prep Ticket Exchange Shop . Addition of AC Scratch Ticket Combat Classics . Bug fixes.
+ver.7.1001.3 | Maintenance Notes 03/22/2023 | Addition of Drill: Unidentified Region X1024 . Addition of AC Scratch Ticket Vigilant Recruit . Bug fixes.
+ver.7.1001.2 | Maintenance Notes 03/15/2023 | Addition of SG Scratch Ticket Refined Form Revival . Addition of NGS Mission Pass Season 18 . Bug fixes.
+ver.7.1001.2 | Maintenance Notes 03/08/2023 | Addition of Spring '23 Event . Addition of Drill: Unidentified Region A16 . Addition of AC Scratch Ticket Mystic Explorer . Addition of Special Scratch Ticket Spring '23 Special Scratch . Bug fixes.
+ver.7.1001.1 | Maintenance Notes 03/01/2023 | Addition of Rank 2 Trinitas in Retem . Addition of AC Scratch Ticket Rewind Collection 10 . Addition of AC Scratch Ticket Early Spring Memories . Bug fixes.
+ver.7.1001.1 | Maintenance Notes 02/22/2023 | Addition of Giant Mutants . Addition of AC Scratch Ticket Modish Winter . Bug fixes.
+ver.7.1001.1 | Maintenance Notes 02/15/2023 | Addition of Drill: Old Capital Clean-Up Op . Addition of AC Scratch Ticket Rewind Collection 9 . Addition of SG Scratch Ticket Volcanic Heart . Addition of NGS Mission Pass Season 17 . Bug fixes.
+ver.7.1001.1 | Maintenance Notes 02/08/2023 | Addition of Drill: Plateau Clean-Up Op . Addition of AC Scratch Ticket Sweet Wonderland . Addition of AC Scratch Tickets: AC Support Item Select 6 . Bug fixes.
+ver.7.1001.0 | Maintenance Notes 02/01/2023 | Addition of The Battle of Halphia Lake . Addition of AC Scratch Ticket Virtual Liver Style . Bug fixes.
+ver.7.1001.0 | Maintenance Notes 01/25/2023 | Addition of Neusen Plant Combat Zone. Addition of Aegis Integra Exchange . Quality of Life changes for the Geometric Labyrinth . Quality of Life changes for the Beauty Salon . Addition of AC Scratch Ticket Cosmic Convict . Addition of AC Scratch Ticket Sweet Memories . Bug fixes.
+ver.7.0901.2 | Maintenance Notes 01/18/2023 | Addition of SG Scratch Ticket Refined Form 10 . Addition of NGS Mission Pass Season 16 . Bug fixes.
+ver.7.0901.2 | Maintenance Notes 01/11/2023 | Addition of Winter '23 Event . Addition of Practice Drill: Sandstorm Windup . Addition of North Aelio Board , and North Retem Board . Addition of AC Scratch Ticket Quaint Ensemble '23 . Bug fixes.
+ver.7.0901.1 | Maintenance Notes 12/28/2022 | Addition of New Year '23 Event . Addition of AC Scratch Ticket Rewind Collectio
+
+[content continues at arks-visiphone.com]

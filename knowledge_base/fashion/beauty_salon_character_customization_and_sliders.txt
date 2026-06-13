@@ -1,0 +1,15 @@
+# Beauty Salon — Character Customization and Sliders
+
+== Overview ==
+In the Beauty Salon, players can edit a character's details such as their appearance and voice.
+Players can access the features of the Beauty Salon by going to the Beauty Salon and talking to Eterna in Central City.
+
+== Body Type ==
+Players can select the Body Type of their character in the salon, which are Humanoid Type 1, Humanoid Type 2, CAST Type 1, and CAST Type 2. CAST Body Types can make use of CAST Parts.
+Equipping certain Outfits or Layering Wear will automatically convert the player's Body Type to the corresponding Body Type of that Outfit or Layering Wear.
+
+== Fashion ==
+Players can load and save ensembles which save the current appearance of their character, including Accessories. By default, players can save up to 10 ensembles, whereas players with Premium status can save up to 30 ensembles.
+
+== Accessories ==
+Players can equip up to 12 accessories, assuming they do not exceed the accessory cost limit. The current accessory limit is 18. Each accessory has a cost limit that may differ from other accessories.

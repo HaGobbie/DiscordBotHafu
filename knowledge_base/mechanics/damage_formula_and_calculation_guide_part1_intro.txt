@@ -1,0 +1,109 @@
+# Damage Formula and Calculation Guide (Part 1)
+
+== Player Damage ==
+The following sections discuss player damage, i.e., damage done by the player.
+
+== Damage Formula ==
+Player damage can be described with the following formula:
+Player Damage = ( WeaponATK * Variance + PlayerATK - EnemyDEF ) * Damage Multipliers * 0.2
+- WeaponATK : The attack value of the weapon equipped as shown on item details.
+- Variance : The range in which WeaponATK is scaled. This is shown on page 2 of item details. See Weapon Variance .
+- PlayerATK : The attack value shown in stats window with no equipments.
+- EnemyDEF : The internal defense value of the enemy. Scales with enemy level.
+- Damage Multipliers : Final damage multipliers applied from various sources. See Player Damage Multipliers .
+The resulting damage from the calculation is rounded to the nearest integer.
+
+=== Weapon Variance ===
+The variance range of a weapon is shown on page 2 of item details. A value is selected at random from this range to be used as the variance multiplier in the damage formula. For example, if a weapon has 70% - 100% variance range. A value between 0.7 and 1.0 is randomly selected and used to scale the weapon's attack value in damage calculation. The probability to get each value in the range seems to be the same, i.e., variance is uniformly distributed.
+Increasing the variance floor via external sources like Augments adds a multiplier to the variance floor in calculation. For example, if a weapon has 70% - 100% variance range, having 1% increased variance floor gives us a range of 70 * 1.01 = 70.7% - 100%. Variance floor increase stacks multiplicatively.
+With knowledge on variance, we can derive the minimum/maximum player damage from the initial damage formula:
+Minimum Player Damage = ( WeaponATK * Minimum Variance + PlayerATK - EnemyDEF ) * Damage Multipliers * 0.2
+Maximum Player Damage = ( WeaponATK + PlayerATK - EnemyDEF ) * Damage Multipliers * 0.2
+
+=== Player Damage Multipliers ===
+There are many damage multipliers modifying the resulting damage done. These multipliers stack multiplicatively. Some common sources of damage multipliers are:
+- PA/Tech Notation : The damage modifier of the attack used. This is usually shown in-game as a percentage value for Photon Arts and Techniques, but actual testing is required to determine the distribution of damage notation for each hit of those attacks. Other attacks in-game can also be tested in a similar fashion. For example, Barta has 250 potency shown in its in-game description, but testing revealed that it does 150% damage uncharged, and 250% damage when charged (used as 1.5 and 2.5 multiplier in calculation respectively).
+- Part Boost : Damage multiplier depending on the part of the target enemy where the attack lands. Common values known are: Elemental Weakness : 1.2 (Note: this only affects elemental attacks, e.g., Techniques.) Weak Point : 1.5 Enhancer : 1.2 Blight Rounds : 1.2 Reinforced Blight Rounds : 1.25
+- Class Skills : In addition to skills within the skill tree, every class gains 10% potency when using their corresponding Main Class Weapons (e.g. Ranger using a Rifle or Launcher).
+- Weapon Potentials : Most weapon potentials provide some amount of % potency. See Potentials .
+- Preset Skills : See Preset Skills .
+- Augments : Many augments provide % potency for specific damage types. See Augments .
+- Unit stats : Some units come with a certain amount of % potency as part of their properties. See Units .
+- Food buffs : Meat can provide up to 10% potency. Food with the Prefix Crisp can provide up to 5% when attacking weak points. See Food .
+- Region Mag buffs : Each region has an Invincible Region Mag that when active, provides 5% potency to players fighting in the region. See Region Mags .
+- Level Difference Modifier : Damage reduction from level difference below enemy. See Level Difference Modifiers .
+- Optimal Range Multiplier : Damage multipliers depending on the distance between the player and where the attack lands. Only affects certain weapons. See Optimal Range .
+- Add-on Skills : Some Add-on skills provide up to 5% Potency. See Add-on Skills .
+When something is referred to as x% potency, the multiplier is understood to be (1 + x%) or (1 + x/100), which is slightly different than for PA/Tech Notation.
+Some quests, such as Leciel Exploration , may provide specific or conditional ability buffs to players that can include % potency.
+
+=== Critical Damage ===
+Critical damage is shown with a larger font in-game (not to be confused with weak point damage which is shown in blue, see Weak Point Damage (Blue Damage) ). Critical damage is 120% of maximum player damage, as shown with the following formula:
+Critical Damage = Maximum Player Damage * 1.2
+Expanded form:
+Critical Damage = ( WeaponATK + PlayerATK - EnemyDEF ) * Damage Multipliers * 0.2 * 1.2
+Where 1.2 is the critical multiplier.
+The Fighter Add-on Skill can provide up to 15% critical strike potency.
+The default critical rate is approximated to be 5%. This can be increased (likely additively) via other sources like Potentials and Abilities.
+The Braver Add-on Skill can provide up to +10% critical strike chance and the Slayer Add-on Skill can provide up to +15% critical strike chance against downed enemies.
+
+=== Optimal Range ===
+Optimal Range is a term used to describe the mechanics of certain weapon types having increased damage depending on the distance from the player to where the attack lands. Each range gives a specific damage multiplier to most attacks. The range giving the highest damage multiplier (AKA the Optimal Range) is indicated by the target marker turning orange in-game.
+Weapon | Close Range | Mid Range | Far Range
+Wired Lance | 1.0 | 1.2 | 1.0
+Rifle | 1.1 | 1.2 | 1.0
+Twin Machine Guns | 1.2 | 1.1 | 1.0
+Note: Actual distance for each range differs for each weapon type.
+
+== Enemy Damage ==
+The following sections discuss enemy damage, i.e., damage done to the player.
+
+== Damage Formula ==
+Enemy damage formula is quite similar to player damage:
+Enemy Damage = ( FLOOR(EnemyATK * EnemyATK Modifer) * Variance - PlayerDEF ) * Damage Multipliers * 0.2
+- EnemyATK : The internal attack value of the enemy. Scales with enemy level.
+- EnemyATK Modifier : Each enemy has a set modifier used to multiply the base attack value. The resulting attack value is then floored. Modifier values found so far range around 0.99 - 1.03.
+- Variance : The range in which attack is scaled. Enemy damage has a set variance range of 96% - 100%.
+- PlayerDEF : The defense value shown in stats window.
+- Damage Multipliers : Final damage multipliers applied from various sources. See Enemy Damage Multipliers .
+The resulting damage from the calculation is rounded to the nearest integer.
+
+=== Enemy Damage Multipliers ===
+There are many damage multipliers modifying enemy damage. These multipliers stack multiplicatively. Some common sources of damage multipliers are:
+- Attack Notation : The damage modifier of the attack used. All values found so far seem to be multiples of 50 (e.g., 100%, 150%, 200%, 250%).
+- Player Damage Reduction : Damage reduction (or negative reduction which increases damage instead) the player has. Common sources known are: Class Skills Weapon Potentials Preset Abilities Special Abilities Unit stats Food buffs
+- Enhancer : An enhanced enemy has 1.5 damage multiplier until Enhancer is destroyed. (Unconfirmed on how it stacks with other enemy buffs).
+- Enemy buffs : See Enemy Buffs .
+- Level Difference Modifier : Damage increase from level difference above player. See Level Difference Modifiers .
+
+== Enemy Buffs ==
+There are several sources of buffs modifying an enemy's damage done and received. These modifiers stack additively.
+
+=== Title Buffs ===
+Enemies with title included in their names receive the following damage modifiers:
+Title | Damage done | Damage received
+Silver | - | -
+Golden | - | -
+Veteran | +30% | -
+Malevolent | +150% | -50%
+
+=== Weather Buffs ===
+Weather buff is indicated in-game by a small icon next to enemy name when targeted. This buff gives certain enemies +20% damage done during specific weather conditions.
+
+=== Daynight Shift ===
+Alters enemies change their appearances significantly during night time. This is called "Daynight Shift" which also gives them +30% damage done in their night forms.
+
+=== Shifta/Deband ===
+Some enemies can cast Shifta/Deband, affecting themselves and/or other nearby enemies. The buff has been found to stack additively up to a set number of times. The following table lists all enemies capable of casting Shifta/Deband known so far and their buff properties.
+Enemy | Duration (max) | Damage done | Damage received | Stacks
+Grulf Lore | 30s (30s) | +5% | -5% | 5 times
+Phongrulf Lore | 30s (30s) | +5% | -5% | 5 times
+Eldi Scythe | 30s (30s) | +25% | -5% | 2 times
+Chiacurio | 30s (30s) | +25% | -10% | 2 times
+
+=== Enhanced Enemies ===
+Enhanced Enemies have an Enhancer Core attached to them and glow red. They receive the following damage modifiers:
+Core state | Damage done | Damage received (multiplicative)
+Intact | +50% | Core: 1.2 Body: 0.1
+Destroyed | - | Weak Element: 1.5 (Stacks with Weakness Multiplier = 1.5 * 1.2)
+As noted, Enhanced Enemies' damage received modifiers seem to be applied as multiplicative part boosts unlike damage reduction from other enemy buffs.

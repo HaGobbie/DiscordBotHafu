@@ -1,0 +1,48 @@
+# Materials — Crafting and Enhancement Resources (Part 1)
+
+== Enhancement Materials ==
+Rarity | Icon | Image | Name | Obtainment | Notes
+N-Grinder | Drop from Rappies , Emperappies , and Great Rappies Found in Green Containers Reward from Tasks Reward from Campaigns Reward from the Mission Pass | A material used for enhancing weapons and armor. Can draw out capabilities beyond the item's limits.
+N-EX-Cube | Acquired by leveling a class above the current level cap Reward from the Mission Pass Exchange from ARKS Record Badge Exchange Shop Exchanged from the Enhancement Material Exchange Shop Purchased from the Treasure Shop Exchange from ARKS Record Badge Exchange Shop | A crystal granted to those who seek power. Used for various purposes like unlocking Potentials and Limit Breaking at the Item Lab.
+N-Class-EX-Cube | Acquired by leveling a specific class above the current level cap Title Reward Drop from Trainia Advance Quests Drop from Equalizing Enemies Exchanged from the Stia Exchange Shop Purchased from the Treasure Shop | A precious crystal given to [Class] class seekers. Used to acquire Add-on Skills at the Class Counter. 10 N-Class-EX-Cubes are acquired as a bonus for leveling above the current level cap.
+N-Master Cube | Purchased from the Treasure Shop Title Reward | Used to acquire Add-on Skills at the Class Counter.
+Strugment A | Drop from High Rank Combat Sectors Drop from High Rank Urgent Quests Drop from Trainia Advance Quests | A piece of combat armor found in places such as Combat Sectors. Refine to process into Arms Refiner.
+Strugment B | Drop from High Rank Combat Sectors Drop from High Rank Urgent Quests Drop from Trainia Advance Quests | A piece of combat armor found in places such as Combat Sectors. Refine to process into Arms Refiner.
+Strugment C | Drop from High Rank Combat Sectors Drop from High Rank Urgent Quests Drop from Trainia Advance Quests | A piece of combat armor found in places such as Combat Sectors. Refine to process into Arms Refiner.
+Arms Refiner | Rare Drop from Megalotix Enemies Rare Drop from Dark Falz Interception Rare Drop from Trainia Advance Quests Exchanged from the Enhancement Material Exchange Shop Exchanged from the ARKS Record Badge Exchange Shop Exchanged from the Stia Exchange Shop Purchased from the Treasure Shop | Material refined from Strugment. Use for Limit Breaking in the Item Lab.
+Arms Refiner II | Rare Drop from Neusen Plant Exchange from Enhancement Material Exchange Shop Exchange from ARKS Record Badge Exchange Shop | Material found in places such as Combat Sectors. Used for more high precision Limit Breaking at the Item Lab.
+Photon Chunk IIA | Obtained from Limited-Time Quests (NGS 2nd Anniversary Event) Rare Drop from Urgent Quests (Lv. 75+) Obtained from Myenin Exchanged from the Giga Strugment Exchange Exchanged from the Enhancement Material Exchange Purchased from the Treasure Shop | A rare mineral that cannot be found in the usual rocky places. Use it to unlock even higher Potentials in the Item Lab.
+Photon Chunk IIB | Obtained from Limited-Time Quests (NGS 2nd Anniversary Event) Rare Drop from Urgent Quests (Lv. 75+) Obtained from Myenin Exchanged from the Giga Strugment Exchange Exchanged from the Enhancement Material Exchange Purchased from the Treasure Shop | A rare mineral that cannot be found in the usual rocky places. Use it to unlock even higher Potentials in the Item Lab.
+
+== TA Customization Materials ==
+Rarity | Icon | Image | Name | Obtainment | Notes
+TA Customization Disc A/Melee | Exchange from Giga Strugment Exchange Shop and Growthment Exchange Shop . Drop from Halpha Environmental Testing Zone Survey | Used for Melee Weapon Tech Arts Customization at the Class Counter.
+TA Customization Disc B/Melee | Exchange from Giga Strugment Exchange Shop and Growthment Exchange Shop . Drop from Halpha Environmental Testing Zone Survey | Used for advanced Melee Weapon Tech Arts Customization at the Class Counter.
+TA Customization Disc A/Ranged | Exchange from Giga Strugment Exchange Shop and Growthment Exchange Shop . Drop from Halpha Environmental Testing Zone Survey | Used for Ranged Weapon Tech Arts Customization at the Class Counter.
+TA Customization Disc B/Ranged | Exchange from Giga Strugment Exchange Shop and Growthment Exchange Shop . Drop from Halpha Environmental Testing Zone Survey | Used for advanced Ranged Weapon Tech Arts Customization at the Class Counter.
+TA Customization Disc A/Technique | Exchange from Giga Strugment Exchange Shop and Growthment Exchange Shop . Drop from Halpha Environmental Testing Zone Survey | Used for Technique Weapon Tech Arts Customization at the Class Counter.
+TA Customization Disc B/Technique | Exchange from Giga Strugment Exchange Shop and Growthment Exchange Shop . Drop from Halpha Environmental Testing Zone Survey | Used for advanced Technique Weapon Tech Arts Customization at the Class Counter.
+TA Customization Disc X/Omni | Exchange from Dread Scale Exchange Shop | Used for even more advanced Weapon Tech Arts Customization for all weapons at the Class Counter.
+
+== Exchange Materials ==
+Rarity | Icon | Image | Name | Obtainment | Notes
+Alpha Reactor | Found across Aelio Rare Drop from Gold Containers Rare Drop from Emperappies and Great Rappies Reward from the Mission Pass | A power reactor of some sort of machine. Can be sold at a high price. Can be converted to 3,500. 14 Alpha Reactors will spawn in Central Aelio every day.
+Beta Reactor | Reward from ARKS Challenge Records | A power reactor of some sort of machine. Can be sold at a high price. Can be converted to 100,000.
+Stellar Fragment | Found in the air in West Retem (Sagan Mountain Road: East) Rare Drop from Gold Containers | A stone that rained down on Halpha during the meteor shower. Can be sold at a high price. Can be converted to 2,000. 10 Stellar Fragments will spawn in West Retem every day.
+Snoal | Found across Central Kvaris | A rock polished by snow. It can be sold for a high price. Can be converted to 3,500. 10 Snoals will spawn in Central Kvaris every day.
+
+== Miscellaneous Materials ==
+Rarity | Icon | Image | Name | Obtainment | Notes
+Icicle Orb | Reward for completing Trials in Kvaris Found in Frozen Item Containers Reward from Mining Rig Defense: Kvaris Purchased from the Treasure Shop | Mysterious energy material that can be obtained from Kvaris trials, etc. Can be used for exchanging items with Reso in Kvaris.
+Icicle Orb II | Dropped from enemies in Rayjord Gorge Exchanged from the Kvaris Exchange Shop Reward from Level 85+ Kvaris Urgent Quests. | Mysterious energy material that can be obtained from Dread Enemies, etc. Can be used for exchanging items with Reso in Kvaris.
+Icicle Cube | Dropped from Ancient Enemies Reward from Mining Rig Defense: Kvaris Reward from Relentless Training in Kvaris 3-III Purchased from the Treasure Shop | Mysterious energy material that can be obtained from Ancient Enemies, etc. Can be used for exchanging items with Reso in Kvaris.
+Icicle Cube II | Dropped from Ancient Enemies Exchanged from the Kvaris Exchange Shop Reward from Level 85+ Kvaris Urgent Quests. | Mysterious energy material that can be obtained from Ancient Enemies, etc. Can be used for exchanging items with Reso in Kvaris.
+Aegis Integra | Exchanged from the Aegis Integra Exchange Exchanged from the ARKS Record Badge Exchange Shop Exchanged from the Genesis Point Exchange Shop First Clear Reward from Geometric Labyrinth (Rank 2) Purchased from the Treasure Shop | Core component from the Dark Falz Aegis. Can be traded for items at an Item Trader's " Aegis Integra Exchange ."
+Giga Strugment | Dropped from Gigantix Enemies (Lv. 79+) Purchased from the Treasure Shop | Can be traded for items at an Item Trader's " Giga Strugment Exchange ."
+Growthment | Reward from Halpha Environmental Testing Zone Survey Reward from Daily Tasks Purchased from the Treasure Shop | Can be traded for items at an Item Trader's " Growthment Exchange ."
+Growthment | Reward from Halpha Environmental Testing Zone Survey Reward from Daily Tasks | Can be traded for items at an Item Trader's " Growthment II Exchange ."
+Dread Scale | Dropped from Dread Enemies Purchased from the Treasure Shop Reward from NGS 3rd Anniversary Limited Time Quests | Part of a Dread Enemy's tough exodermis. Can be exchanged for items at an Item Trader with the " Dread Scale Exchange ."
+M.A.R.S. Updater | Reward from various Urgent Quests and Limited Time Quests. | A M.A.R.S. upgrade device. Can be traded in for M.A.R.S. Skill Points at the Class Counter's M.A.R.S. Skill Point Exchange.
+Progre Grinder | Reward from various Urgent Quests and Limited Time Quests. Dropped from enemies in Stia (Level 95+). Purchased from the Halloween '24 Event Seasonal Shop . | Material required to enhance certain items. Used to exchange for equipment at an Item Trader with the Equipment Upgrade.
+Evoluvolt I | Reward from various Urgent Quests and Limited Time Quests. Dropped from enemies in Stia (Level 95+). Purchased from the Halloween '24 Event Seasonal Shop . | Material required to enhance certain weapons. Used to exchange for weapons at an Item Trader with the Equipment Upgrade.
+Ectasvance I | Reward from various Urgent Quests and Limited Time Quests. Dropped from enemies in Neusen Plant (Rank 2) | Material required to enhance certain armor. Used to exchange for armor at an Item Trader with the Equipment Upgrade.

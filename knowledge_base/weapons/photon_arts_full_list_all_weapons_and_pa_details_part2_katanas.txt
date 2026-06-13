@@ -1,0 +1,53 @@
+# Photon Arts Full List — All Weapons and PA Details (Part 2)
+
+== Katanas ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Silverleaf Storm | Power PP | 230 10 | Default | Katana Photon Art. Releases a forward slash after a swift sword draw. Multiple uses release alternate attacks. | Guarding with weapon action will cancel the attack after the first hit.
+Iris Gale | Power PP | 320 20 | Default | Katana Photon Art. Mows down nearby enemies after a swift sword draw. Multiple uses release alternate attacks. AoE slashes are 2>5>7 hits. | The first stage of the attack can be canceled after the first hit by guarding with weapon whereas the second and third stages cannot until the attack is complete.
+Lotus Lightning | Power PP | 400 18 | Default | Katana Photon Art. Releases manifold shockwaves in a straight line after charging your sword. Multiple uses release alternate attacks. Slashes are 7 hits. | The hitbox of the attack is moderately larger than the visual effect both vertically and horizontally while the distance is accurate to the visual effect. Attack cannot be interrupted with dodge or weapon action.
+Radiant Lilac | Power PP | 265 12 | Default | Katana Photon Art. Slash your target with blinding speed. Multiple uses releases multiple attacks. | Does not allow for vertical traversal and distance traveled is greatly decreased when there is no applicable target.
+
+== Soaring Blades ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Destructive Stork | Power PP | 900 25 | Default | Soaring Blades Photon Art. Mows down nearby enemies and unleashes an additional Photon Blade attack. Pressing the PA button again during the attack will change it. | Rush forward while creating Photon Blades around the user. Pressing the PA button again while attacking changes the Photon Blades to move vertically, instead of horizontally.
+Rampaging Harrier | Power PP | 1270 35 | Default | Soaring Blades Photon Art. Unleashes a combo slash attack and then causes numerous Photon Blades to rain down on the enemy. Pressing the PA button again during the attack will change it. | Seven-Step attack consisting of slashing in multiple directions, which ends in creating a rain of Photon Blades. It is possible to move until the last attack. Pressing the PA button again while attacking changes the attack to send a barrage of Photon Blades to the enemies in front of you.
+Roaring Pheasant | Power PP | 1200 30 | Default | Soaring Blades Photon Art. Releases a powerful strike after charging forward with vertical slashing attacks. Pressing the PA button again during the attack will change it. | Pressing the PA button again while attacking changes the attack removes all forward momentum, in addition to the final strike not being performed.
+Raving Falcon | Power PP | 900 26 | Default | Soaring Blades Photon Art. Unleashes a monster shockwave along with a combo slash. Pressing the PA button again during the attack will change it. | Very similar to PSO2's Etoíle Light Wave/Distortion Pierce, it creates four piercing shockwaves in sequence. Pressing the PA button again while attacking changes the attack to charge at the enemy the user is aiming at.
+
+== Assault Rifles ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Razing Shot | Power PP | 190 16 | Default | Assault Rifle Photon Art. Fire shells that explode on impact with the enemy. The shells spiral and penetrate targets by charging. | Enemies that are hit with the piercing shot explode shortly after for additional damage.
+Homing Darts | Power PP | 360 24 | Default | Assault Rifle Photon Art. Fire special bullets that track multiple enemies in your field of view by charging. | Shoots several homing bullets that track several targets near you. Also allows for horizontal movement.
+Blaze Shot | Power PP | 310 20 | Default | Assault Rifle Photon Art. Fire high-speed volley after a dodge. By pressing and holding down on the PA button, it will continue to fire until PP is depleted. | Allows you to glide while rapidly firing. Drains PP for as long as the button is held.
+Revolt Aim | Power PP | 700 25 | Default | Assault Rifle Photon Art. Powerfully bombard a location. The location will be displayed while pressing and holding the button. Release to launch the attack. | Area affected is a set distance away from the player therefore the player must relocate themselves in order to hit a specified target.
+
+== Launchers ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Fallen Impact | Power PP | 530 25 | Default | Launcher Photon Art. Drop down an explosive shell in front of you. | This PA is similar to PSO2's Assault Rifle PA Satellite Cannon, however the radius is much smaller and shoots multiple missiles down from the sky instead of a beam of light.
+Fear Eraser | Power PP | 1700 35 | Default | Launcher Photon Art. Fire a high-powered photon laser. By pressing and holding down the PA button, it will continue to fire until PP is depleted. A follow-up attack will be added when used continuously for a certain amount of time. | This PA has three parts, the first similar to PSO2's Launcher PA Photonic Laser, while the second occurs as you hold the PA button down longer, it is a slightly wider beam that does more damage. The third part does a final even larger blast when you run out of PP or release the PA button.
+Multi-launch | Power PP | 1300 30 | Default | Launcher Photon Art. Fires a continuous volley of explosive shells ending in a devastating blast. Can be fired while moving or stationary. | Has two parts, the first shoots a volley of missiles at the enemy, the second occurs at the end of the volley and does a bigger explosion at the enemy with slight AOE, it can hit parts of the enemy that are targeted even if they are not in your line of sight. Can be cancelled by pressing the dodge button twice, there is a delay before it cancels however so it is still risky to try to cancel it while being attacked.
+Divine Impact | Power PP | 700 28 | Default | Launcher Photon Art. Fires a blast in front of you. The recoil causes you to move back. Charging it will launch a powerful grenade instead.
+
+== Twin Machine Guns ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Bullet Rave | Power PP | 670 22 | Default | Twin Machine Guns Photon Art. Launch a powerful focus shot after loosing fire intermittently. Charging increases the potency. | It is possible to input an action before the cluster shot fires to skip it. Can be charged.
+Aimless Rain | Power PP | 680 25 | Default | Twin Machine Guns Photon Art. Pelt the surrounding enemies with a hail of bullets as you spin round and round. Charging increases the potency. | This PA has two parts, the first similar to PSO2's Hero TMG PA Final Storm, while the second is similar to PSO2's Gunner TMG PA Shift Period.
+Point Blank | Power PP | 380 20 | Default | Twin Machine Guns Photon Art. Quickly close in on enemies and hit them with a powerful blast. Charging increases the potency. | Very similar to PSO2's Gunner TMG PA Satellite Aim. Can be charged.
+Infinite Ricochet | Power PP | 380 21 | Default | Twin Machine Guns Photon Art. Fire ricocheting bullets to your front as you dance gracefully. Charging increases the potency.
+
+== Bows ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Flex Arrow | Power PP | 1180 17 | Default | Bow Photon Art. Fires homing arrows. Can be charged up to two power levels to release different attacks.
+Frenzied Firework | Power PP | 460 23 | Default | Bow Photon Art. Scatters arrows all around when you hit an enemy. Charge to launch an alternate attack.
+Dimensional Ray | Power PP | 580 27 | Default | Bow Photon Attack. A bow from an alternate dimension rains arrows on enemies. Charging will cause the bow to teleport and release homing attacks when you land hits with other Photon Arts.
+Ceaseless Draw | Power PP | 1620 25 | Default | Bow Photon Art. Unleash arrows to your front as you make a long move. Charging will release a flurry of photon arrows instead.
+
+== Talis ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Convergence Shot | Power PP | 160 15 | Default | Talis Photon Art. Unleash photons in your path and deploy the Talis. Techniques will be altered during Talis deployment. | Alters techniques to become linear shots.
+Spread Shot | Power PP | 440 20 | Default | Talis Photon Art. Deploy the Talis after mowing down your surrounding enemies by releasing photons. Talis deployment will be altered depending on the state of the attack. Also, technique will be altered during deployment. | Interrupting the attack will change the Talis deployment to one that causes techniques to fire in a frontal cone. Allowing the full completion of the attack will change the Talis deployment to one that causes techniques to fire in a small AoE around the player.
+
+== Wands ==
+Icon | Name | Stat | Lv.1 | Obtain List | Description | Notes
+Swift Smash | Power PP | 710 25 | Default | Wand Photon Art. Quickly close in on an enemy to deal a devastating blow. Charging increases the potency. | Very similar to PSO2's Techter Wand PA Heavy Hammer, except it does not track vertically and only does a short lunge forward without a target.
+Wave Crash | Power PP | 410 30 | Default | Wand Photon Art. Slam your weapon on the ground and attack by generating a shock wave that spreads over a wide area. | While the description suggests it hits the ground, this can be used in midair; the shockwave comes from the Wand itself.

@@ -1,0 +1,67 @@
+# Adras Enemy Type — Guide and Combat
+
+Hunter | Fighter | Ranger | Gunner | Force | Techter | Braver | Bouncer | Waker | Slayer
+Adras is an EX Style introduced to Phantasy Star Online 2: New Genesis in the October 1st, 2025 update.
+
+== EX Style Overview ==
+The Adras EX Style primarily supports defensive playstyles, awarding extra attacks and increased Photon Blast gauge buildup by negating enemy attacks. After activating Adras After Blast, Adras Absorption will allow you to heal while attacking enemies for a short amount of time.
+
+=== Skill Tree Overview ===
+Adras After Blast | Adras Trigger Attack | Adras Perfection
+Adras Blast Echo | Adras Absorption
+Potency Up | PP Up | Photon Blast Reduced Cooldown
+
+== Skills ==
+Adras After Blast | Hold the Photon Blast button again after activating a Photon Blast to activate an After Blast.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Adras Trigger Attack | An additional attack will periodically occur when you hit an enemy with PA or Techniques. This fills the Photon Blast gauge and reduces the Photon Blast cooldown. Each time this activates, reduce the cooldown of this effect up to three times by successfully negating enemy attacks.
+Prerequisite -
+Effect | Skill Level
+1
+Cooldown | 40 sec
+Cooldown Reduction | 5 sec
+Max Cooldowns | 3 times
+PB Cooldown Reduction | 4 sec
+Adras Perfection | If you activate the Weapon Action, but are not immediately hit by an attack, the Weapon Action counts as a successful attack evade or negation. Gain an additional attack stock, which unleashes an additional attack when your next attack lands.
+Prerequisite -
+Effect | Skill Level
+1
+Cooldown | 20 sec
+PB Cooldown Reduction | 1 sec
+Adras Blast Echo | For a certain period after activating an After Blast, incoming damage is gradually reduced in up to four stages over time, and damage dealt (excluding Photon Blasts and After Blasts) is increased. Reduce the time taken to progress to the next stage by successfully negating enemy attacks, up to four times when this effect activates.
+Prerequisite - Adras After Blast Lv. 1
+Effect | Skill Level
+1
+Effect Duration | 45 sec
+Potency Increase Rate Per Stage | 2.50%
+Damage Reduction Rate Per Stage | 5.00%
+Time Until Stage Increases | 10 sec
+Required Time Reduction | 5 sec
+Adras Absorption | After activating an After Blast, the first Normal Attack you land will grant a buff for a certain period. Damage dealt increases and HP is recovered each time you land an attack. When HP is recovered with this effect, your max HP increases for a certain period.
+Prerequisite - Adras After Blast Lv. 1
+Effect | Skill Level
+1
+Potency | 105%
+Effect Duration | 20 sec
+HP Recovery Rate | 10%
+Maximum HP Increase | 5%
+Maximum HP Increase Limit | 25%
+Max HP Increase Duration | 60 sec
+Potency Up | Increases Attack Potency.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Potency | 100.40% | 100.80% | 101.20% | 101.60% | 102.00%
+PP Up | Increases Max PP.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Max PP Increase | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Photon Blast Reduced Cooldown | Reduces the time before Photon Blast can be used again.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Cooldown | 99.50% | 99.00% | 98.50% | 98.00% | 97.50% | 97.00% | 96.50% | 96.00% | 95.50% | 95.00%

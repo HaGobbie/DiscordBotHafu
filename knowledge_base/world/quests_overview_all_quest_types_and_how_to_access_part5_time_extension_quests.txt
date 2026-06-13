@@ -1,0 +1,49 @@
+# Quests Overview — All Quest Types and How to Access (Part 5)
+
+== Time Extension Quests ==
+Time Extension Quests are instanced quests where players must kill waves of enemies to extend the timer to avoid timing out before defeating the final boss.
+Currently, the available Time Extension Quests alternate between the Retem region Time Extension Quests and the Kvaris region Time Extension Quests daily.
+Retem Region Time Extension Quests
+Lowland Combat Patrol Mission List of Evergreen Drops Wave 1 100 Genesis Points Wave 2 400 Genesis Points Wave 3 1,000 Genesis Points Wave 4 3,000 Genesis Points Wave 5 7,000 Genesis Points Wave 6 8,000 Genesis Points Other Drops Giga Strugment | List of Evergreen Drops | Wave 1 | 100 Genesis Points | Wave 2 | 400 Genesis Points | Wave 3 | 1,000 Genesis Points | Wave 4 | 3,000 Genesis Points | Wave 5 | 7,000 Genesis Points | Wave 6 | 8,000 Genesis Points | Other Drops | Giga Strugment | Lowland Extermination List of Evergreen Drops Wave 1 100 Genesis Points Wave 2 400 Genesis Points Wave 3 1,000 Genesis Points Wave 4 3,000 Genesis Points Wave 5 7,000 Genesis Points Wave 6 8,000 Genesis Points Wave 7 9,500 Genesis Points Wave 8 11,500 Genesis Points Wave 9 14,000 Genesis Points Wave 10 19,000 Genesis Points Other Drops Giga Strugment | List of Evergreen Drops | Wave 1 | 100 Genesis Points | Wave 2 | 400 Genesis Points | Wave 3 | 1,000 Genesis Points | Wave 4 | 3,000 Genesis Points | Wave 5 | 7,000 Genesis Points | Wave 6 | 8,000 Genesis Points | Wave 7 | 9,500 Genesis Points | Wave 8 | 11,500 Genesis Points | Wave 9 | 14,000 Genesis Points | Wave 10 | 19,000 Genesis Points | Other Drops | Giga Strugment
+List of Evergreen Drops
+Wave 1 | 100 Genesis Points
+Wave 2 | 400 Genesis Points
+Wave 3 | 1,000 Genesis Points
+Wave 4 | 3,000 Genesis Points
+Wave 5 | 7,000 Genesis Points
+Wave 6 | 8,000 Genesis Points
+Other Drops | Giga Strugment
+List of Evergreen Drops
+Wave 1 | 100 Genesis Points
+Wave 2 | 400 Genesis Points
+Wave 3 | 1,000 Genesis Points
+Wave 4 | 3,000 Genesis Points
+Wave 5 | 7,000 Genesis Points
+Wave 6 | 8,000 Genesis Points
+Wave 7 | 9,500 Genesis Points
+Wave 8 | 11,500 Genesis Points
+Wave 9 | 14,000 Genesis Points
+Wave 10 | 19,000 Genesis Points
+Other Drops | Giga Strugment
+Kvaris Region Time Extension Quests
+Frozen Forest Combat Patrol Mission List of Evergreen Drops Wave 1 100 Genesis Points Wave 2 400 Genesis Points Wave 3 1,000 Genesis Points Wave 4 3,000 Genesis Points Wave 5 7,000 Genesis Points Wave 6 8,000 Genesis Points Other Drops Giga Strugment | List of Evergreen Drops | Wave 1 | 100 Genesis Points | Wave 2 | 400 Genesis Points | Wave 3 | 1,000 Genesis Points | Wave 4 | 3,000 Genesis Points | Wave 5 | 7,000 Genesis Points | Wave 6 | 8,000 Genesis Points | Other Drops | Giga Strugment | Frozen Forest Extermination List of Evergreen Drops Wave 1 100 Genesis Points Wave 2 400 Genesis Points Wave 3 1,000 Genesis Points Wave 4 3,000 Genesis Points Wave 5 7,000 Genesis Points Wave 6 8,000 Genesis Points Wave 7 9,500 Genesis Points Wave 8 11,500 Genesis Points Wave 9 14,000 Genesis Points Wave 10 19,000 Genesis Points Other Drops Giga Strugment | List of Evergreen Drops | Wave 1 | 100 Genesis Points | Wave 2 | 400 Genesis Points | Wave 3 | 1,000 Genesis Points | Wave 4 | 3,000 Genesis Points | Wave 5 | 7,000 Genesis Points | Wave 6 | 8,000 Genesis Points | Wave 7 | 9,500 Genesis Points | Wave 8 | 11,500 Genesis Points | Wave 9 | 14,000 Genesis Points | Wave 10 | 19,000 Genesis Points | Other Drops | Giga Strugment
+List of Evergreen Drops
+Wave 1 | 100 Genesis Points
+Wave 2 | 400 Genesis Points
+Wave 3 | 1,000 Genesis Points
+Wave 4 | 3,000 Genesis Points
+Wave 5 | 7,000 Genesis Points
+Wave 6 | 8,000 Genesis Points
+Other Drops | Giga Strugment
+List of Evergreen Drops
+Wave 1 | 100 Genesis Points
+Wave 2 | 400 Genesis Points
+Wave 3 | 1,000 Genesis Points
+Wave 4 | 3,000 Genesis Points
+Wave 5 | 7,000 Genesis Points
+Wave 6 | 8,000 Genesis Points
+Wave 7 | 9,500 Genesis Points
+Wave 8 | 11,500 Genesis Points
+Wave 9 | 14,000 Genesis Points
+Wave 10 | 19,000 Genesis Points
+Other Drops | Giga Strugment

@@ -1,0 +1,213 @@
+# Chat Commands and Shortcuts (Part 1)
+
+== Overview ==
+Chat Commands function identically to PSO2 in the way they are special words that can be typed in chat to invoke various commands, which include changing my sets from anywhere in the lobby, synthesizing chat bubbles, emoting lobby actions and more.
+
+== Symbol Arts ==
+Command | Result
+/symbol1 - /symbol40 | Shares the symbol art saved to the corresponding save slot.
+
+== Stamps ==
+Command | Result
+/st # | Shares the stamp based on stamp ID.
+A list of all stamp IDs can be found on this page .
+
+== Lobby Actions ==
+Command | Result
+/la <action name> | Performs the specified lobby action according to your character's gender.
+/mla <action name> | Performs the male version of the specified lobby action.
+/fla <action name> | Performs the female version of the specified lobby action.
+/cla <action name> | Performs the opposite gender version of the specified lobby action. (ie. Acts as /fla on a male character, etc...)
+/la hsi1 | While using a lobby action with multiple poses, cycles to the next pose (acts like Left Mouse Click)
+/la hsi2 | While using a lobby action with multiple poses, cycles to the previous pose (acts like Right Mouse Click)
+Animated lobby actions can be stopped mid animation by adding "s(x)" or "ss(x)" to the end of the command, where x specifies how long the animation is to play before stopping. (ex. /la dance1 s5) This command can only be used by users with an active Premium Status subscription.
+Command | Result
+/la <action name> s#.## | Performs the respective lobby action and pauses the lobby action at the designated time.
+A list of all lobby action names can be found on this page .
+
+== Change Face Direction ==
+Command | Result
+/cf | Turns your character's face towards the camera. Lasts for 10 seconds unless otherwise specified.
+/cf on /cf off | Turns your character's face towards the camera without a expiration timer. Can be turned off with the off argument.
+/cf all | Changes the face orientations of all nearby characters to face the player's camera.
+/cf sync | Applies and syncs the face orientation of your character to the screen's of other players.
+/cf stop | Freezes the character's current face orientation in place at the time of the command input.
+/cf s<x.xx> | Turns your character's face towards the camera for the specified number of seconds, and freezes the current face orientation after the specified number of seconds elapsed.
+/cf h<xxx> /cf v<xxx> /cf d<xxx> | Changes the direction, rotation, and angle of your character's face orientation according to the specified number. /cf h<xxx> specifies the horizontal direction. /cf v<xxx> specifies the vertical direction. /cf d<xxx> specifies the tilt and rotation. These arguments can be used in conjunction. For example, /cf h-20 d15 allows you to turn your face 20 degrees to the right, and tilts your face 15 degrees to the right. Negative values can be used.
+/cf rev | Changes the face orientation of your character to face opposite of the camera.
+
+== Facial Expressions ==
+Command | Result
+/face1 - /face9 /fc1 - /fc9 | Performs the specified facial expression (Add "s(x.xx)" to display the expression for a period of time in seconds. Use "stop" to skip the talking animation.)
+/fc off | Return to a neutral facial expression.
+/ce | Have your character look at the camera for 10 seconds. (Use "/ce on" to have your character look indefinitely.)
+/ce stop | While "/ce" or "/ce on" is active, this will freeze the current position of the eyes. ("stop" does not work with "/ceall")
+/ceall | Have your character and all surrounding characters look at the camera for 10 seconds. (Use "/ceall on" to make them look indefinitely.)
+/ceall off /ce off | Have characters stop looking after the camera after using "/ce on" or "/ceall on"
+Expression no. | Expression
+1 | Neutral
+2 | Smile
+3 | Angry
+4 | Sad
+5 | Suspicious
+6 | Eyes Closed
+7 | Neutral 2
+8 | Smiling 2
+9 | Wink
+10 | Custom Slot 1
+11 | Custom Slot 2
+12 | Custom Slot 3
+
+== Hand Poses ==
+Hand Poses can be used in Chat Commands in conjunction with lobby actions. Hand Pose commands can be added after a lobby action command (example: /la greet lha raiseindexfinger rha clenchedfist) in order to perform a lobby action with specific hand poses.
+A list of all hand pose names can be found on this page .
+Chat Command | Hand Gesture
+ha | Targets Both Hands
+lha | Targets Left Hand
+rha | Targets Right Hand
+
+== Text Color ==
+Add the following before your text in both chat and custom status messages to change the color of your text:
+Command | Color
+{red} | Red
+{bei} | Beige
+{gre} | Green
+{vio} | Violet
+{blk} | Black
+{ora} | Orange
+{yel} | Yellow
+{blu} | Blue
+{pur} | Purple
+{gra} | Gray
+{whi} | White
+{def} | Revert to default
+Placing {def} anywhere inside the {} together with the color will change the color of the text in the chat log/chat box, but displays incorrectly in the chat bubble. Example: "{{def}red}Text" will produce red "Text" in the chat box, but appear as default color "{red}Text" in the chat bubble.
+
+== Manga Expression ==
+A Manga Expression adds icons to chat bubbles and character models, such as an idea bulb, blush lines, or anger fumes. They can be created with the command, "/mn(x)" where 'x' is the expression number, from 1 to 39 (except for 14, which does not exist.)
+Chat Command | Manga Expression | Category
+/mn1 | Sweating 1 | Negative
+/mn2 | Sweating 2 | Negative
+/mn3 | Irritated (Anger Vein) | Negative
+/mn4 | Ectoplasm | Negative
+/mn5 | Depressed | Negative
+/mn6 | Blushing | Positive
+/mn7 | Dead (Angel Wings) | Positive
+/mn8 | Skull | Negative
+/mn9 | Idea | Positive
+/mn10 | Foolish (Bubbles) | Positive
+/mn11 | Sighing | Negative
+/mn12 | Angry (Fuming) | Negative
+/mn13 | Dissatisfied | Negative
+/mn14 | [Does not exist] | N/A
+/mn15 | Laughing | Positive
+/mn16 | Hearts | Positive
+/mn17 | Music Notes | Positive
+/mn18 | ! | Positive
+/mn19 | ? | Positive
+/mn20 | ?! | Positive
+/mn21 | Sleepy | Negative
+/mn22 | Surprised | Positive
+/mn23 | Depressed + Sweating 1 | Negative Combinations
+/mn24 | Sweating 2 + Blushing | Positive Combinations
+/mn25 | Dissatisfied + Irritated | Negative Combinations
+/mn26 | Irritated + ! | Negative Combinations
+/mn27 | Depressed + Sighing | Negative Combinations
+/mn28 | Foolish + Blushing | Positive Combinations
+/mn29 | Blushing + Angry | Positive Combinations
+/mn30 | Ectoplasm + Skull | Negative Combinations
+/mn31 | Idea + ?! | Positive Combinations
+/mn32 | Foolish + Hearts | Positive Combinations
+/mn33 | Angry + Sighing | Negative Combinations
+/mn34 | Dissatisfied + ! | Negative Combinations
+/mn35 | Dissatisfied + ?! | Negative Combinations
+/mn36 | Surprised + ! | Positive Combinations
+/mn37 | Laughing + Hearts | Positive Combinations
+/mn38 | Laughing + Music Notes | Positive Combinations
+/mn39 | Angry + ? | Negative Combinations
+
+== Cutins ==
+Cutins can be created with the command "/ci(x) (y)" where "x" is the facial expression to be used and "y" is the angle to be used:
+Expression no. | Expression
+1 | Neutral
+2 | Smile
+3 | Angry
+4 | Sad
+5 | Suspicious
+6 | Eyes Closed
+7 | Neutral 2
+8 | Smiling 2
+9 | Wink
+Angle no. | Angle
+1 | Normal
+2 | At an angle level with the head
+3 | At an angle above the head
+4 | At an angle below the head
+5 | From the side
+
+== Equipment ==
+Certain equipment can be changed by chat command, provided that it is already in your inventory:
+Command | Action
+/ms1 - /ms21 /myset1 - myset21 | Change to the corresponding My Set. (Set at the Class Counter)
+/mf1 - /mf50 /myfashion1 - /myfashion50 | Change to the corresponding My Fashion (Set in the Fashion / Catalog menu)
+/mf1 - /mf50 all /myfashion1 - /myfashion50 all | Change to the corresponding My Fashion and applies additional saved features such as MTNs from the saved look. (Set in the Fashion / Catalog menu)
+/mpal1 - /mpal6 /mainpalette1 - /mainpalette6 | Switch to the corresponding weapon palette.
+/spal1 - /spal18 /subpalette1 - /subpalette18 | Switch to the corresponding subpalette.
+
+== String Substitution ==
+You can insert the following strings into chat messages, shortcuts, autowords, etc... to automatically display various bits of information when the message is sent:
+String | Displayed information
+<me> | Your character name
+<class> <cl> | Your main class and current level
+<hp> | Current HP/Maximum HP
+<pp> | Current PP/Maximum PP
+<area> <ar> | The name of your current map.
+<pos> | Map coordinates for your current location. (ex. A-1)
+<trial1> <trial2> <trial3> | The name of your current emergency trials. (Up to 3)
+<target> <t> | Current enemy being targeted
+<weapon> <wp> | Your currently equipped weapon
+<photonarts> <pa> | Your last used photon art
+<technic> <tc> <technique> | Your last used technique name
+<skill> <sk> | Your last used skill name
+
+== Photo Rooms ==
+These chat commands will only work when used in a Photo Room.
+Command | Result
+/pr (weather) (time) | Changes the weather and the time of the photo room. (weather) is case-sensitive and depends on the current region. (time) is a number between 1 and 24. Both weather and time need to be specified or the command won't work.
+/background dr off /background dr on | Hide or Show Alter Realm Dimensional Rift(s).
+Aelio Weather
+Command | Name
+Cloudy
+Fine | Clear
+Rain | Rainy
+Storm | Thunderstorm
+Retem Weather
+Command | Name
+Dust | Dust Cloud
+Fine | Clear
+Heat | Heat Wave
+Meteorshower | Meteor Shower
+Sandstorm
+Kvaris Weather
+Command | Name
+Aurora
+CloudSea | Slightly Cloudy
+Fine | Clear
+Snow
+Snowstorm | Blizzard
+Stia Weather
+Command | Name
+Ash | Ash Rain
+Fine | Clear
+Hot_blast | Scorching
+Magma | Inferno
+Phoenix
+
+== Other commands ==
+Command | Result
+/a | Send message to nearby characters.
+/p | Send message to party.
+/t | Send message to team.
+/vo1 - /vo12 | Play voice-over lines from your character's voice.
+/bl | When whispering, blacklist the person you're sending the whisper to.
+/uioff (x) | Hide the user interface. Can be set to reappear after a set amount of time up to 600 seconds. (Can be cancelled at any time by opening the menu.)

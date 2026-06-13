@@ -1,0 +1,29 @@
+# Skill Rings — Types and Stat Bonuses
+
+Skill Rings are equipment introduced to Phantasy Star Online 2: New Genesis in the October 8th, 2025 update.
+
+== Overview ==
+Skill Rings are rare pieces of equipment that can be used to activate abilities comparable to EX Augments in function. Type 1 and Type 2 Skill Rings are available, and up to one of each can be equipped at the same time. Type 1 Rings focus on increasing damage, while Type 2 Rings focus on defense, PP economy, and other utilities.
+Skill Rings can also be enhanced at the Item Lab to a maximum level of +5. Each level can increase the effectiveness of a ring by increasing its potency or relaxing its activation conditions. In order to go from a base Skill Ring to an Enhancement Level of +5, a total of 9 copies of the same Ring are required as material.
+Skill Rings can only be equipped or removed in ARKS bases.
+
+== List of Type 1 Skill Rings ==
+★ | Icon | Name | Effect | Drop Info | Release Date | Notes
+Type 1/Swish Amp | Potency vs Boss Enemies +2.00% (+2.50%/+3.00%/+3.50%/+3.75%/+4.00%) Potency +1.00% (+1.50%/+2.00%/+2.50%/+2.75%/+3.00%) for 20 seconds when you negate an attack with Sidestep or a Weapon Action | Rare Drop from Pale Flame of the Planetwrecker Rare Drop from Drill: Old Capital Extermination Op | 10/08/2025
+Type 1/HP Keep Amp | The higher your remaining HP, the higher your Potency to a max of +3.00% (+4.00%/+5.00%/+6.00%/+6.50%/+7.00%) Recover 1.00% (2.00%/3.00%/4.00%/4.50%/5.00%) of HP every 20 seconds | Rare Drop from Pale Flame of the Planetwrecker Rare Drop from Drill: Old Capital Extermination Op | 10/08/2025 | Grants Potency +0.30% (+0.40%/+0.50%/+0.60%/+0.65%/+0.70%) for every 10% of HP remaining The healing only activates while HP is not full
+Type 1/Killing Amp | Potency vs. non-boss enemies +2.00% (+2.50%/+3.00%/+3.50%/+3.75%/+4.00%) Potency +1.00% (+1.50%/+2.00%/+2.50%/+2.75%/+3.00%) for 30 seconds when you defeat nearby enemies | Rare Drop from Pale Flame of the Planetwrecker Rare Drop from Drill: Old Capital Extermination Op Rare Drop from Sweets★Panic! | 10/08/2025
+Type 1/Under PP Amp | PP Consumption +20% PA and Technique Potency +2.00% (+2.50%/+3.00%/+3.50%/+3.75%/+4.00%) Potency +2.00% (+2.50%/+3.00%/+3.50%/+3.75%/+4.00%) when PP is at 45% (50%/55%/60%/65%/70%) or lower | Rare Drop from Sweets★Panic! | 10/22/2025
+Type 1/Patient Amp | Recover 7% (9%/11%/13%/14%/15%) PP when your HP decreases, 30 seconds cooldown Potency +3.00% (4.00%/5.00%/6.00%/6.50%/7.00%) for 30 sec | Rare Drop from Sweets★Panic! | 10/22/2025 | Potency effect will trigger upon any HP decrease, this has no cooldown and can be refreshed; Potency effect is independent of the 30 second cooldown PP effect EX Augments such as Risky Stance, Shortage PP Burn, or Maintain Balance will trigger this ring's effects
+Type 1/Defeat Amp | Potency +3.00% (+4.00%/+5.00%/+6.00%/+6.50%/+7.00%) Down Factor to enemies +2% (+4%/+6%/+8%/+9%/+10%) Potency +1.00% for 20 sec when you down nearby enemies | Rare Drop from Luther, False Conqueror Manifest | 4/01/2026
+Type 1/Photon Blast Amp | Potency +3.00% (+3.50%/+4.00%/+4.50%/+4.75%/+5.00%) Potency +1.00% (+1.50%/+2.00%/+2.50%/+2.75%/+3.00%) for 90 sec after Photon Blast activation | Rare Drop from Luther, False Conqueror Manifest | 4/01/2026
+Type 1/Count Amp | Potency +2.00% (+2.50%/+3.00%/+3.50%/+3.75%/+4.00%) Potency +2.00% (+2.50%/+3.00%/+3.50%/+3.75%/+4.00%) for 20 sec when your attacks hit enemies 30 times | Rare Drop from Luther, False Conqueror Manifest | 4/08/2026
+
+== List of Type 2 Skill Rings ==
+★ | Icon | Name | Effect | Drop Info | Release Date | Notes
+Type 2/Simple Guard | Damage Taken -5% | Logging in after 10/08/2025 | 10/08/2025 | Always comes at Enhancement Level +5 Can not be marketed on Personal Shops
+Type 2/Swish Follow | When you negate an attack with a Sidestep or a Weapon Action, recover 1.00% HP (2.00%/3.00%/4.00%/4.50%/5.00%) and 2.00% (4.00%/6.00%/8.00%/9.00%/10.00%) PP, 10 sec cooldown +7% (+10%/+13%/+16%/+18%/+20%) Natural PP Recovery Speed for 20 seconds | Rare Drop from Pale Flame of the Planetwrecker Rare Drop from Drill: Old Capital Extermination Op | 10/08/2025
+Type 2/Over HP Follow | -3.00% (-6.00%/-9.00%/-12.00%/-13.50%/-15.00%) damage taken when HP is at 95% or higher Can't be launched or knocked back by enemy attacks when HP at 95% or higher | Rare Drop from Pale Flame of the Planetwrecker Rare Drop from Drill: Old Capital Extermination Op | 10/08/2025
+Type 2/Under PP Follow | PP Recovery +7% (+10%/+13%/+16%/+18%/+20%) when attacking with PP at 45% (50%/55%/60%/65%/70%) or lower Recover 30% PP when PP at 20% or lower, 90 (80/70/60/50/45) seconds cooldown | Rare Drop from Sweets★Panic! | 10/22/2025
+Type 2/Patient Follow | Recover 4% (8%/12%/16%/18%/20%) HP when your HP decreases, 30 seconds cooldown Damage taken -2% (-5%/-8%/-11%/-13%/-15%) for 10 seconds | Rare Drop from Sweets★Panic! | 10/22/2025
+Type 2/Photon Blast Follow | Damage Taken -1.00% (-2.00%/-3.00%/-4.00%/-4.50%/-5.00%) Photon Blast Gauge Charge +7% (+10%/+13%/+16%/+18%/+20%) for 90 seconds after Photon Blast activation | Rare Drop from Luther, False Conqueror Manifest | 4/1/2026
+Type 2/Count Follow | When your attacks hit enemies 30 times, recover 1.00% (2.00/3.00/4.00/4.50/5.00%) HP and 4% (8/12/16/18/20%) PP 10 sec cooldown | Rare Drop from Luther, False Conqueror Manifest | 4/8/2026
