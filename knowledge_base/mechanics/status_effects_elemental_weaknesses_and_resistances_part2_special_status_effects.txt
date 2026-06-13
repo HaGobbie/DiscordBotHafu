@@ -1,0 +1,56 @@
+# Status Effects, Elemental Weaknesses and Resistances (Part 2)
+
+Sections in this file: Special Status Effects Occurring on Enemies
+
+== Special Status Effects Occurring on Enemies ==
+=== Special Down ===
+A special down state set for a specific enemy. If certain conditions are met, the enemy will be unable to act for a long time and allow the chance to attack. In addition to "Physical Down," "Elemental Down," and "BREAK" as described by the official explanation, "Reaction upon Part Destruction" and "Special Status Effect (Part Elemental Down)" are also set as special downs.
+- Some are caused by the accumulation of down values, and some are caused by dealing a certain amount of damage. In the case of down value accumulation, the effect of "All Down Accumulation Rate +%" from the Potential Inversion Unit is effective.
+- There are skills that activate the effect when the enemy is down, but the activation conditions differ for each skill.
+Skill | Physical Down | Elemental Down | Special Down | BREAK | Part Destruction
+Fi "Defeat ○○" | Y | Y | Y | N | N
+Fo "Eradication PP Gain" | Y
+Fo "Technique Domination" | ??
+Te "Shifta Effect ○○" | Y ?
+Bo "Defeat PP Gain" | Y | Y | Y | N | N
+- If a downed enemy meets another down condition, it basically overrides the down and does not go down anew. Once it comes back from a down, the next down will occur by dealing some damage. However, the enemy Oruq may have a series of downs while down.
+- Some enemies may suspend their down even if the conditions are met during a particular action. In such cases, they will automatically go down after the action is completed.
+A fall is also called a down, but is not included in this down.
+
+=== Physical Down ===
+Some enemies (mainly bosses, Dotts, etc.) can be triggered by continuing to attack a specific part of the body, stopping their actions for a certain amount of time. When the down effect occurs, a long down motion basically occurs, but some enemies only have a short timed motion.
+- The target area that can be physically downed seems to generate a yellow ripple when it is attacked. When this happens, it will sound like a lightning strike and the enemy will see a yellow flashing effect.
+- The damage dealt by an attack is not related to the accumulated value, but the accumulated value is determined by the type of attack.
+It can be divided into multiple types depending on the enemy.
+- Types with judgments on the whole body Bujin, etc. There are cases where there is a judgement for one part of the whole body and for each part of the whole body.
+- Types with a specific part designated Daityl Sword, Pettas Vera, Nex Aelio's "Legs", etc. In the case of large scale enemies, the legs are often the target. Attacking any part of the body other than the designated area will not cause a physical down. Depending on the degree of resistance to attacks to areas other than the designated area, it may be difficult to inflict. Depending on the enemy, multiple parts may be targeted. Oruq's wings, tails, etc.
+- Different types of accumulation judgment for each part. Dotts judged separately on "left (front and back) foot" and "right (front and back) foot", while Nogleth are judged separately on "head" and "arm (front foot)". Each of them accumulates a down value, and they can also generate physical downs in succession.
+
+=== Elemental Down ===
+Some enemies will accumulate a down value by continuing to attack them with their elemental weakness, and when the down value accumulates, it will take effect and stop their actions for a certain period of time. The appearance differs depending on the enemy, but the same is true in that the attack movement is interrupted and stops for a few seconds.
+- When the elemental weakness of an enemy changes due to seasonal events, the down value can be accumulated according to the newly designated elemental weakness. Even if it is the same enemy, if you use a different element than usual during a seasonal event, it will have a different motion than usual, which may affect the ease of hitting the enemy.
+- The damage dealt by an attack is not related to the accumulated value, but the accumulated value is determined by the type of attack.
+- The accumulated value required for elemental down increases with each down. While it is easy to take advantage of special downs because they can occur on any part of the target, they can also occur at unintended times.
+
+=== Part Elemental Down (Special Status Effect) (Tentative) ===
+Applying a specific elemental attack to a specific part of the Enemy will accumulate a down value, and when the accumulation is complete, the effect will occur. As long as the effect lasts, it is judged as a special down. From the activation conditions of the skill, it seems to be a kind of elemental down.
+- Even if the elemental weakness changes due to seasonal events, the element corresponding to the status effect does not change. Attacks other than the elemental weakness do not accumulate down value, so elemental attacks will not cause status effects.
+- The effect varies from enemy to enemy. Gororon's abdomen freezes from the ice element, making it more susceptible to damage.
+
+=== BREAK ===
+A special down set for bosses in Urgent Quests. It is activated by lowering the down gauge.
+
+=== Part Destruction Down (Tentative) ===
+A special down that can be caused by destroying a specific part of some enemies (mainly bosses). In addition to the long down motion, the short staggering motion is also set as a special down.
+
+=== Other Special Down ===
+Special down due to conditions other than the above.
+- Caused by inflicting 1% HP damage on Nogleth during its jumping attack.
+
+=== Part Destruction ===
+Certain parts of some enemies can be destroyed.
+- Any type of attack method or damage can destroy a part by dealing a certain amount of damage. In addition to parts of the body such as the "chest armor" of Pettas Sword and the "claws" of Ard Banser. Parts that are not considered part of the body, such as the "rock" of Za'udan Lore, are systematically treated as parts. Enhanced Enemies' enhancers are treated as parts.
+- Basically, the HP (durability value) of a part is linked to the HP of the main body, but it may not be linked for some enemies. There is also a pseudo-interlocking pattern that deals a percentage of damage to the body when a part is destroyed. Chest armor such as the Pettas Sword is interlocked. The rocks of Za'udan are not interlocked. Enhanced Enemies' enhancers are not linked, but they deal 40% more damage to the main body when the part is destroyed.
+- The effect of destroying a part depends on the enemy. Destroying an Eldi Scythe's sickle reduces the damage of the sickle attack. Destroying an Oruq's head exposes its weaknesses and causes a long down.
+- Enemy reactions that occur when a part is destroyed are set as special downs as described below.
+- Basically, during a special down, the durability value of the part does not drop to zero, so the part cannot be destroyed.

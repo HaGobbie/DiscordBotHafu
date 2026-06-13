@@ -1,0 +1,29 @@
+# Special Enemies — Variants and Unique Modifiers (Part 3)
+
+Sections in this file: Event Normal Enemies, Special Enemies
+
+== Event Normal Enemies ==
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Raguo Rappy | All Exploration and Combat Sectors | Weak to: | A recreation of the Sylvants Nav Rappy .
+Raguo Great Rappy | All Exploration and Combat Sectors | Weak to: | A recreation of the Sylvants Nav Rappy .
+
+=== Rappy Spot ===
+Occasionally, many Rappies will spawn when defeating Dread Enemies in any exploration sector. You may be able to hear Rappies chirp after defeating a Dread Enemy, so seek their spawn point by using the provided audio cues.
+In Rappy Spots, special enemies such as Emperappy may spawn as well, other than just Rappies. On very rare occasions, a Great Rappy will spawn instead of an Emperappy.
+
+== Special Enemies ==
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Captan | Exploration and Combat Sectors | Mastery I - IV Dread Keeper I - IV Gigas Augments I - IV Megas Fusia All Notes Capsules All LC Capsules | N/A | A special type of enemy that rarely spawns in Exploration and Combat Sectors. Captans will only spawn with their respective Emergency Trial, but may also appear during certain Seasonal Quests. Defeating a Captan will reward the player with numerous Augment Capsules, which may include higher value capsules such as C/Mastery IV and C/LC capsules at high levels.
+King Captan | Exploration and Combat Sectors | Mastery I - IV Dread Keeper I - V Gigas Augments I - IV Megas Fusia Foundia All Domina Capsules All Sovern Capsules All LC Capsules | N/A | A special type of enemy that rarely spawns in Exploration and Combat Sectors. King Captans will only spawn with their respective Emergency Trial, but may also appear during certain Seasonal Quests. Defeating a King Captan will reward the player with most Captans Augment Capsules drops with new capsules, which may include C/Foundia and C/Dominas capsules at high levels.
+Drome | Vanford Laboratory Ruins | N/A | N/A | N/A | Defeating it will give characters nearby a temporary Drome ally that will make satellite laser attacks on nearby enemies as long as it has energy. Killing additional Dromes will recover the allied Drome's energy and leveling it up to a maximum of 3. At level 2, the Drome will target two enemies with its satellite laser. At level 3, the Drome will target 3 enemies and occasionally apply a buff that increases potency and damage resistance.
+Hydrome | Neusen Plant | N/A | N/A | N/A | A variant of Drome with greatly increase range for its satellite laser.
+Hovac | Belugana Ruins | N/A | N/A | N/A | Defeating it will give characters nearby a temporary Hovac ally that will launches 2 guided missiles attacks on nearby enemies as long as it has energy. Killing additional Hovac will recover the allied Hovac's energy and leveling it up to a maximum of 3. At level 2, the Hovac launches 4 Lv.2 guided missiles. At level 3, the Hovac launches 4 Lv.3 guided missiles and uses a high-power laser weapon once every 2-3 missiles.
+Scout Wasp | Dreisen Plant Mediola Outer Area 1 Mediola Outer Area 2 Dext Base | N/A | Core (weakpoint) | N/A | An enemy that looks like a drone. It uses radar-like field of view and if it spots a player, it will turn red and circles around the area while flashing its patrol lamp and summons a large number of Beehivo E and rarely shots it main weapon. Oddly its classified as Dolls in game.
+Beehive | Emergency Trials | N/A | N/A | N/A | A stationary robot turret that will fire lasers at characters within its range.
+Beehivo E | Scout Wasp | N/A | N/A | N/A | A Beehive summoned by Scout Wasp. Same as Beehive but oddly classified as Dolls in game.
+DOLLS Control Unit | Trials | N/A | Core (weakpoint) | N/A | A stationary entity floating above ground that will rain down attacks. Some attacks will create updrafts to allow for reaching the core.
+Tendal | Emergency Trials | N/A | N/A | N/A | A stationary robot that generates a green field around it that will heal all enemies within. When destroyed, all enemies within its field receive massive damage.
+Backhack | Mining Rig Defense | N/A | N/A | N/A | Adheres to the rig and inflicts direct damage to them. Can be removed by attacking or by using Barrier Shield on the rig. Appears on the map as
+Meldrum | Mining Rig Defense | N/A | N/A | N/A | Marks a rig with a targeting laser and then charges up to fire a powerful laser on going laser blast. Appears on the map as
+Barrigale | Mining Rig Defense | N/A | N/A | N/A | Generates a wall that players can not pass through but enemies can. Destroying all Barrigales attached to the wall will remove the wall. Appears on the map as
+Transorve | Emergency Trials | N/A | N/A | N/A | A mysterious object that spawns DOLLS. Reveals its core when spawning DOLLS, and can only be damaged when the core is revealed.

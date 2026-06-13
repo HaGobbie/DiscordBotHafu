@@ -1,0 +1,70 @@
+# Blitz Enemy Type — Guide and Combat
+
+Hunter | Fighter | Ranger | Gunner | Force | Techter | Braver | Bouncer | Waker | Slayer
+Blitz is an EX Style introduced to Phantasy Star Online 2: New Genesis in the October 1st, 2025 update.
+
+== EX Style Overview ==
+The Blitz EX Style supports offensive playstyles, awarding extra attacks and increased Photon Blast gauge buildup continously attacking with the same Photon Art or Technique. After activating Blitz After Blast, Blitz Decay Rounds can be used to weaken nearby enemies.
+
+=== Skill Tree Overview ===
+Blitz After Blast | Blitz Trigger Attack | Blitz Cascade
+Blitz Blast Echo | Blitz Decay Rounds
+Potency Up | PP Up | Photon Blast Reduced Cooldown
+
+== Skills ==
+Blitz After Blast | Hold the Photon Blast button again after activating a Photon Blast to activate an After Blast.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Blitz Trigger Attack | An additional attack will periodically occur when you hit an enemy with PA or Techniques. This fills the Photon Blast gauge and reduces the Photon Blast cooldown. Each time this activates, reduce the cooldown of this effect up to three times by reaching a certain number of attack hits.
+Prerequisite -
+Effect | Skill Level
+1
+Cooldown | 40 sec
+Cooldown Reduction | 5 sec
+Max Cooldowns | 3 times
+PB Cooldown Reduction | 4 sec
+Required Number of Hits | 10 times
+Blitz Cascade | When you activate the same PA or Technique three times in a row, or hold the button to activate a PA with a continuous attack for a certain amount of time, PP is recovered and Max PP is temporarily increased. Additionally, one extra attack is stocked which will be unleashed when your next attack lands.
+Prerequisite -
+Effect | Skill Level
+1
+Cooldown | 20 sec
+PP Recovery | +50
+Max PP Increase | +25
+Max PP Increase Limit | +50
+Effect Duration | 80 sec
+PB Cooldown Reduction | 1 sec
+Blitz Blast Echo | For a certain period after activating an After Blast, incoming damage is gradually reduced in up to four stages over time, and damage dealt (excluding Photon Blasts and After Blasts) is increased. Reduce the time taken to progress to the next stage by reaching a certain number of attack hits, up to four times each time this activates.
+Prerequisite - Blitz After Blast Lv. 1
+Effect | Skill Level
+1
+Effect Duration | 45 sec
+Potency Increase Rate Per Stage | 2.50%
+Damage Reduction Rate Per Stage | 5.00%
+Time Until Stage Increases | 10 sec
+Required Time Reduction | 5 sec
+Required Number of Hits | 10 times
+Blitz Decay Rounds | After activating an After Blast, the first Normal Attack to hit an enemy will weaken the surrounding enemies. Your damage dealt to weakened enemies will increase and additional attacks will occur when your attacks hit them. Potency increases based on distance will always be maximized for attacks to these enemies.
+Prerequisite - Blitz After Blast Lv. 1
+Effect | Skill Level
+1
+Potency | 107%
+Effect Duration | 30 sec
+Adtl Atk Effect No. | 30 times
+Potency Up | Increases Attack Potency.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Potency | 100.40% | 100.80% | 101.20% | 101.60% | 102.00%
+PP Up | Increases Max PP.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Max PP Increase | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Photon Blast Reduced Cooldown | Reduces the time before Photon Blast can be used again.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Cooldown | 99.50% | 99.00% | 98.50% | 98.00% | 97.50% | 97.00% | 96.50% | 96.00% | 95.50% | 95.00%

@@ -1,0 +1,33 @@
+# Player Status — Stats, ATK, DEF and Attribute Breakdown (Part 1)
+
+Sections in this file: Stats by Level Thresholds
+
+- There is no racial stat difference in New Genesis.
+- Subclass does not affect player stats.
+- The Battle Power (BP) listed is the amount the class has without any equipment on or skill points spent.
+
+== Stats by Level Thresholds ==
+Level 1
+Class | HP | Attack | Defense | BP
+Hunter | 300 | 450 | 304 | 602
+Fighter | 280 | 454 | 301 | 604.5
+Ranger | 240 | 448 | 300 | 598
+Gunner | 250 | 451 | 297 | 599.5
+Force | 235 | 453 | 296 | 601
+Techter | 260 | 446 | 303 | 597.5
+Braver | 270 | 452 | 302 | 603
+Bouncer | 275 | 453 | 299 | 602.5
+Waker | 255 | 451 | 302 | 602
+Slayer | 220 | 455 | 296 | 603
+Level 115
+Class | HP | Attack | Defense | BP
+Hunter | 818 | 2084 | 1061 | 2614.5
+Fighter | 776 | 2088 | 1058 | 2617
+Ranger | 654 | 2082 | 1057 | 2610.5
+Gunner | 675 | 2085 | 1054 | 2612
+Force | 644 | 2087 | 1053 | 2613.5
+Techter | 695 | 2080 | 1060 | 2610
+Braver | 756 | 2086 | 1059 | 2615.5
+Bouncer | 766 | 2087 | 1056 | 2615
+Waker | 685 | 2085 | 1059 | 2614.5
+Slayer | 613 | 2089 | 1053 | 2615.5

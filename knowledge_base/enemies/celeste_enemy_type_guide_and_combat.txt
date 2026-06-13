@@ -1,0 +1,67 @@
+# Celeste Enemy Type — Guide and Combat
+
+Hunter | Fighter | Ranger | Gunner | Force | Techter | Braver | Bouncer | Waker | Slayer
+Celeste is an EX Style introduced to Phantasy Star Online 2: New Genesis in the October 1st, 2025 update.
+
+== EX Style Overview ==
+The Celeste EX Style supports supports playstyles that accumulate large amounts of Down Factor, awarding extra attacks and increased Photon Blast gauge after inflicting a certain amount of Down Factor. After activating Celeste After Blast, Celeste Absorption will allow you to heal while attacking enemies for a short amount of time.
+
+=== Skill Tree Overview ===
+Celeste After Blast | Celeste Trigger Attack | Celeste Flawless
+Celeste Blast Echo | Celeste Reiteration
+Potency Up | PP Up | Photon Blast Reduced Cooldown
+
+== Skills ==
+Celeste After Blast | Hold the Photon Blast button again after activating a Photon Blast to activate an After Blast.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Celeste Trigger Attack | An additional attack will periodically occur when you hit an enemy with PA or Techniques. This fills the Photon Blast gauge and reduces the Photon Blast cooldown. Each time this activates, reduce the cooldown of this effect up to three times by accumulating a certain amount of Down Factor.
+Prerequisite -
+Effect | Skill Level
+1
+Cooldown | 40 sec
+Cooldown Reduction | 5 sec
+Max Cooldowns | 3 times
+PB Cooldown Reduction | 4 sec
+Required Down Factor Amount | 600
+Celeste Flawless | Negate enemy attacks and reduce damage from some attacks when you: begin charging a non-Weapon Action attack, use an active skill that consumes a gauge/Focus Gauge, or use a Technique with a deployed Talis. If an attack is negated, damage is reduced, or an attack is evaded with an active skill during this effect, an extra attack is stocked for your next attack.
+Prerequisite -
+Effect | Skill Level
+1
+Cooldown | 20 sec
+Damage Taken Rate | 50%
+PB Cooldown Reduction | 1 sec
+Celeste Blast Echo | For a certain period after activating an After Blast, incoming damage is gradually reduced in up to four stages over time, and damage dealt (excluding Photon Blasts and After Blasts) is increased. Reduce the time taken to progress to the next stage by accumulating a certain amount of Down Factor, up to four times each time this activates.
+Prerequisite - Celeste After Blast Lv. 1
+Effect | Skill Level
+1
+Effect Duration | 45 sec
+Potency Increase Rate Per Stage | 2.50%
+Damage Reduction Rate Per Stage | 5.00%
+Time Until Stage Increases | 10 sec
+Required Time Reduction | 5 sec
+Required Down Factor Amount | 600
+Celeste Reiteration | After activating an After Blast, the first active skill used that consumes a gauge or Focus Gauge will increase damage dealt for a certain period. The gauge or Focus Gauge consumed with that skill will recover a certain amount, and the skill’s cooldown will be reduced.
+Prerequisite - Celeste After Blast Lv. 1
+Effect | Skill Level
+1
+Potency | 105%
+Effect Duration | 30 sec
+Cooldown Reduction Rate | 70%
+Potency Up | Increases Attack Potency.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Potency | 100.40% | 100.80% | 101.20% | 101.60% | 102.00%
+PP Up | Increases Max PP.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Max PP Increase | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Photon Blast Reduced Cooldown | Reduces the time before Photon Blast can be used again.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Cooldown | 99.50% | 99.00% | 98.50% | 98.00% | 97.50% | 97.00% | 96.50% | 96.00% | 95.50% | 95.00%

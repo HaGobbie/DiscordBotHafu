@@ -1,0 +1,202 @@
+# Vital Gauges — HP, PP (Photon Points) and Recovery (Part 2)
+
+Sections in this file: Vital Gauges Designs
+
+== Vital Gauges Designs ==
+Vital Gauge | Name | Use Conditions | Marketable | Implementation Date
+VG: Central City | Unlocked by default | 08/02/23
+VG: Fancy Rappy | Unlocked by default | 08/02/23
+VG: Smoky Yellow | Unlocked by default | 08/02/23
+VG: Smoky Black | Unlocked by default | 08/02/23
+VG: Smoky Green | Unlocked by default | 08/02/23
+VG: Smoky Red | Unlocked by default | 08/02/23
+VG: Smoky Blue | Unlocked by default | 08/02/23
+VG: Aina (3D) | First Clear Reward from Sign of the Planetbreaker | 08/09/23
+VG: Manon (3D) | First Clear Reward from Sign of the Planetbreaker | 08/09/23
+VG: Halphana Plains | Seasonal Points Exchange Shop | 09/06/23
+VG: PSO2 10th Anniversary | SG Scratch Tickets: Refined Form Sep '23 | 09/13/23
+VG: Key Visual VG1 | SG Scratch Tickets: Refined Form Sep '23 | 09/13/23
+VG: Key Visual VG2 | SG Scratch Tickets: Refined Form Sep '23 | 09/13/23
+VG: Key Visual VG3 | SG Scratch Tickets: Refined Form Sep '23 | 09/13/23
+VG: Halphana Wetlands | Seasonal Points Exchange Shop | 09/20/23
+VG: Balflow Falls | Title Reward from Death Dancer 3-I | 10/18/23
+VG: Resol Forest | Title Reward from Death Dancer 3-I | 10/18/23
+VG: Garoa (3D) | Title Reward from Deathmatch Devotee 3-I | 10/18/23
+VG: Rossa (3D) | Title Reward from Deathmatch Devotee 3-I | 10/18/23
+VG: Oranje (3D) | Title Reward from Deathmatch Devotee 3-I | 10/18/23
+VG: Ran (3D) | Title Reward from Death Defier 3-I | 10/18/23
+VG: Liu Lin (3D) | Title Reward from Death Defier 3-I | 10/18/23
+VG: Halphia Lake | Seasonal Points Exchange Shop | 10/18/23
+VG: Sagan Mountain Road | Seasonal Points Exchange Shop | 11/01/23
+VG: Aina (Illustration) | SG Scratch Tickets: Refined Form Nov '23 | 11/15/23
+VG: Manon (Illustration) | SG Scratch Tickets: Refined Form Nov '23 | 11/15/23
+VG: Ran (Illustration) | SG Scratch Tickets: Refined Form Nov '23 | 11/15/23
+VG: PSO2 10th Anniversary B | SG Scratch Tickets: Refined Form Nov '23 | 11/15/23
+VG: Murabba Canyon | Seasonal Points Exchange Shop | 12/20/23
+VG: Cape Keenlad | Seasonal Points Exchange Shop | 01/10/24
+VG: Sin of Wrath - Meliodas | AC Scratch Tickets: The Seven Deadly Sins Style | 01/17/24
+VG: Sin of Envy - Diane | AC Scratch Tickets: The Seven Deadly Sins Style | 01/17/24
+VG: Sin of Greed - Ban | AC Scratch Tickets: The Seven Deadly Sins Style | 01/17/24
+VG: Sin of Sloth - King | AC Scratch Tickets: The Seven Deadly Sins Style | 01/17/24
+VG: Sin of Lust - Gowther | AC Scratch Tickets: The Seven Deadly Sins Style | 01/17/24
+VG: Sin of Gluttony - Merlin | AC Scratch Tickets: The Seven Deadly Sins Style | 01/17/24
+VG: Sin of Pride - Escanor | AC Scratch Tickets: The Seven Deadly Sins Style | 01/17/24
+VG: PSO2 10th Anniversary C | SG Scratch Tickets: Renewed Resolve | 01/17/24
+VG: PSO2 10th Anniversary D | SG Scratch Tickets: Renewed Resolve | 01/17/24
+VG: Nadereh (Illustration) | SG Scratch Tickets: Renewed Resolve | 01/17/24
+VG: Key Visual VG4 | SG Scratch Tickets: Renewed Resolve | 01/17/24
+VG: Manon (Illustration) B | SG Scratch Tickets: Renewed Resolve | 01/17/24
+VG: Amamiya Kokoro | AC Scratch Tickets: Virtual Liver Style '24 | 02/14/24
+VG: Nagao Kei | AC Scratch Tickets: Virtual Liver Style '24 | 02/14/24
+VG: Matsukai Mao | AC Scratch Tickets: Virtual Liver Style '24 | 02/14/24
+VG: Yorumi Rena | AC Scratch Tickets: Virtual Liver Style '24 | 02/14/24
+VG: NGS 2nd Anniversary | SG Scratch Tickets: Renewed Resilience | 03/13/24
+VG: PSO2 10th Anniversary E | SG Scratch Tickets: Renewed Resilience | 03/13/24
+VG: PSO2 10th Anniversary F | SG Scratch Tickets: Renewed Resilience | 03/13/24
+VG: PSO2 10th Anniversary G | SG Scratch Tickets: Renewed Resilience | 03/13/24
+VG: Aina (Illustration) B | SG Scratch Tickets: Renewed Resilience | 03/13/24
+VG: CD Jacket 1A | Aina & Manon Collection Set | 03/13/24
+VG: CD Jacket 1B | Aina & Manon Collection Set | 03/13/24
+VG: Maqead Lower Level | Seasonal Points Exchange Shop | 03/13/24
+VG: Rizwana (3D) | Title Reward from Death Dancer 4-I | 03/13/24
+VG: Munira (3D) | Title Reward from Death Dancer 4-I | 03/13/24
+VG: Hadi (3D) | Title Reward from Deathmatch Devotee 4-I | 03/13/24
+VG: Mohsen (3D) | Title Reward from Deathmatch Devotee 4-I | 03/13/24
+VG: Jalil (3D) | Title Reward from Deathmatch Devotee 4-I | 03/13/24
+VG: Nadereh (3D) | Title Reward from Death Defier 4-I | 03/13/24
+VG: Nadereh (3D) B | Title Reward from Death Defier 4-I | 03/13/24
+VG: Giselle | AC Scratch Tickets: Echoes of Idola | 03/19/24
+VG: [New Resolve] Stella | AC Scratch Tickets: Echoes of Idola | 03/19/24
+VG: [New Power] Uly | AC Scratch Tickets: Echoes of Idola | 03/19/24
+VG: Popona & Hatosuke | AC Scratch Tickets: Echoes of Idola | 03/19/24
+VG: Danann Snow Field | Seasonal Points Exchange Shop | 03/27/24
+VG: Gené | Special Scratch Tickets: Anniversary SP Scratch SP Scratch Tickets: Super Origin Festival '25 SP Scratch | 04/24/24
+VG: Annette | Special Scratch Tickets: Anniversary SP Scratch SP Scratch Tickets: Super Origin Festival '25 SP Scratch | 04/24/24
+VG: Duna | Special Scratch Tickets: Anniversary SP Scratch SP Scratch Tickets: Super Origin Festival '25 SP Scratch | 04/24/24
+VG: Akhtal | Special Scratch Tickets: Anniversary SP Scratch SP Scratch Tickets: Super Origin Festival '25 SP Scratch | 04/24/24
+VG: Khorshid | Special Scratch Tickets: Anniversary SP Scratch SP Scratch Tickets: Super Origin Festival '25 SP Scratch | 04/24/24
+VG: Seraphy | Special Scratch Tickets: Anniversary SP Scratch SP Scratch Tickets: Super Origin Festival '25 SP Scratch | 04/24/24
+VG: Moa | Special Scratch Tickets: Anniversary SP Scratch SP Scratch Tickets: Super Origin Festival '25 SP Scratch | 04/24/24
+VG: Bruno | Special Scratch Tickets: Anniversary SP Scratch SP Scratch Tickets: Super Origin Festival '25 SP Scratch | 04/24/24
+VG: Lord | Special Scratch Tickets: Anniversary SP Scratch SP Scratch Tickets: Super Origin Festival '25 SP Scratch | 04/24/24
+VG: Cryano Cliffs Level | NGS 3rd Anniversary Event | 04/24/24
+VG: Belugana Ruins | NGS 3rd Anniversary Event | 04/24/24
+VG: Kvaris Camp | NGS 3rd Anniversary Event | 04/24/24
+VG: Rayjord Gorge | NGS 3rd Anniversary Event | 04/24/24
+VG: Ryza | AC Scratch Tickets: Atelier Style | 05/15/24
+VG: Klaudia | AC Scratch Tickets: Atelier Style | 05/15/24
+VG: Bos | AC Scratch Tickets: Atelier Style | 05/15/24
+VG: Marie | AC Scratch Tickets: Atelier Style | 05/15/24
+VG: Aina (Illustration) C | SG Scratch Tickets: Refined Form May '24 | 05/22/24
+VG: Taivas (Illustration) | SG Scratch Tickets: Refined Form May '24 | 05/22/24
+VG: Kukka (Illustration) | SG Scratch Tickets: Refined Form May '24 | 05/22/24
+VG: Meri (Illustration) | SG Scratch Tickets: Refined Form May '24 | 05/22/24
+VG: Lelouch | AC Scratch Tickets: CODE GEASS Style | 06/19/24
+VG: Suzaku | AC Scratch Tickets: CODE GEASS Style | 06/19/24
+VG: C.C. | AC Scratch Tickets: CODE GEASS Style | 06/19/24
+VG: Kallen | AC Scratch Tickets: CODE GEASS Style | 06/19/24
+VG: Mistra Woods | Title Reward from Death Dancer 5-I | 07/03/24
+VG: Mt. Latva | Title Reward from Death Dancer 5-I | 07/03/24
+VG: Taivas (3D) | Title Reward from Deathmatch Devotee 5-I | 07/03/24
+VG: Tuuli (3D) | Title Reward from Deathmatch Devotee 5-I | 07/03/24
+VG: Ilma (3D) | Title Reward from Deathmatch Devotee 5-I | 07/03/24
+VG: Kukka (3D) | Title Reward from Death Defier 5-I | 07/03/24
+VG: Meri (3D) | Title Reward from Death Defier 5-I | 07/03/24
+VG: Mt. Magus | Super Phantasy Festival Anniversary Event | 07/03/24
+VG: PSO2 10th Anniversary H | Super Phantasy Festival Anniversary Event | 07/03/24
+VG: PSO2 10th Anniversary I | Super Phantasy Festival Anniversary Event | 07/03/24
+VG: Shadow | AC Scratch Tickets: The Eminence In Shadow Style | 07/17/24
+VG: Alpha | AC Scratch Tickets: The Eminence In Shadow Style | 07/17/24
+VG: Beta | AC Scratch Tickets: The Eminence In Shadow Style | 07/17/24
+VG: Alexia | AC Scratch Tickets: The Eminence In Shadow Style | 07/17/24
+VG: NGS Basic | SG Scratch Tickets: Refined Form Jul '24 | 07/17/24
+VG: NGS Basic B | SG Scratch Tickets: Refined Form Jul '24 | 07/17/24
+VG: Glen (Illustration) B | SG Scratch Tickets: Refined Form Jul '24 | 07/17/24
+VG: Kanui (Illustration) B | SG Scratch Tickets: Refined Form Jul '24 | 07/17/24
+VG: Sunraku | AC Scratch Tickets: Shangri-La Frontier Style | 08/21/24
+VG: Psyger-0 | AC Scratch Tickets: Shangri-La Frontier Style | 08/21/24
+VG: Arthur Pencilgon | AC Scratch Tickets: Shangri-La Frontier Style | 08/21/24
+VG: OiKatzo | AC Scratch Tickets: Shangri-La Frontier Style | 08/21/24
+VG: Emul | AC Scratch Tickets: Shangri-La Frontier Style | 08/21/24
+VG: Kafka Hibino | AC Scratch Tickets: Kaiju No. 8 Style | 09/18/24
+VG: Reno Ichikawa | AC Scratch Tickets: Kaiju No. 8 Style | 09/18/24
+VG: Kikoru Shinomiya | AC Scratch Tickets: Kaiju No. 8 Style | 09/18/24
+VG: Mina Ashiro | AC Scratch Tickets: Kaiju No. 8 Style | 09/18/24
+VG: Soshiro Hoshina | AC Scratch Tickets: Kaiju No. 8 Style | 09/18/24
+VG: Kaiju No. 8 | AC Scratch Tickets: Kaiju No. 8 Style | 09/18/24
+VG: Tuuli (Illustration) | SG Scratch Tickets: Refined Form Oct '24 | 10/02/24
+VG: Ilma (Illustration) | SG Scratch Tickets: Refined Form Oct '24 | 10/02/24
+VG: NGS 2nd Anniversary B | SG Scratch Tickets: Refined Form Oct '24 | 10/02/24
+VG: Bourganiss Island | Halloween 24 Event | 10/09/24
+VG: Dozer (3d) | Halloween 24 Event | 10/09/24
+VG: Alterra Base | Halloween 24 Event | 10/09/24
+VG: Strobol Isle | Halloween 24 Event | 10/09/24
+VG: Crawford (3d) | Halloween 24 Event | 10/09/24
+VG: Jasper L | AC Scratch Tickets: Echoes of Idola 2 | 11/12/24
+VG: Lindsey | AC Scratch Tickets: Echoes of Idola 2 | 11/12/24
+VG: Odette | AC Scratch Tickets: Echoes of Idola 2 | 11/12/24
+VG: Miyako Arima | AC Scratch Tickets: Melty Blood Style '24 | 12/03/24
+VG: Dead Apostle Noel | AC Scratch Tickets: Melty Blood Style '24 | 12/03/24
+VG: Powered Ciel | AC Scratch Tickets: Melty Blood Style '24 | 12/03/24
+VG: Shiki Tohno | AC Scratch Tickets: Melty Blood Style '24 | 12/03/24
+VG: Arucueid Brunestud | AC Scratch Tickets: Melty Blood Style '24 | 12/03/24
+VG: Akiha Tohno | AC Scratch Tickets: Melty Blood Style '24 | 12/03/24
+VG: Ciel | AC Scratch Tickets: Melty Blood Style '24 | 12/03/24
+VG: Leciel | Super Genesis Festival 24 Event Part 1 | 12/11/24
+VG: Happy New Year '23 | SG Scratch Tickets: Refined Form Jan '25 | 01/14/25
+VG: NGS 1st Anniversary | SG Scratch Tickets: Refined Form Jan '25 | 01/14/25
+VG: NGS 1st Anniversary B | SG Scratch Tickets: Refined Form Jan '25 | 01/14/25
+VG: Touma Kamijo | AC Scratch Tickets: A Certain Magical Index Style | 02/05/25
+VG: Index | AC Scratch Tickets: A Certain Magical Index Style | 02/05/25
+VG: Mikoto Misaka | AC Scratch Tickets: A Certain Magical Index Style | 02/05/25
+VG: Kaori Kanzaki | AC Scratch Tickets: A Certain Magical Index Style | 02/05/25
+VG: Accelerator | AC Scratch Tickets: A Certain Magical Index Style | 02/05/25
+VG: Ruine Masquerader | First Clear Reward from Extra Duel: Fictitious Beam Depth 9 Rank 10 | 02/26/25
+VG: Vanford Laboratory Ruins | Spring 25 Event | 03/05/25
+VG: Dext Base | Spring 25 Event | 03/05/25
+VG: Ars Almal | AC Scratch Tickets: Virtual Liver Style '25 | 04/16/25
+VG: Debidebi Debiru | AC Scratch Tickets: Virtual Liver Style '25 | 04/16/25
+VG: Nui Sociere | AC Scratch Tickets: Virtual Liver Style '25 | 04/16/25
+VG: Rindou Mikoto | AC Scratch Tickets: Virtual Liver Style '25 | 04/16/25
+VG: NGS 2nd Anniversary C | SG Scratch Tickets: Renewed Resurgence | 05/13/25
+VG: Matoi (Illustration) | SG Scratch Tickets: Renewed Resurgence | 05/13/25
+VG: Luther (Illustration) | SG Scratch Tickets: Renewed Resurgence | 05/13/25
+VG: Ten-Sura - Rimuru Tempest | AC Scratch Tickets: Ten-Sura Style | 05/21/25
+VG: Ten-Sura - Shuna | AC Scratch Tickets: Ten-Sura Style | 05/21/25
+VG: Ten-Sura - Shion | AC Scratch Tickets: Ten-Sura Style | 05/21/25
+VG: Ten-Sura - Milim Nava | AC Scratch Tickets: Ten-Sura Style | 05/21/25
+VG: Halpha's Super Origin Festival | Receive weekly! Halpha’s Super Origin Gifts | 05/22/24
+VG: Halpha's Super Origin Festival B | Receive weekly! Halpha’s Super Origin Gifts | 05/29/24
+VG: Sonic - Sonic | AC Scratch Tickets: Sonic Style Heroines | 06/03/25
+VG: Sonic - Shadow | AC Scratch Tickets: Sonic Style Heroines | 06/03/25
+VG: Sonic - Tails | AC Scratch Tickets: Sonic Style Heroines | 06/03/25
+VG: Lumitea | AC Scratch Tickets: Arcanadea Style | 07/01/25
+VG: Velretta | AC Scratch Tickets: Arcanadea Style | 07/01/25
+VG: Yukumo | AC Scratch Tickets: Arcanadea Style | 07/01/25
+VG: Soffiera | AC Scratch Tickets: Arcanadea Style | 07/01/25
+VG: Yukkuri Reimu & Marisa | AC Scratch Tickets: Touhou Project Style | 08/06/25
+VG: Yumia | AC Scratch Tickets: Atelier Yumia Style | 09/02/25
+VG: Isla | AC Scratch Tickets: Atelier Yumia Style | 09/02/25
+VG: Rutger | AC Scratch Tickets: Atelier Yumia Style | 09/02/25
+VG: Nina | AC Scratch Tickets: Atelier Yumia Style | 09/02/25
+VG: Guilty Princess - Miao | AC Scratch Tickets: Guilty Princess Style | 09/30/25
+VG: Guilty Princess - Chloe | AC Scratch Tickets: Guilty Princess Style | 09/30/25
+VG: Guilty Princess - Kuon | AC Scratch Tickets: Guilty Princess Style | 09/30/25
+VG: Guilty Princess - Alice | AC Scratch Tickets: Guilty Princess Style | 09/30/25
+VG: Guilty Princess - Elfina | AC Scratch Tickets: Guilty Princess Style | 09/30/25
+VG: Pure Summer Gené Swimwear | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+VG: Seaside Annette Swimwear | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+VG: Akhtal Swimwear | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+VG: Khorshid Swimwear | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+VG: Bruno Swimwear | AC Scratch Tickets: PSO2es Vacation Style | 12/03/25
+VG: Rappy | AC Scratch Tickets: PSO2es Weaponoid Style | 01/14/26
+VG: Demonia Saber | AC Scratch Tickets: PSO2es Weaponoid Style | 01/14/26
+VG: Saiki Houyoku | AC Scratch Tickets: PSO2es Weaponoid Style | 01/14/26
+VG: Stragio Casrk | AC Scratch Tickets: PSO2es Weaponoid Style | 01/14/26
+VG: Anacates Himmel | AC Scratch Tickets: PSO2es Weaponoid Style Apr | 04/21/26
+VG: Wrap Cruller | AC Scratch Tickets: PSO2es Weaponoid Style Apr | 04/21/26
+VG: Finbleale | AC Scratch Tickets: PSO2es Weaponoid Style Apr | 04/21/26
+VG: Igarashi Rika | AC Scratch Tickets: Virtual Liver Style '26 | 06/03/26
+VG: Meloco Kyoran | AC Scratch Tickets: Virtual Liver Style '26 | 06/03/26
+VG: Kuramochi Meruto | AC Scratch Tickets: Virtual Liver Style '26 | 06/03/26
+VG: Sophia Valentine | AC Scratch Tickets: Virtual Liver Style '26 | 06/03/26

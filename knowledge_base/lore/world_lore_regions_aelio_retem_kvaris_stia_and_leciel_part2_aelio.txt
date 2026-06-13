@@ -1,0 +1,277 @@
+# World Lore — Regions: Aelio, Retem, Kvaris, Stia and Leciel (Part 2)
+
+Sections in this file: Aelio
+
+== Aelio ==
+=== Central City ===
+Central City | Lobby Map
+Lobby Area (100 Players)
+Shops and Exchanges Item Shop Food Stand Item Lab Item Enhancement Limit Breaking Affixing Potentials Multi-weapon Recycle Shop Item Exchange Shop Augment Capsule Exchange Shop Functions and Facilities Class Counter Personal Shop Beauty Salon Tasks
+The largest city on planet Halpha. This is the location you appear at when signing in, and when you return to after completing an Urgent Quest.
+
+=== Aelio Exploration Sectors ===
+
+=== Central Aelio ===
+Central Aelio
+Gathering Area (32 Players) Recommended Battle Power: 800 Average Enemy Level: Lv.1 | Ryuker Devices : 3 Cocoons : 2 Towers : 1 Collectables : 33 ( 9 Datapods, 24 Red Boxes)
+Sub-locations : Halphana Plains, Mt. Mahinapali
+Urgent Quests : Mining Rig Defense: Aelio
+Notable Items
+Weapons | Units
+Tzvia Series Primm Series | Tzvia Armor Primm Armor
+Materials | Augments
+Monotite Photon Chunk Photon Quartz Light Aelio Peach Crisp Aelio Crab Rich Aelio Herb | C/Ael Note A C/Freeze Ward C/Shock Ward C/Deftness C/Stamina
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Fuwan Gororon Pettas Gun Pettas Sword Tinos Daityl Sword Nogleth | Lizard Fray Evil Angelo Eldi Scythe Waulon | Udan Lore Za'udan Lore Crag Bear | Dian Moo Bell Patt Sunny Tau Bell
+
+=== West Aelio ===
+West Aelio
+Gathering Area (32 Players) Recommended Battle Power: 933 Average Enemy Level: Lv.7 | Ryuker Devices : 4 Cocoons : 2 Towers : 1 Trigger Portals : 1 Region Mag Collectables : 23 ( 5 Datapods, 18 Red Boxes)
+Sub-locations : Aelio Town Ruins, Crykau Hills, Kanai Isle, Lakau Coast
+Battledia Quests : Battledia: Yellow (Aelio Troopers)
+Notable Items
+Weapons | Units
+Tzvia Series Primm Series | Tzvia Armor Primm Armor
+Materials | Augments
+Dualomite Trinite Robust Aelio Banana Light Aelio Turban Shell Crisp Aelio Tomato | C/Ael Note B C/Pain Ward C/Deftness C/Stamina
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Pettas Sword Nex Aelio Oruq Varas | Banehog Evil Angelo Heruc Lizard Fray Lizard Ice Lizard Thunder Eldi Scythe Waulon | Agnis Lore Gara Garongo Grulf Lore Phongrulf Lore Thunder Banser Thunder Banshee | Birdoth Otarica Patt Voks
+
+=== South Aelio ===
+South Aelio
+Gathering Area (32 Players) Recommended Battle Power: 835 Average Enemy Level: Lv.3 | Ryuker Devices : 2 Cocoons : 2 Towers : 1 Region Mag Collectables : 26 ( 8 Datapods, 18 Red Boxes)
+Sub-locations : Balflow Falls, Mt. Piccolt
+Notable Items
+Weapons | Units
+Tzvia Series Primm Series | Tzvia Armor Primm Armor
+Materials | Augments
+Dualomite Photon Chunk Photon Quartz Crisp Aelio Pear Rich Aelio Clam Robust Aelio Turnip | C/Ael Note C C/Blind Ward C/Burn Ward C/Guard C/Spirit
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Dotts Gororon Pettas Gun Pettas Sword Tinos Daityl Axe Nogleth Oruq | N/A | Agnis Lore Grulf Lore Phongrulf Lore Udan Lore Za'udan Lore Ard Banser Ard Banshee | Moony Noxxi Otarica Voks
+
+=== North Aelio ===
+North Aelio
+Gathering Area (32 Players) Recommended Battle Power: 987 Average Enemy Level: Lv.10 | Ryuker Devices : 2 Cocoons : 1 Trigger Portals : 1 Region Mag Collectables : 21 ( 6 Datapods, 15 Red Boxes)
+Sub-locations : Halphana Wetlands, Altolani Plateau
+Battledia Quests : Battledia: Purple (Aelio Devastators)
+Urgent Quests : Command DOLLS Suppression Op
+Notable Items
+Weapons | Units
+Tzvia Series Primm Series | Tzvia Armor Primm Armor
+Materials | Augments
+Trinite Photon Chunk Photon Quartz Rich Aelio Apple Robust Aelio Lobster Light Aelio Mushroom | C/Ael Note D C/Panic Ward C/Poison Ward C/Guard C/Spirit
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Fuwan Gororon Pettas Axe Pettas Launcher Bujin Daityl Axe Varas | Banehog Evil Angelo Lizard Fray Lizard Ice Lizard Thunder Bigg Frogga Chiacurio | N/A | Frango Moo Bell Patt Sunny Tau Bell
+
+=== Halphia Lake ===
+Halphia Lake
+Gathering Area (32 Players) Recommended Battle Power: 9999 Average Enemy Level: Lv.60 | Ryuker Devices : 1 Cocoons : 1 Collectables : 12 ( 3 Datapods, 9 Red Boxes)
+Sub-locations : None
+Urgent Quests : The Battle of Halphia Lake
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Daityl Sword | N/A | N/A | Patt
+
+=== Aelio Combat Sectors ===
+
+=== Mt. Magnus ===
+Mt. Magnus
+Combat Area (8 Players) Recommended Battle Power: 864 Average Enemy Level: Lv.5 | Ryuker Devices : 2 Collectables : 15 ( 2 Datapods, 13 Red Boxes)
+Sub-locations : None
+Sector Rank
+Rank 1 | Average Enemy Level: Lv. 5
+Recommended Battle Power: 894
+Rank 2 | Average Enemy Level: Lv. 15
+Recommended Battle Power: 1184
+Rank 3 | Average Enemy Level: Lv. 35
+Recommended Battle Power: 1759
+Rank 4 | Average Enemy Level: Lv. 60
+Recommended Battle Power: 2647
+Rank 5 | Average Enemy Level: Lv. 70
+Recommended Battle Power: 3119
+Notable Items
+Weapons | Units
+Tisah Series (Wire, Daggers, Gunblade, Machine Guns, Wand, Boots) (Rank 5+) Rugged Series (Rank 4+) Cinquem Series (Rank 3+) Koukloziat Series (Lv. 31+ Select DOLLS) Cattleya Series Resurgir Series | Efitus Armor: Arga (Rank 4+) Vijf Armor: Belta (Rank 3+) Cattleya Armor
+Materials / Other | Augments
+Arms Refiner Strugment A * Cattleya Almati CV | C/Ael Sovern C/Magnus Note
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Dotts Gororon Gororox Pettas Axe Pettax Axe Pettas Gun Pettax Gun Pettas Sword Pettax Sword Tinos Nogleth Varas | Evil Angelo Heruc Lizard Fray Lizard Thunder Chiacurio Waulon | Gara Garongo Grulf Lore Phongrulf Lore Udan Lore Za'udan Lore Ard Banser Ard Banshee Crag Bear | N/A
+
+=== Vanford Laboratory Ruins ===
+Vanford Laboratory Ruins
+Combat Area (8 Players) Recommended Battle Power: 1009 Average Enemy Level: Lv.10 | Ryuker Devices : 1 Collectables : 11 ( 3 Datapods, 8 Red Boxes)
+Sub-locations : None
+Sector Rank
+Rank 1 | Average Enemy Level: Lv. 10
+Recommended Battle Power: 1009
+Rank 2 | Average Enemy Level: Lv. 15
+Recommended Battle Power: 1184
+Rank 3 | Average Enemy Level: Lv. 35
+Recommended Battle Power: 1759
+Rank 4 | Average Enemy Level: Lv. 60
+Recommended Battle Power: 2647
+Rank 5 | Average Enemy Level: Lv. 70
+Recommended Battle Power: 3119
+Notable Items
+Weapons | Units
+Tisah Series (Sword, Knuckles, Blades, Launcher, Bow, Rod) (Rank 5+) Rugged Series (Rank 4+) Cinquem Series (Rank 3+) Koukloziat Series (Lv. 31+ Select DOLLS) Vialto Series Resurgir Series | Efitus Armor: Arga (Rank 4+) Vijf Armor: Arga (Rank 3+) Vialto Armor
+Materials / Other | Augments
+Arms Refiner Strugment B * Vialto Almati CV | C/Ael Sovern C/Lab Note
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Dotts Fuwan Gororon Gororox Pettas Launcher Pettax Launcher Pettas Sword Pettax Sword Tinos Bujin Oruq Daityl Sword Varas | Banehog Evil Angelo Lizard Fray Lizard Thunder Bigg Frogga Eldi Scythe | Agnis Lore Gara Garongo Udan Lore Za'udan Lore Crag Bear | N/A
+
+=== Resol Forest ===
+Resol Forest
+Combat Area (8 Players) Recommended Battle Power: 1184 Average Enemy Level: Lv.15 | Ryuker Devices : 1 Collectables : 10 ( 2 Datapods, 8 Red Boxes)
+Sub-locations : None
+Urgent Quests : Nex Vera Suppression Op
+Sub-locations : None
+Sector Rank
+Rank 1 | Average Enemy Level: Lv. 15
+Recommended Battle Power: 1184
+Rank 2 | Average Enemy Level: Lv. 35
+Recommended Battle Power: 1759
+Rank 3 | Average Enemy Level: Lv. 60
+Recommended Battle Power: 2647
+Rank 4 | Average Enemy Level: Lv. 70
+Recommended Battle Power: 3119
+Notable Items
+Weapons | Units
+Tisah Series (Spear, Saber, Katana, Rifle, Talis, Harmonizer) (Rank 5+) Rugged Series (Rank 3+) Cinquem Series (Rank 2+) Koukloziat Series (Lv. 31+ Select DOLLS) Foursis Series Resurgir Series | Efitus Armor: Arga (Rank 4+) Vijf Armor: Sheza (Rank 3+) Qual De Armor
+Materials / Other | Augments
+Arms Refiner Strugment C * Foursis Almati CV | C/Ael Sovern C/Resola Note
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Fuwan Dotts Gororon Gororox Pettas Gun Pettax Gun Pettas Sword Pettax Sword Tinos Bujin Daityl Axe Nex Aelio Nogleth Varas | Banehog Evil Angelo Heruc Lizard Fray Lizard Ice Lizard Thunder Bigg Frogga Chiacurio Eldi Scythe | Agnis Lore Gara Garongo Grulf Lore Phongrulf Lore Udan Lore Za'udan Lore Crag Bear Thunder Banser Thunder Banshee | N/A
+
+=== Retem ===
+
+=== Retem City ===
+Retem City | Lobby Map
+Lobby Area (100 Players)
+Shops and Exchanges Item Shop Food Stand Item Lab Item Enhancement Limit Breaking Affixing Potentials Multi-weapon Recycle Shop Item Exchange Shop Augment Capsule Exchange Shop Functions and Facilities Class Counter Personal Shop Beauty Salon Tasks
+
+=== Retem Exploration Sectors ===
+
+=== West Retem ===
+West Retem
+Gathering Area (32 Players) Recommended Battle Power: 1223 Average Enemy Level: Lv.17 | Ryuker Devices : 3 Cocoons : 1 Region Mag Collectables : 38 ( 6 Datapods, 32 Red Boxes)
+Sub-locations : Sagan Mountain Road, Stechkin Lowlands
+Notable Items
+Weapons | Units
+Relik Series (Lv. 31+ Boss Enemies) Theseus Series Trois De Series Tzvia Series | Theseus Armor Tzvia Armor
+Materials | Augments
+Stellar Fragment Monotite Tetracite Photon Quartz Robust Retem Strawberry Rich Retem Scallop Robust Retem Cauliflower | C/Ret Note A C/Freeze Ward C/Shock Ward C/Deftness C/Stamina
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Deser Gun Deser Sword Sand Dotts Sand Fuwan Dustyl Hammer Fortos Laser Kelkundo | Kerogero Lizard Fray Savinehog Svaruc Svadi Scythe | Dingale Lore Gillnach Lore Guardinan Lore Signogun Lore Spardun A Lore Spargun A Lore Sparzile Lore | Camelia Lamur Patt Lamur Patti Lamur Sunny
+
+=== Central Retem ===
+Central Retem
+Gathering Area (32 Players) Recommended Battle Power: 1263 Average Enemy Level: Lv.19 | Ryuker Devices : 3 Cocoons : 1 Trigger Portals : 1 Collectables : 35 ( 9 Datapods, 26 Red Boxes)
+Sub-locations : Dalshmarb Desert, Oasis, Tiarm Coast, Trinites
+Battledia Quests : Battledia: Yellow (Retem Troopers)
+Urgent Quests : Renus Vera Suppression Op
+Notable Items
+Weapons | Units
+Relik Series (Lv. 31+ Boss Enemies) Theseus Series Trois De Series Tzvia Series | Theseus Armor Tzvia Armor
+Materials | Augments
+Monotite Dualomite Trinite Photon Chunk Rich Retem Cherry Robust Retem Hermit Crab Light Retem Cranberries | C/Ret Note B C/Pain Ward C/Deftness C/Stamina
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Deser Gun Deser Launcher Deser Sword Sand Koron Sand Tinos Fortos Launcher Kelkundo Lizentos Sand Nogleth | Crowpa Mumidog Roufin Bear Svacurio | Dingale Lore Gillnach Lore Guardinan Lore Signogun Lore Spardun A Lore Spargun A Lore Sparzile Lore | Camelio Lamur Noxxi Lamur Voks Pippoko Pippotam
+
+=== North Retem ===
+North Retem
+Gathering Area (32 Players) Recommended Battle Power: 1396 Average Enemy Level: Lv.21 | Ryuker Devices : 2 Cocoons : 2 Towers : 1 Region Mag Collectables : 51 ( 8 Datapods, 43 Red Boxes)
+Sub-locations : Cape Keenlad, Murabba Canyon
+Urgent Quests : Dustyl Vera Suppression Op
+Notable Items
+Weapons | Units
+Relik Series (Lv. 31+ Boss Enemies) Theseus Series Trois De Series Tzvia Series | Theseus Armor Tzvia Armor
+Materials | Augments
+Tetracite Photon Chunk Crisp Retem Carambola Light Retem Sea Slug Rich Retem Round Eggplant | C/Ret Note C C/Burn Ward C/Blind Ward C/Guard C/Spirit
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Deser Sword Sand Koron Sand Roron Lizentos Sand Nogleth | Glasneg Lizard Fray Mumidog Roufin Bear Savinehog Sval Angelo Bubble Snapper Svadi Scythe | Dingale Lore Grulf Delore Phongrulf Delore | Lamur Birdoth Lamur Patt Lamur Patti Lamur Voks Pippotam
+
+=== South Retem ===
+South Retem
+Gathering Area (32 Players) Recommended Battle Power: 1474 Average Enemy Level: Lv.23 | Ryuker Devices : 3 Cocoons : 2 Trigger Portals : 1 Region Mag Collectables : 41 ( 9 Datapods, 32 Red Boxes)
+Sub-locations : Aldimond Desert, Galner Coast
+Battledia Quests : Battledia: Purple (Retem Devastators)
+Notable Items
+Weapons | Units
+Relik Series (Lv. 31+ Boss Enemies) Theseus Series Trois De Series Tzvia Series | Theseus Armor Tzvia Armor
+Materials | Augments
+Dualomite Trinite Photon Scale Light Retem Mango Robust Retem Hermit Crab Crisp Retem Mushroom | C/Ret Note D C/Panic Ward C/Poison Ward C/Guard C/Spirit
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Deser Gun Deser Gunblade Sand Dotts Sand Fuwan Dustyl Hammer Fortos Launcher Sand Nogleth | Glasneg Kerogero Mumidog Svaruc Bubble Snapper Svaulon | Agnis Delore Alma Rongo Spardun A Lore Spargun A Lore Sparzile Lore | Camelio Pippoko Lamur Otarica Lamur Sunny
+
+=== Rwh Maqead ===
+Rwh Maqead
+Gathering Area (32 Players) Recommended Battle Power: 1513 Average Enemy Level: Lv.24 | Ryuker Devices : 1 Collectables : 25 ( 2 Datapods, 23 Red Boxes)
+Sub-locations : None
+Notable Items
+Weapons | Units
+Relik Series (Lv. 31+ Boss Enemies) Koukloziat Series (Lv. 31+ Select DOLLS) Theseus Series Trois De Series Tzvia Series | Theseus Armor Tzvia Armor
+Materials | Augments
+Tetracite Photon Quartz Robust Retem Strawberry Crisp Retem Sea Urchin Crisp Retem Mushroom | C/Maqea Note C/Spirit C/Stamina
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Deser Gun Deser Gunblade Deser Launcher Deser Sword Sand Koron Sand Roron Sand Tinos Kelkundo | Kerogero Sval Angelo Svaruc | Agnis Delore Alma Rongo Signogun Lore | Lamur Patt Lamur Patti Lamur Sunny Lamur Voks
+
+=== Retem Combat Sectors ===
+
+=== Retem Alnothe ===
+Retem Alnothe
+Combat Area (8 Players) Recommended Battle Power: 1363 Average Enemy Level: Lv.20 | Ryuker Devices : 1 Collectables : 16 ( 1 Datapods, 15 Red Boxes)
+Sub-locations : None
+Sector Rank
+Rank 1 | Average Enemy Level: Lv. 20
+Recommended Battle Power: 1363
+Rank 2 | Average Enemy Level: Lv. 30
+Recommended Battle Power: 1633
+Rank 3 | Average Enemy Level: Lv. 40
+Recommended Battle Power: 1869
+Rank 4 | Average Enemy Level: Lv. 60
+Recommended Battle Power: 2647
+Notable Items
+Weapons | Units
+Rugged Series (Rank 4+) Relik Series (Lv. 31+ Boss Enemies) Koukloziat Series (Lv. 31+ Select DOLLS) Fivla Series Gothica Series Quintel Series | Efitus Armor: Belta (Rank 4+) Vidal Armor Vijf Armor Theseus Armor
+Materials | Augments
+N/A | C/Alno Note
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Deser Gun Deser Sword Sand Dotts Sand Fuwan Sand Koron Fortos Launcher Sand Nogleth | Crowpa Glasneg Kerogero Mumidog Roufin Bear Sval Angelo Svaruc Bubble Snapper Svacurio Svadi Scythe Svaulon | Alma Rongo Dingale Lore Gillnach Lore Guardinan Lore Phongrulf Delore Signogun Lore Spardun A Lore Spargun A Lore Sparzile Lore Dune Bear | N/A
+
+=== Maqead Lower Level ===
+Maqead Lower Level
+Combat Area (8 Players) Recommended Battle Power: 1562 Average Enemy Level: Lv.25 | Ryuker Devices : 1 Collectables : 16 ( 3 Datapods, 12 Red Boxes)
+Sub-locations : None
+Sector Rank
+Rank 1 | Average Enemy Level: Lv. 25
+Recommended Battle Power: 1562
+Rank 2 | Average Enemy Level: Lv. 30
+Recommended Battle Power: 1633
+Rank 3 | Average Enemy Level: Lv. 40
+Recommended Battle Power: 1869
+Rank 4 | Average Enemy Level: Lv. 60
+Recommended Battle Power: 2647
+Rank 5 | Average Enemy Level: Lv. 80
+Recommended Battle Power: 3649
+Notable Items
+Weapons | Units
+Rugged Series (Rank 4+) Relik Series (Lv. 31+ Boss Enemies) Koukloziat Series (Lv. 31+ Select DOLLS) Fivla Series Gothica Series Quintel Series | Efitus Armor: Belta (Rank 4+) Vios Armor Vijf Armor Theseus Armor
+Materials / Other | Augments
+* Fivla Almati CV * Gothica Almati CV * Quintel Almati CV | C/Maqea Note
+Region Enemies
+DOLLS | ALTERS | FORMERS | TAMES
+Brancle Deser Gun Deser Gunblade Deser Launcher Deser Sword Metius Sand Dotts Sand Fuwan Sand Koron Sand Roron Sand Rorox Dustyl Hammer Fortos Laser Kelkundo Lizentos Renus Retem Sand Nogleth | N/A | Dingale Lore Guardinan Lore Signogun Lore Sparzile Lore Granmizer | N/A

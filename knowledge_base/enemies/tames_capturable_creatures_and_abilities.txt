@@ -1,0 +1,55 @@
+# Tames — Capturable Creatures and Abilities
+
+Enemies : | DOLLS | ALTERS | FORMERS | Starless | Ruinus | Special Enemies | TAMES
+Enemy EXP
+The Tames are the passive enemies of the Planet Halpha, they tend to run away when threatened.
+
+=== Normal Enemies ===
+
+=== Aelio Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Birdoth | West Aelio | Light Aelio Meat | - | - | -
+Dian | Central Aelio | Crisp Aelio Meat | - | - | -
+Frango | North Aelio | Light Aelio Meat | - | - | -
+Moo Bell | Central Aelio North Aelio | Robust Aelio Meat | - | - | -
+Moony | Central Aelio West Aelio | Rich Aelio Meat | - | - | -
+Noxxi | South Aelio | Robust Aelio Meat | - | - | -
+Otarica | South Aelio West Aelio | Crisp Aelio Meat | - | - | -
+Patt | Central Aelio West Aelio North Aelio Halphia Lake | Light Aelio Meat | - | - | -
+Sunny | Central Aelio North Aelio | Rich Aelio Meat | - | - | -
+Tau Bell | Central Aelio North Aelio | Robust Aelio Meat | - | - | -
+Voks | South Aelio West Aelio | Rich Aelio Meat | - | - | -
+
+=== Retem Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Camelia | West Retem | Crisp Retem Meat | - | - | -
+Camelio | Central Retem South Retem | Crisp Retem Meat | - | - | -
+Lamur Birdoth | North Retem | Light Retem Meat | - | - | -
+Lamur Noxxi | Central Retem | Robust Retem Meat | - | - | -
+Lamur Otarica | South Retem | Crisp Retem Meat | - | - | -
+Lamur Patt | North Retem West Retem Rwh Maqead | Light Retem Meat | - | - | -
+Lamur Patti | North Retem West Retem Rwh Maqead | Light Retem Meat | - | - | -
+Lamur Sunny | South Retem West Retem Rwh Maqead | Rich Retem Meat | - | - | -
+Lamur Voks | North Retem Central Retem Rwh Maqead | Rich Retem Meat | - | - | -
+Pippoko | Central Retem South Retem | Robust Retem Meat | - | - | -
+Pippotam | Central Retem North Retem | Robust Retem Meat | - | - | -
+
+=== Kvaris Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Comanta | Rayjord Gorge | Notable Kvaris Meat Robust Kvaris Meat | - | - | -
+Lumi Birdoth | Central Kvaris | Light Kvaris Meat Robust Kvaris Meat | - | - | -
+Lumi Otarica | Rayjord Gorge West Kvaris | Crisp Kvaris Meat Robust Kvaris Meat | - | - | -
+Lumi Patt | Central Kvaris South Kvaris West Kvaris | Light Kvaris Meat Robust Kvaris Meat | - | - | -
+Lumi Sunny | Central Kvaris South Kvaris | Rich Kvaris Meat Robust Kvaris Meat | - | - | -
+Lumi Voks | South Kvaris | Rich Kvaris Meat Robust Kvaris Meat | - | - | -
+Poloro | West Kvaris | Crisp Kvaris Meat Robust Kvaris Meat | - | - | -
+
+=== Stia Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Flamm Comanta | Mediola Outer Area 1 | Rich Stia Meat | - | - | -
+Flamm Birdoth | Mediola Outer Area 2 | Light Stia Meat | - | - | -
+Flamm Otarica | Stia Outskirts | Rich Stia Meat | - | - | -
+Flamm Patt | Mediola Outer Area 1 Stia Outskirts | Light Stia Meat | - | - | -
+Flamm Sunny | Mediola Outer Area 1 Mediola Outer Area 2 | Robust Stia Meat | - | - | -
+Flamm Voks | Mediola Outer Area 1 | Crisp Stia Meat | - | - | -
+Flamm Poloro | Mediola Outer Area 2 Stia Outskirts | Robust Stia Meat | - | - | -

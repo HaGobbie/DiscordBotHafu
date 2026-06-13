@@ -1,0 +1,65 @@
+# Formers Enemy Faction — All Types and Behavior (Part 1)
+
+Sections in this file: Normal Enemies
+
+Enemies : | DOLLS | ALTERS | FORMERS | Starless | Ruinus | Special Enemies | TAMES
+Enemy EXP
+FORMERS is the common name for enemies that look like beasts or automata. All FORMERS are variants of enemies encountered by the interplanetary fleet Oracle, 1,000 years in the past.
+They are more violent than TAMES and will attack ARKS defenders on sight.
+
+== Normal Enemies ==
+=== Aelio Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Agnis Lore | • Central Aelio • South Aelio • West Aelio • Vanford Laboratory Ruins | Forms Soul | - | Weak to: | Halphanian variants of the Sylvant Agnis. Attacks with claw strikes or bile shots.
+Gara Garongo | • West Aelio • Aelio Region Combat Sectors | Forms Soul | • Belly | Weak to: | Halphanian variants of the Sylvant Garongo. Its rolling attack strikes enemies at high speed. A Gara Garango will fall onto its side if its rolling attack hits an obstacle. Additionally, it can be forced onto its side with a Diving Attack, as long as it is not mid-attack.
+Grulf Lore | • West Aelio • South Aelio • Mt. Magnus • Resol Forest | Forms Soul | - | Weak to: | Halphanian variants of the Sylvant Grulf. Beware its long-ranged jump attack.
+Phongrulf Lore | • West Aelio • South Aelio • Mt. Magnus • Resol Forest | Forms Soul | - | Weak to: | Halphanian variants of the Sylvant Phongrulf. Its howl can buff other enemies with Shifta and Deband, which can stack up to five times.
+Udan Lore | • Central Aelio • South Aelio | Forms Soul | - | Weak to: | Halphanian variants of the Sylvant Udan. Attacks with claw strikes and lunges.
+Za'udan Lore | • Central Aelio • South Aelio • Aelio Region Combat Sectors | Forms Soul | • Rocks | Weak to: | Halphanian variants of the Sylvant Za'udan. Throws rocks to attack. Basic Sylvant. Destroy the rock it picks up to stun it.
+
+=== Retem Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Agnis Delore | • South Retem • Rwh Maqead • Retem Alnothe | Forms Sand Soul | - | Weak to: | Retem variants of Agnis Lore. Possesses the same behaviors.
+Alma Rongo | • South Retem • Rwh Maqead • Retem Alnothe | Forms Sand Soul | - | Weak to: | Retem variants of Gara Garongo. Possesses the same behaviors.
+Grulf Delore | • North Retem • Retem Alnothe | Forms Sand Soul | - | Weak to: | Retem variants of Grulf Delore. Possesses the same behaviors.
+Phongrulf Delore | • North Retem • Retem Alnothe | Forms Sand Soul | - | Weak to: | Retem variants of Phongrulf Delore. Possesses the same behaviors.
+Dingale Lore | • Retem Region Exploration Sectors • Retem Region Combat Sectors | Forms Machini Soul | • Shoulder Cannon • Core | Weak to: | Halphanian variants of the Automata Dingale. Shoots with twin machineguns and shoulder cannon. Also utilizes the laser blade attack of the Tainted Automata Bladingale. Destroying a Dingale Lore's shoulder cannon temporarily stuns it.
+Gillnach Lore | • Retem Region Exploration Sectors • Retem Region Combat Sectors | Forms Machini Soul | - | Weak to: | Halphanian variants of the Automata Gillnach. Swings its body around to melee. Heals its fellow automata FORMERS.
+Guardinan Lore | • Retem Region Exploration Sectors • Retem Region Combat Sectors | Forms Machini Soul | - | Weak to: | Halphanian variants of the Automata Guardinan. No longer functions as a rare variant, nor spawns alongside other Guardines/Guardinans. Slowly floats around, shooting at nearby targets.
+Spardun A Lore | • Retem Region Exploration Sectors • Retem Region Combat Sectors | Forms Machini Soul | - | Weak to: | Halphanian variants of the Automata Spardun A. Lunges itself towards you.
+Spargun A Lore | • Retem Region Exploration Sectors • Retem Region Combat Sectors | Forms Machini Soul | - | Weak to: | Halphanian variants of the Automata Spargun. Shoots beams from a distance. Lunges itself towards you and throws mines.
+Sparzile Lore | • Retem Region Exploration Sectors • Retem Region Combat Sectors | Forms Machini Soul | - | Weak to: | Halphanian variants of the Automata Sparzile. Detonates itself after chasing you around. If allowed to arm, it will detonate even if defeated.
+Signogun Lore | • Retem Region Exploration Sectors • Retem Region Combat Sectors | Forms Machini Soul | - | Weak to: | Halphanian variants of the Automata Signogun. Drive-by shoots you and charges a powerful laser.
+
+=== Kvaris Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Agnis Zalore | • Central Kvaris • South Kvaris • West Kvaris • Belugana Ruins • Lost Central | Forms Soul | - | Weak to: | Kvaris variants of Agnis Lore. Possesses the same behaviors.
+Blizza Rongo | • Central Kvaris • South Kvaris • Rayjord Gorge • Belugana Ruins • Lost Central | Forms Soul | • Belly | Weak to: | Kvaris variants of Gara Garongo. Possesses the same behaviors.
+Grulfer Lore | • Central Kvaris • Rayjord Gorge • Belugana Ruins | Forms Soul | - | Weak to: | Kvaris variants of Grulf Lore. Possesses the same behaviors.
+Phangrulfer Lore | • Central Kvaris • Belugana Ruins • Lost Central | Forms Soul | - | Weak to: | Kvaris variants of Phongrulf Lore. Possesses the same behaviors.
+Marmoth Lore | • Central Kvaris • South Kvaris • West Kvaris • Belugana Ruins • Lost Central | Forms Soul | • Hump | Weak to: | Halphanian variants of the Sylvant Marmoth. Charges at enemies from a distance, and performs sweeping attacks using it's trunk while nearby.
+Yedi Lore | • Central Kvaris • South Kvaris • Belugana Ruins | Forms Soul | - | Weak to: | Halphanian variants of the Sylvant Yedi. Rolls into enemies and attacks from afar with snowball attacks.
+
+=== Stia Region ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Agnis Volore | • Mediola Outer Area 1 • Dext Base | Forms Sand Soul | - | Weak to: | Stia variants of Agnis Lore. Possesses the same behaviors.
+Baridran Lore | • - | Forms Sand Soul | - | Weak to:
+Deeg Lore | • - | Forms Sand Soul | - | Weak to:
+Fodran Lore | • - | Forms Sand Soul | - | Weak to:
+Grulf Volore | • Mediola Outer Area 2 • Dext Base (Very Rare) | Forms Sand Soul | - | Weak to: | Stia variants of Grulf Lore. Possesses the same behaviors.
+Guardinan Volore | • - | Forms Sand Soul | - | Weak to:
+Nordeeran Lore | • - | Forms Sand Soul | - | Weak to:
+Phongrulf Volore | • - | Forms Sand Soul | - | Weak to: | Stia variants of Phongrulf Lore. Possesses the same behaviors.
+Signogun Volore | • - | Forms Machini Soul | - | Weak to:
+Spardun A Volore | • - | Forms Machini Soul | - | Weak to:
+Spargun Volore | • - | Forms Machini Soul | - | Weak to:
+Sol Deegahla Lore | • - | Forms Sand Soul | - | Weak to:
+Vol Garongo | • Mediola Outer Area 1 • Mediola Outer Area 2 • Dext Base | Forms Sand Soul | - | Weak to: | Stia variants of Gara Garongo. Possesses the same behaviors.
+
+=== High ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+High Gillnach | • Invasion on Shifting Sands | Weak to: | High version of Gillnach.
+
+=== Event Normal Enemies ===
+Enemy | Area | Drop List | Breakpoints | Weakness | Notes
+Heat Sparzile | • Massive Machine Assault • Drill: Fierce Warlord Arena | - | Weak to: | A bigger red version of Sparzile Lore. Has the same behaviors but now with a red circle around it when hunting a player and a bigger explosion.

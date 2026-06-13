@@ -1,0 +1,72 @@
+# MARS — Combat Vehicle Type and Mechanics
+
+M.A.R.S.
+Skill Tree
+The M.A.R.S. ( M ultirole A RKS R eactive S ystem) is an action system introduced to Phantasy Star Online 2: New Genesis in the July 31st, 2024 update.
+
+== Overview ==
+Unlockable following the completion of Chapter 1, the M.A.R.S. is a customizable weapon that is usable via its designated Sub-Palette button.
+The M.A.R.S. is composed of four different main armaments, and three different sub armaments. Players can equip any combination of two main armaments and one sub armament at a time, with each one having different properties, effects, and gameplay styles.
+Similarly to Photon Blasts, the "M.A.R.S. Battery" charges passively at a rate of 1% every 5.4 seconds: with nine minutes being required to fully charge the system. Players can activate the M.A.R.S. after its battery has reached at least 25% of its maximum charge, and the battery's charge will drain at a rate of 1% every 0.83 second: allowing for a maximum usage time of 2 minutes.
+The M.A.R.S. system can be activated and deactivated at will multiple times at any point in the majority of quests. However, prematurely deactivating the M.A.R.S. before it has been used for at least 30 seconds will consume additional charge (up to 25% of the maximum gauge).
+Note that becoming incapacitated will automatically deactivate the M.A.R.S.
+
+== Main Armaments ==
+The M.A.R.S. main armaments all have a Normal Attack, a single Photon Art, and a Weapon Action. Each main armament has its own playstyle and specialty that are the biggest influences in how you operate the system. There are a total of four main armaments, with two being equippable simultaneously (one weapon will fill the main armament Palette, while the other will fill the Back Palette).
+- VA-1SRM Garm
+- VA-2MRM Nidhoggr
+- VA-3LRM Hydra
+- VA-4XRM Scylla
+
+=== VA-1SRM Garm ===
+Close-ranged M.A.R.S. main armament. A relatively-straightforward weapon comparable to the Hunter class' Sword. It's Normal Attacks recover HP, while its Weapon Action can attack while blocking enemy attacks with Guard frames.
+Icon | Name | Obtain List | Description | Notes
+Garm: Normal Attack | Default | Normal Attack for the "VA-1SRM Garm". Swing the greatsword, producing a combo of up to 4 hits. Recover HP when the attacks hit enemies.
+Garm: Weapon Action | Default | Weapon Action for the "VA-1SRM Garm". Perform a slash in front of you. Enemy attacks are nullified at the moment the attacks occur. Press and hold the Weapon Action Button to perform "Garm Detonation".
+Absolute Shatter | Default | Photon Art for the "VA-1SRM Garm". Dash in on an enemy and launch a powerful attack. Press and hold the PA Button to spend all your PP and dash in and perform a knock-down slash all around yourself. Enemy attacks are nullified during the dash.
+
+=== VA-2MRM Nidhoggr ===
+Close-ranged M.A.R.S. main armament. A weapon that specializes in inflicting enemies with "markers", short-duration debuffs that nearby players can take advantage of. Depending on the action and input, VA-2MRM Nidhoggr can alternate between inflicting markers to weaken enemies, and detonating markers to deal additional damage.
+Icon | Name | Obtain List | Description | Notes
+Nidhoggr: Normal Attack | Default | Normal Attack for the "VA-2MRM Nidhoggr". Swing the greatscythe, producing a combo of up to 5 hits. Press and hold the Normal Attack Button to perform a series of powerful attacks. Enemy attacks are nullified at the moment the attacks occur.
+Nidhoggr: Weapon Action | Default | Weapon Action for the "VA-2MRM Nidhoggr". Fire a series of slashes in front of you, ending in an energy buzzsaw. Press and hold the Weapon Action Button to perform "Nidhoggr Execution".
+Whirlwind | Default | Photon Art for the "VA-2MRM Nidhoggr". Spin rapidly to the side, slashing at nearby enemies. Press and hold the PA Button to spend all your PP and perform a slash-through attack at the end. If this slash hits, Nidhoggr's Augments are temporarily improved. Nidhoggr's Normal Attack remains at the same stage after performing this PA. Enemy attacks are nullified while attacking.
+
+=== VA-3LRM Hydra ===
+Long-ranged M.A.R.S. main armament. A weapon that attacks from a distance with projectiles and lasers, and reaches its maximum potential when the player maintains a continuous barrage of attacks. Additionally, the impact of its Photon Art creates an affect-of-effect that can heal other players--although not the creator of the aura.
+Icon | Name | Obtain List | Description | Notes
+Hydra: Normal Attack | Default | Normal Attack for the "VA-3LRM Hydra". Perform a ranged attack by firing photon rounds from the Launcher. Press and hold the Normal Attack Button to gradually increase the rate of fire. Launch a single powerful shell when the rate of fire is at max.
+Hydra: Weapon Action | Default | Weapon Action for the "VA-3LRM Hydra". After charging up photons, the next Normal Attacks from the Hydra start at an accelerated rate of fire. Press and hold the Weapon Action Button to perform "Hydra Termination".
+Blessing Napalm | Default | Photon Art for the "VA-3LRM Hydra". Fire a round that explodes on impact and creates an HP recovery field for everyone except for yourself. Press and hold the PA Button to spend all your PP and release a field that reduces PP consumption for everyone except yourself.
+
+=== VA-4XRM Scylla ===
+Hybrid-ranged M.A.R.S. main armament. Specializes in attacks with high commitment and utilizing "star insignias", which are automatically gained as long as there are nearby enemies, but lost by performing Sidesteps and being hit by enemy attacks.
+Icon | Name | Obtain List | Description | Notes
+Scylla: Normal Attack | Default | Normal Attack for the "VA-4XRM Scylla". Swing the Rod to unleash extradimensional photon beams, producing a combo of up to 3 hits. Press and hold the Normal Attack Button to transform the weapon and fire photon beams while moving rapidly.
+Scylla: Weapon Action | Default | Weapon Action for the "VA-4XRM Scylla". Fire an explosive photon shell in front of you. Press and hold the Weapon Action Button to perform "Scylla Retaliation".
+Meteor Rider | Default | Photon Art for the "VA-4XRM Scylla". Transform M.A.R.S. and shower surrounding enemies with photon beams while moving at high speed. Press and hold the PA Button to sustain the transformation for as long as you have PP.
+
+== Sub Armaments ==
+While main armaments determine the combat and playstyle of the M.A.R.S., sub armaments provide passive effects to its user. There are a total of three sub armaments, with only one being equippable at a time.
+- SA-1HMP Fenrir
+- SA-2HDP Fafnir
+- SA-3HFP Lindworm
+
+=== SA-1HMP Fenrir ===
+A M.A.R.S. sub armament that specializes in mobility, increasing its user's movement speed. This sub armament also allows its user to perform consecutive Step Dodges, and performs additional attacks when the player successfully dodges through enemy attacks.
+
+=== SA-2HDP Fafnir ===
+A M.A.R.S. sub armament that specializes in defense, increasing its user's damage resistance when their HP falls below 70%. The sub armament can also generate a field that decreases the damage taken by any player within its range, as well as perform counterattacks when enemy attacks are successfully parried.
+
+=== SA-3HFP Lindworm ===
+A M.A.R.S. sub armament that specializes in offense, increasing PP recovery rates. Can additionally reduce damage from enemies, as well as perform additional attacks after 40 of your attacks.
+
+== Skill Tree ==
+The M.A.R.S. features its own Skill Tree, which can be used to enable and enhance effects for the system. The full Skill Tree can be viewed on its own dedicated page .
+Skill Points for the M.A.R.S. are achieved by turning in M.A.R.S. Updaters at the Class Counter's "M.A.R.S. Skill Point Exchange". As your total M.A.R.S. Skill Points increase, more M.A.R.S. Updaters are required to unlock Points. A total of 242 Skill Points is required to unlock the maximum level of every single M.A.R.S. skill.
+Skill Points | Required Materials | Skill Points Received | Cumulative Updaters Used
+1-50 | M.A.R.S. Updater | 1 | 1-50
+51-100 | M.A.R.S. Updater (x2) | 1 | 52-150
+101-150 | M.A.R.S. Updater (x3) | 1 | 153-300
+151-200 | M.A.R.S. Updater (x4) | 1 | 304-500
+201-242 | M.A.R.S. Updater (x5) | 1 | 505-710

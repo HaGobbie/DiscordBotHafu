@@ -1,0 +1,7 @@
+# DOLLS Enemy Faction — All Types and Behavior (Part 1)
+
+Enemies : | DOLLS | ALTERS | FORMERS | Starless | Ruinus | Special Enemies | TAMES
+Enemy EXP
+DOLLS are the mysterious enemy that ARKS must face on Halpha. When you engage them or inflict a certain amount of damage, they turn red and become enraged, altering their behavior and increasing their attack power.
+When attacking, yellow cores that appear are weak points, so be sure to aim for them to deal more damage.
+In the Global version of Phantasy Star Online 2: New Genesis, the singular form of DOLLS is "DOLLS unit."

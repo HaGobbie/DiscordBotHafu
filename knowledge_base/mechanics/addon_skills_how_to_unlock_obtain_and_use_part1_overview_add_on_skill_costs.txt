@@ -1,0 +1,17 @@
+# Add-on Skills — How to Unlock, Obtain and Use (Part 1)
+
+Sections in this file: Overview, Add-on Skill Costs
+
+== Overview ==
+Add-on Skills are unique modifiers of classes that can boost the performance of certain aspects of the class through its Main Effects and Sub Effects. Add-on Skills can be generated on a class through the Class Counter by exchanging N-Class EX-Cubes and N-Meseta.
+Add-on Skills are separated into each class and require N-Class EX-Cubes to generate, such as N-HU-EX-Cubes for Hunter Add-on Skills. Add-on Skills have one "Main Effect" specific to their class and two randomly generated "Sub-Effects". The skill’s effectiveness is determined by the "Effect Level". The Add-on Skills equipped for each class at the Class Counter will be active regardless of which class you play as. Equip Add-on Skills for as many classes as you can to strengthen your character.
+After repeatedly generating Add-on Skills, the player is given the choice to select other generation options that will cost more N-Meseta, but will increase the minimum Effect Levels on generation. Upon generation, a Main Effect is randomly generated along with randomly generated Sub Effects. The Levels of the Main Effect and Sub Effects are entirely randomized when generated, although subsequent generations of Add-on Skills will not decrease the Main Effect Level. At levels higher than or equal to Level 17, the threshold of generating a higher Main Effect level is suspected to have a significantly lower probability.
+The "Add-on Skill Boost" will activate each time you generate your first Add-on Skill in each class, which increases your EXP earned, Meseta earned, and rare drop rate. After it is activated, this boost will stay active permanently and stack with the boosts from each class.
+
+== Add-on Skill Costs ==
+Generation Costs | Effect Level | Perquisites
+Add-on Skill 1 | N-Class EX Cube x1 5,000 | Level 1 or higher | Default
+Add-on Skill 2 | N-Class EX Cube x1 10,000 | Level 5 or higher | Unlocked after generating 5 Add-on Skills
+Add-on Skill 3 | N-Class EX Cube x1 50,000 | Level 10 or higher | Unlocked after generating 20 Add-on Skills
+Add-on Skill 4 | N-Class EX Cube x100 5,000 | Level 15 or higher | -
+Add-on Skill 5 | N-Master Cube x5 1,000,000 | Level 20 | -

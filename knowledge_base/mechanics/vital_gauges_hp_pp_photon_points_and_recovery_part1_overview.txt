@@ -1,0 +1,6 @@
+# Vital Gauges — HP, PP (Photon Points) and Recovery (Part 1)
+
+Sections in this file: Overview
+
+== Overview ==
+In New Genesis, the Vital Gauge displays the player's character name, class level, status effects, EXP, HP and PP on the bottom left of the player's screen. Vital Gauges can be customized with various Vital Gauge Designs. Your chosen design can also be seen by other players when you are in a party.
