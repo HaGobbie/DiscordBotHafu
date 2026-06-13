@@ -5,39 +5,35 @@ import asyncio
 import httpx
 import discord
 from pathlib import Path
+from collections import deque
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CONFIGURATION
+# ══════════════════════════════════════════════════════════════════════════════
 
 TOKEN      = os.environ.get("DISCORD_TOKEN", "")
 GROQ_TOKEN = os.environ.get("GROQ_TOKEN", "")
 GROQ_URL   = "https://api.groq.com/openai/v1/chat/completions"
 
-# Router pool — llama-3.1-8b-instant is the primary choice (14,400 req/day vs
-# 1,000 for every other model). kimi-k2 serves as fallback if 8b is 429'd.
-# Combined router pool: 15,400 req/day | 800k tokens/day | 16k TPM
-ROUTER_MODELS = [
-    "llama-3.1-8b-instant",           # 14,400 req/day | 500k TPD | 6k TPM
-    "moonshotai/kimi-k2-instruct",    #  1,000 req/day | 300k TPD | 10k TPM
-]
+# Router: high RPD/TPD — handles triage for every game question
+ROUTER_MODEL = "llama-3.1-8b-instant"
 
-# Answer pool — ordered by tokens/day descending so high-capacity models absorb
-# the bulk of traffic before rotating into lower-budget fallbacks.
-# At ~5,800 tokens/call: combined ~310 effective calls/day from the token budget.
-# Combined answer pool: 6,000 req/day | 1,800k tokens/day | 74k TPM
+# Answer models: tried in order on 429
 ANSWER_MODELS = [
-    "meta-llama/llama-4-scout-17b-16e-instruct",  # 500k TPD | 30k TPM — best throughput
-    "qwen/qwen3-32b",                              # 500k TPD |  6k TPM | 60 RPM
-    "moonshotai/kimi-k2-instruct",                 # 300k TPD | 10k TPM
-    "openai/gpt-oss-20b",                          # 200k TPD |  8k TPM
-    "openai/gpt-oss-120b",                         # 200k TPD |  8k TPM
-    "llama-3.3-70b-versatile",                     # 100k TPD | 12k TPM — last resort
+    "llama-3.3-70b-versatile",
+    "meta-llama/llama-4-scout-17b-16e-instruct",
+    "qwen/qwen3-32b",
+    "openai/gpt-oss-120b",
+    "openai/gpt-oss-20b",
 ]
-
-# Default fallback file when the router returns null or an unknown key.
-# Must match the stem of one of the files written by compile_database.py.
-DEFAULT_KEY = "current_events_limited_time_campaigns_and_event_details"
 
 intents = discord.Intents.default()
 intents.message_content = True
 bot = discord.Client(intents=intents)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# DYNAMIC DATABASE INDEXING
+# ══════════════════════════════════════════════════════════════════════════════
 
 KNOWLEDGE_BASE_DIR = Path("./knowledge_base")
 LOCAL_FILE_MAP: dict[str, str] = {}
@@ -49,53 +45,102 @@ if KNOWLEDGE_BASE_DIR.exists():
 else:
     print("⚠️  Warning: 'knowledge_base/' directory not found.")
 
-# ---------------------------------------------------------------------------
-# TRIAGE SYSTEM PROMPT
+# ══════════════════════════════════════════════════════════════════════════════
+# CONVERSATIONAL MEMORY
 #
-# File keys are now fully descriptive (e.g. "hunter_sword_photon_arts_and_weapon_actions",
-# "weapon_potentials_names_and_effects", "current_events_limited_time_campaigns").
-# The router reads key names and reasons semantically — no hardcoded routing rules needed.
-# ---------------------------------------------------------------------------
-TRIAGE_SYSTEM = (
-    "You are a triage router for a PSO2: New Genesis Discord bot. "
-    "You receive a user message and knowledge-base file keys grouped by category. "
-    "Each key is a descriptive filename stem (underscores = spaces). "
-    "Decide:\n"
-    "  1. Does this message need the knowledge base? (needs_db)\n"
-    "  2. If yes, which single key is the best semantic match? (key)\n\n"
+# Two layers — both in-process (no disk writes):
+#
+#   channel_history  — passive sliding window of recent messages per channel.
+#                      Updated on EVERY non-bot message before the mention
+#                      check, so the context is already there when needed.
+#                      Zero API cost. Cleared on bot restart.
+#
+#   user_memory      — per-user profile string extracted from past exchanges.
+#                      Written by a background task only when personal-content
+#                      signals are detected. Uses ROUTER_MODEL (cheap).
+#                      Cleared on bot restart (Render filesystem is ephemeral
+#                      anyway, so file-based storage would reset too).
+# ══════════════════════════════════════════════════════════════════════════════
 
-    "Output ONLY raw JSON — no markdown, no code fences:\n"
-    '{"needs_db": true/false, "key": "<exact_key_or_null>"}\n\n'
+HISTORY_WINDOW  = 10   # deque size per channel (sliding window)
+HISTORY_SEND    = 5    # how many prior messages to include in the LLM prompt
+HISTORY_MSG_CAP = 200  # max chars per message in the context block
 
-    "needs_db = false ONLY for:\n"
-    "  - Pure casual chat: greetings, small talk, compliments, jokes\n"
-    "  - Questions about Hafu herself (personality, feelings, preferences)\n"
-    "  - Non-English messages\n"
-    "  - Clearly non-game topics\n\n"
+channel_history: dict[int, deque]            = {}   # channel_id → deque[(display_name, content)]
+user_memory:     dict[int, str]            = {}   # user_id    → profile string
+user_mem_locks:  dict[int, asyncio.Lock]   = {}   # user_id    → per-user write lock
 
-    "needs_db = true for ANY question about PSO2:NGS game content "
-    "(events, items, weapons, classes, quests, mechanics, enemies, lore). "
-    "When in doubt, use true.\n\n"
+# Fires a memory-extraction call only when the question carries personal signals.
+# This gates ~half the potential memory calls at zero cost.
+_PERSONAL_RE = re.compile(
+    r"\b(my (class|main|weapon|build|playstyle|char|character|goal)|"
+    r"i (play|use|like|hate|main|run|want|need|have|got|switched|started)|"
+    r"i'?m (a|trying|struggling|working|maining|switching|playing)|"
+    r"been (using|running|playing)|just (got|started|switched|changed))\b",
+    re.IGNORECASE,
+)
 
-    "Key selection rules:\n"
-    "  - Keys are grouped by [CATEGORY]. Use the category to narrow your search first.\n"
-    "  - Then pick the most semantically matching key within that category.\n"
-    "  - For split files (_part1_, _part2_, etc.) pick the specific part whose slug words "
-    "match the question topic — e.g. a key containing 'assault_rifle' for AR PA questions.\n"
-    "  - [EVENTS] → current events, scratches, banners, mission pass, campaigns.\n"
-    "  - [CLASSES] → class guides, skill trees, EX style. Prefer specific class keys.\n"
-    "  - [WEAPONS] → photon arts, weapon series, potentials. Pick the part that names the weapon.\n"
-    "  - [MECHANICS] → augments, item lab, BP, damage calc, status effects, techniques.\n"
-    "  - [ECONOMY] → currency, shops, scratch tickets, items, materials.\n"
-    "  - [WORLD] → quests, tasks, story, battledia, urgent quests, field content.\n"
-    "  - [ENEMIES] → enemy factions (Dolls, Alters, Formers, Starless, Ruine).\n"
-    "  - [FASHION] → costumes, basewear, accessories, beauty salon, weapon camos.\n"
-    "  - [LORE] → world regions, NPCs, story lore.\n"
-    "  - [SOCIAL] → alliances, friends, creative space, emotes, ARKS ID.\n"
-    "  - [ACHIEVEMENTS] → titles, achievements, medals.\n"
-    "  - [MINIGAME] → Line Strike card game.\n"
-    "  - [SYSTEM] → item codes, chat commands, storage, login stamps, settings.\n"
-    "  - If no key clearly fits, return null for key.\n"
+# ══════════════════════════════════════════════════════════════════════════════
+# PROMPTS
+# ══════════════════════════════════════════════════════════════════════════════
+
+TRIAGE_SYSTEM = """You are the routing brain for a PSO2: New Genesis Discord bot named Hafu.
+
+Your job: read the user's message and output ONE JSON object — nothing else.
+
+Format: {"needs_db": true/false, "key": "<exact key from the list or null>"}
+
+STEP 1 — Is it a PSO2:NGS game question?
+- needs_db=false → greetings, small talk, compliments, personal questions, questions about Hafu herself, non-English text, follow-ups like "thanks", "lol", "ok", anything NOT asking for PSO2:NGS game information.
+- needs_db=true → explicit questions about game mechanics, items, quests, classes, events, weapons, skills, augments, enemies, story, etc.
+- When in doubt → needs_db=false.
+
+STEP 2 — If needs_db=true, pick the BEST key from the available list.
+Key naming hints (use these to match user intent to the right file):
+- frontpage → current events, banners, campaigns, AC scratch, limited-time content, maintenance schedule, recent updates, anniversary events
+- mission_pass → Mission Pass tiers, gold rewards, season rewards
+- sega_live_feed → SEGA announcements, live broadcasts, patch notes
+- weapon_series → which weapon series to use, best weapon, Kougensei, Lexio, Arabaradio, etc.
+- potentials → weapon potentials, potential effects, unlocking potentials
+- ex_styles → EX style system
+- class_overview → general class info, subclass system, class combos
+- <class>_general → general info about that class (e.g. hunter_general, force_general)
+- <class>_<weapon>_skills → skills for a specific weapon in a class (e.g. hunter_sword_skills)
+- <weapon>_overview → overview of a weapon type (e.g. sword_overview, katana_overview)
+- <weapon>_pa_basics → photon arts / techniques for a weapon (e.g. sword_pa_basics)
+- augments_system → how augmenting works in general
+- augments_boss / augments_enhance / augments_special / augments_standard → specific augment types
+- limit_breaking → limit break system
+- equipment_enhancement → grinding/enhancing weapons and armor
+- techniques → force/techter techniques (Foie, Barta, Zonde, etc.)
+- addon_skills → add-on skill system
+- armor → armor and defensive units
+- quick_food → food buffs and quick food stands
+- preset_abilities → preset ability system
+- multi_weapon → multi-weapon system
+- combat_power → combat power / battle power / BP
+- status_effects → ailments, debuffs, resistances
+- urgent_quests → urgent quests, emergency quests, EQ schedule
+- battledia → Battledia quests
+- duel_quests → duel quests
+- leciel_exploration → Leciel exploration
+- gathering → field gathering, ore, fish, materials
+- titles_player_items / titles_quests_tasks → titles and achievements
+- tasks → daily/weekly tasks, side quests
+- enemy_types → enemy types, rare/enhanced/gigantics enemies
+- enemy_dolls_alters → Doll and Alter enemies
+- enemy_formers_starless → Former and Starless enemies
+- npc_profiles → NPC characters
+- worldview_story → story, lore, main quest, Halpha worldview
+
+Output ONLY the JSON. No explanation, no markdown, no extra text."""
+
+MEMORY_SYSTEM = (
+    "Extract a concise PSO2:NGS player profile from this conversation. "
+    "Include only concrete facts the player stated: main class, weapon choice, build goals, "
+    "named items they mentioned, things they like or hate about the game. "
+    "If an existing profile is provided, merge — do not repeat facts already there. "
+    "Hard limit: 80 words. Output ONLY the profile text — no labels, no JSON, no preamble."
 )
 
 CASUAL_SYSTEM = """You are Hafu (HaFelt), a PSO2: New Genesis ARKS defender who is way more famous for lobby fashion than actual heroics. You hate combat and grinding. You love fashion, cosmetics, scratch tickets, and hanging out in Central City.
@@ -104,6 +149,7 @@ Right now someone is just chatting with you — no game questions, pure vibes. B
 
 Rules for casual chat:
 - Be warm, expressive, and genuinely engaged. React to what they actually said.
+- Use the recent chat context to feel like a natural continuation of the conversation, not a cold restart.
 - Use *emotes* and interjections freely (Omg, Wait—, Noooo, Okay but—, Ahhhh).
 - If they're being sweet or complimenting you, be flirty and playful back.
 - Keep replies short and snappy — 2 to 4 sentences max.
@@ -117,11 +163,17 @@ Personality: Dramatic, witty, playful, expressive, kind, mischievous. You hate c
 Rules for answering game questions:
 - Lead with the accurate information from the CONTEXT provided. Get the facts right FIRST.
 - Personality lives in your DELIVERY — a word choice, a sigh, a complaint — not as a replacement for the actual answer.
+- Use [PLAYER PROFILE] if present to personalize the answer (reference their class, weapon, or situation naturally).
+- Use [RECENT CHAT] to treat this as a flowing conversation — don't start cold if context is available.
 - One dramatic aside is fine. Don't let personality bury the information.
 - Use *emotes* and interjections sparingly — one or two per response, not every sentence.
-- The catchphrase "Lobby afk 0$ best job!" may appear AT MOST ONCE per response, only when combat or grinding is the actual topic, and only if it fits naturally. Never force it — if you used it recently or it doesn't fit, skip it entirely.
+- The catchphrase "Lobby afk 0$ best job!" may appear AT MOST ONCE per response, only when combat or grinding is the actual topic, and only if it fits naturally. Never force it — if it doesn't fit, skip it entirely.
 - Be concise. No filler like "Great question!".
 - When no CONTEXT block is given, respond purely from personality — keep it short and fun."""
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CONVERSATIONAL BYPASS  (zero API cost for obvious chit-chat)
+# ══════════════════════════════════════════════════════════════════════════════
 
 _CASUAL_PATTERNS = [
     r"^h+e+y+\b",
@@ -144,6 +196,7 @@ _KOREAN_RE = re.compile(r"[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]")
 
 
 def is_casual(text: str) -> bool:
+    """Fast pre-filter for obviously casual messages — skips the triage API call."""
     t = text.strip().lower()
     if _KOREAN_RE.search(text):
         return True
@@ -159,8 +212,77 @@ def is_casual(text: str) -> bool:
     return any(re.search(p, t) for p in _CASUAL_PATTERNS)
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+# SECTION EXTRACTION
+# ══════════════════════════════════════════════════════════════════════════════
+
+def extract_relevant_sections(file_text: str, question: str,
+                               max_chars: int = 2_500) -> str:
+    """
+    Split file into sections, score each by keyword overlap with the question
+    (stopwords excluded), and return the top-scoring sections up to max_chars.
+    """
+    _SW = {"the","and","for","not","you","are","was","but","what","how","who",
+           "when","where","why","this","that","with","from","have","has","had",
+           "will","can","may","its","our","were","been","being"}
+    q_words = {w for w in re.findall(r"\b\w{3,}\b", question.lower()) if w not in _SW}
+    if not q_words:
+        return file_text[:max_chars]
+
+    header_pattern = re.compile(r"(?m)^(?:#{1,3}\s+\S|(?=[A-Z\[]))[^\n]{1,80}$")
+    split_points = [m.start() for m in header_pattern.finditer(file_text)]
+
+    if len(split_points) > 1:
+        sections = []
+        for i, start in enumerate(split_points):
+            end = split_points[i + 1] if i + 1 < len(split_points) else len(file_text)
+            sections.append(file_text[start:end].strip())
+    else:
+        sections = [s.strip() for s in file_text.split("\n\n") if s.strip()]
+
+    if not sections:
+        return file_text[:max_chars]
+
+    def score(section: str) -> int:
+        s_words = set(re.findall(r"\b\w{3,}\b", section.lower()))
+        return len(q_words & s_words)
+
+    scored    = [(score(s), s) for s in sections]
+    top_score = max(sc for sc, _ in scored)
+
+    if top_score <= 1:
+        print(f"   📐 Low relevance (best={top_score}) — raw cap "
+              f"{min(len(file_text), max_chars)}/{len(file_text)} chars", flush=True)
+        return file_text[:max_chars]
+
+    ranked = sorted(scored, key=lambda x: x[0], reverse=True)
+
+    result, total = [], 0
+    for sc, section in ranked:
+        if total + len(section) > max_chars:
+            break
+        result.append(section)
+        total += len(section)
+
+    if not result:
+        best_section = ranked[0][1]
+        print(f"   📐 Best section > budget — truncating to {max_chars} chars "
+              f"(best={top_score})", flush=True)
+        return best_section[:max_chars]
+
+    extracted = "\n\n".join(result)
+    print(f"   📐 Section extract: {len(file_text)} → {len(extracted)} chars "
+          f"({len(result)}/{len(sections)} sections, best={top_score})", flush=True)
+    return extracted
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# GROQ API HELPER
+# ══════════════════════════════════════════════════════════════════════════════
+
 async def groq_chat(messages: list, model: str,
                     max_tokens: int) -> tuple[str | None, bool]:
+    """Returns (text, should_rotate). should_rotate=True on 429."""
     headers = {
         "Authorization": f"Bearer {GROQ_TOKEN}",
         "Content-Type": "application/json",
@@ -191,78 +313,44 @@ async def groq_chat(messages: list, model: str,
         return None, False
 
 
-async def triage(question: str) -> tuple[bool, str | None]:
-    """
-    Uses ROUTER_MODELS (with fallback) to decide:
-      needs_db → whether a knowledge-base file is needed
-      key      → which file stem to load (or None)
+# ══════════════════════════════════════════════════════════════════════════════
+# AI TRIAGE  — decides casual vs game, and picks the right file key
+# Router sees ONLY the raw question — never history or memory.
+# ══════════════════════════════════════════════════════════════════════════════
 
-    Keys are sent to the router grouped by subdirectory category so the small
-    router model can narrow to a category first, then pick the right key within
-    it — much more reliable than scanning a flat 160-item alphabetical list.
-    """
+async def triage(question: str) -> tuple[bool, str | None]:
+    """Returns (needs_db, file_key_or_None)."""
     if not LOCAL_FILE_MAP:
         return True, None
 
-    # Group stems by their parent subdirectory name
-    groups: dict[str, list[str]] = {}
-    for stem, path in LOCAL_FILE_MAP.items():
-        cat = Path(path).parent.name.upper()
-        groups.setdefault(cat, []).append(stem)
-
-    keys_block = "\n".join(
-        f"[{cat}]: {', '.join(sorted(stems))}"
-        for cat, stems in sorted(groups.items())
-    )
-
+    keys = ", ".join(LOCAL_FILE_MAP.keys())
     messages = [
         {"role": "system", "content": TRIAGE_SYSTEM},
-        {"role": "user",   "content": f"Available keys:\n{keys_block}\n\nMessage: {question}"},
+        {"role": "user",   "content": f"Available keys: {keys}\n\nUser message: {question}"},
     ]
 
-    text = None
-    for router_model in ROUTER_MODELS:
-        result, rotate = await groq_chat(messages, model=router_model, max_tokens=80)
-        if result:
-            if router_model != ROUTER_MODELS[0]:
-                print(f"   🔀 Router fallback used: [{router_model}]", flush=True)
-            text = result
-            break
-        if not rotate:
-            break
-
+    text, _ = await groq_chat(messages, model=ROUTER_MODEL, max_tokens=60)
     if not text:
         return True, None
 
-    print(f"   🧭 Router raw: {text[:120]}", flush=True)
-
     try:
         cleaned = re.sub(r"```[a-z]*|```", "", text).strip()
-        json_match = re.search(r'\{[^}]+\}', cleaned)
-        if json_match:
-            cleaned = json_match.group(0)
-        result = json.loads(cleaned)
-        needs  = bool(result.get("needs_db", True))
-        key    = result.get("key") or None
-
+        result  = json.loads(cleaned)
+        needs   = bool(result.get("needs_db", True))
+        key     = result.get("key") or None
         if key and key not in LOCAL_FILE_MAP:
-            rescued = (
-                next((k for k in LOCAL_FILE_MAP if k == key), None)
-                or next((k for k in LOCAL_FILE_MAP if key in k), None)
-                or next((k for k in LOCAL_FILE_MAP if k in key), None)
-            )
-            print(f"   ⚠️  Key [{key}] not found — fuzzy → [{rescued}]", flush=True)
-            key = rescued
-
+            key = next((k for k in LOCAL_FILE_MAP if k in text), None)
         return needs, key
-
-    except Exception as e:
-        print(f"   ⚠️  Router JSON parse failed ({e}): {text[:80]}", flush=True)
-        for k in sorted(LOCAL_FILE_MAP.keys(), key=len, reverse=True):
+    except Exception:
+        for k in LOCAL_FILE_MAP:
             if k in text:
                 return True, k
         return True, None
 
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ANSWER HELPER  —  rotates through model pool on 429
+# ══════════════════════════════════════════════════════════════════════════════
 
 async def get_answer(messages: list) -> str:
     for model in ANSWER_MODELS:
@@ -277,6 +365,81 @@ async def get_answer(messages: list) -> str:
         "Give it a minute and try again? *dramatically collapses in lobby*"
     )
 
+
+# ══════════════════════════════════════════════════════════════════════════════
+# MEMORY HELPERS
+# ══════════════════════════════════════════════════════════════════════════════
+
+def get_chat_context(channel_id: int) -> str:
+    """
+    Return the last HISTORY_SEND messages from a channel as a formatted block.
+    The current trigger message is already in the deque as the last entry,
+    so we slice off everything except it and take up to HISTORY_SEND prior messages.
+    """
+    hist = channel_history.get(channel_id)
+    if not hist or len(hist) < 2:
+        return ""
+    prior = list(hist)[-(HISTORY_SEND + 1):-1]   # up to 5 messages before current
+    if not prior:
+        return ""
+    return "\n".join(f"{name}: {content}" for name, content in prior)
+
+
+async def maybe_update_memory(user_id: int, display_name: str,
+                               question: str, answer: str) -> None:
+    """
+    Background task: extract and store new player facts into user_memory.
+    Only fires when the question contains personal-content signals — roughly
+    half of game questions won't trigger this, keeping router costs low.
+    A per-user asyncio.Lock serialises concurrent calls so rapid-fire pings
+    can't cause two tasks to read a stale profile and overwrite each other.
+    """
+    if not _PERSONAL_RE.search(question):
+        return
+
+    if user_id not in user_mem_locks:
+        user_mem_locks[user_id] = asyncio.Lock()
+
+    async with user_mem_locks[user_id]:
+        existing = user_memory.get(user_id, "")
+        exchange = f"{display_name}: {question}\nHafu: {answer[:400]}"
+
+        prompt_parts = []
+        if existing:
+            prompt_parts.append(f"Existing profile:\n{existing}")
+        prompt_parts.append(f"Exchange:\n{exchange}")
+
+        new_mem, _ = await groq_chat(
+            [{"role": "system", "content": MEMORY_SYSTEM},
+             {"role": "user",   "content": "\n\n".join(prompt_parts)}],
+            model=ROUTER_MODEL,
+            max_tokens=120,
+        )
+        if new_mem:
+            user_memory[user_id] = new_mem
+            print(f"💾 Memory updated for {display_name} ({user_id})", flush=True)
+
+
+def build_answer_content(question: str, chat_ctx: str,
+                          user_mem: str, game_ctx: str) -> str:
+    """
+    Assembles the user-turn content for the answer LLM.
+    Sections are only included when they have actual content.
+    """
+    parts = []
+    if user_mem:
+        parts.append(f"[PLAYER PROFILE]\n{user_mem}")
+    if chat_ctx:
+        parts.append(f"[RECENT CHAT]\n{chat_ctx}")
+    if game_ctx:
+        parts.append(f"[GAME DATABASE]\n{game_ctx}")
+    parts.append(f"[QUESTION]\n{question}")
+    return "\n\n".join(parts)
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# LIGHTWEIGHT PORT KEEP-ALIVE (Render)
+# ══════════════════════════════════════════════════════════════════════════════
 
 async def handle_render_ping(reader, writer):
     try:
@@ -293,12 +456,14 @@ async def handle_render_ping(reader, writer):
             pass
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+# DISCORD BOT
+# ══════════════════════════════════════════════════════════════════════════════
+
 @bot.event
 async def on_ready():
     print(f"🤖 Hafu Bot online as {bot.user.name} (ID: {bot.user.id})")
-    print(f"🧭 Router pool:  {ROUTER_MODELS}")
-    print(f"✨ Answer pool:  {ANSWER_MODELS}")
-    print(f"📂 KB files:     {len(LOCAL_FILE_MAP)} indexed")
+    print(f"✨ Answer model pool: {ANSWER_MODELS}")
     print("🌸 Hafu is ready to reluctantly answer questions from the lobby.")
 
     port = int(os.environ.get("PORT", 10000))
@@ -314,6 +479,21 @@ async def on_ready():
 async def on_message(message: discord.Message):
     if message.author.bot:
         return
+
+    # ── Passive history capture (runs for EVERY non-bot message) ────────────
+    # This must happen before the mention check so prior messages are already
+    # in the deque when the bot is pinged. Zero API cost.
+    cid = message.channel.id
+    if cid not in channel_history:
+        channel_history[cid] = deque(maxlen=HISTORY_WINDOW)
+    clean_content = re.sub(r"<@!?\d+>", "", message.clean_content).strip()
+    if clean_content:
+        channel_history[cid].append((
+            message.author.display_name,
+            clean_content[:HISTORY_MSG_CAP],
+        ))
+
+    # ── Only continue processing when the bot is mentioned ──────────────────
     if bot.user not in message.mentions:
         return
 
@@ -325,49 +505,58 @@ async def on_message(message: discord.Message):
         await message.reply("Omg my GROQ_TOKEN is missing — did someone forget the env var?! *taps foot*")
         return
 
+    # Gather context upfront (both are instant, no API calls)
+    chat_ctx = get_chat_context(cid)
+    user_mem = user_memory.get(message.author.id, "")
+
     async with message.channel.typing():
 
-        # Fast-path: obvious casual messages skip the router entirely
+        # ── Fast path: obviously casual — skip the triage API call entirely ──
         if is_casual(question):
             print(f"💬 Casual bypass: '{question[:60]}'", flush=True)
+            user_content = build_answer_content(question, chat_ctx, user_mem, "")
             text_out = await get_answer([
                 {"role": "system", "content": CASUAL_SYSTEM},
-                {"role": "user",   "content": question},
+                {"role": "user",   "content": user_content},
             ])
             await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
+            # Fire memory update in background — won't block the reply
+            asyncio.create_task(maybe_update_memory(
+                message.author.id, message.author.display_name, question, text_out
+            ))
             return
 
-        # AI router: needs knowledge base? which file?
-        print(f"🔍 Routing: '{question[:60]}'", flush=True)
+        # ── AI triage: router sees only the question — never history/memory ──
+        print(f"🔍 Triage: '{question[:60]}'", flush=True)
         needs_db, routed_stem = await triage(question)
 
         if not needs_db:
-            print("   ──► No DB needed, casual Hafu reply", flush=True)
+            print("   ──► Casual (triage)", flush=True)
+            user_content = build_answer_content(question, chat_ctx, user_mem, "")
             text_out = await get_answer([
                 {"role": "system", "content": CASUAL_SYSTEM},
-                {"role": "user",   "content": question},
+                {"role": "user",   "content": user_content},
             ])
             await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
+            asyncio.create_task(maybe_update_memory(
+                message.author.id, message.author.display_name, question, text_out
+            ))
             return
 
         if routed_stem:
             print(f"   ──► [{routed_stem}]", flush=True)
         else:
-            routed_stem = DEFAULT_KEY
-            print(f"   ──► Fallback [{DEFAULT_KEY}]", flush=True)
+            routed_stem = "frontpage"
+            print("   ──► [frontpage] (fallback)", flush=True)
 
+        # ── Load knowledge base file ──────────────────────────────────────────
         if not LOCAL_FILE_MAP:
             await message.reply("My database isn't loaded. Did the sync not run? *panics quietly*")
             return
 
         if routed_stem not in LOCAL_FILE_MAP:
-            print(f"   ⚠️  [{routed_stem}] not on disk, using default fallback", flush=True)
-            routed_stem = DEFAULT_KEY
-
-        # Final safety net — if even DEFAULT_KEY is missing, pick any available file
-        if routed_stem not in LOCAL_FILE_MAP:
-            routed_stem = next(iter(LOCAL_FILE_MAP))
-            print(f"   ⚠️  DEFAULT_KEY missing, using [{routed_stem}]", flush=True)
+            print(f"   ⚠️  [{routed_stem}] not on disk — falling back to frontpage", flush=True)
+            routed_stem = "frontpage"
 
         try:
             with open(LOCAL_FILE_MAP[routed_stem], "r", encoding="utf-8") as f:
@@ -377,15 +566,23 @@ async def on_message(message: discord.Message):
             await message.reply("Ugh, I went for my notes and the file just vanished. Something's wrong with the file system.")
             return
 
-        print(f"   📄 Sending full file: {len(context_data)} chars", flush=True)
+        context_data = extract_relevant_sections(context_data, question)
 
+        user_content = build_answer_content(question, chat_ctx, user_mem, context_data)
         text_out = await get_answer([
             {"role": "system", "content": ANSWER_SYSTEM},
-            {"role": "user",   "content": f"CONTEXT:\n{context_data}\n\nQuestion: {question}"},
+            {"role": "user",   "content": user_content},
         ])
 
         await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
+        asyncio.create_task(maybe_update_memory(
+            message.author.id, message.author.display_name, question, text_out
+        ))
 
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ENTRYPOINT
+# ══════════════════════════════════════════════════════════════════════════════
 
 if __name__ == "__main__":
     if not TOKEN:
