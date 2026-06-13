@@ -1,0 +1,21 @@
+# Trigger Quests — Item-Activated Battles and Rewards
+
+Quests
+Urgent Quests | Battledia Quests | Trigger Quests | Trinitas Quests
+Trainia Advance Quests | Standing Quests | Duel Quests | Limited-Time Quests
+Major Target Suppression Missions | Time Extension Quests
+
+== Overview ==
+Trigger Quests are unique quests that can be accessed through the Quest Counter, located in each of the main cities. Similar to Battledia Quests, Trigger Quests require the presence and use of certain triggers, namely Quest Triggers (abbreviated as Q-Triggers) in order for the quest to be accepted.
+Currently, Quest Triggers can only be found from certain shops, specifically the Alliance Badge Exchange Shop . Quest Triggers are only consumed from the trigger host once the quest has successfully been completed, and are not consumed upon failing the quest as a result of fail conditions.
+
+== Trigger Quests ==
+Aelio Region
+Practice Drill: Command DOLLS Suppression Op | Practice Drill: Nex Vera Suppression Op | Practice Drill: Mining Rig Defense: Aelio | Drill: Dark Falz Interception
+Drill: Dark Falz Interception R.2 | Drill: The Battle of Halphia Lake | Drill: Ruine Gryphon Suppression Op | Drill: Ruine D Hyunal Battle
+Retem Region
+Practice Drill: Dustyl Vera Suppression Op | Practice Drill: Renus Vera Suppression Op | Practice Drill: Mining Rig Defense: Retem
+Kvaris Region
+Practice Drill: Ams Vera Suppression Op | Practice Drill: Crocodylis Vera Suppression Op | Practice Drill: Mining Rig Defense: Kvaris
+Stia Region
+Practice Drill: Doldoris Vera Suppression Op | Practice Drill: Nils Vera Suppression Op

@@ -1,0 +1,159 @@
+# Tasks — Daily, Limited Time and Main Task List (Part 1)
+
+Sections in this file: Overview, Main, Side, Daily, Weekly
+
+== Overview ==
+Tasks are a feature that have been added to NGS that combines the ARKS Missions and Client Orders of PSO2 into one format. They come in the form of "Main" , "Side" , "Daily" , "Weekly" , and "Limited Time" tasks, and upon completion give rewards such as N-Meseta, Experience and items.
+Your currently tracked Task and all of its objectives are tracked on the left side of the UI below the minimap, and show progress bars that allow you to track completion. In the game world and World Map, a orange Task icon ( ) will point towards objectives for Main Tasks. A white icon is used for Side Tasks.
+Daily and Weekly tasks become available during the start of the "Preparing for Battle" story task. EXP from Daily Tasks will scale proportionately depending on how far the character has gotten through the Main Story.
+Main Task | Important Tasks that replaces story progression and tutorials. Also a condition for unlocking some Section and High-Rank Sections.
+Side Task | Tasks received from NPCs other than the Main Task. Many are based on defeating enemy types.
+Daily / Weekly Task | Tasks that are automatically received on Daily / Weekly login reset instead of receiving a Task from a specific NPC. Some progression in the Main Tasks is required before this feature is unlocked. Keep in mind of the currently playing character in which the reward is received in as the reward is immediately received upon completion.
+Limited-Time Task | Limited-Timed Tasks that occurs only at the time of a Campaign. Do note that there is a set period for receiving these Tasks, and after the campaign ends for that period you will not be able to receive those Tasks nor complete them.
+
+== Main ==
+See the Main Story .
+
+== Side ==
+Click on the specified NPC to view their individual Tasks.
+
+=== Cross Region ===
+- Guiden ARKS Instructor
+- Leah May ARKS Training Instructor Side Tasks
+- Ronaldine ARKS Training Instructor Looping Tasks
+- Tim Alliance Related Tasks
+- Speeda Field Race Tasks
+- Lydia Main Menu Tasks
+- Schlacht Add-on Skill Tasks
+- Arche Creative Space Tasks
+
+=== Aelio Region ===
+- Aina Side Story Tasks
+- Ran Central City Operator
+- Liu Lin Central City Operator
+- Rossa Central City Operator
+- Oranje Central City Operator
+- Berkman Scenery Related Tasks
+- Communa Communication Tasks
+- Deeno Personal Shop Tasks
+- Martha Salon Tasks
+- Edic Party Recruitment Tasks
+- Slona Region Mag Tasks
+- Excator Ore Related Tasks
+- Cartevei Limit Break Tasks
+- Versinia Tower Tasks
+- Adilla Affixing Augments
+- Segreto Unlock Potential
+- Bono Special Enemy Tasks
+- Somua Gigantix Tasks
+- Dontre ARKS Melee Instructor
+- Sharkey ARKS Ranged Instructor
+- Hornian ARKS Technique Instructor
+- Deirdre ARKS Compound Skills Instructor
+- Welmina ARKS Waker Instructor
+- Slaine ARKS Gunblade Instructor
+- Weston West Exit Guard
+- Eastman East Exit Guard
+- Northampton North Exit Guard
+- Southerton South Exit Guard
+
+=== Retem Region ===
+- Nadereh Side Story Tasks
+- Baffin Level Tasks
+- Rizwana Nadereh's Attendant
+- Munira Nadereh's Attendant
+- Lince Gathering Tasks
+- Sheridan Exploration Tasks
+- Lasta Item Container Tasks
+- Ruslan Tower Tasks
+- Tucano Exploration Tasks
+- Mriya Suppression Tasks
+- Grad Ore Related Tasks
+- Hampden Ore Related Tasks
+- Ariete Suppression Tasks
+- Wallas Scenery Related Tasks
+- Humber Retem City Guard
+- Dana Retem City Guard
+- Beverley Trinitas Tasks
+- Uhu Equalizer Enemy Tasks
+
+=== Kvaris Region ===
+- Meri Side Story Tasks
+- Alvaro‎‎ Suppression Tasks
+- Artie ARKS Combat Support
+- Cortes Trial Tasks
+- Cristobal‎ Kvaris Advance Team
+- Drake‎ Kvaris Advance Team
+- Horsa Red Container Tasks
+- Ingstad‎ Gathering Tasks
+- Mamiya‎ Trainia Tasks
+- Reso Exchange Shop Tasks
+- Roald‎ Exploration Sector Tasks
+- Shirase‎ Mineral Tasks
+- Suffren Kvaris Advance Team
+- Truxtun Rayjord Gorge Tasks
+- Vasco‎ Research Tasks
+- Vienne‎ Scenery Related Tasks
+- Yuri‎ Preparation Tasks
+
+=== Stia Region ===
+- Akatsuki Stia Vanguard Unit 1st Squad Leader
+- Hatsukari Stia Vanguard Unit 2nd Squad Leader
+- Shirayuki Stia Vanguard Unit 3rd Squad Leader
+- Anan ARKS Supply Support
+- Chitose ARKS Environmental Surveyor
+- Hokuto ARKS Technologist
+- Katsuragi ARKS Technologist
+- Kirishima ARKS Supply Support
+- Marimo ARKS Environmental Surveyor
+- Shioji ARKS Tech Development Support Member
+- Souya ARKS Prep Supply Manager
+- Yunoka ARKS Environmental Surveyor
+
+== Daily ==
+Each day at 12:00 UTC, players receive five Daily Tasks. All Daily Tasks are account-based and can only be done on one character per day. Depending on the player's story progression, certain tasks will not become available, such as tasks related to a specific region that has not been unlocked yet.
+The following tasks and their rewards are displayed at their highest availability.
+All players receive the following tasks every day:
+Task Name | Objectives | Rewards | Description
+Use a Food Stand | Prepare Quick Food (0/1) | 1,000 50,000 2 | Prepare Quick Food at a Food Stand.
+Use a Region Mag | Use a Region Mag (0/1) | 1,000 50,000 2 | Insert any item into a Region Mag.
+Clear Leciel Exploration | Complete quest under specified condition (0/1) | Growthment II x30 | Clear the Leciel Exploration Quest "Halpha Environmental Testing Zone Survey" with rank B or higher.
+Combat Sector Enemy Suppression | Defeat enemies in Combat Sectors (0/50) | 1,000 100,000 2 | Defeat enemies of any kind in Combat Sectors.
+Complete Daily Tasks | Complete Daily Tasks (0/4) | 130,000 200,000 2 N-Grinder ×5 | Complete the specified number of Daily Tasks.
+Players receive 1 gathering task each day. Examples are:
+Task Name | Objectives | Rewards | Description
+Gather TAMES Meat | Gather TAMES meat (0/5) | 1,000 100,000 2 N-Grinder ×1 | Obtain TAMES meat by Gathering.
+Gather Seafood | Gather seafood (0/5) | 1,000 100,000 2 N-Grinder ×1 | Obtain seafood by gathering.
+Gather Vegetables | Gather vegetables (0/5) | 1,000 100,000 2 N-Grinder ×1 | Obtain vegetables by gathering.
+Foraging for Fruit | Obtain fruit (0/5) | 1,000 100,000 2 N-Grinder ×1 | Obtain fruit by gathering.
+Foraging for Minerals | Obtain minerals (0/5) | 1,000 100,000 2 N-Grinder ×1 | Obtain minerals by gathering.
+Every Sunday and Monday, additional Daily Tasks are added with extra rewards.
+Task Name | Objectives | Rewards | Description
+Complete Daily Tasks | Complete Daily Tasks (0/4) | N-Color Change Pass x1 5 Star Gems | (Sunday Only) Complete Daily Tasks.
+Complete Daily Tasks | Complete Daily Tasks (0/4) | 150,000 5 Star Gems | (Monday Only) Complete Daily Tasks.
+
+=== Daily Task EXP Scaling ===
+The amount of EXP that is rewarded for completing Daily Tasks will scale depending on the player's story progression.
+Story Task Completion | Daily Task EXP
+Prepare Quick Food | Use a Region Mag | Region Gathering | Enemy Suppression | Complete Daily Tasks
+Preparing for Battle | 500 | 500 | 1,000 | 1,000 | 2,000
+Going Back | 5,000 | 5,000 | 10,000 | 10,000 | 20,000
+A New Mission | 12,500 | 12,500 | 25,000 | 25,000 | 50,000
+Retem's Independent Partisan Squad (Level <35) | 15,000 | 15,000 | 30,000 | 30,000 | 60,000
+Retem's Independent Partisan Squad (Level 35~39) | 20,000 | 20,000 | 40,000 | 40,000 | 80,000
+Retem's Independent Partisan Squad (Level 40+) | 25,000 | 25,000 | 50,000 | 50,000 | 100,000
+Kvaris Independent Partisan Squad (Level 60) | 40,000 | 40,000 | 80,000 | 80,000 | 160,000
+Kvaris Independent Partisan Squad (Level 65) | 45,000 | 45,000 | 90,000 | 90,000 | 180,000
+Preparing for More Battle (Level 70) | 50,000 | 50,000 | 100,000 | 100,000 | 200,000
+
+== Weekly ==
+Each Wednesday at 02:00 UTC, the following Weekly Tasks reset if completed and become available to the player. Weekly Tasks are account-based and can only be done on one character per week. Depending on the player's story progression, certain Weekly Tasks will be replaced with alternative ones or will not be available to the player.
+Task Name | Objectives | Rewards | Description
+Enemy Suppression | Defeat the enemies (0/1,000) | 50,000 20 N-EX-Cube x1 Special Scratch Ticket x1 | Defeat any enemy.
+Clear Urgent Quests | Clear Urgent Quests (0/1) | 50,000 20 N-Half Scape Doll x1 N-EX-Cube x1 Special Scratch Ticket x1 | Clear any Urgent Quests.
+Suppress Dark Falz Aegis | Defeat Dark Falz Aegis (0/1) | 20 Star Gems | Defeat Dark Falz Aegis in the Major Target Suppression Mission " Halphia Lake Interception Part II ". *Target Enemy: Seek out a specimen whose name includes "Malignant".
+Complete Daily Tasks I | Complete Daily Tasks (0/10) | 50,000 20 5 Star Gems N-EX-Cube x1 | Complete the specified number of Daily Tasks within the time limit.
+Complete Daily Tasks II | Complete Daily Tasks (0/25) | 50,000 30 5 Star Gems N-EX-Cube x1 Special Scratch Ticket x1 | Complete the specified number of Daily Tasks within the time limit.
+Complete Leah May's Side Tasks | Complete Leah May's side tasks (0/15) | Variable EXP (scales with level) B-Trigger/Common Yellow x5 | Complete the specified number of Leah May's side tasks within the time limit.
+Visit Creative Spaces | Go to other Players' Creative Spaces (0/10) | 2,500 | Visit other Players' Creative Spaces.
+Acquire Genesis Points | Obtain Genesis Points from a GP Tree (0/4) | 2,500 | Obtain Genesis Points from the GP Tree in your Creative Space.

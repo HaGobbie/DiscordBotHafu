@@ -1,0 +1,91 @@
+# Quests Overview — All Quest Types and How to Access (Part 1)
+
+Sections in this file: Cocoons and Towers, Urgent Quests, Battledia Quests
+
+Quests
+Urgent Quests | Battledia Quests | Trigger Quests | Trinitas Quests
+Trainia Advance Quests | Standing Quests | Duel Quests | Limited-Time Quests
+Major Target Suppression Missions | Time Extension Quests
+
+== Cocoons and Towers ==
+Cocoons and Towers are mysterious structures found in the fields of Planet Halpha. Contained within them are enclosed, instanced quests, which allow you to learn various movement and combat techniques, and earn Skill Points upon completing them.
+Cocoons
+Aelio Region
+First Step | Enhanced Enemy | Swift Jump | Wild Rush | Test Flight | Roaring Rush | Fleeting Fight | Runway
+Retem Region
+Vanishing Path | Narrow Cage | Buddy Attack | Dyna Assault | Parkour Master | Runway II
+Kvaris Region
+Crazy Tail | Slope Style | Clockwork Prison | Horrible Flapping | Wild Avalanche | Vanishing Path II
+Stia Region
+Face the Darkness | Quarterstaff | Helical Line
+Towers
+Aelio Region | Retem Region
+ALTERS Rush | Great Wall | Aero Runner | DOLLS Burrow
+Kvaris Region | Stia Region
+Deepwell | Broken World
+
+== Urgent Quests ==
+Urgent Quests are special Quests that can occur several times a day and can only be accepted during the time period it occurs. Urgent Quests occur on the hour and a unique notification of an upcoming Urgent Quest is shown at the top of the screen as 15 minutes before the Urgent Quest is available to be accepted.
+Urgent Quests occur in specific areas of the field and can be accepted through the World Map or directly through the mentioned area if the player is in the region while the Urgent Quest is active.
+A certain Battle Power will be required to take part in Urgent Quests.
+Aelio Region | Retem Region
+Dark Falz Interception List of Evergreen Drops Any Rank * Liewen Litage * Serpens Almati MTN: Dash - Standard/C MTN: Dash - Hover/C MTN: Glide - Standard/C | List of Evergreen Drops | Any Rank | * Liewen Litage * Serpens Almati MTN: Dash - Standard/C MTN: Dash - Hover/C MTN: Glide - Standard/C | The Battle of Halphia Lake List of Evergreen Drops Any Rank * Neos Astraean Almati MTN: Dash - Buoyant/B MTN: Glide - Buoyant/B Falz Turret L Falz Turret R | List of Evergreen Drops | Any Rank | * Neos Astraean Almati MTN: Dash - Buoyant/B MTN: Glide - Buoyant/B Falz Turret L Falz Turret R | Mining Rig Defense: Retem List of Evergreen Drops Rank 2 and up * Koukloziat Almati | List of Evergreen Drops | Rank 2 and up | * Koukloziat Almati | Omen of the Planetbreaker List of Evergreen Drops Any Rank * Tisah Waffe Almati * Neos Astraean Almati CV | List of Evergreen Drops | Any Rank | * Tisah Waffe Almati * Neos Astraean Almati CV
+List of Evergreen Drops
+Any Rank
+* Liewen Litage * Serpens Almati MTN: Dash - Standard/C MTN: Dash - Hover/C MTN: Glide - Standard/C
+List of Evergreen Drops
+Any Rank
+* Neos Astraean Almati MTN: Dash - Buoyant/B MTN: Glide - Buoyant/B Falz Turret L Falz Turret R
+List of Evergreen Drops
+Rank 2 and up
+* Koukloziat Almati
+List of Evergreen Drops
+Any Rank
+* Tisah Waffe Almati * Neos Astraean Almati CV
+Kvaris Region | Stia Region
+Remnants of Ambition List of Evergreen Drops Any Rank * Neos Justitean Almati CV | List of Evergreen Drops | Any Rank | * Neos Justitean Almati CV | Planetcrusher Assault List of Evergreen Drops Any Rank * Tisah Waffe Almati * Neos Astraean Almati CV Master Fragment | List of Evergreen Drops | Any Rank | * Tisah Waffe Almati * Neos Astraean Almati CV Master Fragment | Co-Op Starless Suppression Op List of Evergreen Drops None | List of Evergreen Drops | None | And the Stars Fell List of Evergreen Drops Any Rank * Exelio Almati CV * Duo Selio Almati CV * Tri Selio Almati CV | List of Evergreen Drops | Any Rank | * Exelio Almati CV * Duo Selio Almati CV * Tri Selio Almati CV
+List of Evergreen Drops
+Any Rank
+* Neos Justitean Almati CV
+List of Evergreen Drops
+Any Rank
+* Tisah Waffe Almati * Neos Astraean Almati CV Master Fragment
+List of Evergreen Drops
+None
+List of Evergreen Drops
+Any Rank
+* Exelio Almati CV * Duo Selio Almati CV * Tri Selio Almati CV
+
+== Battledia Quests ==
+Battledia Quests are unique quests that can be accessed through a Trigger Portal ( ). Five Battle Triggers ( B-Trigger/Common Yellow or B-Trigger/Common Purple respectively) are required to enter, which can be obtained from enemy drops, tasks or the Personal Shop. Battle Triggers are only consumed upon successfully clearing a quest and only a Party Leader needs to have triggers available to enter. Battledia Yellow provide large amounts of EXP and items to enhance gear. Battledia Purple are challenge quests facing off against several Gigantix bosses in a boss rush-style format, with both gear and cosmetic rewards.
+Battledia: Yellow
+Battledia: Yellow (Aelio Troopers) | Battledia: Yellow (Retem Troopers) | Battledia: Yellow (Kvaris Troopers) | Battledia: Yellow (Stia Troopers)
+Battledia: Purple
+Battledia: Purple (Aelio Devastators) List of Evergreen Drops Any Rank * Divine Fists * Twin Agito MTN: Dash - Fairy/B Special Scratch Ticket Rank 2 and up * Straga Almati MTN: Dash - Fairy/B Rank 4 and up Giga Strugment | List of Evergreen Drops | Any Rank | * Divine Fists * Twin Agito MTN: Dash - Fairy/B Special Scratch Ticket | Rank 2 and up | * Straga Almati MTN: Dash - Fairy/B | Rank 4 and up | Giga Strugment | Battledia: Purple (Retem Devastators) List of Evergreen Drops Any Rank * Glandia * Yasminokov 7000V Special Scratch Ticket Rank 2 and up * Greaga Almati MTN: Glide - Dive/B Rank 4 and up Giga Strugment | List of Evergreen Drops | Any Rank | * Glandia * Yasminokov 7000V Special Scratch Ticket | Rank 2 and up | * Greaga Almati MTN: Glide - Dive/B | Rank 4 and up | Giga Strugment | Battledia: Purple (Kvaris Devastators) List of Evergreen Drops Any Rank * Bardiche * Final Impact Special Scratch Ticket Rank 2 and up * Sechetyl Almati MTN: Glide - Jet Boost/B | List of Evergreen Drops | Any Rank | * Bardiche * Final Impact Special Scratch Ticket | Rank 2 and up | * Sechetyl Almati MTN: Glide - Jet Boost/B | Battledia: Purple (Stia Devastators) List of Evergreen Drops Any Rank * Blade Dance * Inferno Bazooka * Effulgent Almati MTN: Glide - Mini Glider/B Special Scratch Ticket | List of Evergreen Drops | Any Rank | * Blade Dance * Inferno Bazooka * Effulgent Almati MTN: Glide - Mini Glider/B Special Scratch Ticket | Battledia: Purple (Aelio Intruders) List of Evergreen Drops Any Rank * Reyaar Almati Special Scratch Ticket Rank 3 and up * Reyaar Almati CV | List of Evergreen Drops | Any Rank | * Reyaar Almati Special Scratch Ticket | Rank 3 and up | * Reyaar Almati CV
+List of Evergreen Drops
+Any Rank
+* Divine Fists * Twin Agito MTN: Dash - Fairy/B Special Scratch Ticket
+Rank 2 and up
+* Straga Almati MTN: Dash - Fairy/B
+Rank 4 and up
+Giga Strugment
+List of Evergreen Drops
+Any Rank
+* Glandia * Yasminokov 7000V Special Scratch Ticket
+Rank 2 and up
+* Greaga Almati MTN: Glide - Dive/B
+Rank 4 and up
+Giga Strugment
+List of Evergreen Drops
+Any Rank
+* Bardiche * Final Impact Special Scratch Ticket
+Rank 2 and up
+* Sechetyl Almati MTN: Glide - Jet Boost/B
+List of Evergreen Drops
+Any Rank
+* Blade Dance * Inferno Bazooka * Effulgent Almati MTN: Glide - Mini Glider/B Special Scratch Ticket
+List of Evergreen Drops
+Any Rank
+* Reyaar Almati Special Scratch Ticket
+Rank 3 and up
+* Reyaar Almati CV

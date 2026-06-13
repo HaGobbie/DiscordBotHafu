@@ -1,0 +1,103 @@
+# Weapon Series — Comparison, Meta Ranking and Drop Sources (Part 2)
+
+Sections in this file: List of Weapon Series
+
+== List of Weapon Series ==
+★ | Icon | Series Name | Req. | Base (+0) | Max (+100) | Potentials / Weapon Types | Properties | Drop Info
+Primm | Lv.1 | 177 | 1070 | Recycler Unit ⌊ | Variance: 70%~100% N/A | Central City Item Shop Common Drop
+Multi-weapon Substitute | Lv.1 | 177 | 1070 | Recycler Unit ⌊ | Variance: 70%~100% Weapon Connector | 1500 (Purchase limit of 1 of each type per account, every 28 days)
+Tzvia | Lv.4 | 195 | 1070 | Indomitable Unit ⌊ | Variance: 70%~100% N/A | Central City Item Shop Common Drop
+Silver Primm | Lv.5 | 195 | 1070 | Recycler Unit ⌊ | Variance: 70%~100% C/Esperio I | Drop from Silver Enemies Drop from Battledia: Yellow
+N-EXP | Lv.5 | 195 | 1070 | Recycler Unit ⌊ | Variance: 70%~100% C/Hi Perio | Obtained from AC Support Item Select Scratches
+N-EXP II | Lv.5 | 195 | 1070 | Recycler Unit ⌊ | Variance: 70%~100% C/Hi Perio II | Obtained from AC Support Item Select Scratches
+Renaissa | Lv.1 | 224 | 1071 | Swift Attack ⌊ | Variance: 75%~100% N/A | Previous Reward for completing Advice from Liu Lin II
+Hextra | Lv.1 | 224 | 1071 | Swift Attack ⌊ | Variance: 75%~100% N/A | Reward for completing Advice from Liu Lin II
+Theseus | Lv.8 | 223 | 1070 | Defensive Formation ⌊ | Variance: 75%~100% N/A | Uncommon Drop
+Trois De | Lv.8 | 223 | 1070 | Offensive Formation ⌊ | Variance: 75%~100% N/A | Uncommon Drop
+Gold Primm | Lv.10 | 223 | 1070 | Recycler Unit ⌊ | Variance: 70%~100% C/Esperio II | Drop from Gold Enemies Drop from Battledia: Yellow
+Glissen | Lv.13 | 225 | 1072 | Valorous Unit ⌊ | Element: Variance: 70%~100% N/A | Obtained from the PSO2 9th Anniversary Event Drop from Ordinal Tower
+Frostel | Lv.13 | 225 | 1072 | Valorous Unit ⌊ | Element: Variance: 70%~100% N/A | Obtained from the Autumn Moon Gazing Event Drop from Ordinal Tower
+Resurgir | Lv.11 | 240 | 1037 | Dynamo Unit ⌊ | Variance: 75%~100% N/A | Rare Drop
+Flamel | Lv.14 | 240 | 1037 | Valorous Unit ⌊ | Element: Variance: 70%~100% N/A | Obtained from the Halloween Fiesta Event Rare Drop from Ordinal Tower
+Cattleya | Lv.14 | 242 | 1039 | Mustered Might Unit ⌊ | Variance: 75%~100% N/A | Rare Drop from Mt. Magnus
+Foursis | Lv.14 | 242 | 1039 | Bastion Unit ⌊ | Variance: 75%~100% N/A | Rare Drop from Resol Forest
+Vialto | Lv.14 | 242 | 1039 | Meditation Unit ⌊ | Variance: 75%~100% N/A | Rare Drop from Vanford Laboratory Ruins
+Evolcoat | Lv.15 | 242 | 1039 | Soulspring Unit ⌊ | Variance: 75%~100% N/A | Rare Drop from Enhanced Enemies Rare Drop from Mining Rig Defense
+Straga | Lv.15 | 243 | 1040 | Berserk Unit ⌊ | Variance: 75%~100% N/A | Rare Drop from Gigantix Enemies
+Lumiere | Lv.25 | 263 | 1040 | Valorous Unit ⌊ | Element: Variance: 70%~100% N/A | Obtained from the Spring '22 Event Rare Drop from Ordinal Tower
+Tempesta | Lv.25 | 263 | 1040 | Valorous Unit ⌊ | Element: Variance: 70%~100% N/A | Obtained from the Winter Event Rare Drop from Ordinal Tower
+Obscura | Lv.14 | 263 | 1040 | Valorous Unit ⌊ | Element: Variance: 70%~100% N/A | Obtained from the NGS 1st Anniversary Event Rare Drop from Ordinal Tower
+Quintel | Lv.21 | 277 | 1039 | Fortress Unit ⌊ | Variance: 75%~100% N/A | Rare Drop (Retem Region)
+Gothica | Lv.21 | 277 | 1039 | Reinvigorating Unit ⌊ | Variance: 75%~100% N/A | Rare Drop (Retem Region)
+Fivla | Lv.21 | 277 | 1039 | Focused Unit ⌊ | Variance: 75%~100% N/A | Rare Drop (Retem Region)
+Greaga | Lv.27 | 280 | 1042 | Fighting Spirit Unit ⌊ | Variance: 75%~100% N/A | Rare Drop from Gigantix Enemies (Lv. 39+) Rare Drop from Rank 2 Combat Sectors (Retem Region)
+Koukloziat | Lv.27 | 280 | 1042 | Unassailable Unit ⌊ | Variance: 75%~100% N/A | Rare Drop from DOLLS Unit Bosses (Lv. 31+)
+Relik | Lv.31 | 284 | 1046 | Vigorous Unit ⌊ Explosive Unit ⌊ Harmonious Unit ⌊ Imbued Unit ⌊ | Variance: 75%~100% N/A | Rare Drop from Urgent Quests (Retem Region) Rare Drop from Lv. 30+ Bosses (Retem Region) Rare Drop from Dark Falz Interception
+Cinquem | Lv.36 | 293 | 1055 | Virtuoso Unit ⌊ | Variance: 75%~100% N/A | Rare Drop from Dark Falz Interception Rare Drop from High Rank Combat Sectors (Lv. 35+)
+Evoleclipse | Lv.40 | 346 | 1032 | Elusive Unit ⌊ | Variance: 75%~100% N/A | Kvaris Expedition Prep Ticket Exchange Shop
+Sechetyl | Lv.45 | 350 | 1036 | Trample Unit ⌊ | Variance: 75%~100% N/A | Rare Drop (Kvaris Region)
+Codeck | Lv.40 | 351 | 1037 | Impervious Unit ⌊ | Variance: 75%~100% N/A | Obtained from the Moon Gazing '22 Event Rare Drop from Ordinal Tower
+Rokz | Lv.52 | 353 | 1039 | Revolutionary Unit ⌊ Desperation Unit ⌊ Staccato Unit ⌊ | Variance: 75%~100% N/A | Rare Drop from Kvaris Region Bosses Rare Drop from Urgent Quests (Kvaris Region)
+Evolorbit | Lv.53 | 355 | 1041 | Illusory Unit ⌊ | Variance: 75%~100% N/A | Obtained from the PSO2 10th Anniversary Event Rare Drop from Ordinal Tower
+Gold Primm II | Lv.50 | 452 | 1175 | Recycler Unit ⌊ | Variance: 50%~100% C/Endymio | Enhancement Material Exchange Shop Rare Drop from Golden and Silver Enemies (Lv. 70+) Rare Drop from Urgent Quests (Lv. 75+)
+Kaizaar Mk. I | Lv.53 | 465 | 1188 | Tempered Form ⌊ | Variance: 50%~100% N/A | ARKS Record Badge Exchange Shop
+Crystia | Lv.55 | 473 | 1096 | Absorption Unit ⌊ | Variance: 50%~100% N/A | Obtained from the Autumn '22 Event Rare Drop from Geometric Labyrinth (Rank 2)
+Rugged | Lv.57 | 490 | 1213 | Citadel Unit ⌊ Pursuit Unit ⌊ Gyrating Unit ⌊ | Variance: 50%~100% N/A | Rare Drop from Lv. 51+ Bosses (Kvaris Region) Rare Drop from Urgent Quests (Kvaris Region) Rare Drop from High Rank Combat Sectors (Lv. 60+)
+Kaizaar | Lv.60 | 485 | 1208 | Tempered Form ⌊ | Variance: 50%~100% N/A | Kvaris Exchange Shop
+Obsidia | Lv.61 | 488 | 1211 | Coruscating Unit ⌊ | Variance: 50%~100% N/A | Rare Drop from Enhanced Enemies (Lv. 60+) Title Reward from Ordinal Tower
+Alcinq | Lv.40 | 530 | 1217 | Season Cycle Unit ⌊ | Variance: 50%~100% N/A | Obtained from the Autumn '23 Event
+Brawnaga | Lv.40 | 535 | 1222 | Season Cycle Unit ⌊ | Variance: 50%~100% N/A | Obtained from the Halloween '23 Event
+Primm Libra | Lv.55 | 436 | 1123 | Soothing Unit ⌊ | Element: Variance: 50%~100% N/A | Stia Expedition Prep Ticket Exchange Shop
+Effulgent | Lv.60 | 446 | 1133 | Blitz Unit ⌊ | Element: Variance: 50%~100% C/Fire Exploit II | Rare Drop from Stia Region Rare Drop from Geometric Labyrinth (Rank 2)
+Tenebrous | Lv.60 | 448 | 1135 | Blitz Unit ⌊ | Element: Variance: 50%~100% C/Ice Exploit II | Obtained from the Christmas '22, New Year '23, and Winter '23 Event Rare Drop from Geometric Labyrinth (Rank 2)
+Trunkul | Lv.62 | 500 | 1187 | Solidified Unit ⌊ | Variance: 50%~100% N/A | Obtained from the Spring '23 Event
+Kouklophis | Lv.62 | 520 | 1207 | Instant Death Unit ⌊ | Variance: 50%~100% N/A | Stia Exchange Shop
+Revita | Lv.63 | 466 | 1153 | Soothing Unit ⌊ | Element: Variance: 50%~100% N/A | Obtained from the NGS 2nd Anniversary Event
+Gunblaze | Lv.65 | 526 | 1213 | Flawless Unit ⌊ | Variance: 50%~100% N/A | Rare Drop from Recon Gigants Rare Drop from Battledia: Purple (Stia Devastators) Rare Drop from Urgent Quests (Stia Region) Rare Drop from Geometric Labyrinth (Rank 2)
+Revolcoat | Lv.67 | 524 | 1211 | Season Cycle Unit ⌊ | Variance: 50%~100% N/A | Obtained from the PSO2 11th Anniversary Event
+Neos Justitean | Lv.70 | 445 | 1132 | Circulating Spring Unit ⌊ | Element: Variance: 50%~100% N/A | Rare Drop from Designated Limited-Time Quests and Event Enemies Rare Drop from Geometric Labyrinth (Rank 2)
+Neos Astraean | Lv.70 | 535 | 1222 | Flowing Spring Unit ⌊ | Variance: 50%~100% N/A | Rare Drop from The Battle of Halphia Lake Aegis Integra Exchange
+Variocool | Lv.50 | 620 | 1196 | Season Change Unit ⌊ | Variance: 50%~100% N/A | Obtained from the Christmas '23 Event
+Millenium Round | Lv.50 | 625 | 1201 | Season Change Unit ⌊ | Variance: 50%~100% N/A | Obtained from the Spring '24 Event
+Aeoni Dekelion | Lv.50 | 630 | 1206 | Season Change Unit ⌊ | Variance: 50%~100% N/A | Obtained from the NGS 3rd Anniversary Event
+Monarkais | Lv.53 | 576 | 1196 | Tempered Form ⌊ | Variance: 50%~100% N/A | Class Level 80 & Equipment Set No longer obtainable.
+Argenti | Lv.65 | 586 | 1162 | Soothing Unit ⌊ | Variance: 50%~100% Fixa Attack Lv. 5 C/Gladia Soul LC C/Highael Domina LC C/Mastery LC C/Gigas Maste LC C/Halphinale LC C/Triplble II | Reach Lv.65 on a given Class from 12/6/2023 until 6/5/2024 to receive a respective set of Class weapons. No longer obtainable.
+Argenkul | Lv.65 | 586 | 1162 | Soothing Unit ⌊ | Variance: 50%~100% Fixa Attack Lv. 5 C/Gladia Soul LC C/Halphinale LC C/Gigas Maste LC C/Highkvar Domina LC C/Grand Dread Keeper I LC C/Mastery LC C/Triplble II | Reach Lv.65 on a given Class from 6/5/2024 until 12/4/2024 to receive a respective set of Class weapons. No longer obtainable.
+Melek | Lv.71 | 635 | 1211 | Vigorous Unit: Deux ⌊ Explosive Unit: Deux ⌊ Harmonious Unit: Deux ⌊ Imbued Unit: Deux ⌊ | Variance: 50%~100% N/A | Dread Scale Exchange Shop
+Tisah | Lv.71 | 637 | 1213 | Incandescent Unit ⌊ Dance Obscura Unit ⌊ Receptive Unit ⌊ | Variance: 50%~100% N/A | Rare Drop from Aelio Combat Sectors (Lv. 70+) Rare Drop from Designated Urgent Quests and Limited-Time Quests
+Verschmelz | Lv.71 | 637 | 1213 | Everbright Unit ⌊ | Variance: 50%~100% N/A | Growthment Exchange Shop Rare Drop from Halpha Environmental Testing Zone Survey
+Liuxtra | Lv.50 | 643 | 1219 | Season Revolution Unit ⌊ | Variance: 50%~100% C/Sezun Twelceremofiv | Obtained from the Super Phantasy Festival: PSO2 12th Anniversary Event
+Reyaar Mk. I | Lv.75 | 605 | 1087 | Conduction Form ⌊ | Variance: 50%~100% N/A | ARKS Record Badge Exchange Shop
+Flugelgard | Lv.75 | 731 | 1213 | Faithful Unit ⌊ | Variance: 50%~100% N/A | Rare Drop from Mining Rig Defense: Retem (Rank 3+) Rare Drop from Sign of the Planetbreaker Rare Drop from Omen of the Planetbreaker Rare Drop from Halpha Environmental Testing Zone Survey
+Reyaar | Lv.75 | 735 | 1217 | Conduction Form ⌊ | Variance: 50%~100% N/A | Exchange from the Kvaris Exchange Shop Rare Drop from the Kvaris Region (Lv. 85+) Rare Drop from Remnants of Ambition (Rank 2+)
+Xover | Lv.75 | 738 | 1220 | Foundation Unit ⌊ Core Unit ⌊ Origin Unit ⌊ | Variance: 50%~100% N/A | Exchange from the Growthment II Exchange Shop Rare Drop from the Halpha Environmental Testing Zone Survey
+Epith Eirini | Lv.65 | 799 | 1223 | Stalwart Unit ⌊ | Variance: 50%~100% Fixa Attack Lv. 5 EX Light Attack Protect H EX Endure Pain PB Boost H EX Tech Arts PP Suppress H C/Gran Gladia Soul LC C/Lux Halphinale LC C/Glan Gigas Maste LC C/Grand Dread Keeper II LC | Reach Lv.65 on a given Class from 12/4/2024 until 6/4/2025 to receive a respective set of Class weapons. No longer obtainable.
+Eredim | Lv.80 | 801 | 1225 | Battleflag Unit ⌊ | Variance: 50%~100% Random EX Augment (x3) | Common Drop from Nameless City Residential District Investigation
+Exelio | Lv.80 | 802 | 1226 | Origin Unit (Exelio) ⌊ | Variance: 50%~100% N/A | Rare Drop from Nameless City Residential District Investigation Rare Drop from Halpha Environmental Testing Zone Survey Common Drop from Planetcrusher Blitz (Rank 2)
+Wingard | Lv.80 | 824 | 1248 | Eruption Unit ⌊ | Variance: 50%~100% N/A | Rare Drop from Halpha Environmental Testing Zone Survey Rare Drop from Planetcrusher Blitz
+Duo Selio | Lv.80 | 845 | 1269 | Origin Unit - Deux ⌊ | Variance: 50%~100% N/A | Equipment Upgrade (Augment Transfer)
+Tri Selio | Lv.80 | 855 | 1279 | Origin Unit - Trois ⌊ | Variance: 50%~100% N/A | Equipment Upgrade (Augment Transfer)
+Epith Eirini II | Lv.65 | 940 | 1318 | Stalwart Unit: Deux ⌊ | Variance: 50%~100% Fixa Attack Lv. 5 EX Light Attack Protect II H EX Bring Down PB Boost II H EX Tech Arts PP Suppress II H C/Gran Gladia Soul LC C/Lux Halphinale LC C/Glan Gigas Maste LC C/Grand Dread Keeper II LC C/Giga Triyal LC | Reach Lv.65 on a given Class from 6/4/2025 until 12/2/2025 to receive a respective set of Class weapons.
+Twaalv AT | Lv.80 | 945 | 1323 | Conquest Unit ⌊ | Variance: 50%~100% EX Light Attack Protect II H EX Bring Down PB Boost II H EX Tech Arts PP Suppress II H Argant Gladia Soul LC Lois Halphinale LC Argant Gigas Maste LC Argant Dread Keeper LC Tera Triyal LC | Obtained from the Super Genesis Festival '25 Event Exchange Shop
+Twaalv | Lv.80 | 945 | 1323 | Conquest Unit ⌊ | Variance: 50%~100% N/A | Rare Drop from Nameless City Residential District Investigation
+Klirodim | Lv.85 | 945 | 1323 | Battlebreaker Unit ⌊ | Variance: 50%~100% Random EX II Augment (x3) | Common Drop from Leciel Combat Analysis Zone Survey
+Akroselio | Lv.80 | 950 | 1328 | Origin Unit - Ultime ⌊ | Variance: 50%~100% N/A | Equipment Upgrade (Augment Transfer)
+Legendios | Lv.85 | 955 | 1333 | Domain Unit ⌊ | Variance: 50%~100% N/A | Rare Drop from Leciel Combat Analysis Zone Survey
+Epith Eirini III | Lv.65 | 1040 | 1349 | Stalwart Unit - Trois ⌊ | Variance: 50%~100% Fixa Attack Lv. 5 EX Light Attack Protect II H EX Bring Down PB Boost II H EX Tech Arts PP Suppress II H Argant Gladia Soul LC Lois Halphinale LC Argant Gigas Maste LC Argant Dread Keeper LC Mastery II G | Reach Lv.65 on a given Class from 12/2/2025 until 6/2/2025 to receive a respective set of Class weapons.
+Juvolg | Lv.90 | 1045 | 1354 | Polished Unit ⌊ | Variance: 50%~100% Random EX II Augment (x3) | Common Drop from Altered Investigation: Central Desert Area
+Volgen | Lv.90 | 1050 | 1359 | Polished Unit: Deux ⌊ | Variance: 50%~100% | Equipment Upgrade II (Augment Transfer)
+Cres AT | Lv.90 | 1050 | 1359 | Shining Unit ⌊ | Variance: 50%~100% N/A | Equipment Upgrade II (Type Exchange)
+Cres | Lv.90 | 1050 | 1359 | Shining Unit ⌊ | Variance: 50%~100% N/A | Rare Drop from And the Stars Crashed Rare Drop from Altered Battle Line: West Desert Area
+Einden | Lv.90 | 1055 | 1364 | Polished Unit: Ultime ⌊ | Variance: 50%~100% | Equipment Upgrade II (Augment Transfer)
+Leyend | Lv.90 | 1057 | 1366 | Cleaving Unit ⌊ | Variance: 50%~100% N/A | Rare Drop from Trigger Quest: Ruine D Hyunal Battle Rare Drop from Massive Machine Assault Rare Drop from Altered Battle Line: West Desert Area
+Zenit | Lv.90 | 1060 | 1369 | Shining Unit: Ultime ⌊ | Variance: 50%~100% N/A | Equipment Upgrade II (Augment Transfer)
+Twaalv II | Lv.95 | 1180 | 1458 | Conquest Unit: Ultime ⌊ | Variance: 50%~100% N/A | Enhance to Legend 3 Weapons (Augment Transfer)
+Legendios II | Lv.95 | 1180 | 1458 | Domain Unit: Ultime ⌊ | Variance: 50%~100% N/A | Enhance to Legend 3 Weapons (Augment Transfer)
+Leyend II | Lv.95 | 1180 | 1458 | Cleaving Unit: Ultime ⌊ | Variance: 50%~100% N/A | Enhance to Legend 3 Weapons (Augment Transfer)
+Epith Eirini IV | Lv.65 | 1185 | 1463 | Stalwart Unit - Quatre ⌊ | Variance: 50%~100% Fixa Attack Lv. 5 EX Light Attack Protect III H EX Bring Down PB Boost III H EX Tech Arts PP Suppress III H Argant Gladia Soul LC Lois Halphinale LC Argant Gigas Maste LC Argant Dread Keeper LC Telphia Domina LC | Reach Lv.65 on a given Class from 3/6/2026 onwards to receive a respective set of Class weapons.
+Spradio | Lv.95 | 1190 | 1468 | Spiritwood Unit ⌊ | Variance: 50%~100% Random EX II Augment (x3) | Uncommon Drop from Nameless City Entertainment District Investigation
+Leafladio | Lv.95 | 1195 | 1473 | Spiritwood Unit: Deux ⌊ | Variance: 50%~100% N/A | Spradio Weapon Enhancement (Augment Transfer)
+Arbaradio | Lv.95 | 1200 | 1478 | Spiritwood Unit: Ultime ⌊ | Variance: 50%~100% N/A | Spradio Weapon Enhancement (Augment Transfer)
+Arche | Lv.95 | 1200 | 1478 | Spirit Wealth Unit ⌊ | Variance: 50%~100% N/A | Very Rare Drop from any Lv.110+ Content
+Granillusion | Lv.105 | 1290 | 1563 | Spectral Unit ⌊ | Variance: 50%~100% N/A | Uncommon Drop from Realm Investigation: Ruins
+Lexio | Lv.100 | 1300 | 1573 | Tracking Light Unit ⌊ | Variance: 50%~100% N/A | Extremely Rare Drop from Luther, False Conqueror Manifest

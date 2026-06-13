@@ -1,0 +1,76 @@
+# Trainia Advance Quests — Tutorial and Class Practice (Part 2)
+
+Sections in this file: Ordinal Tower
+
+== Ordinal Tower ==
+Ordinal Tower
+Quest Type | Trainia Advance Quests
+Battle Power Requirements
+Rank 1 | 1063
+Rank 2 | 1243
+Rank 3 | 1633
+Rank 4 | 1759
+Rank 5 | 2416
+Rank 6 | 2647
+Rank 7 | 2878
+Rank 8 | 3840
+Average Enemy Level
+Rank 1 | Lv. 15
+Rank 2 | Lv. 20
+Rank 3 | Lv. 30
+Rank 4 | Lv. 35
+Rank 5 | Lv. 55
+Rank 6 | Lv. 60
+Rank 7 | Lv. 65
+Rank 8 | Lv. 90
+Quest Details
+Location | South Aelio
+Single/Multi-Party | Multi-Party Quests
+Party Invitation | Allowed
+Restrictions
+Time Limit | -
+Damage Limit | None
+First Clear Rewards
+Rank 1 | Arms Refiner x10 N-HU-EX-Cube x10 N-RA-EX-Cube x10 N-FO-EX-Cube x10
+Rank 2 | Efitus Armor: Arga x1 N-FI-EX-Cube x10 N-GU-EX-Cube x10 N-TE-EX-Cube x10
+Rank 3 | Photon Scale x200 N-BR-EX-Cube x10 N-BO-EX-Cube x10 N-WA-EX-Cube x10
+Rank 4 | Efitus Armor: Belta x1 N-HU-EX-Cube x10 N-RA-EX-Cube x10 N-FO-EX-Cube x10
+Rank 5 | Blizzardium x100 N-FI-EX-Cube x10 N-GU-EX-Cube x10 N-TE-EX-Cube x10
+Rank 6 | Efitus Armor: Sheza x1 N-BR-EX-Cube x10 N-BO-EX-Cube x10 N-WA-EX-Cube x10
+Rank 7 | Shoulder Migratory Bird x2
+Rank 8 | Stun Effect Bracelet x2
+
+=== Overview ===
+Ordinal Tower is a Trainia Advance quest that can be accessed at the Trainia Bunker in South Aelio. In Trainia Advance, players must defeat a series of bosses in each stage in order to complete the quest. Subsequent, newer ranks will unlock after successfully completing a rank.
+Players can earn powerful items such as the Eftius Armor Series as first time completion rewards for certain ranks. Additionally, players can earn multiple enhanced Obsidia Series +40 associated with the cleared class as Quest Title rewards.
+
+=== Waves ===
+Boss Enemy
+Crag Bear Rank 1 Nex Aelio Rank 2 Svaulon Rank 3 Sand Nogleth Rank 4 Relyn Rank 5 Crocodylis Rank 6 Elite Ams Kvaris Rank 7 Elite Bujin Rank 7 Elite Kelkundo Rank 7 Elite Frostyl Sword Rank 7 (Hidden Enemy) Elite Vardias Rank 7 (Hidden Enemy)
+
+=== Rank 7 ===
+On Rank 7, the layout of the quest differs significantly from previous ranks. Players will now be ranked and scored according to clear time, and there will be 3 bosses available to fight as opposed to 1. Clearing any 3 bosses will successfully complete the quest.
+Frostyl Sword or Vardias can be fought optionally as "hidden enemies" by defeating bosses in a specific order to unlock additional passages that are located in the map. Frostyl Sword can be accessed through a doorway marked with Red and Blue markings on the right side of the tower, and Vardias can be accessed through a doorway marked with Red and Yellow markings at the back of the tower. It should be noted that the quest will still clear after 3 bosses have been defeated, so should players desire to fight these bosses, they must ignore the boss associated with the undesired color.
+Defeating Ams Kvaris will contribute to unlocking doors with Red markings on them, defeating Bujin will contribute to unlocking doors with Blue markings on them, and defeating Kelkundo will contribute to unlocking doors with Yellow markings on them. To fight Frostyl Sword, you must defeat Ams Kvaris and Bujin to unlock the doorway, and to fight Vardias, you must defeat Ams Kvaris and Kelkundo.
+The paths to these bosses are also protected by additional barriers that are associated with Training Targets. These Training Targets can only be broken by Photon Bursts, and cannot be broken by any other means. There are two Training Targets protecting each passage, meaning you will need two Photon Bursts to gain access to the respective bosses. Three Blastasigne can be found on the map, which may assist in clearing these Training Targets. The Blastasigne are protected by barriers, but can be accessed by activating a pedestal hidden in a secret pathway located near the ceiling of the starting room. This pedestal will remove the barriers encasing the Blastasigne, which will allow you quick access to Photon Bursts.
+Boss Enemy
+Elite Ams Kvaris (Red) Elite Bujin (Blue) Elite Kelkundo (Yellow)
+Elite Frostyl Sword (Red + Blue Door) Elite Vardias (Red + Yellow Door)
+
+=== Rank 8 ===
+On Rank 8, the layout of the quest once again differs significantly from previous ranks. Players will now be ranked and scored according to clear time, with a total of 5 trials that need to be completed in order to clear the quest. Non-trial enemies are also present to obstruct players. There is also a failure condition of 15 incapacitations.
+Trial 1
+Elite Dark Magilz (and 5 accompanying DOLLs)
+Elite Snoruq (must be released by switch)
+Elite Venogia
+Elite Ikusa Engouku
+Malevolent Dryverus Malevolent Ringwedge
+
+=== Notable Rewards ===
+Notable Items
+Weapons / Units | Augments
+Eredim Series ⁽⁸⁾ Rugged Series ⁽⁷⁾ Obsidia Series ⁽⁷⁾ Rokz Series ⁽⁷⁾ Codeck Series ⁽⁷⁾ Evolorbit Series ⁽⁷⁾ Obscura Series ⁽⁶⁾ Relik Series ⁽⁷⁾ Koukloziat Series ⁽⁷⁾ Lumiere Series ⁽⁵⁾ Tempesta Series ⁽⁴⁾ Flamel Series ⁽³⁾ Resurgir Series Frostel Series ⁽²⁾ Glissen Series ⁽¹⁾ | C/Ams Soul I - IV ⁽¹⁰⁾ C/Crocys Soul I - IV ⁽⁶⁾ C/Dolz Soul I - III C/Frostyl Soul I - IV ⁽¹⁰⁾ C/Vardi Soul I - IV ⁽¹⁰⁾ C/Megas Fusia ⁽¹¹⁾ C/Sta Might ⁽¹¹⁾ C/Spi Might ⁽¹¹⁾ C/Deft Might ⁽¹¹⁾ C/Gua Might ⁽¹¹⁾ C/Sta Precision ⁽¹¹⁾ C/Spi Precision ⁽¹¹⁾ C/Deft Precision ⁽¹¹⁾ C/Gua Precision ⁽¹¹⁾ C/Sta Technique ⁽¹¹⁾ C/Spi Technique ⁽¹¹⁾ C/Deft Technique ⁽¹¹⁾ C/Gua Technique ⁽¹¹⁾ C/Spiro Triyal ⁽⁸⁾ C/Guaro Triyal ⁽⁸⁾ C/Wardro Triyal ⁽⁸⁾ C/Diro Triya ⁽⁸⁾ C/Prog Triya ⁽⁸⁾
+Materials | Other
+Arms Refiner ⁽¹¹⁾ Monotite ⁽¹⁾ Dualomite ⁽²⁾ Trinite ⁽³⁾ Tetracite ⁽⁴⁾ Pentalite ⁽⁵⁾ Photon Quartz ⁽⁶⁾ | * Kalmeri Alice ⁽¹⁾ * Summit Moon ⁽²⁾ * Hitogata ⁽³⁾ * Dragon Slayer ⁽⁴⁾ * Frozen Shooter ⁽⁵⁾ * Rabbit Wand ⁽⁶⁾ * Tarnada ⁽⁷⁾ * Precious Sword Balmung ⁽⁷⁾ MTN: Dash - Wings Spread/B ⁽⁷⁾ MTN: Glide - Wings Spread/B ⁽⁷⁾ N-#★ Limit Break Substitute/Limit # ⁽⁹⁾ N-#★ Potential Unlock Substitute/Lv. # ⁽⁹⁾
+Additional Information
+⁽¹⁾ Drops on Rank 1. ⁽²⁾ Drops on Rank 2. ⁽³⁾ Drops on Rank 3. ⁽⁴⁾ Drops on Rank 4. ⁽⁵⁾ Drops on Rank 5. ⁽⁶⁾ Drops on Rank 6. ⁽⁷⁾ Drops on Rank 7. ⁽⁸⁾ Drops on Rank 8. ⁽⁹⁾ Drops differ respective to the difficulty cleared. For instance, N-6★ Potential Unlock Substitute/Lv. 3 will drop on Rank 6, while N-1★ Potential Unlock Substitute/Lv. 2 will drop on Rank 1. Rank 7 and Rank 8 are exempt from these substitutes. ⁽¹⁰⁾ Chance to drop respectively from Ams Kvaris, Frostyl Sword, or Vardias on Rank 7. ⁽¹¹⁾ Chance to drop from Megalotix enemies.

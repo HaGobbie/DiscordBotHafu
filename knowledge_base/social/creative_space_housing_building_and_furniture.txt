@@ -1,0 +1,79 @@
+# Creative Space — Housing, Building and Furniture
+
+Creative Space
+Material Build Parts | Structure Build Parts | Nature Build Parts
+Furnishing Build Parts | Play Part Build Parts | Shape Build Parts
+Crossover Build Parts
+Creative Space
+
+== Overview ==
+The "Creative Space" is a place within the field where you can freely create and customize your own living space. You can place "Build Parts" such as building materials and decorations, change the terrain, install devices that respond to switches, and more. The Creative Space is accessible from the Main Menu or the Ryuker Device after talking to Arche in Central City.
+
+=== Genesis Points ===
+Genesis Points are points that can be used to purchase Build Parts or exchanged for items. They can be obtained from the "GP Tree" or from Weekly Tasks , the Mission Pass , and by completing Arche's Side Tasks .
+You can earn Genesis Points by accessing the GP Tree Build Part. Genesis Points can also be obtained from GP Trees in other players' Creative Spaces, so you can accumulate more Genesis Points by visiting other players' Creative Spaces.
+In addition, the appearance of the GP Tree changes daily, as well as the amount of Genesis Points that can be earned. The amount of Genesis Points that can be earned is limited to once per day per player's Creative Space. Once the maximum amount of Genesis Points for a day is reached, no more Genesis Points can be earned for that day. 1,250 Genesis Points can be obtained every day, where this daily limit resets at 12:00 UTC.
+
+== Editing ==
+
+=== Edit Mode ===
+Press <Middle Click> to switch to Edit Mode. In Edit Mode, you can perform various operations related to creation, such as placing, rotating or deleting Build Parts.
+
+=== Placing Build Parts ===
+While in Edit Mode, <Middle Click> opens the Build Menu. From the Build Menu, you can select the Build Part you wish to install. While a Build Part is selected, the location of the part will be displayed as a guide. You can use <Left Click> to place the Build Part.
+
+=== Exiting Edit Mode ===
+When editing is complete, select Exit Edit Mode from the "Build Commands" menu at the top of the Build Menu.
+
+== Managing Build Parts ==
+
+=== Obtaining Build Parts ===
+Build Parts can be obtained by defeating enemies or receiving as rewards, as well as by purchasing from the "Buy Build Parts" in the Creative Space Menu. Build Parts that can be purchased from "Buy Build Parts " (purchase with Genesis Points) and "Buy Build Parts " (purchase with Star Gems) are different.
+
+=== Registering Build Parts ===
+You can register Build Parts from the Creative Space menu. Once registered, the Build Part will be added to the Build Menu, and can be freely placed in the Creative Space thereafter. Note: All characters in your account will be able to use it.
+
+=== Rotating Build Parts ===
+To rotate a Build Part, select the part and select "Rotate" by <G Key> <H Key> while holding down <Shift>. Then use <WASD Keys> while holding down <Shift> to rotate.
+
+=== Scaling Build Parts ===
+While selecting a Build Part, hold down <Shift> and press <G Key><H Key> to toggle between "Rotation", "Scale" and "Distance". You can select "Scale" and change it with <WASD Keys>.
+
+=== Changing Color of Build Parts ===
+To change the color of a Build Part, select "Change Color" from the Build Commands in the Build Menu, then select the installed Build Part and press <Left Click> to change the color. <Right Click> will reflect the last set color on other Build Parts.
+
+== Building ==
+
+=== Build Menu ===
+The "Build Menu" allows you to edit using Build Commands, select a Build Part you wish to install, or exit Edit Mode.
+
+=== Build Options ===
+If you want to change the functions to support placement, open "Build Options" by <Right Click> while holding down <Shift>. You can change various settings such as toggling "Overlay Grid".
+
+=== Max Placement Distance ===
+If you want to be able to place a Build Part farther, hold down <Shift> and use <G Key><H Key> to select "Max Placement Distance" while selecting the Build Part. Build Parts cannot be placed farther than a certain distance, but by changing "Max Placement Distance", the parts can be placed farther when placed in the air.
+
+=== Creative Space Terminal ===
+Accessing the "Creative Space Terminal" will open the Creative Space Menu. The Creative Space Menu allows you to purchase and register Build Parts, and also configure the entire Creative Space.
+
+=== Removing Build Parts ===
+You can delete a Build Part by pressing <Right Click> while selecting the installed Build Part. You can also delete a Build Part by using the Build Command in the Build menu.
+
+=== Changing Terrain Height ===
+To raise or lower the terrain, select "Change Terrain Height" from the Build Commands in the Build Menu to display a marker on the terrain. The following can be performed on the marked terrain. Raise Terrain: <Left Click>. Lower Terrain: <Right Click>.
+
+=== Build Palette ===
+"Build Palette" is a function to register Build Commands and Build Parts to and use it immediately with simple controls. Press <R Key> in the Build Menu to register the selected Build Command or Build Part to a slot. While in Edit Mode, use <G Key> <H Key> to move the cursor and to execute. When using the keyboard, press the [1]-[0] keys to execute directly.
+
+=== Initial Teleporter ===
+Accessing the "Initial Teleporter" Build Part will open a menu to transfer to various Creative Spaces. Selecting "Return to ARKS base" will take you to the respective ARKS Base.
+
+== Managing Designs ==
+
+=== Designs ===
+"Design" is drawing data that allows you save buildings you have created. With a Design, you can easily copy a building once you have created it, and by publishing the Design to other players, they can reproduce the building you have created in their own Creative Spaces. You can save your Design and make them available to other players by placing a "Design Terminal" Build Part near your building.
+Access the Design Terminal and select "Save" to save your building design. If you choose "Share", other players will be able to download the design after it is saved. You can also change the range of fields you want to save in the design from "Set Design Area", and set the name of the Design from "Edit Design Information".
+
+=== Downloading Designs ===
+If you want to use another player's "Design", you must go to their Creative Space. If a Design Terminal has been set up, you can download the Design registered by that player.
+If you want to use a popular/official "Design", choose "Featured Designs" or "Official Creative Space" from the "Initial Teleporter" to find the most popular Designs.
