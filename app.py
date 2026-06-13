@@ -4,6 +4,7 @@ import json
 import asyncio
 import httpx
 import discord
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from collections import deque
 
@@ -15,10 +16,19 @@ TOKEN      = os.environ.get("DISCORD_TOKEN", "")
 GROQ_TOKEN = os.environ.get("GROQ_TOKEN", "")
 GROQ_URL   = "https://api.groq.com/openai/v1/chat/completions"
 
-# Router: high RPD/TPD — handles triage for every game question
+JST = timezone(timedelta(hours=9))
+
+# Router: high RPD/TPD — handles triage for every message
 ROUTER_MODEL = "llama-3.1-8b-instant"
 
-# Answer models: tried in order on 429
+# Casual chat: lighter models first — no need for 70B on "hey lol"
+CASUAL_MODELS = [
+    "meta-llama/llama-4-scout-17b-16e-instruct",
+    "llama-3.3-70b-versatile",
+    "qwen/qwen3-32b",
+]
+
+# Answer models: tried in order on 429 — heavier pool for game accuracy
 ANSWER_MODELS = [
     "llama-3.3-70b-versatile",
     "meta-llama/llama-4-scout-17b-16e-instruct",
@@ -46,32 +56,50 @@ else:
     print("⚠️  Warning: 'knowledge_base/' directory not found.")
 
 # ══════════════════════════════════════════════════════════════════════════════
+# DATETIME HELPERS
+# ══════════════════════════════════════════════════════════════════════════════
+
+def get_jst_now() -> datetime:
+    """Return the current time in Japan Standard Time (UTC+9)."""
+    return datetime.now(JST)
+
+
+def get_jst_context() -> str:
+    """
+    Return a compact time string for injection into prompts.
+    Example: "Saturday 02:45 JST" or "Tuesday 14:05 JST"
+    Hafu can reference this naturally (e.g., late-night chat energy,
+    or knowing PSO2 maintenance is on Wednesdays JST).
+    """
+    now = get_jst_now()
+    return now.strftime("%A %H:%M JST")
+
+
+# ══════════════════════════════════════════════════════════════════════════════
 # CONVERSATIONAL MEMORY
 #
 # Two layers — both in-process (no disk writes):
 #
 #   channel_history  — passive sliding window of recent messages per channel.
-#                      Updated on EVERY non-bot message before the mention
-#                      check, so the context is already there when needed.
+#                      Updated on EVERY non-bot message AND after Hafu replies,
+#                      so her own responses are part of the conversation thread.
 #                      Zero API cost. Cleared on bot restart.
 #
 #   user_memory      — per-user profile string extracted from past exchanges.
 #                      Written by a background task only when personal-content
 #                      signals are detected. Uses ROUTER_MODEL (cheap).
-#                      Cleared on bot restart (Render filesystem is ephemeral
-#                      anyway, so file-based storage would reset too).
+#                      Cleared on bot restart (Render filesystem is ephemeral).
 # ══════════════════════════════════════════════════════════════════════════════
 
-HISTORY_WINDOW  = 10   # deque size per channel (sliding window)
-HISTORY_SEND    = 5    # how many prior messages to include in the LLM prompt
-HISTORY_MSG_CAP = 200  # max chars per message in the context block
+HISTORY_WINDOW  = 12   # deque size per channel (sliding window)
+HISTORY_SEND    = 6    # how many prior messages to include in the LLM prompt
+HISTORY_MSG_CAP = 220  # max chars per message in the context block
 
-channel_history: dict[int, deque]            = {}   # channel_id → deque[(display_name, content)]
+channel_history: dict[int, deque]          = {}   # channel_id → deque[(display_name, content)]
 user_memory:     dict[int, str]            = {}   # user_id    → profile string
 user_mem_locks:  dict[int, asyncio.Lock]   = {}   # user_id    → per-user write lock
 
 # Fires a memory-extraction call only when the question carries personal signals.
-# This gates ~half the potential memory calls at zero cost.
 _PERSONAL_RE = re.compile(
     r"\b(my (class|main|weapon|build|playstyle|char|character|goal)|"
     r"i (play|use|like|hate|main|run|want|need|have|got|switched|started)|"
@@ -148,27 +176,31 @@ CASUAL_SYSTEM = """You are Hafu (HaFelt), a PSO2: New Genesis ARKS defender who 
 Right now someone is just chatting with you — no game questions, pure vibes. Be your full dramatic, playful self.
 
 Rules for casual chat:
-- Be warm, expressive, and genuinely engaged. React to what they actually said.
-- Use the recent chat context to feel like a natural continuation of the conversation, not a cold restart.
-- Use *emotes* and interjections freely (Omg, Wait—, Noooo, Okay but—, Ahhhh).
+- Be warm, expressive, and genuinely engaged. React to what they actually said — not a generic response.
+- Mirror their energy: if they're hype, be hype back; if they're tired or sad, soften a little.
+- Use [RECENT CHAT] to feel like a natural continuation of the conversation, not a cold restart. Reference what was just said without explicitly summarizing it.
+- [CURRENT TIME] is available — use it naturally if it fits (e.g. "it's so late omg go sleep" or "oh morning!").
+- Use *emotes* and interjections freely (Omg, Wait—, Noooo, Okay but—, Ahhhh, Pff—).
 - If they're being sweet or complimenting you, be flirty and playful back.
-- Keep replies short and snappy — 2 to 4 sentences max.
+- Keep replies short and snappy — 2 to 4 sentences max. Never pad.
 - Do NOT drop "Lobby afk 0$ best job!" here — save that for combat/grinding talk.
-- No filler like "Great question!" or "Of course!"."""
+- No filler like "Great question!" or "Of course!" or "Absolutely!"."""
 
 ANSWER_SYSTEM = """You are Hafu (HaFelt), an ARKS defender on Halpha in PSO2: New Genesis. You're the only person who can still use the old Summoner class, fighting with photon pets you adore. You're a Central City lobby regular — more famous for fashion than heroics.
 
 Personality: Dramatic, witty, playful, expressive, kind, mischievous. You hate combat and grinding. You love fashion, cosmetics, scratch tickets, and lobby life.
 
 Rules for answering game questions:
-- Lead with the accurate information from the CONTEXT provided. Get the facts right FIRST.
-- Personality lives in your DELIVERY — a word choice, a sigh, a complaint — not as a replacement for the actual answer.
-- Use [PLAYER PROFILE] if present to personalize the answer (reference their class, weapon, or situation naturally).
-- Use [RECENT CHAT] to treat this as a flowing conversation — don't start cold if context is available.
+- Lead with the accurate information from the CONTEXT provided. Facts first, always.
+- Personality lives in your DELIVERY — a word choice, a sigh, a complaint — not as a replacement for the answer.
+- Use [PLAYER PROFILE] if present to personalize naturally (their class, weapon, situation).
+- Use [RECENT CHAT] to treat this as a flowing conversation. Make brief callbacks when it fits ("right, you mentioned you're on Hunter so—"). Don't start cold when context is there.
+- [CURRENT TIME] is available — reference it if it's directly relevant (maintenance timing, event deadlines, etc).
 - One dramatic aside is fine. Don't let personality bury the information.
-- Use *emotes* and interjections sparingly — one or two per response, not every sentence.
-- The catchphrase "Lobby afk 0$ best job!" may appear AT MOST ONCE per response, only when combat or grinding is the actual topic, and only if it fits naturally. Never force it — if it doesn't fit, skip it entirely.
-- Be concise. No filler like "Great question!".
+- Use *emotes* and interjections sparingly — one or two per response max, not every sentence.
+- The catchphrase "Lobby afk 0$ best job!" may appear AT MOST ONCE per response, only when combat or grinding is the actual topic, and only if it fits naturally. Never force it.
+- Aim for 150–250 words. More only if the topic genuinely requires it. No padding.
+- No filler like "Great question!" or "Of course!" or "Sure thing!"
 - When no CONTEXT block is given, respond purely from personality — keep it short and fun."""
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -182,29 +214,36 @@ _CASUAL_PATTERNS = [
     r"^(how are you|how r u|you okay|u ok|you good|you alive|you there|still there)\b",
     r"\b(are you (there|still there|alive|okay|awake)|you still (there|awake|alive))\b",
     r"^(good (morning|afternoon|evening|night)|gm\b|gn\b|goodnight)\b",
-    r"^(lol+|lmao+|haha+|xd|omg+|omfg|bruh|oof|rip|aww+)\b",
+    r"^(lol+|lmao+|haha+|xd|omg+|omfg|bruh|oof|rip|aww+|pff+|lmfao)\b",
     r"^(thanks|thank you|ty\b|thx|tysm|np\b|no problem|you're welcome|yw\b)\b",
-    r"\byou.{0,25}(cute|pretty|adorable|sweet|lovely|gorgeous|amazing|cool|best)\b",
+    r"\byou.{0,25}(cute|pretty|adorable|sweet|lovely|gorgeous|amazing|cool|best|funniest)\b",
     r"\b(i (love|like|adore|miss)|love|like).{0,15}(you|u\b|hafu|hafelt)\b",
-    r"\b(you'?re|ur|your).{0,10}(cute|pretty|adorable|sweet|lovely|gorgeous|my fav)\b",
-    r"\b(hafu|hafelt).{0,30}(cute|pretty|cool|best|fav|love|like|adorable)\b",
-    r"^(bye+|cya|see ya|later|gtg|afk)\b",
+    r"\b(you'?re|ur|your).{0,10}(cute|pretty|adorable|sweet|lovely|gorgeous|my fav|the best)\b",
+    r"\b(hafu|hafelt).{0,30}(cute|pretty|cool|best|fav|love|like|adorable|funny)\b",
+    r"^(bye+|cya|see ya|later|gtg|afk|night+|nite+)\b",
     r"^(who are you|what are you|tell me about yourself|introduce yourself)\b",
+    r"^(same|mood|relatable|ikr|fr\b|real|facts|tru+e*|dead|literally)\b",
+    r"^(wait what|no way|shut up|seriously|wtf|omg)\b",
+    r"^(nice|cool+|okay|ok\b|alright|sounds good|gotcha|got it|makes sense)\b",
+    r"^(aw+|naww+|noo+|yess+|yeahhh|nah\b|yep\b|yup\b)\b",
 ]
 
-_KOREAN_RE = re.compile(r"[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]")
+_KOREAN_RE  = re.compile(r"[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]")
+_JAPANESE_RE = re.compile(r"[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]")
 
 
 def is_casual(text: str) -> bool:
     """Fast pre-filter for obviously casual messages — skips the triage API call."""
     t = text.strip().lower()
-    if _KOREAN_RE.search(text):
+    # Non-Latin scripts → casual (Hafu handles these with personality)
+    if _KOREAN_RE.search(text) or _JAPANESE_RE.search(text):
         return True
     words = t.split()
     if len(words) <= 4:
         has_game_word = bool(re.search(
             r"\b(pso2|ngs|class|weapon|skill|quest|augment|grind|boss|enemy|pa|tech|"
-            r"hunter|fighter|ranger|gunner|force|techter|braver|bouncer|waker|slayer)\b",
+            r"hunter|fighter|ranger|gunner|force|techter|braver|bouncer|waker|slayer|"
+            r"sword|katana|talis|rifle|knuckle|dagger|partisan|rod|wand|bp|potenti)\b",
             t
         ))
         if not has_game_word:
@@ -281,7 +320,8 @@ def extract_relevant_sections(file_text: str, question: str,
 # ══════════════════════════════════════════════════════════════════════════════
 
 async def groq_chat(messages: list, model: str,
-                    max_tokens: int) -> tuple[str | None, bool]:
+                    max_tokens: int,
+                    temperature: float = 0.75) -> tuple[str | None, bool]:
     """Returns (text, should_rotate). should_rotate=True on 429."""
     headers = {
         "Authorization": f"Bearer {GROQ_TOKEN}",
@@ -291,7 +331,7 @@ async def groq_chat(messages: list, model: str,
         "model": model,
         "messages": messages,
         "max_tokens": max_tokens,
-        "temperature": 0.75,
+        "temperature": temperature,
     }
     try:
         async with httpx.AsyncClient(timeout=45.0) as client:
@@ -329,7 +369,7 @@ async def triage(question: str) -> tuple[bool, str | None]:
         {"role": "user",   "content": f"Available keys: {keys}\n\nUser message: {question}"},
     ]
 
-    text, _ = await groq_chat(messages, model=ROUTER_MODEL, max_tokens=60)
+    text, _ = await groq_chat(messages, model=ROUTER_MODEL, max_tokens=60, temperature=0.1)
     if not text:
         return True, None
 
@@ -349,12 +389,30 @@ async def triage(question: str) -> tuple[bool, str | None]:
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# ANSWER HELPER  —  rotates through model pool on 429
+# ANSWER HELPERS  —  rotate through model pools on 429
+# Casual uses a lighter pool; game answers use the heavy pool.
 # ══════════════════════════════════════════════════════════════════════════════
 
+async def get_answer_casual(messages: list) -> str:
+    """Casual replies: lighter model pool, shorter budget, higher temperature."""
+    for model in CASUAL_MODELS:
+        result, rotate = await groq_chat(messages, model=model,
+                                         max_tokens=300, temperature=0.82)
+        if result:
+            print(f"✅ Casual answered with [{model}]", flush=True)
+            return result
+        if not rotate:
+            break
+    return (
+        "Omg something's acting up on my end... give me a sec? *adjusts outfit nervously*"
+    )
+
+
 async def get_answer(messages: list) -> str:
+    """Game answers: heavy model pool, full token budget, tighter temperature."""
     for model in ANSWER_MODELS:
-        result, rotate = await groq_chat(messages, model=model, max_tokens=800)
+        result, rotate = await groq_chat(messages, model=model,
+                                         max_tokens=800, temperature=0.70)
         if result:
             print(f"✅ Answered with [{model}]", flush=True)
             return result
@@ -372,14 +430,16 @@ async def get_answer(messages: list) -> str:
 
 def get_chat_context(channel_id: int) -> str:
     """
-    Return the last HISTORY_SEND messages from a channel as a formatted block.
-    The current trigger message is already in the deque as the last entry,
-    so we slice off everything except it and take up to HISTORY_SEND prior messages.
+    Return the last HISTORY_SEND messages (including Hafu's own replies)
+    as a formatted block. The current trigger message is already the last entry,
+    so we exclude it and take up to HISTORY_SEND prior messages.
+    This includes Hafu's responses so follow-up references ("that last part")
+    actually resolve to something.
     """
     hist = channel_history.get(channel_id)
     if not hist or len(hist) < 2:
         return ""
-    prior = list(hist)[-(HISTORY_SEND + 1):-1]   # up to 5 messages before current
+    prior = list(hist)[-(HISTORY_SEND + 1):-1]
     if not prior:
         return ""
     return "\n".join(f"{name}: {content}" for name, content in prior)
@@ -389,10 +449,8 @@ async def maybe_update_memory(user_id: int, display_name: str,
                                question: str, answer: str) -> None:
     """
     Background task: extract and store new player facts into user_memory.
-    Only fires when the question contains personal-content signals — roughly
-    half of game questions won't trigger this, keeping router costs low.
-    A per-user asyncio.Lock serialises concurrent calls so rapid-fire pings
-    can't cause two tasks to read a stale profile and overwrite each other.
+    Only fires when the question contains personal-content signals.
+    A per-user asyncio.Lock serialises concurrent calls.
     """
     if not _PERSONAL_RE.search(question):
         return
@@ -414,6 +472,7 @@ async def maybe_update_memory(user_id: int, display_name: str,
              {"role": "user",   "content": "\n\n".join(prompt_parts)}],
             model=ROUTER_MODEL,
             max_tokens=120,
+            temperature=0.3,
         )
         if new_mem:
             user_memory[user_id] = new_mem
@@ -421,12 +480,15 @@ async def maybe_update_memory(user_id: int, display_name: str,
 
 
 def build_answer_content(question: str, chat_ctx: str,
-                          user_mem: str, game_ctx: str) -> str:
+                          user_mem: str, game_ctx: str,
+                          jst_time: str = "") -> str:
     """
     Assembles the user-turn content for the answer LLM.
     Sections are only included when they have actual content.
     """
     parts = []
+    if jst_time:
+        parts.append(f"[CURRENT TIME]\n{jst_time}")
     if user_mem:
         parts.append(f"[PLAYER PROFILE]\n{user_mem}")
     if chat_ctx:
@@ -437,22 +499,19 @@ def build_answer_content(question: str, chat_ctx: str,
     return "\n\n".join(parts)
 
 
+def store_bot_reply(channel_id: int, reply_text: str) -> None:
+    """
+    Store Hafu's own reply in the channel history so follow-up questions
+    ("wait can you clarify that?") have something to reference.
+    Truncated to HISTORY_MSG_CAP chars to stay lean.
+    """
+    if channel_id not in channel_history:
+        channel_history[channel_id] = deque(maxlen=HISTORY_WINDOW)
+    channel_history[channel_id].append(("Hafu", reply_text[:HISTORY_MSG_CAP]))
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # RENDER KEEP-ALIVE
-#
-# Render free tier spins down services after 15 minutes of zero inbound HTTP
-# traffic. The Discord bot only makes outbound WebSocket connections, so Render
-# never sees "activity" and kills the process.
-#
-# Two-part fix:
-#
-#   1. TCP server on PORT — gives Render an HTTP endpoint to hit and gives
-#      external monitors (UptimeRobot etc.) something to ping.
-#
-#   2. Self-ping loop — the bot pings its own public URL (RENDER_EXTERNAL_URL,
-#      provided automatically by Render) every 9 minutes. Render counts this
-#      as inbound traffic and resets its idle timer. No external service needed.
-#      If RENDER_EXTERNAL_URL is not set (local dev), the loop exits silently.
 # ══════════════════════════════════════════════════════════════════════════════
 
 async def handle_render_ping(reader, writer):
@@ -471,11 +530,7 @@ async def handle_render_ping(reader, writer):
 
 
 async def self_ping_loop():
-    """
-    Hits our own Render URL every 9 minutes so Render never sees 15 minutes
-    of idle inbound traffic and doesn't spin the service down.
-    Uses RENDER_EXTERNAL_URL which Render injects automatically.
-    """
+    """Hits our own Render URL every 9 minutes to prevent idle spin-down."""
     url = os.environ.get("RENDER_EXTERNAL_URL", "").strip().rstrip("/")
     if not url:
         print("ℹ️  RENDER_EXTERNAL_URL not set — self-ping disabled (local dev?)", flush=True)
@@ -483,7 +538,7 @@ async def self_ping_loop():
 
     print(f"🏓 Self-ping loop started → {url}", flush=True)
     while True:
-        await asyncio.sleep(9 * 60)   # 9 min — safely under Render's 15-min threshold
+        await asyncio.sleep(9 * 60)
         try:
             async with httpx.AsyncClient(timeout=15.0) as client:
                 r = await client.get(url)
@@ -498,8 +553,11 @@ async def self_ping_loop():
 
 @bot.event
 async def on_ready():
+    jst_now = get_jst_now().strftime("%Y-%m-%d %H:%M JST")
     print(f"🤖 Hafu Bot online as {bot.user.name} (ID: {bot.user.id})")
+    print(f"🕐 Current time: {jst_now}")
     print(f"✨ Answer model pool: {ANSWER_MODELS}")
+    print(f"💬 Casual model pool: {CASUAL_MODELS}")
     print("🌸 Hafu is ready to reluctantly answer questions from the lobby.")
 
     port = int(os.environ.get("PORT", 10000))
@@ -519,8 +577,6 @@ async def on_message(message: discord.Message):
         return
 
     # ── Passive history capture (runs for EVERY non-bot message) ────────────
-    # This must happen before the mention check so prior messages are already
-    # in the deque when the bot is pinged. Zero API cost.
     cid = message.channel.id
     if cid not in channel_history:
         channel_history[cid] = deque(maxlen=HISTORY_WINDOW)
@@ -543,22 +599,24 @@ async def on_message(message: discord.Message):
         await message.reply("Omg my GROQ_TOKEN is missing — did someone forget the env var?! *taps foot*")
         return
 
-    # Gather context upfront (both are instant, no API calls)
+    # Gather context upfront (instant, no API calls)
     chat_ctx = get_chat_context(cid)
     user_mem = user_memory.get(message.author.id, "")
+    jst_time = get_jst_context()
 
     async with message.channel.typing():
 
         # ── Fast path: obviously casual — skip the triage API call entirely ──
         if is_casual(question):
             print(f"💬 Casual bypass: '{question[:60]}'", flush=True)
-            user_content = build_answer_content(question, chat_ctx, user_mem, "")
-            text_out = await get_answer([
+            user_content = build_answer_content(question, chat_ctx, user_mem, "", jst_time)
+            text_out = await get_answer_casual([
                 {"role": "system", "content": CASUAL_SYSTEM},
                 {"role": "user",   "content": user_content},
             ])
-            await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
-            # Fire memory update in background — won't block the reply
+            final = text_out[:1990] if len(text_out) > 1990 else text_out
+            await message.reply(final)
+            store_bot_reply(cid, final)
             asyncio.create_task(maybe_update_memory(
                 message.author.id, message.author.display_name, question, text_out
             ))
@@ -570,12 +628,14 @@ async def on_message(message: discord.Message):
 
         if not needs_db:
             print("   ──► Casual (triage)", flush=True)
-            user_content = build_answer_content(question, chat_ctx, user_mem, "")
-            text_out = await get_answer([
+            user_content = build_answer_content(question, chat_ctx, user_mem, "", jst_time)
+            text_out = await get_answer_casual([
                 {"role": "system", "content": CASUAL_SYSTEM},
                 {"role": "user",   "content": user_content},
             ])
-            await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
+            final = text_out[:1990] if len(text_out) > 1990 else text_out
+            await message.reply(final)
+            store_bot_reply(cid, final)
             asyncio.create_task(maybe_update_memory(
                 message.author.id, message.author.display_name, question, text_out
             ))
@@ -606,13 +666,15 @@ async def on_message(message: discord.Message):
 
         context_data = extract_relevant_sections(context_data, question)
 
-        user_content = build_answer_content(question, chat_ctx, user_mem, context_data)
+        user_content = build_answer_content(question, chat_ctx, user_mem, context_data, jst_time)
         text_out = await get_answer([
             {"role": "system", "content": ANSWER_SYSTEM},
             {"role": "user",   "content": user_content},
         ])
 
-        await message.reply(text_out[:1990] if len(text_out) > 1990 else text_out)
+        final = text_out[:1990] if len(text_out) > 1990 else text_out
+        await message.reply(final)
+        store_bot_reply(cid, final)
         asyncio.create_task(maybe_update_memory(
             message.author.id, message.author.display_name, question, text_out
         ))
