@@ -1,917 +1,1115 @@
 """
-compile_database.py  ─  PSO2:NGS Knowledge-Base Builder  v10
-=============================================================
-Changes from v9:
-- Every oversized file is now split into focused sub-files so
-  no output file exceeds ~3 000 tokens.
-- Overview sections are dropped entirely (always wiki nav menus).
-- Section-level noise stripped: ▲▼ arrows, (C)SEGA, patch history,
-  HTML render notices, wiki editor instructions.
-- Class files split by weapon axis (general / sword-skills /
-  wired-skills / partisan-skills / etc.)
-- PA files split into actions_basics + individual move files
-  (one file per PA for large weapons).
-- Augments split into 5 focused sub-files.
-- Enemy data split into type-overview / dolls-alters / formers-starless.
-- Titles split into 3 category groups.
-- Force / Techter / Bouncer / Braver split into general + weapon axes.
-- Glossary removed from routing (too large, rarely useful).
+compile_database.py — PSO2:NGS Knowledge-Base Builder v12
+==========================================================
+Pipeline:
+  1. MediaWiki API (action=parse) from pso2na.arks-visiphone.com
+  2. BeautifulSoup → strip navigation / decoration noise
+  3. HTML → tight plain-text (tables=pipe rows, headings, lists=dashes)
+  4. Auto-split → no output file exceeds MAX_CHARS
+  5. Descriptive filenames → AI router picks the right file by name alone
+
+Source:  https://pso2na.arks-visiphone.com  (English wiki, NO translation needed)
+Pages:   All under Portal:New_Genesis/... — discovered from the portal HTML
+Resume:  Files already on disk are SKIPPED automatically (crash-safe)
+         Run with --fresh to wipe and rebuild everything from scratch.
 """
 
+import os
+import re
+import sys
+import json
+import glob
+import time
+import shutil
+import datetime
 import urllib.request
 import urllib.parse
-import re
-import os
-import shutil
-import time
-import datetime
 
 from bs4 import BeautifulSoup, NavigableString, Tag
-from deep_translator import GoogleTranslator
 
 # ─────────────────────────────────────────────────────────────────────────────
 # CONFIGURATION
 # ─────────────────────────────────────────────────────────────────────────────
 
+BASE_DIR    = "knowledge_base"
+API_URL     = "https://pso2na.arks-visiphone.com/api.php"
+MAX_CHARS   = 10_000   # per output file; auto-split above this
+RATE_SLEEP  = 1.5      # seconds between API calls — wiki hits bandwidth limits
+FRESH_BUILD = "--fresh" in sys.argv   # pass --fresh to wipe and rebuild
+
 HEADERS = {
     "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "HafuBotNGSDatabase/10.0"
+        "HafuBotNGS/12.0 (PSO2:NGS Discord Helper Bot; "
+        "MediaWiki API client; educational/informational use)"
     )
 }
 
-BASE_DIR        = "knowledge_base"
-BASE_URL        = "https://pso2ngs.swiki.jp/index.php?"
-MAX_SEC_CHARS   = 2_800   # hard cap per section after cleaning
-TRANSLATE_CHUNK = 1_800   # max chars per single GoogleTranslator call
-
 # ─────────────────────────────────────────────────────────────────────────────
-# JUNK FILTERS
+# MEDIAWIKI API
 # ─────────────────────────────────────────────────────────────────────────────
 
-_BLOCKED_EXACT = {
-    "コメント", "各PA動作フレーム数", "スクロール用スペース",
-    "一覧", "テックアーツカスタマイズ", "▲", "▼", "▲▼",
-    "概要",          # always a nav-menu blob — skip entirely
-    "General Overview", "Overview",  # translated equivalents
-}
-_BLOCKED_SUBSTR = [
-    "修正履歴", "変更履歴", "追加・変更",
-    "Chain combo movement frame",   # frame-data tables in PA files
-    "PA動作フレーム",
-]
-
-# Inline text patterns to strip even inside kept sections
-_INLINE_NOISE = re.compile(
-    r"("
-    r"Notice from \[sWIKI\][^\n]*"              # wiki render-time notice
-    r"|HTML ConvertTime[\d\. sec]*"
-    r"|Weapons?/Armor \(Series\).*?(?=\n|$)"    # nav menu blob
-    r"|Class \(Add-on Skill\).*?(?=\n|$)"
-    r"|\(C\)SEGA[^\n]*"                         # copyright
-    r"|Edit common items for this class[^\n]*"
-    r"|Displaying the latest \d+ items\.[^\n]*"
-    r"|See comment page[^\n]*"
-    r"|Hide image[^\n]*"
-    r"|Please refrain from making comments[^\n]*"
-    r"|Lower PC body[^\n]*"
-    r"|sWIKI \(lower tier for PC\)[^\n]*"
-    r"|Below PC body[^\n]*"
-    r"|Up to here[^\n]*"
-    r"|If you would like to attach an icon image[^\n]*"
-    r"|For more information, please see the WIKI[^\n]*"
-    r"|Please refer to the Weapons/Armor/Series[^\n]*"
-    r"|Table of Contents[^\n]*"
-    r"|Open Table of Contents[^\n]*"
-    r"|[▲▼]"
-    r")",
-    re.IGNORECASE | re.MULTILINE,
-)
-
-
-def _is_junk_section(title: str) -> bool:
-    t = title.strip().replace(" ", "").replace("\u3000", "")
-    if t in _BLOCKED_EXACT or title.strip() in _BLOCKED_EXACT:
-        return True
-    return any(sub in t for sub in _BLOCKED_SUBSTR)
-
-
-def _strip_inline_noise(text: str) -> str:
-    text = _INLINE_NOISE.sub(" ", text)
-    text = re.sub(r"  +", " ", text)
-    text = re.sub(r"\n{3,}", "\n\n", text)
-    return text.strip()
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# HELPERS
-# ─────────────────────────────────────────────────────────────────────────────
-
-translator   = GoogleTranslator(source="ja", target="en")
-_TRANS_CACHE = {}
-
-
-def clean_text(text: str) -> str:
-    if not text:
-        return ""
-    text = re.sub(r"<[^>]+>", " ", text)
-    text = re.sub(r"\s+", " ", text)
-    return text.strip()
-
-
-def _translate_chunk(chunk: str) -> str:
-    if not chunk.strip():
-        return ""
-    if chunk in _TRANS_CACHE:
-        return _TRANS_CACHE[chunk]
-    for attempt in range(3):
-        try:
-            result = translator.translate(chunk)
-            if result:
-                _TRANS_CACHE[chunk] = result
-                return result
-        except Exception:
-            if attempt < 2:
-                time.sleep(1.5 ** attempt)
-    return chunk
-
-
-def safe_translate(text: str) -> str:
-    if not text:
-        return ""
-    sentences = re.split(r"(?<=[。、\.!?])|(?<=\n)", text)
-    chunks, current = [], ""
-    for s in sentences:
-        if len(current) + len(s) > TRANSLATE_CHUNK:
-            if current.strip():
-                chunks.append(current.strip())
-            while len(s) > TRANSLATE_CHUNK:
-                chunks.append(s[:TRANSLATE_CHUNK])
-                s = s[TRANSLATE_CHUNK:]
-            current = s
-        else:
-            current += s
-    if current.strip():
-        chunks.append(current.strip())
-    return " ".join(_translate_chunk(c) for c in chunks)
-
-
-def fetch_url(url: str, timeout: int = 15, retries: int = 3) -> str:
+def api_get(params: dict, retries: int = 4) -> dict:
+    """GET the MediaWiki API with exponential-backoff retry."""
+    params["format"] = "json"
+    qs  = urllib.parse.urlencode(params)
+    url = f"{API_URL}?{qs}"
     for attempt in range(retries):
         try:
             req = urllib.request.Request(url, headers=HEADERS)
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
-                return resp.read().decode("utf-8")
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return json.loads(resp.read().decode("utf-8"))
         except Exception as exc:
-            if attempt == retries - 1:
+            wait = 2 ** attempt
+            if attempt < retries - 1:
+                print(f"   ⏳ Attempt {attempt+1} failed ({exc!r}), "
+                      f"retrying in {wait}s...", flush=True)
+                time.sleep(wait)
+            else:
                 raise exc
-            time.sleep(2 ** attempt)
+    return {}
 
 
-def get_ctable(soup: BeautifulSoup):
-    contents = soup.find("div", id="contents")
-    if not contents:
-        return soup.find("div", id="body") or soup
-    table = contents.find("table")
-    if table:
-        ctable = table.find("td", class_="ctable")
-        if ctable:
-            return ctable
-    return contents
-
-
-def extract_sections(ctable, skip_titles: set = None) -> list[tuple[str, str]]:
+def fetch_html(title: str) -> str | None:
     """
-    Extract (title, cleaned_text) pairs from the ctable.
-    Always skips junk sections and Overview/概要 nav blobs.
-    Optionally skips additional titles via skip_titles set.
+    Fetch a wiki page as HTML via action=parse.
+    Returns None if the page is missing / API returns an error.
     """
-    if skip_titles is None:
-        skip_titles = set()
+    data = api_get({
+        "action": "parse",
+        "page":   title,
+        "prop":   "text",
+        "disablelimitreport": "1",
+        "disabletoc": "1",
+    })
+    if "error" in data:
+        code = data["error"].get("code", "unknown")
+        if code == "missingtitle":
+            print(f"   ⚠️  [{title}] — page does not exist on wiki", flush=True)
+        else:
+            print(f"   ⚠️  [{title}] — API error: {code}", flush=True)
+        return None
+    return data.get("parse", {}).get("text", {}).get("*", None)
 
-    for el in ctable.find_all(id=re.compile(r"comment|reply|pcomment|vote", re.I)):
-        el.decompose()
-    for img in ctable.find_all("img"):
-        img.decompose()
 
-    sections: list[tuple[str, str]] = []
-    current_title   = ""
-    current_chunks: list[str] = []
-    in_junk = False
+# ─────────────────────────────────────────────────────────────────────────────
+# HTML → TIGHT PLAIN TEXT
+# ─────────────────────────────────────────────────────────────────────────────
 
-    def flush():
-        nonlocal current_chunks, in_junk
-        if current_chunks and not in_junk:
-            raw = clean_text(" ".join(current_chunks))
-            raw = _strip_inline_noise(raw)
-            if raw and len(raw) > 30:   # skip trivial empty sections
-                if len(raw) > MAX_SEC_CHARS:
-                    raw = raw[:MAX_SEC_CHARS] + " …[truncated]"
-                sections.append((current_title, raw))
-        current_chunks.clear()
-        in_junk = False
+_DROP_SELECTORS = [
+    ".navbox", ".navbox-inner", ".navbox-group", ".navbox-subgroup",
+    ".navbox-even", ".navbox-odd",
+    "#toc", ".toc",
+    ".mw-editsection",
+    "#catlinks", ".catlinks",
+    ".mw-indicators", ".mw-indicator",
+    ".sister-project", ".vertical-navbox",
+    ".thumb", ".thumbinner", ".thumbcaption",
+    "img", "figure",
+    "style", "script",
+    ".mw-empty-elt",
+    ".hatnote",
+    ".noprint", ".printfooter",
+    ".mw-jump-link",
+    "#footer", ".mw-footer",
+    "sup.reference", "sup.cite_ref",
+    ".reflist", ".references",
+    ".mw-collapsible-toggle",
+    ".mw-headline-anchor",
+    ".sortkey",
+]
 
-    for node in ctable.descendants:
-        if isinstance(node, NavigableString):
-            if in_junk:
-                continue
-            pname = node.parent.name if node.parent else ""
-            if pname not in ("script", "style", "h2", "h3"):
-                t = str(node).strip()
-                if t:
-                    current_chunks.append(t)
-        elif isinstance(node, Tag) and node.name in ("h2", "h3"):
-            flush()
-            title = node.get_text(strip=True)
-            in_junk = _is_junk_section(title) or title.strip() in skip_titles
-            current_title = title
 
-    flush()
+def _clean(html: str) -> BeautifulSoup:
+    soup = BeautifulSoup(html, "html.parser")
+    for sel in _DROP_SELECTORS:
+        for el in soup.select(sel):
+            el.decompose()
+    return soup
+
+
+def _table_to_text(table: Tag) -> str:
+    """Convert an HTML table to compact pipe-delimited text rows."""
+    lines = []
+    for row in table.find_all("tr"):
+        cells = row.find_all(["th", "td"])
+        if not cells:
+            continue
+        parts = []
+        for cell in cells:
+            txt = cell.get_text(separator=" ", strip=True)
+            txt = re.sub(r"\s+", " ", txt).strip()
+            if txt:
+                parts.append(txt)
+        if parts:
+            lines.append(" | ".join(parts))
+    return "\n".join(lines)
+
+
+def _node_to_text(el, out: list) -> None:
+    """Recursively walk a BS4 node tree, appending tight text to out."""
+    if isinstance(el, NavigableString):
+        txt = str(el).strip()
+        parent_name = el.parent.name if el.parent else ""
+        if txt and parent_name not in {
+            "h1","h2","h3","h4","h5","h6",
+            "table","tr","td","th","ul","ol","li",
+            "script","style",
+        }:
+            out.append(txt)
+        return
+
+    if not isinstance(el, Tag):
+        return
+
+    name = el.name
+
+    if name in ("h1", "h2"):
+        txt = el.get_text(strip=True)
+        if txt:
+            out.append(f"\n== {txt} ==")
+        return
+
+    if name in ("h3", "h4"):
+        txt = el.get_text(strip=True)
+        if txt:
+            out.append(f"\n=== {txt} ===")
+        return
+
+    if name in ("h5", "h6"):
+        txt = el.get_text(strip=True)
+        if txt:
+            out.append(f"-- {txt}")
+        return
+
+    if name == "table":
+        txt = _table_to_text(el)
+        if txt.strip():
+            out.append(txt)
+        return
+
+    if name in ("ul", "ol"):
+        for li in el.find_all("li", recursive=False):
+            txt = li.get_text(separator=" ", strip=True)
+            txt = re.sub(r"\s+", " ", txt).strip()
+            if txt:
+                out.append(f"- {txt}")
+        return
+
+    if name == "p":
+        txt = el.get_text(separator=" ", strip=True)
+        txt = re.sub(r"\s+", " ", txt).strip()
+        if txt and len(txt) > 8:
+            out.append(txt)
+        return
+
+    if name in ("td", "th", "tr"):
+        return
+
+    for child in el.children:
+        _node_to_text(child, out)
+
+
+def html_to_text(html: str) -> str:
+    """Full pipeline: raw MediaWiki HTML → tight plain text."""
+    soup  = _clean(html)
+    body  = soup.find(class_="mw-parser-output") or soup
+    out: list[str] = []
+    for child in body.children:
+        _node_to_text(child, out)
+
+    text = "\n".join(out)
+    text = re.sub(r"[ \t]+", " ", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+
+    # Drop known noise lines
+    kept = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        if not stripped:
+            kept.append("")
+            continue
+        if re.match(
+            r"^\[edit\]$|^Retrieved from|^Categories?:|^Navigation menu$",
+            stripped, re.I
+        ):
+            continue
+        kept.append(line)
+
+    return "\n".join(kept).strip()
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FILE WRITER WITH AUTO-SPLIT
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _split_sections(text: str) -> list[tuple[str, str]]:
+    """Split text by == H2 == markers → [(safe_slug, section_text), ...]"""
+    parts    = re.split(r"\n(== .+? ==)\n", text)
+    sections = []
+    intro    = parts[0].strip()
+    if intro:
+        sections.append(("intro", intro))
+    i = 1
+    while i < len(parts) - 1:
+        heading = re.sub(r"^=+ | =+$", "", parts[i]).strip()
+        body    = parts[i + 1].strip() if i + 1 < len(parts) else ""
+        if body:
+            slug = re.sub(r"[^a-z0-9]+", "_", heading.lower()).strip("_")[:35]
+            sections.append((slug, f"== {heading} ==\n{body}"))
+        i += 2
     return sections
 
 
-def write_file(output_path: str, title: str, sections: list[tuple[str, str]],
-               timestamp: str) -> None:
-    """Translate and write sections to output_path."""
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(f"# {title}\n\n")
-        if not sections:
-            f.write("(No content extracted)\n")
-            return
-        for sec_title, sec_text in sections:
-            t_title = safe_translate(sec_title) if sec_title else ""
-            t_body  = safe_translate(sec_text)
-            if t_title:
-                f.write(f"## {t_title}\n")
-            f.write(t_body + "\n\n")
-
-
-def write_placeholder(output_path: str, title: str, error: str,
-                      timestamp: str) -> None:
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(f"# {title}\n\n(Fetch failed: {error})\n")
-
-
-def fetch_and_parse(jp_page: str) -> tuple:
-    """Returns (soup, ctable) for a wiki page."""
-    url   = BASE_URL + urllib.parse.quote(jp_page, safe="/")
-    html  = fetch_url(url)
-    soup  = BeautifulSoup(html, "html.parser")
-    return soup, get_ctable(soup)
-
-
-def sections_by_title(ctable, include: set) -> list[tuple[str, str]]:
-    """Keep only sections whose title matches (case-insensitive) any item in include."""
-    all_secs = extract_sections(ctable)
-    inc_lower = {s.lower() for s in include}
-    return [
-        (t, c) for t, c in all_secs
-        if any(k in t.lower() for k in inc_lower)
-    ]
-
-
-def sections_excluding(ctable, exclude_keywords: set) -> list[tuple[str, str]]:
-    """Keep all sections except those matching exclude_keywords."""
-    all_secs = extract_sections(ctable)
-    exc_lower = {s.lower() for s in exclude_keywords}
-    return [
-        (t, c) for t, c in all_secs
-        if not any(k in t.lower() for k in exc_lower)
-    ]
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# SPLIT HELPERS  ─  used for class files that share content across weapons
-# ─────────────────────────────────────────────────────────────────────────────
-
-def split_class_file(ctable,
-                     general_keywords: set,
-                     weapon_groups: list[tuple[str, set]]) -> dict[str, list]:
+def write_page(subpath: str, page_title: str, text: str) -> None:
     """
-    Partitions a class page into:
-      'general'               → sections matching general_keywords
-      weapon_groups[i][0]     → sections matching weapon_groups[i][1]
-    Returns dict keyed by group name.
+    Write text to BASE_DIR/<subpath>.txt.
+    If text > MAX_CHARS, auto-split into …_part1_<slug>.txt files.
+    Each file is written individually — crash between splits only loses
+    the unsaved parts, not previously completed pages.
     """
-    all_secs = extract_sections(ctable)
-    result = {name: [] for name, _ in weapon_groups}
-    result["general"] = []
+    if not text.strip():
+        print(f"   ⚠️  Empty content for [{subpath}], skipping.", flush=True)
+        return
 
-    gen_lower = {k.lower() for k in general_keywords}
+    base_file = os.path.join(BASE_DIR, f"{subpath}.txt")
+    os.makedirs(os.path.dirname(base_file), exist_ok=True)
+    header = f"# {page_title}\n\n"
 
-    for title, content in all_secs:
-        tl = title.lower()
-        matched = False
-        for grp_name, grp_kws in weapon_groups:
-            if any(k.lower() in tl for k in grp_kws):
-                result[grp_name].append((title, content))
-                matched = True
-                break
-        if not matched:
-            if any(k in tl for k in gen_lower) or not tl:
-                result["general"].append((title, content))
-            else:
-                # Default to general if unrecognised
-                result["general"].append((title, content))
+    if len(text) <= MAX_CHARS:
+        with open(base_file, "w", encoding="utf-8") as f:
+            f.write(header + text + "\n")
+        print(f"   📄  {os.path.basename(base_file)}  ({len(text):,} chars)", flush=True)
+        return
 
-    return result
+    # Split by h2 sections, bucket into groups ≤ MAX_CHARS
+    sections = _split_sections(text)
+    groups: list[list[tuple[str, str]]] = []
+    cur: list[tuple[str, str]] = []
+    cur_len = 0
+    for slug, body in sections:
+        if cur_len + len(body) > MAX_CHARS and cur:
+            groups.append(cur)
+            cur, cur_len = [], 0
+        cur.append((slug, body))
+        cur_len += len(body)
+    if cur:
+        groups.append(cur)
+
+    if len(groups) == 1:
+        truncated = text[:MAX_CHARS] + "\n\n[content continues at arks-visiphone.com]"
+        with open(base_file, "w", encoding="utf-8") as f:
+            f.write(header + truncated + "\n")
+        print(f"   📄  {os.path.basename(base_file)}  (truncated, {MAX_CHARS:,} chars)", flush=True)
+        return
+
+    stem = base_file[:-4]   # drop .txt
+    for i, group in enumerate(groups, 1):
+        first_slug = group[0][0]
+        sub_path   = f"{stem}_part{i}_{first_slug}.txt"
+        sub_text   = "\n\n".join(body for _, body in group)
+        sub_title  = f"{page_title} (Part {i})"
+        with open(sub_path, "w", encoding="utf-8") as f:
+            f.write(f"# {sub_title}\n\n{sub_text}\n")
+        print(f"   📄  {os.path.basename(sub_path)}  ({len(sub_text):,} chars)", flush=True)
+
+
+def write_placeholder(subpath: str, page_title: str, error: str) -> None:
+    """Write a placeholder so the bot starts cleanly even if a page failed."""
+    path = os.path.join(BASE_DIR, f"{subpath}.txt")
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(f"# {page_title}\n\n(Content unavailable: {error})\n")
+
+
+def already_done(subpath: str) -> bool:
+    """
+    Return True if this subpath already has any output file on disk.
+    Checks for both the direct file and any auto-split part files.
+    This is what makes the compiler crash-safe — re-running resumes
+    from the last failed entry instead of restarting from scratch.
+    """
+    base = os.path.join(BASE_DIR, f"{subpath}.txt")
+    if os.path.exists(base):
+        return True
+    stem  = os.path.join(BASE_DIR, subpath)
+    parts = glob.glob(f"{stem}_part*.txt")
+    return len(parts) > 0
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# MAIN BUILD
+# FETCH + WRITE WITH FALLBACK TITLES
 # ─────────────────────────────────────────────────────────────────────────────
 
-print("🚀 PSO2:NGS Database Compiler v10  ─  starting fresh build...", flush=True)
+def process_with_fallback(
+    primary_title: str,
+    subpath: str,
+    desc_title: str,
+    alternates: list[str] | None = None,
+) -> bool:
+    """
+    Fetch primary_title; on 404 try each alternate.
+    Writes the output file immediately on success.
+    Returns True on success.
+    """
+    candidates = [primary_title] + (alternates or [])
+    for title in candidates:
+        time.sleep(RATE_SLEEP)
+        print(f" → [{title}]  ──►  {subpath}", flush=True)
+        try:
+            html = fetch_html(title)
+            if html is None:
+                if len(candidates) > 1:
+                    print(f"   ⚠️  Trying next candidate...", flush=True)
+                continue
+            text = html_to_text(html)
+            if not text.strip():
+                print(f"   ⚠️  Empty after cleaning, trying next...", flush=True)
+                continue
+            write_page(subpath, desc_title, text)
+            return True
+        except Exception as exc:
+            print(f"   ❌  {type(exc).__name__}: {exc}", flush=True)
+            if len(candidates) > 1:
+                print(f"   ⚠️  Will try next candidate...", flush=True)
 
-if os.path.exists(BASE_DIR):
-    print(f"🧹 Clearing {BASE_DIR}/", flush=True)
-    shutil.rmtree(BASE_DIR)
-os.makedirs(BASE_DIR, exist_ok=True)
+    write_placeholder(subpath, desc_title,
+                      f"all title candidates failed: {candidates}")
+    return False
 
-timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
 
-# ══════════════════════════════════════════════════════════════════════════════
-# ANNOUNCEMENTS
-# ══════════════════════════════════════════════════════════════════════════════
+# ─────────────────────────────────────────────────────────────────────────────
+# COMPLETE PAGE MANIFEST
+#
+# Source: Portal:New_Genesis HTML analysis — every link on the portal page.
+# Format: (wiki_title, output_subpath, descriptive_title, [alternate_titles])
+#
+# output_subpath becomes the AI router's key.  Filenames are deliberately
+# verbose so the router can pick the right one by reading the key name alone.
+# ─────────────────────────────────────────────────────────────────────────────
 
-for jp, (title, path) in {
-    "FrontPage":   ("Front Page Registry",        "announcements/frontpage.txt"),
-    "ミッションパス": ("Mission Pass Season Tracks", "announcements/mission_pass.txt"),
-}.items():
-    print(f" → {jp}  ──►  {path}", flush=True)
-    try:
-        _, ctable = fetch_and_parse(jp)
-        secs = extract_sections(ctable)
-        write_file(os.path.join(BASE_DIR, path), title, secs, timestamp)
-        print(f"   ✅  {title}", flush=True)
-    except Exception as e:
-        write_placeholder(os.path.join(BASE_DIR, path), title, str(e), timestamp)
-        print(f"   ❌  {e}", flush=True)
+MANIFEST: list[tuple[str, str, str, list[str]]] = [
 
-# SEGA live feed
-print(" → SEGA feed  ──►  announcements/sega_live_feed.txt", flush=True)
-try:
-    html = fetch_url("https://pso2.jp/players/update/", timeout=12)
-    soup = BeautifulSoup(html, "html.parser")
-    texts = [
-        el.get_text(strip=True)
-        for el in soup.find_all(["h2", "h3", "p"])
-        if len(el.get_text(strip=True)) > 20
-    ][:15]
-    translated = safe_translate(" ".join(texts))
-    p = os.path.join(BASE_DIR, "announcements/sega_live_feed.txt")
-    os.makedirs(os.path.dirname(p), exist_ok=True)
-    with open(p, "w", encoding="utf-8") as f:
-        f.write("# SEGA Live Announcements\n\n" + translated + "\n")
-    print("   ✅  SEGA feed", flush=True)
-except Exception as e:
-    p = os.path.join(BASE_DIR, "announcements/sega_live_feed.txt")
-    os.makedirs(os.path.dirname(p), exist_ok=True)
-    with open(p, "w", encoding="utf-8") as f:
-        f.write("# SEGA Live Announcements\n\n(Feed unavailable)\n")
-    print(f"   ⚠️  SEGA feed failed: {e}", flush=True)
+    # ── EVENTS & LIVE CONTENT ─────────────────────────────────────────────────
 
-# ══════════════════════════════════════════════════════════════════════════════
-# CLASSES  ─  simple pages (no weapon-axis split needed)
-# ══════════════════════════════════════════════════════════════════════════════
+    ("Portal:New_Genesis/Events",
+     "events/current_events_limited_time_campaigns_and_event_details",
+     "Current Events, Limited Time Campaigns and Event Details",
+     []),
 
-SIMPLE_CLASSES = {
-    "クラス":    ("Class System Overview", "classes/class_overview.txt"),
-    "EXスタイル": ("EX Style Mechanics",   "classes/ex_styles.txt"),
-    "ガンナー":   ("Gunner Class Skills",  "classes/gunner.txt"),
-    "レンジャー":  ("Ranger Class Skills",  "classes/ranger.txt"),
-    "ウェイカー":  ("Waker Class Skills",   "classes/waker.txt"),
-    "スレイヤー":  ("Slayer Class Skills",  "classes/slayer.txt"),
-}
+    ("Portal:New_Genesis/Mission_Pass",
+     "events/mission_pass_seasonal_rewards_and_tracks",
+     "Mission Pass Seasonal Rewards, Stars, and Prize Tracks",
+     []),
 
-for jp, (title, path) in SIMPLE_CLASSES.items():
-    print(f" → {jp}  ──►  {path}", flush=True)
-    try:
-        _, ctable = fetch_and_parse(jp)
-        secs = extract_sections(ctable)
-        write_file(os.path.join(BASE_DIR, path), title, secs, timestamp)
-        print(f"   ✅  {title}  ({len(secs)} sections)", flush=True)
-    except Exception as e:
-        write_placeholder(os.path.join(BASE_DIR, path), title, str(e), timestamp)
-        print(f"   ❌  {e}", flush=True)
+    ("Portal:New_Genesis/Mission_Pass_Archive",
+     "events/mission_pass_archive_past_seasons_and_prizes",
+     "Mission Pass Archive — Past Seasons and Prize History",
+     []),
 
-# ══════════════════════════════════════════════════════════════════════════════
-# CLASSES  ─  split by weapon axis
-# ══════════════════════════════════════════════════════════════════════════════
+    ("Portal:New_Genesis/Urgent_Quests",
+     "events/urgent_quests_list_schedule_and_rewards",
+     "Urgent Quests — List, Schedule and Rewards",
+     []),
 
-SPLIT_CLASSES = {
-    # ── Hunter ────────────────────────────────────────────────────────────────
-    "ハンター": {
-        "title": "Hunter",
-        "base":  "classes/hunter",
-        "general_kws": {
-            "overview", "class skill", "war cry", "massive hunter",
-            "flash guard", "iron will", "just guard", "slow landing",
-            "hunter arts", "hunter reflect",
-        },
-        "weapon_groups": [
-            ("sword_skills",    {"sword arts", "sword attack", "sword guard", "sword sc"}),
-            ("wired_skills",    {"wired", "crossing feathers"}),
-            ("partisan_skills", {"partisan", "volgra", "assault charge", "assault avenge"}),
-        ],
-    },
-    # ── Fighter ───────────────────────────────────────────────────────────────
-    "ファイター": {
-        "title": "Fighter",
-        "base":  "classes/fighter",
-        "general_kws": {
-            "overview", "class skill", "fighter", "slow landing",
-            "pp recovery", "chase advance", "subclass", "ex style",
-        },
-        "weapon_groups": [
-            ("dagger_skills",  {"twin dagger", "twin daggers", "dagger arts", "dagger attack"}),
-            ("saber_skills",   {"double saber", "saber arts", "saber attack"}),
-            ("knuckle_skills", {"knuckle", "fist"}),
-        ],
-    },
-    # ── Braver ────────────────────────────────────────────────────────────────
-    "ブレイバー": {
-        "title": "Braver",
-        "base":  "classes/braver",
-        "general_kws": {
-            "overview", "class skill", "braver", "slow landing",
-            "brave combat", "katana counter", "subclass", "ex style",
-        },
-        "weapon_groups": [
-            ("katana_skills", {"katana", "blade arts", "cherry blossom", "sakura"}),
-            ("rifle_skills",  {"assault rifle", "bullet", "charged shot", "final aim"}),
-        ],
-    },
-    # ── Bouncer ───────────────────────────────────────────────────────────────
-    "バウンサー": {
-        "title": "Bouncer",
-        "base":  "classes/bouncer",
-        "general_kws": {
-            "overview", "class skill", "defeat", "partial destroy",
-            "physical decline", "elemental decline", "decline amplify",
-            "decline geln", "special ability optimize bo",
-            "foie brand", "barta blot", "sonde clad", "zangail",
-            "grants glitter", "megidosphere", "slow landing",
-            "subclass", "ex style",
-        },
-        "weapon_groups": [
-            ("dual_blade_skills", {
-                "fanatic blade", "photon blade", "blade counter",
-                "blade arts", "pinion blade", "blade sc",
-            }),
-            ("jet_boots_skills", {
-                "jet attack", "boot trick", "bounce counter",
-                "thrust drive", "boot arts", "jet boots element",
-                "sturmsieker",
-            }),
-        ],
-    },
-    # ── Force ─────────────────────────────────────────────────────────────────
-    "フォース": {
-        "title": "Force",
-        "base":  "classes/force",
-        "general_kws": {
-            "overview", "class skill", "pp conversion", "pp recover",
-            "pp gain", "killing pp", "technique charge", "lester",
-            "slow landing", "foie brand", "barta blot", "sonde clad",
-            "zangair", "grants glitter", "megidosphere",
-            "long range", "unite technique", "photon flare",
-            "technique domination", "subclass", "ex style",
-        },
-        "weapon_groups": [
-            ("rod_skills",  {
-                "elemental bullet", "rod technique", "elemental bullet extend",
-                "keep rod", "rod charge", "rod attack", "rod react",
-                "stay pp", "rod pp",
-            }),
-            ("talis_skills", {
-                "tricky capacitor", "talis bloom", "float torchka",
-                "talis sign", "talis revoke",
-            }),
-        ],
-    },
-    # ── Techter ───────────────────────────────────────────────────────────────
-    "テクター": {
-        "title": "Techter",
-        "base":  "classes/techter",
-        "general_kws": {
-            "overview", "class skill", "shifter", "shifta", "deband",
-            "reverse bounty", "weak element", "awake yale", "over emphasis",
-            "foie brand", "barta blot", "sonde clad", "zangair",
-            "grants glitter", "megidosphere", "long range advantage",
-            "unite technique", "lester", "slow landing",
-            "subclass", "ex style",
-        },
-        "weapon_groups": [
-            ("wand_skills", {
-                "won lovers", "won attack", "wondogard", "wand arts",
-                "wondo technique", "wando technique", "wand element",
-                "wondo element", "wondo parry", "wand parry",
-            }),
-            ("talis_skills", {
-                "tricky capacitor", "talis bloom", "float torchka",
-                "talis sign", "talis revoke",
-            }),
-        ],
-    },
-}
+    ("Portal:New_Genesis/Campaigns",
+     "events/campaigns_login_bonuses_and_promotional_events",
+     "Campaigns, Login Bonuses and Promotional Events",
+     []),
 
-for jp, cfg in SPLIT_CLASSES.items():
-    title_base = cfg["title"]
-    base_path  = cfg["base"]
-    print(f" → {jp}  ──►  {base_path}/*", flush=True)
-    try:
-        _, ctable = fetch_and_parse(jp)
-        groups = split_class_file(
-            ctable,
-            general_keywords=cfg["general_kws"],
-            weapon_groups=cfg["weapon_groups"],
-        )
+    ("Portal:New_Genesis/ARKS_Records",
+     "events/arks_records_challenges_and_completion_rewards",
+     "ARKS Records — Challenges and Completion Rewards",
+     []),
 
-        # Write general file
-        gen_path = os.path.join(BASE_DIR, f"{base_path}_general.txt")
-        write_file(gen_path, f"{title_base} — General Skills", groups["general"], timestamp)
-        print(f"   ✅  {title_base} general ({len(groups['general'])} sections)", flush=True)
+    ("Portal:New_Genesis/Emergencies",
+     "events/emergency_quests_and_emergency_notifications",
+     "Emergency Quests and Emergency Notification System",
+     []),
 
-        # Write each weapon-axis file
-        for grp_name, _ in cfg["weapon_groups"]:
-            secs = groups[grp_name]
-            out  = os.path.join(BASE_DIR, f"{base_path}_{grp_name}.txt")
-            label = grp_name.replace("_", " ").title()
-            write_file(out, f"{title_base} — {label}", secs, timestamp)
-            print(f"   ✅  {title_base} {label} ({len(secs)} sections)", flush=True)
+    ("Portal:New_Genesis/Limited_Time_Quests",
+     "events/limited_time_quests_seasonal_exclusive",
+     "Limited Time Quests — Seasonal and Event-Exclusive",
+     []),
 
-    except Exception as e:
-        for suffix in ["_general", "_sword_skills", "_wired_skills", "_partisan_skills",
-                       "_dagger_skills", "_saber_skills", "_knuckle_skills",
-                       "_katana_skills", "_rifle_skills",
-                       "_dual_blade_skills", "_jet_boots_skills",
-                       "_rod_skills", "_talis_skills", "_wand_skills"]:
-            p = os.path.join(BASE_DIR, f"{base_path}{suffix}.txt")
-            write_placeholder(p, f"{title_base} ({suffix})", str(e), timestamp)
-        print(f"   ❌  {jp}: {e}", flush=True)
+    ("Portal:New_Genesis/Seasonal_Points_Exchange_Shop",
+     "events/seasonal_points_shop_and_point_exchange_rewards",
+     "Seasonal Points Exchange Shop and Point Exchange Rewards",
+     []),
 
-# ══════════════════════════════════════════════════════════════════════════════
-# WEAPONS  ─  overview pages (概要 only, no gear tables)
-# ══════════════════════════════════════════════════════════════════════════════
+    # ── CLASSES ───────────────────────────────────────────────────────────────
 
-WEAPON_OVERVIEWS = {
-    "ソード":          ("Sword Overview",            "weapons/sword_overview.txt"),
-    "ワイヤードランス":  ("Wired Lance Overview",       "weapons/wired_lance_overview.txt"),
-    "パルチザン":       ("Partisan Overview",          "weapons/partisan_overview.txt"),
-    "ツインダガー":     ("Twin Daggers Overview",      "weapons/twin_daggers_overview.txt"),
-    "ダブルセイバー":   ("Double Saber Overview",      "weapons/double_saber_overview.txt"),
-    "ナックル":         ("Knuckles Overview",          "weapons/knuckles_overview.txt"),
-    "カタナ":          ("Katana Overview",             "weapons/katana_overview.txt"),
-    "デュアルブレード":  ("Dual Blades Overview",       "weapons/dual_blades_overview.txt"),
-    "アサルトライフル":  ("Assault Rifle Overview",     "weapons/assault_rifle_overview.txt"),
-    "ランチャー":       ("Launcher Overview",          "weapons/launcher_overview.txt"),
-    "ツインマシンガン":  ("Twin Machine Guns Overview", "weapons/twin_machineguns_overview.txt"),
-    "バレットボウ":     ("Bullet Bow Overview",        "weapons/bullet_bow_overview.txt"),
-    "ガンスラッシュ":   ("Gunslash Overview",          "weapons/gunslash_overview.txt"),
-    "ロッド":          ("Rod Overview",                "weapons/rod_overview.txt"),
-    "タリス":          ("Talis Overview",              "weapons/talis_overview.txt"),
-    "ウォンド":         ("Wand Overview",              "weapons/wand_overview.txt"),
-    "ジェットブーツ":   ("Jet Boots Overview",         "weapons/jet_boots_overview.txt"),
-    "タクト":          ("Harmonizer Overview",         "weapons/harmonizer_overview.txt"),
-}
+    ("Portal:New_Genesis/Class",
+     "classes/class_system_overview_main_subclass_and_rules",
+     "Class System Overview — Main Class, Subclass and Rules",
+     []),
 
-for jp, (title, path) in WEAPON_OVERVIEWS.items():
-    print(f" → {jp}  ──►  {path}", flush=True)
-    try:
-        _, ctable = fetch_and_parse(jp)
-        # Keep 概要 section only — drop 一覧 gear tables
-        secs = sections_by_title(ctable, {"概要", "overview", "general"})
-        if not secs:
-            secs = extract_sections(ctable)[:2]   # fallback: first 2 sections
-        write_file(os.path.join(BASE_DIR, path), title, secs, timestamp)
-        print(f"   ✅  {title}", flush=True)
-    except Exception as e:
-        write_placeholder(os.path.join(BASE_DIR, path), title, str(e), timestamp)
-        print(f"   ❌  {e}", flush=True)
+    ("Portal:New_Genesis/Character_Skills",
+     "classes/character_skills_all_classes_skill_trees_and_points",
+     "Character Skills — All Classes, Skill Trees and Skill Points",
+     []),
 
-# ══════════════════════════════════════════════════════════════════════════════
-# WEAPONS  ─  PA pages, each split into:
-#   <weapon>_pa_basics.txt  — basic actions, normal attack, weapon action, generic
-#   <weapon>_pa_<name>.txt  — one file per named PA/move
-# ══════════════════════════════════════════════════════════════════════════════
+    ("Portal:New_Genesis/EX_Style",
+     "classes/ex_style_mechanics_unlock_conditions_and_bonus_stats",
+     "EX Style — Mechanics, Unlock Conditions and Bonus Stats",
+     []),
 
-# Sections that go into _basics vs individual PA files
-_BASICS_KEYWORDS = {
-    "basic action", "normal attack", "weapon action", "generic action",
-    "photon blast", "about appropriate distance", "basic", "action",
-}
+    ("Portal:New_Genesis/Hunter",
+     "classes/hunter_class_guide_skills_sword_wired_lance_partisan",
+     "Hunter Class Guide — Skills, Sword, Wired Lance and Partisan Arts",
+     []),
 
-PA_PAGES = {
-    "ソード/アクション・PA":          ("Sword",          "weapons/sword"),
-    "ワイヤードランス/アクション・PA":  ("Wired Lance",    "weapons/wired_lance"),
-    "パルチザン/アクション・PA":        ("Partisan",       "weapons/partisan"),
-    "ツインダガー/アクション・PA":      ("Twin Daggers",   "weapons/twin_daggers"),
-    "ダブルセイバー/アクション・PA":    ("Double Saber",   "weapons/double_saber"),
-    "ナックル/アクション・PA":          ("Knuckles",       "weapons/knuckles"),
-    "カタナ/アクション・PA":            ("Katana",         "weapons/katana"),
-    "デュアルブレード/アクション・PA":  ("Dual Blades",    "weapons/dual_blades"),
-    "アサルトライフル/アクション・PA":  ("Assault Rifle",  "weapons/assault_rifle"),
-    "ランチャー/アクション・PA":        ("Launcher",       "weapons/launcher"),
-    "ツインマシンガン/アクション・PA":  ("Twin MGs",       "weapons/twin_machineguns"),
-    "バレットボウ/アクション・PA":      ("Bullet Bow",     "weapons/bullet_bow"),
-    "ガンスラッシュ/アクション・PA":    ("Gunslash",       "weapons/gunslash"),
-    "ロッド/アクション・PA":            ("Rod",            "weapons/rod"),
-    "タリス/アクション・PA":            ("Talis",          "weapons/talis"),
-    "ウォンド/アクション・PA":          ("Wand",           "weapons/wand"),
-    "ジェットブーツ/アクション・PA":    ("Jet Boots",      "weapons/jet_boots"),
-    "タクト/アクション・PA":            ("Harmonizer",     "weapons/harmonizer"),
-}
+    ("Portal:New_Genesis/Fighter",
+     "classes/fighter_class_guide_skills_twin_daggers_double_saber_knuckles",
+     "Fighter Class Guide — Skills, Twin Daggers, Double Saber and Knuckles",
+     []),
 
-for jp, (weapon_name, base_path) in PA_PAGES.items():
-    print(f" → {jp}  ──►  {base_path}_pa_*", flush=True)
-    try:
-        _, ctable = fetch_and_parse(jp)
-        all_secs = extract_sections(ctable)
+    ("Portal:New_Genesis/Ranger",
+     "classes/ranger_class_guide_skills_and_assault_rifle_photon_arts",
+     "Ranger Class Guide — Skills and Assault Rifle Photon Arts",
+     []),
 
-        basics = []
-        pa_files: dict[str, list] = {}   # safe_name → [(title, content)]
+    ("Portal:New_Genesis/Gunner",
+     "classes/gunner_class_guide_skills_and_twin_machine_gun_photon_arts",
+     "Gunner Class Guide — Skills and Twin Machine Gun Photon Arts",
+     []),
 
-        for title, content in all_secs:
-            tl = title.lower()
-            if any(k in tl for k in _BASICS_KEYWORDS) or tl in ("", "photon arts"):
-                basics.append((title, content))
-            else:
-                # Each named PA becomes its own file
-                safe = re.sub(r"[^a-z0-9]+", "_", tl).strip("_")[:40]
-                if safe not in pa_files:
-                    pa_files[safe] = []
-                pa_files[safe].append((title, content))
+    ("Portal:New_Genesis/Force",
+     "classes/force_class_guide_skills_rod_talis_and_technique_casting",
+     "Force Class Guide — Skills, Rod, Talis and Technique Casting",
+     []),
 
-        # Write basics file
-        basics_path = os.path.join(BASE_DIR, f"{base_path}_pa_basics.txt")
-        write_file(basics_path, f"{weapon_name} — Basic Actions", basics, timestamp)
+    ("Portal:New_Genesis/Techter",
+     "classes/techter_class_guide_skills_wand_talis_shifta_and_deband",
+     "Techter Class Guide — Skills, Wand, Talis, Shifta and Deband",
+     []),
 
-        # Write one file per PA
-        for safe_name, secs in pa_files.items():
-            pa_path = os.path.join(BASE_DIR, f"{base_path}_pa_{safe_name}.txt")
-            pa_title = secs[0][0] if secs else safe_name
-            write_file(pa_path, f"{weapon_name} PA — {pa_title}", secs, timestamp)
+    ("Portal:New_Genesis/Braver",
+     "classes/braver_class_guide_skills_katana_and_assault_rifle",
+     "Braver Class Guide — Skills, Katana and Assault Rifle Arts",
+     []),
 
-        total = 1 + len(pa_files)
-        print(f"   ✅  {weapon_name}: basics + {len(pa_files)} PA files ({total} files)", flush=True)
+    ("Portal:New_Genesis/Bouncer",
+     "classes/bouncer_class_guide_skills_dual_blades_and_jet_boots",
+     "Bouncer Class Guide — Skills, Dual Blades and Jet Boots Arts",
+     []),
 
-    except Exception as e:
-        write_placeholder(
-            os.path.join(BASE_DIR, f"{base_path}_pa_basics.txt"),
-            f"{weapon_name} PA Basics", str(e), timestamp,
-        )
-        print(f"   ❌  {jp}: {e}", flush=True)
+    ("Portal:New_Genesis/Waker",
+     "classes/waker_class_guide_skills_harmonizer_and_pet_mechanics",
+     "Waker Class Guide — Skills, Harmonizer and Pet Mechanics",
+     []),
 
-# ══════════════════════════════════════════════════════════════════════════════
-# WEAPONS  ─  series list + potentials (already small, keep as-is)
-# ══════════════════════════════════════════════════════════════════════════════
+    ("Portal:New_Genesis/Slayer",
+     "classes/slayer_class_guide_skills_and_gunblade_photon_arts",
+     "Slayer Class Guide — Skills and Gunblade Photon Arts",
+     []),
 
-for jp, (title, path) in {
-    "武器・防具/シリーズ": ("Weapon & Armor Series List", "weapons/weapon_series.txt"),
-    "潜在能力":           ("Weapon Potentials",          "mechanics/potentials.txt"),
-}.items():
-    print(f" → {jp}  ──►  {path}", flush=True)
-    try:
-        _, ctable = fetch_and_parse(jp)
-        secs = extract_sections(ctable)
-        write_file(os.path.join(BASE_DIR, path), title, secs, timestamp)
-        print(f"   ✅  {title}", flush=True)
-    except Exception as e:
-        write_placeholder(os.path.join(BASE_DIR, path), title, str(e), timestamp)
-        print(f"   ❌  {e}", flush=True)
+    # ── WEAPONS & PHOTON ARTS ─────────────────────────────────────────────────
 
-# ══════════════════════════════════════════════════════════════════════════════
-# MECHANICS  ─  small files (no split needed)
-# ══════════════════════════════════════════════════════════════════════════════
+    ("Portal:New_Genesis/Weapon_Series",
+     "weapons/weapon_series_comparison_meta_ranking_and_drop_sources",
+     "Weapon Series — Comparison, Meta Ranking and Drop Sources",
+     []),
 
-SIMPLE_MECHANICS = {
-    "防具":             ("Armor & Defensive Gear",       "mechanics/armor.txt"),
-    "装備強化":          ("Equipment Enhancement",        "mechanics/equipment_enhancement.txt"),
-    "アイテム強化・限界突破": ("Item Limit Breaking",       "mechanics/limit_breaking.txt"),
-    "テクニック":        ("Elemental Techniques",         "mechanics/techniques.txt"),
-    "アドオンスキル":     ("Add-on Skills System",        "mechanics/addon_skills.txt"),
-    "プリセット能力":     ("Preset Abilities",            "mechanics/preset_abilities.txt"),
-    "マルチウェポン":     ("Multi-Weapon System",         "mechanics/multi_weapon.txt"),
-    "戦闘力":           ("Combat Power (BP) System",     "mechanics/combat_power.txt"),
-    "状態異常・耐性":     ("Status Effects & Resistances","mechanics/status_effects.txt"),
-    "クイックフード":     ("Quick Food Buffs",            "mechanics/quick_food.txt"),
-}
+    ("Portal:New_Genesis/Photon_Arts_List",
+     "weapons/photon_arts_full_list_all_weapons_and_pa_details",
+     "Photon Arts Full List — All Weapons and PA Details",
+     []),
 
-for jp, (title, path) in SIMPLE_MECHANICS.items():
-    print(f" → {jp}  ──►  {path}", flush=True)
-    try:
-        _, ctable = fetch_and_parse(jp)
-        secs = extract_sections(ctable)
-        write_file(os.path.join(BASE_DIR, path), title, secs, timestamp)
-        print(f"   ✅  {title}  ({len(secs)} sections)", flush=True)
-    except Exception as e:
-        write_placeholder(os.path.join(BASE_DIR, path), title, str(e), timestamp)
-        print(f"   ❌  {e}", flush=True)
+    ("Portal:New_Genesis/Tech_Arts_Customization",
+     "weapons/tech_arts_customization_pa_charging_and_customization",
+     "Tech Arts Customization — PA Charging and Customization System",
+     []),
 
-# ══════════════════════════════════════════════════════════════════════════════
-# AUGMENTS  ─  split into 5 focused sub-files
-# ══════════════════════════════════════════════════════════════════════════════
+    ("Portal:New_Genesis/Photon_Blasts",
+     "weapons/photon_blasts_types_activation_and_effects",
+     "Photon Blasts — Types, Activation and Effects",
+     []),
 
-print(" → 特殊能力  ──►  mechanics/augments_*", flush=True)
-try:
-    _, ctable = fetch_and_parse("特殊能力")
-    all_secs = extract_sections(ctable)
+    # ── ITEM LAB / ENHANCEMENT / AUGMENTS ────────────────────────────────────
 
-    # Group sections by keyword membership
-    augment_groups = {
-        "system": {
-            "additional success rate", "number of special", "effects of special",
-            "inheritance", "transferring", "auxiliary", "special ability list",
-            "ac scratch", "list of special abilities that are effective",
-        },
-        "standard": {
-            "stamina", "power", "shoot", "technique", "diable", "arm guard",
-            "ability", "resist",
-        },
-        "boss": {
-            "sole", "notes", "sobrina", "domina", "nilia", "decord", "secrete",
-            "gigas", "dredo", "fusia", "scepter", "data", "weeker", "tria",
-            "super", "dryel",
-        },
-        "enhance": {
-            "enhancement experience", "weapon connector", "ac scratch product",
-            "adi", "eddie", "nadi", "ladi", "yudi", "lase", "uze",
-        },
-        "special": {
-            "defi", "duel quest", "season", "scheduled", "one capsule",
-            "success rate improvement", "success rate period",
-        },
-    }
+    ("Portal:New_Genesis/Item_Lab",
+     "mechanics/item_lab_enhancement_limit_break_affixing_and_multiweapon",
+     "Item Lab — Enhancement, Limit Break, Augment Affixing and Multi-Weapon",
+     []),
 
-    groups: dict[str, list] = {k: [] for k in augment_groups}
-    groups["system"] = []   # overview/intro always goes here
+    ("Portal:New_Genesis/List_of_Augments",
+     "mechanics/augments_full_list_all_types_stats_and_drop_sources",
+     "Augments Full List — All Types, Stats and Drop Sources",
+     []),
 
-    for title, content in all_secs:
-        tl = title.lower()
-        placed = False
-        for grp, kws in augment_groups.items():
-            if any(k in tl for k in kws):
-                groups[grp].append((title, content))
-                placed = True
-                break
-        if not placed:
-            groups["system"].append((title, content))
+    ("Portal:New_Genesis/Potentials",
+     "mechanics/weapon_potentials_names_effects_and_unlock_conditions",
+     "Weapon Potentials — Names, Effects and Unlock Conditions",
+     []),
 
-    aug_labels = {
-        "system":   "Augments — System & How It Works",
-        "standard": "Augments — Standard Types",
-        "boss":     "Augments — Boss & Enemy-Specific",
-        "enhance":  "Augments — Enhancement & AC Series",
-        "special":  "Augments — Special & Duel Quest",
-    }
-    for grp, label in aug_labels.items():
-        path = os.path.join(BASE_DIR, f"mechanics/augments_{grp}.txt")
-        write_file(path, label, groups[grp], timestamp)
-        print(f"   ✅  {label}  ({len(groups[grp])} sections)", flush=True)
+    ("Portal:New_Genesis/Armor",
+     "mechanics/armor_and_defensive_units_stats_and_obtaining",
+     "Armor and Defensive Units — Stats and How to Obtain",
+     []),
 
-except Exception as e:
-    for grp in ["system", "standard", "boss", "enhance", "special"]:
-        write_placeholder(
-            os.path.join(BASE_DIR, f"mechanics/augments_{grp}.txt"),
-            f"Augments ({grp})", str(e), timestamp,
-        )
-    print(f"   ❌  Augments: {e}", flush=True)
+    ("Portal:New_Genesis/Add-on_Skills",
+     "mechanics/addon_skills_how_to_unlock_obtain_and_use",
+     "Add-on Skills — How to Unlock, Obtain and Use",
+     ["Portal:New_Genesis/Addon_Skills"]),
 
-# ══════════════════════════════════════════════════════════════════════════════
-# WORLD CONTENT
-# ══════════════════════════════════════════════════════════════════════════════
+    ("Portal:New_Genesis/Special_Equipment",
+     "mechanics/special_equipment_talisman_and_auxiliary_gear",
+     "Special Equipment — Talisman and Auxiliary Gear",
+     []),
 
-SIMPLE_WORLD = {
-    "タスク":      ("Main Tasks & Quests",   "world_quests/tasks.txt"),
-    "緊急クエスト": ("Urgent Quests",        "world_quests/urgent_quests.txt"),
-    "バトルディア": ("Battledia Quests",     "world_quests/battledia.txt"),
-    "デュエルクエスト": ("Duel Quests",      "world_quests/duel_quests.txt"),
-    "ルシエル探索": ("Leciel Exploration",   "world_quests/leciel_exploration.txt"),
-    "ギャザリング": ("Gathering & Materials","world_quests/gathering.txt"),
-}
+    ("Portal:New_Genesis/Skill_Rings",
+     "mechanics/skill_rings_types_and_stat_bonuses",
+     "Skill Rings — Types and Stat Bonuses",
+     []),
 
-for jp, (title, path) in SIMPLE_WORLD.items():
-    print(f" → {jp}  ──►  {path}", flush=True)
-    try:
-        _, ctable = fetch_and_parse(jp)
-        secs = extract_sections(ctable)
-        write_file(os.path.join(BASE_DIR, path), title, secs, timestamp)
-        print(f"   ✅  {title}", flush=True)
-    except Exception as e:
-        write_placeholder(os.path.join(BASE_DIR, path), title, str(e), timestamp)
-        print(f"   ❌  {e}", flush=True)
+    # ── TECHNIQUES (MAGIC) ────────────────────────────────────────────────────
 
-# TITLES  ─  split into 3 category groups
-print(" → 称号  ──►  world_quests/titles_*", flush=True)
-try:
-    _, ctable = fetch_and_parse("称号")
-    all_secs = extract_sections(ctable)
+    ("Portal:New_Genesis/Techniques_List",
+     "mechanics/techniques_elemental_spells_full_list_and_properties",
+     "Techniques — Elemental Spells Full List, Fire/Ice/Lightning/Wind/Light/Dark",
+     []),
 
-    title_groups = {
-        "player_items": {"player", "items", "overview"},
-        "quests_tasks": {"quest", "tasks"},
-        "other":        {"communication", "map", "limited"},
-    }
-    t_groups: dict[str, list] = {k: [] for k in title_groups}
+    ("Portal:New_Genesis/Compound_Techniques_List",
+     "mechanics/compound_techniques_combined_elements_and_list",
+     "Compound Techniques — Combined Element Techs and Full List",
+     []),
 
-    for title, content in all_secs:
-        tl = title.lower()
-        placed = False
-        for grp, kws in title_groups.items():
-            if any(k in tl for k in kws):
-                t_groups[grp].append((title, content))
-                placed = True
-                break
-        if not placed:
-            t_groups["player_items"].append((title, content))
+    # ── CORE MECHANICS ────────────────────────────────────────────────────────
 
-    title_labels = {
-        "player_items": "Titles — Player & Items",
-        "quests_tasks": "Titles — Quests & Tasks",
-        "other":        "Titles — Communication, Map & Limited",
-    }
-    for grp, label in title_labels.items():
-        path = os.path.join(BASE_DIR, f"world_quests/titles_{grp}.txt")
-        write_file(path, label, t_groups[grp], timestamp)
-        print(f"   ✅  {label}  ({len(t_groups[grp])} sections)", flush=True)
+    ("Portal:New_Genesis/Battle_Power",
+     "mechanics/battle_power_bp_system_formula_and_gear_requirements",
+     "Battle Power (BP) System — Formula and Gear Requirements",
+     []),
 
-except Exception as e:
-    for grp in ["player_items", "quests_tasks", "other"]:
-        write_placeholder(
-            os.path.join(BASE_DIR, f"world_quests/titles_{grp}.txt"),
-            f"Titles ({grp})", str(e), timestamp,
-        )
-    print(f"   ❌  Titles: {e}", flush=True)
+    ("Portal:New_Genesis/Player_Status",
+     "mechanics/player_status_stats_atk_def_and_attribute_breakdown",
+     "Player Status — Stats, ATK, DEF and Attribute Breakdown",
+     []),
 
-# ══════════════════════════════════════════════════════════════════════════════
-# ENEMIES  ─  split into 3 files
-# ══════════════════════════════════════════════════════════════════════════════
+    ("Portal:New_Genesis/Damage_Calculation",
+     "mechanics/damage_formula_and_calculation_guide",
+     "Damage Formula and Calculation Guide",
+     []),
 
-print(" → エネミー  ──►  enemies/enemy_*", flush=True)
-try:
-    _, ctable = fetch_and_parse("エネミー")
-    all_secs = extract_sections(ctable)
+    ("Portal:New_Genesis/Status_Effects",
+     "mechanics/status_effects_elemental_weaknesses_and_resistances",
+     "Status Effects, Elemental Weaknesses and Resistances",
+     []),
 
-    enemy_groups = {
-        "types": {
-            "rare", "enhanced", "dread", "gigantics", "season",
-            "megalotix", "megalotic", "equaliz", "ancient", "giant mutant",
-            "grocer", "bumble", "high energy", "different attribute",
-            "enemy list",
-        },
-        "dolls_alters": {"doll", "alter"},
-        "formers_starless": {"former", "starless", "ruinus", "tame", "other"},
-    }
-    e_groups: dict[str, list] = {"types": [], "dolls_alters": [], "formers_starless": []}
+    ("Portal:New_Genesis/PSE",
+     "mechanics/pse_photon_sensitive_explosion_burst_chain_mechanics",
+     "PSE — Photon Sensitive Explosion, Burst and Chain Mechanics",
+     []),
 
-    for title, content in all_secs:
-        tl = title.lower()
-        placed = False
-        for grp, kws in enemy_groups.items():
-            if any(k in tl for k in kws):
-                e_groups[grp].append((title, content))
-                placed = True
-                break
-        if not placed:
-            e_groups["types"].append((title, content))
+    ("Portal:New_Genesis/Experience_Level",
+     "mechanics/experience_leveling_cap_and_bp_rewards_per_level",
+     "Experience, Level Cap and BP Rewards Per Level",
+     []),
 
-    enemy_labels = {
-        "types":           "Enemy Types & Overview",
-        "dolls_alters":    "Enemies — Dolls & Alters",
-        "formers_starless":"Enemies — Formers, Starless & Others",
-    }
-    for grp, label in enemy_labels.items():
-        path = os.path.join(BASE_DIR, f"enemies/enemy_{grp}.txt")
-        write_file(path, label, e_groups[grp], timestamp)
-        print(f"   ✅  {label}  ({len(e_groups[grp])} sections)", flush=True)
+    ("Portal:New_Genesis/Vital_Gauges",
+     "mechanics/vital_gauges_hp_pp_photon_points_and_recovery",
+     "Vital Gauges — HP, PP (Photon Points) and Recovery",
+     []),
 
-except Exception as e:
-    for grp in ["types", "dolls_alters", "formers_starless"]:
-        write_placeholder(
-            os.path.join(BASE_DIR, f"enemies/enemy_{grp}.txt"),
-            f"Enemies ({grp})", str(e), timestamp,
-        )
-    print(f"   ❌  Enemies: {e}", flush=True)
+    ("Portal:New_Genesis/Weather",
+     "mechanics/weather_system_effects_elemental_and_gathering_impact",
+     "Weather System — Effects on Combat, Elemental Buffs and Gathering",
+     []),
 
-# ══════════════════════════════════════════════════════════════════════════════
-# LORE  ─  worldview + NPC profiles (glossary intentionally excluded)
-# ══════════════════════════════════════════════════════════════════════════════
+    ("Portal:New_Genesis/Region_Mags",
+     "mechanics/region_mags_field_support_and_abilities",
+     "Region Mags — Field Support and Abilities",
+     []),
 
-for jp, (title, path) in {
-    "世界観・ストーリー": ("World Lore & Story",          "lore/worldview_story.txt"),
-    "登場NPC":          ("NPC Profiles & Character Lore","lore/npc_profiles.txt"),
-}.items():
-    print(f" → {jp}  ──►  {path}", flush=True)
-    try:
-        _, ctable = fetch_and_parse(jp)
-        secs = extract_sections(ctable)
-        write_file(os.path.join(BASE_DIR, path), title, secs, timestamp)
-        print(f"   ✅  {title}", flush=True)
-    except Exception as e:
-        write_placeholder(os.path.join(BASE_DIR, path), title, str(e), timestamp)
-        print(f"   ❌  {e}", flush=True)
+    ("Portal:New_Genesis/Mags",
+     "mechanics/mags_personal_support_partner_and_photon_blasts",
+     "Mags — Personal Support Partner and Photon Blasts",
+     []),
 
-print("\n✨ Compilation complete.", flush=True)
+    # ── FOOD & GATHERING ─────────────────────────────────────────────────────
+
+    ("Portal:New_Genesis/Food",
+     "mechanics/food_quick_food_cooking_stat_buffs_and_recipes",
+     "Food, Quick Food, Cooking, Stat Buffs and Recipes",
+     []),
+
+    ("Portal:New_Genesis/Gathering",
+     "mechanics/gathering_materials_resource_types_and_map_locations",
+     "Gathering — Materials, Resource Types and Map Locations",
+     []),
+
+    # ── QUESTS & WORLD ────────────────────────────────────────────────────────
+
+    ("Portal:New_Genesis/Quests",
+     "world/quests_overview_all_quest_types_and_how_to_access",
+     "Quests Overview — All Quest Types and How to Access",
+     []),
+
+    ("Portal:New_Genesis/Tasks",
+     "world/tasks_daily_limited_time_and_main_task_list",
+     "Tasks — Daily, Limited Time and Main Task List",
+     []),
+
+    ("Portal:New_Genesis/Main_Story",
+     "world/main_story_quests_chapters_and_progression",
+     "Main Story Quests — Chapters and Progression",
+     []),
+
+    ("Portal:New_Genesis/Battledia_Quests",
+     "world/battledia_quests_yellow_red_and_trigger_types",
+     "Battledia Quests — Yellow, Red and Trigger Types",
+     []),
+
+    ("Portal:New_Genesis/Duel_Quests",
+     "world/duel_quests_solo_high_difficulty_boss_challenges",
+     "Duel Quests — Solo High Difficulty Boss Challenges",
+     []),
+
+    ("Portal:New_Genesis/Standing_Quests",
+     "world/standing_quests_repeatable_and_material_grinding",
+     "Standing Quests — Repeatable and Material Grinding",
+     []),
+
+    ("Portal:New_Genesis/Trigger_Quests",
+     "world/trigger_quests_item_activated_battles_and_rewards",
+     "Trigger Quests — Item-Activated Battles and Rewards",
+     []),
+
+    ("Portal:New_Genesis/Trinitas_Quests",
+     "world/trinitas_quests_high_tier_party_raids_and_rewards",
+     "Trinitas Quests — High Tier Party Raids and Rewards",
+     []),
+
+    ("Portal:New_Genesis/Time_Extension_Quests",
+     "world/time_extension_quests_and_mechanics",
+     "Time Extension Quests and Mechanics",
+     []),
+
+    ("Portal:New_Genesis/Trainia_Advance_Quests",
+     "world/trainia_advance_quests_tutorial_and_class_practice",
+     "Trainia Advance Quests — Tutorial and Class Practice",
+     []),
+
+    ("Portal:New_Genesis/Field_Races",
+     "world/field_races_time_trials_and_race_rewards",
+     "Field Races — Time Trials and Race Rewards",
+     []),
+
+    ("Portal:New_Genesis/Major_Target_Suppression_Missions",
+     "world/major_target_suppression_missions_boss_hunt_events",
+     "Major Target Suppression Missions — Boss Hunt Events",
+     []),
+
+    ("Portal:New_Genesis/World_Trials",
+     "world/world_trials_open_field_timed_events",
+     "World Trials — Open Field Timed Events",
+     []),
+
+    ("Portal:New_Genesis/Cocoons_and_Towers",
+     "world/cocoons_and_towers_training_challenges_and_bp_rewards",
+     "Cocoons and Towers — Training Challenges and BP Rewards",
+     []),
+
+    # ── ENEMIES ───────────────────────────────────────────────────────────────
+
+    ("Portal:New_Genesis/Enemies",
+     "enemies/enemies_overview_factions_types_and_mechanics",
+     "Enemies Overview — Factions, Types and Combat Mechanics",
+     []),
+
+    ("Portal:New_Genesis/Dolls",
+     "enemies/dolls_enemy_faction_all_types_and_behavior",
+     "DOLLS Enemy Faction — All Types and Behavior",
+     []),
+
+    ("Portal:New_Genesis/Alters",
+     "enemies/alters_enemy_faction_all_types_and_behavior",
+     "ALTERS Enemy Faction — All Types and Behavior",
+     []),
+
+    ("Portal:New_Genesis/Formers",
+     "enemies/formers_enemy_faction_all_types_and_behavior",
+     "Formers Enemy Faction — All Types and Behavior",
+     []),
+
+    ("Portal:New_Genesis/Starless",
+     "enemies/starless_enemy_faction_all_types_and_behavior",
+     "Starless Enemy Faction — All Types and Behavior",
+     []),
+
+    ("Portal:New_Genesis/Ruine",
+     "enemies/ruine_enemy_faction_all_types_and_behavior",
+     "Ruine Enemy Faction — All Types and Behavior",
+     []),
+
+    ("Portal:New_Genesis/Special_Enemies",
+     "enemies/special_enemies_variants_and_unique_modifiers",
+     "Special Enemies — Variants and Unique Modifiers",
+     []),
+
+    ("Portal:New_Genesis/Adras",
+     "enemies/adras_enemy_type_guide_and_combat",
+     "Adras Enemy Type — Guide and Combat",
+     []),
+
+    ("Portal:New_Genesis/Blitz",
+     "enemies/blitz_enemy_type_guide_and_combat",
+     "Blitz Enemy Type — Guide and Combat",
+     []),
+
+    ("Portal:New_Genesis/Celeste",
+     "enemies/celeste_enemy_type_guide_and_combat",
+     "Celeste Enemy Type — Guide and Combat",
+     []),
+
+    ("Portal:New_Genesis/Tames",
+     "enemies/tames_capturable_creatures_and_abilities",
+     "Tames — Capturable Creatures and Abilities",
+     []),
+
+    ("Portal:New_Genesis/MARS",
+     "enemies/mars_combat_vehicle_type_and_mechanics",
+     "MARS — Combat Vehicle Type and Mechanics",
+     []),
+
+    # ── WORLD / LORE ─────────────────────────────────────────────────────────
+
+    ("Portal:New_Genesis/World",
+     "lore/world_lore_regions_aelio_retem_kvaris_stia_and_leciel",
+     "World Lore — Regions: Aelio, Retem, Kvaris, Stia and Leciel",
+     []),
+
+    ("Portal:New_Genesis/NPCs",
+     "lore/npc_profiles_characters_and_arks_cast",
+     "NPC Profiles — Characters and ARKS Cast",
+     []),
+
+    ("Portal:New_Genesis/NPC_Ronaldine",
+     "lore/npc_ronaldine_profile_role_and_services",
+     "NPC Ronaldine — Profile, Role and Services",
+     []),
+
+    # ── ECONOMY / CURRENCY / SHOPS ────────────────────────────────────────────
+
+    ("Portal:New_Genesis/Currency",
+     "economy/currency_meseta_star_gems_sg_and_ac",
+     "Currency — Meseta, Star Gems (SG) and AC",
+     []),
+
+    ("Portal:New_Genesis/Shops",
+     "economy/shops_and_vendors_all_types_and_locations",
+     "Shops and Vendors — All Types and Locations",
+     []),
+
+    ("Portal:New_Genesis/Personal_Shop",
+     "economy/personal_shop_player_to_player_trading",
+     "Personal Shop — Player to Player Trading",
+     []),
+
+    ("Portal:New_Genesis/Exchange_Shops",
+     "economy/exchange_shops_material_and_item_redemption",
+     "Exchange Shops — Material and Item Redemption",
+     []),
+
+    ("Portal:New_Genesis/Items",
+     "economy/items_overview_all_item_types_and_categories",
+     "Items Overview — All Item Types and Categories",
+     []),
+
+    ("Portal:New_Genesis/Consumables",
+     "economy/consumables_recovery_items_and_support_goods",
+     "Consumables — Recovery Items and Support Goods",
+     []),
+
+    ("Portal:New_Genesis/Materials",
+     "economy/materials_crafting_and_enhancement_resources",
+     "Materials — Crafting and Enhancement Resources",
+     []),
+
+    ("Portal:New_Genesis/Collectables",
+     "economy/collectables_and_collection_file_items",
+     "Collectables and Collection File Items",
+     []),
+
+    ("Portal:New_Genesis/Reward_Boxes",
+     "economy/reward_boxes_daily_weekly_and_event_boxes",
+     "Reward Boxes — Daily, Weekly and Event Boxes",
+     []),
+
+    ("Portal:New_Genesis/Item_Packs",
+     "economy/item_packs_and_dlc_bundles",
+     "Item Packs and DLC Bundles",
+     []),
+
+    ("Portal:New_Genesis/Star_Gems_Shop",
+     "economy/star_gems_shop_sg_purchasable_items",
+     "Star Gems Shop — SG Purchasable Items",
+     []),
+
+    # ── AC SCRATCH / COSMETIC GACHA ───────────────────────────────────────────
+
+    ("Portal:New_Genesis/AC_Scratches",
+     "economy/ac_scratch_tickets_cosmetic_gacha_and_current_banner",
+     "AC Scratch Tickets — Cosmetic Gacha and Current Banner",
+     []),
+
+    ("Portal:New_Genesis/SG_Scratches",
+     "economy/sg_scratch_tickets_star_gem_gacha",
+     "SG Scratch Tickets — Star Gem Gacha",
+     []),
+
+    ("Portal:New_Genesis/Treasure_Scratches",
+     "economy/treasure_scratch_and_red_scratch_rewards",
+     "Treasure Scratch and Red Scratch — Rewards",
+     []),
+
+    ("Portal:New_Genesis/Special_Scratches",
+     "economy/special_scratches_limited_and_crossover_tickets",
+     "Special Scratches — Limited and Crossover Tickets",
+     []),
+
+    ("Portal:New_Genesis/Revival_Scratches",
+     "economy/revival_scratches_returning_cosmetics",
+     "Revival Scratches — Returning Cosmetics",
+     []),
+
+    ("Portal:New_Genesis/ARKS_Cash_Shop",
+     "economy/arks_cash_shop_ac_purchasable_items",
+     "ARKS Cash Shop — AC Purchasable Items",
+     []),
+
+    # ── FASHION ───────────────────────────────────────────────────────────────
+
+    ("Portal:New_Genesis/Fashion",
+     "fashion/fashion_overview_costume_system_and_layering",
+     "Fashion Overview — Costume System and Layering",
+     []),
+
+    ("Portal:New_Genesis/Beauty_Salon",
+     "fashion/beauty_salon_character_customization_and_sliders",
+     "Beauty Salon — Character Customization and Sliders",
+     []),
+
+    ("Portal:New_Genesis/Basewear",
+     "fashion/basewear_body_costume_catalog",
+     "Basewear — Body Costume Catalog",
+     []),
+
+    ("Portal:New_Genesis/Outerwear",
+     "fashion/outerwear_jacket_and_coat_costume_catalog",
+     "Outerwear — Jacket and Coat Costume Catalog",
+     []),
+
+    ("Portal:New_Genesis/Innerwear",
+     "fashion/innerwear_undergarment_catalog",
+     "Innerwear — Undergarment Catalog",
+     []),
+
+    ("Portal:New_Genesis/Setwear",
+     "fashion/setwear_full_costume_set_catalog",
+     "Setwear — Full Costume Set Catalog",
+     []),
+
+    ("Portal:New_Genesis/Full_Setwear",
+     "fashion/full_setwear_complete_outfit_catalog",
+     "Full Setwear — Complete Outfit Catalog",
+     []),
+
+    ("Portal:New_Genesis/Accessories",
+     "fashion/accessories_and_attachment_item_catalog",
+     "Accessories and Attachment Item Catalog",
+     []),
+
+    ("Portal:New_Genesis/Weapon_Camos",
+     "fashion/weapon_camos_reskin_and_visual_catalog",
+     "Weapon Camos — Reskin and Visual Catalog",
+     []),
+
+    ("Portal:New_Genesis/Hairstyles",
+     "fashion/hairstyle_catalog_and_types",
+     "Hairstyle Catalog and Types",
+     []),
+
+    ("Portal:New_Genesis/Color_Variants",
+     "fashion/color_variants_and_dye_system",
+     "Color Variants and Dye System",
+     []),
+
+    # ── SOCIAL / MULTIPLAYER ──────────────────────────────────────────────────
+
+    ("Portal:New_Genesis/Friends",
+     "social/friends_list_and_friend_system",
+     "Friends List and Friend System",
+     []),
+
+    ("Portal:New_Genesis/Alliances",
+     "social/alliances_guild_system_and_management",
+     "Alliances — Guild System and Management",
+     []),
+
+    ("Portal:New_Genesis/Group_Chat",
+     "social/group_chat_party_communication",
+     "Group Chat and Party Communication",
+     []),
+
+    ("Portal:New_Genesis/ARKS_ID",
+     "social/arks_id_player_profile_and_customization",
+     "ARKS ID — Player Profile and Customization",
+     []),
+
+    ("Portal:New_Genesis/Symbol_Arts",
+     "social/symbol_arts_custom_icons_and_sharing",
+     "Symbol Arts — Custom Icons and Sharing",
+     []),
+
+    ("Portal:New_Genesis/Emotes",
+     "social/emotes_and_chat_actions",
+     "Emotes and Chat Actions",
+     []),
+
+    ("Portal:New_Genesis/Motions",
+     "social/motions_and_idle_animations",
+     "Motions and Idle Animations",
+     []),
+
+    ("Portal:New_Genesis/Creative_Space",
+     "social/creative_space_housing_building_and_furniture",
+     "Creative Space — Housing, Building and Furniture",
+     []),
+
+    # ── ACHIEVEMENTS / TITLES ─────────────────────────────────────────────────
+
+    ("Portal:New_Genesis/Achievements",
+     "achievements/achievements_and_medal_rewards",
+     "Achievements and Medal Rewards",
+     []),
+
+    ("Portal:New_Genesis/Titles",
+     "achievements/titles_how_to_earn_and_rewards",
+     "Titles — How to Earn and Rewards",
+     []),
+
+    ("Portal:New_Genesis/Cumulative_Title_List",
+     "achievements/cumulative_title_list_all_titles_and_conditions",
+     "Cumulative Title List — All Titles and Unlock Conditions",
+     []),
+
+    # ── MINI-GAME: LINE STRIKE ────────────────────────────────────────────────
+
+    ("Portal:New_Genesis/Line_Strike",
+     "minigame/line_strike_card_game_overview_and_rules",
+     "Line Strike — Card Game Overview and Rules",
+     []),
+
+    ("Portal:New_Genesis/Card_List",
+     "minigame/line_strike_card_list_and_effects",
+     "Line Strike Card List and Effects",
+     []),
+
+    ("Portal:New_Genesis/Sleeves",
+     "minigame/line_strike_sleeves_cosmetics",
+     "Line Strike Sleeves Cosmetics",
+     []),
+
+    ("Portal:New_Genesis/Mats",
+     "minigame/line_strike_play_mats_cosmetics",
+     "Line Strike Play Mats Cosmetics",
+     []),
+
+    # ── SYSTEM / INTERFACE ────────────────────────────────────────────────────
+
+    ("Portal:New_Genesis/Item_Codes_and_Keywords",
+     "system/item_codes_and_keywords_how_to_redeem",
+     "Item Codes and Keywords — How to Redeem",
+     []),
+
+    ("Portal:New_Genesis/Chat_Commands",
+     "system/chat_commands_and_shortcuts",
+     "Chat Commands and Shortcuts",
+     []),
+
+    ("Portal:New_Genesis/Loading_Tips",
+     "system/loading_tips_and_gameplay_hints",
+     "Loading Tips and Gameplay Hints",
+     []),
+
+    ("Portal:New_Genesis/Login_Stamps",
+     "system/login_stamps_and_daily_login_bonuses",
+     "Login Stamps and Daily Login Bonuses",
+     []),
+
+    ("Portal:New_Genesis/Updates",
+     "system/game_version_updates_and_patch_notes",
+     "Game Version Updates and Patch Notes",
+     []),
+
+    ("Portal:New_Genesis/Storage",
+     "system/storage_and_inventory_management",
+     "Storage and Inventory Management",
+     []),
+
+    ("Portal:New_Genesis/Inventory",
+     "system/inventory_item_capacity_and_management",
+     "Inventory — Item Capacity and Management",
+     []),
+]
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MAIN
+# ─────────────────────────────────────────────────────────────────────────────
+
+if __name__ == "__main__":
+    timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+    print(f"🚀 PSO2:NGS DB Compiler v12  |  {timestamp}", flush=True)
+    print(f"   Source : pso2na.arks-visiphone.com  (EN wiki, no translation)", flush=True)
+    print(f"   Output : {BASE_DIR}/   Max chars/file: {MAX_CHARS:,}", flush=True)
+    print(f"   Pages  : {len(MANIFEST)} entries in MANIFEST", flush=True)
+
+    if FRESH_BUILD:
+        if os.path.exists(BASE_DIR):
+            print(f"\n🧹 --fresh: wiping {BASE_DIR}/", flush=True)
+            shutil.rmtree(BASE_DIR)
+        print(flush=True)
+    else:
+        print(f"   Mode   : RESUME — files already on disk will be skipped.", flush=True)
+        print(f"            (Use --fresh to force a full rebuild)", flush=True)
+        print(flush=True)
+
+    os.makedirs(BASE_DIR, exist_ok=True)
+
+    ok_count      = 0
+    skip_count    = 0
+    err_count     = 0
+    total         = len(MANIFEST)
+
+    for idx, (wiki_title, subpath, desc_title, alts) in enumerate(MANIFEST, 1):
+        print(f"[{idx:>3}/{total}]", end=" ", flush=True)
+
+        # ── RESUME CHECK ──────────────────────────────────────────────────────
+        if already_done(subpath):
+            print(f"⏭️  SKIP (already done): {subpath}", flush=True)
+            skip_count += 1
+            ok_count   += 1    # counts as done for final tally
+            continue
+
+        # ── FETCH + WRITE ─────────────────────────────────────────────────────
+        success = process_with_fallback(wiki_title, subpath, desc_title, alts)
+        if success:
+            ok_count += 1
+        else:
+            err_count += 1
+
+    # ── SUMMARY ───────────────────────────────────────────────────────────────
+    print(flush=True)
+    print("=" * 60, flush=True)
+    print(f"✨ Done.  {ok_count}/{total} succeeded  |  "
+          f"{skip_count} skipped (resume)  |  {err_count} failed", flush=True)
+
+    if err_count:
+        print(flush=True)
+        print("ℹ️  Failed pages were written as placeholders so the bot starts.", flush=True)
+        print("   Re-run (without --fresh) to retry only the failed ones.", flush=True)
+        print("   Check ⚠️  / ❌ lines above to diagnose page-title issues.", flush=True)
+    else:
+        print("🌸 All pages complete. Upload knowledge_base/ to Render.", flush=True)
