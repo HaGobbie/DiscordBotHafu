@@ -438,7 +438,21 @@ def build_answer_content(question: str, chat_ctx: str,
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# LIGHTWEIGHT PORT KEEP-ALIVE (Render)
+# RENDER KEEP-ALIVE
+#
+# Render free tier spins down services after 15 minutes of zero inbound HTTP
+# traffic. The Discord bot only makes outbound WebSocket connections, so Render
+# never sees "activity" and kills the process.
+#
+# Two-part fix:
+#
+#   1. TCP server on PORT — gives Render an HTTP endpoint to hit and gives
+#      external monitors (UptimeRobot etc.) something to ping.
+#
+#   2. Self-ping loop — the bot pings its own public URL (RENDER_EXTERNAL_URL,
+#      provided automatically by Render) every 9 minutes. Render counts this
+#      as inbound traffic and resets its idle timer. No external service needed.
+#      If RENDER_EXTERNAL_URL is not set (local dev), the loop exits silently.
 # ══════════════════════════════════════════════════════════════════════════════
 
 async def handle_render_ping(reader, writer):
@@ -456,6 +470,28 @@ async def handle_render_ping(reader, writer):
             pass
 
 
+async def self_ping_loop():
+    """
+    Hits our own Render URL every 9 minutes so Render never sees 15 minutes
+    of idle inbound traffic and doesn't spin the service down.
+    Uses RENDER_EXTERNAL_URL which Render injects automatically.
+    """
+    url = os.environ.get("RENDER_EXTERNAL_URL", "").strip().rstrip("/")
+    if not url:
+        print("ℹ️  RENDER_EXTERNAL_URL not set — self-ping disabled (local dev?)", flush=True)
+        return
+
+    print(f"🏓 Self-ping loop started → {url}", flush=True)
+    while True:
+        await asyncio.sleep(9 * 60)   # 9 min — safely under Render's 15-min threshold
+        try:
+            async with httpx.AsyncClient(timeout=15.0) as client:
+                r = await client.get(url)
+            print(f"🏓 Self-ping OK ({r.status_code})", flush=True)
+        except Exception as e:
+            print(f"⚠️  Self-ping failed: {e}", flush=True)
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # DISCORD BOT
 # ══════════════════════════════════════════════════════════════════════════════
@@ -470,9 +506,11 @@ async def on_ready():
     try:
         server = await asyncio.start_server(handle_render_ping, "0.0.0.0", port)
         asyncio.get_event_loop().create_task(server.serve_forever())
-        print(f"🌐 Keep-alive online on port {port}", flush=True)
+        print(f"🌐 Keep-alive server on port {port}", flush=True)
     except Exception as e:
-        print(f"⚠️ Keep-alive failed: {e}", flush=True)
+        print(f"⚠️ Keep-alive server failed: {e}", flush=True)
+
+    asyncio.get_event_loop().create_task(self_ping_loop())
 
 
 @bot.event
