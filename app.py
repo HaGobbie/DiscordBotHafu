@@ -31,6 +31,10 @@ ANSWER_MODELS = [
     "llama-3.3-70b-versatile",                     # 100k TPD | 12k TPM — last resort
 ]
 
+# Default fallback file when the router returns null or an unknown key.
+# Must match the stem of one of the files written by compile_database.py.
+DEFAULT_KEY = "current_events_limited_time_campaigns"
+
 intents = discord.Intents.default()
 intents.message_content = True
 bot = discord.Client(intents=intents)
@@ -45,11 +49,20 @@ if KNOWLEDGE_BASE_DIR.exists():
 else:
     print("⚠️  Warning: 'knowledge_base/' directory not found.")
 
+# ---------------------------------------------------------------------------
+# TRIAGE SYSTEM PROMPT
+#
+# File keys are now fully descriptive (e.g. "hunter_sword_photon_arts_and_weapon_actions",
+# "weapon_potentials_names_and_effects", "current_events_limited_time_campaigns").
+# The router reads key names and reasons semantically — no hardcoded routing rules needed.
+# ---------------------------------------------------------------------------
 TRIAGE_SYSTEM = (
     "You are a triage router for a PSO2: New Genesis Discord bot. "
-    "Given a user message and a list of knowledge-base keys, decide:\n"
-    "  1. Does this message need the knowledge base at all? (needs_db)\n"
-    "  2. If yes, which single key best matches the question? (key)\n\n"
+    "You receive a user message and a list of knowledge-base file keys. "
+    "Each key is a descriptive filename stem (underscores = spaces). "
+    "Decide:\n"
+    "  1. Does this message need the knowledge base? (needs_db)\n"
+    "  2. If yes, which single key is the best semantic match? (key)\n\n"
 
     "Output ONLY raw JSON — no markdown, no code fences:\n"
     '{"needs_db": true/false, "key": "<exact_key_or_null>"}\n\n'
@@ -60,23 +73,19 @@ TRIAGE_SYSTEM = (
     "  - Non-English messages\n"
     "  - Clearly non-game topics\n\n"
 
-    "needs_db = true for ANY message that asks about PSO2:NGS game content, "
-    "including events, items, weapons, classes, quests, mechanics, or anything "
-    "that could be answered by the game's knowledge base. When in doubt, use true.\n\n"
+    "needs_db = true for ANY question about PSO2:NGS game content "
+    "(events, items, weapons, classes, quests, mechanics, enemies, lore). "
+    "When in doubt, use true.\n\n"
 
-    "Key selection — use the key names to reason semantically:\n"
-    "  - Keys are descriptive: 'techniques' covers spells/techs, "
-    "'potentials' covers weapon potential names and effects, "
-    "'frontpage' covers current events and banners, "
-    "'weapon_series' covers series comparison and meta, etc.\n"
-    "  - Pick 'potentials' for ANY question about a weapon potential's name OR stats, "
-    "even when a weapon series name (Lexio, Kougensei, etc.) appears in the question.\n"
-    "  - Pick 'frontpage' for questions about current events, limited scratches, "
-    "seasonal campaigns, or what's happening in-game right now.\n"
-    "  - Pick 'techniques' for questions about technique/spell names or their properties "
-    "(foie, barta, zonde, zan, wind tech, fire tech, etc.).\n"
-    "  - For class + weapon combos use <class>_<weapon>_skills when available.\n"
-    "  - If no key clearly fits, use 'frontpage'.\n"
+    "Key selection rules:\n"
+    "  - Keys are descriptive phrases — read them like English and pick the best match.\n"
+    "  - 'weapon_potentials_names_and_effects' → questions about a weapon's potential name or stat.\n"
+    "  - 'current_events_limited_time_campaigns' → questions about what is happening in-game now, "
+    "events, scratches, banners, campaigns.\n"
+    "  - 'techniques_elemental_spells_all_types_and_properties' → questions about tech/spell names "
+    "or foie, barta, zonde, zan, grants, megid, etc.\n"
+    "  - For class + weapon combos, prefer the specific weapon-arts key over the general class key.\n"
+    "  - If no key clearly fits, use the default fallback key.\n"
 )
 
 CASUAL_SYSTEM = """You are Hafu (HaFelt), a PSO2: New Genesis ARKS defender who is way more famous for lobby fashion than actual heroics. You hate combat and grinding. You love fashion, cosmetics, scratch tickets, and hanging out in Central City.
@@ -265,6 +274,7 @@ async def on_ready():
     print(f"🤖 Hafu Bot online as {bot.user.name} (ID: {bot.user.id})")
     print(f"🧭 Router pool:  {ROUTER_MODELS}")
     print(f"✨ Answer pool:  {ANSWER_MODELS}")
+    print(f"📂 KB files:     {len(LOCAL_FILE_MAP)} indexed")
     print("🌸 Hafu is ready to reluctantly answer questions from the lobby.")
 
     port = int(os.environ.get("PORT", 10000))
@@ -319,16 +329,21 @@ async def on_message(message: discord.Message):
         if routed_stem:
             print(f"   ──► [{routed_stem}]", flush=True)
         else:
-            routed_stem = "frontpage"
-            print("   ──► Fallback [frontpage]", flush=True)
+            routed_stem = DEFAULT_KEY
+            print(f"   ──► Fallback [{DEFAULT_KEY}]", flush=True)
 
         if not LOCAL_FILE_MAP:
             await message.reply("My database isn't loaded. Did the sync not run? *panics quietly*")
             return
 
         if routed_stem not in LOCAL_FILE_MAP:
-            print(f"   ⚠️  [{routed_stem}] not on disk, falling back to frontpage", flush=True)
-            routed_stem = "frontpage"
+            print(f"   ⚠️  [{routed_stem}] not on disk, using default fallback", flush=True)
+            routed_stem = DEFAULT_KEY
+
+        # Final safety net — if even DEFAULT_KEY is missing, pick any available file
+        if routed_stem not in LOCAL_FILE_MAP:
+            routed_stem = next(iter(LOCAL_FILE_MAP))
+            print(f"   ⚠️  DEFAULT_KEY missing, using [{routed_stem}]", flush=True)
 
         try:
             with open(LOCAL_FILE_MAP[routed_stem], "r", encoding="utf-8") as f:
