@@ -1,0 +1,28 @@
+# Waker Class Guide — Skills, Harmonizer and Pet Mechanics (Part 1)
+
+Sections in this file: Class Weapon Overview, Class Overview, Harmonizer
+
+Hunter | Fighter | Ranger | Gunner | Force | Techter | Braver | Bouncer | Waker | Slayer
+Waker is a class in Phantasy Star Online 2: New Genesis, reminiscent of and considered a spiritual successor/reimagining to the Summoner class from Phantasy Star Online 2.
+
+== Class Weapon Overview ==
+Wakers have access to one unique weapon: Harmonizers .
+
+== Class Overview ==
+The Waker is a class that fights alongside Familiars by summoning them. Summoning the right Familiar depending on the situation is the key to the class's full potential.
+Contrast to Phantasy Star Online 2's Summoner class, Waker does not utilize Pets, but rather creatures called Familiars. Familiars do not need to be raised unlike Pets; the power of these Familiars will scale to the player's equipment and level. Pets from Phantasy Star Online 2 cannot be used as Familiars.
+There are three types of Familiar, specializing in either close-range or long-range combat, or utilized for defense, depending on the Familiar used.
+Fredran and Wulfen are Familiars that can be summoned mainly through Photon Arts. Fredran is a winged wyvern-type Familiar that specializes in long-ranged breath attacks and flight. Wulfen is a beastman-type Familiar that specializes in a variety of heavy melee-ranged attacks. Marmelo is a small, cute-looking Familiar that can be summoned mainly by Weapon Actions. It specializes in defending against enemy attacks and can release a powerful counterattack as well.
+
+== Harmonizer ==
+The Harmonizer is a Technique Weapon that can be used both as a close-ranged and long-ranged weapon. Despite being a Technique Weapon, it cannot use any Techniques like Force and Techter. Instead, it can adapt to all kinds of situations by using Familiars.
+A Focus Gauge will appear on the upper part of the Main Palette, once you have acquired the class skill "Harmonizer Focus". There are different Focus Gauges for each Familiar, and the mechanism of Fredran and Wulfen's Focus Gauges will differ from Marmelo's.
+Fredran and Wulfen's Focus Gauges will accumulate as you land attacks associated with them, and you will earn 1 stock (maximum of 2) once the gauge is full. You will be able to release a powerful attack by consuming each of Fredran and Wulfen's stocks, once you have acquired the class skill "Familiar Harmony".
+Marmelo's Focus Gauge will fill up when successfully guarding enemy attacks with Weapon Action, once you have acquired the class skill "Marmelo Strike". Focus Gauge will accumulate up to 2 levels. You will hold up Marmelo in front of you when pressing down the Weapon Action button, and will attack by throwing Marmelo once you let go the button, by consuming all of your Focus Gauge. The higher the Focus Gauge level, the bigger the damage.
+
+=== Skill Tree Overview ===
+Harmonizer Focus | Retro Friends Rescue | Welfare Management | Resta Effect Continuance | Lucky Sign
+Familiar Harmony | Harmonizer Focus Extra | Treble Clef Marking | Marmelo Strike
+Call Again PP Preservation | Familiar Harmony Marking Clef | Treble Clef Ignition | Hot Marmelo Parry | Marmelo Strike Tracing | Marmelo Patience
+Familiar Harmony Marmelo+ | Familiar Support | Hot Marmelo Parry Short Cooldown | Harmonizer Parry Counter | Linear Drive
+Familiar Support Amplifier | Harmonizer Parry PP Gain | Linear Drive Encore

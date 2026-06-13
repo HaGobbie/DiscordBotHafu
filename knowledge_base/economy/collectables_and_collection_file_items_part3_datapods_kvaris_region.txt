@@ -1,0 +1,106 @@
+# Collectables and Collection File Items (Part 3)
+
+Sections in this file: Datapods (Kvaris Region)
+
+== Datapods (Kvaris Region) ==
+Datapod Map (Kvaris Region)
+
+=== Datapod Information (Kvaris Region) ===
+
+=== Central Kvaris ===
+Datapod (#) | Contents | Rewards | Location
+(1) | In Central Kvaris you can find a rare mineral called snoal. It's used to repair devices and sells for a high price. | Central Kvaris
+(2) | I saw a small animal around here with fat cheeks. It seemed edible, but I get the feeling I shouldn't eat it. | Central Kvaris
+(3) | Frozen containers are really hard. Like, too hard. Maybe I'll try ramming into one with a speed-boosted Floating Board. | Central Kvaris
+(4) | If you break Crystalline Ice, you'll get a sharp ice fragment. Try chucking it at an enemy if you're in a pinch! | Central Kvaris
+(5) | When I went out at night, I saw some rare seafood! Maybe it's a kind that's nocturnal. | Central Kvaris
+(6) | There's a molluscoid in this area that looks like a rock. It was really crunchy. Maybe I shouldn't have eaten it. | Central Kvaris
+(7) | I found an umbrella-shaped molluscoid in the water. I tried eating it, but it really did a number on my stomach. I'm in a cold sweat now. | Central Kvaris
+(8) | Central Kvaris is home to a great variety of plantlife. Naturally, plant-eating TAMES tend to gather there. | Central Kvaris
+(9) | You can get seafood from the river in Central Kvaris! And vegetables can be found nearby trees. | Central Kvaris
+
+=== South Kvaris ===
+Datapod (#) | Contents | Rewards | Location
+(1) | It's so fun speeding around on a Floating Board! I could do this forever! Try hitting a jump panel. You'll soar! | South Kvaris
+(2) | Proctyses are enemies with box-like heads. Their attacks are irregular, making them especially hard to take down. | South Kvaris
+(3) | I got a lot of minerals from inside caves. I can't even carry them all. I'll have to come back later for the rest. | South Kvaris
+(4) | I saw an animal with a fluffy tail nearby Kvaris Camp. Somehow I ended up making friends with it. So I can't eat it now... | South Kvaris
+(5) | DOLLS in Kvaris will teleport in the middle of a battle. Make sure you don't lose sight of them. | South Kvaris
+(6) | The terrain of South Kvaris is complex and riddled with caves. You may find abandoned containers in dead ends. | South Kvaris
+
+=== North Kvaris ===
+Datapod (#) | Contents | Rewards | Location
+(1) | When I peeked inside a small hole in the snow field, I found a fluffy animal. I tried to grab it, but it got away. Now I won't be able to eat it! | North Kvaris
+(2) | I bet I'll find a ton of minerals at the top of Mt. Latva. But my legs have just about had it... | North Kvaris
+(3) | You can destroy frozen containers with a strong hit. For example, by throwing a shard of Crystalline Ice. | North Kvaris
+(4) | From here you can see Kvaris's highest peak, Mt. Latva. Originally, the neighboring Mt. Ihana was taller, until one day... | North Kvaris
+(5) | A Gigantix suddenly appeared in the middle of a blizzard! I was on the lookout for it, but it still caught me off guard. | North Kvaris
+
+=== West Kvaris ===
+Datapod (#) | Contents | Rewards | Location
+(1) | Stop by the Region Mag before you head to Rayjord Gorge. If you give it something, you'll get a boost against the cold in return. | West Kvaris
+(2) | Floating Boards do have auxiliary power, but it's not enough to get them up hills. You need to speed them up by dashing to climb any elevation. | West Kvaris
+(3) | Poloros morphed into their current form as a response to their environment. It might be good to research the ecosystem here. | West Kvaris
+(4) | I found a group of little furball-like creatures that I haven't seen anywhere else. They're more fur than meat, though. Oh well... | West Kvaris
+(5) | When the hand-like protuberance on a Jangis changes shape, its attacks change, too. Watch out. | West Kvaris
+(6) | An abundance of snowy slopes can be found to the west of here. Zipping down them on Floating Boards is a great way to have fun. | West Kvaris
+
+=== Rayjord Gorge ===
+Datapod (#) | Contents | Rewards | Location
+(1) | Comantas are a rare type of fish that can move around on land. They taste amazing. You should try one sometime. | Rayjord Gorge
+(2) | The average ARKS defender likely wouldn't be able to withstand the cold here. It's a little too late to tell you that, you say? | Rayjord Gorge
+(3) | When I go in this cave, it feels like the flow of photons in my body slows down. What's with that? | Rayjord Gorge
+(4) | There's a rumor that an enemy encased in ice has been seen nearby. Some say it started to move when the ice melted. Scary! | Rayjord Gorge
+
+=== Belugana Ruins ===
+Datapod (#) | Contents | Rewards | Location
+(1) | DOLLS transporters have giant containers hanging off them. We should take them. You know, to lighten their load. | Belugana Ruins
+(2) | This is where the Kvaris division of ARKS once took up residence. Now, only hacked Hovacs can be found wandering around. | Belugana Ruins
+(3) | If you attack the Hovacs wandering around here and disable them, your Mag will hack them and put them to work for you. | Belugana Ruins
+(4) | *Sigh* Auroras truly are beautiful. I need to focus on the battle, but I can't help staring. | Belugana Ruins
+
+=== Lost Central ===
+Datapod (#) | Contents | Rewards | Location
+(1) | Rinshans have rollers for feet. They may be slow, but look out for their humongous weapons! | Lost Central
+(2) | The hanging icicles have brittle parts to them. If they're hit, they might fall. | Lost Central
+(3) | The cold photons in the air are highly unstable. They'll explode with even the slightest impact. | Lost Central
+(4) | This was once a verdant mountain, but is now only a shadow of its former self. When will those halcyon days return to Kvaris? | Lost Central
+(5) | I'll stockpile materials in preparation for the showdown with the DOLLS. Victory isn't certain, so go ahead and use anything you need. | Lost Central
+
+=== Datapod Information (Stia Region) ===
+
+=== Stia Outskirts ===
+Datapod (#) | Contents | Rewards | Location
+(1) | The environment changes as soon as you cross a Border Bridge. It looks like there’s a lot of seafood around the coast, so I should get some while I can. | Stia Outskirts
+(2) | Those four-legged creatures with volcanic rocks on their backs... they look too hard to eat as well. Plus, they look a bit hot. | Stia Outskirts
+(3) | Be careful when a Volt Lemnas strikes the ground with their tail! They aren't easy to stop once they get serious. | Stia Outskirts
+(4) | I saw some long-necked creature, with legs that looked like fillet. But it was probably still a child. I should look for it again once it grows up. | Stia Outskirts
+(5) | Have you seen the round creature with a back covered like armor? My brother will try to eat anything, but surely not this creature. | Stia Outskirts
+
+=== Dreisen Plant ===
+Datapod (#) | Contents | Rewards | Location
+(1) | There are containers everywhere here. They seemed to be placed all automatically, but I wonder who set it up... | Dreisen Plant
+(2) | Dark Magilz is a powerful enemy that wields the power of both fire and darkness. It’s even more terrifying after it is wounded. | Dreisen Plant
+(3) | My Mag's sonar reacted to that blur of light... What was that? | Dreisen Plant
+(4) | Be careful of a Stratis’ kicks and tail attacks. But, it seems like destroying their leg parts really messes with their balance. | Dreisen Plant
+(5) | Don’t let an Engouku’s intense movements distract you. If you manage to immobilize it, aim for its back! | Dreisen Plant
+(6) | The group of Gigantix patrolling inside the plant is called Recon Gigants. They’re too strong for a solo ARKS defender. | Dreisen Plant
+(7) | Scout Wasps will call for reinforcements if they notice us. Try surprising them with a Diving Attack before they see you. | Dreisen Plant
+
+=== Mediola Outer Area 1 ===
+Datapod (#) | Contents | Rewards | Location
+(1) | Well, this is it for the initial survey into Mediola. But... what is that structure in the center? | Mediola Outer Area 1
+(2) | What is this place? Hmm... I can see some Recon Gigants in the distance. | Mediola Outer Area 1
+
+=== Mediola Outer Area 2 ===
+Datapod (#) | Contents | Rewards | Location
+(1) | I saw a creature swimming in the lava, but no one will believe me. It looked edible... but I guess I probably shouldn’t try. | Mediola Outer Area 2
+(2) | That strange, long, and thin creature that pokes its head out from the ground... I wonder if it’s edible. Is it shaking it’s head in some kind of courtship behavior? | Mediola Outer Area 2
+(3) | A Doldoris’ main weapon is its drill-shaped head. Destroying that part first might be the way to go? | Mediola Outer Area 2
+(4) | There were bird creatures with beards around here. They looked like they had plenty of edible parts, but they’d probably be hard to cook with all that hair. | Mediola Outer Area 2
+(5) | Those four-legged creatures with long tails sometimes stand on two legs, which is cute. The cute ones can be surprisingly tasty though... | Mediola Outer Area 2
+(6) | According to my Mag data, this area is called Mediola. Lava Bombs come flying no matter where I go. I have to get out of here. | Mediola Outer Area 2
+(7) | Lava Cores will eventually form in Lava Pools. They hold a tremendous amount of energy inside... | Mediola Outer Area 2
+(8) | Picking up Lava Bombs? Who in the world would do that? But... we’re ARKS defenders. There’s nothing we can’t do. | Mediola Outer Area 2
+(9) | What is with these hard Complex Minerals? Our attacks hardly make a dent. If only I had a bit more firepower... | Mediola Outer Area 2
+(10) | If you want to destroy an Auto Interceptor Zonnel, you’ll need to destroy all of the Dazzle Pods. It’s kind of an annoying enemy. | Mediola Outer Area 2

@@ -1,0 +1,59 @@
+# Materials — Crafting and Enhancement Resources (Part 3)
+
+Sections in this file: Minerals, Fruit
+
+== Minerals ==
+Mineral Distribution Map (Aelio Region)
+Mineral Distribution Map (Retem Region)
+Mineral Distribution Map (Kvaris Region)
+Mineral Distribution Map (Stia Region)
+Rarity | Icon | Image | Name | Obtainment | Notes
+Monotite | Found in Central Aelio, Central Retem, West Retem, Central Kvaris, North Kvaris, and Mediola Outer Area 2 Found in Stellar Pack Trials Found in Complex Minerals Reward from the Mission Pass Purchased from the Treasure Shop | Mineral ore found in rocky places in various regions. Used for various purposes like unlocking Potentials and Limit Breaking at the Item Lab.
+Dualomite | Found in South Aelio, West Aelio, Central Retem, South Retem, South Kvaris, and Stia Outskirts Found in Stellar Pack Trials Found in Complex Minerals Reward from the Mission Pass Purchased from the Treasure Shop | Mineral ore found in rocky places in various regions. Used for various purposes like unlocking Potentials and Limit Breaking at the Item Lab.
+Trinite | Found in North Aelio, West Aelio, Central Retem, South Retem, North Kvaris, and West Kvaris Found in Stellar Pack Trials Found in Complex Minerals Reward from the Mission Pass Purchased from the Treasure Shop | Mineral ore found in rocky places in various regions. Used for various purposes like unlocking Potentials and Limit Breaking at the Item Lab.
+Tetracite | Found in West Retem, North Retem, Rwh Maqead, Central Kvaris, South Kvaris, and Mediola Outer Area 2 Found in Stellar Pack Trials Found in Complex Minerals Purchased from the Treasure Shop | Mineral ore found in rocky places in various regions. Used for various purposes like unlocking Potentials and Limit Breaking at the Item Lab.
+Pentalite | Found in West Kvaris and Stia Outskirts Found in Stellar Pack Trials Found in Complex Minerals Purchased from the Treasure Shop | Mineral ore found in rocky places in various regions. Used for various purposes like unlocking Potentials and Limit Breaking at the Item Lab.
+Hexakite | Found in Mediola Outer Area 1 and Mediola Outer Area 2 Found in Stellar Pack Trials Found in Complex Minerals | Mineral ore found in rocky places in various regions. Used for various purposes like unlocking Potentials and Limit Breaking at the Item Lab.
+Blizzardium | Found on the peak of West Kvaris during Snowfall and Blizzards Rarely found in Frozen Item Containers Exchange from Kvaris Exchange Shop Drop from DOLLS Transport Heist Trials Purchased from the Treasure Shop | A rare mineral found in rocky places of Kvaris. Can be exchanged for items in certain places .
+Infernium | Found during Scorching, Inferno, or Phoenix weather conditions at the top of Mediola Outer Area 1 Drop from Gigantix Enemies (Stia Region) Drop from Zonnel Destruction Trials Drop from Invisible Boxes Exchanged from the Stia Exchange Shop Purchased from the Treasure Shop | A rare mineral ore found in rocky areas of Stia. Can be exchanged for items in certain places .
+Photon Chunk | Found in Central Aelio, North Aelio, South Aelio, Central Retem, North Retem, Central Kvaris, and Mediola Outer Area 2 Found in Complex Minerals Found in Gold Containers Reward from the Mission Pass | Mineral ore found in rocky places in various regions. Used for various purposes like unlocking Potentials at the Item Lab.
+Photon Quartz | Found in Central Aelio, North Aelio, South Aelio, West Retem, Rwh Maqead, and Mediola Outer Area 1 Found in Gold Containers Reward from the Mission Pass | Mineral ore found in rocky places in various regions. Used for various purposes like Multi-weaponization at the Item Lab.
+Photon Scale | Found in South Retem Reward from Urgent Quests Drop from Gigantix Enemies (Lv. 49+) Purchased from the Treasure Shop | Mineral ore found in rocky places in various regions. Used for various purposes like exchanging capsules at the Item Lab.
+Greenealcite | Found in Exploration Sectors during the Autumn '22 Event Drop from Stellar Pack Trials during the Autumn '22 Event Drop from Randomite during the Autumn '22 Event | A mineral that can be obtained via gathering during an event. Can be exchanged for various items through Xiemi .
+Bluefullcite | Rare Drop from Stellar Pack Trials during the Autumn '22 Event Rare Drop from Randomite during the Autumn '22 Event | A mineral that can be obtained via gathering during an event. Can be exchanged for various items through Xiemi .
+Autumnearlis | Drop from Stellar Pack Trials during the Autumn '22 Event Drop from Practice Drill: Crisp Autumn Aelio Defense Drop from enemies during the Autumn '22 Event | A mineral that can be obtained from Seasonal Enemies during an event. Can be exchanged for various items through Xiemi .
+Autumnlatis | Rare Drop from Stellar Pack Trials during the Autumn '22 Event Rare Drop from Practice Drill: Crisp Autumn Aelio Defense Rare Drop from enemies during the Autumn '22 Event | A mineral that can be obtained from Seasonal Enemies during an event. Can be exchanged for various items through Xiemi .
+
+=== Randomite ===
+Randomite are unique ores that spawn in fixed locations during certain Seasonal Events, like the NGS 1st Anniversary Event . Unlike other minerals, breaking Randomite will drop a large number of minerals from the current mineral pool and is not a tangible item the player can possess. Breaking Randomite will drop around 20 to 30 minerals, with the possibility of Photon Scales being included at a low probability. The quantity of specific minerals obtained from Randomite are entirely random. As an example, a Randomite ore may only drop 1 Photon Quartz, but another Randomite ore may drop up to 7 Photon Quartz.
+Randomite spawns in all Exploration Sectors excluding Rwh Maqead, and will generally spawn in clusters of 2 to 5. There are approximately 10 or 15 Randomite ores per Exploration Sector, and Randomite ores will only respawn during the server's weekly reset.
+As of the Moon-Gazing '22 Event , Randomite may also contain Blizzardium. During the Autumn '22 Event , Randomite may also contain Greenealcite and Bluefullcite.
+
+=== Complex Mineral ===
+Complex Minerals are large mineral clusters found in Stia within Mediola Outer Area 2. Complex Minerals can only be destroyed and mined by making use of explosions from things such as Lava Bombs and Lava Cores. Lava Bombs will only appear during certain weather conditions.
+Complex Minerals contain all types of minerals used for Item Lab enhancement, from Monotite to Hexakite.
+
+=== Myenin ===
+Myenin are mining apparatus that can be found in the Aelio region. You can earn a great deal of items, such as a wide variety of Minerals by destroying them. You can also find Materials such as Photon Chunk IIA and Photon Chunk IIB , which are required for unlocking Lv.6 Weapon Potentials. Myenin can be located by setting them as your Active Sonar target.
+
+== Fruit ==
+Rarity | Icon | Image | Name | Obtainment | Notes
+Crisp Aelio Pear | Found in South Aelio | Fruit you can harvest in Aelio. Increases PP/Increases weak point damage. Used to make Quick Food .
+Light Aelio Peach | Found in Central Aelio | Fruit you can harvest in Aelio. Increases PP/Increases PP recovery. Used to make Quick Food .
+Rich Aelio Apple | Found in North Aelio | Fruit you can harvest in Aelio. Increases PP/Reduces PP consumption. Used to make Quick Food .
+Robust Aelio Banana | Found in West Aelio | Fruit you can harvest in Aelio. Increases PP/Increases HP recovery. Used to make Quick Food .
+Crisp Retem Carambola | Found in North Retem | Fruit you can harvest in Retem. Increases PP/Increases weak point damage. Used to make Quick Food .
+Light Retem Mango | Found in South Retem | Fruit you can harvest in Retem. Increases PP/Increases PP recovery. Used to make Quick Food .
+Rich Retem Cherry | Found in Central Retem | Fruit you can harvest in Retem. Increases PP/Reduces PP consumption. Used to make Quick Food .
+Robust Retem Strawberry | Found in West Retem Found in Rwh Maqead | Fruit you can harvest in Retem. Increases PP/Increases HP recovery. Used to make Quick Food .
+Crisp Kvaris Guava | Found in Central Kvaris | Fruit you can harvest in Kvaris. Increases PP/Increases weak point damage/Reduces Cold Damage. Used to make Quick Food .
+Light Kvaris Plum | Found in West Kvaris | Fruit you can harvest in Kvaris. Increases PP/Increases PP recovery/Reduces Cold Damage. Used to make Quick Food .
+Rich Kvaris Persimmon | Found in North Kvaris | Fruit you can harvest in Kvaris. Increases PP/Reduces PP consumption/Reduces Cold Damage. Used to make Quick Food .
+Robust Kvaris Akebia | Found in South Kvaris | Fruit you can harvest in Kvaris. Increases PP/Increases HP recovery/Reduces Cold Damage. Used to make Quick Food .
+Crisp Stia Mango | Found in Stia Outskirts | Fruit you can harvest in Stia. Increases PP/Increases weakpoint damage. Used to make Quick Food .
+Light Stia Apple | Found in Mediola Outer Area 2 | Fruit you can harvest in Stia. Increases PP/Increases PP recovery. Used to make Quick Food .
+Rich Stia Banana | Found in Mediola Outer Area 2 | Fruit you can harvest in Stia. Increases PP/Reduces PP consumption. Used to make Quick Food .
+Robust Stia Plum | Found in Stia Outskirts | Fruit you can harvest in Stia. Increases PP/Increases HP recovery. Used to make Quick Food .
+Notable Kvaris Persimmon | Found near the peaks of North Kvaris during the Day Drop from DOLLS Transport Heist Trials | A rare fruit found in Kvaris. Can be exchanged for items in certain places . The Quick Food effect is the same as Rich Kvaris Persimmon. Used to make Quick Food .
+Famous Stia Carambola | Found only during the day in Stia Outskirts | A rare fruit found in Stia. Can be exchanged for items in certain places . The Quick Food effect is the same as Light Stia Apple. Used to make Quick Food .
+Spring Ballooni | Found in Aelio and Retem | Fruit you can harvest in Aelio or Retem. Increases PP/Increases PP recovery. Only available during the Spring '22 Event . Provides a 200% Region Mag material bonus during the Spring '22 Event . Used to make Quick Food .

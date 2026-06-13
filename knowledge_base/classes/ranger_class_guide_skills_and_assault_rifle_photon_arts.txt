@@ -1,0 +1,166 @@
+# Ranger Class Guide — Skills and Assault Rifle Photon Arts
+
+Hunter | Fighter | Ranger | Gunner | Force | Techter | Braver | Bouncer | Waker | Slayer
+Ranger is a returning class in Phantasy Star Online 2: New Genesis. A class geared towards medium range combat, they use ranged weapons to engage enemies while maintaining the optimal distance. They can also support other players with a range of special rounds.
+
+== Class Weapon Overview ==
+Rangers have access to two unique weapons: Rifles and Launchers .
+
+=== Rifles ===
+A heavy-duty rifle loaded with bullets. Possesses a high rate of attack as well as extreme precision. Rifles have a unique property of dealing increased damage for attacking at medium range.
+The Sliding Shot Weapon Action performs an evasive slide forward, backwards, or to the sides while shooting at the same time. This allows the Ranger to keep their distance from an enemy to avoid damage as well as shoot at the same time.
+
+=== Launchers ===
+A slow, but deadly rocket launcher. Has slow attack speed, but compensates in high raw damage. Unlike rifles, they do not need to be in any range to benefit from increased damage, and so can freely attack at long ranges.
+Using the Sticky Bomb Weapon Action, you can throw an attachable mini bomb to an enemy, which detonates and recovers PP after attacking the struck enemy.
+
+== Skill Tree Overview ==
+Blight Rounds | Bad Condition Ward | Bad Condition Reduction | Stealth Strike | Slow Landing Attack-Ranger | Slow Landing Charge-Ranger
+Blight Rounds Reinforce | Launcher Blight Rounds | Wide Range Blight Rounds | Blight Rounds Self Benefit | Long Range Advantage Ra
+Spread Shot | Sticky Bomb Quick Reload | Sticky Bomb Advanced | Sticky Bomb Wide Range
+Spread Shot Quick Getaway | Spread Shot Wide Range | Spread Shot Auto Charge | Launcher Charge Grouping | Launcher Attack Short Charge | Launcher Attack Reinforce
+Slide Shot Advance | Rifle Grenadier
+Rifle Attack Impact | Rifle Grenadier Quick Reload | Rifle Grenadier Advanced
+
+== Skills ==
+Blight Rounds | [Active Skill] Fires a bullet that increases damage dealt to the hit part. Can only be used by a Main Class/Assault Rifle.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Damage Dealt | 120%
+Stocks | 3
+Duration | 15s
+Cooldown | 30s | 25s | 20s | 15s | 10s
+Bad Condition Ward | Makes you more resistant to status aliments.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15
+Status Aliment Accum. | 75% | 71% | 67% | 64% | 61% | 58% | 56% | 54% | 52% | 50% | 48% | 46% | 44% | 42% | 40%
+Status Aliment Accum. | 85% | 81% | 77% | 74% | 71% | 68% | 66% | 64% | 62% | 60% | 58% | 56% | 54% | 52% | 50%
+Bad Condition Reduction | Reduces the effect duration of status aliments.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Status Aliment Duration | 50% | 46% | 44% | 42% | 40% | 38% | 36% | 34% | 32% | 30%
+Status Aliment Duration | 85% | 80% | 75% | 70% | 65% | 60% | 55% | 50% | 45% | 40%
+Stealth Strike | Makes you less likely to be targeted by enemies even when you attack.
+Prerequisite -
+Effect | Skill Level
+1
+Threat Level | 20%
+Slow Landing Attack-Ranger | Slows fall speed when performing a Normal Attack. Can only be used with Ranger weapons.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Slow Landing Charge-Ranger | Slows fall speed when charging a Photon Art. Can only be used with Ranger weapons.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Blight Rounds Reinforce | Parts hit by Blight Rounds that are hit a set number of times will take increased damage, and the effect duration of the skill will be extended. Can only be used by a Main Class.
+Prerequisite -
+Effect | Skill Level
+1
+Blight Rounds Enhanc. Rate | 125%
+Blight Rounds Time Extension | 15s
+Number Required | 100 times
+Launcher Blight Rounds | Allows you to use Blight Rounds while equipped with a launcher. Can only be used with a Main Class/Launcher.
+Prerequisite - Blight Rounds Lv. 1
+Effect | Skill Level
+1
+- | -
+Wide Range Blight Rounds | [Active Skill] Fires rounds that increases damage dealt to any part hit in a wide area of effect. This skill draws from the same number of uses and cooldown time of ordinary Blight Rounds. Can only be used with a Main Class/Assault Rifles.
+Prerequisite - Blight Rounds Lv. 1
+Effect | Skill Level
+1
+- | -
+Blight Rounds Self Benefit | Increases damage to other parts when you hit an enemy part with a Blight Round. This effect applies only to your own attacks.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3
+Potency | 108% | 112% | 115%
+Long Range Advantage Ra | Increases PA damage to boss enemies that are not targetting you. Main Class/Ranger Weapons only.
+Prerequisite -
+Effect | Skill Level
+1
+Potency | 115%
+Spread Shot | [Active Skill] Expend a gauge built up by attacks to fire a special close range shotgun blast. Can only be used with an Assault Rifle.
+Prerequisite -
+Effect | Skill Level
+1
+Damage | 60%
+Sticky Bomb Quick Reload | Shortens the cooldown time between Weapon Actions. Can only be used with a Launcher.
+Prerequisite -
+Effect | Skill Level
+1
+Cooldown | 30s
+Sticky Bomb Advanced | Triggers an invulnerability period when you use your weapon action. Can only be used with a Launcher.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Sticky Bomb Wide Range | Increases the area of effect and potency of Weapon Action explosions. Can only be used with a Main Class/Launcher.
+Prerequisite -
+Effect | Skill Level
+1
+Potency | 300%
+Spread Shot Quick Getaway | Triggers an invulnerability period when you use Spread Shot. Inputting a direction will also extend the distance of the evasive action.
+Prerequisite - Spread Shot Lv. 1
+Effect | Skill Level
+1
+- | -
+Spread Shot Wide Range | Changes Spread Shot to an area-of-effect attack to your front. Can only be used with a Main Class/Assault Rifle.
+Prerequisite - Spread Shot Lv. 1
+Effect | Skill Level
+1
+- | -
+Spread Shot Auto Charge | Your Spread Shot gauge automatically fills.
+Prerequisite - Spread Shot Lv. 1
+Effect | Skill Level
+1
+- | -
+Launcher Charge Grouping | Inputting a direction forward will improve the accuracy of fire when performing a Normal Attack while charged. Can only be used with a Launcher.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Launcher Attack Short Charge | Reduces the potency of Charged Normal Attacks, but they charge faster. Can only be used by Launchers.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Potency | 95% | 90% | 85% | 80% | 75%
+Charge Time | 90% | 80% | 70% | 60% | 50%
+Launcher Attack Reinforce | [Active Skill] Increases the potency and speed of uncharged Normal Attacks for a set time. Can only be used with a Launcher.
+Prerequisite -
+Effect | Skill Level
+1
+Effect Duration | 30s
+Cooldown | 90s
+Slide Shot Advance | Weapon Actions will trigger an invulnerability period. Can only be used with an Assault Rifle.
+Prerequisite - Spread Shot Lv. 1
+Effect | Skill Level
+1
+- | -
+Rifle Grenadier | Press and hold the Weapon Action button to perform a grenade attack. Input a direction at the same time to throw the grenade, or input none to place the grenade at the current location. Can only be used with an Assault Rifle.
+Prerequisite - Weak Bullet Lv. 1
+Effect | Skill Level
+1
+Trap Potency | 700%
+Grenade Potency | 560%
+Cooldown | 30s
+Rifle Attack Impact | Builds up a gauge when an enemy is hit with a Photon Art multiple times. Once the gauge is maxed out, a certain number of Normal Attacks will become more powerful. Can only be used with an Assault Rifle.
+Prerequisite -
+Effect | Skill Level
+1
+Times Sustained | 60
+Rifle Grenadier Quick Reload | When you successfully dodge with a Weapon Action, reduces the cooldown time for Rifle Grenadier. Can only be used by Assault Rifles.
+Prerequisite - Rifle Grenadier Lv.1
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Cooldown Reduction | 5s | 10s | 15s | 20s | 30s
+Rifle Grenadier Advanced | Makes you invulnerable for a set period of time when you use Rifle Grenadier. Can only be used by Assault Rifles.
+Prerequisite - Rifle Grenadier Lv.1
+Effect | Skill Level
+1
+- | -

@@ -1,0 +1,45 @@
+# ARKS Cash Shop — AC Purchasable Items
+
+== Shop List ==
+ARKS Cash Shop
+Rarity | Image | Name | Price | Notes
+Beginners! Rappy Pack x1 | 980 | Item Pack Details
+(One time only!) Premium Set (30 Days) x1 | 900 | A special ticket that provides 30 days of access to a variety of premium services such as item trading, your Personal Quarters, and your Personal Shop.
+Premium Set (30 Days) x1 | 1,300 | A special ticket that provides 30 days of access to a variety of premium services such as item trading, your Personal Quarters, and your Personal Shop.
+Premium Set (60 Days) x1 | 2,300 | A special ticket that provides 60 days of access to a variety of premium services such as item trading, your Personal Quarters, and your Personal Shop.
+Premium Set (90 Days) x1 | 3,300 | A special ticket that provides 90 days of access to a variety of premium services such as item trading, your Personal Quarters, and your Personal Shop.
+N-Rare Drop Rate +100% x3 | 800 | Boosts rare drop rate 100% for 60 minutes after use. Duration will decrease while logged out.
+N-Rare Drop Rate [15m] +100% x4 | 500 | Boosts rare drop rate 100% for 15 minutes after use. Duration will decrease while logged out.
+N-EXP Earned +50% x3 | 350 | Boosts EXP earned 50% for 60 minutes after use. Duration will decrease while logged out.
+Sonic Collab: Suits/C-Space Pack x1 | 980 | Item Pack Details
+Resort Build Parts Pack x1 | 580 | Item Pack Details
+Aelio Nadar Renewal Pack x1 | 1,480 | Item Pack Details
+Aelio Nager Renewal Pack x1 | 1,480 | Item Pack Details
+Fiery Dunes Retem Pack/Type 1 x1 | 1,980 | Item Pack Details
+Fiery Dunes Retem Pack/Type 2 x1 | 1,980 | Item Pack Details
+Silver Peaks Kvaris Pack/Type 1 x1 | 1,980 | Item Pack Details
+Silver Peaks Kvaris Pack/Type 2 x1 | 1,980 | Item Pack Details
+Crimson Lotus Stia Pack/Type 1 x1 | 1,980 | Item Pack Details
+Crimson Lotus Stia Pack/Type 2 x1 | 1,980 | Item Pack Details
+N-Scape Doll x1 | 150 | A revival device that can be used when its owner is incapacitated. HP will restore to max.
+N-Scape Doll x3 | 400 | A revival device that can be used when its owner is incapacitated. HP will restore to max.
+N-Scape Doll x5 | 600 | A revival device that can be used when its owner is incapacitated. HP will restore to max.
+Rental C Space 01 Use (30 Days) x1 | 700 | A ticket that allows you to use Creative Space Rental C Space 01 for 30 days.
+Rental C Space 01 Use (90 Days) x1 | 1,600 | A ticket that allows you to use Creative Space Rental C Space 01 for 90 days.
+Extended Storage 2 (30 Days) x1 | 500 | A permit to access Extended Storage 2. Using it allows you to store up to 500 items in Extended Storage 2 for 30 days.
+Extended Storage 2 (90 Days) x1 | 1,200 | A permit to access Extended Storage 2. Using it allows you to store up to 500 items in Extended Storage 2 for 90 days.
+Extended Storage 3 (30 Days) x1 | 500 | A permit to access Extended Storage 3. Using it allows you to store up to 500 items in Extended Storage 3 for 30 days.
+Extended Storage 3 (90 Days) x1 | 1,200 | A permit to access Extended Storage 3. Using it allows you to store up to 500 items in Extended Storage 3 for 90 days.
+Extended Storage 4 (30 Days) x1 | 500 | A permit to access Extended Storage 4. Using it allows you to store up to 500 items in Extended Storage 4 for 30 days.
+Extended Storage 4 (90 Days) x1 | 1,200 | A permit to access Extended Storage 4. Using it allows you to store up to 500 items in Extended Storage 4 for 90 days.
+Extended Storage 5 (30 Days) x1 | 500 | A permit to access Extended Storage 5. Using it allows you to store up to 500 items in Extended Storage 5 for 30 days.
+Extended Storage 5 (90 Days) x1 | 1,200 | A permit to access Extended Storage 5. Using it allows you to store up to 500 items in Extended Storage 5 for 90 days.
+Extended Storage 6 (30 Days) x1 | 500 | A permit to access Extended Storage 6. Using it allows you to store up to 500 items in Extended Storage 6 for 30 days.
+Extended Storage 6 (90 Days) x1 | 1,200 | A permit to access Extended Storage 6. Using it allows you to store up to 500 items in Extended Storage 6 for 90 days.
+Extended Storage 7 (30 Days) x1 | 500 | A permit to access Extended Storage 7. Using it allows you to store up to 500 items in Extended Storage 7 for 30 days.
+Extended Storage 7 (90 Days) x1 | 1,200 | A permit to access Extended Storage 7. Using it allows you to store up to 500 items in Extended Storage 7 for 90 days.
+Personal Shop Use (30 Days) x1 | 700 | A permit to open your Personal Shop. Using it allows you to put items up for sale in your Personal Shop for 30 days.
+N-Inventory +10 x1 | 350 | Expands inventory slots by 10. Limit 200 slots per character.
+Sub-Palette Ticket x1 | 800 | A ticket that expands your Sub-Palette. You can use one ticket per charatcer to add Book 03 - Book 06.
+Character Storage Expansion (50) x1 | 800 | Increase the Character Storage limit by 50. Character Storage can be increased to a maximum of 1000 items per character.
+NGS Story Progress Ticket x1 | 900 | Allows you to progress to the latest chapter of your character's main storyline.

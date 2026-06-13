@@ -1,0 +1,237 @@
+# Techter Class Guide — Skills, Wand, Talis, Shifta and Deband (Part 2)
+
+Sections in this file: Skills
+
+== Skills ==
+Shifta/Deband | [Active Skill] Increases damage dealt to enemies, and decreases damage taken by you and nearby characters for a set time. Can only be used by a Main Class.
+Prerequisite -
+Effect | Skill Level
+1
+Potency | 105%
+Damage Taken Decrease Rate | 90%
+Effect Duration | 60s
+Max Effect Duration | 60s
+Cooldown | 15s
+Weak Element Amplifier | Increases your Photon Blast Gauge when your attack element matches your enemy's weakness.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15
+PB Gauge Fortification | 110% | 112% | 113% | 114% | 115% | 116% | 117% | 118% | 119% | 120% | 121% | 122% | 123% | 124% | 125%
+PB Gauge Fortification | 105% | 107% | 108% | 109% | 110% | 111% | 112% | 113% | 114% | 115% | 116% | 117% | 118% | 119% | 120%
+Awake Aile | Makes your Photon Blast Gauge charge easier when a boss enemy is nearby.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+PB Gauge Fortification | 110% | 113% | 116% | 118% | 120% | 121% | 122% | 123% | 124% | 125%
+PB Gauge Fortification | 105% | 108% | 111% | 113% | 115% | 116% | 117% | 118% | 119% | 120%
+Overemphasis | Recover PP and HP, as well as temporarily increase max PP for both yourself and other characters in your party. Can only be used by a Main Class.
+Prerequisite -
+Effect | Skill Level
+1
+Effect Duration | 30s
+Cooldown | 300s
+Max Stock | 2 times
+Added PP | +50
+Resta Field Techter | Increases the amount of health recovered when you use Restasigne, and also heals nearby characters. Can only be used by a Main Class.
+Prerequisite -
+Effect | Skill Level
+1
+Heal Potency Increase Rate | 140%
+Slow Landing Charge-Techter | Slows fall speed when charging Techniques and Photon Arts. Can only be used with Techter weapons.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Long Range Advantage Te | Increases PA damage to boss enemies that are not targetting you. Main Class/Talises only.
+Prerequisite -
+Effect | Skill Level
+1
+Potency | 115%
+United Techniques: Techter | Enables use of Compound Techniques. Fill the Compound Technique Gauge by attacking, then use the gauge to deploy Compound Techniques. Can be stocked up to 2 times. Can only be used by a Main Class/Force and Techter Weapons.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Foie Brand | When you hit an enemy with a Fire Technique a certain number of times, a Seal of Flame is engraved. When you hit with another Fire Technique, the seal explodes, both causing an additional attack and restoring PP.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Barta Blot | When you hit an enemy with an uncharged Ice Technique, an Ice Sigil is engraved which can be enhanced up to two times depending on the number of hits. When you hit with a charged Ice Technique, the sigil explodes, causing additional damage depending on its enhancement stage.
+Prerequisite -
+Effect | Skill Level
+1
+Number Required (Stage 1) | 4 times
+Number Required (Stage 2) | 7 times
+Zonde-Clad | Hitting an enemy with a number of uncharged Lightning Techniques will cause you to enter a high-voltage state. This state will strengthen the next charged Lightning Technique. After which you are returned to normal.
+Prerequisite -
+Effect | Skill Level
+1
+Number Required | 10 times
+Wand Quick Element Change | The Technique explosion resulting from Wand Element Change will match the same element even when a Technique is not charged. Can only be used with a Wand.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Compound Technique Gauge Amplifier TE | When you attack an enemy with an Elemental Weakness Technique or Photonic Fury, your Compound Technique Gauge builds. Can only be used with Force weapons.
+Prerequisite - United Techniques: Force Lv. 1
+Effect | Skill Level
+1 | 2 | 3
+Gauge Accumulation Rate | 110% | 120% | 130%
+Zan Gale | Hitting an enemy with an uncharged Wind Technique will affix a vortex. Hitting that with a charged technique of the same element will activate the vortex, causing additional attacks. The type of attacks caused by the vortex change depending on which technique you hit with.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Grants Glitter | Hitting an enemy multiple times with a Light Technique will cause you to temporarily be surrounded by a halo. While it is active, using light techniques will cause additional attacks depending on the technique. Activating another halo while one is already active will not cause the effect to stack, but will instead reset the effect duration of the already active one.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Megid Sphere | When you hit an enemy with uncharged Dark Techniques, you can stock up to 3 dark orbs. Using a charged Dark Technique will consume all of the orbs and increase the power of that technique by an amount corresponding to how many were stocked.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Shifta/Deband Party Share | Distant characters in your party will still receive the effect of Shifta/Deband when it is used. Can only be used by a Main Class.
+Prerequisite - Shifta/Deband Lv. 1
+Effect | Skill Level
+1
+- | -
+Shifta Effect Advantage | Shifta/Deband will additionally increase damage to downed enemies. Can only be used by a Main Class.
+Prerequisite - Shifta/Deband Lv. 1
+Effect | Skill Level
+1
+Potency | 105%
+Shifta Effect Amplifier | Shifta/Deband will additionally increase enemy Down Factor. Can only be used by a Main Class.
+Prerequisite - Shifta/Deband Lv. 1
+Effect | Skill Level
+1
+Phy. Down Factor Increase | 105%
+Elem. Down Factor Increase | 105%
+Deband PP Recovery Boost | Shifta/Deband will additionally increase natural PP recovery speed. Can only be used by a Main Class.
+Prerequisite - Shifta/Deband Lv. 1
+Effect | Skill Level
+1
+PP Recovery Rate | 120%
+Deband Ward Bad Condition | Shifta/Deband will additionally increase status aliment resistance. Can only be used by a Main Class.
+Prerequisite - Shifta/Deband Lv. 1
+Effect | Skill Level
+1
+Status Aliment Accum. | 85%
+Reverse Bounty | Confers Shifta/Deband to a revived ally. Can only be used by a Main Class.
+Prerequisite - Shifta/Deband Lv. 1
+Effect | Skill Level
+1
+- | -
+Shifta/Deband Extension | Extends the effect duration of Shifta/Deband. Can only be used by a Main Class.
+Prerequisite - Shifta/Deband Party Share Lv. 1
+Effect | Skill Level
+1
+Effect Duration | 180s
+Max Effect Duration | 180s
+Long Range Shifta Deband | Launches Shifta/Deband forward. Shares the same cooldown time with normal Shifta/Deband. Can only be used with a Main Class.
+Prerequisite - Shifta/Deband Party Share Lv. 1
+Effect | Skill Level
+1
+- | -
+Techter Extra Field | [Active Skill] Grants support effects to you and nearby characters when performing certain actions. Photon Blast Gauge increases when Wand Element Pursuit is activated. Also, when Photon Blast is activated, additional attacks temporarily occur after an attack lands. Can only be used with a Main Class/Techter weapon.
+Prerequisite - Shifta/Deband Party Share Lv. 1
+Effect | Skill Level
+1
+PB Gauge Increase Rate | 2%
+Adtl Atk Effect Duration | 45 sec
+Adtl Atk Effect No. | 10
+Max Sustained Atk No. | 100
+Wand Lovers | [Active Skill] Adds the effect of attack deflection to Normal Attacks and negates knockback and launches for a set time. Can only be used with a Wand.
+Prerequisite -
+Effect | Skill Level
+1
+Effect Duration | 30s
+Cooldown | 90s
+Wand Attack Extra | Allows you to string up to 4 Normal Attacks. Can only be used by Wands.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Wand Element Change | When you use a Charged Technique, it will add Photonic Fury to your melee attack. Your Photonic Fury will take on the element of that Technique. Can only be used with a Wand.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Wand Parry Counter | Successfully guarding with a Weapon Action and following it with a Normal Attack will unleash a counterattack. Can only be used with a Wand.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Talis Bloom After PP Gain | At the end of a Talis deployment triggered by a Photon Art, you recover PP based on the number of times a Technique was used while it was deployed. Can only be used by a Main Class/Talis.
+Prerequisite -
+Effect | Skill Level
+1
+PP Recovery Rate | +4
+Max PP Recovery | +60
+Talis Bloom Revoke | Pressing and holding the Weapon Action button will cancel your Talis deployment by a Photon Art. Can only be used with a Talis.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Wand Lovers Line Force | The speed and potency of your normal attacks increases during Wand Lovers. Can only be used with a Main Class/Wand.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Wand Guard Reflection | Causes a Photonic Fury when you successfully guard with a Weapon Action etc.. Can only be used with a Wand.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Wand Element Revoke | Press and hold the Weapon Action button to revert elemental changes applied to Photonic Fury by Wand Element Change. Can only be used with a Wand.
+Prerequisite - Wand Element Change Lv. 1
+Effect | Skill Level
+1
+- | -
+Wand Parry Counter Advanced | Adds a shockwave to Wand Parry Counters.
+Prerequisite - Wand Parry Counter Lv. 1
+Effect | Skill Level
+1
+- | -
+Tricky Capacitor | [Active Skill] Expend a gauge built up by attacks to fire a special long range attack. Can only be used with a Talis.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Floating Pillbox Multirock | When Weapon Action is activated, attack multiple enemies intermittently for a set time by not performing a directional input. Can only be used with a Talis.
+Prerequisite - Photon Flare Lv. 1
+Effect | Skill Level
+1
+PP Recovery | +15
+Wand Arts Skip Attack | After using the same PA successively, your Normal Attack changes to its third step. Can only be used by Wands.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Wand Technique Skip Beat | Normal Attack changes to a powerful attack treated as third stage after performing a Charged Technique. Can only be used with Wands.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Wand Element Pursuit | When you hit an enemy with Photonic Fury a certain number of times, activating Wand Element Revoke launches an additional attack. You will not be able to use Wand Element Revoke when this skill is unavailable for use. Can only be used by Wands.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Talis Sign Marking | Hitting an enemy several times with a Normal Attack or Weapon Action will mark the enemy. Increases damage done to marked enemies by Techniques when a Talis is deployed. Can only be used with a Talis.
+Prerequisite -
+Effect | Skill Level
+1
+Potency | 105%
+Tricky Capacitor Gauge Amplifier | While your Talis is deployed due to a Photon Art, the level of your Tricky Capacitor gauge increases when you attack an enemy's elemental weak point with a Technique. Can only be used by a Main Class/Talis.
+Prerequisite - Tricky Capacitor Lv.1
+Effect | Skill Level
+1
+Gauge Accumulation Rate | 250%
+Tricky Capacitor Bloom Flourish | While a Talis is deployed by a Photon Art, Tricky Capacitor's attack will change depending on the deployment state. Can only be used with a Talis.
+Prerequisite - Tricky Capacitor Lv.1
+Effect | Skill Level
+1
+- | -

@@ -1,0 +1,11 @@
+# Personal Shop — Player to Player Trading
+
+== Overview ==
+In New Genesis, the Personal Shop functions similarly to the Personal Shop in Phantasy Star Online 2, where players are able to purchase and sell items of their choosing in a shared marketplace. The Personal Shop can be accessed by talking to Misha in Central City.
+Players will not be able to list items on their Personal Shop if their account does not have the Premium Status. Certain items, such as items obtained from Star Gem scratches are not eligible to be listed on the marketplace.
+
+== Shop Access ==
+As of the August 3rd, 2021 maintenance, each character (not account-wide) must have completed the Main Story task "Aina's Resolve" in order to access the Personal Shop.
+
+== Featured Items ==
+Featured Items listed in AC Scratches will have a minimum listing price of 500,000. Featured items cannot be listed lower than this amount, and all items will retain their featured status regardless of AC Scratch expiration date.

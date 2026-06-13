@@ -1,0 +1,27 @@
+# Techter Class Guide — Skills, Wand, Talis, Shifta and Deband (Part 1)
+
+Sections in this file: Class Weapon Overview, Skill Tree Overview
+
+Hunter | Fighter | Ranger | Gunner | Force | Techter | Braver | Bouncer | Waker | Slayer
+Techter is a returning class in Phantasy Star Online 2: New Genesis. A class geared towards close and long range combat, that also supports other players through Techniques. With temporal ability enhancement and healing, they can stack any battle in their favor.
+
+== Class Weapon Overview ==
+Techters have access to two unique weapons: Wands and Talises .
+
+=== Wands ===
+Wands are general purpose Technique casting weapons that can also be used as an melee weapon. Wands can be imbued with an element by casting a charged technique, which allows them to create Technique "explosions" called Photonic Fury when striking enemies with melee attacks that inflict additional damage and strike all enemies near the blast.
+Using the Parry Weapon Action, you can block attacks and negate their damage when Guarding right before the attack hits you with a Perfect Guard. A Perfect Guard also allows you to move when successfully performed.
+
+=== Talises ===
+A Technique device equipped on the arm that allows Techter users to cast Techniques in different behaviors with Photon Art usage. The type of attack depends on the PA used.
+Using the Talis Deploy Weapon Action, you can install a floating Talis that will attack nearby enemies, restoring PP.
+
+== Skill Tree Overview ==
+Shifta/Deband | Weak Element Amplifier | Awake Aile | Overemphasis | Resta Field Techter | Slow Landing Charge-Techter
+Long Range Advantage Te | United Techniques: Techter | Foie Brand | Barta Blot | Zonde-Clad
+Wand Quick Element Change | Compound Technique Gauge Amplifier TE | Zan Gale | Grants Glitter | Megid Sphere
+Shifta/Deband Party Share | Shifta Effect Advantage | Shifta Effect Amplifier | Deband PP Recovery Boost | Deband Ward Bad Condition | Reverse Bounty
+Shifta/Deband Extension | Long Range Shifta Deband | TechterExtraField
+Wand Lovers | Wand Attack Extra | Wand Element Change | Wand Parry Counter | Talis Bloom After PP Gain | Talis Bloom Revoke
+Wand Lovers Line Force | Wand Guard Reflection | Wand Element Revoke | Wand Parry Counter Advanced | Tricky Capacitor | Floating Pillbox Multirock
+Wand Arts Skip Attack | Wand Technique Skip Beat | Wand Element Pursuit | Talis Sign Marking | Tricky Capacitor Gauge Amplifier | Tricky Capacitor Bloom Flourish

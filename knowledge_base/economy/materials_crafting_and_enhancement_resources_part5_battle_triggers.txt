@@ -1,0 +1,13 @@
+# Materials — Crafting and Enhancement Resources (Part 5)
+
+Sections in this file: Battle Triggers
+
+== Battle Triggers ==
+Rarity | Icon | Image | Name | Obtainment | Notes
+B-Trigger/Ael Yellow | Rare Drop from Aelio Region Enemies Reward from the Mission Pass Exchange from Alliance Badge Exchange Shop Rare Drop from Emperappies and Great Rappies | A Trigger usable in a Battledia . Consumed upon clearing Aelio Troopers. Can be exchanged for B-Trigger/Common Yellow at the Item Recycle Shop .
+B-Trigger/Ret Yellow | Rare Drop from Retem Region Enemies Reward from the Mission Pass Exchange from Alliance Badge Exchange Shop Rare Drop from Emperappies and Great Rappies | A Trigger usable in a Battledia . Consumed upon clearing Retem Troopers. Can be exchanged for B-Trigger/Common Yellow at the Item Recycle Shop .
+B-Trigger/Kvar Yellow | Rare Drop from Kvaris Region Enemies Exchange from Alliance Badge Exchange Shop Purchased from the Treasure Shop Rare Drop from Emperappies and Great Rappies | A Trigger usable in a Battledia . Consumed upon clearing Kvaris Troopers. Can be exchanged for B-Trigger/Common Yellow at the Item Recycle Shop .
+B-Trigger/Ael Purple | Rare Drop from Aelio Region Enemies Reward from the Mission Pass Exchange from Alliance Badge Exchange Shop | A Trigger usable in a Battledia . Consumed upon clearing Aelio Devastators. Can be exchanged for B-Trigger/Common Purple at the Item Recycle Shop .
+B-Trigger/Ret Purple | Rare Drop from Retem Region Enemies Reward from the Mission Pass Exchange from Alliance Badge Exchange Shop | A Trigger usable in a Battledia . Consumed upon clearing Retem Devastators. Can be exchanged for B-Trigger/Common Purple at the Item Recycle Shop .
+B-Trigger/Kvar Purple | Rare Drop from Kvaris Region Enemies Exchange from Alliance Badge Exchange Shop | A Trigger usable in a Battledia . Consumed upon clearing Kvaris Devastators. Can be exchanged for B-Trigger/Common Purple at the Item Recycle Shop .
+B-Trigger/Spring '22 | Drop from Seasonal Enemies Exchange from Seasonal Points Exchange Shop (Spring '22 Event) | A Trigger usable at a dedicated Portal . Consumed upon clearing Drill: Flurry of Flowers Clean Up Op.

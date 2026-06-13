@@ -1,0 +1,276 @@
+# Titles — How to Earn and Rewards (Part 2)
+
+Sections in this file: Player Titles
+
+== Player Titles ==
+=== Total Titles ===
+Title | Requirements | Reward | Title Points
+Title Starter | Play PSO2:NGS. | Title Name "Newbie" Title Name "of" Title Name "ARKS Defender" 5 Star Gems | 5
+Title Collector I | Acquire 50 titles. | Title Name "Meteorn" 5 Star Gems | 5
+Title Collector II | Acquire 100 titles. | Title Name "Descended" 5 Star Gems | 5
+Title Collector III | Acquire 150 titles. | Title Name "Rumor" 5 Star Gems | 10
+Title Collector IV | Acquire 200 titles. | Title Name "Hot Topic" 10 Star Gems | 10
+Title Collector V | Acquire 250 titles. | Title Name "Up-and-Comer" 10 Star Gems | 10
+Title Collector VI | Acquire 300 titles. | Title Name "Famous" 20 Star Gems | 20
+Title Collector VII | Acquire 350 titles. | Title Name "Collector" 20 Star Gems | 20
+Title Collector VIII | Acquire 400 titles. | Title Name "Mania" 20 Star Gems | 20
+Title Collector IX | Acquire 450 titles. | Title Name "Enthusiast" 20 Star Gems | 20
+Title Collector X | Acquire 500 titles. | Title Name "Avaricious" 20 Star Gems | 20
+Title Enthusiast | Acquire 750 titles. | Title Name "Abundant" 20 Star Gems | 20
+
+=== Hunter ===
+Title | Requirements | Reward | Title Points
+Professional Hunter I | Reach Hunter Level 20. | Title Name "Hunter" 5 Star Gems | 5
+Professional Hunter II | Reach Hunter Level 35. | Title Name "Pursuer" 5 Star Gems | 5
+Professional Hunter III | Reach Hunter Level 40. | Title Name "Melee" 5 Star Gems | 5
+Professional Hunter IV | Reach Hunter Level 45. | Title Name "Tenacious" 5 Star Gems | 5
+Professional Hunter V | Reach Hunter Level 60. | Title Name "On the Hunt" 5 Star Gems | 5
+Professional Hunter VI | Reach Hunter Level 70. | Title Name "Kill" 5 Star Gems | 5
+Professional Hunter VII | Reach Hunter Level 80. | Title Name "Large Sword" 5 Star Gems | 5
+Professional Hunter VIII | Reach Hunter Level 100. | Title Name "Blademaster" 10 Star Gems | 5
+Road to Mastery: Hunter I | Reach Hunter Level 30. | Title Name "Strength" N-HU-EX-Cube x1 | 5
+Road to Mastery: Hunter II | Reach Hunter Level 50. | Title Name "True Strength" N-HU-EX-Cube x1 | 5
+
+=== Ranger ===
+Title | Requirements | Reward | Title Points
+Professional Ranger I | Reach Ranger Level 20. | Title Name "Ranger" 5 Star Gems | 5
+Professional Ranger II | Reach Ranger Level 35. | Title Name "Sniper" 5 Star Gems | 5
+Professional Ranger III | Reach Ranger Level 40. | Title Name "Ranged" 5 Star Gems | 5
+Professional Ranger IV | Reach Ranger Level 45. | Title Name "Soft Spot" 5 Star Gems | 5
+Professional Ranger V | Reach Ranger Level 60. | Title Name "Raid" 5 Star Gems | 5
+Professional Ranger VI | Reach Ranger Level 70. | Title Name "Pierce" 5 Star Gems | 5
+Professional Ranger VII | Reach Ranger Level 80. | Title Name "Long Gun" 5 Star Gems | 5
+Professional Ranger VIII | Reach Ranger Level 100. | Title Name "Flashbang" 10 Star Gems | 5
+Road to Mastery: Ranger I | Reach Ranger Level 30. | Title Name "One Point" N-RA-EX-Cube x1 | 5
+Road to Mastery: Ranger II | Reach Ranger Level 50. | Title Name "Concentrate" N-RA-EX-Cube x1 | 5
+
+=== Force ===
+Title | Requirements | Reward | Title Points
+Professional Force I | Reach Force Level 20. | Title Name "Force" 5 Star Gems | 5
+Professional Force II | Reach Force Level 35. | Title Name "Technician" 5 Star Gems | 5
+Professional Force III | Reach Force Level 40. | Title Name "Technique" 5 Star Gems | 5
+Professional Force IV | Reach Force Level 45. | Title Name "Affinity" 5 Star Gems | 5
+Professional Force V | Reach Force Level 60. | Title Name "Invoke" 5 Star Gems | 5
+Professional Force VI | Reach Force Level 70. | Title Name "Chanting" 5 Star Gems | 5
+Professional Force VII | Reach Force Level 80. | Title Name "Long Cane" 5 Star Gems | 5
+Professional Force VIII | Reach Force Level 100. | Title Name "Wizardry" 10 Star Gems | 5
+Road to Mastery: Force I | Reach Force Level 30. | Title Name "Skills" N-FO-EX-Cube x1 | 5
+Road to Mastery: Force II | Reach Force Level 50. | Title Name "Art of War" N-FO-EX-Cube x1 | 5
+
+=== Fighter ===
+Title | Requirements | Reward | Title Points
+Professional Fighter I | Reach Fighter Level 20. | Title Name "Fighter" 5 Star Gems | 5
+Professional Fighter II | Reach Fighter Level 35. | Title Name "Warrior" 5 Star Gems | 5
+Professional Fighter III | Reach Fighter Level 40. | Title Name "Soaring" 5 Star Gems | 5
+Professional Fighter IV | Reach Fighter Level 45. | Title Name "Utmost" 5 Star Gems | 5
+Professional Fighter V | Reach Fighter Level 60. | Title Name "Armed" 5 Star Gems | 5
+Professional Fighter VI | Reach Fighter Level 70. | Title Name "Dancing" 5 Star Gems | 5
+Professional Fighter VII | Reach Fighter Level 80. | Title Name "Steel Fist" 5 Star Gems | 5
+Professional Fighter VIII | Reach Fighter Level 100. | Title Name "Explosive Fist" 10 Star Gems | 5
+Road to Mastery: Fighter I | Reach Fighter Level 30. | Title Name "Impact" N-FI-EX-Cube x1 | 5
+Road to Mastery: Fighter II | Reach Fighter Level 50. | Title Name "Piercing" N-FI-EX-Cube x1 | 5
+
+=== Gunner ===
+Title | Requirements | Reward | Title Points
+Professional Gunner I | Reach Gunner Level 20. | Title Name "Gunner" 5 Star Gems | 5
+Professional Gunner II | Reach Gunner Level 35. | Title Name "Gunslinger" 5 Star Gems | 5
+Professional Gunner III | Reach Gunner Level 40. | Title Name "Chain" 5 Star Gems | 5
+Professional Gunner IV | Reach Gunner Level 45. | Title Name "Linked" 5 Star Gems | 5
+Professional Gunner V | Reach Gunner Level 60. | Title Name "Shoot" 5 Star Gems | 5
+Professional Gunner VI | Reach Gunner Level 70. | Title Name "Sniping" 5 Star Gems | 5
+Professional Gunner VII | Reach Gunner Level 80. | Title Name "Twin Machine Guns" 5 Star Gems | 5
+Professional Gunner VIII | Reach Gunner Level 100. | Title Name "Wild Dance" 10 Star Gems | 5
+Road to Mastery: Gunner I | Reach Gunner Level 30. | Title Name "Acrobatics" N-GU-EX-Cube x1 | 5
+Road to Mastery: Gunner II | Reach Gunner Level 50. | Title Name "Flourish" N-GU-EX-Cube x1 | 5
+
+=== Techter ===
+Title | Requirements | Reward | Title Points
+Professional Techter I | Reach Techter Level 20. | Title Name "Techter" 5 Star Gems | 5
+Professional Techter II | Reach Techter Level 35. | Title Name "Artisan" 5 Star Gems | 5
+Professional Techter III | Reach Techter Level 40. | Title Name "Element" 5 Star Gems | 5
+Professional Techter IV | Reach Techter Level 45. | Title Name "Support" 5 Star Gems | 5
+Professional Techter V | Reach Techter Level 60. | Title Name "Prayer" 5 Star Gems | 5
+Professional Techter VI | Reach Techter Level 70. | Title Name "Purify" 5 Star Gems | 5
+Professional Techter VII | Reach Techter Level 80. | Title Name "Short Cane" 5 Star Gems | 5
+Professional Techter VIII | Reach Techter Level 100. | Title Name "Mystery" 10 Star Gems | 5
+Road to Mastery: Techter I | Reach Techter Level 30. | Title Name "Supplicate" N-TE-EX-Cube x1 | 5
+Road to Mastery: Techter II | Reach Techter Level 50. | Title Name "Miracle" N-TE-EX-Cube x1 | 5
+
+=== Braver ===
+Title | Requirements | Reward | Title Points
+Professional Braver I | Reach Braver Level 20. | Title Name "Braver" 5 Star Gems | 5
+Professional Braver II | Reach Braver Level 35. | Title Name "Valiant" 5 Star Gems | 5
+Professional Braver III | Reach Braver Level 40. | Title Name "Tempo" 5 Star Gems | 5
+Professional Braver IV | Reach Braver Level 45. | Title Name "Conflict" 5 Star Gems | 5
+Professional Braver V | Reach Braver Level 60. | Title Name "Adventure" 5 Star Gems | 5
+Professional Braver VI | Reach Braver Level 70. | Title Name "Reckless" 5 Star Gems | 5
+Professional Braver VII | Reach Braver Level 80. | Title Name "Short Sword" 5 Star Gems | 5
+Professional Braver VIII | Reach Braver Level 100. | Title Name "Valor" 10 Star Gems | 5
+Road to Mastery: Braver I | Reach Braver Level 30. | Title Name "Swordsmanship" N-BR-EX-Cube x1 | 5
+Road to Mastery: Braver II | Reach Braver Level 50. | Title Name "Archer" N-BR-EX-Cube x1 | 5
+
+=== Bouncer ===
+Title | Requirements | Reward | Title Points
+Professional Bouncer I | Reach Bouncer Level 20. | Title Name "Bouncer" 5 Star Gems | 5
+Professional Bouncer II | Reach Bouncer Level 35. | Title Name "Bodyguard" 5 Star Gems | 5
+Professional Bouncer III | Reach Bouncer Level 40. | Title Name "Down" 5 Star Gems | 5
+Professional Bouncer IV | Reach Bouncer Level 45. | Title Name "Defeat" 5 Star Gems | 5
+Professional Bouncer V | Reach Bouncer Level 60. | Title Name "Hired" 5 Star Gems | 5
+Professional Bouncer VI | Reach Bouncer Level 70. | Title Name "Martial Arts" 5 Star Gems | 5
+Professional Bouncer VII | Reach Bouncer Level 80. | Title Name "Flying Sword" 5 Star Gems | 5
+Professional Bouncer VIII | Reach Bouncer Level 100. | Title Name "Leap" 10 Star Gems | 5
+Road to Mastery: Bouncer I | Reach Bouncer Level 30. | Title Name "Rowdy" N-BO-EX-Cube x1 | 5
+Road to Mastery: Bouncer II | Reach Bouncer Level 50. | Title Name "Outlaw" N-BO-EX-Cube x1 | 5
+
+=== Waker ===
+Title | Requirements | Reward | Title Points
+Professional Waker I | Reach Waker Level 20. | Title Name "Summon" 5 Star Gems | 5
+Professional Waker II | Reach Waker Level 35. | Title Name "Contract" 5 Star Gems | 5
+Professional Waker III | Reach Waker Level 40. | Title Name "Fairy" 5 Star Gems | 5
+Professional Waker IV | Reach Waker Level 45. | Title Name "Phantom" 5 Star Gems | 5
+Professional Waker V | Reach Waker Level 60. | Title Name "Spirit" 5 Star Gems | 5
+Professional Waker VI | Reach Waker Level 70. | Title Name "Awaken" 5 Star Gems | 5
+Professional Waker VII | Reach Waker Level 80. | Title Name "Musical Instrument" 5 Star Gems | 5
+Professional Waker VIII | Reach Waker Level 100. | Title Name "Divination" 10 Star Gems | 5
+Road to Mastery: Waker I | Reach Waker Level 30. | Title Name "Ward" N-WA-EX-Cube x1 | 5
+Road to Mastery: Waker II | Reach Waker Level 50. | Title Name "Illusion" N-WA-EX-Cube x1 | 5
+
+=== Slayer ===
+Title | Requirements | Reward | Title Points
+Professional Slayer I | Reach Slayer Level 20. | Title Name "Slice" 5 Star Gems | 5
+Professional Slayer II | Reach Slayer Level 35. | Title Name "Rapid" 5 Star Gems | 5
+Professional Slayer III | Reach Slayer Level 40. | Title Name "Mobility" 5 Star Gems | 5
+Professional Slayer IV | Reach Slayer Level 45. | Title Name "Agile" 5 Star Gems | 5
+Professional Slayer V | Reach Slayer Level 60. | Title Name "Sword Strike" 5 Star Gems | 5
+Professional Slayer VI | Reach Slayer Level 70. | Title Name "Sharp" 5 Star Gems | 5
+Professional Slayer VII | Reach Slayer Level 80. | Title Name "Bayonet" 5 Star Gems | 5
+Professional Slayer VIII | Reach Slayer Level 100. | Title Name "Instant Blow" 10 Star Gems | 5
+Road to Mastery: Slayer I | Reach Slayer Level 30. | Title Name "Gunstock" N-SL-EX-Cube x1 | 5
+Road to Mastery: Slayer II | Reach Slayer Level 50. | Title Name "Gunshot" N-SL-EX-Cube x1 | 5
+
+=== EX-Cubes ===
+Title | Requirements | Reward | Title Points
+Power Seeker I | Obtain 1 N-EX-Cube by exceeding your max. level. | Title Name "Cube" 5 Star Gems | 5
+Power Seeker II | Obtain 10 N-EX-Cubes by exceeding your max. level. | Title Name "Charge" 5 Star Gems | 5
+Power Seeker III | Obtain 30 N-EX-Cubes by exceeding your max. level. | Title Name "Warehouse" 10 Star Gems | 10
+
+=== Add-on Skills ===
+Title | Requirements | Reward | Title Points
+Skill Seeker I | Reach Lv. 10 for your Add-on Skills Level with any class. | Title Name "Skill" 5 Star Gems | 5
+Skill Seeker II | Reach Lv. 20 for your Add-on Skills Level with any class. | Title Name "Bonus" 5 Star Gems | 5
+
+=== Battle Power ===
+Title | Requirements | Reward | Title Points
+Battle Power Seeker I | Reach a Battle Power of 830 or greater. | Title Name "Good Enough" Title Name "by" 5 Star Gems | 5
+Battle Power Seeker II | Reach a Battle Power of 950 or greater. | Title Name "Battler" 5 Star Gems | 5
+Battle Power Seeker III | Reach a Battle Power of 1100 or greater. | Title Name "Dependable" 5 Star Gems | 5
+Battle Power Seeker IV | Reach a Battle Power of 1243 or greater. | Title Name "Powerful" 5 Star Gems | 5
+Battle Power Seeker V | Reach a Battle Power of 1474 or greater. | Title Name "Robust" 5 Star Gems | 5
+Battle Power Seeker VI | Reach a Battle Power of 1898 or greater. | Title Name "Knowledgeable" 5 Star Gems | 5
+Battle Power Seeker VII | Reach a Battle Power of 2049 or greater. | Title Name "Heroic" 5 Star Gems | 5
+Battle Power Seeker VIII | Reach a Battle Power of 2878 or greater. | Title Name "Chivalrous" 5 Star Gems | 5
+
+=== Play Time ===
+Title | Requirements | Reward | Title Points
+Meteorn Footprint I | Reach a total play time of 10 hours in PSO2:NGS. | Title Name "Net" Title Name "until" Title Name "Arrivals" 5 Star Gems | 5
+Meteorn Footprint II | Reach a total play time of 100 hours in PSO2:NGS. | Title Name "Connections" 5 Star Gems | 5
+Meteorn Footprint III | Reach a total play time of 300 hours in PSO2:NGS. | Title Name "Time" 5 Star Gems | 5
+Meteorn Footprint IV | Reach a total play time of 600 hours in PSO2:NGS. | Title Name "Electronic" 10 Star Gems | 10
+Meteorn Footprint V | Reach a total play time of 1,000 hours in PSO2:NGS. | Title Name "Many Years" 10 Star Gems | 10
+Meteorn Footprint VI | Reach a total play time of 2,000 hours in PSO2:NGS. | Title Name "Intermittent" 20 Star Gems | 20
+Meteorn Footprint VII | Reach a total play time of 4,000 hours in PSO2:NGS. | Title Name "Eternal" 20 Star Gems | 20
+
+=== Travel Distance ===
+Title | Requirements | Reward | Title Points
+Sprinting ARKS Defender I | Travel 30,000 m in total. | Title Name "First Step" Title Name "First" 5 Star Gems | 5
+Sprinting ARKS Defender II | Travel 250,000 m in total. | Title Name "Walk" 5 Star Gems | 5
+Sprinting ARKS Defender III | Travel 1,000,000 m in total. | Title Name "Walker" 5 Star Gems | 5
+Sprinting ARKS Defender IV | Travel 3,000,000 m in total. | Title Name "Hiking" 10 Star Gems | 10
+Sprinting ARKS Defender V | Travel 6,000,000 m in total. | Title Name "Runner" 20 Star Gems | 20
+Gliding ARKS Defender I | Glide 1,500 m in total. | Title Name "Gliding" 5 Star Gems | 5
+Gliding ARKS Defender II | Glide 45,000 m in total. | Title Name "Glider" 5 Star Gems | 5
+Gliding ARKS Defender III | Glide 150,000 m in total. | Title Name "Sky" 10 Star Gems | 10
+Long Range Glider I | Travel 500 m in a single glide. | Title Name "Flying" 5 Star Gems | 5
+Long Range Glider II | Travel 1,000 m in a single glide. | Title Name "Jumper" 5 Star Gems | 5
+Long Range Glider III | Travel 1,500 m in a single glide. | Title Name "Falling Star" 10 Star Gems | 10
+Swimming ARKS Defender | Swim 2,000 m in total. | Title Name "Swimmer" 5 Star Gems | 5
+Snow Glider I | Travel 200,000m in total via Floating Board. | Title Name "Float" 5 Star Gems | 5
+
+=== Personal Shop Number of Purchases ===
+Title | Requirements | Reward | Title Points
+Personal Shop Regular I | Buy from a Personal Shop 1 time. | Title Name "Passing By" Title Name "for sure" 5 Star Gems | 5
+Personal Shop Regular II | Buy from a Personal Shop 10 times. | Title Name "Customer" 5 Star Gems | 5
+Personal Shop Regular III | Buy from a Personal Shop 100 times. | Title Name "Buying" 5 Star Gems | 5
+Personal Shop Regular IV | Buy from a Personal Shop 300 times. | Title Name "Take-Out" 10 Star Gems | 10
+Personal Shop Regular V | Buy from a Personal Shop 500 times. | Title Name "Personal Shop" 20 Star Gems | 20
+
+=== Personal Shop Amount Purchased ===
+Title | Requirements | Reward | Title Points
+Personal Shop Connoisseur I | Spend a total of 500,000 N-Meseta at Personal Shops. | Title Name "Sales" Title Name "even" 5 Star Gems | 5
+Personal Shop Connoisseur II | Spend a total of 1,000,000 N-Meseta at Personal Shops. | Title Name "Wealthy" 5 Star Gems | 5
+Personal Shop Connoisseur III | Spend a total of 3,000,000 N-Meseta at Personal Shops. | Title Name "Celebrity" 5 Star Gems | 5
+Personal Shop Connoisseur IV | Spend a total of 5,000,000 N-Meseta at Personal Shops. | Title Name "Exclusive" 10 Star Gems | 10
+Personal Shop Connoisseur V | Spend a total of 10,000,000 N-Meseta at Personal Shops. | Title Name "Super Moneybags" 20 Star Gems | 20
+
+=== Personal Shop Number of Sales ===
+Title | Requirements | Reward | Title Points
+Personal Shop Magnate I | Sell an item from your Personal Shop. | Title Name "Clerk" Title Name "and all that" 5 Star Gems | 5
+Personal Shop Magnate II | Sell 50 items from your Personal Shop. | Title Name "Vendor" 5 Star Gems | 5
+Personal Shop Magnate III | Sell 300 items from your Personal Shop. | Title Name "CEO" 5 Star Gems | 5
+Personal Shop Magnate IV | Sell 500 items from your Personal Shop. | Title Name "Dealer" 10 Star Gems | 10
+Personal Shop Magnate V | Sell 1,000 items from your Personal Shop. | Title Name "Big Time" 20 Star Gems | 20
+
+=== Personal Shop Amount Sold ===
+Title | Requirements | Reward | Title Points
+Personal Shop Tycoon I | Earn a total of 1,000,000 N-Meseta from Personal Shop sales. | Title Name "Connoisseur" Title Name "for the purpose of" 5 Star Gems | 5
+Personal Shop Tycoon II | Earn a total of 5,000,000 N-Meseta from Personal Shop sales. | Title Name "Market" 5 Star Gems | 5
+Personal Shop Tycoon III | Earn a total of 10,000,000 N-Meseta from Personal Shop sales. | Title Name "Secret Menu" 5 Star Gems | 5
+Personal Shop Tycoon IV | Earn a total of 30,000,000 N-Meseta from Personal Shop sales. | Title Name "Economy" 10 Star Gems | 10
+Personal Shop Tycoon V | Earn a total of 50,000,000 N-Meseta from Personal Shop sales. | Title Name "Best-seller" 20 Star Gems | 20
+
+=== Personal Shop: Miscellaneous ===
+Title | Requirements | Reward | Title Points
+Personal Shop Distinguished Buyer | Meet the following requirements: 300 hours or more total play time. Buy from Personal Shops 500 times or more. Spend 10,000,000 N-Meseta or more at Personal Shops. | Title Name "Personal Shop Buyer" 10 Star Gems | 10
+Personal Shop Distinguished Seller | Meet the following requirements: 300 hours or more total play time. Sell 1,000 or more items from your Personal Shop. Earn 50,000,000 N-Meseta or more at your Personal Shop. | Title Name "Personal Shop Master" 10 Star Gems | 10
+
+=== Part Destruction ===
+Title | Requirements | Reward | Title Points
+Part Destruction Genius I | Destroy a part of any enemy 1 time. | Title Name "Aimed" Title Name "Fan" 5 Star Gems | 5
+Part Destruction Genius II | Destroy a part of any enemy 500 times. | Title Name "Weak Point" 5 Star Gems | 5
+Part Destruction Genius III | Destroy a part of any enemy 2,000 times. | Title Name "Analysis" 5 Star Gems | 5
+Part Destruction Genius IV | Destroy a part of any enemy 5,000 times. | Title Name "Breaker" 10 Star Gems | 10
+Part Destruction Genius V | Destroy a part of any enemy 10,000 times. | Title Name "Destruction" 20 Star Gems | 20
+
+=== Combat Support ===
+Title | Requirements | Reward | Title Points
+ARKS Savior I | Revive another player 1 time. | Title Name "Revival" 5 Star Gems | 5
+ARKS Savior II | Revive another player 30 times. | Title Name "Rescue" 5 Star Gems | 5
+ARKS Savior III | Revive another player 100 times. | Title Name "Reviver" 5 Star Gems | 10
+
+=== PSE Bursts ===
+Title | Requirements | Reward | Title Points
+PSE Burst Observer I | Cause 1 PSE Burst. | Title Name "PSE" Title Name "but also" 5 Star Gems | 5
+PSE Burst Observer II | Cause 50 PSE Bursts. | Title Name "Burst" 5 Star Gems | 5
+PSE Burst Observer III | Cause 200 PSE Bursts. | Title Name "Stream" 5 Star Gems | 5
+PSE Burst Observer IV | Cause 500 PSE Bursts. | Title Name "Explosion" 10 Star Gems | 10
+PSE Burst Observer V | Cause 1,000 PSE Bursts. | Title Name "Highlight" 20 Star Gems | 20
+PSE Burst F Observer I | Cause 1 PSE F Burst. | Title Name "Mezo Forte" 5 Star Gems | 5
+PSE Burst F Observer II | Cause 50 PSE F Bursts. | Title Name "Forte" 5 Star Gems | 5
+PSE Burst F Observer III | Cause 200 PSE F Bursts. | Title Name "Fortissimo" 5 Star Gems | 5
+
+=== Concert Events ===
+Title | Requirements | Reward | Title Points
+Ultimate Concert Fan I | Receive 1 Live Boost. | Title Name "Battle-tested" 5 Star Gems | 5
+Ultimate Concert Fan II | Receive 30 Live Boosts. | Title Name "Encore" 5 Star Gems | 5
+Ultimate Concert Fan III | Receive 100 Live Boosts. | Title Name "Tour" 10 Star Gems | 10
+Concert-Goer | Receive 3 Concert Effects. | Title Name "Vigor" 5 Star Gems Receive Concert Effects outside of city | 5
+Popona Concert Experience | Attend one of Popona's concerts. | Title Name "Popona" Mugen no Kiseki Rare Drop☆KOI☆KOI! Popona ver. | 5
+
+=== M.A.R.S. ===
+Title | Requirements | Reward | Title Points
+M.A.R.S. Pilot I | Defeat 1,000 of any enemy with M.A.R.S equipped. | Title Name "Equipment" 5 Star Gems N-Augment Transfer Pass Voucher x5 | 5
+M.A.R.S. Pilot II | Defeat 10,000 of any enemy with M.A.R.S equipped. | Title Name "Armament" 5 Star Gems N-Augment Transfer Pass Voucher x5 | 5
+M.A.R.S. Pilot III | Defeat 30,000 of any enemy with M.A.R.S equipped. | Title Name "Heavy Armament" 5 Star Gems | 5
+Back to Top
+Cumulative Title List
+Player Titles | Enemy Titles | Item Titles | Quest Titles | Task Titles | Communication Titles | Map Titles | Limited-Time Titles

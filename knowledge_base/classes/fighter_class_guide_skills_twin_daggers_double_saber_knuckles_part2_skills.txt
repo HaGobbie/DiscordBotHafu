@@ -1,0 +1,188 @@
+# Fighter Class Guide — Skills, Twin Daggers, Double Saber and Knuckles (Part 2)
+
+Sections in this file: Skills
+
+== Skills ==
+Overload | [Active Skill] Increases the damage you take for a set time in exchange for increased weapon potency. Can only be used by a Main Class/Fighter weapons.
+Prerequisite -
+Effect | Skill Level
+1
+Duration | 30s
+Cooldown | 120s
+Damage Dealt | 120%
+Damage Taken | 120%
+Defeat Advantage | Increases damage against downed enemies.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+Physical Down Power | 106% | 107% | 108% | 109% | 110% | 111% | 112% | 113% | 114% | 115%
+Elemental Down Power | 106% | 107% | 108% | 109% | 110% | 111% | 112% | 113% | 114% | 115%
+Physical Down Power | 101% | 101% | 101% | 102% | 102% | 103% | 103% | 104% | 104% | 105%
+Elemental Down Power | 101% | 101% | 101% | 102% | 102% | 103% | 103% | 104% | 104% | 105%
+Defeat PP Recovery | Increased PP recovery when attacking downed enemies.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15
+Physical Down Active PP Recovery | 130% | 133% | 136% | 138% | 140% | 142% | 144% | 146% | 148% | 150% | 152% | 154% | 156% | 158% | 160%
+Elemental Down Active PP Recovery | 130% | 133% | 136% | 138% | 140% | 142% | 144% | 146% | 148% | 150% | 152% | 154% | 156% | 158% | 160%
+Physical Down Active PP Recovery | 110% | 111% | 112% | 113% | 115% | 117% | 119% | 121% | 123% | 125% | 128% | 131% | 134% | 137% | 140%
+Elemental Down Active PP Recovery | 110% | 111% | 112% | 113% | 115% | 117% | 119% | 121% | 123% | 125% | 128% | 131% | 134% | 137% | 140%
+Fighter Skip Arts | Using a PA without pressing a directional button will cause the PA to start from its second half. Can only be used with Fighter weapons.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Overload Endurance | During Overload, an incapacitating attack will leave you with 1 HP and end Overload. You also gain a moment of invulnerability when this activates. Can only be used by a Main Class.
+Prerequisite - Overload Lv. 1
+Effect | Skill Level
+1
+Invulnerability | 5s
+Overload PP Recovery | Increases natural PP recovery and PP recovery when attacking during Overload. Can only be used by a Main Class/Fighter weapons.
+Prerequisite - Overload Lv. 1
+Effect | Skill Level
+1
+PP Offensive Recovery | 200%
+PP Natural Recovery | 200%
+Overload Short Cycle | Reduces the effect duration of Overload and increases the damage you take, but shortens its cooldown time. Can only be used by Main Class.
+Prerequisite - Overload Lv. 1
+Effect | Skill Level
+1 | 2 | 3 | 4 | 5
+Duration | 25s | 23s | 21s | 18s | 15s
+Cooldown | 100s | 90s | 80s | 70s | 60s
+Damage Taken Rate | 150% | 165% | 180% | 190% | 200%
+Overload After PP Preservation | Decreases PP consumption for a set time after Overload effect ends. Does not activate if ended by Overload Endurance's effect. Can only be used by Main Class/Fighter weapon.
+Prerequisite - Overload Lv. 1
+Effect | Skill Level
+1 | 2 | 3
+PP Consumption | 75% | 50% | 25%
+Effect Duration | 15s | 15s | 15s
+Same Arts Skip Attack-Fighter | After using the same PA with the same weapon, your next Normal Attack will charge at the third step. Can only be used with Fighter Weapons.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Another Arts Skip Attack-Fighter | After using different PAs with the same weapon, your next Normal Attack will change at the fourth step. If the combo has fewer than four steps, it will change at the final step. Can only be used with Fighter Weapons .
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Dagger Attack Extra | You can string up to 4 Normal Attacks. Can only be used with Twin Daggers.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Dagger Spin Counter | Performing a Normal Attack upon a successful guard with a Weapon Action will unleash a counterattack. Can only be used with Twin Daggers.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Dagger Attack Extra | lllows you to string up to 4 Normal Attacks. Can only be used by Double Sabers.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Saber Parry Counter | Performing a Normal Attack upon a successful guard with a Weapon Action will unleash a counterattack. Can only be used with a Double Saber.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Knuckle Attack Extra | You can string 5 Normal Attacks with Knuckles. Can only be used with Knuckles.
+Prerequisite - Limit Break Lv. 1
+Effect | Skill Level
+1
+- | -
+Knuckle SC Alternation | Sidestep Counter changes to an attack that quickly rushes at the enemy. Can only be used with Knuckles.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Acceleration Drive | Charge towards the enemy by pressing the Normal Attack button at a specific timing after a Photon Art. Can only be used with Twin Daggers.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Dagger Hitcount Up PP Gain | Recovers PP each time you hit a certain number of times with a Photon Art or Photon Blast. Can only be used by Twin Daggers.
+Prerequisite -
+Effect | Skill Level
+1
+Number Required | 20 times
+PP Recovery | +15
+Deadly Archer | Pressing and holding the Weapon Action button while wearing the second state of whirlwind will convert all of whirlwind into energy and throw the weapon towards the enemy. Can only be used with a Double Saber.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Saber Parry Another Counter | Pressing the Weapon Action button upon a successful guard with a Weapon Action will unleash a special counterattack. Can only be used with a Double Saber.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Knuckle Attack Switch | After successfully dodging with Weapon Action, your next Normal Attack will be at its fifth stage. Can only be used with Knuckles.
+Prerequisite - Knuckle Attack Extra Lv. 1
+Effect | Skill Level
+1
+Max Stocks | 1
+Knuckle Attack Alternation | Launching the 5th step of your Normal Attack without pressing a directional button changes the attack to a swift slap down. Can only be used with Knuckles.
+Prerequisite - Knuckle Attack Extra Lv. 1
+Effect | Skill Level
+1
+Max Stocks | 1
+Dagger Spin Axle | At just the right timing after performing a weapon action, you can perform an Acceleration Drive using the normal attack button. Can only be used by a Main Class/Twin Daggers.
+Prerequisite - Acceleration Drive Lv. 1
+Effect | Skill Level
+1
+- | -
+Twin Daggers Quick Attack | AAfter the 4th step of your Normal Attack, an Acceleration Drive, or a Photon Blast, pressing the Normal Attack button at just the right time causes you to attack while moving at high speed. Can only be used with Twin Daggers.
+Prerequisite - Acceleration Drive Lv. 1
+Effect | Skill Level
+1
+- | -
+Spiral Drive | Pressing and holding the Normal Attack button while wearing the second state of whirlwind will convert all of whirlwind into energy and spawn a cyclone. Can only be used with a Double Saber.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Saber Glaze PP Gain | You become able to recover PP when you hit with stage two of whirlwind. Can only be used by a Main Class/Double Saber.
+Prerequisite -
+Effect | Skill Level
+1
+PP Recovery | +2
+Knuckle Sway Counter | A successful dodge with Weapon Action will automatically unleash a counterattack. Can only be used with Knuckles.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Knuckle Arts Combo PP Save | Reduces PP consumption in accordance with the number of photon arts you chain together. Can only be used by a Main Class/Knuckles.
+Prerequisite -
+Effect | Skill Level
+1 | 2 | 3
+Decrease Rate | 5% | 8% | 10%
+Decrease Rate Maximum | 60% | 40% | 20%
+Dagger Attack Impact | Builds up a gauge when an enemy is hit with a Photon Art multiple times. Once the gauge is maxed out, a certain number of Normal Attacks will release shockwaves. Can only be used with Twin Daggers.
+Prerequisite -
+Effect | Skill Level
+1
+Times Sustained | 10
+Saber Wind Extra | Increases Whirlwind to a maximum of 3 stages. Using Deadly Archer in the 3rd stage of Whirlwind causes all Whirlwind stages to be consumed. In addition, using Spiral Drive will cause Whirlwind to become Stage 2. Can only be used with a Double Saber.
+Prerequisite -
+Effect | Skill Level
+1
+- | -
+Saber Wind Amplify | When Deadly Archer or Spiral Drive are activated, it will temporarily become easier for Whirlwind to get to its next stage. Can only be used by a Main Class/Double Saber.
+Prerequisite -
+Effect | Skill Level
+1
+Accumulation Rate (Deadly) | 150%
+Effect Duration (Deadly) | 20 sec
+Accumulation Rate (Spiral) | 120%
+Effect Duration (Spiral) | 25 sec
+Knuckle Sway Counter Plus | When Knuckle Sway Counter is activated, Performing a Weapon Action will unleash an additional counterattack.
+Prerequisite - Knuckles Sway Counter Lv. 1
+Effect | Skill Level
+1
+- | -
+Knuckle Arts Combo Bonus | Further Improves the decreased PP consumption rate of Knuckles Arts Combo PP Saver, when you unleash the first half of a Photon Art. Can only be used with a Main Class/Knuckles.
+Prerequisite - Knuckle Arts Combo PP Save Lv.1
+Effect | Skill Level
+1
+- | -

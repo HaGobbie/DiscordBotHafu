@@ -1,0 +1,29 @@
+# Fighter Class Guide — Skills, Twin Daggers, Double Saber and Knuckles (Part 1)
+
+Sections in this file: Class Weapon Overview, Skill Tree Overview
+
+Hunter | Fighter | Ranger | Gunner | Force | Techter | Braver | Bouncer | Waker | Slayer
+Fighter is a returning class in Phantasy Star Online 2: New Genesis. A class geared towards ultra close-range combat, they are at their best when pressing the enemy. What they lack in Defense is made up for by their devasting, pulverizing attacks.
+
+== Class Weapon Overview ==
+Fighters have access to three unique weapons: Twin Daggers , Double Sabers , and Knuckles .
+
+=== Twin Daggers ===
+A pair of small, lightweight blades. Twin Daggers unleash rapid-hitting attacks coupled with a variety of methods to swiftly close in on enemies. Their fast-paced attacks allow for comfortable weaving of their Photon Arts and other various actions, making them quite useful against single targets, but can lack when dealing with groups of enemies.
+Using the Spin Weapon Action, you can block attacks on the fly from any direction and keep attacking right after you block.
+
+=== Double Sabers ===
+Short-range, versatile bladed weapons that excel in dealing many hits in a short amount of time in a wide area. Using Photon Arts and other certain actions creates a Whirlwind around the user, dealing constant damage to any enemy it touches. The Whirlwind grows in power as you chain attacks with the Double Saber.
+Using the Parry Weapon Action allows the user to briefly guard through attacks.
+
+=== Knuckles ===
+A twin pair of weaponized gauntlets. Knuckles possess notoriously short range, but can exceed even Swords in power to compensate. Their Photon Arts can hit extremely hard if given the opportunity, and are a powerful weapon when engaging a target one-on-one.
+Using the Sway Weapon Action, you can avoid attacks from enemies by quickly ducking in place.
+
+== Skill Tree Overview ==
+Overload | Defeat Advantage | Defeat PP Recovery | Fighter Skip Arts
+Overload Endurance | Overload PP Recovery | Overload Short Cycle | Overload After PP Preservation | Same Arts Skip Attack-Fighter | Another Arts Skip Attack-Fighter
+Dagger Attack Extra | Dagger Spin Counter | Saber Attack Extra | Saber Parry Counter | Knuckle Attack Extra | Knuckle SC Alternation
+Acceleration Drive | Dagger Hitcount Up PP Gain | Deadly Archer | Saber Parry Another Counter | Knuckle Attack Switch | Knuckle Attack Alternation
+Dagger Spin Axle | Spiral Drive | Twin Daggers Quick Attack | Saber Glaze PP Gain | Knuckle Sway Counter | Knuckle Arts Combo PP Save
+Dagger Attack Impact | Saber Wind Extra | Saber Wind Amplify | Knuckle Sway Counter Plus | Knuckle Arts Combo Bonus

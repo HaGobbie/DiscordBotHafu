@@ -1,0 +1,26 @@
+# Force Class Guide — Skills, Rod, Talis and Technique Casting (Part 1)
+
+Sections in this file: Class Weapon Overview, Skill Tree Overview
+
+Hunter | Fighter | Ranger | Gunner | Force | Techter | Braver | Bouncer | Waker | Slayer
+Force is a returning class in Phantasy Star Online 2: New Genesis. A class geared towards long range combat, they make use of Techniques to assault the enemy from a distance. Making use of a variety of Techniques, they can exploit an enemy's Elemental Weaknesses.
+
+== Class Weapon Overview ==
+Force has access to two unique weapons: Rods and Talises .
+
+=== Rods ===
+A long-shafted weapon augmented for Technique casting. The Rod allows Forces to freely move around while casting as well as block attacks with the Guard weapon action.
+Using the Guard Weapon Action, you can block attacks and negate their damage when Guarding right before the attack hits you with a Perfect Guard, which also restores 30 PP when successfully performed.
+
+=== Talises ===
+A Technique device equipped on the arm that allows Force users to cast Techniques in different behaviors with Photon Art usage. The type of attack depends on the PA used.
+Using the Talis Deploy Weapon Action, you can install a floating Talis that will attack nearby enemies, restoring PP.
+
+== Skill Tree Overview ==
+PP Conversion | PP Recovery Boost | Eradication PP Gain | Technique Charge PP Well Up | Resta Field Force | Slow Landing Charge-Force
+PP Conversion Increase | Long Range Advantage Fo | United Techniques: Force | Foie Brand | Barta Blot | Zonde-Clad
+Photon Flare | United Technique PP Well Up | Compound Technique Gauge Amplifier FO | Zan Gale | Grants Glitter | Megid Sphere
+Photon Flare Short Charge | Photon Flare After PP Gain | Photon Flare Short Cycle | Photon Flare Extension | Technique Domination
+Rod Technique Amplifier | Elemental Bullet | Rod Technique Hold | Tricky Capacitor | Talis Bloom After PP Gain | Talis Bloom Revoke
+Maintain PP Gain | Elemental Bullet Extended | Rod Technique PP Well Up | Tricky Capacitor Quick Recharge | Tricky Capacitor Gauge Amplifier | Tricky Capacitor Bloom Flourish
+Rod React Advanced | Rod Attack Impact | Rod Charge Quick Move | Talis Sign Marking | Floating Pillbox Multirock
