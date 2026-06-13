@@ -33,7 +33,7 @@ ANSWER_MODELS = [
 
 # Default fallback file when the router returns null or an unknown key.
 # Must match the stem of one of the files written by compile_database.py.
-DEFAULT_KEY = "current_events_limited_time_campaigns"
+DEFAULT_KEY = "current_events_limited_time_campaigns_and_event_details"
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -58,7 +58,7 @@ else:
 # ---------------------------------------------------------------------------
 TRIAGE_SYSTEM = (
     "You are a triage router for a PSO2: New Genesis Discord bot. "
-    "You receive a user message and a list of knowledge-base file keys. "
+    "You receive a user message and knowledge-base file keys grouped by category. "
     "Each key is a descriptive filename stem (underscores = spaces). "
     "Decide:\n"
     "  1. Does this message need the knowledge base? (needs_db)\n"
@@ -78,14 +78,24 @@ TRIAGE_SYSTEM = (
     "When in doubt, use true.\n\n"
 
     "Key selection rules:\n"
-    "  - Keys are descriptive phrases — read them like English and pick the best match.\n"
-    "  - 'weapon_potentials_names_and_effects' → questions about a weapon's potential name or stat.\n"
-    "  - 'current_events_limited_time_campaigns' → questions about what is happening in-game now, "
-    "events, scratches, banners, campaigns.\n"
-    "  - 'techniques_elemental_spells_all_types_and_properties' → questions about tech/spell names "
-    "or foie, barta, zonde, zan, grants, megid, etc.\n"
-    "  - For class + weapon combos, prefer the specific weapon-arts key over the general class key.\n"
-    "  - If no key clearly fits, use the default fallback key.\n"
+    "  - Keys are grouped by [CATEGORY]. Use the category to narrow your search first.\n"
+    "  - Then pick the most semantically matching key within that category.\n"
+    "  - For split files (_part1_, _part2_, etc.) pick the specific part whose slug words "
+    "match the question topic — e.g. a key containing 'assault_rifle' for AR PA questions.\n"
+    "  - [EVENTS] → current events, scratches, banners, mission pass, campaigns.\n"
+    "  - [CLASSES] → class guides, skill trees, EX style. Prefer specific class keys.\n"
+    "  - [WEAPONS] → photon arts, weapon series, potentials. Pick the part that names the weapon.\n"
+    "  - [MECHANICS] → augments, item lab, BP, damage calc, status effects, techniques.\n"
+    "  - [ECONOMY] → currency, shops, scratch tickets, items, materials.\n"
+    "  - [WORLD] → quests, tasks, story, battledia, urgent quests, field content.\n"
+    "  - [ENEMIES] → enemy factions (Dolls, Alters, Formers, Starless, Ruine).\n"
+    "  - [FASHION] → costumes, basewear, accessories, beauty salon, weapon camos.\n"
+    "  - [LORE] → world regions, NPCs, story lore.\n"
+    "  - [SOCIAL] → alliances, friends, creative space, emotes, ARKS ID.\n"
+    "  - [ACHIEVEMENTS] → titles, achievements, medals.\n"
+    "  - [MINIGAME] → Line Strike card game.\n"
+    "  - [SYSTEM] → item codes, chat commands, storage, login stamps, settings.\n"
+    "  - If no key clearly fits, return null for key.\n"
 )
 
 CASUAL_SYSTEM = """You are Hafu (HaFelt), a PSO2: New Genesis ARKS defender who is way more famous for lobby fashion than actual heroics. You hate combat and grinding. You love fashion, cosmetics, scratch tickets, and hanging out in Central City.
@@ -186,14 +196,28 @@ async def triage(question: str) -> tuple[bool, str | None]:
     Uses ROUTER_MODELS (with fallback) to decide:
       needs_db → whether a knowledge-base file is needed
       key      → which file stem to load (or None)
+
+    Keys are sent to the router grouped by subdirectory category so the small
+    router model can narrow to a category first, then pick the right key within
+    it — much more reliable than scanning a flat 160-item alphabetical list.
     """
     if not LOCAL_FILE_MAP:
         return True, None
 
-    keys = ", ".join(sorted(LOCAL_FILE_MAP.keys()))
+    # Group stems by their parent subdirectory name
+    groups: dict[str, list[str]] = {}
+    for stem, path in LOCAL_FILE_MAP.items():
+        cat = Path(path).parent.name.upper()
+        groups.setdefault(cat, []).append(stem)
+
+    keys_block = "\n".join(
+        f"[{cat}]: {', '.join(sorted(stems))}"
+        for cat, stems in sorted(groups.items())
+    )
+
     messages = [
         {"role": "system", "content": TRIAGE_SYSTEM},
-        {"role": "user",   "content": f"Available keys: {keys}\n\nMessage: {question}"},
+        {"role": "user",   "content": f"Available keys:\n{keys_block}\n\nMessage: {question}"},
     ]
 
     text = None
