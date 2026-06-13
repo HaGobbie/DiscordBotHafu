@@ -1,9 +1,0 @@
-# Main Story Quests — Chapters and Progression (Part 1)
-
-== Overview ==
-The main story of New Genesis. The story progresses by completing Main Tasks and Story Quests that occur from time to time. The game also serves as a tutorial, where you will learn how to use the controls and other unique elements of New Genesis through actual combat. Unlike in Base PSO2, various functions and searchable areas are unlocked by progressing through the Main Tasks and Story Quests. Currently , the progress of Main Tasks are separate for each character, but for the Prologue, even if one character has completed it, the Prologue can be skipped after additional characters are created. For the story content, see Story .
-
-=== Story Quest ===
-Special quests that may occur in Main Tasks. Mainly occurs when important exploration and combat are required in the story.
-- Features During Story Quests, solo play is only possible and multiplayer is not allowed. Any parties made before the start of the quest will be maintained as is. The quest will be played in an offline area, which is almost the same as the online area, and chats other than party chat will not be received during the Story Quest. When in the offline area, the time and weather are fixed, and there are no containers. Ryuker Devices in the area are also closed off. Weapons can be used in places where online use of weapons is restricted, such as Central City.
-- Retrying after being incapacitated Until the end of the Prologue, the system will allow you to automatically revive immediately. Afterwards, incapacitations will give you the option to start over from the beginning of the quest after selecting Retry. Any cutscenes involved will have to be watched again. Restasignes in possession are carried over and any Restasignes on the field will be reset and relocated.

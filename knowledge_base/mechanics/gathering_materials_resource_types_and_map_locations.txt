@@ -1,7 +1,0 @@
-# Gathering — Materials, Resource Types and Map Locations
-
-== Overview ==
-In Phantasy Star Online 2: New Genesis, gathering is in essence the act of mining and foraging for unique items across Planet Halpha. These items can be used to modify weapons in the Item Lab , or to create Quick Food for the player to consume.
-
-=== Materials ===
-Minerals can be found throughout Planet Halpha, with some minerals exclusively located in specific regions of the planet. Fruit, Seafood, and Vegetables are also similar in this regard, as certain types can only be found in specific regions of the planet. Meat are dropped by Tames , and the type of meat dropped will differ, depending on the type of Tames you slay.
