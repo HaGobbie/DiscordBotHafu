@@ -35,7 +35,8 @@ BASE_DIR    = "knowledge_base"
 API_URL     = "https://pso2na.arks-visiphone.com/api.php"
 MAX_CHARS   = 10_000   # per output file; auto-split above this
 RATE_SLEEP  = 1.5      # seconds between API calls — wiki hits bandwidth limits
-FRESH_BUILD = "--fresh" in sys.argv   # pass --fresh to wipe and rebuild
+FRESH_BUILD    = "--fresh"         in sys.argv  # wipe and rebuild everything
+RENAME_SPLITS  = "--rename-splits" in sys.argv  # rename existing split files (no network)
 
 HEADERS = {
     "User-Agent": (
@@ -260,10 +261,50 @@ def _split_sections(text: str) -> list[tuple[str, str]]:
     return sections
 
 
+def _build_part_suffix(group: list[tuple[str, str]], max_len: int = 70) -> tuple[str, list[str]]:
+    """
+    Given a list of (slug, body) pairs for one split part, return:
+      - a filename suffix string built from ALL section headings in the group
+      - a list of human-readable heading names for the Sections header
+
+    The suffix is capped at max_len chars; if it would overflow, the last
+    element is replaced with "etc" so the router still knows more sections exist.
+    """
+    heading_names: list[str] = []
+    heading_slugs: list[str] = []
+
+    for slug, body in group:
+        if slug == "intro":
+            heading_names.append("Introduction")
+            heading_slugs.append("intro")
+        else:
+            m = re.match(r"== (.+?) ==", body)
+            name = m.group(1) if m else slug.replace("_", " ").title()
+            heading_names.append(name)
+            s = re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")[:22]
+            heading_slugs.append(s)
+
+    # Build suffix incrementally; append "_etc" when we'd exceed max_len
+    suffix_parts: list[str] = []
+    running_len = 0
+    for s in heading_slugs:
+        added = len(s) + (1 if suffix_parts else 0)   # +1 for underscore separator
+        if running_len + added > max_len:
+            suffix_parts.append("etc")
+            break
+        suffix_parts.append(s)
+        running_len += added
+
+    suffix = "_".join(suffix_parts) if suffix_parts else (heading_slugs[0] if heading_slugs else "part")
+    return suffix, heading_names
+
+
 def write_page(subpath: str, page_title: str, text: str) -> None:
     """
     Write text to BASE_DIR/<subpath>.txt.
-    If text > MAX_CHARS, auto-split into …_part1_<slug>.txt files.
+    If text > MAX_CHARS, auto-split into …_part{N}_{all_section_slugs}.txt files.
+    Each split file also gets a 'Sections in this file: …' header so the answer
+    model immediately knows what topics the file covers.
     Each file is written individually — crash between splits only loses
     the unsaved parts, not previously completed pages.
     """
@@ -304,12 +345,13 @@ def write_page(subpath: str, page_title: str, text: str) -> None:
 
     stem = base_file[:-4]   # drop .txt
     for i, group in enumerate(groups, 1):
-        first_slug = group[0][0]
-        sub_path   = f"{stem}_part{i}_{first_slug}.txt"
-        sub_text   = "\n\n".join(body for _, body in group)
-        sub_title  = f"{page_title} (Part {i})"
+        suffix, heading_names = _build_part_suffix(group)
+        sub_path    = f"{stem}_part{i}_{suffix}.txt"
+        sub_text    = "\n\n".join(body for _, body in group)
+        sub_title   = f"{page_title} (Part {i})"
+        sections_hdr = f"Sections in this file: {', '.join(heading_names)}\n\n"
         with open(sub_path, "w", encoding="utf-8") as f:
-            f.write(f"# {sub_title}\n\n{sub_text}\n")
+            f.write(f"# {sub_title}\n\n{sections_hdr}{sub_text}\n")
         print(f"   📄  {os.path.basename(sub_path)}  ({len(sub_text):,} chars)", flush=True)
 
 
@@ -319,6 +361,100 @@ def write_placeholder(subpath: str, page_title: str, error: str) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         f.write(f"# {page_title}\n\n(Content unavailable: {error})\n")
+
+
+def rename_splits_in_place() -> None:
+    """
+    --rename-splits mode: scan every existing _partN_* file in knowledge_base/,
+    read its content, extract all H2 headings, rename with the full multi-section
+    slug, and inject/update the 'Sections in this file:' header.
+
+    No network calls — finishes in seconds.  Run this after upgrading from an
+    older compile_database.py that only used the first section slug.
+    """
+    all_files = glob.glob(os.path.join(BASE_DIR, "**", "*.txt"), recursive=True)
+    part_files = [f for f in all_files if re.search(r"_part\d+_", os.path.basename(f))]
+
+    if not part_files:
+        print("No split files found in knowledge_base/ — nothing to rename.", flush=True)
+        return
+
+    print(f"Found {len(part_files)} split file(s)...", flush=True)
+    renamed = skipped = 0
+
+    for old_path in sorted(part_files):
+        with open(old_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        # Extract every H2 heading present in the file
+        headings = re.findall(r"^== (.+?) ==$", content, re.MULTILINE)
+
+        if not headings:
+            print(f"   ⏭️  No H2 sections: {os.path.basename(old_path)}", flush=True)
+            skipped += 1
+            continue
+
+        # Build new suffix from all headings (same logic as _build_part_suffix)
+        heading_slugs = [
+            re.sub(r"[^a-z0-9]+", "_", h.lower()).strip("_")[:22]
+            for h in headings
+        ]
+        suffix_parts: list[str] = []
+        running = 0
+        for s in heading_slugs:
+            added = len(s) + (1 if suffix_parts else 0)
+            if running + added > 70:
+                suffix_parts.append("etc")
+                break
+            suffix_parts.append(s)
+            running += added
+        new_suffix = "_".join(suffix_parts) or heading_slugs[0]
+
+        # Reconstruct path: everything up to and including _partN, then new suffix
+        m = re.match(r"^(.+_part\d+)_(.+?)\.txt$", old_path)
+        if not m:
+            print(f"   ⚠️  Can't parse path: {os.path.basename(old_path)}", flush=True)
+            skipped += 1
+            continue
+
+        new_path = f"{m.group(1)}_{new_suffix}.txt"
+
+        # Inject or update the Sections header (line after the # title blank line)
+        sections_line = f"Sections in this file: {', '.join(headings)}"
+        if "Sections in this file:" in content:
+            content = re.sub(
+                r"^Sections in this file:.*$", sections_line,
+                content, flags=re.MULTILINE
+            )
+        else:
+            lines = content.split("\n")
+            insert_at = 1
+            while insert_at < len(lines) and lines[insert_at].strip() == "":
+                insert_at += 1
+            lines.insert(insert_at, "")
+            lines.insert(insert_at, sections_line)
+            content = "\n".join(lines)
+
+        # Write (always — even if path unchanged, we may have updated the header)
+        with open(new_path, "w", encoding="utf-8") as f:
+            f.write(content)
+
+        if new_path != old_path:
+            os.remove(old_path)
+            print(
+                f"   ✅  {os.path.basename(old_path)}\n"
+                f"       → {os.path.basename(new_path)}",
+                flush=True
+            )
+            renamed += 1
+        else:
+            print(f"   ✓   Header updated (name unchanged): {os.path.basename(new_path)}", flush=True)
+            skipped += 1
+
+    print(flush=True)
+    print(f"✨ Done.  {renamed} renamed  |  {skipped} already optimal / no H2.", flush=True)
+    if renamed:
+        print("   Upload the updated knowledge_base/ folder to Render.", flush=True)
 
 
 def already_done(subpath: str) -> bool:
@@ -1065,10 +1201,18 @@ if __name__ == "__main__":
     print(f"   Source : pso2na.arks-visiphone.com  (EN wiki, no translation)", flush=True)
     print(f"   Output : {BASE_DIR}/   Max chars/file: {MAX_CHARS:,}", flush=True)
     print(f"   Pages  : {len(MANIFEST)} entries in MANIFEST", flush=True)
+    print(flush=True)
+
+    # ── --rename-splits: fix existing split file names without re-scraping ────
+    if RENAME_SPLITS:
+        print("🔧 Mode: --rename-splits  (no network calls, reads local files only)", flush=True)
+        print(flush=True)
+        rename_splits_in_place()
+        sys.exit(0)
 
     if FRESH_BUILD:
         if os.path.exists(BASE_DIR):
-            print(f"\n🧹 --fresh: wiping {BASE_DIR}/", flush=True)
+            print(f"🧹 --fresh: wiping {BASE_DIR}/", flush=True)
             shutil.rmtree(BASE_DIR)
         print(flush=True)
     else:
