@@ -805,3 +805,4 @@ if __name__ == "__main__":
         print("❌ Error: Missing GROQ_TOKEN.")
     else:
         bot.run(TOKEN)
+# Force re-deploy
