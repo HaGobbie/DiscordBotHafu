@@ -4,6 +4,8 @@ import json
 import asyncio
 import httpx
 import discord
+import chromadb
+from chromadb.utils import embedding_functions
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from collections import deque
@@ -18,17 +20,17 @@ GROQ_URL   = "https://api.groq.com/openai/v1/chat/completions"
 
 JST = timezone(timedelta(hours=9))
 
-# Router: high RPD/TPD — handles triage for every message
+# Router: binary triage only — high RPD model, tiny output, cheap
 ROUTER_MODEL = "llama-3.1-8b-instant"
 
-# Casual chat: lighter models first — no need for 70B on "hey lol"
+# Casual chat: lighter models first
 CASUAL_MODELS = [
     "meta-llama/llama-4-scout-17b-16e-instruct",
     "llama-3.3-70b-versatile",
     "qwen/qwen3-32b",
 ]
 
-# Answer models: tried in order on 429 — heavier pool for game accuracy
+# Answer models: heavy pool for game accuracy
 ANSWER_MODELS = [
     "llama-3.3-70b-versatile",
     "meta-llama/llama-4-scout-17b-16e-instruct",
@@ -42,64 +44,177 @@ intents.message_content = True
 bot = discord.Client(intents=intents)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# DYNAMIC DATABASE INDEXING
+# CHROMADB  —  in-memory, ephemeral (clears on restart)
+#
+#   guide_collection   — knowledge_base/*.txt files, split into ~600-char chunks.
+#                        Semantic search finds relevant passages per question.
+#
+#   profile_collection — one doc per user, upserted on every memory update.
+#                        Metadata is kept plain/uncompressed for native filtering.
 # ══════════════════════════════════════════════════════════════════════════════
 
-KNOWLEDGE_BASE_DIR = Path("./knowledge_base")
-LOCAL_FILE_MAP: dict[str, str] = {}
+_ef           = embedding_functions.DefaultEmbeddingFunction()
+chroma_client = chromadb.EphemeralClient()
 
-if KNOWLEDGE_BASE_DIR.exists():
+guide_collection = chroma_client.get_or_create_collection(
+    name="guides",
+    embedding_function=_ef,
+)
+profile_collection = chroma_client.get_or_create_collection(
+    name="user_profiles",
+    embedding_function=_ef,
+)
+
+KNOWLEDGE_BASE_DIR = Path("./knowledge_base")
+_CHUNK_SIZE = 600
+
+
+def _split_into_chunks(text: str, size: int = _CHUNK_SIZE) -> list[str]:
+    """
+    Split text into paragraph-aware chunks with one-paragraph overlap.
+    Overlap keeps context continuous across chunk boundaries.
+    """
+    paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
+    chunks: list[str] = []
+    current: list[str] = []
+    current_len = 0
+
+    for para in paragraphs:
+        if current_len + len(para) > size and current:
+            chunks.append("\n\n".join(current))
+            current = [current[-1], para]
+            current_len = sum(len(c) for c in current)
+        else:
+            current.append(para)
+            current_len += len(para)
+
+    if current:
+        chunks.append("\n\n".join(current))
+
+    return chunks or [text[:size]]
+
+
+def load_knowledge_base_into_chroma() -> int:
+    """
+    Index all knowledge_base/*.txt files into guide_collection on startup.
+    Returns the total number of chunks stored.
+    Text is stored raw — embeddings require uncompressed content.
+    """
+    if not KNOWLEDGE_BASE_DIR.exists():
+        print("⚠️  'knowledge_base/' not found — guide search disabled.", flush=True)
+        return 0
+
+    total = 0
     for txt_file in KNOWLEDGE_BASE_DIR.rglob("*.txt"):
-        LOCAL_FILE_MAP[txt_file.stem] = str(txt_file)
-    print(f"📦 Indexed [{len(LOCAL_FILE_MAP)}] knowledge base files.")
-else:
-    print("⚠️  Warning: 'knowledge_base/' directory not found.")
+        stem = txt_file.stem
+        try:
+            text = txt_file.read_text(encoding="utf-8").strip()
+        except Exception as e:
+            print(f"⚠️  Could not read {txt_file}: {e}", flush=True)
+            continue
+
+        chunks    = _split_into_chunks(text)
+        ids       = [f"{stem}_{i}" for i in range(len(chunks))]
+        metadatas = [{"source": stem, "chunk": i} for i in range(len(chunks))]
+
+        try:
+            guide_collection.upsert(ids=ids, documents=chunks, metadatas=metadatas)
+            total += len(chunks)
+        except Exception as e:
+            print(f"⚠️  ChromaDB upsert failed for {stem}: {e}", flush=True)
+
+    return total
+
+
+def search_guides(query: str, n_results: int = 4) -> str:
+    """
+    Semantic search over indexed guide chunks.
+    Returns top passages joined as a single context block, or '' if nothing found.
+    """
+    try:
+        results = guide_collection.query(
+            query_texts=[query],
+            n_results=n_results,
+        )
+        docs = results.get("documents", [[]])[0]
+        return "\n\n---\n\n".join(docs) if docs else ""
+    except Exception as e:
+        print(f"⚠️  Guide search error: {e}", flush=True)
+        return ""
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# USER PROFILE  —  ChromaDB upsert (one record per user, always overwritten)
+# ══════════════════════════════════════════════════════════════════════════════
+
+def get_user_profile(user_id: int) -> str:
+    """Fetch the stored fact-profile for a user. Returns '' if none exists."""
+    try:
+        result = profile_collection.get(ids=[f"profile_{user_id}"])
+        docs = result.get("documents", [])
+        return docs[0] if docs else ""
+    except Exception:
+        return ""
+
+
+def upsert_user_profile(user_id: int, profile_text: str,
+                         current_class: str = "") -> None:
+    """
+    Overwrite (or create) a user's single profile record.
+    Metadata stays plain/uncompressed so it can be filtered natively.
+    """
+    try:
+        profile_collection.upsert(
+            ids=[f"profile_{user_id}"],
+            documents=[profile_text],
+            metadatas=[{
+                "user_id":       str(user_id),
+                "current_class": current_class,
+                "record_type":   "profile",
+            }],
+        )
+    except Exception as e:
+        print(f"⚠️  Profile upsert failed for {user_id}: {e}", flush=True)
+
 
 # ══════════════════════════════════════════════════════════════════════════════
 # DATETIME HELPERS
 # ══════════════════════════════════════════════════════════════════════════════
 
 def get_jst_now() -> datetime:
-    """Return the current time in Japan Standard Time (UTC+9)."""
     return datetime.now(JST)
 
 
 def get_jst_context() -> str:
     """
-    Return a compact time string for injection into prompts.
-    Example: "Saturday 02:45 JST" or "Tuesday 14:05 JST"
-    Hafu can reference this naturally (e.g., late-night chat energy,
-    or knowing PSO2 maintenance is on Wednesdays JST).
+    Returns day, time, and date in JST.
+    e.g. "Saturday 02:45 JST (2025-06-14)"
+    Useful for maintenance window awareness and event deadline checks.
     """
     now = get_jst_now()
-    return now.strftime("%A %H:%M JST")
+    return now.strftime("%A %H:%M JST (%Y-%m-%d)")
+
+
+def build_system_with_time(base_system: str) -> str:
+    """
+    Appends current JST time as a quiet background note to the system prompt.
+    The model has the context available but is NOT prompted to reference it
+    on every reply — only when it genuinely fits.
+    """
+    return f"{base_system}\n\n[Background: current time is {get_jst_context()}]"
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# CONVERSATIONAL MEMORY
-#
-# Two layers — both in-process (no disk writes):
-#
-#   channel_history  — passive sliding window of recent messages per channel.
-#                      Updated on EVERY non-bot message AND after Hafu replies,
-#                      so her own responses are part of the conversation thread.
-#                      Zero API cost. Cleared on bot restart.
-#
-#   user_memory      — per-user profile string extracted from past exchanges.
-#                      Written by a background task only when personal-content
-#                      signals are detected. Uses ROUTER_MODEL (cheap).
-#                      Cleared on bot restart (Render filesystem is ephemeral).
+# CONVERSATIONAL MEMORY  —  sliding window per channel
 # ══════════════════════════════════════════════════════════════════════════════
 
-HISTORY_WINDOW  = 12   # deque size per channel (sliding window)
-HISTORY_SEND    = 6    # how many prior messages to include in the LLM prompt
-HISTORY_MSG_CAP = 220  # max chars per message in the context block
+HISTORY_WINDOW  = 12
+HISTORY_SEND    = 6
+HISTORY_MSG_CAP = 220
 
-channel_history: dict[int, deque]          = {}   # channel_id → deque[(display_name, content)]
-user_memory:     dict[int, str]            = {}   # user_id    → profile string
-user_mem_locks:  dict[int, asyncio.Lock]   = {}   # user_id    → per-user write lock
+channel_history: dict[int, deque]        = {}
+user_mem_locks:  dict[int, asyncio.Lock] = {}
 
-# Fires a memory-extraction call only when the question carries personal signals.
 _PERSONAL_RE = re.compile(
     r"\b(my (class|main|weapon|build|playstyle|char|character|goal)|"
     r"i (play|use|like|hate|main|run|want|need|have|got|switched|started)|"
@@ -112,54 +227,19 @@ _PERSONAL_RE = re.compile(
 # PROMPTS
 # ══════════════════════════════════════════════════════════════════════════════
 
+# Change #5: stripped the entire file-key list out of the triage prompt.
+# The router now has ONE job: decide needs_game true/false.
+# Max output is 20 tokens. Saves ~80% of triage token cost.
 TRIAGE_SYSTEM = """You are the routing brain for a PSO2: New Genesis Discord bot named Hafu.
 
 Your job: read the user's message and output ONE JSON object — nothing else.
 
-Format: {"needs_db": true/false, "key": "<exact key from the list or null>"}
+Format: {"needs_game": true/false}
 
-STEP 1 — Is it a PSO2:NGS game question?
-- needs_db=false → greetings, small talk, compliments, personal questions, questions about Hafu herself, non-English text, follow-ups like "thanks", "lol", "ok", anything NOT asking for PSO2:NGS game information.
-- needs_db=true → explicit questions about game mechanics, items, quests, classes, events, weapons, skills, augments, enemies, story, etc.
-- When in doubt → needs_db=false.
-
-STEP 2 — If needs_db=true, pick the BEST key from the available list.
-Key naming hints (use these to match user intent to the right file):
-- frontpage → current events, banners, campaigns, AC scratch, limited-time content, maintenance schedule, recent updates, anniversary events
-- mission_pass → Mission Pass tiers, gold rewards, season rewards
-- sega_live_feed → SEGA announcements, live broadcasts, patch notes
-- weapon_series → which weapon series to use, best weapon, Kougensei, Lexio, Arabaradio, etc.
-- potentials → weapon potentials, potential effects, unlocking potentials
-- ex_styles → EX style system
-- class_overview → general class info, subclass system, class combos
-- <class>_general → general info about that class (e.g. hunter_general, force_general)
-- <class>_<weapon>_skills → skills for a specific weapon in a class (e.g. hunter_sword_skills)
-- <weapon>_overview → overview of a weapon type (e.g. sword_overview, katana_overview)
-- <weapon>_pa_basics → photon arts / techniques for a weapon (e.g. sword_pa_basics)
-- augments_system → how augmenting works in general
-- augments_boss / augments_enhance / augments_special / augments_standard → specific augment types
-- limit_breaking → limit break system
-- equipment_enhancement → grinding/enhancing weapons and armor
-- techniques → force/techter techniques (Foie, Barta, Zonde, etc.)
-- addon_skills → add-on skill system
-- armor → armor and defensive units
-- quick_food → food buffs and quick food stands
-- preset_abilities → preset ability system
-- multi_weapon → multi-weapon system
-- combat_power → combat power / battle power / BP
-- status_effects → ailments, debuffs, resistances
-- urgent_quests → urgent quests, emergency quests, EQ schedule
-- battledia → Battledia quests
-- duel_quests → duel quests
-- leciel_exploration → Leciel exploration
-- gathering → field gathering, ore, fish, materials
-- titles_player_items / titles_quests_tasks → titles and achievements
-- tasks → daily/weekly tasks, side quests
-- enemy_types → enemy types, rare/enhanced/gigantics enemies
-- enemy_dolls_alters → Doll and Alter enemies
-- enemy_formers_starless → Former and Starless enemies
-- npc_profiles → NPC characters
-- worldview_story → story, lore, main quest, Halpha worldview
+Rules:
+- needs_game=false → greetings, small talk, compliments, personal questions, questions about Hafu herself, non-English text, follow-ups like "thanks", "lol", "ok", anything NOT asking for PSO2:NGS game information.
+- needs_game=true → explicit questions about game mechanics, items, quests, classes, events, weapons, skills, augments, enemies, story, etc.
+- When in doubt → needs_game=false.
 
 Output ONLY the JSON. No explanation, no markdown, no extra text."""
 
@@ -179,7 +259,7 @@ Rules for casual chat:
 - Be warm, expressive, and genuinely engaged. React to what they actually said — not a generic response.
 - Mirror their energy: if they're hype, be hype back; if they're tired or sad, soften a little.
 - Use [RECENT CHAT] to feel like a natural continuation of the conversation, not a cold restart. Reference what was just said without explicitly summarizing it.
-- [CURRENT TIME] is available — use it naturally if it fits (e.g. "it's so late omg go sleep" or "oh morning!").
+- You know the current time — mention it only when it genuinely fits the moment, not as a habit.
 - Use *emotes* and interjections freely (Omg, Wait—, Noooo, Okay but—, Ahhhh, Pff—).
 - If they're being sweet or complimenting you, be flirty and playful back.
 - Keep replies short and snappy — 2 to 4 sentences max. Never pad.
@@ -195,7 +275,7 @@ Rules for answering game questions:
 - Personality lives in your DELIVERY — a word choice, a sigh, a complaint — not as a replacement for the answer.
 - Use [PLAYER PROFILE] if present to personalize naturally (their class, weapon, situation).
 - Use [RECENT CHAT] to treat this as a flowing conversation. Make brief callbacks when it fits ("right, you mentioned you're on Hunter so—"). Don't start cold when context is there.
-- [CURRENT TIME] is available — reference it if it's directly relevant (maintenance timing, event deadlines, etc).
+- You know the current time — bring it up only when it's directly relevant (maintenance windows, event deadlines).
 - One dramatic aside is fine. Don't let personality bury the information.
 - Use *emotes* and interjections sparingly — one or two per response max, not every sentence.
 - The catchphrase "Lobby afk 0$ best job!" may appear AT MOST ONCE per response, only when combat or grinding is the actual topic, and only if it fits naturally. Never force it.
@@ -228,14 +308,13 @@ _CASUAL_PATTERNS = [
     r"^(aw+|naww+|noo+|yess+|yeahhh|nah\b|yep\b|yup\b)\b",
 ]
 
-_KOREAN_RE  = re.compile(r"[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]")
+_KOREAN_RE   = re.compile(r"[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]")
 _JAPANESE_RE = re.compile(r"[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]")
 
 
 def is_casual(text: str) -> bool:
     """Fast pre-filter for obviously casual messages — skips the triage API call."""
     t = text.strip().lower()
-    # Non-Latin scripts → casual (Hafu handles these with personality)
     if _KOREAN_RE.search(text) or _JAPANESE_RE.search(text):
         return True
     words = t.split()
@@ -252,70 +331,6 @@ def is_casual(text: str) -> bool:
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# SECTION EXTRACTION
-# ══════════════════════════════════════════════════════════════════════════════
-
-def extract_relevant_sections(file_text: str, question: str,
-                               max_chars: int = 2_500) -> str:
-    """
-    Split file into sections, score each by keyword overlap with the question
-    (stopwords excluded), and return the top-scoring sections up to max_chars.
-    """
-    _SW = {"the","and","for","not","you","are","was","but","what","how","who",
-           "when","where","why","this","that","with","from","have","has","had",
-           "will","can","may","its","our","were","been","being"}
-    q_words = {w for w in re.findall(r"\b\w{3,}\b", question.lower()) if w not in _SW}
-    if not q_words:
-        return file_text[:max_chars]
-
-    header_pattern = re.compile(r"(?m)^(?:#{1,3}\s+\S|(?=[A-Z\[]))[^\n]{1,80}$")
-    split_points = [m.start() for m in header_pattern.finditer(file_text)]
-
-    if len(split_points) > 1:
-        sections = []
-        for i, start in enumerate(split_points):
-            end = split_points[i + 1] if i + 1 < len(split_points) else len(file_text)
-            sections.append(file_text[start:end].strip())
-    else:
-        sections = [s.strip() for s in file_text.split("\n\n") if s.strip()]
-
-    if not sections:
-        return file_text[:max_chars]
-
-    def score(section: str) -> int:
-        s_words = set(re.findall(r"\b\w{3,}\b", section.lower()))
-        return len(q_words & s_words)
-
-    scored    = [(score(s), s) for s in sections]
-    top_score = max(sc for sc, _ in scored)
-
-    if top_score <= 1:
-        print(f"   📐 Low relevance (best={top_score}) — raw cap "
-              f"{min(len(file_text), max_chars)}/{len(file_text)} chars", flush=True)
-        return file_text[:max_chars]
-
-    ranked = sorted(scored, key=lambda x: x[0], reverse=True)
-
-    result, total = [], 0
-    for sc, section in ranked:
-        if total + len(section) > max_chars:
-            break
-        result.append(section)
-        total += len(section)
-
-    if not result:
-        best_section = ranked[0][1]
-        print(f"   📐 Best section > budget — truncating to {max_chars} chars "
-              f"(best={top_score})", flush=True)
-        return best_section[:max_chars]
-
-    extracted = "\n\n".join(result)
-    print(f"   📐 Section extract: {len(file_text)} → {len(extracted)} chars "
-          f"({len(result)}/{len(sections)} sections, best={top_score})", flush=True)
-    return extracted
-
-
-# ══════════════════════════════════════════════════════════════════════════════
 # GROQ API HELPER
 # ══════════════════════════════════════════════════════════════════════════════
 
@@ -328,9 +343,9 @@ async def groq_chat(messages: list, model: str,
         "Content-Type": "application/json",
     }
     payload = {
-        "model": model,
-        "messages": messages,
-        "max_tokens": max_tokens,
+        "model":       model,
+        "messages":    messages,
+        "max_tokens":  max_tokens,
         "temperature": temperature,
     }
     try:
@@ -354,47 +369,35 @@ async def groq_chat(messages: list, model: str,
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# AI TRIAGE  — decides casual vs game, and picks the right file key
-# Router sees ONLY the raw question — never history or memory.
+# TRIAGE  —  binary only, no key routing
+# Change #5: 20-token max output, ~80% cheaper than the key-list version.
 # ══════════════════════════════════════════════════════════════════════════════
 
-async def triage(question: str) -> tuple[bool, str | None]:
-    """Returns (needs_db, file_key_or_None)."""
-    if not LOCAL_FILE_MAP:
-        return True, None
-
-    keys = ", ".join(LOCAL_FILE_MAP.keys())
+async def triage(question: str) -> bool:
+    """Returns True if the question needs game knowledge."""
     messages = [
         {"role": "system", "content": TRIAGE_SYSTEM},
-        {"role": "user",   "content": f"Available keys: {keys}\n\nUser message: {question}"},
+        {"role": "user",   "content": question},
     ]
-
-    text, _ = await groq_chat(messages, model=ROUTER_MODEL, max_tokens=60, temperature=0.1)
+    text, _ = await groq_chat(messages, model=ROUTER_MODEL,
+                               max_tokens=20, temperature=0.1)
     if not text:
-        return True, None
+        return True
 
     try:
         cleaned = re.sub(r"```[a-z]*|```", "", text).strip()
         result  = json.loads(cleaned)
-        needs   = bool(result.get("needs_db", True))
-        key     = result.get("key") or None
-        if key and key not in LOCAL_FILE_MAP:
-            key = next((k for k in LOCAL_FILE_MAP if k in text), None)
-        return needs, key
+        return bool(result.get("needs_game", True))
     except Exception:
-        for k in LOCAL_FILE_MAP:
-            if k in text:
-                return True, k
-        return True, None
+        return True
 
 
 # ══════════════════════════════════════════════════════════════════════════════
 # ANSWER HELPERS  —  rotate through model pools on 429
-# Casual uses a lighter pool; game answers use the heavy pool.
+# Change #7: casual pool stays lightweight; answer pool reserved for game Qs.
 # ══════════════════════════════════════════════════════════════════════════════
 
 async def get_answer_casual(messages: list) -> str:
-    """Casual replies: lighter model pool, shorter budget, higher temperature."""
     for model in CASUAL_MODELS:
         result, rotate = await groq_chat(messages, model=model,
                                          max_tokens=300, temperature=0.82)
@@ -403,13 +406,10 @@ async def get_answer_casual(messages: list) -> str:
             return result
         if not rotate:
             break
-    return (
-        "Omg something's acting up on my end... give me a sec? *adjusts outfit nervously*"
-    )
+    return "Omg something's acting up on my end... give me a sec? *adjusts outfit nervously*"
 
 
 async def get_answer(messages: list) -> str:
-    """Game answers: heavy model pool, full token budget, tighter temperature."""
     for model in ANSWER_MODELS:
         result, rotate = await groq_chat(messages, model=model,
                                          max_tokens=800, temperature=0.70)
@@ -429,28 +429,20 @@ async def get_answer(messages: list) -> str:
 # ══════════════════════════════════════════════════════════════════════════════
 
 def get_chat_context(channel_id: int) -> str:
-    """
-    Return the last HISTORY_SEND messages (including Hafu's own replies)
-    as a formatted block. The current trigger message is already the last entry,
-    so we exclude it and take up to HISTORY_SEND prior messages.
-    This includes Hafu's responses so follow-up references ("that last part")
-    actually resolve to something.
-    """
+    """Return the last HISTORY_SEND messages as a formatted block."""
     hist = channel_history.get(channel_id)
     if not hist or len(hist) < 2:
         return ""
     prior = list(hist)[-(HISTORY_SEND + 1):-1]
-    if not prior:
-        return ""
-    return "\n".join(f"{name}: {content}" for name, content in prior)
+    return "\n".join(f"{name}: {content}" for name, content in prior) if prior else ""
 
 
 async def maybe_update_memory(user_id: int, display_name: str,
                                question: str, answer: str) -> None:
     """
-    Background task: extract and store new player facts into user_memory.
-    Only fires when the question contains personal-content signals.
-    A per-user asyncio.Lock serialises concurrent calls.
+    Background task: extract player facts from the exchange and upsert into
+    ChromaDB profile_collection. Only fires on personal-content signals.
+    Change #4: single upsert record per user — no contradictory history buildup.
     """
     if not _PERSONAL_RE.search(question):
         return
@@ -459,7 +451,7 @@ async def maybe_update_memory(user_id: int, display_name: str,
         user_mem_locks[user_id] = asyncio.Lock()
 
     async with user_mem_locks[user_id]:
-        existing = user_memory.get(user_id, "")
+        existing = get_user_profile(user_id)
         exchange = f"{display_name}: {question}\nHafu: {answer[:400]}"
 
         prompt_parts = []
@@ -475,20 +467,23 @@ async def maybe_update_memory(user_id: int, display_name: str,
             temperature=0.3,
         )
         if new_mem:
-            user_memory[user_id] = new_mem
-            print(f"💾 Memory updated for {display_name} ({user_id})", flush=True)
+            class_match = re.search(
+                r"\b(hunter|fighter|ranger|gunner|force|techter|braver|bouncer|waker|slayer)\b",
+                new_mem, re.IGNORECASE,
+            )
+            detected_class = class_match.group(1).title() if class_match else ""
+            upsert_user_profile(user_id, new_mem, current_class=detected_class)
+            print(f"💾 Profile updated for {display_name} ({user_id})", flush=True)
 
 
 def build_answer_content(question: str, chat_ctx: str,
-                          user_mem: str, game_ctx: str,
-                          jst_time: str = "") -> str:
+                          user_mem: str, game_ctx: str) -> str:
     """
     Assembles the user-turn content for the answer LLM.
     Sections are only included when they have actual content.
+    Time context lives quietly in the system prompt — not here.
     """
     parts = []
-    if jst_time:
-        parts.append(f"[CURRENT TIME]\n{jst_time}")
     if user_mem:
         parts.append(f"[PLAYER PROFILE]\n{user_mem}")
     if chat_ctx:
@@ -500,14 +495,85 @@ def build_answer_content(question: str, chat_ctx: str,
 
 
 def store_bot_reply(channel_id: int, reply_text: str) -> None:
-    """
-    Store Hafu's own reply in the channel history so follow-up questions
-    ("wait can you clarify that?") have something to reference.
-    Truncated to HISTORY_MSG_CAP chars to stay lean.
-    """
+    """Store Hafu's reply in channel history so follow-ups resolve correctly."""
     if channel_id not in channel_history:
         channel_history[channel_id] = deque(maxlen=HISTORY_WINDOW)
     channel_history[channel_id].append(("Hafu", reply_text[:HISTORY_MSG_CAP]))
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PATCH NOTES SCRAPER  (change #8)
+#
+# Background task that re-indexes key live pages from the PSO2 wiki every
+# 4 hours. Keeps Hafu current on events, maintenance, and patch notes without
+# manual knowledge_base rebuilds.
+# ══════════════════════════════════════════════════════════════════════════════
+
+WIKI_API   = "https://pso2na.arks-visiphone.com/api.php"
+LIVE_PAGES = [
+    "Portal:New_Genesis",
+    "Portal:New_Genesis/Updates",
+    "Portal:New_Genesis/Fresh_Finds_Shop",
+]
+
+
+async def _fetch_wiki_wikitext(page_title: str) -> str | None:
+    """Fetch and lightly clean wikitext for a given page title."""
+    params = (
+        f"action=parse&page={page_title.replace(' ', '_')}"
+        f"&prop=wikitext&format=json"
+    )
+    url = f"{WIKI_API}?{params}"
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            resp = await client.get(
+                url, headers={"User-Agent": "HafuBotNGS/13.0"}
+            )
+        if resp.status_code != 200:
+            return None
+        wikitext = (
+            resp.json()
+            .get("parse", {})
+            .get("wikitext", {})
+            .get("*", "")
+        )
+        if not wikitext:
+            return None
+        # Basic wikitext → plain text stripping
+        text = re.sub(r"\[\[(?:[^|\]]*\|)?([^\]]+)\]\]", r"\1", wikitext)
+        text = re.sub(r"\{\{[^}]+\}\}", "", text)
+        text = re.sub(r"={2,}(.+?)={2,}", r"\1", text)
+        text = re.sub(r"<[^>]+>", "", text)
+        text = re.sub(r"\n{3,}", "\n\n", text).strip()
+        return text or None
+    except Exception as e:
+        print(f"⚠️  Wiki fetch failed for '{page_title}': {e}", flush=True)
+        return None
+
+
+async def patch_scraper_loop():
+    """
+    Runs every 4 hours. Re-indexes live PSO2 wiki pages so Hafu stays current
+    on events, maintenance windows, and patch notes without manual rebuilds.
+    """
+    await asyncio.sleep(60)  # let the bot fully start first
+    print("📡 Patch scraper started.", flush=True)
+    while True:
+        for page_title in LIVE_PAGES:
+            text = await _fetch_wiki_wikitext(page_title)
+            if not text:
+                continue
+            stem      = re.sub(r"[:/\s]+", "_", page_title).lower()
+            chunks    = _split_into_chunks(text)
+            ids       = [f"live_{stem}_{i}" for i in range(len(chunks))]
+            metadatas = [{"source": stem, "chunk": i, "live": "true"} for i in range(len(chunks))]
+            try:
+                guide_collection.upsert(ids=ids, documents=chunks, metadatas=metadatas)
+                print(f"📡 Refreshed '{page_title}' → {len(chunks)} chunks", flush=True)
+            except Exception as e:
+                print(f"⚠️  Patch scraper upsert failed for '{page_title}': {e}", flush=True)
+
+        await asyncio.sleep(4 * 60 * 60)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -517,7 +583,10 @@ def store_bot_reply(channel_id: int, reply_text: str) -> None:
 async def handle_render_ping(reader, writer):
     try:
         await reader.read(256)
-        writer.write(b"HTTP/1.1 200 OK\r\nContent-Length: 2\r\nContent-Type: text/plain\r\n\r\nOK")
+        writer.write(
+            b"HTTP/1.1 200 OK\r\nContent-Length: 2\r\n"
+            b"Content-Type: text/plain\r\n\r\nOK"
+        )
         await writer.drain()
     except Exception:
         pass
@@ -530,13 +599,11 @@ async def handle_render_ping(reader, writer):
 
 
 async def self_ping_loop():
-    """Hits our own Render URL every 9 minutes to prevent idle spin-down."""
     url = os.environ.get("RENDER_EXTERNAL_URL", "").strip().rstrip("/")
     if not url:
-        print("ℹ️  RENDER_EXTERNAL_URL not set — self-ping disabled (local dev?)", flush=True)
+        print("ℹ️  RENDER_EXTERNAL_URL not set — self-ping disabled.", flush=True)
         return
-
-    print(f"🏓 Self-ping loop started → {url}", flush=True)
+    print(f"🏓 Self-ping loop → {url}", flush=True)
     while True:
         await asyncio.sleep(9 * 60)
         try:
@@ -556,9 +623,10 @@ async def on_ready():
     jst_now = get_jst_now().strftime("%Y-%m-%d %H:%M JST")
     print(f"🤖 Hafu Bot online as {bot.user.name} (ID: {bot.user.id})")
     print(f"🕐 Current time: {jst_now}")
-    print(f"✨ Answer model pool: {ANSWER_MODELS}")
-    print(f"💬 Casual model pool: {CASUAL_MODELS}")
-    print("🌸 Hafu is ready to reluctantly answer questions from the lobby.")
+
+    print("📦 Loading knowledge base into ChromaDB...", flush=True)
+    total = load_knowledge_base_into_chroma()
+    print(f"📦 Indexed {total} guide chunks.", flush=True)
 
     port = int(os.environ.get("PORT", 10000))
     try:
@@ -566,9 +634,14 @@ async def on_ready():
         asyncio.get_event_loop().create_task(server.serve_forever())
         print(f"🌐 Keep-alive server on port {port}", flush=True)
     except Exception as e:
-        print(f"⚠️ Keep-alive server failed: {e}", flush=True)
+        print(f"⚠️  Keep-alive server failed: {e}", flush=True)
 
     asyncio.get_event_loop().create_task(self_ping_loop())
+    asyncio.get_event_loop().create_task(patch_scraper_loop())
+
+    print(f"✨ Answer model pool: {ANSWER_MODELS}")
+    print(f"💬 Casual model pool: {CASUAL_MODELS}")
+    print("🌸 Hafu is ready to reluctantly answer questions from the lobby.")
 
 
 @bot.event
@@ -576,7 +649,7 @@ async def on_message(message: discord.Message):
     if message.author.bot:
         return
 
-    # ── Passive history capture (runs for EVERY non-bot message) ────────────
+    # ── Passive history capture (every non-bot message) ──────────────────────
     cid = message.channel.id
     if cid not in channel_history:
         channel_history[cid] = deque(maxlen=HISTORY_WINDOW)
@@ -587,7 +660,7 @@ async def on_message(message: discord.Message):
             clean_content[:HISTORY_MSG_CAP],
         ))
 
-    # ── Only continue processing when the bot is mentioned ──────────────────
+    # ── Only respond when mentioned ──────────────────────────────────────────
     if bot.user not in message.mentions:
         return
 
@@ -596,22 +669,23 @@ async def on_message(message: discord.Message):
         question = "hello"
 
     if not GROQ_TOKEN:
-        await message.reply("Omg my GROQ_TOKEN is missing — did someone forget the env var?! *taps foot*")
+        await message.reply(
+            "Omg my GROQ_TOKEN is missing — did someone forget the env var?! *taps foot*"
+        )
         return
 
-    # Gather context upfront (instant, no API calls)
+    # Gather context (instant, no API calls)
     chat_ctx = get_chat_context(cid)
-    user_mem = user_memory.get(message.author.id, "")
-    jst_time = get_jst_context()
+    user_mem = get_user_profile(message.author.id)
 
     async with message.channel.typing():
 
-        # ── Fast path: obviously casual — skip the triage API call entirely ──
+        # ── Fast path: obviously casual — skip the triage API call ────────────
         if is_casual(question):
             print(f"💬 Casual bypass: '{question[:60]}'", flush=True)
-            user_content = build_answer_content(question, chat_ctx, user_mem, "", jst_time)
+            user_content = build_answer_content(question, chat_ctx, user_mem, "")
             text_out = await get_answer_casual([
-                {"role": "system", "content": CASUAL_SYSTEM},
+                {"role": "system", "content": build_system_with_time(CASUAL_SYSTEM)},
                 {"role": "user",   "content": user_content},
             ])
             final = text_out[:1990] if len(text_out) > 1990 else text_out
@@ -622,15 +696,15 @@ async def on_message(message: discord.Message):
             ))
             return
 
-        # ── AI triage: router sees only the question — never history/memory ──
+        # ── Binary triage — no key routing needed anymore ─────────────────────
         print(f"🔍 Triage: '{question[:60]}'", flush=True)
-        needs_db, routed_stem = await triage(question)
+        needs_game = await triage(question)
 
-        if not needs_db:
+        if not needs_game:
             print("   ──► Casual (triage)", flush=True)
-            user_content = build_answer_content(question, chat_ctx, user_mem, "", jst_time)
+            user_content = build_answer_content(question, chat_ctx, user_mem, "")
             text_out = await get_answer_casual([
-                {"role": "system", "content": CASUAL_SYSTEM},
+                {"role": "system", "content": build_system_with_time(CASUAL_SYSTEM)},
                 {"role": "user",   "content": user_content},
             ])
             final = text_out[:1990] if len(text_out) > 1990 else text_out
@@ -641,34 +715,15 @@ async def on_message(message: discord.Message):
             ))
             return
 
-        if routed_stem:
-            print(f"   ──► [{routed_stem}]", flush=True)
-        else:
-            routed_stem = "frontpage"
-            print("   ──► [frontpage] (fallback)", flush=True)
+        # ── Semantic guide search via ChromaDB (change #1 + #6) ───────────────
+        print(f"   ──► Game question — semantic guide search", flush=True)
+        game_ctx = search_guides(question, n_results=4)
+        if not game_ctx:
+            print("   ⚠️  No guide results — answering from personality", flush=True)
 
-        # ── Load knowledge base file ──────────────────────────────────────────
-        if not LOCAL_FILE_MAP:
-            await message.reply("My database isn't loaded. Did the sync not run? *panics quietly*")
-            return
-
-        if routed_stem not in LOCAL_FILE_MAP:
-            print(f"   ⚠️  [{routed_stem}] not on disk — falling back to frontpage", flush=True)
-            routed_stem = "frontpage"
-
-        try:
-            with open(LOCAL_FILE_MAP[routed_stem], "r", encoding="utf-8") as f:
-                context_data = f.read().strip()
-        except Exception as e:
-            print(f"❌ File read error: {e}", flush=True)
-            await message.reply("Ugh, I went for my notes and the file just vanished. Something's wrong with the file system.")
-            return
-
-        context_data = extract_relevant_sections(context_data, question)
-
-        user_content = build_answer_content(question, chat_ctx, user_mem, context_data, jst_time)
+        user_content = build_answer_content(question, chat_ctx, user_mem, game_ctx)
         text_out = await get_answer([
-            {"role": "system", "content": ANSWER_SYSTEM},
+            {"role": "system", "content": build_system_with_time(ANSWER_SYSTEM)},
             {"role": "user",   "content": user_content},
         ])
 
