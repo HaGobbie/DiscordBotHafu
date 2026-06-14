@@ -230,9 +230,19 @@ HISTORY_MSG_CAP = 220
 channel_history: dict[int, deque]        = {}
 user_mem_locks:  dict[int, asyncio.Lock] = {}
 
-# Deduplication guard: Render briefly runs two instances during deployment.
-# Both share the same token, so both fire on_message for the same message.
-# We track the last 300 seen message IDs and skip any already processed.
+# ── Startup silence window ────────────────────────────────────────────────────
+# Render's zero-downtime deployment keeps the OLD instance alive until the new
+# one passes its health check (~10 s). During that overlap BOTH instances are
+# connected to Discord and receive every message — causing double replies.
+#
+# Fix: the NEW instance stays silent for STARTUP_SILENCE_SECS after on_ready.
+# The old instance handles anything that arrives during that window, then dies.
+# After the window closes only the new instance is live.
+#
+# Additionally we keep an in-process dedup set for any same-instance edge cases.
+_STARTUP_SILENCE_SECS = 15
+_bot_ready_at: datetime | None = None
+
 _seen_message_ids: set[int] = set()
 _seen_message_order: deque  = deque(maxlen=300)
 
@@ -493,7 +503,7 @@ async def maybe_update_memory(user_id: int, display_name: str,
                 new_mem, re.IGNORECASE,
             )
             detected_class = class_match.group(1).title() if class_match else ""
-            upsert_user_profile(user_id, new_mem, current_class=detected_class)
+            await upsert_user_profile(user_id, new_mem, current_class=detected_class)
             print(f"💾 Profile updated for {display_name} ({user_id})", flush=True)
 
 
@@ -646,9 +656,14 @@ async def self_ping_loop():
 
 @bot.event
 async def on_ready():
+    global _bot_ready_at
+    _bot_ready_at = datetime.now(timezone.utc)
+
     jst_now = get_jst_now().strftime("%Y-%m-%d %H:%M JST")
     print(f"🤖 Hafu Bot online as {bot.user.name} (ID: {bot.user.id})")
     print(f"🕐 Current time: {jst_now}")
+    print(f"🔇 Startup silence active for {_STARTUP_SILENCE_SECS}s "
+          f"(old instance overlap guard)", flush=True)
 
     print("📦 Loading knowledge base into ChromaDB (background thread)...", flush=True)
     loop = asyncio.get_event_loop()
@@ -676,12 +691,17 @@ async def on_message(message: discord.Message):
     if message.author.bot:
         return
 
-    # ── Dedup guard: drop messages already handled by another instance ────────
+    # ── Startup silence: ignore messages during the old-instance overlap window ─
+    if _bot_ready_at is not None:
+        elapsed = (datetime.now(timezone.utc) - _bot_ready_at).total_seconds()
+        if elapsed < _STARTUP_SILENCE_SECS:
+            return
+
+    # ── In-process dedup: catches same-instance double-fires ─────────────────
     if message.id in _seen_message_ids:
         return
     _seen_message_ids.add(message.id)
     _seen_message_order.append(message.id)
-    # Keep the set trimmed to match the deque window
     if len(_seen_message_ids) > 400:
         try:
             _seen_message_ids.discard(_seen_message_order[0])
