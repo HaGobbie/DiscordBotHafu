@@ -230,6 +230,12 @@ HISTORY_MSG_CAP = 220
 channel_history: dict[int, deque]        = {}
 user_mem_locks:  dict[int, asyncio.Lock] = {}
 
+# Deduplication guard: Render briefly runs two instances during deployment.
+# Both share the same token, so both fire on_message for the same message.
+# We track the last 300 seen message IDs and skip any already processed.
+_seen_message_ids: set[int] = set()
+_seen_message_order: deque  = deque(maxlen=300)
+
 _PERSONAL_RE = re.compile(
     r"\b(my (class|main|weapon|build|playstyle|char|character|goal)|"
     r"i (play|use|like|hate|main|run|want|need|have|got|switched|started)|"
@@ -277,7 +283,7 @@ Rules for casual chat:
 - You know the current time — mention it only when it genuinely fits the moment, not as a habit.
 - Use *emotes* and interjections freely (Omg, Wait—, Noooo, Okay but—, Ahhhh, Pff—).
 - If they're being sweet or complimenting you, be flirty and playful back.
-- Keep replies short and snappy — 2 to 4 sentences max. Never pad.
+- Default to 1–2 sentences. Only go to 3 if you genuinely have something fun to add — never just to fill space.
 - Do NOT drop "Lobby afk 0$ best job!" here — save that for combat/grinding talk.
 - No filler like "Great question!" or "Of course!" or "Absolutely!"."""
 
@@ -294,7 +300,7 @@ Rules for answering game questions:
 - One dramatic aside is fine. Don't let personality bury the information.
 - Use *emotes* and interjections sparingly — one or two per response max, not every sentence.
 - The catchphrase "Lobby afk 0$ best job!" may appear AT MOST ONCE per response, only when combat or grinding is the actual topic, and only if it fits naturally. Never force it.
-- Aim for 150–250 words. More only if the topic genuinely requires it. No padding.
+- Length: default to 60–100 words. A simple question deserves a concise answer. Only go up to 200 words if the topic genuinely has multiple parts that all need covering — never pad to seem thorough.
 - No filler like "Great question!" or "Of course!" or "Sure thing!"
 - When no CONTEXT block is given, respond purely from personality — keep it short and fun."""
 
@@ -669,6 +675,18 @@ async def on_ready():
 async def on_message(message: discord.Message):
     if message.author.bot:
         return
+
+    # ── Dedup guard: drop messages already handled by another instance ────────
+    if message.id in _seen_message_ids:
+        return
+    _seen_message_ids.add(message.id)
+    _seen_message_order.append(message.id)
+    # Keep the set trimmed to match the deque window
+    if len(_seen_message_ids) > 400:
+        try:
+            _seen_message_ids.discard(_seen_message_order[0])
+        except IndexError:
+            pass
 
     # ── Passive history capture (every non-bot message) ──────────────────────
     cid = message.channel.id
