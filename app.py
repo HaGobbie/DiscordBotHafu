@@ -126,11 +126,8 @@ def load_knowledge_base_into_chroma() -> int:
     return total
 
 
-def search_guides(query: str, n_results: int = 4) -> str:
-    """
-    Semantic search over indexed guide chunks.
-    Returns top passages joined as a single context block, or '' if nothing found.
-    """
+def _search_guides_sync(query: str, n_results: int = 4) -> str:
+    """Synchronous inner — always call via search_guides() from async code."""
     try:
         results = guide_collection.query(
             query_texts=[query],
@@ -141,6 +138,15 @@ def search_guides(query: str, n_results: int = 4) -> str:
     except Exception as e:
         print(f"⚠️  Guide search error: {e}", flush=True)
         return ""
+
+
+async def search_guides(query: str, n_results: int = 4) -> str:
+    """
+    Async wrapper: runs ONNX embedding in a thread pool so the Discord
+    heartbeat is never blocked by CPU-bound inference work.
+    """
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(None, _search_guides_sync, query, n_results)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -157,12 +163,9 @@ def get_user_profile(user_id: int) -> str:
         return ""
 
 
-def upsert_user_profile(user_id: int, profile_text: str,
-                         current_class: str = "") -> None:
-    """
-    Overwrite (or create) a user's single profile record.
-    Metadata stays plain/uncompressed so it can be filtered natively.
-    """
+def _upsert_user_profile_sync(user_id: int, profile_text: str,
+                               current_class: str = "") -> None:
+    """Synchronous inner — always call via upsert_user_profile() from async code."""
     try:
         profile_collection.upsert(
             ids=[f"profile_{user_id}"],
@@ -175,6 +178,18 @@ def upsert_user_profile(user_id: int, profile_text: str,
         )
     except Exception as e:
         print(f"⚠️  Profile upsert failed for {user_id}: {e}", flush=True)
+
+
+async def upsert_user_profile(user_id: int, profile_text: str,
+                               current_class: str = "") -> None:
+    """
+    Async wrapper: profile upsert embeds the text via ONNX — must run in
+    a thread pool to avoid blocking the Discord heartbeat.
+    """
+    loop = asyncio.get_event_loop()
+    await loop.run_in_executor(
+        None, _upsert_user_profile_sync, user_id, profile_text, current_class
+    )
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -568,7 +583,12 @@ async def patch_scraper_loop():
             ids       = [f"live_{stem}_{i}" for i in range(len(chunks))]
             metadatas = [{"source": stem, "chunk": i, "live": "true"} for i in range(len(chunks))]
             try:
-                guide_collection.upsert(ids=ids, documents=chunks, metadatas=metadatas)
+                loop = asyncio.get_event_loop()
+                await loop.run_in_executor(
+                    None,
+                    lambda i=ids, c=chunks, m=metadatas:
+                        guide_collection.upsert(ids=i, documents=c, metadatas=m)
+                )
                 print(f"📡 Refreshed '{page_title}' → {len(chunks)} chunks", flush=True)
             except Exception as e:
                 print(f"⚠️  Patch scraper upsert failed for '{page_title}': {e}", flush=True)
@@ -624,8 +644,9 @@ async def on_ready():
     print(f"🤖 Hafu Bot online as {bot.user.name} (ID: {bot.user.id})")
     print(f"🕐 Current time: {jst_now}")
 
-    print("📦 Loading knowledge base into ChromaDB...", flush=True)
-    total = load_knowledge_base_into_chroma()
+    print("📦 Loading knowledge base into ChromaDB (background thread)...", flush=True)
+    loop = asyncio.get_event_loop()
+    total = await loop.run_in_executor(None, load_knowledge_base_into_chroma)
     print(f"📦 Indexed {total} guide chunks.", flush=True)
 
     port = int(os.environ.get("PORT", 10000))
