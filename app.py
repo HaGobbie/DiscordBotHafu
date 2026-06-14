@@ -232,19 +232,26 @@ user_mem_locks:  dict[int, asyncio.Lock] = {}
 
 # ── Startup silence window ────────────────────────────────────────────────────
 # Render's zero-downtime deployment keeps the OLD instance alive until the new
-# one passes its health check (~10 s). During that overlap BOTH instances are
-# connected to Discord and receive every message — causing double replies.
+# one passes its health check. During that overlap BOTH instances are connected
+# to Discord and receive every message — causing double replies.
 #
-# Fix: the NEW instance stays silent for STARTUP_SILENCE_SECS after on_ready.
-# The old instance handles anything that arrives during that window, then dies.
-# After the window closes only the new instance is live.
+# FIX (two-part):
 #
-# Additionally we keep an in-process dedup set for any same-instance edge cases.
-_STARTUP_SILENCE_SECS = 15
+# Part 1 — start the TCP keep-alive server in _main() BEFORE bot.start(), so
+#           the port is open the moment the process starts. Render detects it
+#           immediately and sends SIGTERM to the old instance right away —
+#           well before the startup silence ends.
+#
+# Part 2 — the NEW instance stays silent for STARTUP_SILENCE_SECS after
+#           on_ready. 30 s gives ample margin for the old instance to receive
+#           its SIGTERM and finish draining.
+#
+# Additionally we keep an in-process dedup set for any residual edge cases.
+_STARTUP_SILENCE_SECS = 30          # increased from 15 → 30 for extra safety
 _bot_ready_at: datetime | None = None
 
 _seen_message_ids: set[int] = set()
-_seen_message_order: deque  = deque(maxlen=300)
+_seen_message_order: deque  = deque(maxlen=400)
 
 _PERSONAL_RE = re.compile(
     r"\b(my (class|main|weapon|build|playstyle|char|character|goal)|"
@@ -258,9 +265,6 @@ _PERSONAL_RE = re.compile(
 # PROMPTS
 # ══════════════════════════════════════════════════════════════════════════════
 
-# Change #5: stripped the entire file-key list out of the triage prompt.
-# The router now has ONE job: decide needs_game true/false.
-# Max output is 20 tokens. Saves ~80% of triage token cost.
 TRIAGE_SYSTEM = """You are the routing brain for a PSO2: New Genesis Discord bot named Hafu.
 
 Your job: read the user's message and output ONE JSON object — nothing else.
@@ -401,7 +405,6 @@ async def groq_chat(messages: list, model: str,
 
 # ══════════════════════════════════════════════════════════════════════════════
 # TRIAGE  —  binary only, no key routing
-# Change #5: 20-token max output, ~80% cheaper than the key-list version.
 # ══════════════════════════════════════════════════════════════════════════════
 
 async def triage(question: str) -> bool:
@@ -425,7 +428,6 @@ async def triage(question: str) -> bool:
 
 # ══════════════════════════════════════════════════════════════════════════════
 # ANSWER HELPERS  —  rotate through model pools on 429
-# Change #7: casual pool stays lightweight; answer pool reserved for game Qs.
 # ══════════════════════════════════════════════════════════════════════════════
 
 async def get_answer_casual(messages: list) -> str:
@@ -473,7 +475,6 @@ async def maybe_update_memory(user_id: int, display_name: str,
     """
     Background task: extract player facts from the exchange and upsert into
     ChromaDB profile_collection. Only fires on personal-content signals.
-    Change #4: single upsert record per user — no contradictory history buildup.
     """
     if not _PERSONAL_RE.search(question):
         return
@@ -533,7 +534,7 @@ def store_bot_reply(channel_id: int, reply_text: str) -> None:
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# PATCH NOTES SCRAPER  (change #8)
+# PATCH NOTES SCRAPER
 #
 # Background task that re-indexes key live pages from the PSO2 wiki every
 # 4 hours. Keeps Hafu current on events, maintenance, and patch notes without
@@ -570,7 +571,6 @@ async def _fetch_wiki_wikitext(page_title: str) -> str | None:
         )
         if not wikitext:
             return None
-        # Basic wikitext → plain text stripping
         text = re.sub(r"\[\[(?:[^|\]]*\|)?([^\]]+)\]\]", r"\1", wikitext)
         text = re.sub(r"\{\{[^}]+\}\}", "", text)
         text = re.sub(r"={2,}(.+?)={2,}", r"\1", text)
@@ -587,7 +587,7 @@ async def patch_scraper_loop():
     Runs every 4 hours. Re-indexes live PSO2 wiki pages so Hafu stays current
     on events, maintenance windows, and patch notes without manual rebuilds.
     """
-    await asyncio.sleep(60)  # let the bot fully start first
+    await asyncio.sleep(60)
     print("📡 Patch scraper started.", flush=True)
     while True:
         for page_title in LIVE_PAGES:
@@ -670,14 +670,6 @@ async def on_ready():
     total = await loop.run_in_executor(None, load_knowledge_base_into_chroma)
     print(f"📦 Indexed {total} guide chunks.", flush=True)
 
-    port = int(os.environ.get("PORT", 10000))
-    try:
-        server = await asyncio.start_server(handle_render_ping, "0.0.0.0", port)
-        asyncio.get_event_loop().create_task(server.serve_forever())
-        print(f"🌐 Keep-alive server on port {port}", flush=True)
-    except Exception as e:
-        print(f"⚠️  Keep-alive server failed: {e}", flush=True)
-
     asyncio.get_event_loop().create_task(self_ping_loop())
     asyncio.get_event_loop().create_task(patch_scraper_loop())
 
@@ -702,11 +694,12 @@ async def on_message(message: discord.Message):
         return
     _seen_message_ids.add(message.id)
     _seen_message_order.append(message.id)
-    if len(_seen_message_ids) > 400:
+    # Trim the set to match the deque's maxlen so they stay in sync
+    while len(_seen_message_ids) > len(_seen_message_order):
         try:
             _seen_message_ids.discard(_seen_message_order[0])
         except IndexError:
-            pass
+            break
 
     # ── Passive history capture (every non-bot message) ──────────────────────
     cid = message.channel.id
@@ -755,7 +748,7 @@ async def on_message(message: discord.Message):
             ))
             return
 
-        # ── Binary triage — no key routing needed anymore ─────────────────────
+        # ── Binary triage ─────────────────────────────────────────────────────
         print(f"🔍 Triage: '{question[:60]}'", flush=True)
         needs_game = await triage(question)
 
@@ -774,9 +767,9 @@ async def on_message(message: discord.Message):
             ))
             return
 
-        # ── Semantic guide search via ChromaDB (change #1 + #6) ───────────────
+        # ── Semantic guide search via ChromaDB ────────────────────────────────
         print(f"   ──► Game question — semantic guide search", flush=True)
-        game_ctx = search_guides(question, n_results=4)
+        game_ctx = await search_guides(question, n_results=4)   # FIX: was missing await
         if not game_ctx:
             print("   ⚠️  No guide results — answering from personality", flush=True)
 
@@ -796,7 +789,24 @@ async def on_message(message: discord.Message):
 
 # ══════════════════════════════════════════════════════════════════════════════
 # ENTRYPOINT
+#
+# The keep-alive TCP server starts HERE — before bot.start() — so the port is
+# open the moment the process starts. Render detects it immediately, sends
+# SIGTERM to the old instance right away, and it's dead long before the
+# 30-second startup silence expires. This is the core fix for double-replies.
 # ══════════════════════════════════════════════════════════════════════════════
+
+async def _main():
+    port = int(os.environ.get("PORT", 10000))
+    try:
+        server = await asyncio.start_server(handle_render_ping, "0.0.0.0", port)
+        asyncio.get_event_loop().create_task(server.serve_forever())
+        print(f"🌐 Keep-alive server on port {port} (started before bot connect)", flush=True)
+    except Exception as e:
+        print(f"⚠️  Keep-alive server failed: {e}", flush=True)
+
+    await bot.start(TOKEN)
+
 
 if __name__ == "__main__":
     if not TOKEN:
@@ -804,5 +814,4 @@ if __name__ == "__main__":
     elif not GROQ_TOKEN:
         print("❌ Error: Missing GROQ_TOKEN.")
     else:
-        bot.run(TOKEN)
-# Force re-deploy
+        asyncio.run(_main())
